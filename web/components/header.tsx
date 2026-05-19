@@ -2,6 +2,7 @@
 
 import { MapPin, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -30,6 +31,13 @@ export function Header() {
       <div className="mx-auto max-w-6xl px-4 py-6">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/logo.jpg"
+              alt="Legal Shaman Logo"
+              width={48}
+              height={48}
+              className="h-12 w-12"
+            />
             <span className="font-serif text-2xl font-semibold tracking-tight text-primary md:text-3xl">
               Legal Shaman
             </span>

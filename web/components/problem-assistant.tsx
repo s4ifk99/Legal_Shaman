@@ -91,11 +91,10 @@ export function ProblemAssistant() {
     >
       <div className="mx-auto max-w-3xl px-4">
         <h2 id="find-help-heading" className="font-serif text-2xl font-semibold tracking-tight text-primary md:text-3xl">
-          Search the directory
+          Tell Us Your Dispute
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Enter what you need. We&apos;ll open the directory search with your words and any filters you choose. You can
-          type or use your browser&apos;s voice input (no account required).
+          Describe your situation and we&apos;ll point you in the right direction. Our agentic search finds the best solicitors, legal aid, and free advice for your specific needs. Type or use voice input — no account required.
         </p>
 
         <div className="mt-6 space-y-4">

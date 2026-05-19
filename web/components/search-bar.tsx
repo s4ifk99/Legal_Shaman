@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, Loader2, Building2, FolderOpen } from "lucide-react";
+import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -89,13 +90,23 @@ export function SearchBar() {
   return (
     <div className="border-b-2 border-primary/10 bg-secondary/30 py-10">
       <div className="mx-auto max-w-4xl px-4 text-center">
+        <div className="mb-4 flex justify-center">
+          <Image
+            src="/logo.jpg"
+            alt="Legal Shaman Logo"
+            width={80}
+            height={80}
+            className="h-20 w-20"
+          />
+        </div>
         <h1 className="mb-2 font-serif text-3xl font-semibold tracking-tight text-primary md:text-4xl">
-          Find Legal Assistance
+          Legal Shaman
         </h1>
+        <p className="mb-1 text-base font-medium text-foreground md:text-lg">
+          The Most Powerful Agentic Search Engine for All Your Disputes
+        </p>
         <p className="mb-6 text-muted-foreground">
-          Search and browse a wide UK legal directory — solicitors, clinics, and charities. Use filters for{" "}
-          <span className="text-foreground/90">free</span> or{" "}
-          <span className="text-foreground/90">legal aid</span> when you need them.
+          Tell us your problem and we&apos;ll point you in the right direction — solicitors, legal aid, free advice, and more.
         </p>
         <form onSubmit={onSubmit} className="mx-auto flex max-w-2xl flex-col gap-3 sm:flex-row">
           <div ref={wrapRef} className="relative flex-1 text-left">

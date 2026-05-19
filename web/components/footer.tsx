@@ -1,13 +1,21 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   return (
     <footer className="border-t-2 border-primary/20 bg-primary py-10 text-primary-foreground">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-          <div className="flex items-center gap-3">
-            <span className="font-serif text-2xl font-semibold">Legal Shaman</span>
-          </div>
+        <div className="flex items-center gap-3">
+          <Image
+            src="/logo.jpg"
+            alt="Legal Shaman Logo"
+            width={48}
+            height={48}
+            className="h-12 w-12"
+          />
+          <span className="font-serif text-2xl font-semibold">Legal Shaman</span>
+        </div>
           
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
             <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-primary-foreground">
@@ -32,12 +40,13 @@ export function Footer() {
         </div>
         
         <div className="mt-8 border-t border-primary-foreground/20 pt-6 space-y-3">
+          <p className="text-center text-sm font-medium text-primary-foreground/90">
+            The Most Powerful Agentic Search Engine for All Your Disputes
+          </p>
           <p className="text-center text-xs text-primary-foreground/70">
-            Legal Shaman is a broad UK legal services directory: practice-area browsing,
-            search across curated listings and (where included) national registers, with strong support for{" "}
-            <strong className="text-primary-foreground/85">free</strong> services,{" "}
-            <strong className="text-primary-foreground/85">legal aid</strong> (filterable in search), pro bono, and
-            charitable organisations — alongside other listed providers where relevant.
+            Legal Shaman helps you navigate legal challenges. Tell us your problem and we&apos;ll point you in the right direction — 
+            connecting you with solicitors, <strong className="text-primary-foreground/85">free</strong> services,{" "}
+            <strong className="text-primary-foreground/85">legal aid</strong>, pro bono help, and charitable organisations across the UK.
           </p>
           <p className="text-center text-xs text-primary-foreground/70">
             <strong className="text-primary-foreground/90">Affiliate Disclosure:</strong> Some listings marked as "Sponsored" contain affiliate links. 
