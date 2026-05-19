@@ -12,14 +12,16 @@ import {
   type HybridHit,
   type HybridSearchOptions,
 } from "@/lib/search/hybrid-core";
+import { enableTypesense, enableVectorSearch } from "@/lib/legal-search/config";
 
 export type { HybridHit, HybridSearchOptions, SearchFacets } from "@/lib/search/hybrid-core";
 
 export async function hybridSearchListings(
-  query: string,
-  options: HybridSearchOptions,
+  userQuery: string,
+  options: HybridSearchOptions & { retrievalQuery?: string },
 ): Promise<HybridHit[]> {
-  const q = query.trim();
+  const qUser = userQuery.trim();
+  const rq = (options.retrievalQuery ?? userQuery).trim();
   const {
     limit,
     semantic,
@@ -27,23 +29,24 @@ export async function hybridSearchListings(
     maxPerSubcategory,
     candidatePool = 220,
   } = options;
-  if (!q || limit <= 0) return [];
+  if (!qUser || !rq || limit <= 0) return [];
 
-  const lexicalHits = typesenseListingsConfigured()
-    ? await searchListingsTypesense(q, 120, facets)
-    : lexicalSearchListings(q, 120);
+  const lexicalHits =
+    enableTypesense() && typesenseListingsConfigured()
+      ? await searchListingsTypesense(rq, 120, facets)
+      : lexicalSearchListings(rq, 120);
   const lexicalIds = lexicalHits.map((h) => h.listing.id);
 
   let semanticIds: string[] = [];
-  if (semantic) {
+  if (semantic && enableVectorSearch()) {
     const bundle = loadEmbeddingsBundle();
     if (bundle) {
-      const qVec = await embedQueryWithHf(q, bundle.modelId, bundle.dim);
+      const qVec = await embedQueryWithHf(rq, bundle.modelId, bundle.dim);
       if (qVec) semanticIds = semanticTopIds(qVec, bundle, 80);
     }
   }
 
-  return finalizeHybridHits(q, lexicalIds, semanticIds, {
+  return finalizeHybridHits(qUser, lexicalIds, semanticIds, {
     limit,
     facets,
     maxPerSubcategory,

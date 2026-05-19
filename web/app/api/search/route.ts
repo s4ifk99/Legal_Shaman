@@ -4,9 +4,63 @@ import {
   typesenseListingsConfigured,
   typesenseListingsReachable,
 } from "@/lib/search/typesense-listings";
-import { unifiedSearchListings } from "@/lib/search/unified-search";
+import { runMatcherUnified } from "@/lib/legal-search/run-matcher-unified";
+import { runDirectorySearch } from "@/lib/legal-search/run-directory-search";
+import { enableSearchDebug } from "@/lib/legal-search/config";
+import { stripSearchDebug } from "@/lib/legal-search/search-diagnostics";
+import { logSearchInteraction } from "@/lib/legal-search/observability";
+import { ensureSearchStartupLogged } from "@/lib/legal-search/search-startup";
+import { AgentInputSchema, DISCLAIMER } from "@/lib/agent/types";
 
 export const runtime = "nodejs";
+
+/**
+ * POST: agentic lawyer matcher (+ unified parsedQuery).
+ * GET: directory search (unified engine with legacy JSON mapping).
+ */
+export async function POST(req: Request) {
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json(
+      { error: "Invalid JSON body" },
+      { status: 400 },
+    );
+  }
+
+  const parsed = AgentInputSchema.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json(
+      {
+        error: "Invalid input",
+        details: parsed.error.flatten(),
+        disclaimer: DISCLAIMER,
+      },
+      { status: 400 },
+    );
+  }
+
+  try {
+    await ensureSearchStartupLogged();
+    const result = await runMatcherUnified(parsed.data);
+    const payload = enableSearchDebug()
+      ? result
+      : stripSearchDebug(result as unknown as Record<string, unknown>);
+    return NextResponse.json(payload);
+  } catch (err) {
+    console.error("[/api/search POST] agent failure:", err);
+    return NextResponse.json(
+      {
+        kind: "matches",
+        results: [],
+        disclaimer: DISCLAIMER,
+        error: "search_failed",
+      },
+      { status: 500 },
+    );
+  }
+}
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -16,6 +70,15 @@ export async function GET(req: Request) {
   const freeOnly = searchParams.get("free") === "1";
   const legalAidOnly = searchParams.get("legalAid") === "1";
   const city = (searchParams.get("city") || "").trim();
+  const sessionId = (searchParams.get("sessionId") || "").trim() || undefined;
+  const source = (searchParams.get("source") || "").trim() || undefined;
+  const practiceArea = (searchParams.get("practiceArea") || "").trim() || undefined;
+  const location = (searchParams.get("location") || "").trim() || undefined;
+  const radius = Number(searchParams.get("radius") || "");
+  const language = (searchParams.get("language") || "").trim() || undefined;
+  const verifiedOnly = searchParams.get("verifiedOnly") === "1";
+  const offset = Math.max(0, Number(searchParams.get("offset") || 0) || 0);
+
   const facets: SearchFacets | undefined =
     freeOnly || legalAidOnly || city
       ? {
@@ -25,8 +88,9 @@ export async function GET(req: Request) {
         }
       : undefined;
 
+  const stack = await ensureSearchStartupLogged();
   const tsConfigured = typesenseListingsConfigured();
-  const tsOk = tsConfigured ? await typesenseListingsReachable() : false;
+  const tsOk = stack.typesenseReachable;
 
   if (!q) {
     return NextResponse.json({
@@ -34,6 +98,7 @@ export async function GET(req: Request) {
       semanticUsed: false,
       typesenseListingsConfigured: tsConfigured,
       typesenseListingsReachable: tsOk,
+      searchStack: stack,
     });
   }
 
@@ -48,78 +113,58 @@ export async function GET(req: Request) {
     }),
   );
 
-  const hits = await unifiedSearchListings(q, {
+  const dir = await runDirectorySearch({
+    query: q,
     limit,
     semantic,
-    facets,
+    freeOnly,
+    legalAidOnly,
+    city,
+    source,
+    practiceArea,
+    location,
+    radius: Number.isFinite(radius) && radius > 0 ? radius : undefined,
+    language,
+    verifiedOnly,
+    offset,
   });
 
   const semanticUsed =
     semantic &&
-    hits.some((h) => {
-      if (h.kind === "adl") return h.hit.sources.includes("semantic");
-      if (h.kind === "adlGroup")
-        return h.hits.some((x) => x.sources.includes("semantic"));
-      return false;
+    dir.results.some((r) => {
+      const raw = r.raw as { sources?: string[] } | null;
+      return raw?.sources?.includes("semantic");
     });
 
-  return NextResponse.json({
+  if (sessionId) {
+    void logSearchInteraction({
+      sessionId,
+      channel: "directory",
+      query: q,
+      parsedQuery: dir.parsedQuery,
+      clarifyingAsked: false,
+      resultIds: dir.results.map((r) => r.id),
+      latencyMs: dir.latencyMs,
+      degradedModes: dir.degradedModes,
+    });
+  }
+
+  const base = {
     semanticUsed,
     typesenseListingsConfigured: tsConfigured,
     typesenseListingsReachable: tsOk,
-    results: hits.map((row) => {
-      if (row.kind === "adl") {
-        const { listing, sources } = row.hit;
-        return {
-          kind: "adl" as const,
-          id: listing.id,
-          businessName: listing.businessName,
-          description: listing.description,
-          city: listing.city,
-          postcode: listing.postcode,
-          phone: listing.phone,
-          email: listing.email,
-          website: listing.website,
-          category: listing.category,
-          subcategory: listing.subcategory,
-          isFree: listing.isFree,
-          isLegalAid: listing.isLegalAid,
-          isSponsored: listing.isSponsored,
-          sources,
-        };
-      }
-      const { representative, hits: groupHits, firmGroupId } = row;
-      const L = representative.listing;
-      const sources = [
-        ...new Set(groupHits.flatMap((h) => h.sources)),
-      ] as ("lexical" | "semantic")[];
-      return {
-        kind: "adlGroup" as const,
-        firmGroupId,
-        id: firmGroupId,
-        businessName: L.businessName,
-        description: L.description,
-        category: L.category,
-        subcategory: L.subcategory,
-        isFree: L.isFree,
-        isLegalAid: true as const,
-        isSponsored: L.isSponsored,
-        sources,
-        locations: groupHits.map((h) => {
-          const l = h.listing;
-          return {
-            id: l.id,
-            city: l.city,
-            postcode: l.postcode,
-            phone: l.phone,
-            email: l.email,
-            address: l.address,
-            website: l.website,
-            subcategory: l.subcategory,
-            description: l.description,
-          };
-        }),
-      };
-    }),
-  });
+    results: dir.legacyRows,
+  };
+
+  if (enableSearchDebug() && dir.searchDebug) {
+    return NextResponse.json({
+      ...base,
+      disclaimer:
+        "This is not legal advice. Results are based on directory information and your search criteria.",
+      searchDebug: dir.searchDebug,
+      unifiedResults: dir.results,
+    });
+  }
+
+  return NextResponse.json(base);
 }

@@ -43,7 +43,7 @@ export async function POST(request: Request) {
 
     // Format the email content
     const emailContent = `
-New Listing Submission - Access Directory for Legal Help (ADL)
+New Listing Submission - Legal Shaman
 ================================================
 
 BUSINESS INFORMATION
@@ -87,7 +87,7 @@ Please review this listing and approve/reject accordingly.
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Access Directory for Legal Help <noreply@resend.dev>",
+          from: "Legal Shaman <noreply@resend.dev>",
           to: "Saif@greysandgreens.co.uk",
           subject: `New Listing Submission: ${data.businessName}`,
           text: emailContent,

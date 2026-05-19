@@ -9,8 +9,9 @@ function clamp(s: string, max: number): string {
 }
 
 /**
- * Upsert normalised SRA documents into MySQL (system of record).
- * Call in small transactions to avoid oversized Prisma transactions.
+ * Upsert normalised SRA documents into the `sra_organisations` table
+ * (system of record alongside the Meilisearch index).
+ * Filename retains "mysql" historically — provider is now Postgres + pgvector.
  */
 export async function upsertSraDocumentsMysql(
   prisma: PrismaClient,
@@ -47,6 +48,41 @@ export async function upsertSraDocumentsMysql(
           },
         }),
       ),
+    );
+  }
+}
+
+/**
+ * Upsert one `Firm` row per SRA organisation, keyed on `sraId`.
+ * Lawyers in the new matcher can later be linked to these firms via
+ * `lib/sra/link-firms.ts`, exposing an "SRA Verified firm" badge.
+ */
+export async function upsertFirmsFromSra(
+  prisma: PrismaClient,
+  docs: SraMeiliDocument[],
+): Promise<void> {
+  for (let i = 0; i < docs.length; i += TX_CHUNK) {
+    const chunk = docs.slice(i, i + TX_CHUNK);
+    await prisma.$transaction(
+      chunk.map((doc) => {
+        const data = {
+          name: clamp(doc.businessName, 512),
+          sraProfileUrl: doc.sraProfileUrl || null,
+          city: doc.city || null,
+          postcode: doc.postcode || null,
+          country: doc.country || null,
+          verified: true,
+        };
+        return prisma.firm.upsert({
+          where: { sraId: doc.sraId },
+          create: {
+            id: `firm-sra-${doc.sraId}`,
+            sraId: doc.sraId,
+            ...data,
+          },
+          update: data,
+        });
+      }),
     );
   }
 }

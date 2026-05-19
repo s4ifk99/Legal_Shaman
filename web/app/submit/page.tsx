@@ -90,7 +90,7 @@ export default function SubmitListingPage() {
                 Submission Received
               </h1>
               <p className="text-muted-foreground">
-                Thank you for submitting your business to the Access Directory for Legal Help. 
+                Thank you for submitting your business to Legal Shaman. 
                 Our team will review your listing and get back to you within 2-3 business days.
               </p>
               <Button className="mt-6" asChild>
@@ -111,7 +111,7 @@ export default function SubmitListingPage() {
           <CardHeader>
             <CardTitle className="text-2xl">List Your Business</CardTitle>
             <CardDescription>
-              Submit your legal service to the Access Directory for Legal Help. All submissions are reviewed 
+              Submit your legal service to Legal Shaman. All submissions are reviewed 
               by our team before being published to ensure quality and relevance.
             </CardDescription>
           </CardHeader>

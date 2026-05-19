@@ -17,13 +17,15 @@
 import "./load-dotenv";
 import { PrismaClient } from "@prisma/client";
 import { MeiliSearch } from "meilisearch";
-import { upsertSraDocumentsMysql } from "../lib/sra-mysql-sync";
+import { upsertSraDocumentsMysql, upsertFirmsFromSra } from "../lib/sra-mysql-sync";
 import { ensureSraIndex } from "../lib/search/meilisearch-index";
 import { SRA_MEILISEARCH_INDEX } from "../lib/search/meilisearch-config";
 import {
   normaliseSraOrganisation,
   type SraMeiliDocument,
 } from "../lib/search/sra-document";
+import { linkFirmsToSra } from "../lib/sra/link-firms";
+import { writeSraSyncState } from "../lib/sra/sync-state";
 
 const DEFAULT_SRA_URL =
   "https://sra-prod-apim.azure-api.net/datashare/api/V1/organisation/GetAll";
@@ -102,16 +104,23 @@ async function main() {
     console.error("Missing SRA_APIM_SUBSCRIPTION_KEY");
     process.exit(1);
   }
-  if (!host) {
-    console.error("Missing MEILISEARCH_HOST");
+  const meiliEnabled = Boolean(host);
+  if (!meiliEnabled && !databaseUrl) {
+    console.error("Set MEILISEARCH_HOST and/or DATABASE_URL (Postgres-only sync for Typesense indexing).");
     process.exit(1);
   }
 
   const prisma = databaseUrl ? new PrismaClient() : null;
   if (prisma) {
-    console.log("DATABASE_URL set — will upsert MySQL table sra_organisations before each Meilisearch batch.");
+    console.log("DATABASE_URL set — will upsert sra_organisations (and firms) per batch.");
+  } else if (!meiliEnabled) {
+    console.error("DATABASE_URL required when MEILISEARCH_HOST is unset.");
+    process.exit(1);
   } else {
-    console.log("DATABASE_URL not set — skipping MySQL (Meilisearch only).");
+    console.log("DATABASE_URL not set — Meilisearch only.");
+  }
+  if (!meiliEnabled) {
+    console.log("MEILISEARCH_HOST not set — skipping Meilisearch (use npm run search:index:sra for Typesense).");
   }
 
   const startUrl = process.env.SRA_ORGANISATIONS_URL?.trim() || DEFAULT_SRA_URL;
@@ -127,28 +136,77 @@ async function main() {
   }
   console.log("Normalised documents:", docs.length);
 
-  const client = new MeiliSearch({ host, apiKey: meiliKey });
-  await ensureSraIndex(client);
-  const index = client.index(SRA_MEILISEARCH_INDEX);
+  const client = meiliEnabled ? new MeiliSearch({ host: host!, apiKey: meiliKey }) : null;
+  if (client) {
+    await ensureSraIndex(client);
+  }
+  const index = client?.index(SRA_MEILISEARCH_INDEX);
+
+  const skipEmbeddings = process.argv.includes("--skip-embeddings");
+  const embedKey = process.env.LLM_API_KEY?.trim();
+  const willEmbed = Boolean(prisma) && Boolean(embedKey) && !skipEmbeddings;
+  if (prisma && !embedKey) {
+    console.log(
+      "LLM_API_KEY not set — skipping per-chunk embeddings. Backfill later with `npm run sra:embed`.",
+    );
+  } else if (skipEmbeddings) {
+    console.log("--skip-embeddings flag set — not embedding SRA orgs during sync.");
+  }
 
   try {
     for (let i = 0; i < docs.length; i += SYNC_CHUNK) {
       const chunk = docs.slice(i, i + SYNC_CHUNK);
       if (prisma) {
-        console.log(`MySQL upsert ${chunk.length} docs (offset ${i})…`);
+        console.log(`Postgres upsert ${chunk.length} sra_organisations (offset ${i})…`);
         await upsertSraDocumentsMysql(prisma, chunk);
+        console.log(`Postgres upsert ${chunk.length} firms (offset ${i})…`);
+        await upsertFirmsFromSra(prisma, chunk);
       }
-      const task = await index.addDocuments(chunk);
+      if (index && client) {
+        const task = await index.addDocuments(chunk);
+        console.log(
+          `Meilisearch addDocuments task ${task.taskUid} (${chunk.length} docs, offset ${i})`,
+        );
+        await client.tasks.waitForTask(task.taskUid, { timeout: 600_000 });
+      }
+
+      if (willEmbed) {
+        const ids = chunk.map((d) => d.id);
+        try {
+          const { embedSraOrgsByIds } = await import("../lib/sra/embed");
+          const n = await embedSraOrgsByIds(ids);
+          console.log(`Embedded ${n}/${ids.length} SRA orgs (offset ${i}).`);
+        } catch (err) {
+          console.warn(
+            `[sra:sync] embedding chunk at offset ${i} failed (continuing):`,
+            err instanceof Error ? err.message : err,
+          );
+        }
+      }
+    }
+
+    if (prisma) {
+      console.log("Linking existing Firm rows to SRA records by normalised name…");
+      const linkResult = await linkFirmsToSra();
       console.log(
-        `Meilisearch addDocuments task ${task.taskUid} (${chunk.length} docs, offset ${i})`,
+        `Linked ${linkResult.linked} firms; ${linkResult.skipped} skipped, ${linkResult.ambiguous} ambiguous.`,
       );
-      await client.tasks.waitForTask(task.taskUid, { timeout: 600_000 });
     }
   } finally {
     await prisma?.$disconnect();
   }
 
-  console.log("Done. Index:", SRA_MEILISEARCH_INDEX);
+  await writeSraSyncState({
+    lastSuccessAt: new Date().toISOString(),
+    organisationsUpserted: docs.length,
+    errors: [],
+  });
+
+  if (meiliEnabled) {
+    console.log("Done. Meilisearch index:", SRA_MEILISEARCH_INDEX);
+  } else {
+    console.log("Done. Postgres sra_organisations updated — run npm run search:index:sra for Typesense.");
+  }
 }
 
 void main().catch((e) => {

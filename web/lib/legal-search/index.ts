@@ -1,0 +1,10 @@
+export * from "./types";
+export * from "./config";
+export * from "./location";
+export { runDirectorySearch } from "./run-directory-search";
+export { runMatcherUnified } from "./run-matcher-unified";
+export { toLegacyGetResponse } from "./legacy-get-response";
+export { parseQuery } from "./query-understanding";
+export { mergeAndRankDirectoryHits } from "./hybrid-search";
+export { runTypesenseDirectorySearch } from "./typesense-directory-search";
+export { buildMapMarkers } from "@/lib/search/map-results";

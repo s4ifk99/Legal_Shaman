@@ -14,6 +14,8 @@ export type HybridSearchOptions = {
   facets?: SearchFacets;
   maxPerSubcategory?: number;
   candidatePool?: number;
+  /** Lexical + embedding text; defaults to user query in `hybridSearchListings`. */
+  retrievalQuery?: string;
 };
 
 /**

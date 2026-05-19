@@ -6,11 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { getCategoryInfo, getListingsBySubcategory, type Listing } from "@/lib/data";
-import { lexicalSearchListingsInSubset } from "@/lib/search/lexical";
-import {
-  searchListingsTypesense,
-  typesenseListingsConfigured,
-} from "@/lib/search/typesense-listings";
+import { inferPracticeAreaSlugFromText } from "@/lib/legal/taxonomy";
+import { searchListingsInCategory } from "@/lib/legal-search/category-listing-search";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -29,14 +26,13 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
 
   let listings = getListingsBySubcategory(slug);
   if (filterQ.length >= 2) {
-    if (typesenseListingsConfigured()) {
-      const hits = await searchListingsTypesense(filterQ, 400, undefined, {
-        subcategorySlug: slug,
-      });
-      if (hits.length) listings = hits.map((h) => h.listing);
-    } else {
-      const hits = lexicalSearchListingsInSubset(filterQ, listings, 400);
-      if (hits.length) listings = hits.map((h) => h.listing);
+    listings = await searchListingsInCategory(slug, filterQ, listings);
+    const hint = inferPracticeAreaSlugFromText(filterQ);
+    if (hint) {
+      const match = (l: Listing) =>
+        l.description.toLowerCase().includes(hint.replace(/_/g, " ")) ||
+        l.subcategory.toLowerCase().includes(hint.replace(/_/g, "-"));
+      listings = [...listings].sort((a, b) => Number(match(b)) - Number(match(a)));
     }
   }
   const freeListings = listings.filter((l) => l.isFree);
@@ -143,7 +139,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
               Do you offer {categoryInfo.name.toLowerCase()} services?
             </h3>
             <p className="text-sm text-muted-foreground mb-4">
-              List your business in the Access Directory for Legal Help and reach people seeking assistance.
+              List your business on Legal Shaman and reach people seeking assistance.
             </p>
             <Button asChild>
               <Link href="/submit">Submit Your Listing</Link>

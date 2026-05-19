@@ -26,6 +26,8 @@ export type UnifiedSearchOptions = {
   facets?: SearchFacets;
   maxPerSubcategory?: number;
   candidatePool?: number;
+  /** Passed to hybrid search for lexical + embeddings (defaults to `userQuery`). */
+  retrievalQuery?: string;
 };
 
 /**
@@ -37,7 +39,7 @@ export async function unifiedSearchListings(
   options: UnifiedSearchOptions,
 ): Promise<UnifiedSearchHit[]> {
   const q = query.trim();
-  const { limit, semantic, facets, maxPerSubcategory, candidatePool } = options;
+  const { limit, semantic, facets, maxPerSubcategory, candidatePool, retrievalQuery } = options;
   if (!q || limit <= 0) return [];
 
   const adlLimit = Math.min(120, Math.max(limit * 3, 60));
@@ -47,6 +49,7 @@ export async function unifiedSearchListings(
     facets,
     maxPerSubcategory,
     candidatePool,
+    retrievalQuery,
   });
 
   const adlKeys = adlHits.map((h) => `${ADL_PREFIX}${h.listing.id}`);

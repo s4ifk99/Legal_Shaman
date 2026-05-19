@@ -20,7 +20,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'ADL - Access Directory for Legal Help | UK Legal Resources & Services',
+  title: 'Legal Shaman | UK Legal Resources & Services',
   description:
     'UK legal services directory: browse by practice area and search solicitors, firms, and organisations — including free and legal-aid options where listed.',
   generator: 'v0.app',

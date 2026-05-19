@@ -30,15 +30,9 @@ export function Header() {
       <div className="mx-auto max-w-6xl px-4 py-6">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <span className="font-serif text-3xl font-bold tracking-tight text-primary">
-              ADL
+            <span className="font-serif text-2xl font-semibold tracking-tight text-primary md:text-3xl">
+              Legal Shaman
             </span>
-            <div className="flex flex-col">
-              <span className="font-serif text-lg font-semibold tracking-tight text-primary">
-                Access Directory for Legal Help
-              </span>
-              
-            </div>
           </Link>
 
           <div className="flex items-center gap-4">
@@ -58,6 +52,12 @@ export function Header() {
             </DropdownMenu>
 
             <nav className="hidden items-center gap-4 text-sm md:flex">
+              <Link
+                href="/find-a-lawyer"
+                className="font-medium text-primary transition-colors hover:underline"
+              >
+                Find a Lawyer
+              </Link>
               <Link
                 href="/search"
                 className="text-muted-foreground transition-colors hover:text-foreground"

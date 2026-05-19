@@ -6,13 +6,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
           <div className="flex items-center gap-3">
-            <span className="font-serif text-2xl font-bold text-accent">ADL</span>
-            <div>
-              <span className="font-serif text-lg font-semibold">Access Directory for Legal Help</span>
-              <p className="text-xs uppercase tracking-widest text-primary-foreground/60">
-                <br />
-              </p>
-            </div>
+            <span className="font-serif text-2xl font-semibold">Legal Shaman</span>
           </div>
           
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
@@ -39,7 +33,7 @@ export function Footer() {
         
         <div className="mt-8 border-t border-primary-foreground/20 pt-6 space-y-3">
           <p className="text-center text-xs text-primary-foreground/70">
-            The Access Directory for Legal Help (ADL) is a broad UK legal services directory: practice-area browsing,
+            Legal Shaman is a broad UK legal services directory: practice-area browsing,
             search across curated listings and (where included) national registers, with strong support for{" "}
             <strong className="text-primary-foreground/85">free</strong> services,{" "}
             <strong className="text-primary-foreground/85">legal aid</strong> (filterable in search), pro bono, and
@@ -55,7 +49,7 @@ export function Footer() {
             For urgent legal issues, contact Citizens Advice on 0800 144 8848 or visit your nearest Law Centre.
           </p>
           <p className="mt-2 text-center text-xs text-primary-foreground/50">
-            2026 Access Directory for Legal Help. All rights reserved.
+            © 2026 Legal Shaman. All rights reserved.
           </p>
         </div>
       </div>

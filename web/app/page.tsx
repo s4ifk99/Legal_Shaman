@@ -13,7 +13,7 @@ export default function Home() {
       <section className="border-b border-border bg-background py-10 md:py-12">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h1 className="font-serif text-3xl font-semibold tracking-tight text-primary md:text-4xl">
-            Access Directory for Legal Help
+            Legal Shaman
           </h1>
           <p className="mt-4 text-muted-foreground md:text-lg">
             Browse signposting resources on this page. When you&apos;re ready, scroll to the bottom to search the

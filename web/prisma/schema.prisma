@@ -3,23 +3,311 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+  // pgvector is enabled via a raw-SQL migration; the `vector` type is referenced via Unsupported() below.
 }
 
+// =========================================================================
+// Existing SRA model (ported from MySQL). LongText -> Text. Same field names.
+// =========================================================================
+
 /// Normalised SRA Data Share organisation — system of record alongside Meilisearch index.
+/// Embedding column powers semantic matching in the lawyer matcher (mixed with curated lawyers).
 model SraOrganisation {
-  id            String   @id @db.VarChar(128)
-  sraId         String   @unique @map("sra_id") @db.VarChar(64)
-  businessName  String   @map("business_name") @db.VarChar(512)
-  searchText    String   @map("search_text") @db.LongText
-  city          String   @default("") @db.VarChar(255)
-  postcode      String   @default("") @db.VarChar(32)
-  county        String   @default("") @db.VarChar(255)
-  country       String   @default("") @db.VarChar(128)
-  sraProfileUrl String   @map("sra_profile_url") @db.VarChar(2048)
-  source        String   @default("sra") @db.VarChar(16)
-  updatedAt     DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+  id            String                       @id @db.VarChar(128)
+  sraId         String                       @unique @map("sra_id") @db.VarChar(64)
+  businessName  String                       @map("business_name") @db.VarChar(512)
+  searchText    String                       @map("search_text") @db.Text
+  city          String                       @default("") @db.VarChar(255)
+  postcode      String                       @default("") @db.VarChar(32)
+  county        String                       @default("") @db.VarChar(255)
+  country       String                       @default("") @db.VarChar(128)
+  sraProfileUrl String                       @map("sra_profile_url") @db.VarChar(2048)
+  source        String                       @default("sra") @db.VarChar(16)
+  embedding     Unsupported("vector(1536)")?
+  latitude      Float?
+  longitude     Float?
+  normalizedAddress      String? @map("normalized_address") @db.Text
+  normalizedPostcode     String? @map("normalized_postcode") @db.VarChar(32)
+  normalizedCity         String? @map("normalized_city") @db.VarChar(255)
+  geocodingConfidence    Float?  @map("geocoding_confidence")
+  updatedAt     DateTime                     @updatedAt @map("updated_at") @db.Timestamptz(3)
 
   @@map("sra_organisations")
+}
+
+// =========================================================================
+// Legal Shaman: lawyer matcher (MVP)
+// =========================================================================
+
+model Firm {
+  id            String   @id @default(cuid())
+  name          String
+  website       String?
+  verified      Boolean  @default(false)
+  /// When populated, this firm corresponds to an SRA-registered organisation.
+  /// Set by `sra:sync` (direct upsert) or `sra:link-firms` (name match).
+  sraId         String?  @unique @map("sra_id")
+  sraProfileUrl String?  @map("sra_profile_url")
+  city          String?
+  postcode      String?
+  country       String?
+  latitude      Float?
+  longitude     Float?
+  normalizedAddress   String? @map("normalized_address") @db.Text
+  normalizedPostcode  String? @map("normalized_postcode") @db.VarChar(32)
+  normalizedCity      String? @map("normalized_city") @db.VarChar(255)
+  geocodingConfidence Float?  @map("geocoding_confidence")
+  lawyers       Lawyer[]
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
+
+  @@index([name])
+  @@map("firms")
+}
+
+model Lawyer {
+  id                    String   @id @default(cuid())
+  name                  String
+  firmId                String?  @map("firm_id")
+  firm                  Firm?    @relation(fields: [firmId], references: [id], onDelete: SetNull)
+  bio                   String   @db.Text
+  yearsExperience       Int      @default(0) @map("years_experience")
+  rating                Float    @default(0)
+  reviewCount           Int      @default(0) @map("review_count")
+  /// E.g. ["phone","video","in_person","fixed_fee","free_consultation"]
+  consultationOptions   String[] @map("consultation_options")
+  verifiedCredentials   Boolean  @default(false) @map("verified_credentials")
+  profileUrl            String?  @map("profile_url")
+
+  /// pgvector column; dimension fixed by LLM_EMBED_DIM at migration time (1536 for OpenAI default).
+  embedding             Unsupported("vector(1536)")?
+
+  practiceAreas         LawyerPracticeArea[]
+  locations             Location[]
+  languages             LawyerLanguage[]
+  credentials           Credential[]
+  reviews               Review[]
+  availability          Availability?
+
+  createdAt             DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt             DateTime @updatedAt @db.Timestamptz(3)
+
+  @@index([firmId])
+  @@index([rating])
+  @@index([verifiedCredentials])
+  @@map("lawyers")
+}
+
+model PracticeArea {
+  id      String               @id @default(cuid())
+  slug    String               @unique
+  name    String
+  lawyers LawyerPracticeArea[]
+
+  @@map("practice_areas")
+}
+
+model LawyerPracticeArea {
+  lawyerId       String        @map("lawyer_id")
+  practiceAreaId String        @map("practice_area_id")
+  lawyer         Lawyer        @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  practiceArea   PracticeArea  @relation(fields: [practiceAreaId], references: [id], onDelete: Cascade)
+
+  @@id([lawyerId, practiceAreaId])
+  @@index([practiceAreaId])
+  @@map("lawyer_practice_areas")
+}
+
+model Location {
+  id           String  @id @default(cuid())
+  lawyerId     String  @map("lawyer_id")
+  lawyer       Lawyer  @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  city         String
+  postcode     String  @default("")
+  country      String  @default("United Kingdom")
+  /// E.g. "England & Wales", "Scotland", "Northern Ireland"
+  jurisdiction String
+  latitude     Float?
+  longitude      Float?
+  geocodingConfidence Float? @map("geocoding_confidence")
+
+  @@index([lawyerId])
+  @@index([city])
+  @@index([jurisdiction])
+  @@map("locations")
+}
+
+model Language {
+  id      String           @id @default(cuid())
+  /// ISO-639-1 where possible (e.g. "en", "ur", "pa", "ar")
+  code    String           @unique
+  name    String
+  lawyers LawyerLanguage[]
+
+  @@map("languages")
+}
+
+model LawyerLanguage {
+  lawyerId   String   @map("lawyer_id")
+  languageId String   @map("language_id")
+  lawyer     Lawyer   @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  language   Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
+
+  @@id([lawyerId, languageId])
+  @@index([languageId])
+  @@map("lawyer_languages")
+}
+
+model Credential {
+  id                 String    @id @default(cuid())
+  lawyerId           String    @map("lawyer_id")
+  lawyer             Lawyer    @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  /// E.g. "SRA", "Bar Standards Board", "Law Society of Scotland"
+  authority          String
+  registrationNumber String    @map("registration_number")
+  verifiedAt         DateTime? @map("verified_at") @db.Timestamptz(3)
+
+  @@index([lawyerId])
+  @@map("credentials")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  lawyerId  String   @map("lawyer_id")
+  lawyer    Lawyer   @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  rating    Int
+  body      String   @db.Text
+  verified  Boolean  @default(false)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+
+  @@index([lawyerId])
+  @@map("reviews")
+}
+
+model Availability {
+  id                    String  @id @default(cuid())
+  lawyerId              String  @unique @map("lawyer_id")
+  lawyer                Lawyer  @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  acceptingClients      Boolean @default(true) @map("accepting_clients")
+  responseHours         Int?    @map("response_hours")
+  freeConsultation      Boolean @default(false) @map("free_consultation")
+  fixedFeeConsultation  Boolean @default(false) @map("fixed_fee_consultation")
+
+  @@map("availability")
+}
+
+/// Observability: directory + matcher searches. TODO: PII minimization — hash or truncate rawQuery in production if required by policy.
+model SearchInteraction {
+  id               String   @id @default(cuid())
+  userSessionId    String?  @map("user_session_id")
+  rawQuery         String   @map("raw_query") @db.Text
+  extractedFilters Json     @map("extracted_filters")
+  clarifyingAsked  Boolean  @default(false) @map("clarifying_asked")
+  resultLawyerIds  String[] @map("result_lawyer_ids")
+  /// directory | matcher
+  channel          String?  @map("channel") @db.VarChar(32)
+  latencyMs        Int?     @map("latency_ms")
+  degradedModes    Json?    @map("degraded_modes")
+  resultCount      Int?     @map("result_count")
+  parsedQuery      Json?    @map("parsed_query")
+  unifiedResultIds String[] @default([]) @map("unified_result_ids")
+  mapUsed          Boolean? @map("map_used")
+  mapBounds        Json?    @map("map_bounds")
+  radiusMiles      Float?   @map("radius_miles")
+  typesenseQueries Json?    @map("typesense_queries")
+  createdAt        DateTime @default(now()) @db.Timestamptz(3)
+
+  @@index([userSessionId])
+  @@index([createdAt])
+  @@map("search_interactions")
+
+  searchEvents SearchEvent[]
+}
+
+/// Per-result interaction telemetry for ranking feedback (query stored as prefix only).
+model SearchEvent {
+  id                  String   @id @default(cuid())
+  sessionHash         String   @map("session_hash") @db.VarChar(64)
+  searchInteractionId String?  @map("search_interaction_id")
+  queryPrefix         String   @map("query_prefix") @db.VarChar(120)
+  parsedPracticeArea  String?  @map("parsed_practice_area") @db.VarChar(64)
+  parsedLocation      String?  @map("parsed_location") @db.VarChar(128)
+  resultId            String?  @map("result_id") @db.VarChar(128)
+  resultSource        String?  @map("result_source") @db.VarChar(32)
+  resultRank          Int?     @map("result_rank")
+  eventType           String   @map("event_type") @db.VarChar(48)
+  page                String   @db.VarChar(32)
+  metadata            Json?
+  createdAt           DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  searchInteraction SearchInteraction? @relation(fields: [searchInteractionId], references: [id], onDelete: SetNull)
+
+  @@index([sessionHash, createdAt])
+  @@index([eventType, createdAt])
+  @@index([resultId, resultSource, eventType])
+  @@map("search_events")
+}
+
+/// Aggregated behavioural signals for reranking (built by npm run search:signals).
+model SearchRankingSignal {
+  id            String   @id @default(cuid())
+  entityId      String   @map("entity_id") @db.VarChar(128)
+  entitySource  String   @map("entity_source") @db.VarChar(32)
+  practiceArea  String   @default("") @map("practice_area") @db.VarChar(64)
+  city          String   @default("") @db.VarChar(128)
+  impressions   Int      @default(0)
+  clicks        Int      @default(0)
+  contactClicks Int      @default(0) @map("contact_clicks")
+  ctr           Float    @default(0)
+  contactRate   Float    @default(0) @map("contact_rate")
+  confidence    Float    @default(0)
+  updatedAt     DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@unique([entityId, entitySource, practiceArea, city])
+  @@index([practiceArea, city])
+  @@map("search_ranking_signals")
+}
+
+/// Geocoding cache — populated during index build, not on every user search.
+model GeocodedLocation {
+  id              String   @id @default(cuid())
+  input           String   @db.Text
+  normalizedInput String   @map("normalized_input") @db.Text
+  address         String?  @db.Text
+  postcode        String?  @db.VarChar(32)
+  city            String?  @db.VarChar(255)
+  latitude        Float?
+  longitude       Float?
+  provider        String   @db.VarChar(32)
+  confidence      Float?
+  createdAt       DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@unique([normalizedInput])
+  @@index([postcode])
+  @@map("geocoded_locations")
+}
+
+/// Extracted provider fields pending or approved for indexing (never invent contact data).
+model ProviderEnrichment {
+  id                String   @id @default(cuid())
+  entityId          String   @map("entity_id") @db.VarChar(128)
+  entityType        String   @map("entity_type") @db.VarChar(64)
+  fieldName         String   @map("field_name") @db.VarChar(64)
+  extractedValue    String   @map("extracted_value") @db.Text
+  confidence        Float
+  sourceUrl         String?  @map("source_url") @db.VarChar(2048)
+  sourceType        String   @map("source_type") @db.VarChar(48)
+  extractionMethod  String   @map("extraction_method") @db.VarChar(48)
+  status            String   @default("pending_review") @db.VarChar(32)
+  provenanceNote    String?  @map("provenance_note") @db.Text
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@unique([entityId, fieldName, extractedValue])
+  @@index([status, createdAt])
+  @@index([entityId])
+  @@map("provider_enrichments")
 }
