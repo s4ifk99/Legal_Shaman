@@ -32,12 +32,13 @@ export function Footer() {
         </div>
         
         <div className="mt-8 border-t border-primary-foreground/20 pt-6 space-y-3">
+          <p className="text-center text-sm font-medium text-primary-foreground/90">
+            The Most Powerful Agentic Search Engine for All Your Disputes
+          </p>
           <p className="text-center text-xs text-primary-foreground/70">
-            Legal Shaman is a broad UK legal services directory: practice-area browsing,
-            search across curated listings and (where included) national registers, with strong support for{" "}
-            <strong className="text-primary-foreground/85">free</strong> services,{" "}
-            <strong className="text-primary-foreground/85">legal aid</strong> (filterable in search), pro bono, and
-            charitable organisations — alongside other listed providers where relevant.
+            Legal Shaman helps you navigate legal challenges. Tell us your problem and we&apos;ll point you in the right direction — 
+            connecting you with solicitors, <strong className="text-primary-foreground/85">free</strong> services,{" "}
+            <strong className="text-primary-foreground/85">legal aid</strong>, pro bono help, and charitable organisations across the UK.
           </p>
           <p className="text-center text-xs text-primary-foreground/70">
             <strong className="text-primary-foreground/90">Affiliate Disclosure:</strong> Some listings marked as "Sponsored" contain affiliate links. 

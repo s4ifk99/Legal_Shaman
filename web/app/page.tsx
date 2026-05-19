@@ -12,16 +12,18 @@ export default function Home() {
       <Header />
       <section className="border-b border-border bg-background py-10 md:py-12">
         <div className="mx-auto max-w-3xl px-4 text-center">
-          <h1 className="font-serif text-3xl font-semibold tracking-tight text-primary md:text-4xl">
+          <h1 className="font-serif text-3xl font-semibold tracking-tight text-primary md:text-4xl lg:text-5xl">
             Legal Shaman
           </h1>
-          <p className="mt-4 text-muted-foreground md:text-lg">
-            Browse signposting resources on this page. When you&apos;re ready, scroll to the bottom to search the
-            directory by topic, location, and filters.
+          <p className="mt-3 text-lg font-medium text-foreground md:text-xl">
+            The Most Powerful Agentic Search Engine for All Your Disputes
           </p>
-          <p className="mt-3 text-sm text-muted-foreground">
+          <p className="mt-4 text-muted-foreground md:text-lg">
+            Tell us your problem and we&apos;ll point you in the right direction — solicitors, legal aid, free advice, and more.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground">
             <a href="#find-help" className="text-primary underline-offset-4 hover:underline">
-              Jump to directory search
+              Start your search
             </a>
             {" · "}
             <a href="#signposting" className="text-primary underline-offset-4 hover:underline">
