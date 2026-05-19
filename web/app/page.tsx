@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer";
 import { ProblemAssistant } from "@/components/problem-assistant";
 import signpostingResources from "@/data/signposting-resources.json";
 import SignpostingView, { type Section } from "./signposting/signposting-view";
+import Image from "next/image";
 
 export default function Home() {
   const sections = signpostingResources.sections as Section[];
@@ -12,6 +13,15 @@ export default function Home() {
       <Header />
       <section className="border-b border-border bg-background py-10 md:py-12">
         <div className="mx-auto max-w-3xl px-4 text-center">
+          <div className="mb-6 flex justify-center">
+            <Image
+              src="/logo.jpg"
+              alt="Legal Shaman Logo"
+              width={120}
+              height={120}
+              className="h-28 w-28"
+            />
+          </div>
           <h1 className="font-serif text-3xl font-semibold tracking-tight text-primary md:text-4xl lg:text-5xl">
             Legal Shaman
           </h1>

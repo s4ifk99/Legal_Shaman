@@ -1,13 +1,21 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   return (
     <footer className="border-t-2 border-primary/20 bg-primary py-10 text-primary-foreground">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-          <div className="flex items-center gap-3">
-            <span className="font-serif text-2xl font-semibold">Legal Shaman</span>
-          </div>
+        <div className="flex items-center gap-3">
+          <Image
+            src="/logo.jpg"
+            alt="Legal Shaman Logo"
+            width={48}
+            height={48}
+            className="h-12 w-12"
+          />
+          <span className="font-serif text-2xl font-semibold">Legal Shaman</span>
+        </div>
           
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
             <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-primary-foreground">

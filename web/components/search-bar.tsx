@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, Loader2, Building2, FolderOpen } from "lucide-react";
+import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -89,6 +90,15 @@ export function SearchBar() {
   return (
     <div className="border-b-2 border-primary/10 bg-secondary/30 py-10">
       <div className="mx-auto max-w-4xl px-4 text-center">
+        <div className="mb-4 flex justify-center">
+          <Image
+            src="/logo.jpg"
+            alt="Legal Shaman Logo"
+            width={80}
+            height={80}
+            className="h-20 w-20"
+          />
+        </div>
         <h1 className="mb-2 font-serif text-3xl font-semibold tracking-tight text-primary md:text-4xl">
           Legal Shaman
         </h1>
