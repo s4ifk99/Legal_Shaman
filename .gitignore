@@ -12,3 +12,6 @@ __pycache__/
 # OS / editor
 .DS_Store
 Thumbs.db
+web/.sra-sync-state.json
+web/reports/
+*api-keys*.txt
