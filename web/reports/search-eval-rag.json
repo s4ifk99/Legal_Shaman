@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-19T10:20:10.970Z",
+  "generatedAt": "2026-05-19T15:50:45.850Z",
   "stack": {
     "typesenseReachable": true,
     "typesenseVersion": null,
@@ -218,7 +218,7 @@
           "typesense": 6
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 1347,
+        "latencyMs": 984,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -631,7 +631,7 @@
           ]
         }
       ],
-      "latencyMs": 1347,
+      "latencyMs": 984,
       "notes": "Broad prison-law query; criminal defence / legal aid acceptable."
     },
     {
@@ -738,7 +738,7 @@
           "typesense": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 383,
+        "latencyMs": 345,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -1086,7 +1086,7 @@
           "relevanceReasons": []
         }
       ],
-      "latencyMs": 383
+      "latencyMs": 345
     },
     {
       "caseId": "dir-police-arrested-01",
@@ -1274,7 +1274,7 @@
           "typesense": 6
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 835,
+        "latencyMs": 720,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -1678,7 +1678,7 @@
           ]
         }
       ],
-      "latencyMs": 835
+      "latencyMs": 720
     },
     {
       "caseId": "mat-prison-lawyer-01",
@@ -1789,7 +1789,7 @@
           "typesense": 2
         },
         "rerankerVersion": "matcher-v2",
-        "latencyMs": 3092,
+        "latencyMs": 2352,
         "channel": "matcher",
         "fundingIntent": "private_or_unspecified"
       },
@@ -1955,7 +1955,7 @@
           ]
         }
       ],
-      "latencyMs": 3092
+      "latencyMs": 2352
     },
     {
       "caseId": "dir-lost-job-01",
@@ -2058,7 +2058,7 @@
           "typesense": 6
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 260,
+        "latencyMs": 233,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -2393,7 +2393,7 @@
           "relevanceReasons": []
         }
       ],
-      "latencyMs": 260
+      "latencyMs": 233
     },
     {
       "caseId": "dir-employment-tribunal-01",
@@ -2515,7 +2515,7 @@
           "taxonomy": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 382,
+        "latencyMs": 352,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -2906,7 +2906,7 @@
           ]
         }
       ],
-      "latencyMs": 382
+      "latencyMs": 352
     },
     {
       "caseId": "dir-landlord-eviction-01",
@@ -3034,7 +3034,7 @@
           "typesense": 6
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 3834,
+        "latencyMs": 670,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -3425,7 +3425,7 @@
           ]
         }
       ],
-      "latencyMs": 3834
+      "latencyMs": 670
     },
     {
       "caseId": "dir-section-21-01",
@@ -3551,7 +3551,7 @@
           "typesense": 6
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 680,
+        "latencyMs": 391,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -3944,7 +3944,7 @@
           ]
         }
       ],
-      "latencyMs": 680
+      "latencyMs": 391
     },
     {
       "caseId": "dir-visa-refused-01",
@@ -4073,7 +4073,7 @@
           "taxonomy": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 1763,
+        "latencyMs": 1486,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -4464,7 +4464,7 @@
           ]
         }
       ],
-      "latencyMs": 1763
+      "latencyMs": 1486
     },
     {
       "caseId": "dir-deportation-01",
@@ -4642,7 +4642,7 @@
           "taxonomy": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 745,
+        "latencyMs": 671,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -5041,7 +5041,7 @@
           ]
         }
       ],
-      "latencyMs": 745
+      "latencyMs": 671
     },
     {
       "caseId": "dir-child-contact-01",
@@ -5147,7 +5147,7 @@
           "typesense": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 280,
+        "latencyMs": 227,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -5493,7 +5493,7 @@
           "relevanceReasons": []
         }
       ],
-      "latencyMs": 280
+      "latencyMs": 227
     },
     {
       "caseId": "dir-divorce-01",
@@ -5618,7 +5618,7 @@
           "taxonomy": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 4452,
+        "latencyMs": 911,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -6008,7 +6008,7 @@
           ]
         }
       ],
-      "latencyMs": 4452
+      "latencyMs": 911
     },
     {
       "caseId": "dir-benefits-stopped-01",
@@ -6192,7 +6192,7 @@
           "legacy": 6
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 801,
+        "latencyMs": 609,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -6583,7 +6583,7 @@
           ]
         }
       ],
-      "latencyMs": 801
+      "latencyMs": 609
     },
     {
       "caseId": "dir-universal-credit-01",
@@ -6703,7 +6703,7 @@
           "taxonomy": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 1022,
+        "latencyMs": 382,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -7092,7 +7092,7 @@
           ]
         }
       ],
-      "latencyMs": 1022
+      "latencyMs": 382
     },
     {
       "caseId": "dir-no-will-01",
@@ -7193,7 +7193,7 @@
           "typesense": 1
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 220,
+        "latencyMs": 207,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -7243,7 +7243,7 @@
           ]
         }
       ],
-      "latencyMs": 220
+      "latencyMs": 207
     },
     {
       "caseId": "dir-doctor-mistake-01",
@@ -7344,7 +7344,7 @@
           "typesense": 1
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 200,
+        "latencyMs": 208,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -7396,7 +7396,7 @@
           "relevanceReasons": []
         }
       ],
-      "latencyMs": 200
+      "latencyMs": 208
     },
     {
       "caseId": "dir-car-accident-01",
@@ -7496,7 +7496,7 @@
           "legacy": 3
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 359,
+        "latencyMs": 245,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -7620,7 +7620,7 @@
           ]
         }
       ],
-      "latencyMs": 359
+      "latencyMs": 245
     },
     {
       "caseId": "dir-consumer-refund-01",
@@ -7748,7 +7748,7 @@
           "typesense": 6
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 986,
+        "latencyMs": 437,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -8113,7 +8113,7 @@
           "relevanceReasons": []
         }
       ],
-      "latencyMs": 986
+      "latencyMs": 437
     },
     {
       "caseId": "dir-debt-bailiffs-01",
@@ -8233,7 +8233,7 @@
           "typesense": 7
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 310,
+        "latencyMs": 224,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -8621,7 +8621,7 @@
           ]
         }
       ],
-      "latencyMs": 310
+      "latencyMs": 224
     },
     {
       "caseId": "dir-school-exclusion-01",
@@ -8756,7 +8756,7 @@
           "typesense": 7
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 714,
+        "latencyMs": 482,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -9112,7 +9112,7 @@
           "relevanceReasons": []
         }
       ],
-      "latencyMs": 714
+      "latencyMs": 482
     },
     {
       "caseId": "dir-sectioned-01",
@@ -9232,7 +9232,7 @@
           "taxonomy": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 2693,
+        "latencyMs": 1701,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -9621,7 +9621,7 @@
           ]
         }
       ],
-      "latencyMs": 2693
+      "latencyMs": 1701
     },
     {
       "caseId": "dir-care-package-01",
@@ -9743,7 +9743,7 @@
           "typesense": 5
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 1308,
+        "latencyMs": 880,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -10102,7 +10102,7 @@
           ]
         }
       ],
-      "latencyMs": 1308
+      "latencyMs": 880
     },
     {
       "caseId": "dir-judicial-review-01",
@@ -10234,7 +10234,7 @@
           "typesense": 6
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 1317,
+        "latencyMs": 629,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -10620,7 +10620,7 @@
           ]
         }
       ],
-      "latencyMs": 1317
+      "latencyMs": 629
     },
     {
       "caseId": "dir-business-contract-01",
@@ -10720,7 +10720,7 @@
           "typesense": 6
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 726,
+        "latencyMs": 194,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -10955,7 +10955,7 @@
           ]
         }
       ],
-      "latencyMs": 726
+      "latencyMs": 194
     },
     {
       "caseId": "dir-legal-aid-housing-01",
@@ -11073,7 +11073,7 @@
           "taxonomy": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 746,
+        "latencyMs": 372,
         "channel": "directory",
         "fundingIntent": "legal_aid",
         "sourceDiversityApplied": true,
@@ -11472,7 +11472,7 @@
           ]
         }
       ],
-      "latencyMs": 746,
+      "latencyMs": 372,
       "notes": "At least one hit should be legal_aid source when specified."
     },
     {
@@ -11601,7 +11601,7 @@
           "legacy": 1
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 1652,
+        "latencyMs": 1127,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -11991,7 +11991,7 @@
           ]
         }
       ],
-      "latencyMs": 1652
+      "latencyMs": 1127
     },
     {
       "caseId": "dir-need-help-01",
@@ -12091,7 +12091,7 @@
           "typesense": 3
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 456,
+        "latencyMs": 206,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -12272,7 +12272,7 @@
           "relevanceReasons": []
         }
       ],
-      "latencyMs": 456,
+      "latencyMs": 206,
       "notes": "Broad query: must not be zero-hit; refinement optional."
     },
     {
@@ -12373,7 +12373,7 @@
           "typesense": 3
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 343,
+        "latencyMs": 244,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -12554,7 +12554,7 @@
           "relevanceReasons": []
         }
       ],
-      "latencyMs": 343,
+      "latencyMs": 244,
       "notes": "Broad taxonomy-agnostic browse query."
     },
     {
@@ -12629,12 +12629,12 @@
         "degradedModeWarnings": [],
         "resultCountsBySource": {},
         "rerankerVersion": "matcher-v2",
-        "latencyMs": 6,
+        "latencyMs": 3,
         "channel": "matcher",
         "fundingIntent": "private_or_unspecified"
       },
       "hits": [],
-      "latencyMs": 6,
+      "latencyMs": 3,
       "notes": "Matcher should ask clarifying question."
     },
     {
@@ -12821,7 +12821,7 @@
           "taxonomy": 5
         },
         "rerankerVersion": "matcher-v2",
-        "latencyMs": 459,
+        "latencyMs": 374,
         "channel": "matcher",
         "fundingIntent": "private_or_unspecified"
       },
@@ -12990,7 +12990,7 @@
           ]
         }
       ],
-      "latencyMs": 459
+      "latencyMs": 374
     },
     {
       "caseId": "dir-good-divorce-lawyer-01",
@@ -13120,7 +13120,7 @@
           "taxonomy": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 1600,
+        "latencyMs": 1072,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -13510,7 +13510,7 @@
           ]
         }
       ],
-      "latencyMs": 1600,
+      "latencyMs": 1072,
       "notes": "SRA family firms should surface after projection; source diversity caps legal aid."
     },
     {
@@ -13683,7 +13683,7 @@
           "taxonomy": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 565,
+        "latencyMs": 535,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": false,
@@ -14072,7 +14072,7 @@
           ]
         }
       ],
-      "latencyMs": 565
+      "latencyMs": 535
     },
     {
       "caseId": "dir-child-custody-solicitor-01",
@@ -14247,7 +14247,7 @@
           "typesense": 7
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 561,
+        "latencyMs": 534,
         "channel": "directory",
         "fundingIntent": "private_or_unspecified",
         "sourceDiversityApplied": true,
@@ -14639,7 +14639,7 @@
           ]
         }
       ],
-      "latencyMs": 561
+      "latencyMs": 534
     },
     {
       "caseId": "dir-legal-aid-divorce-01",
@@ -14812,7 +14812,7 @@
           "taxonomy": 10
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 629,
+        "latencyMs": 1550,
         "channel": "directory",
         "fundingIntent": "legal_aid",
         "sourceDiversityApplied": true,
@@ -15211,7 +15211,7 @@
           ]
         }
       ],
-      "latencyMs": 629
+      "latencyMs": 1550
     },
     {
       "caseId": "dir-free-family-lawyer-01",
@@ -15385,7 +15385,7 @@
           "typesense": 5
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 533,
+        "latencyMs": 555,
         "channel": "directory",
         "fundingIntent": "free_help",
         "sourceDiversityApplied": true,
@@ -15765,7 +15765,7 @@
           ]
         }
       ],
-      "latencyMs": 533
+      "latencyMs": 555
     },
     {
       "caseId": "dir-private-divorce-mcr-01",
@@ -15896,7 +15896,7 @@
           "legacy": 3
         },
         "rerankerVersion": "directory-v4-capabilities",
-        "latencyMs": 2215,
+        "latencyMs": 1200,
         "channel": "directory",
         "fundingIntent": "private",
         "sourceDiversityApplied": false,
@@ -16278,7 +16278,7 @@
           ]
         }
       ],
-      "latencyMs": 2215,
+      "latencyMs": 1200,
       "notes": "Explicit private — prefer indexed lawyers/firms; external signpost only when none match."
     }
   ]

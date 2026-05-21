@@ -1,6 +1,6 @@
 import { requireAdminApiRequest } from "@/lib/admin/auth";
 import { adminJsonResponse } from "@/lib/admin/api-response";
-import { setEnrichmentStatus } from "@/lib/provider-enrichment/review-queue";
+import { setExtractedFieldStatus } from "@/lib/provider-crawler/review-queue";
 
 export const dynamic = "force-dynamic";
 
@@ -16,7 +16,8 @@ export async function POST(
   if (body.action !== "approve" && body.action !== "reject") {
     return adminJsonResponse({ error: "action must be approve or reject" }, { status: 400 });
   }
-  const ok = await setEnrichmentStatus(id, body.action === "approve" ? "approved" : "rejected");
+
+  const ok = await setExtractedFieldStatus(id, body.action === "approve" ? "approved" : "rejected");
   if (!ok) return adminJsonResponse({ error: "not found" }, { status: 404 });
   return adminJsonResponse({ ok: true, status: body.action === "approve" ? "approved" : "rejected" });
 }

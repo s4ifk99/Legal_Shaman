@@ -311,3 +311,71 @@ model ProviderEnrichment {
   @@index([entityId])
   @@map("provider_enrichments")
 }
+
+/// Queued provider enrichment crawl (compliant fetch + extraction).
+model ProviderCrawlJob {
+  id          String    @id @default(cuid())
+  entityId    String    @map("entity_id") @db.VarChar(128)
+  entityType  String    @map("entity_type") @db.VarChar(64)
+  mode        String    @db.VarChar(32)
+  status      String    @default("queued") @db.VarChar(32)
+  targetUrl   String?   @map("target_url") @db.VarChar(2048)
+  error       String?   @db.Text
+  scheduledAt DateTime  @default(now()) @map("scheduled_at") @db.Timestamptz(3)
+  startedAt   DateTime? @map("started_at") @db.Timestamptz(3)
+  completedAt DateTime? @map("completed_at") @db.Timestamptz(3)
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  results ProviderCrawlResult[]
+
+  @@index([status, scheduledAt])
+  @@index([entityId])
+  @@map("provider_crawl_jobs")
+}
+
+/// Per-job crawl outcome summary.
+model ProviderCrawlResult {
+  id           String   @id @default(cuid())
+  jobId        String   @map("job_id")
+  entityId     String   @map("entity_id") @db.VarChar(128)
+  pagesFetched Int      @default(0) @map("pages_fetched")
+  pagesSkipped Int      @default(0) @map("pages_skipped")
+  fieldsFound  Int      @default(0) @map("fields_found")
+  statsJson    String?  @map("stats_json") @db.Text
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  job    ProviderCrawlJob         @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  fields ProviderExtractedField[]
+
+  @@index([jobId])
+  @@index([entityId])
+  @@map("provider_crawl_results")
+}
+
+/// Extracted provider field with provenance; contact fields require admin approval for public display.
+model ProviderExtractedField {
+  id               String   @id @default(cuid())
+  crawlResultId    String?  @map("crawl_result_id")
+  entityId         String   @map("entity_id") @db.VarChar(128)
+  entityType       String   @map("entity_type") @db.VarChar(64)
+  fieldName        String   @map("field_name") @db.VarChar(64)
+  extractedValue   String   @map("extracted_value") @db.Text
+  confidence       Float
+  sourceUrl        String?  @map("source_url") @db.VarChar(2048)
+  sourceType       String   @map("source_type") @db.VarChar(48)
+  extractionMethod String   @map("extraction_method") @db.VarChar(48)
+  reviewCategory   String   @default("field") @map("review_category") @db.VarChar(32)
+  status           String   @default("pending_review") @db.VarChar(32)
+  provenanceNote   String?  @map("provenance_note") @db.Text
+  extractedAt      DateTime @default(now()) @map("extracted_at") @db.Timestamptz(3)
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  crawlResult ProviderCrawlResult? @relation(fields: [crawlResultId], references: [id], onDelete: SetNull)
+
+  @@unique([entityId, fieldName, extractedValue, reviewCategory])
+  @@index([status, reviewCategory, createdAt])
+  @@index([entityId])
+  @@map("provider_extracted_fields")
+}

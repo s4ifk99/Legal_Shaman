@@ -70,10 +70,13 @@ function applyGeo(
   doc.locationPoint = [geo.latitude, geo.longitude];
 }
 
+type BuildListingOptions = { skipGeo?: boolean };
+
 async function buildListingDoc(
   listing: Listing,
   entityType: EntityType,
   source: string,
+  options?: BuildListingOptions,
 ): Promise<LegalEntityDocument> {
   const searchText = getListingSearchDocument(listing);
   const resolution = resolveLegalIssueFromQuery(searchText);
@@ -82,11 +85,13 @@ async function buildListingDoc(
   if (listing.legalAidGovCategory) practiceAreas.push(listing.legalAidGovCategory);
   if (listing.subcategory) practiceAreas.push(listing.subcategory.replace(/-/g, " "));
 
-  const geo = await resolveGeoForIndex({
-    postcode: listing.postcode,
-    city: listing.city,
-    address: listing.address,
-  });
+  const geo = options?.skipGeo
+    ? null
+    : await resolveGeoForIndex({
+        postcode: listing.postcode,
+        city: listing.city,
+        address: listing.address,
+      });
 
   const id =
     entityType === "legal_aid_provider" ? `legal_aid:${listing.id}` : `curated:${listing.id}`;
@@ -121,21 +126,25 @@ async function buildListingDoc(
   return applyTaxonomyProjection(doc);
 }
 
-export async function buildCuratedDocuments(): Promise<LegalEntityDocument[]> {
+export async function buildCuratedDocuments(
+  options?: BuildListingOptions,
+): Promise<LegalEntityDocument[]> {
   const out: LegalEntityDocument[] = [];
   for (const l of curatedListings) {
     if (l.isLegalAid) continue;
-    out.push(await buildListingDoc(l, "curated_listing", "curated"));
+    out.push(await buildListingDoc(l, "curated_listing", "curated", options));
   }
   return out;
 }
 
-export async function buildLegalAidDocuments(): Promise<LegalEntityDocument[]> {
+export async function buildLegalAidDocuments(
+  options?: BuildListingOptions,
+): Promise<LegalEntityDocument[]> {
   const all = fetchAllListings();
   const out: LegalEntityDocument[] = [];
   for (const l of all) {
     if (!l.isLegalAid) continue;
-    out.push(await buildListingDoc(l, "legal_aid_provider", "legal_aid"));
+    out.push(await buildListingDoc(l, "legal_aid_provider", "legal_aid", options));
   }
   return out;
 }
@@ -315,10 +324,21 @@ export async function buildProBonoDocuments(): Promise<LegalEntityDocument[]> {
   return out;
 }
 
-export async function buildSraDocuments(): Promise<LegalEntityDocument[]> {
+export type BuildSraDocumentsOptions = {
+  /** Cap rows loaded (default 50_000 for full index sync). */
+  take?: number;
+  /** Skip geocode DB lookups — use existing coordinates only (faster for crawl CLI). */
+  skipGeo?: boolean;
+};
+
+export async function buildSraDocuments(
+  options?: BuildSraDocumentsOptions,
+): Promise<LegalEntityDocument[]> {
   let rows;
   try {
-    rows = await prisma.sraOrganisation.findMany({ take: 50000 });
+    rows = await prisma.sraOrganisation.findMany({
+      take: options?.take ?? 50000,
+    });
   } catch {
     return [];
   }
@@ -327,12 +347,14 @@ export async function buildSraDocuments(): Promise<LegalEntityDocument[]> {
     const searchText = org.searchText || org.businessName;
     const resolution = resolveLegalIssueFromQuery(searchText);
     const expandedSearchText = buildExpandedSearchText(resolution, searchText);
-    const geo = await resolveGeoForIndex({
-      postcode: org.postcode,
-      city: org.city,
-      existingLat: org.latitude,
-      existingLng: org.longitude,
-    });
+    const geo = options?.skipGeo
+      ? null
+      : await resolveGeoForIndex({
+          postcode: org.postcode,
+          city: org.city,
+          existingLat: org.latitude,
+          existingLng: org.longitude,
+        });
     const doc: LegalEntityDocument = {
       id: `sra:${org.sraId}`,
       entityType: "sra_organisation",
@@ -356,7 +378,13 @@ export async function buildSraDocuments(): Promise<LegalEntityDocument[]> {
       rawSourceId: org.sraId,
       updatedAt: org.updatedAt.getTime(),
     };
-    applyGeo(doc, geo);
+    if (options?.skipGeo && org.latitude != null && org.longitude != null) {
+      doc.latitude = org.latitude;
+      doc.longitude = org.longitude;
+      doc.locationPoint = [org.latitude, org.longitude];
+    } else {
+      applyGeo(doc, geo);
+    }
     projectAndApplySraPracticeAreas(doc);
     out.push(applyTaxonomyProjection(doc));
   }

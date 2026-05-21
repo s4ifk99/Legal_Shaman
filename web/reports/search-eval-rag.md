@@ -1,6 +1,6 @@
 # Search RAG Evaluation Report
 
-Generated: 2026-05-19T10:20:10.970Z
+Generated: 2026-05-19T15:50:45.850Z
 
 ## Summary
 

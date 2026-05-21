@@ -41,6 +41,7 @@ import { runExternalFallbackEval } from "../lib/search-eval/external-fallback-ev
 import { runFundingIntentEval } from "../lib/search-eval/funding-intent-eval";
 import { runOrchestrationPolicyEval } from "../lib/search-eval/orchestration-policy-eval";
 import { runProviderIntelligenceEval } from "../lib/search-eval/provider-intelligence-eval";
+import { runProviderCrawlerEval } from "../lib/search-eval/provider-crawler-eval";
 import { runSourceBalanceEval } from "../lib/search-eval/source-balance-eval";
 import { runSraPracticeAreaProjectionEval } from "../lib/sra/practice-area-projection-eval";
 import {
@@ -320,6 +321,8 @@ async function main() {
   failed += runOrchestrationPolicyEval();
 
   failed += runProviderIntelligenceEval();
+
+  failed += runProviderCrawlerEval();
 
   failed += runSourceBalanceEval();
 

@@ -200,14 +200,16 @@ export function sanitiseContactForDisplay(r: SearchResult): SearchResult {
     raw?.contactSource === "govuk_legal_aid" ||
     raw?.contactSource === "curated_listing";
 
-  if (r.contact?.phone && !approved && !structuredSource) {
+  if (!approved && !structuredSource && (r.contact?.phone || r.contact?.email)) {
     return {
       ...r,
       contact: {
         ...r.contact,
-        phone: undefined,
+        phone: r.contact?.phone ? undefined : r.contact?.phone,
+        email: r.contact?.email ? undefined : r.contact?.email,
       },
     };
   }
+
   return r;
 }

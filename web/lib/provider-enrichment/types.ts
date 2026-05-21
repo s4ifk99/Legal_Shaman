@@ -17,6 +17,8 @@ export const EnrichmentSourceTypeSchema = z.enum([
   "sra_register",
   "curated_source",
   "external_directory",
+  "trustpilot_api",
+  "manual_approved",
 ]);
 
 export type EnrichmentSourceType = z.infer<typeof EnrichmentSourceTypeSchema>;
@@ -28,6 +30,8 @@ export const ExtractionMethodSchema = z.enum([
   "html_parse",
   "manual",
   "capability_patterns",
+  "trustpilot_api",
+  "robots_skip",
 ]);
 
 export type ExtractionMethod = z.infer<typeof ExtractionMethodSchema>;

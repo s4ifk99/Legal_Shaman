@@ -20,7 +20,7 @@
             "initialQuery": "I lost my job",
             "mergedQuery": "I lost my job",
             "stepsCompleted": [],
-            "sessionId": "journey-employment-no-money-1779185942491"
+            "sessionId": "journey-employment-no-money-1779368390756"
           }
         },
         {
@@ -38,7 +38,7 @@
             "stepsCompleted": [
               "emergencyDanger"
             ],
-            "sessionId": "journey-employment-no-money-1779185942491"
+            "sessionId": "journey-employment-no-money-1779368390756"
           }
         },
         {
@@ -57,7 +57,7 @@
               "emergencyDanger",
               "subIssue"
             ],
-            "sessionId": "journey-employment-no-money-1779185942491"
+            "sessionId": "journey-employment-no-money-1779368390756"
           }
         },
         {
@@ -66,7 +66,7 @@
           "responseKind": "triage_results",
           "answerField": "location",
           "nextQuestionField": "fundingPreference",
-          "internalResultCount": 16,
+          "internalResultCount": 17,
           "hasExternalFallback": false,
           "markerCount": 13,
           "stateSnapshot": {
@@ -77,7 +77,7 @@
               "subIssue",
               "location"
             ],
-            "sessionId": "journey-employment-no-money-1779185942491"
+            "sessionId": "journey-employment-no-money-1779368390756"
           }
         },
         {
@@ -98,7 +98,7 @@
               "location",
               "fundingPreference"
             ],
-            "sessionId": "journey-employment-no-money-1779185942491"
+            "sessionId": "journey-employment-no-money-1779368390756"
           }
         }
       ],
@@ -125,7 +125,7 @@
             "initialQuery": "My brother is in prison and it is about parole",
             "mergedQuery": "My brother is in prison and it is about parole",
             "stepsCompleted": [],
-            "sessionId": "journey-prison-legal-aid-1779185949459"
+            "sessionId": "journey-prison-legal-aid-1779368449662"
           }
         },
         {
@@ -143,7 +143,7 @@
             "stepsCompleted": [
               "location"
             ],
-            "sessionId": "journey-prison-legal-aid-1779185949459"
+            "sessionId": "journey-prison-legal-aid-1779368449662"
           }
         },
         {
@@ -162,7 +162,7 @@
               "location",
               "fundingPreference"
             ],
-            "sessionId": "journey-prison-legal-aid-1779185949459"
+            "sessionId": "journey-prison-legal-aid-1779368449662"
           }
         }
       ],
@@ -189,7 +189,7 @@
             "initialQuery": "My landlord is kicking me out tonight",
             "mergedQuery": "My landlord is kicking me out tonight",
             "stepsCompleted": [],
-            "sessionId": "journey-housing-emergency-1779185953843"
+            "sessionId": "journey-housing-emergency-1779368486091"
           }
         },
         {
@@ -207,7 +207,7 @@
             "stepsCompleted": [
               "location"
             ],
-            "sessionId": "journey-housing-emergency-1779185953843"
+            "sessionId": "journey-housing-emergency-1779368486091"
           }
         },
         {
@@ -226,7 +226,7 @@
               "location",
               "fundingPreference"
             ],
-            "sessionId": "journey-housing-emergency-1779185953843"
+            "sessionId": "journey-housing-emergency-1779368486091"
           }
         }
       ],
@@ -253,7 +253,7 @@
             "initialQuery": "I need a divorce solicitor",
             "mergedQuery": "I need a divorce solicitor",
             "stepsCompleted": [],
-            "sessionId": "journey-private-divorce-1779185956912"
+            "sessionId": "journey-private-divorce-1779368521219"
           }
         },
         {
@@ -271,7 +271,7 @@
             "stepsCompleted": [
               "location"
             ],
-            "sessionId": "journey-private-divorce-1779185956912"
+            "sessionId": "journey-private-divorce-1779368521219"
           }
         },
         {
@@ -290,7 +290,7 @@
               "location",
               "fundingPreference"
             ],
-            "sessionId": "journey-private-divorce-1779185956912"
+            "sessionId": "journey-private-divorce-1779368521219"
           }
         }
       ],
@@ -317,7 +317,7 @@
             "initialQuery": "My visa was refused",
             "mergedQuery": "My visa was refused",
             "stepsCompleted": [],
-            "sessionId": "journey-immigration-legal-aid-1779185960832"
+            "sessionId": "journey-immigration-legal-aid-1779368554994"
           }
         },
         {
@@ -326,7 +326,7 @@
           "responseKind": "triage_results",
           "answerField": "location",
           "nextQuestionField": "fundingPreference",
-          "internalResultCount": 12,
+          "internalResultCount": 13,
           "hasExternalFallback": true,
           "markerCount": 10,
           "stateSnapshot": {
@@ -335,7 +335,7 @@
             "stepsCompleted": [
               "location"
             ],
-            "sessionId": "journey-immigration-legal-aid-1779185960832"
+            "sessionId": "journey-immigration-legal-aid-1779368554994"
           }
         },
         {
@@ -354,7 +354,7 @@
               "location",
               "fundingPreference"
             ],
-            "sessionId": "journey-immigration-legal-aid-1779185960832"
+            "sessionId": "journey-immigration-legal-aid-1779368554994"
           }
         }
       ],
@@ -381,7 +381,7 @@
             "initialQuery": "I need help",
             "mergedQuery": "I need help",
             "stepsCompleted": [],
-            "sessionId": "journey-vague-need-help-1779185966843"
+            "sessionId": "journey-vague-need-help-1779368592172"
           }
         },
         {
@@ -399,7 +399,7 @@
             "stepsCompleted": [
               "emergencyDanger"
             ],
-            "sessionId": "journey-vague-need-help-1779185966843"
+            "sessionId": "journey-vague-need-help-1779368592172"
           }
         }
       ],

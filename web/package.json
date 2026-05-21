@@ -36,7 +36,13 @@
     "providers:enrich": "tsx scripts/providers-enrich.ts all",
     "providers:enrich:contacts": "tsx scripts/providers-enrich.ts contacts",
     "providers:enrich:capabilities": "tsx scripts/providers-enrich.ts capabilities",
-    "providers:enrich:review": "tsx scripts/providers-enrich-review.ts"
+    "providers:enrich:review": "tsx scripts/providers-enrich-review.ts",
+    "providers:crawl": "tsx scripts/providers-crawl.ts all",
+    "providers:crawl:contacts": "tsx scripts/providers-crawl-contacts.ts",
+    "providers:crawl:trustpilot": "tsx scripts/providers-crawl-trustpilot.ts",
+    "providers:crawl:review": "tsx scripts/providers-crawl-review.ts",
+    "providers:crawl:review:api": "tsx scripts/providers-crawl-review-api.ts",
+    "admin:api": "tsx scripts/admin-api.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
