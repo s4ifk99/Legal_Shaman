@@ -10,6 +10,7 @@ import {
 } from "@/lib/legal-search/config";
 import { getSearchStackStatus } from "@/lib/legal-search/search-startup";
 import { getCatalogStats } from "@/lib/search-index/catalog-stats";
+import { getIndexBuildStatusForPublicApi } from "@/lib/ops/ops-dashboard";
 
 export const runtime = "nodejs";
 
@@ -17,7 +18,10 @@ export const runtime = "nodejs";
 export async function GET() {
   const bundle = loadEmbeddingsBundle();
   const stack = await getSearchStackStatus();
-  const catalog = await getCatalogStats();
+  const [catalog, indexMeta] = await Promise.all([
+    getCatalogStats(),
+    getIndexBuildStatusForPublicApi(),
+  ]);
 
   return NextResponse.json({
     embeddingsLoaded: Boolean(bundle),
@@ -43,7 +47,11 @@ export async function GET() {
     proBonoSourceCount: catalog.proBonoSourceCount,
     proBonoIndexedCount: catalog.proBonoIndexedEstimate,
     legalEntitiesTotalCount: catalog.legalEntitiesTotal,
-    lastIndexBuildAt: catalog.lastIndexBuildAt,
+    lastIndexBuildAt: indexMeta.lastIndexBuildAt ?? catalog.lastIndexBuildAt,
+    lastIndexStatus: indexMeta.lastIndexStatus,
+    lastIndexSource: indexMeta.lastIndexSource,
+    lastIndexCounts: indexMeta.lastIndexCounts,
+    lastIndexErrors: indexMeta.lastIndexErrors,
     sraLastSyncAt: catalog.sraSync.lastSuccessAt,
     sraSyncErrors: catalog.sraSync.errors,
     sraApiConfigured: catalog.sraSync.apiConfigured,

@@ -10,6 +10,7 @@ import {
   LEGAL_ISSUE_TAXONOMY,
   type LegalIssueTaxonomyEntry,
 } from "@/lib/legal/legal-issue-taxonomy-data";
+import { refinementChipsFromEntry } from "@/lib/legal/refinement-chips";
 
 export type { LegalIssueTaxonomyEntry };
 
@@ -117,8 +118,9 @@ export function computeQueryConfidence(
   if (!resolution || resolution.matchStrength < 0.08) return "low";
   if (resolution.matchStrength >= 0.28 && hasLocation) return "high";
   if (resolution.matchStrength >= 0.2) return "medium";
+  if (resolution.matchStrength >= 0.14) return "medium";
   if (hasLocation && resolution.matchStrength >= 0.12) return "medium";
-  return "medium";
+  return "low";
 }
 
 /** Extra text appended for Typesense / vector retrieval (not shown as user query). */
@@ -136,12 +138,8 @@ export function buildExpandedSearchText(resolution: LegalIssueResolution | null,
 export function buildTaxonomySummary(resolution: LegalIssueResolution | null): string | null {
   if (!resolution) return null;
   const related = resolution.relatedPracticeAreas.slice(0, 5).join(", ");
-  const q = resolution.clarificationQuestion;
-  const narrow = q
-    ? ` You can narrow this by considering: ${q}`
-    : " You can narrow this using the filters.";
   const tail = related ? ` Related areas: ${related}.` : "";
-  return `Here are lawyers and organisations matching ${resolution.canonicalName}.${narrow}${tail}`;
+  return `Here are lawyers and organisations matching ${resolution.canonicalName}.${tail}`;
 }
 
 function collectKeywordsForMatcher(matcherSlug: string): string[] {
@@ -247,6 +245,7 @@ export function matcherSlugForTaxonomySlug(slug: string): string | null {
     criminal_defence: "criminal_defence",
     personal_injury: "personal_injury",
     housing: "family",
+    neighbour_dispute: "family",
     wills_probate: "family",
     commercial: "commercial",
   };
@@ -282,10 +281,16 @@ export function enrichParsedQueryWithTaxonomy(parsed: ParsedQuery): ParsedQuery 
   });
 
   const refinementQuestion = resolution?.clarificationQuestion ?? null;
+  const taxonomyEntry = resolution ? byTaxonomySlug.get(resolution.taxonomySlug) : undefined;
 
   const taxonomySummary = buildTaxonomySummary(resolution);
 
   const fundingIntent = parsed.fundingIntent ?? detectFundingIntent(raw);
+
+  const refinementChips =
+    queryConfidence === "medium" && taxonomyEntry
+      ? refinementChipsFromEntry(taxonomyEntry)
+      : parsed.refinementChips;
 
   return ParsedQuerySchema.parse({
     ...parsed,
@@ -297,6 +302,7 @@ export function enrichParsedQueryWithTaxonomy(parsed: ParsedQuery): ParsedQuery 
     expandedSearchText,
     queryConfidence,
     refinementQuestion,
+    refinementChips: refinementChips?.length ? refinementChips : undefined,
     taxonomySummary: taxonomySummary ?? parsed.taxonomySummary,
     legalAidSignal:
       parsed.legalAidSignal ||

@@ -1,6 +1,6 @@
 import "server-only";
 
-import { prisma } from "@/lib/db/prisma";
+import { safeOptionalPrisma } from "@/lib/db/safe-optional-prisma";
 import { entityBoostKey } from "@/lib/search-events/types";
 import type { RankingSignalLite } from "@/lib/search-events/behavioural-boost";
 
@@ -26,16 +26,25 @@ export async function loadBehaviouralSignalsForEntities(
 ): Promise<Map<string, RankingSignalLite>> {
   const out = new Map<string, RankingSignalLite>();
   if (entities.length === 0) return out;
+  if (process.env.SEARCH_SIGNALS_FORCE_UNAVAILABLE === "1") {
+    console.warn(JSON.stringify({ event: "behavioural_signals_forced_unavailable" }));
+    return out;
+  }
 
   const ids = [...new Set(entities.map((e) => e.id))];
   const sources = [...new Set(entities.map((e) => e.source))];
 
-  const rows = await prisma.searchRankingSignal.findMany({
-    where: {
-      entityId: { in: ids },
-      entitySource: { in: sources },
-    },
-  });
+  const rows = await safeOptionalPrisma(
+    "searchRankingSignal.findMany",
+    (db) =>
+      db.searchRankingSignal.findMany({
+        where: {
+          entityId: { in: ids },
+          entitySource: { in: sources },
+        },
+      }),
+    [],
+  );
 
   for (const entity of entities) {
     const key = entityBoostKey(entity.source, entity.id);

@@ -2,6 +2,10 @@ import "server-only";
 
 import type { UnifiedSearchHit } from "@/lib/search/unified-search";
 import type { SraMeiliDocument } from "@/lib/search/sra-document";
+import {
+  extractPhoneFromSraSearchText,
+  resolveSraDisplayName,
+} from "@/lib/search/sra-display";
 import type { Listing } from "@/lib/data";
 import type { ParsedQuery, SearchResult } from "@/lib/legal-search/types";
 import { emptyScores } from "@/lib/legal-search/ranking";
@@ -72,10 +76,12 @@ export function fromUnifiedHit(hit: UnifiedSearchHit, parsed: ParsedQuery): Sear
 export function fromSraMeili(doc: SraMeiliDocument, parsed: ParsedQuery): SearchResult {
   const slug = parsed.practiceAreaSlug;
   const pa = slug ? [displayNameForSlug(slug)] : [];
+  const displayName = resolveSraDisplayName(doc.businessName, doc.searchText, doc.sraId);
+  const phone = doc.phone?.trim() || extractPhoneFromSraSearchText(doc.searchText) || undefined;
   return {
     id: `sra:${doc.sraId}`,
     source: "sra",
-    title: doc.businessName,
+    title: displayName,
     description: doc.searchText.slice(0, 400),
     practiceAreas: pa,
     categories: ["SRA organisation"],
@@ -85,10 +91,14 @@ export function fromSraMeili(doc: SraMeiliDocument, parsed: ParsedQuery): Search
       country: doc.country,
     },
     jurisdictions: [],
-    contact: {},
+    contact: { phone },
     url: doc.sraProfileUrl,
     verified: true,
-    raw: { ...doc, _retrievalSources: ["meilisearch"] as RetrievalSource[] },
+    raw: {
+      ...doc,
+      contactSource: phone ? "sra_register" : undefined,
+      _retrievalSources: ["meilisearch"] as RetrievalSource[],
+    },
     scores: emptyScores({ keyword: 0.55, semantic: 0.4 }),
     explanation: "",
     legacyKind: "sra",

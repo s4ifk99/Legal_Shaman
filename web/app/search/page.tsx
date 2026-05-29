@@ -8,7 +8,10 @@ import {
   DirectorySearchTracking,
   type DirectoryImpressionRow,
 } from "@/components/search/directory-search-tracking";
-import { RefinementPromptTracked } from "@/components/search/refinement-prompt-tracked";
+import {
+  RefinementChips,
+  RefinementPromptTracked,
+} from "@/components/search/refinement-prompt-tracked";
 import { SearchFormWithSuggestions } from "@/components/search-form-with-suggestions";
 import { SearchDirectorySidebar } from "@/components/search-directory-sidebar";
 import { SearchResultsLayout } from "@/components/search/search-results-layout";
@@ -18,6 +21,7 @@ import { buildMapMarkers } from "@/lib/search/map-results";
 import { SearchDebugPanel } from "@/components/search/search-debug-panel";
 import { ResultDebugSection } from "@/components/search/result-debug-section";
 import { ExternalFallbackSection } from "@/components/triage/external-fallback-section";
+import { formatPhoneForDisplay, formatSraCardDescription } from "@/lib/search/sra-display";
 
 type PageProps = {
   searchParams: Promise<{
@@ -144,7 +148,17 @@ export default async function SearchPage({ searchParams }: PageProps) {
                   {dir.vagueRescueNotice ? (
                     <p className="mt-2 text-muted-foreground">{dir.vagueRescueNotice}</p>
                   ) : null}
-                  {dir.parsedQuery.refinementQuestion ? (
+                  {dir.parsedQuery.refinementChips?.length ? (
+                    <RefinementChips
+                      baseQuery={q}
+                      chips={dir.parsedQuery.refinementChips}
+                      parsedPracticeArea={parsedPracticeArea ?? undefined}
+                      parsedLocation={parsedLocation ?? undefined}
+                      freeOnly={freeOnly}
+                      legalAidOnly={legalAidOnly}
+                      city={cityFacet || undefined}
+                    />
+                  ) : dir.parsedQuery.refinementQuestion ? (
                     <RefinementPromptTracked
                       q={q}
                       question={dir.parsedQuery.refinementQuestion}
@@ -187,6 +201,13 @@ export default async function SearchPage({ searchParams }: PageProps) {
                     const resultDebug = debugByIndex[index];
 
                     if (row.kind === "adl" && "sourceType" in row && row.sourceType === "sra") {
+                      const sraPhone = row.phone?.trim();
+                      const sraId = row.id.replace(/^sra:/, "");
+                      const sraDescription = formatSraCardDescription(
+                        row.description,
+                        row.businessName,
+                        sraId,
+                      );
                       return (
                         <li key={stableRowKey(row)}>
                           <Card className="border-emerald-500/20">
@@ -197,7 +218,19 @@ export default async function SearchPage({ searchParams }: PageProps) {
                                   <Badge variant="outline" className="mt-1 border-emerald-600/40 text-emerald-800">
                                     SRA organisation
                                   </Badge>
-                                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{row.description}</p>
+                                  {sraPhone ? (
+                                    <p className="mt-2 text-sm">
+                                      <a
+                                        href={`tel:${sraPhone.replace(/\s/g, "")}`}
+                                        className="font-medium text-primary hover:underline"
+                                      >
+                                        {formatPhoneForDisplay(sraPhone)}
+                                      </a>
+                                    </p>
+                                  ) : null}
+                                  {sraDescription ? (
+                                    <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{sraDescription}</p>
+                                  ) : null}
                                   <p className="mt-2 text-xs text-muted-foreground">
                                     {[row.city, row.postcode].filter(Boolean).join(" · ")}
                                   </p>

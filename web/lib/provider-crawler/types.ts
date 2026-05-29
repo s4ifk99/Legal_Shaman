@@ -53,6 +53,7 @@ export type ReviewCategory = z.infer<typeof ReviewCategorySchema>;
 
 export const FieldStatusSchema = z.enum([
   "pending_review",
+  "audit_review",
   "approved",
   "rejected",
   "auto_approved",

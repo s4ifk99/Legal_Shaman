@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  // Connection URL is configured in prisma.config.ts (Prisma 7).
   // pgvector is enabled via a raw-SQL migration; the `vector` type is referenced via Unsupported() below.
 }
 
@@ -18,6 +18,7 @@ model SraOrganisation {
   id            String                       @id @db.VarChar(128)
   sraId         String                       @unique @map("sra_id") @db.VarChar(64)
   businessName  String                       @map("business_name") @db.VarChar(512)
+  phone         String                       @default("") @db.VarChar(64)
   searchText    String                       @map("search_text") @db.Text
   city          String                       @default("") @db.VarChar(255)
   postcode      String                       @default("") @db.VarChar(32)
@@ -303,12 +304,16 @@ model ProviderEnrichment {
   extractionMethod  String   @map("extraction_method") @db.VarChar(48)
   status            String   @default("pending_review") @db.VarChar(32)
   provenanceNote    String?  @map("provenance_note") @db.Text
+  policyDecision    String?  @map("policy_decision") @db.VarChar(32)
+  policyReason      String?  @map("policy_reason") @db.Text
+  auditSample       Boolean  @default(false) @map("audit_sample")
   createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt         DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
 
   @@unique([entityId, fieldName, extractedValue])
   @@index([status, createdAt])
   @@index([entityId])
+  @@index([policyDecision])
   @@map("provider_enrichments")
 }
 
@@ -368,6 +373,9 @@ model ProviderExtractedField {
   reviewCategory   String   @default("field") @map("review_category") @db.VarChar(32)
   status           String   @default("pending_review") @db.VarChar(32)
   provenanceNote   String?  @map("provenance_note") @db.Text
+  policyDecision   String?  @map("policy_decision") @db.VarChar(32)
+  policyReason     String?  @map("policy_reason") @db.Text
+  auditSample      Boolean  @default(false) @map("audit_sample")
   extractedAt      DateTime @default(now()) @map("extracted_at") @db.Timestamptz(3)
   createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
@@ -377,5 +385,61 @@ model ProviderExtractedField {
   @@unique([entityId, fieldName, extractedValue, reviewCategory])
   @@index([status, reviewCategory, createdAt])
   @@index([entityId])
+  @@index([policyDecision])
   @@map("provider_extracted_fields")
+}
+
+/// Per-entity enrichment ladder progress (SRA weak-provider pipeline).
+model ProviderEnrichmentState {
+  entityId          String   @id @map("entity_id") @db.VarChar(128)
+  entityType        String   @map("entity_type") @db.VarChar(64)
+  status            String   @default("not_started") @db.VarChar(32)
+  priorityScore     Float    @default(0) @map("priority_score")
+  discoveredWebsite String?  @map("discovered_website") @db.VarChar(2048)
+  lastError         String?  @map("last_error") @db.Text
+  attempts          Int      @default(0)
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@index([status, priorityScore])
+  @@map("provider_enrichment_states")
+}
+
+/// Incremental Typesense re-index queue (one entity per job).
+model IndexingJob {
+  id           String    @id @default(cuid())
+  entityId     String    @map("entity_id") @db.VarChar(128)
+  entitySource String    @map("entity_source") @db.VarChar(32)
+  status       String    @default("queued") @db.VarChar(16)
+  reason       String?   @db.VarChar(255)
+  attempts     Int       @default(0)
+  lastError    String?   @map("last_error") @db.Text
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt    DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  completedAt  DateTime? @map("completed_at") @db.Timestamptz(3)
+
+  @@index([status, createdAt])
+  @@index([entityId, entitySource])
+  @@map("indexing_jobs")
+}
+
+/// Audit trail for full/partial search index builds and scheduled ops runs.
+model SearchIndexBuild {
+  id              String    @id @default(cuid())
+  source          String    @db.VarChar(64)
+  environment     String    @db.VarChar(64)
+  databaseHost    String?   @map("database_host") @db.VarChar(255)
+  typesenseHost   String?   @map("typesense_host") @db.VarChar(255)
+  startedAt       DateTime  @default(now()) @map("started_at") @db.Timestamptz(3)
+  completedAt     DateTime? @map("completed_at") @db.Timestamptz(3)
+  status          String    @default("running") @db.VarChar(16)
+  documentCount   Int?      @map("document_count")
+  sraCount        Int?      @map("sra_count")
+  legalAidCount   Int?      @map("legal_aid_count")
+  proBonoCount    Int?      @map("pro_bono_count")
+  errorsJson      String?   @map("errors_json") @db.Text
+
+  @@index([source, startedAt])
+  @@index([status, startedAt])
+  @@map("search_index_builds")
 }

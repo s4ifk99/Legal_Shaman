@@ -29,6 +29,20 @@ export function validateEnrichmentCandidate(candidate: EnrichmentCandidate): {
     }
   }
 
+  if (candidate.fieldName === "contactPageUrl") {
+    if (!/^https?:\/\//i.test(v)) return { valid: false, reason: "invalid_contact_page" };
+  }
+
+  if (candidate.fieldName === "practiceAreaSlugs") {
+    const slugs = v.split(",").map((s) => s.trim()).filter(Boolean);
+    if (!slugs.length) return { valid: false, reason: "no_slugs" };
+    for (const s of slugs) {
+      if (!/^[a-z][a-z0-9_]*$/i.test(s)) {
+        return { valid: false, reason: `invalid_slug:${s}` };
+      }
+    }
+  }
+
   const capabilityFields = new Set([
     "capabilities",
     "fundingCapabilities",

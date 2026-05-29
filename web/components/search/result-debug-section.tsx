@@ -42,6 +42,15 @@ export function ResultDebugSection({ debug }: ResultDebugSectionProps) {
             {debug.typesenseScore}
           </p>
         ) : null}
+        {debug.rerankerModel ? (
+          <p>
+            <span className="font-medium text-foreground">Open reranker: </span>
+            {debug.rerankerModel}
+            {debug.rerankerScore != null ? ` · score ${debug.rerankerScore.toFixed(3)}` : ""}
+            {debug.preRerankRank != null ? ` · pre #${debug.preRerankRank}` : ""}
+            {debug.postRerankRank != null ? ` · post #${debug.postRerankRank}` : ""}
+          </p>
+        ) : null}
         <div>
           <p className="font-medium text-foreground">Score breakdown</p>
           <ul className="mt-1 grid grid-cols-2 gap-x-3 gap-y-0.5 font-mono">

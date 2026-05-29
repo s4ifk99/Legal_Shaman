@@ -8,6 +8,7 @@ import {
 } from "@/lib/legal/taxonomy";
 import { getListingSearchDocument } from "@/lib/search/listing-document";
 import { sraProfileUrlForId } from "@/lib/search/sra-document";
+import { resolveSraDisplayName } from "@/lib/search/sra-display";
 import type { EntityType, LegalEntityDocument } from "@/lib/search-index/types";
 import { resolveGeoForIndex } from "@/lib/search-index/geocode";
 import {
@@ -331,6 +332,89 @@ export type BuildSraDocumentsOptions = {
   skipGeo?: boolean;
 };
 
+type SraOrgRow = Awaited<ReturnType<typeof prisma.sraOrganisation.findMany>>[number];
+
+async function sraOrganisationToDocument(
+  org: SraOrgRow,
+  options?: BuildSraDocumentsOptions,
+): Promise<LegalEntityDocument> {
+  const searchText = org.searchText || org.businessName;
+  const websiteMatch = searchText.match(/https?:\/\/[^\s,)]+/i);
+  const website = websiteMatch?.[0];
+  const resolution = resolveLegalIssueFromQuery(searchText);
+  const expandedSearchText = buildExpandedSearchText(resolution, searchText);
+  const geo = options?.skipGeo
+    ? null
+    : await resolveGeoForIndex({
+        postcode: org.postcode,
+        city: org.city,
+        existingLat: org.latitude,
+        existingLng: org.longitude,
+      });
+  const displayName = resolveSraDisplayName(org.businessName, searchText, org.sraId);
+  const doc: LegalEntityDocument = {
+    id: `sra:${org.sraId}`,
+    entityType: "sra_organisation",
+    title: displayName,
+    description: searchText.slice(0, 400),
+    phone: org.phone?.trim() || undefined,
+    contactSource: org.phone?.trim() ? "sra_register" : undefined,
+    contactConfidence: org.phone?.trim() ? 0.92 : undefined,
+    practiceAreas: practiceAreasFromText(searchText, { includeRelated: false }),
+    categories: ["SRA organisation"],
+    subIssues: subIssuesFromSlug(resolution?.taxonomySlug ?? null),
+    searchText,
+    expandedSearchText,
+    source: "sra",
+    city: org.normalizedCity || org.city || undefined,
+    postcode: org.normalizedPostcode
+      ? normalisePostcode(org.normalizedPostcode)
+      : org.postcode
+        ? normalisePostcode(org.postcode)
+        : undefined,
+    website,
+    country: org.country || "United Kingdom",
+    address:
+      org.normalizedAddress || [org.city, org.county, org.postcode].filter(Boolean).join(", ") ||
+      undefined,
+    legalAid: false,
+    verified: true,
+    sraId: org.sraId,
+    profileUrl: org.sraProfileUrl || sraProfileUrlForId(org.sraId),
+    authorityScore: 0.78,
+    profileCompletenessScore: profileScore(org),
+    rawSourceId: org.sraId,
+    updatedAt: org.updatedAt.getTime(),
+  };
+  if (options?.skipGeo && org.latitude != null && org.longitude != null) {
+    doc.latitude = org.latitude;
+    doc.longitude = org.longitude;
+    doc.locationPoint = [org.latitude, org.longitude];
+  } else {
+    applyGeo(doc, geo);
+  }
+  projectAndApplySraPracticeAreas(doc);
+  return applyTaxonomyProjection(doc);
+}
+
+export async function buildSingleSraDocument(
+  entityId: string,
+  options?: BuildSraDocumentsOptions,
+): Promise<LegalEntityDocument | null> {
+  const sraId = entityId.replace(/^sra:/, "").replace(/^sra-/, "");
+  try {
+    const org = await prisma.sraOrganisation.findFirst({
+      where: {
+        OR: [{ sraId }, { id: entityId }, { id: `sra-${sraId}` }],
+      },
+    });
+    if (!org) return null;
+    return sraOrganisationToDocument(org, options);
+  } catch {
+    return null;
+  }
+}
+
 export async function buildSraDocuments(
   options?: BuildSraDocumentsOptions,
 ): Promise<LegalEntityDocument[]> {
@@ -344,49 +428,7 @@ export async function buildSraDocuments(
   }
   const out: LegalEntityDocument[] = [];
   for (const org of rows) {
-    const searchText = org.searchText || org.businessName;
-    const resolution = resolveLegalIssueFromQuery(searchText);
-    const expandedSearchText = buildExpandedSearchText(resolution, searchText);
-    const geo = options?.skipGeo
-      ? null
-      : await resolveGeoForIndex({
-          postcode: org.postcode,
-          city: org.city,
-          existingLat: org.latitude,
-          existingLng: org.longitude,
-        });
-    const doc: LegalEntityDocument = {
-      id: `sra:${org.sraId}`,
-      entityType: "sra_organisation",
-      title: org.businessName,
-      description: searchText.slice(0, 400),
-      practiceAreas: practiceAreasFromText(searchText),
-      categories: ["SRA organisation"],
-      subIssues: subIssuesFromSlug(resolution?.taxonomySlug ?? null),
-      searchText,
-      expandedSearchText,
-      source: "sra",
-      city: org.city || undefined,
-      postcode: org.postcode ? normalisePostcode(org.postcode) : undefined,
-      country: org.country || "United Kingdom",
-      legalAid: false,
-      verified: true,
-      sraId: org.sraId,
-      profileUrl: org.sraProfileUrl || sraProfileUrlForId(org.sraId),
-      authorityScore: 0.78,
-      profileCompletenessScore: profileScore(org),
-      rawSourceId: org.sraId,
-      updatedAt: org.updatedAt.getTime(),
-    };
-    if (options?.skipGeo && org.latitude != null && org.longitude != null) {
-      doc.latitude = org.latitude;
-      doc.longitude = org.longitude;
-      doc.locationPoint = [org.latitude, org.longitude];
-    } else {
-      applyGeo(doc, geo);
-    }
-    projectAndApplySraPracticeAreas(doc);
-    out.push(applyTaxonomyProjection(doc));
+    out.push(await sraOrganisationToDocument(org, options));
   }
   return out;
 }
@@ -403,10 +445,31 @@ export function documentToTypesenseRecord(doc: LegalEntityDocument): Record<stri
     taxonomyAliases: doc.taxonomyAliases ?? [],
     taxonomyProjectionMatches: doc.taxonomyProjectionMatches ?? [],
     sraProjectionConfidence: doc.sraProjectionConfidence ?? 0,
+    employmentProjectionConfidence: doc.employmentProjectionConfidence ?? 0,
     categories: doc.categories,
     subIssues: doc.subIssues,
     searchText: doc.searchText,
     expandedSearchText: doc.expandedSearchText,
+    userSearchText: doc.userSearchText ?? "",
+    legalSearchText: doc.legalSearchText ?? "",
+    capabilitySearchText: doc.capabilitySearchText ?? "",
+    provenanceSearchText: doc.provenanceSearchText ?? "",
+    geoSearchText: doc.geoSearchText ?? "",
+    issueAliases: doc.issueAliases ?? [],
+    legalTerms: doc.legalTerms ?? [],
+    userPhrases: doc.userPhrases ?? [],
+    fundingTerms: doc.fundingTerms ?? [],
+    urgencyTerms: doc.urgencyTerms ?? [],
+    tribunalTerms: doc.tribunalTerms ?? [],
+    languageTerms: doc.languageTerms ?? [],
+    accessibilityTerms: doc.accessibilityTerms ?? [],
+    exactTitle: doc.exactTitle ?? "",
+    exactPostcode: doc.exactPostcode ?? "",
+    exactCity: doc.exactCity ?? "",
+    exactSraId: doc.exactSraId ?? "",
+    indexQualityScore: doc.indexQualityScore ?? 0,
+    providerCompletenessScore: doc.providerCompletenessScore ?? 0,
+    contactPageUrl: doc.contactPageUrl ?? "",
     source: doc.source,
     city: doc.city ?? "",
     postcode: doc.postcode ?? "",

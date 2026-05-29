@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const EnrichmentStatusSchema = z.enum([
   "pending_review",
+  "audit_review",
   "approved",
   "rejected",
   "auto_approved",
@@ -57,6 +58,10 @@ export type EnrichmentFieldName =
   | "phone"
   | "email"
   | "website"
+  | "contactPageUrl"
+  | "practiceAreaSlugs"
+  | "openingHours"
+  | "address"
   | "capabilities"
   | "fundingCapabilities"
   | "urgencyCapabilities"

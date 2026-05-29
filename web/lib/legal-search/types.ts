@@ -30,6 +30,8 @@ export type SearchResultScores = {
   language: number;
   authority: number;
   freshness: number;
+  /** Normalized cross-encoder reranker score when ENABLE_OPEN_RERANKER is on. */
+  reranker?: number;
   final: number;
 };
 
@@ -115,6 +117,16 @@ export const ParsedQuerySchema = z.object({
   expandedSearchText: z.string().optional(),
   queryConfidence: QueryConfidenceSchema.optional(),
   refinementQuestion: z.string().nullable().optional(),
+  refinementChips: z
+    .array(
+      z.object({
+        id: z.string(),
+        label: z.string(),
+        value: z.string(),
+      }),
+    )
+    .max(8)
+    .optional(),
   taxonomySummary: z.string().optional(),
 });
 

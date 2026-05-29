@@ -2,10 +2,16 @@ import { prisma } from "@/lib/db/prisma";
 import { validateEnrichmentCandidate } from "@/lib/provider-enrichment/validators";
 import { submitEnrichmentCandidate } from "@/lib/provider-enrichment/review-queue";
 import type { EnrichmentCandidate, EnrichmentFieldName } from "@/lib/provider-enrichment/types";
+import { crawlConfidenceForSource } from "@/lib/provider-crawler/provenance";
 import {
-  crawlConfidenceForSource,
-  shouldAutoApproveCrawlField,
-} from "@/lib/provider-crawler/provenance";
+  evaluateAutoApprovalPolicy,
+  policyDecisionToStatus,
+} from "@/lib/provider-enrichment/auto-approval-policy";
+import {
+  loadApprovedRefsForEntity,
+  loadOfficialWebsiteForEntity,
+  resolvePolicyStatus,
+} from "@/lib/provider-enrichment/submit-with-policy";
 import type {
   ExtractedFieldCandidate,
   FieldStatus,
@@ -16,6 +22,10 @@ const FIELD_TO_ENRICHMENT: Partial<Record<string, EnrichmentFieldName>> = {
   phone: "phone",
   email: "email",
   website: "website",
+  contact_page: "contactPageUrl",
+  opening_hours: "openingHours",
+  address: "address",
+  practice_areas: "practiceAreaSlugs",
   capabilities: "capabilities",
   fundingCapabilities: "fundingCapabilities",
   urgencyCapabilities: "urgencyCapabilities",
@@ -55,16 +65,57 @@ export async function persistExtractedField(
   }
 
   const confidence = crawlConfidenceForSource(candidate.sourceType, candidate.confidence);
-  const autoApprove = shouldAutoApproveCrawlField(
-    candidate.sourceType,
-    confidence,
-    candidate.fieldName,
-    reviewCategory,
-  );
-  const status: FieldStatus = autoApprove ? "auto_approved" : "pending_review";
 
-  if (!autoApprove && confidence < 0.5) {
-    return { status: "rejected", reason: "confidence_too_low" };
+  let status: FieldStatus = "pending_review";
+  let policyDecision: string | undefined;
+  let policyReason: string | undefined;
+  let auditSample = false;
+
+  if (enrichment) {
+    const [existingApproved, officialWebsite] = await Promise.all([
+      loadApprovedRefsForEntity(candidate.entityId),
+      loadOfficialWebsiteForEntity(candidate.entityId),
+    ]);
+    const resolved = resolvePolicyStatus(enrichment, confidence, {
+      existingApproved,
+      officialWebsiteUrl: officialWebsite,
+      reviewCategory,
+    });
+    if (resolved.status === "rejected") {
+      return { status: "rejected", reason: resolved.policyReason };
+    }
+    status = resolved.status as FieldStatus;
+    policyDecision = resolved.policyDecision;
+    policyReason = resolved.policyReason;
+    auditSample = resolved.auditSample;
+  } else {
+    const [existingApproved, officialWebsite] = await Promise.all([
+      loadApprovedRefsForEntity(candidate.entityId),
+      loadOfficialWebsiteForEntity(candidate.entityId),
+    ]);
+    const policy = evaluateAutoApprovalPolicy({
+      entityId: candidate.entityId,
+      entityType: candidate.entityType,
+      field: {
+        fieldName: candidate.fieldName,
+        extractedValue: candidate.extractedValue,
+        sourceType: candidate.sourceType as EnrichmentCandidate["sourceType"],
+        sourceUrl: candidate.sourceUrl,
+        extractionMethod: candidate.extractionMethod,
+        confidence,
+        provenanceNote: candidate.provenanceNote,
+        reviewCategory,
+      },
+      existingApproved,
+      officialWebsiteUrl: officialWebsite,
+    });
+    if (policy.decision === "reject") {
+      return { status: "rejected", reason: policy.reason };
+    }
+    status = policyDecisionToStatus(policy.decision) as FieldStatus;
+    policyDecision = policy.decision;
+    policyReason = policy.reason;
+    auditSample = policy.auditSample;
   }
 
   try {
@@ -90,6 +141,9 @@ export async function persistExtractedField(
         reviewCategory,
         status,
         provenanceNote: candidate.provenanceNote,
+        policyDecision,
+        policyReason,
+        auditSample,
         extractedAt: candidate.extractedAt ?? new Date(),
       },
       update: {
@@ -97,15 +151,22 @@ export async function persistExtractedField(
         sourceUrl: candidate.sourceUrl,
         sourceType: candidate.sourceType,
         extractionMethod: candidate.extractionMethod,
-        status: autoApprove ? status : undefined,
+        status,
         provenanceNote: candidate.provenanceNote,
+        policyDecision,
+        policyReason,
+        auditSample,
         extractedAt: candidate.extractedAt ?? new Date(),
         updatedAt: new Date(),
       },
     });
 
-    if (autoApprove && enrichment) {
-      await syncFieldToEnrichment(enrichment, "auto_approved");
+    if (status === "auto_approved" && enrichment) {
+      await syncFieldToEnrichment(enrichment, "auto_approved", {
+        policyDecision,
+        policyReason,
+        auditSample,
+      });
     }
 
     return { status: row.status as FieldStatus, id: row.id };
@@ -117,6 +178,7 @@ export async function persistExtractedField(
 async function syncFieldToEnrichment(
   candidate: EnrichmentCandidate,
   forceStatus?: "approved" | "auto_approved",
+  policyMeta?: { policyDecision?: string; policyReason?: string; auditSample?: boolean },
 ): Promise<void> {
   if (forceStatus === "approved" || forceStatus === "auto_approved") {
     const confidence = crawlConfidenceForSource(
@@ -143,10 +205,16 @@ async function syncFieldToEnrichment(
           extractionMethod: candidate.extractionMethod,
           status: forceStatus,
           provenanceNote: candidate.provenanceNote,
+          policyDecision: policyMeta?.policyDecision,
+          policyReason: policyMeta?.policyReason,
+          auditSample: policyMeta?.auditSample ?? false,
         },
         update: {
           status: forceStatus,
           confidence,
+          policyDecision: policyMeta?.policyDecision,
+          policyReason: policyMeta?.policyReason,
+          auditSample: policyMeta?.auditSample,
           updatedAt: new Date(),
         },
       });
@@ -182,6 +250,12 @@ export async function setExtractedFieldStatus(
 
     if (status === "approved" && enrichment) {
       await syncFieldToEnrichment(enrichment, "approved");
+      const { enqueueProviderForIndexing } = await import("@/lib/ops/enqueue-on-approval");
+      await enqueueProviderForIndexing({
+        entityId: row.entityId,
+        entityType: row.entityType,
+        reason: "crawler_field_approved",
+      });
     }
 
     return true;
@@ -203,6 +277,7 @@ export type PendingExtractedField = {
   reviewCategory: string;
   status: string;
   extractedAt: string;
+  provenanceNote?: string;
 };
 
 export async function countProviderExtractedFields(): Promise<{
@@ -221,16 +296,16 @@ export async function countProviderExtractedFields(): Promise<{
 }
 
 export async function listPendingExtractedFields(
-  limit = 200,
+  limit = 500,
   reviewCategory?: ReviewCategory,
 ): Promise<PendingExtractedField[]> {
   try {
     const rows = await prisma.providerExtractedField.findMany({
       where: {
-        status: "pending_review",
+        status: { in: ["pending_review", "audit_review"] },
         ...(reviewCategory ? { reviewCategory } : {}),
       },
-      orderBy: { createdAt: "desc" },
+      orderBy: [{ extractedAt: "desc" }, { createdAt: "desc" }],
       take: limit,
     });
     return rows.map((r) => ({
@@ -246,6 +321,7 @@ export async function listPendingExtractedFields(
       reviewCategory: r.reviewCategory,
       status: r.status,
       extractedAt: r.extractedAt.toISOString(),
+      provenanceNote: r.provenanceNote ?? undefined,
     }));
   } catch {
     return [];
@@ -272,6 +348,19 @@ export async function queueCrawlJob(
   } catch {
     return null;
   }
+}
+
+export async function bulkSetExtractedFieldStatus(
+  ids: string[],
+  status: "approved" | "rejected",
+): Promise<{ ok: string[]; failed: string[] }> {
+  const ok: string[] = [];
+  const failed: string[] = [];
+  for (const id of ids) {
+    if (await setExtractedFieldStatus(id, status)) ok.push(id);
+    else failed.push(id);
+  }
+  return { ok, failed };
 }
 
 export async function listQueuedCrawlJobs(limit = 50) {

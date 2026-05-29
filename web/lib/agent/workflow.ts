@@ -17,6 +17,10 @@ import {
   type PracticeAreaSlug,
 } from "@/lib/agent/types";
 import type { MapMarker } from "@/lib/search/map-results";
+import {
+  extractPhoneFromSraSearchText,
+  resolveSraDisplayName,
+} from "@/lib/search/sra-display";
 import type { ParsedQuery } from "@/lib/legal-search/types";
 import { extractFilters } from "@/lib/agent/extractor";
 import {
@@ -292,11 +296,20 @@ function toMatch(
     return lawyerMatch;
   }
 
+  const displayName = resolveSraDisplayName(
+    r.org.businessName,
+    r.org.searchText ?? "",
+    r.org.sraId,
+  );
+  const phone =
+    r.org.phone?.trim() || extractPhoneFromSraSearchText(r.org.searchText ?? "") || undefined;
+
   const orgMatch: OrgMatch = {
     kind: "org",
     id: r.org.id,
     sraId: r.org.sraId,
-    businessName: r.org.businessName,
+    businessName: displayName,
+    phone,
     city: r.org.city,
     postcode: r.org.postcode,
     country: r.org.country,

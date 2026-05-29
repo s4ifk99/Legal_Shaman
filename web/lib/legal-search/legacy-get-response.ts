@@ -2,6 +2,10 @@ import type { SearchResult } from "@/lib/legal-search/types";
 import type { UnifiedSearchHit } from "@/lib/search/unified-search";
 import type { Listing } from "@/lib/data";
 import { enableSearchDebug } from "@/lib/legal-search/config";
+import {
+  extractPhoneFromSraSearchText,
+  resolveSraDisplayName,
+} from "@/lib/search/sra-display";
 
 type LegacyAdl = {
   kind: "adl";
@@ -114,15 +118,30 @@ export function toLegacyGetResponse(results: SearchResult[]): LegacyGetRow[] {
     }
 
     if (r.source === "sra") {
-      const doc = r.raw as import("@/lib/search/sra-document").SraMeiliDocument;
+      const doc = r.raw as import("@/lib/search/sra-document").SraMeiliDocument & {
+        phone?: string;
+        searchText?: string;
+      };
+      const sraId = doc.sraId ?? r.id.replace(/^sra:/, "");
+      const searchText = doc.searchText ?? r.description ?? "";
+      const displayName = resolveSraDisplayName(
+        doc.businessName ?? r.title,
+        searchText,
+        sraId,
+      );
+      const phone =
+        r.contact?.phone?.trim() ||
+        doc.phone?.trim() ||
+        extractPhoneFromSraSearchText(searchText) ||
+        "";
       return {
         kind: "adl" as const,
         id: r.id,
-        businessName: r.title,
-        description: r.description ?? doc.searchText,
+        businessName: displayName,
+        description: r.description ?? searchText,
         city: doc.city,
         postcode: doc.postcode,
-        phone: "",
+        phone,
         email: "",
         website: doc.sraProfileUrl,
         category: "SRA",

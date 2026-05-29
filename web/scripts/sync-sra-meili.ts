@@ -15,7 +15,7 @@
  */
 
 import "./load-dotenv";
-import { PrismaClient } from "@prisma/client";
+import { createPrismaClient } from "../lib/db/prisma";
 import { MeiliSearch } from "meilisearch";
 import { upsertSraDocumentsMysql, upsertFirmsFromSra } from "../lib/sra-mysql-sync";
 import { ensureSraIndex } from "../lib/search/meilisearch-index";
@@ -110,7 +110,7 @@ async function main() {
     process.exit(1);
   }
 
-  const prisma = databaseUrl ? new PrismaClient() : null;
+  const prisma = databaseUrl ? createPrismaClient() : null;
   if (prisma) {
     console.log("DATABASE_URL set — will upsert sra_organisations (and firms) per batch.");
   } else if (!meiliEnabled) {

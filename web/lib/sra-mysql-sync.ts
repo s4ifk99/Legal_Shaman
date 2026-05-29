@@ -27,6 +27,7 @@ export async function upsertSraDocumentsMysql(
             id: doc.id,
             sraId: clamp(doc.sraId, 64),
             businessName: clamp(doc.businessName, 512),
+            phone: clamp(doc.phone ?? "", 64),
             searchText: doc.searchText,
             city: clamp(doc.city, 255),
             postcode: clamp(doc.postcode, 32),
@@ -38,6 +39,7 @@ export async function upsertSraDocumentsMysql(
           update: {
             sraId: clamp(doc.sraId, 64),
             businessName: clamp(doc.businessName, 512),
+            phone: clamp(doc.phone ?? "", 64),
             searchText: doc.searchText,
             city: clamp(doc.city, 255),
             postcode: clamp(doc.postcode, 32),

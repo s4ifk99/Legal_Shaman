@@ -4,11 +4,12 @@ import type {
   EnrichmentStatus,
   ProviderEnrichment,
 } from "@/lib/provider-enrichment/types";
+import { confidenceForSource } from "@/lib/provider-enrichment/provenance";
 import {
-  AUTO_APPROVE_CONFIDENCE,
-  confidenceForSource,
-  shouldAutoApprove,
-} from "@/lib/provider-enrichment/provenance";
+  loadApprovedRefsForEntity,
+  loadOfficialWebsiteForEntity,
+  resolvePolicyStatus,
+} from "@/lib/provider-enrichment/submit-with-policy";
 import { validateEnrichmentCandidate } from "@/lib/provider-enrichment/validators";
 
 function toRecord(row: {
@@ -50,11 +51,18 @@ export async function submitEnrichmentCandidate(
   }
 
   const confidence = confidenceForSource(candidate.sourceType, candidate.confidence);
-  const autoApprove = shouldAutoApprove(candidate.sourceType, confidence, candidate.fieldName);
-  const status: EnrichmentStatus = autoApprove ? "auto_approved" : "pending_review";
+  const [existingApproved, officialWebsite] = await Promise.all([
+    loadApprovedRefsForEntity(candidate.entityId),
+    loadOfficialWebsiteForEntity(candidate.entityId),
+  ]);
 
-  if (!autoApprove && confidence < 0.5) {
-    return { status: "rejected", reason: "confidence_too_low" };
+  const resolved = resolvePolicyStatus(candidate, confidence, {
+    existingApproved,
+    officialWebsiteUrl: officialWebsite,
+  });
+
+  if (resolved.status === "rejected") {
+    return { status: "rejected", reason: resolved.policyReason };
   }
 
   try {
@@ -75,20 +83,38 @@ export async function submitEnrichmentCandidate(
         sourceUrl: candidate.sourceUrl,
         sourceType: candidate.sourceType,
         extractionMethod: candidate.extractionMethod,
-        status,
+        status: resolved.status,
         provenanceNote: candidate.provenanceNote,
+        policyDecision: resolved.policyDecision,
+        policyReason: resolved.policyReason,
+        auditSample: resolved.auditSample,
       },
       update: {
         confidence,
         sourceUrl: candidate.sourceUrl,
         sourceType: candidate.sourceType,
         extractionMethod: candidate.extractionMethod,
-        status: autoApprove ? status : undefined,
+        status: resolved.status,
         provenanceNote: candidate.provenanceNote,
+        policyDecision: resolved.policyDecision,
+        policyReason: resolved.policyReason,
+        auditSample: resolved.auditSample,
         updatedAt: new Date(),
       },
     });
-    return { status: row.status as EnrichmentStatus, id: row.id };
+    const finalStatus = row.status as EnrichmentStatus;
+    if (finalStatus === "approved" || finalStatus === "auto_approved") {
+      const { enqueueProviderForIndexing } = await import("@/lib/ops/enqueue-on-approval");
+      await enqueueProviderForIndexing({
+        entityId: row.entityId,
+        entityType: row.entityType,
+        reason:
+          finalStatus === "auto_approved"
+            ? "provider_enrichment_auto_approved"
+            : "provider_enrichment_approved",
+      });
+    }
+    return { status: finalStatus, id: row.id };
   } catch {
     return { status: "pending_review" };
   }
@@ -97,7 +123,7 @@ export async function submitEnrichmentCandidate(
 export async function listPendingEnrichments(limit = 100): Promise<ProviderEnrichment[]> {
   try {
     const rows = await prisma.providerEnrichment.findMany({
-      where: { status: "pending_review" },
+      where: { status: { in: ["pending_review", "audit_review"] } },
       orderBy: { createdAt: "desc" },
       take: limit,
     });
@@ -112,10 +138,18 @@ export async function setEnrichmentStatus(
   status: "approved" | "rejected",
 ): Promise<boolean> {
   try {
-    await prisma.providerEnrichment.update({
+    const row = await prisma.providerEnrichment.update({
       where: { id },
       data: { status, updatedAt: new Date() },
     });
+    if (status === "approved") {
+      const { enqueueProviderForIndexing } = await import("@/lib/ops/enqueue-on-approval");
+      await enqueueProviderForIndexing({
+        entityId: row.entityId,
+        entityType: row.entityType,
+        reason: "provider_enrichment_approved",
+      });
+    }
     return true;
   } catch {
     return false;
@@ -149,4 +183,4 @@ export async function loadAllApprovedEnrichments(): Promise<ProviderEnrichment[]
   }
 }
 
-export { AUTO_APPROVE_CONFIDENCE };
+export { AUTO_APPROVE_CONFIDENCE } from "@/lib/provider-enrichment/provenance";

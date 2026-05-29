@@ -198,7 +198,8 @@ export function sanitiseContactForDisplay(r: SearchResult): SearchResult {
   const structuredSource =
     raw?.contactSource === "structured_db" ||
     raw?.contactSource === "govuk_legal_aid" ||
-    raw?.contactSource === "curated_listing";
+    raw?.contactSource === "curated_listing" ||
+    raw?.contactSource === "sra_register";
 
   if (!approved && !structuredSource && (r.contact?.phone || r.contact?.email)) {
     return {

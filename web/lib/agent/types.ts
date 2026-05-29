@@ -125,6 +125,7 @@ export type OrgMatch = {
   id: string;
   sraId: string;
   businessName: string;
+  phone?: string;
   city: string;
   postcode: string;
   country: string;

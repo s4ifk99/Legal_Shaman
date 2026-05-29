@@ -15,10 +15,31 @@ export const legalEntitiesFields: CollectionFieldSchema[] = [
   { name: "taxonomyAliases", type: "string[]", optional: true },
   { name: "taxonomyProjectionMatches", type: "string[]", optional: true },
   { name: "sraProjectionConfidence", type: "float", optional: true },
+  { name: "employmentProjectionConfidence", type: "float", optional: true },
   { name: "categories", type: "string[]", facet: true, optional: true },
   { name: "subIssues", type: "string[]", optional: true },
   { name: "searchText", type: "string", optional: true },
   { name: "expandedSearchText", type: "string", optional: true },
+  { name: "userSearchText", type: "string", optional: true },
+  { name: "legalSearchText", type: "string", optional: true },
+  { name: "capabilitySearchText", type: "string", optional: true },
+  { name: "provenanceSearchText", type: "string", optional: true },
+  { name: "geoSearchText", type: "string", optional: true },
+  { name: "issueAliases", type: "string[]", optional: true },
+  { name: "legalTerms", type: "string[]", optional: true },
+  { name: "userPhrases", type: "string[]", optional: true },
+  { name: "fundingTerms", type: "string[]", optional: true },
+  { name: "urgencyTerms", type: "string[]", optional: true },
+  { name: "tribunalTerms", type: "string[]", optional: true },
+  { name: "languageTerms", type: "string[]", optional: true },
+  { name: "accessibilityTerms", type: "string[]", optional: true },
+  { name: "exactTitle", type: "string", optional: true },
+  { name: "exactPostcode", type: "string", optional: true },
+  { name: "exactCity", type: "string", optional: true },
+  { name: "exactSraId", type: "string", optional: true },
+  { name: "indexQualityScore", type: "float", optional: true },
+  { name: "providerCompletenessScore", type: "float", optional: true },
+  { name: "contactPageUrl", type: "string", optional: true },
   { name: "source", type: "string", facet: true, optional: true },
   { name: "city", type: "string", facet: true, optional: true },
   { name: "postcode", type: "string", optional: true },
@@ -53,9 +74,41 @@ export const legalEntitiesFields: CollectionFieldSchema[] = [
   { name: "updatedAt", type: "int64" },
 ];
 
+const INDEX_SCHEMA_PATCH_FIELDS: CollectionFieldSchema[] = legalEntitiesFields.filter((f) =>
+  [
+    "userSearchText",
+    "legalSearchText",
+    "capabilitySearchText",
+    "provenanceSearchText",
+    "geoSearchText",
+    "issueAliases",
+    "legalTerms",
+    "userPhrases",
+    "fundingTerms",
+    "urgencyTerms",
+    "tribunalTerms",
+    "languageTerms",
+    "accessibilityTerms",
+    "exactTitle",
+    "exactPostcode",
+    "exactCity",
+    "exactSraId",
+    "indexQualityScore",
+    "providerCompletenessScore",
+    "contactPageUrl",
+  ].includes(f.name),
+);
+
 export async function ensureLegalEntitiesCollection(client: TsClient): Promise<void> {
   try {
-    await client.collections(LEGAL_ENTITIES_COLLECTION).retrieve();
+    const col = await client.collections(LEGAL_ENTITIES_COLLECTION).retrieve();
+    const existing = new Set(
+      ((col as { fields?: { name: string }[] }).fields ?? []).map((f) => f.name),
+    );
+    const toAdd = INDEX_SCHEMA_PATCH_FIELDS.filter((f) => !existing.has(f.name));
+    if (toAdd.length) {
+      await client.collections(LEGAL_ENTITIES_COLLECTION).update({ fields: toAdd });
+    }
   } catch (e: unknown) {
     const http = (e as { httpStatus?: number })?.httpStatus;
     if (http !== 404) throw e;

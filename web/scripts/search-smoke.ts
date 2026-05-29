@@ -89,6 +89,7 @@ async function main() {
         if (!r.explanation?.trim()) fail(`missing explanation for "${query}" / ${r.id}`);
       }
       const hasRefinement =
+        Boolean(dir.parsedQuery.refinementChips?.length) ||
         Boolean(dir.parsedQuery.refinementQuestion?.trim()) ||
         Boolean(dir.parsedQuery.taxonomySummary?.trim());
       if (

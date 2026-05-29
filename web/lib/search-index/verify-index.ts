@@ -3,6 +3,11 @@ import { LEGAL_ENTITIES_COLLECTION } from "@/lib/search-index/config";
 import { legalEntitiesFields } from "@/lib/search-index/typesense-legal-entities-index";
 import { typesenseServerHealth } from "@/lib/search-index/typesense-legal-entities-index";
 import { collectIndexBalanceReport } from "@/lib/search-index/index-balance-diagnostics";
+import { collectIndexQualityDiagnostics } from "@/lib/search-index/index-quality-diagnostics";
+import {
+  LEGAL_ENTITIES_QUERY_BY,
+  LEGAL_ENTITIES_QUERY_BY_WEIGHTS,
+} from "@/lib/search-index/typesense-legal-entities-search";
 
 const REQUIRED_FIELDS = [
   "id",
@@ -18,6 +23,59 @@ const REQUIRED_FIELDS = [
 ] as const;
 
 const SAMPLE_SIZE = 120;
+
+const EMPLOYMENT_PHRASE_PROBES = [
+  "employment tribunal",
+  "unfair dismissal",
+  "redundancy",
+] as const;
+
+async function probeEmploymentPhrasesInIndex(
+  client: NonNullable<ReturnType<typeof buildTypesenseListingsClientFromEnv>>,
+): Promise<IndexVerifyRow[]> {
+  const out: IndexVerifyRow[] = [];
+  for (const phrase of EMPLOYMENT_PHRASE_PROBES) {
+    try {
+      const res = await client
+        .collections(LEGAL_ENTITIES_COLLECTION)
+        .documents()
+        .search({
+          q: phrase,
+          query_by: LEGAL_ENTITIES_QUERY_BY,
+          query_by_weights: LEGAL_ENTITIES_QUERY_BY_WEIGHTS,
+          filter_by: "entityType:=`sra_organisation`",
+          per_page: 3,
+        });
+      const found = Number((res as { found?: number }).found ?? 0);
+      const hits = (res as { hits?: { document?: Record<string, unknown> }[] }).hits ?? [];
+      const detail = hits
+        .map((h) => {
+          const d = h.document ?? {};
+          const slugs = Array.isArray(d.practiceAreaSlugs)
+            ? (d.practiceAreaSlugs as string[]).join(",")
+            : "[]";
+          return `${String(d.id)} slugs=[${slugs}]`;
+        })
+        .join("; ");
+      out.push(
+        row(
+          `employment_phrase_${phrase.replace(/\s+/g, "_")}`,
+          found > 0 ? "pass" : "warn",
+          `found=${found}${detail ? ` | ${detail}` : ""}`,
+        ),
+      );
+    } catch (e) {
+      out.push(
+        row(
+          `employment_phrase_${phrase.replace(/\s+/g, "_")}`,
+          "warn",
+          `search failed: ${String(e)}`,
+        ),
+      );
+    }
+  }
+  return out;
+}
 
 export type IndexVerifyRow = {
   check: string;
@@ -239,13 +297,47 @@ export async function verifyLegalEntitiesIndex(): Promise<IndexVerifyReport> {
         `SRA immigration docs: ${balance.sraByPracticeAreaSlug.immigration ?? 0}`,
       ),
     );
+    const employmentSraCount = balance.sraByPracticeAreaSlug.employment ?? 0;
     rows.push(
       row(
         "employment_sra_count",
-        (balance.sraByPracticeAreaSlug.employment ?? 0) > 0 ? "pass" : "warn",
-        `SRA employment docs: ${balance.sraByPracticeAreaSlug.employment ?? 0}`,
+        employmentSraCount >= 100 ? "pass" : employmentSraCount > 0 ? "warn" : "warn",
+        `SRA employment docs: ${employmentSraCount}${employmentSraCount < 100 ? " (target ≥100)" : ""}`,
       ),
     );
+    if (balance.employmentProjectionSamples.length > 0) {
+      const empSampleLine = balance.employmentProjectionSamples
+        .slice(0, 3)
+        .map(
+          (s) =>
+            `${s.title.slice(0, 40)} [${s.practiceAreaSlugs.join(",")}]${s.employmentProjectionConfidence != null ? ` empConf=${s.employmentProjectionConfidence}` : ""}`,
+        )
+        .join("; ");
+      rows.push(row("employment_projection_samples", "pass", empSampleLine));
+    }
+    if (balance.employmentProjectionConfidenceRange) {
+      rows.push(
+        row(
+          "employment_projection_confidence",
+          "pass",
+          `range ${balance.employmentProjectionConfidenceRange.min}–${balance.employmentProjectionConfidenceRange.max}`,
+        ),
+      );
+    }
+    rows.push(
+      row(
+        "employment_sra_count_regression",
+        employmentSraCount > 100 ? "pass" : employmentSraCount > 0 ? "warn" : "fail",
+        employmentSraCount > 100
+          ? `regression target >100, actual=${employmentSraCount}`
+          : employmentSraCount > 0
+            ? `actual=${employmentSraCount} (target >100; SRA search_text has ~28 employment firms — re-sync SRA PracticeAreas or broaden signals)`
+            : `regression failed: actual=0 (re-run search:index:sra)`,
+      ),
+    );
+    if (client) {
+      rows.push(...(await probeEmploymentPhrasesInIndex(client)));
+    }
     rows.push(
       row(
         "housing_sra_count",
@@ -302,6 +394,65 @@ export async function verifyLegalEntitiesIndex(): Promise<IndexVerifyReport> {
     );
   } else {
     rows.push(row("index_balance", "warn", "could not collect balance diagnostics"));
+  }
+
+  const quality = await collectIndexQualityDiagnostics(250);
+  if (quality) {
+    for (const [field, stats] of Object.entries(quality.sraFieldPopulation)) {
+      const minPass = field === "userPhrases" ? 0.9 : 0.5;
+      const minWarn = field === "userPhrases" ? 0.5 : 0.2;
+      rows.push(
+        row(
+          `index_field_sra:${field}`,
+          stats.rate >= minPass ? "pass" : stats.rate >= minWarn ? "warn" : "fail",
+          `populated=${stats.populated}/${quality.sraSampleSize} (${Math.round(stats.rate * 100)}%) avgTokens=${stats.avgTokenLength}`,
+        ),
+      );
+    }
+    rows.push(
+      row(
+        "empty_issueAliases_mixed_sample",
+        quality.emptyIssueAliases < quality.sampleSize * 0.5 ? "pass" : "warn",
+        `${quality.emptyIssueAliases}/${quality.sampleSize} (legal_aid-heavy)`,
+      ),
+    );
+    rows.push(
+      row(
+        "sra_empty_issueAliases",
+        quality.sraEmptyIssueAliases < quality.sraSampleSize * 0.1 ? "pass" : "warn",
+        `${quality.sraEmptyIssueAliases}/${quality.sraSampleSize}`,
+      ),
+    );
+    rows.push(
+      row(
+        "sra_empty_legalTerms",
+        quality.sraEmptyLegalTerms < quality.sraSampleSize * 0.2 ? "pass" : "warn",
+        `${quality.sraEmptyLegalTerms}/${quality.sraSampleSize}`,
+      ),
+    );
+    rows.push(
+      row(
+        "sra_empty_userSearchText",
+        quality.sraEmptyUserSearchText === 0 ? "pass" : "warn",
+        `${quality.sraEmptyUserSearchText}/${quality.sraSampleSize}`,
+      ),
+    );
+    if (quality.weakDocuments.length > 0) {
+      const weakLine = quality.weakDocuments
+        .slice(0, 5)
+        .map((w) => `${w.id} score=${w.score} (${w.source})`)
+        .join("; ");
+      rows.push(row("weak_index_documents", "warn", weakLine));
+    }
+    rows.push(
+      row(
+        "practice_area_by_source",
+        "pass",
+        formatCountMap(quality.practiceAreaBySource),
+      ),
+    );
+  } else {
+    rows.push(row("index_quality", "warn", "could not collect quality diagnostics"));
   }
 
   const ok = rows.every((r) => r.status !== "fail");

@@ -7,6 +7,7 @@ export type SraProjectionSample = {
   title: string;
   practiceAreaSlugs: string[];
   sraProjectionConfidence?: number;
+  employmentProjectionConfidence?: number;
 };
 
 export type IndexBalanceReport = {
@@ -23,6 +24,8 @@ export type IndexBalanceReport = {
   sraByPracticeAreaSlug: Record<string, number>;
   sraProjectionSamples: SraProjectionSample[];
   sraProjectionConfidenceRange: { min: number; max: number } | null;
+  employmentProjectionSamples: SraProjectionSample[];
+  employmentProjectionConfidenceRange: { min: number; max: number } | null;
 };
 
 const SRA_VERIFY_SLUGS = [
@@ -190,6 +193,48 @@ export async function collectIndexBalanceReport(): Promise<IndexBalanceReport | 
       ? { min: Math.round(confMin * 100) / 100, max: Math.round(confMax * 100) / 100 }
       : null;
 
+  const employmentProjectionSamples: SraProjectionSample[] = [];
+  let empConfMin = Number.POSITIVE_INFINITY;
+  let empConfMax = 0;
+  try {
+    const empSampleRes = await client
+      .collections(LEGAL_ENTITIES_COLLECTION)
+      .documents()
+      .search({
+        q: "*",
+        query_by: "title",
+        filter_by: "entityType:=`sra_organisation` && practiceAreaSlugs:=[`employment`]",
+        per_page: 5,
+        sort_by: "employmentProjectionConfidence:desc",
+      });
+    const empHits =
+      (empSampleRes as { hits?: { document?: Record<string, unknown> }[] }).hits ?? [];
+    for (const h of empHits) {
+      const d = h.document;
+      if (!d) continue;
+      const conf = Number(d.employmentProjectionConfidence ?? d.sraProjectionConfidence ?? 0);
+      if (conf > 0) {
+        empConfMin = Math.min(empConfMin, conf);
+        empConfMax = Math.max(empConfMax, conf);
+      }
+      employmentProjectionSamples.push({
+        id: String(d.id ?? ""),
+        title: String(d.title ?? ""),
+        practiceAreaSlugs: Array.isArray(d.practiceAreaSlugs)
+          ? (d.practiceAreaSlugs as string[])
+          : [],
+        employmentProjectionConfidence: conf > 0 ? conf : undefined,
+      });
+    }
+  } catch {
+    // optional field may be missing on older index schema
+  }
+
+  const employmentProjectionConfidenceRange =
+    employmentProjectionSamples.length > 0 && Number.isFinite(empConfMin)
+      ? { min: Math.round(empConfMin * 100) / 100, max: Math.round(empConfMax * 100) / 100 }
+      : null;
+
   let legalAidOnlySlugCount = 0;
   for (const slug of TOP_SLUGS) {
     if (slug === "family") continue;
@@ -215,6 +260,8 @@ export async function collectIndexBalanceReport(): Promise<IndexBalanceReport | 
     sraByPracticeAreaSlug,
     sraProjectionSamples,
     sraProjectionConfidenceRange,
+    employmentProjectionSamples,
+    employmentProjectionConfidenceRange,
   };
 }
 

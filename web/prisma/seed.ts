@@ -11,12 +11,12 @@
  */
 
 import { config as loadEnv } from "dotenv";
-import { PrismaClient } from "@prisma/client";
+import { createPrismaClient } from "../lib/db/prisma";
 
 loadEnv({ path: ".env" });
 loadEnv({ path: ".env.local", override: true });
 
-const prisma = new PrismaClient();
+const prisma = createPrismaClient();
 
 type PracticeSlug =
   | "employment"

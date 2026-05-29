@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { OrgMatch } from "@/lib/agent/types";
+import { formatPhoneForDisplay } from "@/lib/search/sra-display";
 import { trackSearchEvent } from "@/lib/search-events/client";
 
 /**
@@ -35,7 +36,7 @@ export function OrgResultCard({
   parsedLocation,
   trackEvents = false,
 }: OrgResultCardProps) {
-  const track = (eventType: "result_click" | "contact_cta_click" | "website_click") => {
+  const track = (eventType: "result_click" | "contact_cta_click" | "website_click" | "phone_click") => {
     if (!trackEvents) return;
     trackSearchEvent({
       eventType,
@@ -93,6 +94,17 @@ export function OrgResultCard({
                   : ""}
             </span>
           </div>
+          {match.phone?.trim() ? (
+            <div className="flex items-center gap-2">
+              <a
+                href={`tel:${match.phone.replace(/\s/g, "")}`}
+                className="font-medium text-primary hover:underline"
+                onClick={() => track("phone_click")}
+              >
+                {formatPhoneForDisplay(match.phone)}
+              </a>
+            </div>
+          ) : null}
         </div>
 
         <div className="flex items-center justify-between gap-3 pt-1">

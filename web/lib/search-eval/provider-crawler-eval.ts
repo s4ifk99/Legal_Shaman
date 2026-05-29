@@ -11,6 +11,17 @@ import {
   isTrustpilotApiConfigured,
   trustpilotFieldsFromStructured,
 } from "@/lib/provider-crawler/trustpilot-api";
+import {
+  confidencePct,
+  confidenceTier,
+  isIdenticalToApproved,
+  normalizeForDedup,
+  valuesMatch,
+} from "@/lib/provider-crawler/admin-review";
+import {
+  canonicalSlugDedupKey,
+  normalizePracticeAreas,
+} from "@/lib/provider-crawler/practice-area-normalizer";
 import { shouldAutoApproveCrawlField } from "@/lib/provider-crawler/provenance";
 import {
   applyProviderCapabilityRanking,
@@ -161,6 +172,63 @@ export function runProviderCrawlerEval(): number {
   if (isPathAllowedByRules("/admin/settings", ["/admin"])) {
     fail("robots-disallowed path should be blocked");
   }
+
+  if (confidenceTier(0.9) !== "high") fail("90% confidence should be high tier");
+  if (confidenceTier(0.89) !== "medium") fail("89% confidence should be medium tier");
+  if (confidenceTier(0.74) !== "low") fail("74% confidence should be low tier");
+  if (confidencePct(0.876) !== 88) fail("confidencePct should round to integer percent");
+
+  if (
+    isIdenticalToApproved("practice_areas", "Family Law, Divorce", ["Family Law, Divorce"])
+  ) {
+    /* ok */
+  } else {
+    fail("identical practice area list should be hidden from review");
+  }
+  if (
+    isIdenticalToApproved("practice_areas", "Housing Law, Debt", ["Housing Law"])
+  ) {
+    fail("superset practice areas should remain reviewable");
+  }
+  if (!valuesMatch("phone", "+44 20 7946 0958", "+442079460958")) {
+    fail("phone values should match after normalisation");
+  }
+  const housingHomeless = normalizePracticeAreas("housing homelessness");
+  if (!housingHomeless.canonicalSlugs.includes("housing")) {
+    fail("housing homelessness should normalize to housing slug");
+  }
+  const housingLaw = normalizePracticeAreas("Housing Law");
+  if (!housingLaw.canonicalSlugs.includes("housing")) {
+    fail("Housing Law should normalize to housing slug");
+  }
+  const humanRights = normalizePracticeAreas("human rights");
+  if (!humanRights.canonicalSlugs.includes("human_rights")) {
+    fail("human rights should normalize to human_rights slug");
+  }
+  const jr = normalizePracticeAreas("Public Law and Judicial Review");
+  if (!jr.canonicalSlugs.includes("judicial_review")) {
+    fail("Public Law and Judicial Review should normalize to judicial_review slug");
+  }
+  const collapsed = normalizePracticeAreas("Housing Law, housing homelessness, Housing Law");
+  if (collapsed.canonicalSlugs.length !== 1 || collapsed.canonicalSlugs[0] !== "housing") {
+    fail("duplicate practice area variants should collapse to one canonical slug");
+  }
+  if (
+    canonicalSlugDedupKey(collapsed.canonicalSlugs) !==
+    canonicalSlugDedupKey(["housing", "housing"])
+  ) {
+    fail("canonical slug dedup key should collapse duplicates");
+  }
+  if (collapsed.canonicalSlugs[0] !== "housing") {
+    fail("canonical slugs should be deterministically ordered");
+  }
+  const ordered = normalizePracticeAreas("debt, Community care, housing");
+  if (ordered.canonicalSlugs.join("|") !== "community_care|debt|housing") {
+    fail(`deterministic ordering failed: ${ordered.canonicalSlugs.join("|")}`);
+  }
+  const dupKeyA = normalizeForDedup("practice_areas", "Housing Law, housing homelessness");
+  const dupKeyB = normalizeForDedup("practice_areas", "housing homelessness, Housing Law");
+  if (dupKeyA !== dupKeyB) fail("practice area dedup keys should ignore order");
 
   if (failed === 0) console.info("provider crawler eval OK");
   return failed;

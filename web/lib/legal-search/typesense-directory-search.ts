@@ -41,6 +41,11 @@ import {
 } from "@/lib/provider-intelligence/provider-capability-ranker";
 import { collectIndexBalanceReport } from "@/lib/search-index/index-balance-diagnostics";
 import {
+  applyOpenRerankerBlend,
+  openRerankerRetrievalLimit,
+} from "@/lib/legal-search/open-reranker";
+import { enableOpenReranker } from "@/lib/legal-search/config";
+import {
   assessPrivateCoverage,
   buildCoverageNotice,
 } from "@/lib/legal-search/private-coverage";
@@ -49,6 +54,10 @@ import { PRIVATE_DIRECTORY_FALLBACK_NOTICE } from "@/lib/legal-search/external-f
 import { groupResultsByFundingRoute } from "@/lib/legal-search/triage/result-router";
 import { resolveFundingRouteOrder } from "@/lib/legal-search/orchestration/search-agent-policy";
 import { detectFundingPreference } from "@/lib/legal-search/triage/funding-router";
+import {
+  applyTopicalRelevanceGate,
+  type TopicalGateDebug,
+} from "@/lib/legal-search/topical-relevance-gate";
 
 export type TypesenseDirectoryOptions = DirectorySearchParams & {
   mapBounds?: { north: number; south: number; east: number; west: number };
@@ -172,11 +181,12 @@ export async function runTypesenseDirectorySearch(
   if (extraFilters.length) filterParts.extra = extraFilters.join(" && ");
   const filterBy = buildFilterBy(filterParts);
 
+  const retrievalLimit = openRerankerRetrievalLimit();
   const retrieval = await searchWithTaxonomyRescue({
     parsed,
     q,
     expandedQ,
-    limit: 80,
+    limit: retrievalLimit,
     filterBy,
     geoSortLat,
     geoSortLng,
@@ -221,6 +231,30 @@ export async function runTypesenseDirectorySearch(
   };
   results = rerankSearchResults(results, parsed, rerankOpts);
 
+  let openRerankerModel: string | undefined;
+  let openRerankerDegraded: boolean | undefined;
+  let topicalGateDebug: TopicalGateDebug = {
+    topicalGateApplied: false,
+    topicalGateMode: "off",
+    primaryTaxonomySlug: parsed.taxonomySlug ?? undefined,
+    allowedOverlapSlugs: [],
+    suppressedSlugs: [],
+    resultsRemovedByTopicalGate: 0,
+  };
+  if (enableOpenReranker()) {
+    const openPass = await applyOpenRerankerBlend(results, {
+      userQuery: q,
+      parsed,
+      opts: rerankOpts,
+      preRankIndexById,
+    });
+    results = openPass.results;
+    openRerankerModel = openPass.meta?.rerankerModel;
+    openRerankerDegraded = openPass.meta?.rerankerDegraded;
+    if (openRerankerDegraded) degradedModes.push("open_reranker_degraded");
+    pushRankingStage("after_open_reranker", results);
+  }
+
   if (rescuePlan && (vagueQueryMode || retrieval.fallbackTriggered)) {
     const before = results.length;
     results = filterVagueRescueResults(results, rescuePlan);
@@ -232,7 +266,7 @@ export async function runTypesenseDirectorySearch(
           parsed,
           rerankOpts,
         ),
-      ).slice(0, 80);
+      ).slice(0, retrievalLimit);
     }
   }
   results = sortByFinalScore(results);
@@ -244,14 +278,16 @@ export async function runTypesenseDirectorySearch(
   pushRankingStage("after_capability_rank", results);
 
   const fundingIntent = parsed.fundingIntent ?? detectFundingIntent(parsed.semanticQuery);
-  if (!parsed.fundingIntent) {
-    parsed = { ...parsed, fundingIntent };
-  }
-  const diversityTopK = Math.min(10, params.limit ?? 40);
-  const diversityPass = applySourceDiversity(results, fundingIntent, { topK: diversityTopK });
-  results = diversityPass.results;
-  let sourceDiversityDebug: SourceDiversityDebug = diversityPass.debug;
-  pushRankingStage("after_source_diversity", results);
+  if (!parsed.fundingIntent) parsed = { ...parsed, fundingIntent };
+  let sourceDiversityDebug: SourceDiversityDebug = {
+    fundingIntent,
+    sourceDiversityApplied: false,
+    sourceCaps: { maxLegalAidInTopK: 0, topK: 0 },
+    preDiversificationSourceCounts: {},
+    postDiversificationSourceCounts: {},
+    legalAidBoostApplied: false,
+    legalAidBoostReason: "",
+  };
 
   if (rescuePlan && countUsefulVagueResults(results, rescuePlan) < 3) {
     const relaxedFilter = buildFilterBy({
@@ -263,7 +299,7 @@ export async function runTypesenseDirectorySearch(
       parsed,
       q: rescuePlan.zeroResultFallbackQuery,
       expandedQ: rescuePlan.zeroResultFallbackQuery,
-      limit: 80,
+      limit: retrievalLimit,
       filterBy: relaxedFilter,
       geoSortLat,
       geoSortLng,
@@ -284,11 +320,20 @@ export async function runTypesenseDirectorySearch(
         results = relaxed.length > 0 ? relaxed : results;
       }
       results = sortByFinalScore(results);
-      const rediv = applySourceDiversity(results, fundingIntent, { topK: diversityTopK });
-      results = rediv.results;
-      sourceDiversityDebug = rediv.debug;
     }
   }
+
+  const rescueBeforeGateCount = results.length;
+  const gated = applyTopicalRelevanceGate(results, parsed, { rescueBeforeGateCount });
+  results = gated.results;
+  topicalGateDebug = gated.debug;
+  pushRankingStage("after_topical_gate", results);
+
+  const diversityTopK = Math.min(10, params.limit ?? 40);
+  const diversityPass = applySourceDiversity(results, fundingIntent, { topK: diversityTopK });
+  results = diversityPass.results;
+  sourceDiversityDebug = diversityPass.debug;
+  pushRankingStage("after_source_diversity", results);
 
   pushRankingStage("before_result_filters", results);
 
@@ -315,7 +360,7 @@ export async function runTypesenseDirectorySearch(
   const coverageNotice = buildCoverageNotice(coverage);
 
   let externalFallback: DirectorySearchResponse["externalFallback"];
-  if (coverage.triggerPrivateExternalFallback) {
+  if (coverage.triggerPrivateExternalFallback || results.length < 3) {
     const fundingPref = detectFundingPreference(params.query);
     const fundingRoutes = resolveFundingRouteOrder(
       fundingPref === "private" || fundingPref === "fixed_fee" ? "private" : "unsure",
@@ -359,6 +404,16 @@ export async function runTypesenseDirectorySearch(
       sourceDiversity: sourceDiversityDebug,
       includeDebug: params.forceSearchDebug === true,
       rankingStages: rankingStages.length ? rankingStages : undefined,
+      openRerankerModel,
+      openRerankerDegraded,
+      topicalGateApplied: topicalGateDebug.topicalGateApplied,
+      topicalGateMode: topicalGateDebug.topicalGateMode,
+      primaryTaxonomySlug: topicalGateDebug.primaryTaxonomySlug,
+      allowedOverlapSlugs: topicalGateDebug.allowedOverlapSlugs,
+      suppressedSlugs: topicalGateDebug.suppressedSlugs,
+      resultsRemovedByTopicalGate: topicalGateDebug.resultsRemovedByTopicalGate,
+      rescueBeforeGateCount: topicalGateDebug.rescueBeforeGateCount,
+      rescueAfterGateCount: topicalGateDebug.rescueAfterGateCount,
     },
   );
 }

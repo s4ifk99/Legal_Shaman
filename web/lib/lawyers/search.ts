@@ -24,6 +24,8 @@ export type SraOrgLite = {
   id: string;
   sraId: string;
   businessName: string;
+  phone: string;
+  searchText: string;
   city: string;
   postcode: string;
   county: string;
@@ -272,6 +274,8 @@ async function retrieveSraOrgs(args: SearchArgs): Promise<Candidate[]> {
       id: true,
       sraId: true,
       businessName: true,
+      phone: true,
+      searchText: true,
       city: true,
       postcode: true,
       county: true,

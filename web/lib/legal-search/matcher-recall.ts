@@ -73,6 +73,8 @@ export async function fetchTypesenseMatcherCandidates(args: {
         id: org.id,
         sraId: org.sraId,
         businessName: org.businessName,
+        phone: org.phone,
+        searchText: org.searchText,
         city: org.city,
         postcode: org.postcode,
         county: org.county,

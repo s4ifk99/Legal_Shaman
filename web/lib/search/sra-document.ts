@@ -1,9 +1,12 @@
+import { resolveSraDisplayName } from "@/lib/search/sra-display";
+
 /** Shape stored in Meilisearch and returned to the UI for SRA-sourced rows. */
 export type SraMeiliDocument = {
   id: string;
   businessName: string;
   searchText: string;
   sraId: string;
+  phone: string;
   city: string;
   postcode: string;
   county: string;
@@ -29,6 +32,74 @@ function pick(obj: Record<string, unknown>, keys: string[]): unknown {
 function asString(v: unknown): string {
   if (v == null) return "";
   return String(v).trim();
+}
+
+function looksLikeOrganisationNumber(value: string): boolean {
+  return /^\d{4,}$/.test(value.trim());
+}
+
+function firstTradingName(raw: Record<string, unknown>): string {
+  const trading = raw.TradingNames ?? raw.tradingNames ?? raw.TradingName ?? raw.tradingName;
+  if (Array.isArray(trading)) {
+    for (const t of trading) {
+      if (typeof t === "string" && t.trim() && !looksLikeOrganisationNumber(t)) return t.trim();
+      if (t && typeof t === "object") {
+        const label = asString(
+          pick(t as Record<string, unknown>, ["Name", "name", "TradingName", "tradingName"]),
+        );
+        if (label && !looksLikeOrganisationNumber(label)) return label;
+      }
+    }
+    return "";
+  }
+  const ts = asString(trading);
+  return ts && !looksLikeOrganisationNumber(ts) ? ts : "";
+}
+
+function officeField(
+  offices: unknown[],
+  fieldKeys: string[],
+): string {
+  for (const o of offices) {
+    if (!o || typeof o !== "object") continue;
+    const office = o as Record<string, unknown>;
+    const v = asString(pick(office, fieldKeys));
+    if (v) return v;
+  }
+  return "";
+}
+
+function resolveBusinessName(raw: Record<string, unknown>, sraId: string, offices: unknown[]): string {
+  const candidates = [
+    asString(
+      pick(raw, [
+        "AuthorisedName",
+        "authorisedName",
+        "OrganisationName",
+        "organisationName",
+        "PracticeName",
+        "practiceName",
+        "RegisteredName",
+        "registeredName",
+        "CompanyName",
+        "companyName",
+        "FirmName",
+        "firmName",
+        "OfficeName",
+        "officeName",
+        "Name",
+        "name",
+      ]),
+    ),
+    firstTradingName(raw),
+    officeField(offices, ["OfficeName", "officeName", "OrganisationName", "organisationName"]),
+    asString(pick(raw, ["TradingAs", "tradingAs"])),
+  ].filter(Boolean);
+
+  for (const c of candidates) {
+    if (!looksLikeOrganisationNumber(c)) return c;
+  }
+  return "";
 }
 
 function collectOfficeStrings(office: Record<string, unknown>): string[] {
@@ -77,30 +148,44 @@ export function normaliseSraOrganisation(raw: Record<string, unknown>): SraMeili
   const sraId = asString(orgId);
   const id = `sra-${sraId}`;
 
-  const businessName = asString(
-    pick(raw, [
-      "AuthorisedName",
-      "authorisedName",
-      "OrganisationName",
-      "organisationName",
-      "Name",
-      "name",
-      "TradingAs",
-      "tradingAs",
-    ]),
-  );
+  const officesRaw = raw.Offices ?? raw.offices ?? raw.OfficeList ?? raw.officeList ?? [];
+  const offices = Array.isArray(officesRaw) ? officesRaw : officesRaw ? [officesRaw] : [];
+
+  const businessName = resolveBusinessName(raw, sraId, offices);
 
   const trading = raw.TradingNames ?? raw.tradingNames ?? raw.TradingName ?? raw.tradingName;
   const tradingParts: string[] = [];
   if (Array.isArray(trading)) {
-    for (const t of trading) tradingParts.push(asString(t));
+    for (const t of trading) {
+      if (typeof t === "string") tradingParts.push(asString(t));
+      else if (t && typeof t === "object") {
+        const label = asString(
+          pick(t as Record<string, unknown>, ["Name", "name", "TradingName", "tradingName"]),
+        );
+        if (label) tradingParts.push(label);
+      }
+    }
   } else {
     const ts = asString(trading);
     if (ts) tradingParts.push(ts);
   }
 
-  const officesRaw = raw.Offices ?? raw.offices ?? raw.OfficeList ?? raw.officeList ?? [];
-  const offices = Array.isArray(officesRaw) ? officesRaw : officesRaw ? [officesRaw] : [];
+  const phone = officeField(offices, [
+    "Telephone",
+    "telephone",
+    "Phone",
+    "phone",
+    "PhoneNumber",
+    "phoneNumber",
+    "Tel",
+    "tel",
+    "MainTelephone",
+    "mainTelephone",
+    "BusinessTelephone",
+    "businessTelephone",
+    "ContactTelephone",
+    "contactTelephone",
+  ]);
 
   const officeBlocks: string[] = [];
   let city = "";
@@ -137,17 +222,20 @@ export function normaliseSraOrganisation(raw: Record<string, unknown>): SraMeili
     }
   }
 
-  const searchText = [businessName, sraId, ...tradingParts, ...officeBlocks, ...practiceExtra]
+  const searchText = [businessName, sraId, ...tradingParts, phone, ...officeBlocks, ...practiceExtra]
     .filter(Boolean)
     .join("\n");
 
   if (!businessName && !searchText) return null;
 
+  const storedName = businessName || `Organisation ${sraId}`;
+
   return {
     id,
-    businessName: businessName || `Organisation ${sraId}`,
+    businessName: resolveSraDisplayName(storedName, searchText, sraId),
     searchText,
     sraId,
+    phone,
     city,
     postcode,
     county,

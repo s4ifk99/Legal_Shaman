@@ -42,13 +42,18 @@ import { runFundingIntentEval } from "../lib/search-eval/funding-intent-eval";
 import { runOrchestrationPolicyEval } from "../lib/search-eval/orchestration-policy-eval";
 import { runProviderIntelligenceEval } from "../lib/search-eval/provider-intelligence-eval";
 import { runProviderCrawlerEval } from "../lib/search-eval/provider-crawler-eval";
+import { runProviderEnrichmentLadderEval } from "../lib/search-eval/provider-enrichment-ladder-eval";
+import { runProviderOsintEval } from "../lib/search-eval/provider-osint-eval";
+import { runProviderAutoApprovalEval } from "../lib/search-eval/provider-auto-approval-eval";
 import { runSourceBalanceEval } from "../lib/search-eval/source-balance-eval";
 import { runSraPracticeAreaProjectionEval } from "../lib/sra/practice-area-projection-eval";
+import { runOpenRerankerEval } from "../lib/legal-search/eval/open-reranker-cases";
 import {
   ADMIN_SESSION_COOKIE,
   computeAdminSessionToken,
   requireAdminApiRequest,
 } from "../lib/admin/auth";
+import { runOpsEval } from "../lib/search-eval/ops-eval";
 
 /** Same banned-shape check as `explanations.ts` (keep eval importable without server-only chain). */
 const DIR_EXPLANATION_BANNED = /\b(best|guarantee|will win|should\s|must\s|legal advice)\b/i;
@@ -133,6 +138,7 @@ async function runAdminAuthEval(): Promise<number> {
 
   return failed;
 }
+
 
 function mockResult(over: Partial<SearchResult>): SearchResult {
   return {
@@ -324,9 +330,22 @@ async function main() {
 
   failed += runProviderCrawlerEval();
 
+  const ladderEval = runProviderEnrichmentLadderEval();
+  failed += ladderEval.failed;
+
+  const osintEval = runProviderOsintEval();
+  failed += osintEval.failed;
+
+  const autoApprovalEval = runProviderAutoApprovalEval();
+  failed += autoApprovalEval.failed;
+
   failed += runSourceBalanceEval();
 
   failed += runSraPracticeAreaProjectionEval();
+
+  const openRerankEval = runOpenRerankerEval();
+  for (const msg of openRerankEval.messages) console.error(msg);
+  failed += openRerankEval.failed;
 
   failed += runTriageEval();
 
@@ -335,6 +354,11 @@ async function main() {
   failed += await runExternalFallbackEval();
 
   failed += await runAdminAuthEval();
+
+  failed += await runOpsEval();
+
+  const { runOptionalPrismaEvalWithStub } = await import("./search-eval-optional-prisma-runner");
+  failed += await runOptionalPrismaEvalWithStub();
 
   console.log(failed === 0 ? "search:eval OK" : `search:eval FAILED (${failed} checks)`);
   process.exit(failed === 0 ? 0 : 1);

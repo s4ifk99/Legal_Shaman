@@ -23,6 +23,9 @@ export function SearchDebugPanel({ searchDebug }: SearchDebugPanelProps) {
           <span className="mx-2">·</span>
           <span className="font-medium text-foreground">Reranker: </span>
           {searchDebug.rerankerVersion}
+          {searchDebug.openRerankerModel
+            ? ` · open: ${searchDebug.openRerankerModel}${searchDebug.openRerankerDegraded ? " (degraded)" : ""}`
+            : ""}
           <span className="mx-2">·</span>
           <span className="font-medium text-foreground">Latency: </span>
           {searchDebug.latencyMs} ms

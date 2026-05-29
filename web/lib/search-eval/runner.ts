@@ -56,6 +56,9 @@ function searchResultToHit(
     entityType: String(raw?.entityType ?? r.source),
     practiceAreas: r.practiceAreas,
     categories: r.categories,
+    practiceAreaSlugs: Array.isArray(raw?.practiceAreaSlugs)
+      ? (raw.practiceAreaSlugs as string[]).map((s) => s.toLowerCase())
+      : [],
     haystack,
     explanation: r.explanation,
     scoreBreakdown: r.debug?.scoreBreakdown ?? r.scores,
@@ -84,6 +87,7 @@ function matchToHit(match: AnyMatch, rank: number, testCase: SearchEvalCase): Ev
     entityType: match.kind,
     practiceAreas,
     categories: [],
+    practiceAreaSlugs: [],
     haystack,
     explanation: match.explanation,
     scoreBreakdown: match.scoreBreakdown as unknown as Record<string, number>,
@@ -206,6 +210,36 @@ function evaluateCaseOutcome(
     for (const r of opts.rawResults.slice(0, k)) {
       if (legalAidMislabeledAsPrivate(r)) {
         failures.push(`legal aid result mislabeled as private: ${r.title}`);
+      }
+    }
+  }
+  if (testCase.forbiddenTermsNoneInTopK?.length) {
+    for (const h of top) {
+      for (const term of testCase.forbiddenTermsNoneInTopK) {
+        if (h.haystack.includes(term.toLowerCase())) {
+          failures.push(`forbidden topical term in top ${k}: "${term}" on ${h.title}`);
+          break;
+        }
+      }
+    }
+  }
+  if (testCase.forbiddenPracticeSlugsNoneInTopK?.length) {
+    const allowed = new Set(
+      [
+        testCase.expectedTaxonomySlug,
+        ...(testCase.acceptableTaxonomySlugs ?? []),
+      ]
+        .filter(Boolean)
+        .map((s) => s!.toLowerCase()),
+    );
+    for (const h of top) {
+      const slugs = (h.practiceAreaSlugs ?? []).map((s) => s.toLowerCase());
+      if (!slugs.length) continue;
+      const hasAllowed = slugs.some((s) => allowed.has(s));
+      if (hasAllowed) continue;
+      const bad = testCase.forbiddenPracticeSlugsNoneInTopK.find((f) => slugs.includes(f.toLowerCase()));
+      if (bad) {
+        failures.push(`forbidden practice slug in top ${k}: "${bad}" on ${h.title}`);
       }
     }
   }

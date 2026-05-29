@@ -26,6 +26,8 @@ export type SearchEvalCase = {
   expectExternalPrivateSignpost?: boolean;
   forbidLegalAidMislabeledAsPrivate?: boolean;
   minSraInTopK?: number;
+  forbiddenTermsNoneInTopK?: string[];
+  forbiddenPracticeSlugsNoneInTopK?: string[];
   notes?: string;
 };
 
@@ -37,6 +39,7 @@ export type EvalRetrievedHit = {
   entityType?: string;
   practiceAreas: string[];
   categories: string[];
+  practiceAreaSlugs?: string[];
   haystack: string;
   explanation: string;
   relevant: boolean;

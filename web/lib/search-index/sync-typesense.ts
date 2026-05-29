@@ -10,6 +10,7 @@ import {
 import { LEGAL_ENTITIES_COLLECTION } from "@/lib/search-index/config";
 import { ensureLegalEntitiesCollection } from "@/lib/search-index/typesense-legal-entities-index";
 import { applyProviderIntelligence, loadEnrichmentCache } from "@/lib/search-index/apply-provider-intelligence";
+import { enrichLegalEntityForIndex } from "@/lib/search-index/enrich-legal-entity-index";
 import type { IndexSource, LegalEntityDocument, SyncStats } from "@/lib/search-index/types";
 
 const CHUNK = 200;
@@ -26,7 +27,11 @@ async function collectDocuments(source: IndexSource): Promise<LegalEntityDocumen
     docs.push(...(await buildLawyerDocuments()));
   }
   if (source === "sra" || source === "all") {
-    docs.push(...(await buildSraDocuments()));
+    docs.push(
+      ...(await buildSraDocuments({
+        skipGeo: process.env.SRA_INDEX_SKIP_GEO === "1",
+      })),
+    );
   }
   if (source === "probono" || source === "all") {
     docs.push(...(await buildProBonoDocuments()));
@@ -59,7 +64,7 @@ export async function syncLegalEntitiesToTypesense(
   const raw = await collectDocuments(source);
   const docs: LegalEntityDocument[] = [];
   for (const d of raw) {
-    docs.push(await applyProviderIntelligence(d));
+    docs.push(enrichLegalEntityForIndex(await applyProviderIntelligence(d)));
   }
   stats.documentsBuilt = docs.length;
 
@@ -71,11 +76,16 @@ export async function syncLegalEntitiesToTypesense(
   for (let i = 0; i < docs.length; i += CHUNK) {
     const chunk = docs.slice(i, i + CHUNK).map(documentToTypesenseRecord);
     try {
-      await client
+      const importRes = (await client
         .collections(LEGAL_ENTITIES_COLLECTION)
         .documents()
-        .import(chunk, { action: "upsert" });
-      stats.documentsUpserted += chunk.length;
+        .import(chunk, { action: "upsert" })) as { success?: boolean; error?: string }[];
+      let ok = 0;
+      for (const line of importRes) {
+        if (line.success) ok++;
+        else stats.errors.push(line.error ?? "import line failed");
+      }
+      stats.documentsUpserted += ok;
     } catch (e) {
       stats.errors.push(String(e));
     }
