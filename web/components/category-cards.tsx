@@ -32,23 +32,6 @@ const cardColors = [
   { bg: "bg-coral", border: "border-coral", text: "text-secondary-foreground" },
 ];
 
-const categoryIcons: Record<string, string> = {
-  "General advice": "G",
-  "Legal aid eligibility & support": "L",
-  "Preparing documents and going to court": "P",
-  "Remote hearings": "R",
-  "National legal advice organisations": "N",
-  "Benefits, finance and debt": "B",
-  "Financing Options": "F",
-  "Consumer rights": "C",
-  "Employment law": "E",
-  "Housing law": "H",
-  "Family law": "Fa",
-  "Immigration law": "I",
-  "Discrimination": "D",
-  "Mental health": "M",
-};
-
 function PokerCard({
   section,
   index,
@@ -59,7 +42,7 @@ function PokerCard({
   onFlip: (section: CategorySection) => void;
 }) {
   const colorScheme = cardColors[index % cardColors.length];
-  const icon = categoryIcons[section.title] || section.title.charAt(0).toUpperCase();
+  const resourceCount = section.resources.length;
   const rotation = (index % 5 - 2) * 3; // Slight rotation for poker table feel
   
   return (
@@ -80,30 +63,30 @@ function PokerCard({
           </div>
         </div>
         
-        {/* Top left corner */}
+        {/* Top left corner - resource count */}
         <div className="absolute left-2 top-2 text-center">
-          <div className={`font-serif text-2xl font-bold ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`}>
-            {icon}
+          <div className={`font-serif text-xl font-bold ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`}>
+            {resourceCount}
+          </div>
+          <div className={`text-[10px] font-medium ${index % 2 === 0 ? 'text-primary/70' : 'text-secondary/70'}`}>
+            links
           </div>
         </div>
         
-        {/* Center content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-          <div className={`mb-3 flex h-16 w-16 items-center justify-center rounded-full ${index % 2 === 0 ? 'bg-primary' : 'bg-secondary'}`}>
-            <span className={`font-serif text-3xl font-bold ${colorScheme.text}`}>{icon}</span>
-          </div>
-          <h3 className="text-center font-serif text-sm font-semibold leading-tight text-foreground md:text-base">
+        {/* Center content - title only */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-3 py-8">
+          <h3 className="text-center font-serif text-base font-bold leading-snug text-foreground md:text-lg">
             {section.title}
           </h3>
-          <p className="mt-2 text-xs text-muted-foreground">
-            {section.resources.length} resources
-          </p>
         </div>
         
-        {/* Bottom right corner (upside down) */}
+        {/* Bottom right corner (upside down) - resource count */}
         <div className="absolute bottom-2 right-2 rotate-180 text-center">
-          <div className={`font-serif text-2xl font-bold ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`}>
-            {icon}
+          <div className={`font-serif text-xl font-bold ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`}>
+            {resourceCount}
+          </div>
+          <div className={`text-[10px] font-medium ${index % 2 === 0 ? 'text-primary/70' : 'text-secondary/70'}`}>
+            links
           </div>
         </div>
         
