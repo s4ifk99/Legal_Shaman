@@ -94,7 +94,7 @@ export default function Home() {
                 Affordable & Accessible
               </h3>
               <p className="mt-3 text-muted-foreground">
-                Find free legal advice, pro bono services, and legal aid options. We help you access justice regardless of your financial situation.
+                Find free legal advice, pro bono services, and legal aid options. We simplify search to help you find justice regardless of your financial situation.
               </p>
             </div>
 
@@ -120,7 +120,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="mb-10 text-center">
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Useful <span className="text-accent">Contacts</span>
+              Shamans <span className="text-accent">Signpost</span>
             </h2>
             <p className="mt-3 text-muted-foreground md:text-lg">
               Click to reveal useful contacts from the cards below
