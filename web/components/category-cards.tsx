@@ -89,13 +89,6 @@ function PokerCard({
             links
           </div>
         </div>
-        
-        {/* Hover overlay */}
-        <div className="absolute inset-0 flex items-center justify-center bg-foreground/0 transition-colors group-hover:bg-foreground/5">
-          <span className="opacity-0 transition-opacity group-hover:opacity-100 text-sm font-medium text-primary">
-            Click to reveal
-          </span>
-        </div>
       </div>
     </button>
   );
