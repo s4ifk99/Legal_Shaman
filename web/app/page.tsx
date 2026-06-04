@@ -62,10 +62,10 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="mb-10 text-center">
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Draw Your <span className="text-accent">Card</span>
+              Useful <span className="text-accent">Contacts</span>
             </h2>
             <p className="mt-3 text-muted-foreground md:text-lg">
-              Choose a category to reveal helpful resources and guidance
+              Click to reveal useful contacts from the cards below
             </p>
           </div>
           
