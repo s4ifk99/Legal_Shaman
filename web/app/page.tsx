@@ -13,7 +13,7 @@ export default function Home() {
       <section className="relative overflow-hidden border-b-2 border-gold/30 bg-gradient-to-r from-primary/10 via-background to-secondary/10 py-8 md:py-10">
         <SpiralBackground className="opacity-20" />
         <div className="relative mx-auto max-w-6xl px-4 text-center">
-          <p className="font-serif text-2xl font-semibold italic text-foreground md:text-3xl">
+          <p className="font-serif text-sm font-semibold italic text-foreground md:text-sm">
             &quot;The Shaman does not advise, only guides&quot;
           </p>
         </div>
@@ -36,14 +36,14 @@ export default function Home() {
             </div>
           </div>
           <h1 className="font-serif text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            <span className="text-primary">Legal</span>{" "}
-            <span className="text-secondary">Shaman</span>
+            <span className="text-black">Legal</span>{" "}
+            <span className="text-black">Shaman</span>
           </h1>
           <p className="mt-4 text-lg font-medium text-foreground md:text-xl">
             The Most Powerful Agentic Search Engine for All Your Disputes
           </p>
           <p className="mt-3 text-muted-foreground md:text-lg">
-            Coming Soon — Launching Your Legal AI Assistant
+            Coming Soon - Shaman Search
           </p>
         </div>
       </section>
@@ -54,7 +54,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center mb-10">
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              What Is <span className="text-accent">Legal Shaman</span>?
+              What Is <span className="text-black">Legal Shaman</span>?
             </h2>
           </div>
           
@@ -65,7 +65,7 @@ export default function Home() {
                 <span className="text-2xl">🤖</span>
               </div>
               <h3 className="font-serif text-lg font-semibold text-foreground">
-                Agentic AI Assistant
+                The Shaman points you in the right direction.
               </h3>
               <p className="mt-3 text-muted-foreground">
                 Our intelligent agent understands your legal situation and intelligently recommends the best solicitors, legal aid providers, and free resources tailored to your needs.
@@ -78,10 +78,10 @@ export default function Home() {
                 <span className="text-2xl">🎯</span>
               </div>
               <h3 className="font-serif text-lg font-semibold text-foreground">
-                Dispute Resolution
+                The Shaman helps you get that 2nd, 3rd or 10th opinion.
               </h3>
               <p className="mt-3 text-muted-foreground">
-                Whether you face housing disputes, employment conflicts, family matters, or debt issues, Legal Shaman points you to the right direction instantly.
+                Whether you face housing disputes, employment conflicts, family matters, or debt issues, the Shaman encourages you to speak to as many lawyers and advisers as possible.
               </p>
             </div>
 
@@ -91,7 +91,7 @@ export default function Home() {
                 <span className="text-2xl">💰</span>
               </div>
               <h3 className="font-serif text-lg font-semibold text-foreground">
-                Affordable & Accessible
+                The Shaman recommends you speak to everyone, especially free services.
               </h3>
               <p className="mt-3 text-muted-foreground">
                 Find free legal advice, pro bono services, and legal aid options. We simplify search to help you find justice regardless of your financial situation.
@@ -104,7 +104,7 @@ export default function Home() {
                 <span className="text-2xl">⚡</span>
               </div>
               <h3 className="font-serif text-lg font-semibold text-foreground">
-                Instant Guidance
+                You get more than 3 wishes.
               </h3>
               <p className="mt-3 text-muted-foreground">
                 No more endless searching. Simply tell us your problem and get personalized recommendations in seconds.
@@ -119,11 +119,11 @@ export default function Home() {
         <SpiralBackground className="opacity-50" />
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="mb-10 text-center">
-            <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Shamans <span className="text-accent">Signpost</span>
+            <h2 className="font-serif text-3xl font-bold text-black md:text-4xl">
+              Shaman&apos;s <span className="text-black">Cards</span>
             </h2>
             <p className="mt-3 text-muted-foreground md:text-lg">
-              Click to reveal useful contacts from the cards below
+              Click to reveal useful legal contacts from the cards below
             </p>
           </div>
           
