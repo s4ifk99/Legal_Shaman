@@ -13,9 +13,9 @@ export function Footer() {
         <SpiralDecoration size={250} color="var(--gold)" />
       </div>
       
-      <div className="relative mx-auto max-w-6xl px-4">
-        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
-          <div className="flex items-center gap-4">
+      <div className="relative mx-auto max-w-6xl px-4 text-center">
+        <div className="flex flex-col items-center gap-8">
+          <div className="flex items-center gap-4 text-left">
             <div className="relative">
               <div className="absolute -inset-2 rounded-full bg-gold/20 blur-md" />
               <Image
@@ -31,27 +31,6 @@ export function Footer() {
               <p className="text-sm text-primary-foreground/70">Navigate Your Disputes</p>
             </div>
           </div>
-          
-          <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm">
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              About
-            </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Help / FAQ
-            </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Terms
-            </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Privacy
-            </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Advertise
-            </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Contact
-            </Link>
-          </nav>
         </div>
         
         <div className="mt-10 border-t border-primary-foreground/20 pt-8 space-y-4">
