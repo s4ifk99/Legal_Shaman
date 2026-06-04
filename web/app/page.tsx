@@ -1,9 +1,12 @@
 import { Footer } from "@/components/footer";
 import { WaitlistSignup } from "@/components/waitlist-signup";
+import { CategoryCards, type CategorySection } from "@/components/category-cards";
 import { SpiralBackground } from "@/components/spiral-decoration";
+import signpostingResources from "@/data/signposting-resources.json";
 import Image from "next/image";
 
 export default function Home() {
+  const sections = signpostingResources.sections as CategorySection[];
   return (
     <div className="flex min-h-screen flex-col bg-background">
       {/* Quote header section */}
@@ -108,6 +111,23 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Category cards section - poker table style */}
+      <section id="categories" className="relative py-12 md:py-16">
+        <SpiralBackground className="opacity-50" />
+        <div className="relative mx-auto max-w-6xl px-4">
+          <div className="mb-10 text-center">
+            <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
+              Useful <span className="text-accent">Contacts</span>
+            </h2>
+            <p className="mt-3 text-muted-foreground md:text-lg">
+              Click to reveal useful contacts from the cards below
+            </p>
+          </div>
+          
+          <CategoryCards sections={sections} />
         </div>
       </section>
 
