@@ -59,13 +59,12 @@ export function Footer() {
             The Most Powerful Agentic Search Engine for All Your Disputes
           </p>
           <p className="text-center text-sm text-primary-foreground/70 max-w-2xl mx-auto">
-            Legal Shaman helps you navigate legal challenges. Tell us your problem and we&apos;ll point you in the right direction — 
-            connecting you with solicitors, <strong className="text-gold">free</strong> services,{" "}
-            <strong className="text-gold">legal aid</strong>, pro bono help, and charitable organisations across the UK.
+            Legal Shaman is an AI-powered agentic search engine in development. <strong className="text-gold">Join our waitlist</strong> to be the first to know when we officially launch.
           </p>
           <p className="text-center text-xs text-primary-foreground/60 max-w-2xl mx-auto">
-            <strong className="text-primary-foreground/80">Affiliate Disclosure:</strong> Some listings marked as &quot;Sponsored&quot; contain affiliate links. 
-            If you click through and make a purchase or sign up for a service, we may receive a commission at no additional cost to you. 
+            We&apos;re building the future of legal assistance by combining intelligent AI agents with comprehensive legal resources — 
+            helping you find solicitors, <strong className="text-gold">free</strong> services,{" "}
+            <strong className="text-gold">legal aid</strong>, pro bono help, and charitable organisations across the UK.
           </p>
           <p className="text-center text-xs text-primary-foreground/60">
             This site does not provide legal advice. Always consult with a qualified solicitor for legal matters. 
