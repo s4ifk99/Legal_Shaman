@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { WaitlistSignup } from "@/components/waitlist-signup";
 import { SpiralBackground } from "@/components/spiral-decoration";
@@ -7,7 +6,15 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <Header />
+      {/* Quote header section */}
+      <section className="relative overflow-hidden border-b-2 border-gold/30 bg-gradient-to-r from-primary/10 via-background to-secondary/10 py-8 md:py-10">
+        <SpiralBackground className="opacity-20" />
+        <div className="relative mx-auto max-w-6xl px-4 text-center">
+          <p className="font-serif text-2xl font-semibold italic text-foreground md:text-3xl">
+            &quot;The Shaman does not advise, only guides&quot;
+          </p>
+        </div>
+      </section>
       
       {/* Hero section with spiral decorations */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background to-muted/30 py-12 md:py-16">
