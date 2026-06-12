@@ -1,6 +1,13 @@
 import type { AnyMatch } from "@/lib/agent/types";
 import { isValidUkCoordinate } from "@/lib/search/location";
 import type { SearchResult } from "@/lib/legal-search/types";
+import {
+  contactPageUrlForResult,
+  phoneForDisplay,
+  publicResultTitle,
+  websiteUrlForResult,
+} from "@/lib/legal-search/public-search-result";
+import { sourceProvenanceLabel } from "@/lib/legal-search/orchestration/source-provenance";
 import type { LatLng, MapBounds } from "@/lib/search/location";
 import { distanceMiles, pointInBounds } from "@/lib/search/location";
 
@@ -9,6 +16,7 @@ export type MapMarker = {
   entityId: string;
   entityType: string;
   title: string;
+  displayName?: string;
   subtitle?: string;
   practiceAreas: string[];
   address?: string;
@@ -17,8 +25,12 @@ export type MapMarker = {
   lat: number;
   lng: number;
   source: string;
+  sourceLabel?: string;
   verified?: boolean;
   legalAid?: boolean;
+  phone?: string;
+  website?: string;
+  contactPageUrl?: string;
   url?: string;
   explanation?: string;
 };
@@ -57,21 +69,27 @@ export function buildMapMarkers(
               ? "firm"
               : "curated_listing";
 
+    const displayName = publicResultTitle(r);
     markers.push({
       id: `m:${r.id}`,
       entityId: r.id,
       entityType,
-      title: r.title,
+      title: displayName,
+      displayName,
       subtitle: r.practiceAreas[0],
       practiceAreas: r.practiceAreas,
-      address: r.location?.city,
+      address: r.address ?? r.location?.city,
       city: r.location?.city,
       postcode: r.location?.postcode,
       lat,
       lng,
       source: r.source,
+      sourceLabel: r.sourceLabel ?? sourceProvenanceLabel(r),
       verified: r.verified,
       legalAid: r.source === "legal_aid",
+      phone: phoneForDisplay(r),
+      website: websiteUrlForResult(r),
+      contactPageUrl: contactPageUrlForResult(r),
       url: r.url,
       explanation: r.explanation,
     });

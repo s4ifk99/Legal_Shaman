@@ -43,10 +43,15 @@ export type SearchResult = {
   id: string;
   source: SearchSource;
   title: string;
+  /** Resolved user-facing name (defaults to title after enrichment). */
+  displayName?: string;
   description?: string;
   practiceAreas: string[];
   categories: string[];
   location?: SearchResultLocation;
+  /** e.g. "Manchester, M1" */
+  locationLabel?: string;
+  address?: string;
   jurisdictions?: string[];
   languages?: string[];
   contact?: {
@@ -55,9 +60,14 @@ export type SearchResult = {
     website?: string;
   };
   url?: string;
+  contactPageUrl?: string;
   verified?: boolean;
   rating?: number;
   availability?: string;
+  /** User-facing provenance label */
+  sourceLabel?: string;
+  entityType?: string;
+  sraOrganisationId?: string;
   raw: unknown;
   scores: SearchResultScores;
   explanation: string;
@@ -151,6 +161,9 @@ export type DirectorySearchParams = {
   language?: string;
   verifiedOnly?: boolean;
   offset?: number;
+  /** Map viewport filter (GET /api/search/map). */
+  mapBounds?: { north: number; south: number; east: number; west: number };
+  origin?: { lat: number; lng: number };
   /** Admin / tooling: attach full search debug even when ENABLE_SEARCH_DEBUG is off. */
   forceSearchDebug?: boolean;
   /** Admin / tooling: record ranking stage snapshots in searchDebug.rankingStages. */
@@ -163,6 +176,12 @@ export type DirectorySearchResponse = {
   degradedModes: string[];
   parsedQuery: ParsedQuery;
   latencyMs: number;
+  /** Populated when runtime SRA title repair runs (Typesense placeholder → Postgres). */
+  sraTitleRepair?: {
+    placeholderTitlesResolved: number;
+    runtimeTitleResolutionRate: number;
+    sraResultsChecked: number;
+  };
   searchDebug?: SearchResponseDebug;
   /** Shown when broad taxonomy search returns related-area results only. */
   vagueRescueNotice?: string;

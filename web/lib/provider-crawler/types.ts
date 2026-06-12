@@ -30,6 +30,7 @@ export const CrawlSourceTypeSchema = z.enum([
   "external_directory",
   "trustpilot_api",
   "manual_approved",
+  "yell",
 ]);
 
 export type CrawlSourceType = z.infer<typeof CrawlSourceTypeSchema>;

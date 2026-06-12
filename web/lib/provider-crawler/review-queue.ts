@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/db/prisma";
+import { fetchPendingExtractedFieldsFromDb } from "@/lib/provider-crawler/crawl-review-datasource";
 import { validateEnrichmentCandidate } from "@/lib/provider-enrichment/validators";
 import { submitEnrichmentCandidate } from "@/lib/provider-enrichment/review-queue";
 import type { EnrichmentCandidate, EnrichmentFieldName } from "@/lib/provider-enrichment/types";
@@ -12,6 +13,13 @@ import {
   loadOfficialWebsiteForEntity,
   resolvePolicyStatus,
 } from "@/lib/provider-enrichment/submit-with-policy";
+import {
+  isGloballyApproved,
+} from "@/lib/provider-enrichment/global-value-approvals";
+import {
+  regulatoryProvenanceNote,
+  shouldBlockRegulatoryEnrichment,
+} from "@/lib/provider-enrichment/regulatory-url-filter";
 import type {
   ExtractedFieldCandidate,
   FieldStatus,
@@ -57,6 +65,21 @@ export async function persistExtractedField(
   const reviewCategory: ReviewCategory = candidate.reviewCategory ?? "field";
   const enrichment = toEnrichmentCandidate(candidate);
 
+  const regulatory = shouldBlockRegulatoryEnrichment(
+    candidate.fieldName,
+    candidate.extractedValue,
+    candidate.sourceUrl,
+  );
+  if (regulatory.block) {
+    return {
+      status: "rejected",
+      reason: regulatoryProvenanceNote(
+        candidate.extractedValue || candidate.sourceUrl || "",
+        regulatory.reason ?? "regulatory",
+      ),
+    };
+  }
+
   if (enrichment) {
     const validation = validateEnrichmentCandidate(enrichment);
     if (!validation.valid) return { status: "rejected", reason: validation.reason };
@@ -71,7 +94,15 @@ export async function persistExtractedField(
   let policyReason: string | undefined;
   let auditSample = false;
 
-  if (enrichment) {
+  const globallyApproved = await isGloballyApproved(
+    candidate.fieldName,
+    candidate.extractedValue,
+  );
+  if (globallyApproved) {
+    status = "auto_approved";
+    policyDecision = "auto_approve";
+    policyReason = "global_value_cache";
+  } else if (enrichment) {
     const [existingApproved, officialWebsite] = await Promise.all([
       loadApprovedRefsForEntity(candidate.entityId),
       loadOfficialWebsiteForEntity(candidate.entityId),
@@ -299,33 +330,7 @@ export async function listPendingExtractedFields(
   limit = 500,
   reviewCategory?: ReviewCategory,
 ): Promise<PendingExtractedField[]> {
-  try {
-    const rows = await prisma.providerExtractedField.findMany({
-      where: {
-        status: { in: ["pending_review", "audit_review"] },
-        ...(reviewCategory ? { reviewCategory } : {}),
-      },
-      orderBy: [{ extractedAt: "desc" }, { createdAt: "desc" }],
-      take: limit,
-    });
-    return rows.map((r) => ({
-      id: r.id,
-      entityId: r.entityId,
-      entityType: r.entityType,
-      fieldName: r.fieldName,
-      extractedValue: r.extractedValue,
-      confidence: r.confidence,
-      sourceUrl: r.sourceUrl ?? undefined,
-      sourceType: r.sourceType,
-      extractionMethod: r.extractionMethod,
-      reviewCategory: r.reviewCategory,
-      status: r.status,
-      extractedAt: r.extractedAt.toISOString(),
-      provenanceNote: r.provenanceNote ?? undefined,
-    }));
-  } catch {
-    return [];
-  }
+  return fetchPendingExtractedFieldsFromDb(prisma, limit, reviewCategory);
 }
 
 export async function queueCrawlJob(

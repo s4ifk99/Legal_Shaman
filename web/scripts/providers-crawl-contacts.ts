@@ -1,7 +1,23 @@
-import { spawnSync } from "child_process";
-import path from "path";
+/**
+ * Contact extraction via Provider Intelligence Crawler v2.
+ * Usage: npm run providers:crawl:contacts -- --limit=100
+ */
+import "./load-dotenv";
 
-const script = path.join(__dirname, "providers-crawl.ts");
-const args = ["contacts", ...process.argv.slice(2)];
-const r = spawnSync("tsx", [script, ...args], { stdio: "inherit", env: process.env });
-process.exit(r.status ?? 1);
+import { runCrawlerV2Batch } from "@/lib/provider-intelligence-crawler-v2/orchestrator";
+import { parseCliLimit } from "@/lib/provider-enrichment-ladder/ladder-cli";
+
+async function main() {
+  const limit = parseCliLimit(process.argv, 100);
+  const result = await runCrawlerV2Batch({
+    stage: "extract_contacts",
+    limit,
+    missingField: "phone",
+  });
+  console.info(JSON.stringify({ event: "providers_crawl_contacts", ...result }, null, 2));
+}
+
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

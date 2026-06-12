@@ -1,6 +1,12 @@
 import { prisma } from "@/lib/db/prisma";
 import type { PendingExtractedField } from "@/lib/provider-crawler/review-queue";
 import {
+  isGloballyApproved,
+} from "@/lib/provider-enrichment/global-value-approvals";
+import {
+  shouldBlockRegulatoryEnrichment,
+} from "@/lib/provider-enrichment/regulatory-url-filter";
+import {
   canonicalSlugDedupKey,
   formatCanonicalSlugsForDisplay,
   normalizePracticeAreas,
@@ -129,20 +135,39 @@ export type DuplicateCluster = {
   confidencePct: number;
 };
 
+export type CoverageMetrics = {
+  websitePct: number;
+  phonePct: number;
+  emailPct: number;
+  practiceAreaPct: number;
+  completenessScore: number;
+  totalProviders: number;
+};
+
 export type AdminReviewMetrics = {
   pendingTotal: number;
   reviewableCount: number;
   hiddenIdenticalCount: number;
+  hiddenRegulatoryCount: number;
+  hiddenGlobalCount: number;
+  clusterCount: number;
   avgConfidencePct: number;
   autoApprovedPct: number;
   duplicatePct: number;
   approvalRatePct: number;
   newestExtraction: string | null;
+  coverage: CoverageMetrics | null;
 };
+
+export type AdminReviewQueueEntry =
+  | { kind: "cluster"; cluster: DuplicateCluster; displayOrder: number }
+  | { kind: "item"; item: AdminReviewItem; displayOrder: number };
 
 export type AdminReviewPayload = {
   providers: AdminProviderGroup[];
   duplicateClusters: DuplicateCluster[];
+  standaloneItems: AdminReviewItem[];
+  queueEntries: AdminReviewQueueEntry[];
   metrics: AdminReviewMetrics;
   allItemIds: string[];
 };
@@ -368,9 +393,60 @@ async function loadApprovedValuesByEntity(
   return map;
 }
 
+export async function computeCoverageMetrics(): Promise<CoverageMetrics | null> {
+  try {
+    const totalProviders = await prisma.sraOrganisation.count();
+    if (totalProviders === 0) return null;
+
+    const approvedStatuses = ["approved", "auto_approved"] as const;
+    const [phoneRows, emailRows, websiteRows, practiceRows] = await Promise.all([
+      prisma.providerEnrichment.findMany({
+        where: { fieldName: "phone", status: { in: [...approvedStatuses] } },
+        select: { entityId: true },
+        distinct: ["entityId"],
+      }),
+      prisma.providerEnrichment.findMany({
+        where: { fieldName: "email", status: { in: [...approvedStatuses] } },
+        select: { entityId: true },
+        distinct: ["entityId"],
+      }),
+      prisma.providerEnrichment.findMany({
+        where: { fieldName: "website", status: { in: [...approvedStatuses] } },
+        select: { entityId: true },
+        distinct: ["entityId"],
+      }),
+      prisma.providerEnrichment.findMany({
+        where: { fieldName: "practiceAreaSlugs", status: { in: [...approvedStatuses] } },
+        select: { entityId: true },
+        distinct: ["entityId"],
+      }),
+    ]);
+
+    const pct = (n: number) => Math.round((n / totalProviders) * 100);
+    const websitePct = pct(websiteRows.length);
+    const phonePct = pct(phoneRows.length);
+    const emailPct = pct(emailRows.length);
+    const practiceAreaPct = pct(practiceRows.length);
+    const completenessScore = Math.round(
+      (websitePct + phonePct + emailPct + practiceAreaPct) / 4,
+    );
+
+    return {
+      websitePct,
+      phonePct,
+      emailPct,
+      practiceAreaPct,
+      completenessScore,
+      totalProviders,
+    };
+  } catch {
+    return null;
+  }
+}
+
 export async function computeAdminReviewMetrics(): Promise<AdminReviewMetrics> {
   try {
-    const [pendingTotal, statusGroups, newest, pendingRows] = await Promise.all([
+    const [pendingTotal, statusGroups, newest, pendingRows, coverage] = await Promise.all([
       prisma.providerExtractedField.count({ where: { status: "pending_review" } }),
       prisma.providerExtractedField.groupBy({
         by: ["status"],
@@ -385,6 +461,7 @@ export async function computeAdminReviewMetrics(): Promise<AdminReviewMetrics> {
         where: { status: "pending_review" },
         select: { confidence: true },
       }),
+      computeCoverageMetrics(),
     ]);
 
     const counts: Record<string, number> = {};
@@ -409,22 +486,30 @@ export async function computeAdminReviewMetrics(): Promise<AdminReviewMetrics> {
       pendingTotal,
       reviewableCount: 0,
       hiddenIdenticalCount: 0,
+      hiddenRegulatoryCount: 0,
+      hiddenGlobalCount: 0,
+      clusterCount: 0,
       avgConfidencePct,
       autoApprovedPct,
       duplicatePct: 0,
       approvalRatePct,
       newestExtraction: newest?.extractedAt.toISOString() ?? null,
+      coverage,
     };
   } catch {
     return {
       pendingTotal: 0,
       reviewableCount: 0,
       hiddenIdenticalCount: 0,
+      hiddenRegulatoryCount: 0,
+      hiddenGlobalCount: 0,
+      clusterCount: 0,
       avgConfidencePct: 0,
       autoApprovedPct: 0,
       duplicatePct: 0,
       approvalRatePct: 0,
       newestExtraction: null,
+      coverage: null,
     };
   }
 }
@@ -437,12 +522,54 @@ export async function enrichAdminReviewPayload(
     return {
       providers: [],
       duplicateClusters: [],
-      metrics: { ...metricsBase, reviewableCount: 0, hiddenIdenticalCount: 0, duplicatePct: 0 },
+      standaloneItems: [],
+      queueEntries: [],
+      metrics: {
+        ...metricsBase,
+        reviewableCount: 0,
+        hiddenIdenticalCount: 0,
+        hiddenRegulatoryCount: 0,
+        hiddenGlobalCount: 0,
+        clusterCount: 0,
+        duplicatePct: 0,
+      },
       allItemIds: [],
     };
   }
 
-  const entityIds = [...new Set(pending.map((p) => p.entityId))];
+  const globalChecks = await Promise.all(
+    pending.map(async (row) => ({
+      id: row.id,
+      global: await isGloballyApproved(row.fieldName, row.extractedValue),
+    })),
+  );
+  const globalApprovedIds = new Set(
+    globalChecks.filter((g) => g.global).map((g) => g.id),
+  );
+
+  const reviewablePending = pending.filter((row) => {
+    if (globalApprovedIds.has(row.id)) return false;
+    const reg = shouldBlockRegulatoryEnrichment(
+      row.fieldName,
+      row.extractedValue,
+      row.sourceUrl,
+    );
+    return !reg.block;
+  });
+
+  const hiddenGlobal = globalApprovedIds.size;
+  let hiddenRegulatory = 0;
+  for (const row of pending) {
+    if (globalApprovedIds.has(row.id)) continue;
+    const reg = shouldBlockRegulatoryEnrichment(
+      row.fieldName,
+      row.extractedValue,
+      row.sourceUrl,
+    );
+    if (reg.block) hiddenRegulatory++;
+  }
+
+  const entityIds = [...new Set(reviewablePending.map((p) => p.entityId))];
   const [labels, approvedByEntity] = await Promise.all([
     resolveEntityLabels(entityIds),
     loadApprovedValuesByEntity(entityIds),
@@ -452,7 +579,7 @@ export async function enrichAdminReviewPayload(
     string,
     { ids: string[]; displayValue: string; fieldName: string; canonicalSlugs?: string[] }
   >();
-  for (const row of pending) {
+  for (const row of reviewablePending) {
     const key = `${row.fieldName}::${normalizeForDedup(row.fieldName, row.extractedValue)}`;
     const paNorm =
       row.fieldName === "practice_areas" ? normalizePracticeAreas(row.extractedValue) : null;
@@ -475,7 +602,7 @@ export async function enrichAdminReviewPayload(
   for (const [key, cluster] of clusterMap) {
     if (cluster.ids.length < 2) continue;
     const id = `dup-${key.slice(0, 80)}`;
-    const rows = pending.filter((p) => cluster.ids.includes(p.id));
+    const rows = reviewablePending.filter((p) => cluster.ids.includes(p.id));
     const avgConf =
       rows.reduce((s, r) => s + r.confidence, 0) / Math.max(1, rows.length);
     duplicateClusters.push({
@@ -496,7 +623,7 @@ export async function enrichAdminReviewPayload(
   const enriched: AdminReviewItem[] = [];
   let hiddenIdentical = 0;
 
-  for (const row of pending) {
+  for (const row of reviewablePending) {
     const approved =
       approvedByEntity.get(row.entityId)?.get(row.fieldName) ?? [];
     const identical = isIdenticalToApproved(row.fieldName, row.extractedValue, approved);
@@ -597,17 +724,69 @@ export async function enrichAdminReviewPayload(
 
   providers.sort((a, b) => b.itemCount - a.itemCount || b.maxConfidencePct - a.maxConfidencePct);
 
+  const standaloneItems = enriched.filter((i) => !i.isDuplicate);
+  const clusteredItemIds = new Set(
+    duplicateClusters.flatMap((c) => c.itemIds),
+  );
+
+  const providersWithoutDupes: AdminProviderGroup[] = providers
+    .map((p) => {
+      const sections = p.sections
+        .map((s) => ({
+          ...s,
+          items: s.items.filter((i) => !clusteredItemIds.has(i.id)),
+        }))
+        .filter((s) => s.items.length > 0);
+      if (sections.length === 0) return null;
+      const items = sections.flatMap((s) => s.items);
+      return {
+        ...p,
+        sections,
+        itemCount: items.length,
+        maxConfidencePct: Math.max(...items.map((i) => i.confidencePct)),
+      };
+    })
+    .filter((p): p is AdminProviderGroup => p !== null);
+
+  const queueEntries: AdminReviewQueueEntry[] = [];
+  for (const cluster of duplicateClusters) {
+    queueEntries.push({
+      kind: "cluster",
+      cluster,
+      displayOrder: FIELD_PRIORITY[cluster.fieldName] ?? 99,
+    });
+  }
+  for (const item of standaloneItems) {
+    queueEntries.push({
+      kind: "item",
+      item,
+      displayOrder: item.displayOrder,
+    });
+  }
+  queueEntries.sort(
+    (a, b) =>
+      a.displayOrder - b.displayOrder ||
+      (a.kind === "cluster" && b.kind === "cluster"
+        ? b.cluster.providerCount - a.cluster.providerCount
+        : 0),
+  );
+
   const duplicateItemCount = enriched.filter((i) => i.isDuplicate).length;
   const duplicatePct =
     enriched.length > 0 ? Math.round((duplicateItemCount / enriched.length) * 100) : 0;
 
   return {
-    providers,
+    providers: providersWithoutDupes,
     duplicateClusters,
+    standaloneItems,
+    queueEntries,
     metrics: {
       ...metricsBase,
-      reviewableCount: enriched.length,
+      reviewableCount: queueEntries.length,
       hiddenIdenticalCount: hiddenIdentical,
+      hiddenRegulatoryCount: hiddenRegulatory,
+      hiddenGlobalCount: hiddenGlobal,
+      clusterCount: duplicateClusters.length,
       duplicatePct,
     },
     allItemIds: enriched.map((i) => i.id),

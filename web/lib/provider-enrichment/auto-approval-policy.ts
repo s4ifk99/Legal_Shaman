@@ -101,6 +101,16 @@ function isSafeEmail(ctx: PolicyFieldContext, officialWebsiteUrl?: string): bool
   return hostMatchesOfficialWebsite(ctx.extractedValue, officialWebsiteUrl);
 }
 
+function isSafeYellContact(ctx: PolicyFieldContext): boolean {
+  if (ctx.sourceType !== "yell") return false;
+  if (!["phone", "website", "address", "contactPageUrl"].includes(ctx.fieldName)) {
+    return false;
+  }
+  if (ctx.confidence < 0.95) return false;
+  const note = ctx.provenanceNote ?? "";
+  return /yell_match_score:(0\.9[5-9]|1(\.0)?)/.test(note);
+}
+
 function isSafeWebsite(ctx: PolicyFieldContext): boolean {
   if (ctx.fieldName !== "website") return false;
   if (ctx.confidence < 0.95) return false;
@@ -247,6 +257,8 @@ export function evaluateAutoApprovalPolicy(
     safe = { decision: "auto_approve", reason: "high_confidence_official_website", auditSample: false };
   } else if (isPracticeFromOfficialPage(field)) {
     safe = { decision: "auto_approve", reason: "official_service_page_practice_area", auditSample: false };
+  } else if (isSafeYellContact(field)) {
+    safe = { decision: "auto_approve", reason: "yell_firm_and_postcode_match", auditSample: false };
   }
 
   if (safe) return applyMediumBand(safe, ctx);

@@ -8,6 +8,10 @@ export const legalEntitiesFields: CollectionFieldSchema[] = [
   { name: "id", type: "string" },
   { name: "entityType", type: "string", facet: true },
   { name: "title", type: "string" },
+  { name: "displayName", type: "string", optional: true },
+  { name: "organisationName", type: "string", optional: true },
+  { name: "tradingName", type: "string", optional: true },
+  { name: "firmName", type: "string", optional: true },
   { name: "description", type: "string", optional: true },
   { name: "practiceAreas", type: "string[]", facet: true, optional: true },
   { name: "practiceAreaSlugs", type: "string[]", facet: true, optional: true },
@@ -53,6 +57,8 @@ export const legalEntitiesFields: CollectionFieldSchema[] = [
   { name: "remoteConsultation", type: "bool", optional: true },
   { name: "verified", type: "bool", facet: true, optional: true },
   { name: "sraId", type: "string", optional: true },
+  { name: "sraOrganisationId", type: "string", optional: true },
+  { name: "sraNumber", type: "string", optional: true },
   { name: "firmId", type: "string", optional: true },
   { name: "profileUrl", type: "string", optional: true },
   { name: "website", type: "string", optional: true },
@@ -123,11 +129,15 @@ export async function ensureLegalEntitiesCollection(client: TsClient): Promise<v
 export async function typesenseServerHealth(client: TsClient): Promise<{
   ok: boolean;
   version?: string;
+  error?: string;
 }> {
   try {
     const h = await client.health.retrieve();
     return { ok: true, version: (h as { version?: string }).version };
-  } catch {
-    return { ok: false };
+  } catch (e) {
+    const { typesenseTlsErrorHint } = await import("@/lib/search-index/connectivity-hints");
+    const hint = typesenseTlsErrorHint(e);
+    const msg = e instanceof Error ? e.message : String(e);
+    return { ok: false, error: hint ?? msg };
   }
 }

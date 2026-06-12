@@ -66,6 +66,8 @@ const EXACT_PHRASE_SLUG: Record<string, string> = {
 
 const EXACT_PHRASE_KEYS = Object.keys(EXACT_PHRASE_SLUG).sort((a, b) => b.length - a.length);
 
+export { EXACT_PHRASE_SLUG, EXACT_PHRASE_KEYS };
+
 const PHRASE_INDEX: PhraseEntry[] = buildPhraseIndex();
 
 function buildPhraseIndex(): PhraseEntry[] {

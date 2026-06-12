@@ -2,10 +2,12 @@ import "server-only";
 
 import type { UnifiedSearchHit } from "@/lib/search/unified-search";
 import type { SraMeiliDocument } from "@/lib/search/sra-document";
+import { enrichSearchResultForPublic } from "@/lib/legal-search/public-search-result";
 import {
   extractPhoneFromSraSearchText,
   resolveSraDisplayName,
 } from "@/lib/search/sra-display";
+import { sanitiseContactForDisplay } from "@/lib/provider-intelligence/provider-capability-ranker";
 import type { Listing } from "@/lib/data";
 import type { ParsedQuery, SearchResult } from "@/lib/legal-search/types";
 import { emptyScores } from "@/lib/legal-search/ranking";
@@ -78,29 +80,34 @@ export function fromSraMeili(doc: SraMeiliDocument, parsed: ParsedQuery): Search
   const pa = slug ? [displayNameForSlug(slug)] : [];
   const displayName = resolveSraDisplayName(doc.businessName, doc.searchText, doc.sraId);
   const phone = doc.phone?.trim() || extractPhoneFromSraSearchText(doc.searchText) || undefined;
-  return {
-    id: `sra:${doc.sraId}`,
-    source: "sra",
-    title: displayName,
-    description: doc.searchText.slice(0, 400),
-    practiceAreas: pa,
-    categories: ["SRA organisation"],
-    location: {
-      city: doc.city,
-      postcode: doc.postcode,
-      country: doc.country,
-    },
-    jurisdictions: [],
-    contact: { phone },
-    url: doc.sraProfileUrl,
-    verified: true,
-    raw: {
-      ...doc,
-      contactSource: phone ? "sra_register" : undefined,
-      _retrievalSources: ["meilisearch"] as RetrievalSource[],
-    },
-    scores: emptyScores({ keyword: 0.55, semantic: 0.4 }),
-    explanation: "",
-    legacyKind: "sra",
-  };
+  return enrichSearchResultForPublic(
+    sanitiseContactForDisplay({
+      id: `sra:${doc.sraId}`,
+      source: "sra",
+      title: displayName,
+      description: doc.searchText.slice(0, 400),
+      practiceAreas: pa,
+      categories: ["SRA organisation"],
+      location: {
+        city: doc.city,
+        postcode: doc.postcode,
+        country: doc.country,
+      },
+      jurisdictions: [],
+      contact: { phone },
+      url: doc.sraProfileUrl,
+      contactPageUrl: doc.sraProfileUrl,
+      verified: true,
+      raw: {
+        ...doc,
+        entityType: "sra_organisation",
+        contactSource: phone ? "sra_register" : undefined,
+        _retrievalSources: ["meilisearch"] as RetrievalSource[],
+      },
+      scores: emptyScores({ keyword: 0.55, semantic: 0.4 }),
+      explanation: "",
+      legacyKind: "sra",
+      sraOrganisationId: doc.sraId,
+    }),
+  );
 }

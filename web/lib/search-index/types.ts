@@ -14,6 +14,10 @@ export type LegalEntityDocument = {
   id: string;
   entityType: EntityType;
   title: string;
+  displayName?: string;
+  organisationName?: string;
+  tradingName?: string;
+  firmName?: string;
   description: string;
   practiceAreas: string[];
   /** Projected + native taxonomy slugs (e.g. prison_law). */
@@ -71,6 +75,8 @@ export type LegalEntityDocument = {
   remoteConsultation?: boolean;
   verified?: boolean;
   sraId?: string;
+  sraOrganisationId?: string;
+  sraNumber?: string;
   firmId?: string;
   profileUrl?: string;
   website?: string;
@@ -120,4 +126,6 @@ export type SyncStats = {
   geocoded: number;
   skippedNoCoords: number;
   errors: string[];
+  degraded?: boolean;
+  resumeAfter?: string | null;
 };

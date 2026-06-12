@@ -3,19 +3,22 @@
  */
 import "./load-dotenv";
 
-import { listPendingExtractedFields, listQueuedCrawlJobs } from "@/lib/provider-crawler/review-queue";
+import { loadPendingExtractedFieldsSafe } from "@/lib/provider-crawler/crawl-review-datasource";
+import {
+  buildProvidersCrawlReviewOutput,
+  providersCrawlReviewExitCode,
+} from "@/lib/provider-crawler/crawl-review-output";
+import { listQueuedCrawlJobs } from "@/lib/provider-crawler/review-queue";
 
 async function main() {
-  const pending = await listPendingExtractedFields(100);
-  const jobs = await listQueuedCrawlJobs(50);
-  console.info(
-    JSON.stringify({
-      event: "providers_crawl_review",
-      pendingCount: pending.length,
-      queuedJobs: jobs.length,
-      pending: pending.slice(0, 20),
-    }),
-  );
+  const pending = await loadPendingExtractedFieldsSafe(100);
+  const jobs = pending.ok ? await listQueuedCrawlJobs(50) : [];
+  const output = buildProvidersCrawlReviewOutput({
+    pending,
+    queuedJobs: pending.ok ? jobs.length : undefined,
+  });
+  console.info(JSON.stringify(output));
+  process.exitCode = providersCrawlReviewExitCode(output);
 }
 
 main().catch((e) => {

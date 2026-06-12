@@ -1,15 +1,27 @@
 [
   {
-    "OrganisationId": 1000001,
-    "AuthorisedName": "Example Solicitors LLP",
-    "TradingName": "Example Law",
+    "Id": 209089,
+    "SraNumber": 669461,
+    "PracticeName": "ANDREAS CHORAKIS",
+    "AuthorisationType": "NOTSRA-F",
+    "AuthorisationStatus": null,
+    "OrganisationType": "ORG",
     "Offices": [
       {
-        "AddressLine1": "1 Legal Street",
-        "PostTown": "London",
-        "County": "Greater London",
-        "PostCode": "EC1A 1BB"
+        "OfficeId": 669461,
+        "Name": "ANDREAS CHORAKIS",
+        "Address1": "Rex House",
+        "Address2": "4-12 Regent Street",
+        "Postcode": "SW1Y 4RG",
+        "Town": "London",
+        "Country": "England",
+        "PhoneNumber": "02071234567",
+        "Website": "andreaslaws.wordpress.com",
+        "Email": "contact@example.com",
+        "OfficeType": "HO"
       }
-    ]
+    ],
+    "Websites": ["andreaslaws.wordpress.com"],
+    "WorkArea": "Employment"
   }
 ]

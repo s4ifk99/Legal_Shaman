@@ -30,7 +30,7 @@ function minimalSraDoc(overrides: Partial<LegalEntityDocument> = {}): LegalEntit
   };
 }
 
-const CASES: { id: string; check: () => boolean }[] = [
+const CASES: { id: string; check: () => boolean | Promise<boolean> }[] = [
   {
     id: "weak-detection",
     check: () => {
@@ -44,8 +44,8 @@ const CASES: { id: string; check: () => boolean }[] = [
   },
   {
     id: "website-from-sra-text",
-    check: () => {
-      const c = discoverFromSraFields(
+    check: async () => {
+      const c = await discoverFromSraFields(
         minimalSraDoc({ searchText: "Example LLP https://www.example-llp.co.uk" }),
       );
       return Boolean(c?.url.includes("example-llp.co.uk") && validateWebsiteCandidate(c!).valid);
@@ -134,12 +134,12 @@ const CASES: { id: string; check: () => boolean }[] = [
   },
 ];
 
-export function runProviderEnrichmentLadderEval(): { passed: number; failed: number } {
+export async function runProviderEnrichmentLadderEval(): Promise<{ passed: number; failed: number }> {
   let passed = 0;
   let failed = 0;
   for (const c of CASES) {
     try {
-      if (c.check()) passed++;
+      if (await c.check()) passed++;
       else {
         failed++;
         console.error(`provider-enrichment-ladder eval FAIL: ${c.id}`);

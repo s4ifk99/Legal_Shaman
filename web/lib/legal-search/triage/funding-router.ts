@@ -25,7 +25,12 @@ export function detectFundingPreference(text: string): FundingPreference {
 
 /** Ordered funding routes for retrieval and UI section ordering (see search-agent-policy). */
 export function resolveFundingRoutes(state: TriageState): FundingRoute[] {
-  const pref = state.answers.fundingPreference ?? state.fundingPreference;
+  const fromAnswer = state.answers.fundingPreference;
+  const fromMerged = detectFundingPreference(state.mergedQuery);
+  const pref: FundingPreference =
+    fromAnswer ??
+    (fromMerged !== "unsure" ? fromMerged : undefined) ??
+    (state.fundingPreference !== "unsure" ? state.fundingPreference : "unsure");
   return resolveFundingRouteOrder(pref);
 }
 

@@ -1,6 +1,9 @@
 import type { TriageResponse, TriageState } from "@/lib/legal-search/triage/types";
 import type { TriageQuestion } from "@/lib/legal-search/triage/types";
-import { resolveFundingRoutes } from "@/lib/legal-search/triage/funding-router";
+import {
+  fundingPreferenceFromChip,
+  resolveFundingRoutes,
+} from "@/lib/legal-search/triage/funding-router";
 import { explanationPassesSafety } from "@/lib/search-eval/metrics";
 import { TRIAGE_DISCLAIMER } from "@/lib/legal-search/triage/types";
 import {
@@ -58,6 +61,8 @@ function normalizeAnswerValue(
 ): string {
   const t = userInput.trim();
   if (field === "fundingPreference") {
+    const fromChip = fundingPreferenceFromChip(t);
+    if (fromChip) return fromChip;
     const lower = t.toLowerCase();
     if (/legal aid/.test(lower)) return "legal_aid";
     if (/can't afford|cannot afford|no money|afford a solicitor/.test(lower)) return "legal_aid";
@@ -257,10 +262,11 @@ function validateFinal(
     const parsedLoc = res.kind === "triage_results" ? res.parsedQuery.location : null;
     const loc = (state.answers.location ?? parsedLoc ?? "").toString();
     const merged = state.mergedQuery.toLowerCase();
-    if (
-      !loc.toLowerCase().includes(fin.location.toLowerCase()) &&
-      !merged.includes(fin.location.toLowerCase())
-    ) {
+    const locNeedle = fin.location.toLowerCase();
+    const inMerged =
+      merged.includes(locNeedle) ||
+      merged.includes(`in ${locNeedle}`);
+    if (!loc.toLowerCase().includes(locNeedle) && !inMerged) {
       fail(`final: location missing ${fin.location}`);
     }
   }

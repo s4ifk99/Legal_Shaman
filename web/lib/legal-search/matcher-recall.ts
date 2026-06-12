@@ -1,6 +1,7 @@
 import "server-only";
 
 import { prisma } from "@/lib/db/prisma";
+import { pickSraIndexTitle } from "@/lib/search/sra-name-fields";
 import { lawyerInclude } from "@/lib/lawyers/db";
 import type { Candidate, SraOrgLite } from "@/lib/lawyers/search";
 import { enableTypesenseUnified } from "@/lib/legal-search/config";
@@ -69,10 +70,17 @@ export async function fetchTypesenseMatcherCandidates(args: {
     for (const sraId of unique) {
       const org = bySra.get(sraId);
       if (!org) continue;
+      const businessName = pickSraIndexTitle(org.sraId, org.searchText, {
+        displayName: org.displayName,
+        organisationName: org.organisationName,
+        tradingName: org.tradingName,
+        firmName: org.firmName,
+        businessName: org.businessName,
+      });
       const lite: SraOrgLite = {
         id: org.id,
         sraId: org.sraId,
-        businessName: org.businessName,
+        businessName,
         phone: org.phone,
         searchText: org.searchText,
         city: org.city,

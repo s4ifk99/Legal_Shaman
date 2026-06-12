@@ -14,6 +14,7 @@ import type {
   AdminProviderGroup,
   AdminReviewItem,
   AdminReviewPayload,
+  AdminReviewQueueEntry,
   DuplicateCluster,
 } from "@/lib/provider-crawler/admin-review";
 import { PracticeAreaCanonicalChips, ReviewItemRow, fieldLabel } from "./review-format";
@@ -53,6 +54,8 @@ type LoadMeta = {
   databaseHost: string | null;
   serverFetchedAt: string;
 };
+
+type LayoutMode = "clusters" | "providers";
 
 type PriorityTab =
   | "all"
@@ -117,10 +120,35 @@ function removeIdsFromReview(review: AdminReviewPayload, ids: Set<string>): Admi
       itemIds: c.itemIds.filter((id) => !ids.has(id)),
     }))
     .filter((c) => c.itemIds.length >= 2);
+  const standaloneItems = review.standaloneItems.filter((i) => !ids.has(i.id));
+  const queueEntries: AdminReviewQueueEntry[] = review.queueEntries
+    .map((e) => {
+      if (e.kind === "item") {
+        if (ids.has(e.item.id)) return null;
+        return e;
+      }
+      const itemIds = e.cluster.itemIds.filter((id) => !ids.has(id));
+      if (itemIds.length < 2) {
+        if (itemIds.length === 1) {
+          const item = review.standaloneItems.find((i) => i.id === itemIds[0]);
+          if (item) return { kind: "item" as const, item, displayOrder: e.displayOrder };
+        }
+        return null;
+      }
+      return {
+        kind: "cluster" as const,
+        cluster: { ...e.cluster, itemIds, providerCount: itemIds.length },
+        displayOrder: e.displayOrder,
+      };
+    })
+    .filter((e): e is AdminReviewQueueEntry => e !== null);
+
   return {
     ...review,
     providers,
     duplicateClusters,
+    standaloneItems,
+    queueEntries,
     metrics: {
       ...review.metrics,
       reviewableCount: Math.max(0, review.metrics.reviewableCount - ids.size),
@@ -134,6 +162,62 @@ function itemWithinPendingAge(item: AdminReviewItem, pendingAge: PendingAgeFilte
   const maxMs = PENDING_AGE_MS[pendingAge];
   const age = Date.now() - new Date(item.extractedAt).getTime();
   return age <= maxMs;
+}
+
+function filterQueueEntries(
+  entries: AdminReviewQueueEntry[],
+  tab: PriorityTab,
+  search: string,
+  fieldType: string,
+  source: string,
+  minConfidence: number,
+  practiceArea: string,
+  pendingAge: PendingAgeFilter,
+): AdminReviewQueueEntry[] {
+  const q = search.trim().toLowerCase();
+  const pa = practiceArea.trim().toLowerCase();
+
+  return entries.filter((entry) => {
+    if (entry.kind === "cluster") {
+      const c = entry.cluster;
+      if (fieldType !== "all" && c.fieldName !== fieldType) return false;
+      if (c.confidencePct < minConfidence) return false;
+      if (pa && !c.displayValue.toLowerCase().includes(pa)) return false;
+      if (tab === "testimonials" || tab === "urgent_contact") return false;
+      if (tab === "high_confidence" && c.confidencePct < 90) return false;
+      if (tab === "low_confidence" && c.confidencePct >= 75) return false;
+      if (tab === "duplicates" || tab === "manual" || tab === "all") {
+        if (q) {
+          const hay = [c.fieldName, c.displayValue, c.normalizedValue].join(" ").toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      }
+      return false;
+    }
+
+    const item = entry.item;
+    if (!itemMatchesTab(item, tab)) return false;
+    if (fieldType !== "all" && item.fieldName !== fieldType) return false;
+    if (source !== "all" && item.sourceType !== source) return false;
+    if (item.confidencePct < minConfidence) return false;
+    if (!itemWithinPendingAge(item, pendingAge)) return false;
+    if (pa && !item.extractedValue.toLowerCase().includes(pa)) return false;
+    if (q) {
+      const hay = [
+        item.providerLabel,
+        item.entityId,
+        item.fieldName,
+        item.extractedValue,
+        item.currentValue ?? "",
+        item.sourceType,
+      ]
+        .join(" ")
+        .toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
 }
 
 function filterProviders(
@@ -196,6 +280,7 @@ export default function ProviderCrawlerAdminClient() {
   const [meta, setMeta] = useState<LoadMeta | null>(null);
   const [pendingRaw, setPendingRaw] = useState<ExtractedRow[]>([]);
   const [activeTab, setActiveTab] = useState<PriorityTab>("all");
+  const [layoutMode, setLayoutMode] = useState<LayoutMode>("clusters");
   const [search, setSearch] = useState("");
   const [fieldType, setFieldType] = useState("all");
   const [sourceFilter, setSourceFilter] = useState("all");
@@ -269,6 +354,20 @@ export default function ProviderCrawlerAdminClient() {
     return [...set].sort();
   }, [review]);
 
+  const filteredQueueEntries = useMemo(() => {
+    if (!review) return [];
+    return filterQueueEntries(
+      review.queueEntries,
+      activeTab,
+      search,
+      fieldType,
+      sourceFilter,
+      minConfidence,
+      practiceArea,
+      pendingAge,
+    );
+  }, [review, activeTab, search, fieldType, sourceFilter, minConfidence, practiceArea, pendingAge]);
+
   const filteredProviders = useMemo(() => {
     if (!review) return [];
     return filterProviders(
@@ -285,11 +384,17 @@ export default function ProviderCrawlerAdminClient() {
 
   const flatItems = useMemo(() => {
     const out: AdminReviewItem[] = [];
+    if (layoutMode === "clusters") {
+      for (const e of filteredQueueEntries) {
+        if (e.kind === "item") out.push(e.item);
+      }
+      return out;
+    }
     for (const p of filteredProviders) {
       for (const s of p.sections) out.push(...s.items);
     }
     return out;
-  }, [filteredProviders]);
+  }, [filteredQueueEntries, filteredProviders, layoutMode]);
 
   const filteredDuplicateClusters = useMemo(() => {
     if (!review) return [];
@@ -301,6 +406,49 @@ export default function ProviderCrawlerAdminClient() {
 
   const focusItem = focusId ? flatItems.find((i) => i.id === focusId) : null;
   const focusIndex = focusId ? flatItems.findIndex((i) => i.id === focusId) : -1;
+
+  const globalClusterAct = useCallback(
+    async (cluster: DuplicateCluster, decision: "approve" | "reject") => {
+      setBulkBusy(true);
+      const idSet = new Set(cluster.itemIds);
+      setReview((r) => (r ? removeIdsFromReview(r, idSet) : r));
+      try {
+        const action = decision === "approve" ? "globalApprove" : "globalReject";
+        const res = await fetch("/api/admin/provider-crawler", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          cache: "no-store",
+          body: JSON.stringify({
+            action,
+            fieldName: cluster.fieldName,
+            displayValue: cluster.displayValue,
+            normalizedValue: cluster.normalizedValue,
+            ids: cluster.itemIds,
+          }),
+        });
+        const data = (await res.json()) as { failed?: string[]; error?: string };
+        if (!res.ok) throw new Error(data.error ?? "Global cluster action failed");
+        if (data.failed?.length) {
+          void load();
+          alert(`${data.failed.length} item(s) could not be updated — list refreshed.`);
+        }
+      } catch (e) {
+        void load();
+        alert(e instanceof Error ? e.message : String(e));
+      } finally {
+        setBulkBusy(false);
+      }
+    },
+    [load],
+  );
+
+  const approveCluster = (cluster: DuplicateCluster) => {
+    void globalClusterAct(cluster, "approve");
+  };
+
+  const rejectCluster = (cluster: DuplicateCluster) => {
+    void globalClusterAct(cluster, "reject");
+  };
 
   const bulkAct = useCallback(async (ids: string[], decision: "approve" | "reject") => {
     if (ids.length === 0) return;
@@ -359,12 +507,9 @@ export default function ProviderCrawlerAdminClient() {
   };
 
   const rejectDuplicates = () => {
-    const reject = new Set<string>();
     for (const cluster of filteredDuplicateClusters) {
-      const sorted = [...cluster.itemIds].sort();
-      for (let i = 1; i < sorted.length; i++) reject.add(sorted[i]!);
+      rejectCluster(cluster);
     }
-    void bulkAct([...reject], "reject");
   };
 
   const bulkApproveBySource = (source: string) => {
@@ -384,10 +529,6 @@ export default function ProviderCrawlerAdminClient() {
   const approveProvider = (provider: AdminProviderGroup) => {
     const ids = provider.sections.flatMap((s) => s.items.map((i) => i.id));
     void bulkAct(ids, "approve");
-  };
-
-  const approveCluster = (cluster: DuplicateCluster) => {
-    void bulkAct(cluster.itemIds, "approve");
   };
 
   useEffect(() => {
@@ -465,18 +606,24 @@ export default function ProviderCrawlerAdminClient() {
             <kbd className="rounded border px-1 text-xs">J</kbd>/<kbd className="rounded border px-1 text-xs">K</kbd> navigate
           </p>
         </div>
-        <Button variant="outline" onClick={() => void load()} disabled={loading || bulkBusy}>
-          {loading ? "Refreshing…" : "Refresh"}
-        </Button>
+        <div className="flex flex-wrap gap-2">
+          <Button variant="outline" size="sm" asChild>
+            <Link href="/admin/missing-sra-identities">Missing SRA identities</Link>
+          </Button>
+          <Button variant="outline" onClick={() => void load()} disabled={loading || bulkBusy}>
+            {loading ? "Refreshing…" : "Refresh"}
+          </Button>
+        </div>
       </div>
 
       {metrics ? (
+        <>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
           {[
             { label: "Pending (DB)", value: metrics.pendingTotal },
-            { label: "To review", value: metrics.reviewableCount },
+            { label: "Queue rows", value: metrics.reviewableCount },
+            { label: "Clusters", value: metrics.clusterCount },
             { label: "Avg confidence", value: `${metrics.avgConfidencePct}%` },
-            { label: "Auto-approved", value: `${metrics.autoApprovedPct}%` },
             { label: "Duplicates", value: `${metrics.duplicatePct}%` },
             { label: "Approval rate", value: `${metrics.approvalRatePct}%` },
           ].map((m) => (
@@ -486,12 +633,35 @@ export default function ProviderCrawlerAdminClient() {
             </div>
           ))}
         </div>
+        {metrics.coverage ? (
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+            {[
+              { label: "Website coverage", value: `${metrics.coverage.websitePct}%` },
+              { label: "Phone coverage", value: `${metrics.coverage.phonePct}%` },
+              { label: "Email coverage", value: `${metrics.coverage.emailPct}%` },
+              { label: "Practice area coverage", value: `${metrics.coverage.practiceAreaPct}%` },
+              { label: "Completeness score", value: `${metrics.coverage.completenessScore}%` },
+            ].map((m) => (
+              <div key={m.label} className="rounded-lg border border-primary/20 bg-primary/5 px-3 py-2">
+                <p className="text-xs text-muted-foreground">{m.label}</p>
+                <p className="text-lg font-semibold tabular-nums">{m.value}</p>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        </>
       ) : null}
       {metrics?.newestExtraction ? (
         <p className="text-xs text-muted-foreground">
           Newest extraction: {new Date(metrics.newestExtraction).toLocaleString()}
           {metrics.hiddenIdenticalCount > 0
             ? ` · ${metrics.hiddenIdenticalCount} identical-to-approved hidden`
+            : ""}
+          {metrics.hiddenRegulatoryCount > 0
+            ? ` · ${metrics.hiddenRegulatoryCount} regulatory URLs hidden`
+            : ""}
+          {metrics.hiddenGlobalCount > 0
+            ? ` · ${metrics.hiddenGlobalCount} globally cached hidden`
             : ""}
         </p>
       ) : null}
@@ -501,7 +671,7 @@ export default function ProviderCrawlerAdminClient() {
           Approve all ≥90%
         </Button>
         <Button size="sm" variant="outline" disabled={bulkBusy} onClick={rejectDuplicates}>
-          Reject duplicate extras
+          Reject all duplicate clusters
         </Button>
         <Button
           size="sm"
@@ -573,6 +743,21 @@ export default function ProviderCrawlerAdminClient() {
       </div>
 
       <div className="flex flex-wrap gap-1 border-b pb-2">
+        <Button
+          size="sm"
+          variant={layoutMode === "clusters" ? "default" : "ghost"}
+          onClick={() => setLayoutMode("clusters")}
+        >
+          Cluster queue
+        </Button>
+        <Button
+          size="sm"
+          variant={layoutMode === "providers" ? "default" : "ghost"}
+          onClick={() => setLayoutMode("providers")}
+        >
+          By provider
+        </Button>
+        <span className="w-px bg-border mx-1 self-stretch" />
         {PRIORITY_TABS.map((t) => (
           <Button
             key={t.id}
@@ -642,66 +827,6 @@ export default function ProviderCrawlerAdminClient() {
         </select>
       </div>
 
-      {activeTab === "duplicates" && filteredDuplicateClusters.length > 0 ? (
-        <section className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-4 space-y-3">
-          <p className="text-sm font-medium">
-            Duplicate clusters ({filteredDuplicateClusters.length})
-          </p>
-          <p className="text-xs text-muted-foreground">
-            Identical field values across providers — approve once for all, or reject extras.
-          </p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {filteredDuplicateClusters.map((c) => (
-              <div key={c.id} className="rounded-lg border bg-card p-3 space-y-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm font-medium">{fieldLabel(c.fieldName)}</span>
-                  <Badge variant="secondary">{c.providerCount} providers</Badge>
-                  <Badge variant="outline">{c.confidencePct}% avg</Badge>
-                </div>
-                {c.canonicalSlugs?.length ? (
-                  <PracticeAreaCanonicalChips slugs={c.canonicalSlugs} />
-                ) : (
-                  <p className="text-sm line-clamp-3">{c.displayValue}</p>
-                )}
-                <div className="flex gap-2">
-                  <Button size="sm" disabled={bulkBusy} onClick={() => approveCluster(c)}>
-                    Approve all ({c.itemIds.length})
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    disabled={bulkBusy}
-                    onClick={() => {
-                      const sorted = [...c.itemIds].sort();
-                      void bulkAct(sorted.slice(1), "reject");
-                    }}
-                  >
-                    Reject extras
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {review && filteredDuplicateClusters.length > 0 && activeTab !== "duplicates" ? (
-        <section className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-3 space-y-2">
-          <p className="text-sm font-medium">Cross-provider duplicates ({filteredDuplicateClusters.length})</p>
-          <div className="flex flex-wrap gap-2">
-            {filteredDuplicateClusters.slice(0, 6).map((c) => (
-              <div key={c.id} className="flex items-center gap-2 rounded-md border bg-card px-2 py-1 text-xs">
-                <span className="max-w-[200px] truncate">{fieldLabel(c.fieldName)}: {c.displayValue}</span>
-                <Badge variant="secondary">{c.providerCount} providers</Badge>
-                <Button size="sm" className="h-7" disabled={bulkBusy} onClick={() => approveCluster(c)}>
-                  Approve all
-                </Button>
-              </div>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
       {error ? (
         <p className="rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
           {error}
@@ -710,7 +835,14 @@ export default function ProviderCrawlerAdminClient() {
 
       {loading ? <p className="text-sm text-muted-foreground">Loading…</p> : null}
 
-      {!loading && filteredProviders.length === 0 && activeTab !== "duplicates" ? (
+      {!loading && layoutMode === "clusters" && filteredQueueEntries.length === 0 ? (
+        <p className="rounded-md border bg-card p-8 text-center text-sm text-muted-foreground">
+          No items match filters
+          {pendingRaw.length > 0 ? ` (${pendingRaw.length} pending in DB)` : ""}.
+        </p>
+      ) : null}
+
+      {!loading && layoutMode === "providers" && filteredProviders.length === 0 ? (
         <p className="rounded-md border bg-card p-8 text-center text-sm text-muted-foreground">
           No items match filters
           {pendingRaw.length > 0 ? ` (${pendingRaw.length} pending in DB)` : ""}.
@@ -719,7 +851,57 @@ export default function ProviderCrawlerAdminClient() {
 
       <div className="grid gap-4 lg:grid-cols-[1fr_320px]">
       <div ref={listRef} className="space-y-3 min-w-0">
-        {filteredProviders.map((provider) => (
+        {layoutMode === "clusters"
+          ? filteredQueueEntries.map((entry) =>
+              entry.kind === "cluster" ? (
+                <div
+                  key={entry.cluster.id}
+                  className="rounded-lg border border-amber-500/30 bg-card p-4 space-y-3 shadow-sm"
+                >
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-sm font-semibold">{fieldLabel(entry.cluster.fieldName)}</span>
+                    <Badge variant="secondary">{entry.cluster.providerCount} providers</Badge>
+                    <Badge variant="outline">{entry.cluster.itemIds.length} rows</Badge>
+                    <Badge variant="outline">{entry.cluster.confidencePct}% avg</Badge>
+                  </div>
+                  {entry.cluster.canonicalSlugs?.length ? (
+                    <PracticeAreaCanonicalChips slugs={entry.cluster.canonicalSlugs} />
+                  ) : (
+                    <p className="text-sm">{entry.cluster.displayValue}</p>
+                  )}
+                  <p className="text-xs text-muted-foreground">
+                    One approval applies this value to all matching providers (cached for future crawls).
+                  </p>
+                  <div className="flex gap-2">
+                    <Button size="sm" disabled={bulkBusy} onClick={() => approveCluster(entry.cluster)}>
+                      Approve all ({entry.cluster.itemIds.length})
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      disabled={bulkBusy}
+                      onClick={() => rejectCluster(entry.cluster)}
+                    >
+                      Reject all
+                    </Button>
+                  </div>
+                </div>
+              ) : (
+                <ReviewItemRow
+                  key={entry.item.id}
+                  item={entry.item}
+                  focused={focusId === entry.item.id}
+                  selected={selected.has(entry.item.id)}
+                  bulkBusy={bulkBusy}
+                  onToggleSelect={() => toggleSelect(entry.item.id)}
+                  onApprove={() => actOne(entry.item.id, "approve")}
+                  onReject={() => actOne(entry.item.id, "reject")}
+                />
+              ),
+            )
+          : null}
+        {layoutMode === "providers"
+          ? filteredProviders.map((provider) => (
           <Collapsible
             key={provider.entityId}
             open={expandedProviders.has(provider.entityId)}
@@ -792,7 +974,8 @@ export default function ProviderCrawlerAdminClient() {
               </CollapsibleContent>
             </div>
           </Collapsible>
-        ))}
+        ))
+          : null}
       </div>
 
       <aside className="hidden lg:block">

@@ -6,6 +6,7 @@ import type { UnifiedSearchHit } from "@/lib/search/unified-search";
 import { fromUnifiedHit } from "@/lib/legal-search/adapters/listing-adapter";
 import type { ParsedQuery } from "@/lib/legal-search/types";
 import { sanitiseContactForDisplay } from "@/lib/provider-intelligence/provider-capability-ranker";
+import { enrichSearchResultForPublic } from "@/lib/legal-search/public-search-result";
 import {
   extractPhoneFromSraSearchText,
   resolveSraDisplayName,
@@ -71,8 +72,14 @@ export function legalEntityDocToSearchResult(
   const searchText = String(doc.searchText ?? doc.description ?? "");
   const isSra = entityType === "sra_organisation";
   const title = isSra
-    ? resolveSraDisplayName(String(doc.title ?? ""), searchText, sraId)
-    : String(doc.title ?? "");
+    ? String(doc.displayName ?? "").trim() ||
+      resolveSraDisplayName(String(doc.title ?? ""), searchText, sraId, {
+        displayName: String(doc.displayName ?? ""),
+        tradingName: String(doc.tradingName ?? ""),
+        organisationName: String(doc.organisationName ?? ""),
+        firmName: String(doc.firmName ?? ""),
+      })
+    : String(doc.displayName ?? doc.title ?? "");
   const sraPhone =
     String(doc.phone ?? "").trim() ||
     (isSra ? extractPhoneFromSraSearchText(searchText) : null) ||
@@ -101,6 +108,9 @@ export function legalEntityDocToSearchResult(
       website: String(doc.website ?? "") || undefined,
     },
     url: String(doc.profileUrl ?? doc.website ?? "") || undefined,
+    contactPageUrl:
+      String(doc.contactPageUrl ?? doc.profileUrl ?? "").trim() || undefined,
+    address: String(doc.address ?? "") || undefined,
     verified: doc.verified === true,
     rating: typeof doc.rating === "number" ? doc.rating : undefined,
     raw: {
@@ -126,7 +136,7 @@ export function legalEntityDocToSearchResult(
     firmGroupId: undefined,
   };
 
-  return sanitiseContactForDisplay(result);
+  return enrichSearchResultForPublic(sanitiseContactForDisplay(result));
 }
 
 /** Hydrate listing-backed results with full legacy group data when possible. */

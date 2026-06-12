@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { Pool } from "pg";
 
 export type CreatePrismaClientOptions = {
   /** When true, omit error-level Prisma logs (for optional catalogue / signal reads). */
@@ -17,7 +18,15 @@ export function createPrismaClient(options?: CreatePrismaClientOptions): PrismaC
     );
   }
 
-  const adapter = new PrismaPg({ connectionString });
+  const connectTimeoutMs = Number(process.env.DATABASE_CONNECT_TIMEOUT_MS ?? 30_000);
+  const poolMax = Number(process.env.DATABASE_POOL_MAX ?? 10);
+
+  const pool = new Pool({
+    connectionString,
+    connectionTimeoutMillis: Number.isFinite(connectTimeoutMs) ? connectTimeoutMs : 30_000,
+    max: Number.isFinite(poolMax) ? poolMax : 10,
+  });
+  const adapter = new PrismaPg(pool);
   const log = options?.quiet
     ? ([] as const)
     : process.env.NODE_ENV === "development"

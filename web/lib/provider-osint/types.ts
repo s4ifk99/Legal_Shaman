@@ -19,6 +19,12 @@ export type OsintWebsiteCandidate = {
   provenanceNote: string;
   needsReview: boolean;
   domainScore: number;
+  candidateType?: import("@/lib/provider-osint/website-candidate-types").WebsiteCandidateType;
+  matchedFirmTokens?: string[];
+  matchedLocation?: boolean;
+  rejectReason?: string;
+  searchQuery?: string;
+  firmNameUsed?: string;
 };
 
 export type StructuredDirectoryMatch = {

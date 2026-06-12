@@ -11,6 +11,7 @@ export const CRAWL_SOURCE_PRIORITY: Record<CrawlSourceType, number> = {
   trustpilot_api: 6,
   manual_approved: 2,
   external_directory: 7,
+  yell: 8,
 };
 
 export const CRAWL_AUTO_APPROVE_CONFIDENCE = 0.92;

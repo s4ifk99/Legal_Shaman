@@ -13,6 +13,9 @@ export * from "@/lib/provider-enrichment-ladder/extraction-runner";
 export * from "@/lib/provider-enrichment-ladder/provider-completeness-score";
 export * from "@/lib/provider-enrichment-ladder/enrichment-state-store";
 export * from "@/lib/provider-enrichment-ladder/coverage-report";
+export * from "@/lib/provider-enrichment-ladder/coverage-report-types";
+export * from "@/lib/provider-enrichment-ladder/coverage-report-datasources";
+export * from "@/lib/provider-enrichment-ladder/coverage-report-validate";
 export * from "@/lib/provider-enrichment-ladder/search-failsafe";
 
 export { runOsintEnrichment } from "@/lib/provider-osint/osint-runner";

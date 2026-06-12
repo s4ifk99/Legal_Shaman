@@ -1,5 +1,8 @@
-import { normalizePracticeAreas } from "@/lib/provider-crawler/practice-area-normalizer";
 import { ladderConfidence } from "@/lib/provider-enrichment-ladder/enrichment-confidence";
+import {
+  gatePracticeAreaPhrase,
+  gatePracticeAreaSlug,
+} from "@/lib/provider-intelligence-crawler-v2/practice-area-taxonomy-gate";
 import type { ExtractedFieldCandidate } from "@/lib/provider-crawler/types";
 
 const PRACTICE_PATH_SLUGS: { pattern: RegExp; slug: string; weight: number }[] = [
@@ -64,9 +67,10 @@ export function discoverPracticePageUrls(baseUrl: string, html: string): string[
 export function slugsFromPageUrl(url: string): { slug: string; confidence: number; signal: string }[] {
   const found: { slug: string; confidence: number; signal: string }[] = [];
   for (const { pattern, slug, weight } of PRACTICE_PATH_SLUGS) {
-    if (pattern.test(url)) {
-      found.push({ slug, confidence: weight, signal: "url_slug" });
-    }
+    if (!pattern.test(url)) continue;
+    const gate = gatePracticeAreaSlug(slug);
+    if (!gate.allowed) continue;
+    found.push({ slug: gate.slug, confidence: weight, signal: "url_slug" });
   }
   return found;
 }
@@ -77,54 +81,36 @@ export function extractPracticeAreaCandidates(
   pageUrl: string,
   ctx: { entityId: string; entityType: string },
 ): ExtractedFieldCandidate[] {
-  const phrases: string[] = [];
-  const slugHits = new Map<string, { confidence: number; signal: string }>();
+  const slugHits = new Map<string, { confidence: number; signal: string; displayName: string }>();
 
   for (const hit of slugsFromPageUrl(pageUrl)) {
     const prev = slugHits.get(hit.slug);
     if (!prev || hit.confidence > prev.confidence) {
-      slugHits.set(hit.slug, { confidence: hit.confidence, signal: hit.signal });
+      slugHits.set(hit.slug, {
+        confidence: hit.confidence,
+        signal: hit.signal,
+        displayName: hit.slug.replace(/_/g, " "),
+      });
     }
   }
 
   let hm: RegExpExecArray | null;
   while ((hm = HEADING_RE.exec(html))) {
     const title = hm[1].replace(/\s+/g, " ").trim();
-    if (title.length >= 3) phrases.push(title);
+    const gate = gatePracticeAreaPhrase(title);
+    if (!gate.allowed) continue;
+    const prev = slugHits.get(gate.slug);
+    const conf = Math.max(prev?.confidence ?? 0, gate.confidence);
+    slugHits.set(gate.slug, {
+      confidence: conf,
+      signal: prev?.signal ?? "services_page_title_strict",
+      displayName: gate.displayName,
+    });
   }
 
-  const normalized = normalizePracticeAreas(phrases.join(", "));
-  for (const p of normalized.provenance) {
-    if (!p.slug) continue;
-    const prev = slugHits.get(p.slug);
-    const conf = Math.max(prev?.confidence ?? 0, p.confidence);
-    slugHits.set(p.slug, { confidence: conf, signal: prev?.signal ?? "services_page_title" });
-  }
-
-  if (!slugHits.size && !normalized.canonicalSlugs.length) {
-    if (!phrases.length) return [];
-    return [
-      {
-        entityId: ctx.entityId,
-        entityType: ctx.entityType,
-        fieldName: "practice_areas",
-        extractedValue: normalized.rawExtractedValue || phrases.slice(0, 8).join(", "),
-        confidence: ladderConfidence({
-          sourceType: "provider_website",
-          extractionConfidence: 0.55,
-          signal: "services_page_title",
-        }),
-        sourceUrl: pageUrl,
-        sourceType: "provider_website",
-        extractionMethod: "html_parse",
-        provenanceNote: JSON.stringify(normalized.provenance.slice(0, 12)),
-        extractedAt: new Date(),
-      },
-    ];
-  }
+  if (!slugHits.size) return [];
 
   const slugs = [...slugHits.keys()].sort();
-  const display = slugs.join(",");
   const avgConf =
     [...slugHits.values()].reduce((s, v) => s + v.confidence, 0) / slugHits.size;
 
@@ -133,19 +119,19 @@ export function extractPracticeAreaCandidates(
       entityId: ctx.entityId,
       entityType: ctx.entityType,
       fieldName: "practice_areas",
-      extractedValue: display,
+      extractedValue: slugs.join(","),
       confidence: ladderConfidence({
         sourceType: "provider_website",
         extractionConfidence: avgConf,
-        signal: "url_slug",
+        signal: "taxonomy_gate",
       }),
       sourceUrl: pageUrl,
       sourceType: "provider_website",
       extractionMethod: "html_parse",
       provenanceNote: JSON.stringify({
         slugs,
-        phrases: phrases.slice(0, 8),
-        provenance: normalized.provenance.filter((p) => p.slug).slice(0, 12),
+        gate: "strict_taxonomy",
+        labels: slugs.map((s) => slugHits.get(s)!.displayName),
       }),
       extractedAt: new Date(),
     },

@@ -227,6 +227,7 @@ export function buildDirectoryResultDebug(
     primaryTaxonomyMatch: topicalDebug?.primaryTaxonomyMatch,
     overlapReason: topicalDebug?.overlapReason,
     suppressedPracticeAreaReason: topicalDebug?.suppressedPracticeAreaReason,
+    nameRepairedFromDatabase: raw?.nameRepairedFromDatabase === true,
   };
 }
 
@@ -339,6 +340,9 @@ export function buildSearchResponseDebug(args: {
   resultsRemovedByTopicalGate?: number;
   rescueBeforeGateCount?: number;
   rescueAfterGateCount?: number;
+  placeholderTitlesResolved?: number;
+  runtimeTitleResolutionRate?: number;
+  sraPlaceholderTitlesChecked?: number;
 }): SearchResponseDebug {
   const sd = args.sourceDiversity;
   return {
@@ -395,6 +399,9 @@ export function buildSearchResponseDebug(args: {
     resultsRemovedByTopicalGate: args.resultsRemovedByTopicalGate,
     rescueBeforeGateCount: args.rescueBeforeGateCount,
     rescueAfterGateCount: args.rescueAfterGateCount,
+    placeholderTitlesResolved: args.placeholderTitlesResolved,
+    runtimeTitleResolutionRate: args.runtimeTitleResolutionRate,
+    sraPlaceholderTitlesChecked: args.sraPlaceholderTitlesChecked,
   };
 }
 
@@ -528,6 +535,9 @@ export function finalizeDirectoryDiagnostics(
     resultsRemovedByTopicalGate: ctx?.resultsRemovedByTopicalGate,
     rescueBeforeGateCount: ctx?.rescueBeforeGateCount,
     rescueAfterGateCount: ctx?.rescueAfterGateCount,
+    placeholderTitlesResolved: resp.sraTitleRepair?.placeholderTitlesResolved,
+    runtimeTitleResolutionRate: resp.sraTitleRepair?.runtimeTitleResolutionRate,
+    sraPlaceholderTitlesChecked: resp.sraTitleRepair?.sraResultsChecked,
   });
 
   return { ...resp, results, searchDebug };

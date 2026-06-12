@@ -19,6 +19,17 @@ import {
   valuesMatch,
 } from "@/lib/provider-crawler/admin-review";
 import {
+  isRegulatoryOrDirectoryUrl,
+  isRegulatoryUrl,
+  REGULATORY_REJECT_REASON,
+  shouldBlockRegulatoryEnrichment,
+} from "@/lib/provider-enrichment/regulatory-url-filter";
+import { normalizeGlobalValueKey } from "@/lib/provider-enrichment/global-value-approvals";
+import {
+  buildProvidersCrawlReviewOutput,
+  providersCrawlReviewExitCode,
+} from "@/lib/provider-crawler/crawl-review-output";
+import {
   canonicalSlugDedupKey,
   normalizePracticeAreas,
 } from "@/lib/provider-crawler/practice-area-normalizer";
@@ -229,6 +240,63 @@ export function runProviderCrawlerEval(): number {
   const dupKeyA = normalizeForDedup("practice_areas", "Housing Law, housing homelessness");
   const dupKeyB = normalizeForDedup("practice_areas", "housing homelessness, Housing Law");
   if (dupKeyA !== dupKeyB) fail("practice area dedup keys should ignore order");
+
+  if (!isRegulatoryUrl("https://www.sra.org.uk/consumers/register/123")) {
+    fail("sra.org.uk should be treated as regulatory URL");
+  }
+  if (!isRegulatoryUrl("https://www.gov.uk/find-a-solicitor")) {
+    fail("gov.uk find-a-solicitor should be regulatory");
+  }
+  if (isRegulatoryUrl("https://smithsolicitors.co.uk/contact")) {
+    fail("firm website should not be regulatory");
+  }
+  const blockedWebsite = shouldBlockRegulatoryEnrichment(
+    "website",
+    "https://www.sra.org.uk",
+    "https://www.sra.org.uk",
+  );
+  if (!blockedWebsite.block) fail("sra.org.uk website enrichment should be blocked");
+  if (blockedWebsite.reason !== REGULATORY_REJECT_REASON) {
+    fail(`expected ${REGULATORY_REJECT_REASON}, got ${blockedWebsite.reason}`);
+  }
+  if (!isRegulatoryOrDirectoryUrl("https://find-legal-advice.justice.gov.uk/provider/1")) {
+    fail("find-legal-advice.justice.gov.uk should be regulatory");
+  }
+  const allowedPhone = shouldBlockRegulatoryEnrichment("phone", "+442071234567");
+  if (allowedPhone.block) fail("phone values should not be blocked as regulatory");
+
+  const criminalKey = normalizeGlobalValueKey("practice_areas", "Criminal Defence");
+  const criminalKey2 = normalizeGlobalValueKey("practice_areas", "criminal defence");
+  if (criminalKey !== criminalKey2) {
+    fail("global value keys should normalize practice area labels");
+  }
+
+  const degraded = buildProvidersCrawlReviewOutput({
+    pending: { ok: false, error: "ETIMEDOUT" },
+  });
+  if (degraded.ok !== false) fail("degraded crawl review should set ok=false");
+  if (degraded.degraded !== true) fail("degraded crawl review should set degraded=true");
+  if (degraded.pendingCount !== null) {
+    fail("degraded crawl review must not report pendingCount=0 on DB failure");
+  }
+  if (degraded.pending !== null) fail("degraded crawl review pending should be null");
+  if (degraded.dataSource.providerExtractedField.ok !== false) {
+    fail("degraded crawl review should mark providerExtractedField failed");
+  }
+  if (providersCrawlReviewExitCode(degraded) !== 1) {
+    fail("degraded crawl review should exit non-zero");
+  }
+
+  const emptyOk = buildProvidersCrawlReviewOutput({
+    pending: { ok: true, pending: [] },
+    queuedJobs: 0,
+  });
+  if (emptyOk.ok !== true) fail("successful empty crawl review should be ok");
+  if (emptyOk.pendingCount !== 0) fail("successful empty queue should report pendingCount=0");
+  if (emptyOk.pending?.length !== 0) fail("successful empty queue should return empty pending preview");
+  if (providersCrawlReviewExitCode(emptyOk) !== 0) {
+    fail("successful crawl review should exit zero");
+  }
 
   if (failed === 0) console.info("provider crawler eval OK");
   return failed;

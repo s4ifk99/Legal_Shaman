@@ -124,11 +124,15 @@ export function toLegacyGetResponse(results: SearchResult[]): LegacyGetRow[] {
       };
       const sraId = doc.sraId ?? r.id.replace(/^sra:/, "");
       const searchText = doc.searchText ?? r.description ?? "";
-      const displayName = resolveSraDisplayName(
-        doc.businessName ?? r.title,
-        searchText,
-        sraId,
-      );
+      const repairedFromDb = (doc as { nameRepairedFromDatabase?: boolean }).nameRepairedFromDatabase;
+      const displayName = repairedFromDb
+        ? (r.displayName ?? r.title).trim()
+        : resolveSraDisplayName(doc.businessName ?? r.title, searchText, sraId, {
+            displayName: (doc as { displayName?: string }).displayName,
+            organisationName: (doc as { organisationName?: string }).organisationName,
+            tradingName: (doc as { tradingName?: string }).tradingName,
+            firmName: (doc as { firmName?: string }).firmName,
+          });
       const phone =
         r.contact?.phone?.trim() ||
         doc.phone?.trim() ||

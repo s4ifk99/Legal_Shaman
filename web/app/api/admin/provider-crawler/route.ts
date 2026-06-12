@@ -1,10 +1,15 @@
 import { requireAdminApiRequest } from "@/lib/admin/auth";
 import { adminJsonResponse, getAdminRuntimeMeta } from "@/lib/admin/api-response";
 import { enrichAdminReviewPayload } from "@/lib/provider-crawler/admin-review";
+import { loadPendingExtractedFieldsSafe } from "@/lib/provider-crawler/crawl-review-datasource";
+import {
+  approveGlobalValue,
+  invalidateGlobalApprovalCache,
+  rejectGlobalValue,
+} from "@/lib/provider-enrichment/global-value-approvals";
 import {
   bulkSetExtractedFieldStatus,
   countProviderExtractedFields,
-  listPendingExtractedFields,
   listQueuedCrawlJobs,
   queueCrawlJob,
 } from "@/lib/provider-crawler/review-queue";
@@ -19,18 +24,21 @@ export async function GET(req: Request) {
   const category = url.searchParams.get("reviewCategory") ?? undefined;
 
   const categoryFilter = category as "field" | "testimonial" | "review_signal" | undefined;
-  const pending = await listPendingExtractedFields(500, categoryFilter);
+  const pendingLoad = await loadPendingExtractedFieldsSafe(500, categoryFilter);
+  const pending = pendingLoad.ok ? pendingLoad.pending : [];
   const [queuedJobs, counts, runtime, review] = await Promise.all([
     listQueuedCrawlJobs(50),
     countProviderExtractedFields(),
     Promise.resolve(getAdminRuntimeMeta()),
-    enrichAdminReviewPayload(pending),
+    pendingLoad.ok ? enrichAdminReviewPayload(pending) : Promise.resolve(null),
   ]);
 
   return adminJsonResponse({
     pending,
     queuedJobs,
     review,
+    reviewDegraded: !pendingLoad.ok,
+    reviewError: pendingLoad.ok ? undefined : pendingLoad.error,
     meta: {
       dbRowCount: counts.total,
       pendingRowCount: counts.pending,
@@ -48,14 +56,49 @@ export async function POST(req: Request) {
   if (denied) return denied;
 
   const body = (await req.json()) as {
-    action?: "queue" | "bulk";
+    action?: "queue" | "bulk" | "globalApprove" | "globalReject";
     entityId?: string;
     entityType?: string;
     mode?: string;
     targetUrl?: string;
     ids?: string[];
     decision?: "approve" | "reject";
+    fieldName?: string;
+    displayValue?: string;
+    normalizedValue?: string;
   };
+
+  if (body.action === "globalApprove") {
+    if (!body.fieldName || !body.normalizedValue || !body.displayValue) {
+      return adminJsonResponse(
+        { error: "fieldName, normalizedValue, and displayValue required for globalApprove" },
+        { status: 400 },
+      );
+    }
+    const result = await approveGlobalValue({
+      fieldName: body.fieldName,
+      displayValue: body.displayValue,
+      normalizedValue: body.normalizedValue,
+      seedIds: Array.isArray(body.ids) ? body.ids : undefined,
+    });
+    invalidateGlobalApprovalCache();
+    return adminJsonResponse({ success: true, ...result, decision: "approve" });
+  }
+
+  if (body.action === "globalReject") {
+    if (!body.fieldName || !body.normalizedValue) {
+      return adminJsonResponse(
+        { error: "fieldName and normalizedValue required for globalReject" },
+        { status: 400 },
+      );
+    }
+    const result = await rejectGlobalValue({
+      fieldName: body.fieldName,
+      normalizedValue: body.normalizedValue,
+      seedIds: Array.isArray(body.ids) ? body.ids : undefined,
+    });
+    return adminJsonResponse({ success: true, ...result, decision: "reject" });
+  }
 
   if (body.action === "bulk") {
     const ids = Array.isArray(body.ids) ? body.ids.filter((id) => typeof id === "string") : [];
@@ -67,6 +110,7 @@ export async function POST(req: Request) {
     }
     const status = body.decision === "approve" ? "approved" : "rejected";
     const result = await bulkSetExtractedFieldStatus(ids, status);
+    if (body.decision === "approve") invalidateGlobalApprovalCache();
     return adminJsonResponse({ success: true, ...result, decision: body.decision });
   }
 

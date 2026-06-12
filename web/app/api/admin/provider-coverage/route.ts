@@ -1,7 +1,7 @@
 import { requireAdminApiRequest } from "@/lib/admin/auth";
 import { adminJsonResponse } from "@/lib/admin/api-response";
 import { buildCoverageLadderReport } from "@/lib/provider-enrichment-ladder/coverage-report";
-import { loadEnrichmentMap, loadSraIndexDocuments } from "@/lib/provider-enrichment-ladder/ladder-cli";
+import { loadCoverageReportInputs } from "@/lib/provider-enrichment-ladder/coverage-report-datasources";
 import { setEnrichmentStatus } from "@/lib/provider-enrichment/review-queue";
 import { prisma } from "@/lib/db/prisma";
 
@@ -11,9 +11,12 @@ export async function GET(req: Request) {
   const denied = await requireAdminApiRequest(req);
   if (denied) return denied;
 
-  const docs = await loadSraIndexDocuments({ take: 5000 });
-  const enrichmentMap = await loadEnrichmentMap();
-  const report = await buildCoverageLadderReport(docs, enrichmentMap);
+  const inputs = await loadCoverageReportInputs({ take: 5000 });
+  const report = await buildCoverageLadderReport(
+    inputs.docs,
+    inputs.enrichmentByEntity,
+    inputs,
+  );
 
   const pendingWebsites = await prisma.providerEnrichment
     .findMany({
@@ -44,10 +47,14 @@ export async function GET(req: Request) {
 
   return adminJsonResponse({
     report,
+    reportValid: report.reportValid,
+    degraded: report.degraded,
+    dataSources: report.dataSources,
+    health: report.health,
     pendingWebsites,
     pendingContacts,
     pendingPractice,
-    topPriority: report.weak.topPriority.map((w) => ({
+    topPriority: ("unavailable" in report.weak ? [] : report.weak.topPriority).map((w) => ({
       id: w.doc.id,
       title: w.doc.title,
       city: w.doc.city,

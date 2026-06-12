@@ -20,6 +20,7 @@ export const EnrichmentSourceTypeSchema = z.enum([
   "external_directory",
   "trustpilot_api",
   "manual_approved",
+  "yell",
 ]);
 
 export type EnrichmentSourceType = z.infer<typeof EnrichmentSourceTypeSchema>;
@@ -62,6 +63,7 @@ export type EnrichmentFieldName =
   | "practiceAreaSlugs"
   | "openingHours"
   | "address"
+  | "discovered_firm_name"
   | "capabilities"
   | "fundingCapabilities"
   | "urgencyCapabilities"

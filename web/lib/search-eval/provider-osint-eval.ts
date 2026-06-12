@@ -35,7 +35,7 @@ function minimalDoc(overrides: Partial<LegalEntityDocument> = {}): LegalEntityDo
   };
 }
 
-const CASES: { id: string; check: () => boolean }[] = [
+const CASES: { id: string; check: () => boolean | Promise<boolean> }[] = [
   {
     id: "no-hallucinated-contact",
     check: () =>
@@ -69,8 +69,8 @@ const CASES: { id: string; check: () => boolean }[] = [
   },
   {
     id: "yelp-discovery-needs-review",
-    check: () => {
-      const c = discoverFromSraRegister(
+    check: async () => {
+      const c = await discoverFromSraRegister(
         minimalDoc({
           searchText: "Smith https://www.yelp.com/biz/smith-solicitors",
         }),
@@ -141,9 +141,44 @@ const CASES: { id: string; check: () => boolean }[] = [
     },
   },
   {
+    id: "sra-homepage-rejected-as-provider-website",
+    check: async () => {
+      const c = await discoverFromSraRegister(
+        minimalDoc({
+          profileUrl: "https://www.sra.org.uk/consumers/solicitor-check/?searchText=999",
+          searchText: "Smith & Jones Solicitors LLP EC1A 1BB",
+        }),
+      );
+      return c === null;
+    },
+  },
+  {
+    id: "sra-register-url-not-website-candidate",
+    check: () =>
+      !validateWebsiteCandidate({
+        url: "https://www.sra.org.uk",
+        confidence: 0.9,
+        sourceType: "sra_register",
+        sourceUrl: "https://www.sra.org.uk/consumers/solicitor-check/?searchText=1",
+        provenanceNote: "SRA register provenance only",
+        needsReview: true,
+      }).valid,
+  },
+  {
+    id: "official-firm-domain-accepted",
+    check: async () => {
+      const c = await discoverFromSraRegister(
+        minimalDoc({
+          searchText: "Smith https://www.smithjones-solicitors.co.uk",
+        }),
+      );
+      return Boolean(c?.url.includes("smithjones-solicitors.co.uk"));
+    },
+  },
+  {
     id: "sra-website-valid-provenance",
-    check: () => {
-      const c = discoverFromSraRegister(
+    check: async () => {
+      const c = await discoverFromSraRegister(
         minimalDoc({ searchText: "Firm https://www.smithjoneslaw.co.uk" }),
       );
       return (
@@ -166,12 +201,12 @@ const CASES: { id: string; check: () => boolean }[] = [
   },
 ];
 
-export function runProviderOsintEval(): { passed: number; failed: number } {
+export async function runProviderOsintEval(): Promise<{ passed: number; failed: number }> {
   let passed = 0;
   let failed = 0;
   for (const c of CASES) {
     try {
-      if (c.check()) passed++;
+      if (await c.check()) passed++;
       else {
         failed++;
         console.error(`provider-osint eval FAIL: ${c.id}`);

@@ -93,6 +93,46 @@ function row(check: string, status: IndexVerifyRow["status"], detail: string): I
   return { check, status, detail };
 }
 
+/** Serve-time repair: placeholder Typesense titles → Postgres display names (no reindex required). */
+async function verifyRuntimeTitleResolution(): Promise<IndexVerifyRow> {
+  const { repairSraSearchResults, isSraPlaceholderTitle } = await import(
+    "@/lib/sra/runtime-name-repair"
+  );
+  const { emptyScores } = await import("@/lib/legal-search/ranking");
+  const mock = {
+    id: "sra:921469",
+    source: "sra" as const,
+    title: "Organisation 921469",
+    practiceAreas: ["Employment Law"],
+    categories: ["SRA organisation"],
+    location: { city: "Sheffield", postcode: "S1 2BJ" },
+    raw: {
+      entityType: "sra_organisation",
+      sraId: "921469",
+      searchText: "921469\nBhayani HR & Employment Law\nSHEFFIELD",
+    },
+    scores: emptyScores({ final: 0.5 }),
+    explanation: "probe",
+  };
+  try {
+    const { results, stats } = await repairSraSearchResults([mock]);
+    const title = (results[0]?.displayName ?? results[0]?.title ?? "").trim();
+    const resolved = Boolean(title) && !isSraPlaceholderTitle(title);
+    const rate = stats.runtimeTitleResolutionRate;
+    return row(
+      "runtime_title_resolution_rate",
+      resolved ? "pass" : stats.sraResultsChecked > 0 ? "fail" : "warn",
+      resolved
+        ? `${(rate * 100).toFixed(0)}% placeholders resolved in probe → "${title.slice(0, 56)}"`
+        : stats.sraResultsChecked === 0
+          ? "no placeholder SRA hits in probe"
+          : `probe title still placeholder (${title || "empty"})`,
+    );
+  } catch (e) {
+    return row("runtime_title_resolution_rate", "warn", `repair probe failed: ${String(e)}`);
+  }
+}
+
 function formatCountMap(map: Record<string, number>, keys?: string[]): string {
   const entries = keys
     ? keys.map((k) => [k, map[k] ?? 0] as const)
@@ -114,7 +154,7 @@ export async function verifyLegalEntitiesIndex(): Promise<IndexVerifyReport> {
     row(
       "typesense_health",
       health.ok ? "pass" : "fail",
-      health.ok ? `ok${health.version ? ` (${health.version})` : ""}` : "unreachable",
+      health.ok ? `ok${health.version ? ` (${health.version})` : ""}` : (health.error ?? "unreachable"),
     ),
   );
   if (!health.ok) return { ok: false, rows };
@@ -233,6 +273,49 @@ export async function verifyLegalEntitiesIndex(): Promise<IndexVerifyReport> {
       duplicateIds === 0 ? "none in sample" : `${duplicateIds} duplicates in sample`,
     ),
   );
+
+  try {
+    const sraSample = await client
+      .collections(LEGAL_ENTITIES_COLLECTION)
+      .documents()
+      .search({
+        q: "*",
+        query_by: "title",
+        filter_by: "entityType:=`sra_organisation`",
+        per_page: 250,
+      });
+    const sraHits =
+      (sraSample as { hits?: { document?: Record<string, unknown> }[] }).hits ?? [];
+    let placeholderTitles = 0;
+    const sampleTitles: string[] = [];
+    for (const h of sraHits) {
+      const title = String(h.document?.title ?? h.document?.displayName ?? "").trim();
+      if (sampleTitles.length < 8) sampleTitles.push(title.slice(0, 60));
+      if (/^Organisation\s+\d+$/i.test(title)) placeholderTitles++;
+    }
+    const nSra = sraHits.length || 1;
+    const placeholderRate = placeholderTitles / nSra;
+    rows.push(
+      row(
+        "sra_placeholder_title_rate",
+        placeholderRate <= 0.01 ? "pass" : placeholderRate <= 0.05 ? "warn" : "fail",
+        `${placeholderTitles}/${sraHits.length} titles match Organisation <id> (${(placeholderRate * 100).toFixed(1)}%; run npm run search:index:sra:names)`,
+      ),
+    );
+    rows.push(
+      row(
+        "sra_title_samples",
+        "pass",
+        sampleTitles.length ? sampleTitles.join(" | ") : "(no SRA sample)",
+      ),
+    );
+  } catch (e) {
+    rows.push(
+      row("sra_placeholder_title_rate", "warn", `could not sample SRA titles: ${String(e)}`),
+    );
+  }
+
+  rows.push(await verifyRuntimeTitleResolution());
 
   const prisonProbe = await client
     .collections(LEGAL_ENTITIES_COLLECTION)

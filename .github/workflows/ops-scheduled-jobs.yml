@@ -1,0 +1,75 @@
+name: Ops scheduled jobs
+
+on:
+  schedule:
+    - cron: "0 5 * * *"
+    - cron: "0 6 * * 0"
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job to run"
+        required: true
+        type: choice
+        options:
+          - daily
+          - weekly
+
+jobs:
+  daily:
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'daily') ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 5 * * *')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm run db:migrate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      - run: npm run jobs:daily -- --yes
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
+          TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
+          ADMIN_SECRET: ${{ secrets.ADMIN_SECRET }}
+          SEARCH_EVENT_SALT: ${{ secrets.SEARCH_EVENT_SALT }}
+          OPS_JOBS_YES: "1"
+
+  weekly:
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'weekly') ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 6 * * 0')
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm run db:migrate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      - run: npm run jobs:weekly -- --yes
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
+          TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
+          ADMIN_SECRET: ${{ secrets.ADMIN_SECRET }}
+          SEARCH_EVENT_SALT: ${{ secrets.SEARCH_EVENT_SALT }}
+          SRA_APIM_SUBSCRIPTION_KEY: ${{ secrets.SRA_APIM_SUBSCRIPTION_KEY }}
+          OPS_JOBS_YES: "1"

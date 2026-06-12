@@ -1,99 +1,163 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["partialIndexes"]
 }
 
 datasource db {
   provider = "postgresql"
-  // Connection URL is configured in prisma.config.ts (Prisma 7).
-  // pgvector is enabled via a raw-SQL migration; the `vector` type is referenced via Unsupported() below.
 }
-
-// =========================================================================
-// Existing SRA model (ported from MySQL). LongText -> Text. Same field names.
-// =========================================================================
 
 /// Normalised SRA Data Share organisation — system of record alongside Meilisearch index.
 /// Embedding column powers semantic matching in the lawyer matcher (mixed with curated lawyers).
 model SraOrganisation {
-  id            String                       @id @db.VarChar(128)
-  sraId         String                       @unique @map("sra_id") @db.VarChar(64)
-  businessName  String                       @map("business_name") @db.VarChar(512)
-  phone         String                       @default("") @db.VarChar(64)
-  searchText    String                       @map("search_text") @db.Text
-  city          String                       @default("") @db.VarChar(255)
-  postcode      String                       @default("") @db.VarChar(32)
-  county        String                       @default("") @db.VarChar(255)
-  country       String                       @default("") @db.VarChar(128)
-  sraProfileUrl String                       @map("sra_profile_url") @db.VarChar(2048)
-  source        String                       @default("sra") @db.VarChar(16)
-  embedding     Unsupported("vector(1536)")?
-  latitude      Float?
-  longitude     Float?
-  normalizedAddress      String? @map("normalized_address") @db.Text
-  normalizedPostcode     String? @map("normalized_postcode") @db.VarChar(32)
-  normalizedCity         String? @map("normalized_city") @db.VarChar(255)
-  geocodingConfidence    Float?  @map("geocoding_confidence")
-  updatedAt     DateTime                     @updatedAt @map("updated_at") @db.Timestamptz(3)
+  id                     String                 @id @db.VarChar(128)
+  sraId                  String                 @unique @map("sra_id") @db.VarChar(64)
+  businessName           String                 @map("business_name") @db.VarChar(512)
+  searchText             String                 @map("search_text")
+  city                   String                 @default("") @db.VarChar(255)
+  postcode               String                 @default("") @db.VarChar(32)
+  county                 String                 @default("") @db.VarChar(255)
+  country                String                 @default("") @db.VarChar(128)
+  sraProfileUrl          String                 @map("sra_profile_url") @db.VarChar(2048)
+  source                 String                 @default("sra") @db.VarChar(16)
+  updatedAt              DateTime               @updatedAt @map("updated_at") @db.Timestamptz(3)
+  embedding              Unsupported("vector")?
+  latitude               Float?
+  longitude              Float?
+  normalizedAddress      String?                @map("normalized_address")
+  normalizedPostcode     String?                @map("normalized_postcode") @db.VarChar(32)
+  normalizedCity         String?                @map("normalized_city") @db.VarChar(255)
+  geocodingConfidence    Float?                 @map("geocoding_confidence")
+  phone                  String                 @default("") @db.VarChar(64)
+  organisationName       String                 @default("") @map("organisation_name") @db.VarChar(512)
+  displayName            String                 @default("") @map("display_name") @db.VarChar(512)
+  tradingName            String                 @default("") @map("trading_name") @db.VarChar(512)
+  firmName               String                 @default("") @map("firm_name") @db.VarChar(512)
+  nameRecoverySource     String?                @map("name_recovery_source") @db.VarChar(32)
+  nameRecoverySourceUrl  String?                @map("name_recovery_source_url") @db.VarChar(2048)
+  nameRecoveryFetchedAt  DateTime?              @map("name_recovery_fetched_at") @db.Timestamptz(3)
+  nameRecoveryConfidence Float?                 @map("name_recovery_confidence")
+  website                String                 @default("") @db.VarChar(2048)
+  email                  String                 @default("") @db.VarChar(512)
+  tradingNames           Json?                  @map("trading_names")
+  previousNames          Json?                  @map("previous_names")
+  workArea               Json?                  @map("work_area")
+  authorisationStatus    String                 @default("") @map("authorisation_status") @db.VarChar(64)
+  offices                Json?
+  rawPayload             Json?                  @map("raw_payload")
+  identityCandidates     SraIdentityCandidate[]
 
+  @@index([sraId], map: "sra_organisations_placeholder_display_sra_id_idx", where: raw("((display_name)::text ~~ 'SRA organisation%'::text)"))
   @@map("sra_organisations")
 }
 
-// =========================================================================
-// Legal Shaman: lawyer matcher (MVP)
-// =========================================================================
+/// Archived SRA organisation rows removed from the live register (not returned by latest GetAll).
+model SraOrganisationArchive {
+  id         String   @id @default(cuid())
+  sraId      String   @map("sra_id") @db.VarChar(64)
+  snapshot   Json
+  reason     String   @default("not_in_getall") @db.VarChar(64)
+  archivedAt DateTime @default(now()) @map("archived_at") @db.Timestamptz(3)
+
+  @@index([sraId])
+  @@index([archivedAt])
+  @@map("sra_organisations_archive")
+}
+
+/// Audit trail for SRA logical dedupe (legacy placeholder row merged into SraNumber-keyed row).
+model SraLogicalDedupeAudit {
+  id                String    @id @default(cuid())
+  oldSraId          String    @map("old_sra_id") @db.VarChar(64)
+  newSraId          String    @map("new_sra_id") @db.VarChar(64)
+  reason            String    @db.VarChar(64)
+  transferredCounts Json      @map("transferred_counts")
+  oldSnapshot       Json      @map("old_snapshot")
+  newSnapshot       Json      @map("new_snapshot")
+  dryRun            Boolean   @default(false) @map("dry_run")
+  restoredAt        DateTime? @map("restored_at") @db.Timestamptz(3)
+  createdAt         DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  @@index([oldSraId])
+  @@index([newSraId])
+  @@map("sra_logical_dedupe_audit")
+}
+
+/// Candidate firm names recovered for placeholder SRA organisations (local / Yell / Serper / Law Society).
+model SraIdentityCandidate {
+  id               String          @id @default(cuid())
+  sraId            String          @map("sra_id") @db.VarChar(64)
+  organisationId   String          @map("organisation_id") @db.VarChar(128)
+  candidateName    String          @map("candidate_name") @db.VarChar(512)
+  sourceType       String          @map("source_type") @db.VarChar(32)
+  sourceUrl        String          @map("source_url") @db.VarChar(2048)
+  evidenceText     String          @map("evidence_text")
+  candidatePhone   String          @default("") @map("candidate_phone") @db.VarChar(64)
+  candidateAddress String          @default("") @map("candidate_address")
+  candidateWebsite String          @default("") @map("candidate_website") @db.VarChar(2048)
+  matchedPostcode  String          @default("") @map("matched_postcode") @db.VarChar(32)
+  matchedTown      String          @default("") @map("matched_town") @db.VarChar(255)
+  confidence       Float           @default(0)
+  status           String          @default("pending_review") @db.VarChar(32)
+  rejectReason     String          @default("") @map("reject_reason") @db.VarChar(128)
+  createdAt        DateTime        @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime        @updatedAt @map("updated_at") @db.Timestamptz(3)
+  organisation     SraOrganisation @relation(fields: [organisationId], references: [id], onDelete: Cascade)
+
+  @@unique([sraId, sourceType, sourceUrl], map: "sra_identity_candidates_sra_source_unique")
+  @@index([status, confidence])
+  @@index([sraId])
+  @@map("sra_identity_candidates")
+}
 
 model Firm {
-  id            String   @id @default(cuid())
-  name          String
-  website       String?
-  verified      Boolean  @default(false)
+  id                  String   @id @default(cuid())
+  name                String
+  website             String?
+  verified            Boolean  @default(false)
+  createdAt           DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt           DateTime @updatedAt @db.Timestamptz(3)
   /// When populated, this firm corresponds to an SRA-registered organisation.
   /// Set by `sra:sync` (direct upsert) or `sra:link-firms` (name match).
-  sraId         String?  @unique @map("sra_id")
-  sraProfileUrl String?  @map("sra_profile_url")
-  city          String?
-  postcode      String?
-  country       String?
-  latitude      Float?
-  longitude     Float?
-  normalizedAddress   String? @map("normalized_address") @db.Text
-  normalizedPostcode  String? @map("normalized_postcode") @db.VarChar(32)
-  normalizedCity      String? @map("normalized_city") @db.VarChar(255)
-  geocodingConfidence Float?  @map("geocoding_confidence")
-  lawyers       Lawyer[]
-  createdAt     DateTime @default(now()) @db.Timestamptz(3)
-  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
+  sraId               String?  @unique @map("sra_id")
+  sraProfileUrl       String?  @map("sra_profile_url")
+  city                String?
+  postcode            String?
+  country             String?
+  latitude            Float?
+  longitude           Float?
+  normalizedAddress   String?  @map("normalized_address")
+  normalizedPostcode  String?  @map("normalized_postcode") @db.VarChar(32)
+  normalizedCity      String?  @map("normalized_city") @db.VarChar(255)
+  geocodingConfidence Float?   @map("geocoding_confidence")
+  lawyers             Lawyer[]
 
   @@index([name])
   @@map("firms")
 }
 
 model Lawyer {
-  id                    String   @id @default(cuid())
-  name                  String
-  firmId                String?  @map("firm_id")
-  firm                  Firm?    @relation(fields: [firmId], references: [id], onDelete: SetNull)
-  bio                   String   @db.Text
-  yearsExperience       Int      @default(0) @map("years_experience")
-  rating                Float    @default(0)
-  reviewCount           Int      @default(0) @map("review_count")
+  id                  String                 @id @default(cuid())
+  name                String
+  firmId              String?                @map("firm_id")
+  bio                 String
+  yearsExperience     Int                    @default(0) @map("years_experience")
+  rating              Float                  @default(0)
+  reviewCount         Int                    @default(0) @map("review_count")
   /// E.g. ["phone","video","in_person","fixed_fee","free_consultation"]
-  consultationOptions   String[] @map("consultation_options")
-  verifiedCredentials   Boolean  @default(false) @map("verified_credentials")
-  profileUrl            String?  @map("profile_url")
-
+  consultationOptions String[]               @map("consultation_options")
+  verifiedCredentials Boolean                @default(false) @map("verified_credentials")
+  profileUrl          String?                @map("profile_url")
   /// pgvector column; dimension fixed by LLM_EMBED_DIM at migration time (1536 for OpenAI default).
-  embedding             Unsupported("vector(1536)")?
-
-  practiceAreas         LawyerPracticeArea[]
-  locations             Location[]
-  languages             LawyerLanguage[]
-  credentials           Credential[]
-  reviews               Review[]
-  availability          Availability?
-
-  createdAt             DateTime @default(now()) @db.Timestamptz(3)
-  updatedAt             DateTime @updatedAt @db.Timestamptz(3)
+  embedding           Unsupported("vector")?
+  createdAt           DateTime               @default(now()) @db.Timestamptz(3)
+  updatedAt           DateTime               @updatedAt @db.Timestamptz(3)
+  availability        Availability?
+  credentials         Credential[]
+  languages           LawyerLanguage[]
+  practiceAreas       LawyerPracticeArea[]
+  firm                Firm?                  @relation(fields: [firmId], references: [id])
+  locations           Location[]
+  reviews             Review[]
 
   @@index([firmId])
   @@index([rating])
@@ -111,10 +175,10 @@ model PracticeArea {
 }
 
 model LawyerPracticeArea {
-  lawyerId       String        @map("lawyer_id")
-  practiceAreaId String        @map("practice_area_id")
-  lawyer         Lawyer        @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
-  practiceArea   PracticeArea  @relation(fields: [practiceAreaId], references: [id], onDelete: Cascade)
+  lawyerId       String       @map("lawyer_id")
+  practiceAreaId String       @map("practice_area_id")
+  lawyer         Lawyer       @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  practiceArea   PracticeArea @relation(fields: [practiceAreaId], references: [id], onDelete: Cascade)
 
   @@id([lawyerId, practiceAreaId])
   @@index([practiceAreaId])
@@ -122,17 +186,17 @@ model LawyerPracticeArea {
 }
 
 model Location {
-  id           String  @id @default(cuid())
-  lawyerId     String  @map("lawyer_id")
-  lawyer       Lawyer  @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
-  city         String
-  postcode     String  @default("")
-  country      String  @default("United Kingdom")
+  id                  String @id @default(cuid())
+  lawyerId            String @map("lawyer_id")
+  city                String
+  postcode            String @default("")
+  country             String @default("United Kingdom")
   /// E.g. "England & Wales", "Scotland", "Northern Ireland"
-  jurisdiction String
-  latitude     Float?
-  longitude      Float?
+  jurisdiction        String
+  latitude            Float?
+  longitude           Float?
   geocodingConfidence Float? @map("geocoding_confidence")
+  lawyer              Lawyer @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
 
   @@index([lawyerId])
   @@index([city])
@@ -153,8 +217,8 @@ model Language {
 model LawyerLanguage {
   lawyerId   String   @map("lawyer_id")
   languageId String   @map("language_id")
-  lawyer     Lawyer   @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
   language   Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
+  lawyer     Lawyer   @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
 
   @@id([lawyerId, languageId])
   @@index([languageId])
@@ -164,11 +228,11 @@ model LawyerLanguage {
 model Credential {
   id                 String    @id @default(cuid())
   lawyerId           String    @map("lawyer_id")
-  lawyer             Lawyer    @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
   /// E.g. "SRA", "Bar Standards Board", "Law Society of Scotland"
   authority          String
   registrationNumber String    @map("registration_number")
   verifiedAt         DateTime? @map("verified_at") @db.Timestamptz(3)
+  lawyer             Lawyer    @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
 
   @@index([lawyerId])
   @@map("credentials")
@@ -177,73 +241,71 @@ model Credential {
 model Review {
   id        String   @id @default(cuid())
   lawyerId  String   @map("lawyer_id")
-  lawyer    Lawyer   @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
   rating    Int
-  body      String   @db.Text
+  body      String
   verified  Boolean  @default(false)
   createdAt DateTime @default(now()) @db.Timestamptz(3)
+  lawyer    Lawyer   @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
 
   @@index([lawyerId])
   @@map("reviews")
 }
 
 model Availability {
-  id                    String  @id @default(cuid())
-  lawyerId              String  @unique @map("lawyer_id")
-  lawyer                Lawyer  @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
-  acceptingClients      Boolean @default(true) @map("accepting_clients")
-  responseHours         Int?    @map("response_hours")
-  freeConsultation      Boolean @default(false) @map("free_consultation")
-  fixedFeeConsultation  Boolean @default(false) @map("fixed_fee_consultation")
+  id                   String  @id @default(cuid())
+  lawyerId             String  @unique @map("lawyer_id")
+  acceptingClients     Boolean @default(true) @map("accepting_clients")
+  responseHours        Int?    @map("response_hours")
+  freeConsultation     Boolean @default(false) @map("free_consultation")
+  fixedFeeConsultation Boolean @default(false) @map("fixed_fee_consultation")
+  lawyer               Lawyer  @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
 
   @@map("availability")
 }
 
 /// Observability: directory + matcher searches. TODO: PII minimization — hash or truncate rawQuery in production if required by policy.
 model SearchInteraction {
-  id               String   @id @default(cuid())
-  userSessionId    String?  @map("user_session_id")
-  rawQuery         String   @map("raw_query") @db.Text
-  extractedFilters Json     @map("extracted_filters")
-  clarifyingAsked  Boolean  @default(false) @map("clarifying_asked")
-  resultLawyerIds  String[] @map("result_lawyer_ids")
+  id               String        @id @default(cuid())
+  userSessionId    String?       @map("user_session_id")
+  rawQuery         String        @map("raw_query")
+  extractedFilters Json          @map("extracted_filters")
+  clarifyingAsked  Boolean       @default(false) @map("clarifying_asked")
+  resultLawyerIds  String[]      @map("result_lawyer_ids")
+  createdAt        DateTime      @default(now()) @db.Timestamptz(3)
   /// directory | matcher
-  channel          String?  @map("channel") @db.VarChar(32)
-  latencyMs        Int?     @map("latency_ms")
-  degradedModes    Json?    @map("degraded_modes")
-  resultCount      Int?     @map("result_count")
-  parsedQuery      Json?    @map("parsed_query")
-  unifiedResultIds String[] @default([]) @map("unified_result_ids")
-  mapUsed          Boolean? @map("map_used")
-  mapBounds        Json?    @map("map_bounds")
-  radiusMiles      Float?   @map("radius_miles")
-  typesenseQueries Json?    @map("typesense_queries")
-  createdAt        DateTime @default(now()) @db.Timestamptz(3)
+  channel          String?       @map("channel") @db.VarChar(32)
+  latencyMs        Int?          @map("latency_ms")
+  degradedModes    Json?         @map("degraded_modes")
+  resultCount      Int?          @map("result_count")
+  parsedQuery      Json?         @map("parsed_query")
+  unifiedResultIds String[]      @default([]) @map("unified_result_ids")
+  mapUsed          Boolean?      @map("map_used")
+  mapBounds        Json?         @map("map_bounds")
+  radiusMiles      Float?        @map("radius_miles")
+  typesenseQueries Json?         @map("typesense_queries")
+  searchEvents     SearchEvent[]
 
   @@index([userSessionId])
   @@index([createdAt])
   @@map("search_interactions")
-
-  searchEvents SearchEvent[]
 }
 
 /// Per-result interaction telemetry for ranking feedback (query stored as prefix only).
 model SearchEvent {
-  id                  String   @id @default(cuid())
-  sessionHash         String   @map("session_hash") @db.VarChar(64)
-  searchInteractionId String?  @map("search_interaction_id")
-  queryPrefix         String   @map("query_prefix") @db.VarChar(120)
-  parsedPracticeArea  String?  @map("parsed_practice_area") @db.VarChar(64)
-  parsedLocation      String?  @map("parsed_location") @db.VarChar(128)
-  resultId            String?  @map("result_id") @db.VarChar(128)
-  resultSource        String?  @map("result_source") @db.VarChar(32)
-  resultRank          Int?     @map("result_rank")
-  eventType           String   @map("event_type") @db.VarChar(48)
-  page                String   @db.VarChar(32)
+  id                  String             @id @default(cuid())
+  sessionHash         String             @map("session_hash") @db.VarChar(64)
+  searchInteractionId String?            @map("search_interaction_id")
+  queryPrefix         String             @map("query_prefix") @db.VarChar(120)
+  parsedPracticeArea  String?            @map("parsed_practice_area") @db.VarChar(64)
+  parsedLocation      String?            @map("parsed_location") @db.VarChar(128)
+  resultId            String?            @map("result_id") @db.VarChar(128)
+  resultSource        String?            @map("result_source") @db.VarChar(32)
+  resultRank          Int?               @map("result_rank")
+  eventType           String             @map("event_type") @db.VarChar(48)
+  page                String             @db.VarChar(32)
   metadata            Json?
-  createdAt           DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
-
-  searchInteraction SearchInteraction? @relation(fields: [searchInteractionId], references: [id], onDelete: SetNull)
+  createdAt           DateTime           @default(now()) @map("created_at") @db.Timestamptz(3)
+  searchInteraction   SearchInteraction? @relation(fields: [searchInteractionId], references: [id])
 
   @@index([sessionHash, createdAt])
   @@index([eventType, createdAt])
@@ -274,9 +336,9 @@ model SearchRankingSignal {
 /// Geocoding cache — populated during index build, not on every user search.
 model GeocodedLocation {
   id              String   @id @default(cuid())
-  input           String   @db.Text
-  normalizedInput String   @map("normalized_input") @db.Text
-  address         String?  @db.Text
+  input           String
+  normalizedInput String   @unique @map("normalized_input")
+  address         String?
   postcode        String?  @db.VarChar(32)
   city            String?  @db.VarChar(255)
   latitude        Float?
@@ -286,53 +348,53 @@ model GeocodedLocation {
   createdAt       DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt       DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
 
-  @@unique([normalizedInput])
   @@index([postcode])
   @@map("geocoded_locations")
 }
 
 /// Extracted provider fields pending or approved for indexing (never invent contact data).
 model ProviderEnrichment {
-  id                String   @id @default(cuid())
-  entityId          String   @map("entity_id") @db.VarChar(128)
-  entityType        String   @map("entity_type") @db.VarChar(64)
-  fieldName         String   @map("field_name") @db.VarChar(64)
-  extractedValue    String   @map("extracted_value") @db.Text
-  confidence        Float
-  sourceUrl         String?  @map("source_url") @db.VarChar(2048)
-  sourceType        String   @map("source_type") @db.VarChar(48)
-  extractionMethod  String   @map("extraction_method") @db.VarChar(48)
-  status            String   @default("pending_review") @db.VarChar(32)
-  provenanceNote    String?  @map("provenance_note") @db.Text
-  policyDecision    String?  @map("policy_decision") @db.VarChar(32)
-  policyReason      String?  @map("policy_reason") @db.Text
-  auditSample       Boolean  @default(false) @map("audit_sample")
-  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
-  updatedAt         DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+  id               String   @id @default(cuid())
+  entityId         String   @map("entity_id") @db.VarChar(128)
+  entityType       String   @map("entity_type") @db.VarChar(64)
+  fieldName        String   @map("field_name") @db.VarChar(64)
+  extractedValue   String   @map("extracted_value")
+  confidence       Float
+  sourceUrl        String?  @map("source_url") @db.VarChar(2048)
+  sourceType       String   @map("source_type") @db.VarChar(48)
+  extractionMethod String   @map("extraction_method") @db.VarChar(48)
+  status           String   @default("pending_review") @db.VarChar(32)
+  provenanceNote   String?  @map("provenance_note")
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+  policyDecision   String?  @map("policy_decision") @db.VarChar(32)
+  policyReason     String?  @map("policy_reason")
+  auditSample      Boolean  @default(false) @map("audit_sample")
 
   @@unique([entityId, fieldName, extractedValue])
   @@index([status, createdAt])
   @@index([entityId])
   @@index([policyDecision])
+  @@index([fieldName, status])
+  @@index([status, confidence])
   @@map("provider_enrichments")
 }
 
 /// Queued provider enrichment crawl (compliant fetch + extraction).
 model ProviderCrawlJob {
-  id          String    @id @default(cuid())
-  entityId    String    @map("entity_id") @db.VarChar(128)
-  entityType  String    @map("entity_type") @db.VarChar(64)
-  mode        String    @db.VarChar(32)
-  status      String    @default("queued") @db.VarChar(32)
-  targetUrl   String?   @map("target_url") @db.VarChar(2048)
-  error       String?   @db.Text
-  scheduledAt DateTime  @default(now()) @map("scheduled_at") @db.Timestamptz(3)
-  startedAt   DateTime? @map("started_at") @db.Timestamptz(3)
-  completedAt DateTime? @map("completed_at") @db.Timestamptz(3)
-  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
-  updatedAt   DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
-
-  results ProviderCrawlResult[]
+  id          String                @id @default(cuid())
+  entityId    String                @map("entity_id") @db.VarChar(128)
+  entityType  String                @map("entity_type") @db.VarChar(64)
+  mode        String                @db.VarChar(32)
+  status      String                @default("queued") @db.VarChar(32)
+  targetUrl   String?               @map("target_url") @db.VarChar(2048)
+  error       String?
+  scheduledAt DateTime              @default(now()) @map("scheduled_at") @db.Timestamptz(3)
+  startedAt   DateTime?             @map("started_at") @db.Timestamptz(3)
+  completedAt DateTime?             @map("completed_at") @db.Timestamptz(3)
+  createdAt   DateTime              @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime              @updatedAt @map("updated_at") @db.Timestamptz(3)
+  results     ProviderCrawlResult[]
 
   @@index([status, scheduledAt])
   @@index([entityId])
@@ -341,17 +403,16 @@ model ProviderCrawlJob {
 
 /// Per-job crawl outcome summary.
 model ProviderCrawlResult {
-  id           String   @id @default(cuid())
-  jobId        String   @map("job_id")
-  entityId     String   @map("entity_id") @db.VarChar(128)
-  pagesFetched Int      @default(0) @map("pages_fetched")
-  pagesSkipped Int      @default(0) @map("pages_skipped")
-  fieldsFound  Int      @default(0) @map("fields_found")
-  statsJson    String?  @map("stats_json") @db.Text
-  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
-
-  job    ProviderCrawlJob         @relation(fields: [jobId], references: [id], onDelete: Cascade)
-  fields ProviderExtractedField[]
+  id           String                   @id @default(cuid())
+  jobId        String                   @map("job_id")
+  entityId     String                   @map("entity_id") @db.VarChar(128)
+  pagesFetched Int                      @default(0) @map("pages_fetched")
+  pagesSkipped Int                      @default(0) @map("pages_skipped")
+  fieldsFound  Int                      @default(0) @map("fields_found")
+  statsJson    String?                  @map("stats_json")
+  createdAt    DateTime                 @default(now()) @map("created_at") @db.Timestamptz(3)
+  job          ProviderCrawlJob         @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  fields       ProviderExtractedField[]
 
   @@index([jobId])
   @@index([entityId])
@@ -360,33 +421,46 @@ model ProviderCrawlResult {
 
 /// Extracted provider field with provenance; contact fields require admin approval for public display.
 model ProviderExtractedField {
-  id               String   @id @default(cuid())
-  crawlResultId    String?  @map("crawl_result_id")
-  entityId         String   @map("entity_id") @db.VarChar(128)
-  entityType       String   @map("entity_type") @db.VarChar(64)
-  fieldName        String   @map("field_name") @db.VarChar(64)
-  extractedValue   String   @map("extracted_value") @db.Text
+  id               String               @id @default(cuid())
+  crawlResultId    String?              @map("crawl_result_id")
+  entityId         String               @map("entity_id") @db.VarChar(128)
+  entityType       String               @map("entity_type") @db.VarChar(64)
+  fieldName        String               @map("field_name") @db.VarChar(64)
+  extractedValue   String               @map("extracted_value")
   confidence       Float
-  sourceUrl        String?  @map("source_url") @db.VarChar(2048)
-  sourceType       String   @map("source_type") @db.VarChar(48)
-  extractionMethod String   @map("extraction_method") @db.VarChar(48)
-  reviewCategory   String   @default("field") @map("review_category") @db.VarChar(32)
-  status           String   @default("pending_review") @db.VarChar(32)
-  provenanceNote   String?  @map("provenance_note") @db.Text
-  policyDecision   String?  @map("policy_decision") @db.VarChar(32)
-  policyReason     String?  @map("policy_reason") @db.Text
-  auditSample      Boolean  @default(false) @map("audit_sample")
-  extractedAt      DateTime @default(now()) @map("extracted_at") @db.Timestamptz(3)
-  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
-  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
-
-  crawlResult ProviderCrawlResult? @relation(fields: [crawlResultId], references: [id], onDelete: SetNull)
+  sourceUrl        String?              @map("source_url") @db.VarChar(2048)
+  sourceType       String               @map("source_type") @db.VarChar(48)
+  extractionMethod String               @map("extraction_method") @db.VarChar(48)
+  reviewCategory   String               @default("field") @map("review_category") @db.VarChar(32)
+  status           String               @default("pending_review") @db.VarChar(32)
+  provenanceNote   String?              @map("provenance_note")
+  extractedAt      DateTime             @default(now()) @map("extracted_at") @db.Timestamptz(3)
+  createdAt        DateTime             @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime             @updatedAt @map("updated_at") @db.Timestamptz(3)
+  policyDecision   String?              @map("policy_decision") @db.VarChar(32)
+  policyReason     String?              @map("policy_reason")
+  auditSample      Boolean              @default(false) @map("audit_sample")
+  crawlResult      ProviderCrawlResult? @relation(fields: [crawlResultId], references: [id])
 
   @@unique([entityId, fieldName, extractedValue, reviewCategory])
   @@index([status, reviewCategory, createdAt])
   @@index([entityId])
   @@index([policyDecision])
   @@map("provider_extracted_fields")
+}
+
+/// Globally approved field values — auto-approve future identical extractions across providers.
+model ProviderGlobalValueApproval {
+  id              String   @id @default(cuid())
+  fieldName       String   @map("field_name") @db.VarChar(64)
+  normalizedValue String   @map("normalized_value")
+  displayValue    String   @map("display_value")
+  approvedBy      String?  @map("approved_by") @db.VarChar(128)
+  approvedAt      DateTime @default(now()) @map("approved_at") @db.Timestamptz(3)
+
+  @@unique([fieldName, normalizedValue])
+  @@index([fieldName])
+  @@map("provider_global_value_approvals")
 }
 
 /// Per-entity enrichment ladder progress (SRA weak-provider pipeline).
@@ -396,13 +470,134 @@ model ProviderEnrichmentState {
   status            String   @default("not_started") @db.VarChar(32)
   priorityScore     Float    @default(0) @map("priority_score")
   discoveredWebsite String?  @map("discovered_website") @db.VarChar(2048)
-  lastError         String?  @map("last_error") @db.Text
+  lastError         String?  @map("last_error")
   attempts          Int      @default(0)
   createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt         DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
 
   @@index([status, priorityScore])
   @@map("provider_enrichment_states")
+}
+
+/// Provider Intelligence Crawler v2 — scheduled crawl run per entity/stage.
+model ProviderCrawlRun {
+  id            String                 @id @default(cuid())
+  entityId      String                 @map("entity_id") @db.VarChar(128)
+  entityType    String                 @map("entity_type") @db.VarChar(64)
+  stage         String                 @db.VarChar(48)
+  status        String                 @default("queued") @db.VarChar(32)
+  priority      Float                  @default(0)
+  attempts      Int                    @default(0)
+  maxAttempts   Int                    @default(3) @map("max_attempts")
+  scheduledAt   DateTime               @default(now()) @map("scheduled_at") @db.Timestamptz(3)
+  startedAt     DateTime?              @map("started_at") @db.Timestamptz(3)
+  completedAt   DateTime?              @map("completed_at") @db.Timestamptz(3)
+  error         String?
+  statsJson     String?                @map("stats_json")
+  createdAt     DateTime               @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt     DateTime               @updatedAt @map("updated_at") @db.Timestamptz(3)
+  contacts      ProviderContact[]
+  practiceAreas ProviderPracticeArea[]
+  reviewSignals ProviderReviewSignal[]
+  websites      ProviderWebsite[]
+
+  @@index([status, scheduledAt])
+  @@index([entityId, stage])
+  @@map("provider_crawl_runs")
+}
+
+/// Discovered or verified official website (v2).
+model ProviderWebsite {
+  id               String            @id @default(cuid())
+  crawlRunId       String?           @map("crawl_run_id")
+  entityId         String            @map("entity_id") @db.VarChar(128)
+  entityType       String            @map("entity_type") @db.VarChar(64)
+  url              String            @db.VarChar(2048)
+  confidence       Float
+  sourceType       String            @map("source_type") @db.VarChar(48)
+  sourceUrl        String?           @map("source_url") @db.VarChar(2048)
+  extractionMethod String            @map("extraction_method") @db.VarChar(48)
+  status           String            @default("pending_review") @db.VarChar(32)
+  createdAt        DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime          @updatedAt @map("updated_at") @db.Timestamptz(3)
+  crawlRun         ProviderCrawlRun? @relation(fields: [crawlRunId], references: [id])
+
+  @@unique([entityId, url])
+  @@index([entityId, status])
+  @@index([status])
+  @@index([status, confidence])
+  @@map("provider_websites")
+}
+
+/// Phone, email, contact page (v2).
+model ProviderContact {
+  id               String            @id @default(cuid())
+  crawlRunId       String?           @map("crawl_run_id")
+  entityId         String            @map("entity_id") @db.VarChar(128)
+  entityType       String            @map("entity_type") @db.VarChar(64)
+  fieldName        String            @map("field_name") @db.VarChar(64)
+  value            String
+  confidence       Float
+  sourceType       String            @map("source_type") @db.VarChar(48)
+  sourceUrl        String?           @map("source_url") @db.VarChar(2048)
+  extractionMethod String            @map("extraction_method") @db.VarChar(48)
+  status           String            @default("pending_review") @db.VarChar(32)
+  createdAt        DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime          @updatedAt @map("updated_at") @db.Timestamptz(3)
+  crawlRun         ProviderCrawlRun? @relation(fields: [crawlRunId], references: [id])
+
+  @@unique([entityId, fieldName, value])
+  @@index([entityId, status])
+  @@index([fieldName])
+  @@index([status])
+  @@index([status, confidence])
+  @@map("provider_contacts")
+}
+
+/// Practice area slug/label extracted from provider sites (v2).
+model ProviderPracticeArea {
+  id               String            @id @default(cuid())
+  crawlRunId       String?           @map("crawl_run_id")
+  entityId         String            @map("entity_id") @db.VarChar(128)
+  entityType       String            @map("entity_type") @db.VarChar(64)
+  slug             String?           @db.VarChar(128)
+  label            String            @db.VarChar(256)
+  confidence       Float
+  sourceType       String            @map("source_type") @db.VarChar(48)
+  sourceUrl        String?           @map("source_url") @db.VarChar(2048)
+  extractionMethod String            @map("extraction_method") @db.VarChar(48)
+  status           String            @default("pending_review") @db.VarChar(32)
+  createdAt        DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime          @updatedAt @map("updated_at") @db.Timestamptz(3)
+  crawlRun         ProviderCrawlRun? @relation(fields: [crawlRunId], references: [id])
+
+  @@unique([entityId, label])
+  @@index([entityId, status])
+  @@index([status])
+  @@map("provider_practice_areas")
+}
+
+/// Trustpilot / review signals (v2).
+model ProviderReviewSignal {
+  id               String            @id @default(cuid())
+  crawlRunId       String?           @map("crawl_run_id")
+  entityId         String            @map("entity_id") @db.VarChar(128)
+  entityType       String            @map("entity_type") @db.VarChar(64)
+  signalType       String            @map("signal_type") @db.VarChar(64)
+  value            String
+  confidence       Float
+  sourceType       String            @map("source_type") @db.VarChar(48)
+  sourceUrl        String?           @map("source_url") @db.VarChar(2048)
+  extractionMethod String            @map("extraction_method") @db.VarChar(48)
+  status           String            @default("pending_review") @db.VarChar(32)
+  createdAt        DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime          @updatedAt @map("updated_at") @db.Timestamptz(3)
+  crawlRun         ProviderCrawlRun? @relation(fields: [crawlRunId], references: [id])
+
+  @@unique([entityId, signalType, value])
+  @@index([entityId, status])
+  @@index([status])
+  @@map("provider_review_signals")
 }
 
 /// Incremental Typesense re-index queue (one entity per job).
@@ -413,7 +608,7 @@ model IndexingJob {
   status       String    @default("queued") @db.VarChar(16)
   reason       String?   @db.VarChar(255)
   attempts     Int       @default(0)
-  lastError    String?   @map("last_error") @db.Text
+  lastError    String?   @map("last_error")
   createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt    DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
   completedAt  DateTime? @map("completed_at") @db.Timestamptz(3)
@@ -425,19 +620,19 @@ model IndexingJob {
 
 /// Audit trail for full/partial search index builds and scheduled ops runs.
 model SearchIndexBuild {
-  id              String    @id @default(cuid())
-  source          String    @db.VarChar(64)
-  environment     String    @db.VarChar(64)
-  databaseHost    String?   @map("database_host") @db.VarChar(255)
-  typesenseHost   String?   @map("typesense_host") @db.VarChar(255)
-  startedAt       DateTime  @default(now()) @map("started_at") @db.Timestamptz(3)
-  completedAt     DateTime? @map("completed_at") @db.Timestamptz(3)
-  status          String    @default("running") @db.VarChar(16)
-  documentCount   Int?      @map("document_count")
-  sraCount        Int?      @map("sra_count")
-  legalAidCount   Int?      @map("legal_aid_count")
-  proBonoCount    Int?      @map("pro_bono_count")
-  errorsJson      String?   @map("errors_json") @db.Text
+  id            String    @id @default(cuid())
+  source        String    @db.VarChar(64)
+  environment   String    @db.VarChar(64)
+  databaseHost  String?   @map("database_host") @db.VarChar(255)
+  typesenseHost String?   @map("typesense_host") @db.VarChar(255)
+  startedAt     DateTime  @default(now()) @map("started_at") @db.Timestamptz(3)
+  completedAt   DateTime? @map("completed_at") @db.Timestamptz(3)
+  status        String    @default("running") @db.VarChar(16)
+  documentCount Int?      @map("document_count")
+  sraCount      Int?      @map("sra_count")
+  legalAidCount Int?      @map("legal_aid_count")
+  proBonoCount  Int?      @map("pro_bono_count")
+  errorsJson    String?   @map("errors_json")
 
   @@index([source, startedAt])
   @@index([status, startedAt])

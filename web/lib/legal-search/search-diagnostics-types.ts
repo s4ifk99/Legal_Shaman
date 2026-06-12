@@ -29,6 +29,8 @@ export type ResultDebugDiagnostics = {
   contactConfidence?: number;
   missingContactFields?: string[];
   enrichmentStatus?: string;
+  /** SRA title was Organisation &lt;id&gt; in index; replaced from Postgres at serve time. */
+  nameRepairedFromDatabase?: boolean;
   /** Open cross-encoder reranker (when ENABLE_OPEN_RERANKER). */
   rerankerModel?: string;
   rerankerScore?: number;
@@ -95,6 +97,10 @@ export type SearchResponseDebug = {
   resultsRemovedByTopicalGate?: number;
   rescueBeforeGateCount?: number;
   rescueAfterGateCount?: number;
+  /** SRA placeholder titles fixed from Postgres (Typesense reindex pending). */
+  placeholderTitlesResolved?: number;
+  runtimeTitleResolutionRate?: number;
+  sraPlaceholderTitlesChecked?: number;
 };
 
 export type RankingStageSnapshot = {

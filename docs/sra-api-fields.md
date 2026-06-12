@@ -105,7 +105,8 @@ The ingest script maps **whichever fields exist** on each record into Meilisearc
 | Meilisearch field   | Typical SRA / JSON sources (first match wins) |
 |---------------------|-----------------------------------------------|
 | `id`                | `OrganisationId`, `organisationId`, `id`    |
-| `businessName`      | `AuthorisedName`, `authorisedName`, `OrganisationName`, `name` |
+| `businessName`      | `AuthorisedName`, `OrganisationName`, `OfficeName`, first `TradingName` / `TradingNames` (not the numeric SRA id) |
+| `phone`             | First office `Telephone`, `Phone`, `PhoneNumber`, etc. |
 | `sraId`             | Same as `id` when numeric / string SRA reference |
 | `city`, `postcode`, `county` | From head / first office: `PostTown`, `postTown`, `Town`, `PostCode`, `postcode`, address lines |
 | `searchText`        | Concatenation of name, trading names, addresses, postcodes for retrieval |

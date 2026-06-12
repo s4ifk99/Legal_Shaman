@@ -4,8 +4,12 @@ import path from "node:path";
 export type SraSyncState = {
   lastSuccessAt: string | null;
   organisationsUpserted: number;
+  /** Count of organisations in the latest successful GetAll fetch. */
+  activeGetAllCount?: number;
   errors: string[];
   apiConfigured: boolean;
+  /** Set when the last run used `sra:sync -- --limit=N`. */
+  partialSyncLimit?: number;
 };
 
 const STATE_PATH = path.join(process.cwd(), ".sra-sync-state.json");

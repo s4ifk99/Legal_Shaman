@@ -1,7 +1,12 @@
+import { enrichFirmNameSeedFromPostgres } from "@/lib/provider-osint/firm-name-seed";
+import { buildFirmWebsiteSearchQueries } from "@/lib/provider-osint/firm-search-queries";
 import {
   discoverFromSraRegister,
   discoverWebsiteOsint,
+  emptyWebsiteDiscoveryDiagnostics,
+  type WebsiteDiscoveryDiagnostics,
 } from "@/lib/provider-osint/website-discovery";
+import type { FirmWebsiteDiscoveryTrace } from "@/lib/provider-osint/search-website-discovery";
 import type { WebsiteDiscoveryCandidate } from "@/lib/provider-enrichment-ladder/types";
 import type { LegalEntityDocument } from "@/lib/search-index/types";
 import type { EnrichmentSourceType } from "@/lib/provider-enrichment/types";
@@ -21,15 +26,29 @@ function mapOsintToLadder(
 }
 
 /** Priority 1: existing SRA / structured fields (re-export for eval). */
-export function discoverFromSraFields(doc: LegalEntityDocument): WebsiteDiscoveryCandidate | null {
-  return mapOsintToLadder(discoverFromSraRegister(doc));
+export async function discoverFromSraFields(
+  doc: LegalEntityDocument,
+): Promise<WebsiteDiscoveryCandidate | null> {
+  const c = await discoverFromSraRegister(doc);
+  return mapOsintToLadder(c);
 }
 
 /** Full OSINT website discovery ladder. */
 export async function discoverOfficialWebsite(
   doc: LegalEntityDocument,
+  opts?: { metrics?: WebsiteDiscoveryDiagnostics; trace?: FirmWebsiteDiscoveryTrace },
 ): Promise<WebsiteDiscoveryCandidate | null> {
-  return mapOsintToLadder(await discoverWebsiteOsint(doc));
+  const seed = await enrichFirmNameSeedFromPostgres(doc);
+  if (seed && opts?.metrics) {
+    opts.metrics.firmNamesUsed++;
+    opts.metrics.searchQueriesBuilt += buildFirmWebsiteSearchQueries(seed).length;
+  }
+
+  const found = await discoverWebsiteOsint(doc, {
+    metrics: opts?.metrics,
+    trace: opts?.trace,
+  });
+  return mapOsintToLadder(found);
 }
 
 export type { EnrichmentSourceType };

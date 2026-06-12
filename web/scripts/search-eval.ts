@@ -43,6 +43,10 @@ import { runOrchestrationPolicyEval } from "../lib/search-eval/orchestration-pol
 import { runProviderIntelligenceEval } from "../lib/search-eval/provider-intelligence-eval";
 import { runProviderCrawlerEval } from "../lib/search-eval/provider-crawler-eval";
 import { runProviderEnrichmentLadderEval } from "../lib/search-eval/provider-enrichment-ladder-eval";
+import { runFirmWebsiteDiscoveryEval } from "../lib/search-eval/firm-website-discovery-eval";
+import { runSraRegisterLookupEval } from "../lib/search-eval/sra-register-lookup-eval";
+import { runLawSocietySraRecoveryEval } from "../lib/search-eval/law-society-sra-recovery-eval";
+import { runMissingIdentityRecoveryEval } from "../lib/search-eval/missing-identity-recovery-eval";
 import { runProviderOsintEval } from "../lib/search-eval/provider-osint-eval";
 import { runProviderAutoApprovalEval } from "../lib/search-eval/provider-auto-approval-eval";
 import { runSourceBalanceEval } from "../lib/search-eval/source-balance-eval";
@@ -54,6 +58,15 @@ import {
   requireAdminApiRequest,
 } from "../lib/admin/auth";
 import { runOpsEval } from "../lib/search-eval/ops-eval";
+import { runSraDisplayEval } from "../lib/search-eval/sra-display-eval";
+import { runSraTitleSourceEval } from "../lib/search-eval/sra-title-source-eval";
+import { runSraIdentityApproveEval } from "../lib/search-eval/sra-identity-approve-eval";
+import { runCoverageReportEval } from "../lib/search-eval/coverage-report-eval";
+import { runProviderIntelligenceCrawlerV2Eval } from "../lib/search-eval/provider-intelligence-crawler-v2-eval";
+import { runPracticeAreaTaxonomyGateEval } from "../lib/search-eval/practice-area-taxonomy-gate-eval";
+import { runCrawlV2ReviewEval } from "../lib/search-eval/crawl-v2-review-eval";
+import { runSyntheticWebsiteEval } from "../lib/search-eval/synthetic-website-eval";
+import { runSerperClientEval } from "../lib/search-eval/serper-client-eval";
 
 /** Same banned-shape check as `explanations.ts` (keep eval importable without server-only chain). */
 const DIR_EXPLANATION_BANNED = /\b(best|guarantee|will win|should\s|must\s|legal advice)\b/i;
@@ -330,18 +343,41 @@ async function main() {
 
   failed += runProviderCrawlerEval();
 
-  const ladderEval = runProviderEnrichmentLadderEval();
+  const ladderEval = await runProviderEnrichmentLadderEval();
   failed += ladderEval.failed;
 
-  const osintEval = runProviderOsintEval();
+  const osintEval = await runProviderOsintEval();
   failed += osintEval.failed;
+
+  failed += runFirmWebsiteDiscoveryEval();
+  failed += await runSerperClientEval();
+  failed += runSraRegisterLookupEval();
+  failed += runLawSocietySraRecoveryEval();
+  failed += await runMissingIdentityRecoveryEval();
+
+  const { runYellEnrichmentEval } = await import("../lib/search-eval/yell-enrichment-eval");
+  failed += await runYellEnrichmentEval();
 
   const autoApprovalEval = runProviderAutoApprovalEval();
   failed += autoApprovalEval.failed;
 
+  failed += runSyntheticWebsiteEval();
+
   failed += runSourceBalanceEval();
 
   failed += runSraPracticeAreaProjectionEval();
+
+  failed += await runSraDisplayEval();
+
+  failed += runSraTitleSourceEval();
+
+  failed += await runSraIdentityApproveEval();
+
+  failed += await runCoverageReportEval();
+
+  failed += await runProviderIntelligenceCrawlerV2Eval();
+  failed += runPracticeAreaTaxonomyGateEval();
+  failed += runCrawlV2ReviewEval();
 
   const openRerankEval = runOpenRerankerEval();
   for (const msg of openRerankEval.messages) console.error(msg);

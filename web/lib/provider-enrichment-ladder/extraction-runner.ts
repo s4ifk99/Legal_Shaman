@@ -4,6 +4,8 @@ import {
   contactPageCandidate,
   extractContactFieldsFromText,
 } from "@/lib/provider-crawler/extract-contact";
+import { extractWebsiteFromText } from "@/lib/provider-enrichment/contact-extractor";
+import { isRegulatoryOrDirectoryUrl } from "@/lib/provider-enrichment/regulatory-url-filter";
 import { persistExtractedField } from "@/lib/provider-crawler/review-queue";
 import type { LegalEntityDocument } from "@/lib/search-index/types";
 import { buildEnrichmentPlan } from "@/lib/provider-enrichment-ladder/enrichment-planner";
@@ -90,10 +92,14 @@ export async function runLadderForProvider(
     priorityScore: plan.priorityScore,
   });
 
-  let website =
+  let website: string | null | undefined =
     doc.website ??
     existing?.discoveredWebsite ??
-    doc.searchText?.match(/https?:\/\/[^\s,)]+/i)?.[0];
+    extractWebsiteFromText(doc.searchText ?? "");
+
+  if (website && isRegulatoryOrDirectoryUrl(website)) {
+    website = null;
+  }
 
   if (mode === "full" || mode === "discover_website") {
     const osint = await runOsintEnrichment(doc, enrichments, stats, {
@@ -116,6 +122,19 @@ export async function runLadderForProvider(
       discoverWebsite: false,
       extractStructured: true,
     });
+  }
+
+  if (mode === "discover_website") {
+    const nextStatus = website ? nextStatusAfterWebsiteDiscovery(status) : status;
+    stats.status = nextStatus;
+    await upsertEnrichmentState({
+      entityId: doc.id,
+      entityType: doc.entityType,
+      status: nextStatus,
+      discoveredWebsite: website ?? null,
+      priorityScore: plan.priorityScore,
+    });
+    return stats;
   }
 
   if (!website && (mode === "extract_contacts" || mode === "extract_practice_areas" || mode === "full")) {

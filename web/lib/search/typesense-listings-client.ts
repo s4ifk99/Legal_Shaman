@@ -4,6 +4,10 @@
 import Typesense from "typesense";
 import type { Listing } from "@/lib/data";
 import {
+  resolveTypesenseNodeConfig,
+  typesenseTlsErrorHint,
+} from "@/lib/search-index/connectivity-hints";
+import {
   getListingSearchDocument,
 } from "@/lib/search/listing-document";
 
@@ -24,7 +28,7 @@ export type ListingTypesenseDocument = {
 };
 
 function typesenseHost(): string | null {
-  return process.env.TYPESENSE_HOST?.trim() || null;
+  return resolveTypesenseNodeConfig()?.host ?? null;
 }
 
 function typesenseApiKey(): string | null {
@@ -38,21 +42,16 @@ export function typesenseListingsConfigured(): boolean {
 export function buildTypesenseListingsClientFromEnv(options?: {
   connectionTimeoutSeconds?: number;
 }): TsClient | null {
-  const host = typesenseHost();
-  const apiKey = typesenseApiKey();
-  if (!host || !apiKey) return null;
-  const protocol = (process.env.TYPESENSE_PROTOCOL?.trim().toLowerCase() === "http" ? "http" : "https") as
-    | "http"
-    | "https";
-  const portStr = process.env.TYPESENSE_PORT?.trim() || (protocol === "https" ? "443" : "8108");
-  const port = Number.parseInt(portStr, 10);
-  const portNum = Number.isFinite(port) ? port : protocol === "https" ? 443 : 8108;
+  const node = resolveTypesenseNodeConfig();
+  if (!node) return null;
   return new Typesense.Client({
-    nodes: [{ host, port: portNum, protocol }],
-    apiKey,
+    nodes: [{ host: node.host, port: node.port, protocol: node.protocol }],
+    apiKey: process.env.TYPESENSE_API_KEY!.trim(),
     connectionTimeoutSeconds: options?.connectionTimeoutSeconds ?? 15,
   });
 }
+
+export { typesenseTlsErrorHint };
 
 export function listingToTypesenseDocument(listing: Listing): ListingTypesenseDocument {
   return {

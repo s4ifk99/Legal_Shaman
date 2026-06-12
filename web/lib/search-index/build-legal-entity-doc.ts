@@ -8,7 +8,11 @@ import {
 } from "@/lib/legal/taxonomy";
 import { getListingSearchDocument } from "@/lib/search/listing-document";
 import { sraProfileUrlForId } from "@/lib/search/sra-document";
-import { resolveSraDisplayName } from "@/lib/search/sra-display";
+import {
+  buildSraNamePatchRecord,
+  chooseSraIndexTitle,
+  sraTitleSourceInputFromOrg,
+} from "@/lib/search-index/sra-title-source";
 import type { EntityType, LegalEntityDocument } from "@/lib/search-index/types";
 import { resolveGeoForIndex } from "@/lib/search-index/geocode";
 import {
@@ -18,6 +22,11 @@ import {
 import { normaliseCity, normalisePostcode } from "@/lib/search-index/normalise-address";
 import { applyTaxonomyProjection } from "@/lib/search-index/taxonomy-projection";
 import { projectAndApplySraPracticeAreas } from "@/lib/sra/practice-area-projection";
+import {
+  applySraWorkAreaSlugsToDocument,
+  parseSraWorkAreaField,
+} from "@/lib/sra/work-area-slugs";
+import { sraIndexPageSize, withDbRetry } from "@/lib/search-index/sra-index-page";
 import probonoData from "@/data/probono-sources.json";
 
 type ProBonoSourceRow = {
@@ -330,17 +339,25 @@ export type BuildSraDocumentsOptions = {
   take?: number;
   /** Skip geocode DB lookups — use existing coordinates only (faster for crawl CLI). */
   skipGeo?: boolean;
+  /** Load only these SRA numbers (partial Typesense reindex). */
+  sraIds?: string[];
+  /** Canonical firm.name from firms table (overrides stale org display_name). */
+  firmBusinessName?: string | null;
 };
 
 type SraOrgRow = Awaited<ReturnType<typeof prisma.sraOrganisation.findMany>>[number];
 
-async function sraOrganisationToDocument(
+export async function sraOrganisationToDocument(
   org: SraOrgRow,
   options?: BuildSraDocumentsOptions,
 ): Promise<LegalEntityDocument> {
   const searchText = org.searchText || org.businessName;
+  const websiteFromColumn = org.website?.trim();
   const websiteMatch = searchText.match(/https?:\/\/[^\s,)]+/i);
-  const website = websiteMatch?.[0];
+  const website = websiteFromColumn || websiteMatch?.[0];
+  const emailFromColumn = org.email?.trim();
+  const emailMatch = searchText.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i);
+  const email = emailFromColumn || emailMatch?.[0];
   const resolution = resolveLegalIssueFromQuery(searchText);
   const expandedSearchText = buildExpandedSearchText(resolution, searchText);
   const geo = options?.skipGeo
@@ -351,11 +368,18 @@ async function sraOrganisationToDocument(
         existingLat: org.latitude,
         existingLng: org.longitude,
       });
-  const displayName = resolveSraDisplayName(org.businessName, searchText, org.sraId);
+  const { title: displayName } = chooseSraIndexTitle(
+    sraTitleSourceInputFromOrg(org, options?.firmBusinessName),
+  );
   const doc: LegalEntityDocument = {
     id: `sra:${org.sraId}`,
     entityType: "sra_organisation",
     title: displayName,
+    displayName,
+    organisationName: org.organisationName || undefined,
+    tradingName: org.tradingName || undefined,
+    firmName: options?.firmBusinessName?.trim() || org.firmName || undefined,
+    exactTitle: displayName,
     description: searchText.slice(0, 400),
     phone: org.phone?.trim() || undefined,
     contactSource: org.phone?.trim() ? "sra_register" : undefined,
@@ -373,6 +397,7 @@ async function sraOrganisationToDocument(
         ? normalisePostcode(org.postcode)
         : undefined,
     website,
+    email,
     country: org.country || "United Kingdom",
     address:
       org.normalizedAddress || [org.city, org.county, org.postcode].filter(Boolean).join(", ") ||
@@ -380,6 +405,10 @@ async function sraOrganisationToDocument(
     legalAid: false,
     verified: true,
     sraId: org.sraId,
+    sraOrganisationId: org.sraId,
+    sraNumber: org.sraId,
+    exactSraId: org.sraId,
+    contactPageUrl: org.sraProfileUrl || sraProfileUrlForId(org.sraId),
     profileUrl: org.sraProfileUrl || sraProfileUrlForId(org.sraId),
     authorityScore: 0.78,
     profileCompletenessScore: profileScore(org),
@@ -393,7 +422,14 @@ async function sraOrganisationToDocument(
   } else {
     applyGeo(doc, geo);
   }
-  projectAndApplySraPracticeAreas(doc);
+
+  const workAreas = parseSraWorkAreaField(org.workArea);
+  if (workAreas.length > 0) {
+    applySraWorkAreaSlugsToDocument(doc, workAreas);
+  } else {
+    projectAndApplySraPracticeAreas(doc);
+  }
+
   return applyTaxonomyProjection(doc);
 }
 
@@ -409,28 +445,119 @@ export async function buildSingleSraDocument(
       },
     });
     if (!org) return null;
-    return sraOrganisationToDocument(org, options);
+    const firm = await prisma.firm.findFirst({
+      where: { sraId: org.sraId },
+      select: { name: true },
+    });
+    return sraOrganisationToDocument(org, { ...options, firmBusinessName: firm?.name ?? null });
   } catch {
     return null;
   }
 }
 
+export type FetchSraOrganisationPageOptions = {
+  cursor?: string;
+  take: number;
+  sraIds?: string[];
+};
+
+export async function fetchSraOrganisationPage(
+  options: FetchSraOrganisationPageOptions,
+): Promise<SraOrgRow[]> {
+  const where = options.sraIds?.length
+    ? { sraId: { in: options.sraIds } }
+    : options.cursor
+      ? { sraId: { gt: options.cursor } }
+      : {};
+
+  return withDbRetry("sraOrganisation.findMany", () =>
+    prisma.sraOrganisation.findMany({
+      where,
+      orderBy: { sraId: "asc" },
+      take: options.take,
+    }),
+  );
+}
+
+export async function fetchFirmNamesForSraIds(sraIds: string[]): Promise<Map<string, string>> {
+  if (!sraIds.length) return new Map();
+  const firmRows = await withDbRetry("firm.findMany", () =>
+    prisma.firm.findMany({
+      where: { sraId: { in: sraIds } },
+      select: { sraId: true, name: true },
+    }),
+  );
+  return new Map(firmRows.filter((f) => f.sraId).map((f) => [f.sraId!, f.name]));
+}
+
+export async function buildSraDocumentsForOrgs(
+  rows: SraOrgRow[],
+  firmBySraId: Map<string, string>,
+  options?: BuildSraDocumentsOptions,
+): Promise<LegalEntityDocument[]> {
+  const out: LegalEntityDocument[] = [];
+  for (const org of rows) {
+    out.push(
+      await sraOrganisationToDocument(org, {
+        ...options,
+        firmBusinessName: firmBySraId.get(org.sraId) ?? null,
+      }),
+    );
+  }
+  return out;
+}
+
 export async function buildSraDocuments(
   options?: BuildSraDocumentsOptions,
 ): Promise<LegalEntityDocument[]> {
-  let rows;
-  try {
-    rows = await prisma.sraOrganisation.findMany({
-      take: options?.take ?? 50000,
-    });
-  } catch {
-    return [];
+  if (options?.sraIds?.length) {
+    try {
+      const rows = await fetchSraOrganisationPage({
+        take: options.sraIds.length,
+        sraIds: options.sraIds,
+      });
+      const firmBySraId = await fetchFirmNamesForSraIds(rows.map((r) => r.sraId));
+      return buildSraDocumentsForOrgs(rows, firmBySraId, options);
+    } catch {
+      return [];
+    }
   }
+
+  const pageSize = sraIndexPageSize();
+  const hardLimit = options?.take;
   const out: LegalEntityDocument[] = [];
-  for (const org of rows) {
-    out.push(await sraOrganisationToDocument(org, options));
+  let cursor: string | undefined;
+  let loaded = 0;
+
+  try {
+    while (true) {
+      const remaining = hardLimit != null ? hardLimit - loaded : pageSize;
+      if (hardLimit != null && remaining <= 0) break;
+      const take = hardLimit != null ? Math.min(pageSize, remaining) : pageSize;
+
+      const rows = await fetchSraOrganisationPage({ cursor, take });
+      if (!rows.length) break;
+
+      const firmBySraId = await fetchFirmNamesForSraIds(rows.map((r) => r.sraId));
+      out.push(...(await buildSraDocumentsForOrgs(rows, firmBySraId, options)));
+
+      loaded += rows.length;
+      cursor = rows[rows.length - 1]!.sraId;
+      if (rows.length < take) break;
+    }
+  } catch {
+    return out;
   }
+
   return out;
+}
+
+/** Minimal partial update for SRA title/name patch (avoids Typesense OOM). */
+export function documentToTypesenseSraNamePatch(doc: LegalEntityDocument): Record<string, unknown> {
+  return buildSraNamePatchRecord({
+    entityId: doc.id,
+    title: doc.displayName ?? doc.title,
+  });
 }
 
 export function documentToTypesenseRecord(doc: LegalEntityDocument): Record<string, unknown> {
@@ -438,6 +565,10 @@ export function documentToTypesenseRecord(doc: LegalEntityDocument): Record<stri
     id: doc.id,
     entityType: doc.entityType,
     title: doc.title,
+    displayName: doc.displayName ?? doc.title,
+    organisationName: doc.organisationName ?? "",
+    tradingName: doc.tradingName ?? "",
+    firmName: doc.firmName ?? "",
     description: doc.description,
     practiceAreas: doc.practiceAreas,
     practiceAreaSlugs: doc.practiceAreaSlugs ?? [],
@@ -482,6 +613,8 @@ export function documentToTypesenseRecord(doc: LegalEntityDocument): Record<stri
     remoteConsultation: doc.remoteConsultation ?? false,
     verified: doc.verified ?? false,
     sraId: doc.sraId ?? "",
+    sraOrganisationId: doc.sraOrganisationId ?? doc.sraId ?? "",
+    sraNumber: doc.sraNumber ?? doc.sraId ?? "",
     firmId: doc.firmId ?? "",
     profileUrl: doc.profileUrl ?? "",
     website: doc.website ?? "",

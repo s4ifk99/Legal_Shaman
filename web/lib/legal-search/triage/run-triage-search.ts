@@ -269,6 +269,7 @@ function resultsResponse(
   const updatedState: TriageState = {
     ...state,
     fundingRoutes: results.fundingRoutes,
+    fundingPreference: state.answers.fundingPreference ?? state.fundingPreference,
     taxonomySlug: results.parsedQuery.taxonomySlug ?? state.taxonomySlug,
   };
 

@@ -11,6 +11,7 @@ export const SOURCE_PRIORITY: Record<EnrichmentSourceType, number> = {
   curated_source: 6,
   trustpilot_api: 6,
   external_directory: 7,
+  yell: 8,
 };
 
 export const AUTO_APPROVE_CONFIDENCE = 0.92;
@@ -57,6 +58,8 @@ export function provenanceLabel(sourceType: EnrichmentSourceType): string {
       return "external signposting source";
     case "trustpilot_api":
       return "Trustpilot official API";
+    case "yell":
+      return "Yell business listing";
     case "manual_approved":
       return "manually approved source";
     default:

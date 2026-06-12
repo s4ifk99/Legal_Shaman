@@ -1,0 +1,39 @@
+# Daily SRA Data Share sync → Postgres purge + Typesense re-index.
+# Matches the SRA register 24h refresh cycle.
+
+name: Daily SRA sync and index
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - name: Prisma migrate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: npm run db:migrate
+      - name: SRA GetAll sync (purge stale + re-index)
+        env:
+          SRA_APIM_SUBSCRIPTION_KEY: ${{ secrets.SRA_APIM_SUBSCRIPTION_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
+          TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
+          MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST }}
+          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+          SRA_INDEX_SKIP_GEO: "1"
+        run: npm run sra:sync -- --skip-embeddings

@@ -31,7 +31,7 @@ Production runs require `--yes` (or `OPS_JOBS_YES=1`) and configured secrets:
 - `TYPESENSE_HOST` / `TYPESENSE_API_KEY`
 - `ADMIN_SECRET`
 - `SEARCH_EVENT_SALT`
-- `SRA_APIM_SUBSCRIPTION_KEY` (weekly SRA sync)
+- `SRA_APIM_SUBSCRIPTION_KEY` (daily SRA sync + weekly)
 
 ## Daily job (`jobs:daily`)
 
@@ -41,12 +41,30 @@ Production runs require `--yes` (or `OPS_JOBS_YES=1`) and configured secrets:
 4. `jobs:refresh-approved` (incremental Typesense upserts)
 5. `search:index:verify`
 
-Does **not** run full `search:index` or `sra:sync`.
+Does **not** run full `search:index` or `sra:sync` (see **Daily SRA sync** below).
+
+## Daily SRA sync (`sra-daily-sync.yml` / `npm run sra:sync`)
+
+Runs at **04:00 UTC** via GitHub Actions (`.github/workflows/sra-daily-sync.yml`):
+
+1. `npm run db:migrate`
+2. `npm run sra:sync -- --skip-embeddings`
+   - Fetches SRA GetAll (gzip)
+   - Upserts ~25k organisations with v2 fields (`rawPayload`, `workArea`, offices, etc.)
+   - **Archives and deletes** rows not in GetAll (`sra_organisations_archive`)
+   - Re-indexes Typesense SRA documents after purge
+
+Manual purge (uses last sync snapshot or live GetAll):
+
+```bash
+npm run sra:purge-stale -- --dry-run
+npm run sra:purge-stale -- --from-snapshot
+```
 
 ## Weekly job (`jobs:weekly`)
 
 1. `prod:health`
-2. `sra:sync`
+2. `sra:sync` (includes stale-row purge when run as a full sync)
 3. `search:index:sra` (with `SRA_INDEX_SKIP_GEO=1`)
 4. `search:index` (all sources)
 5. `search:index:verify` — build marked **failed** if verify fails
@@ -97,9 +115,10 @@ Ensure serverless `maxDuration` is sufficient for weekly (or run weekly via GitH
 
 ## Option B: GitHub Actions
 
-See `.github/workflows/ops-scheduled-jobs.yml`:
+See `.github/workflows/ops-scheduled-jobs.yml` and `.github/workflows/sra-daily-sync.yml`:
 
-- Daily: `05:00 UTC` — `npm run jobs:daily`
+- Daily ops: `05:00 UTC` — `npm run jobs:daily`
+- Daily SRA: `04:00 UTC` — `npm run sra:sync -- --skip-embeddings`
 - Weekly: `06:00 UTC` Sunday — `npm run jobs:weekly`
 
 Required repository secrets (same as production deploy):
@@ -109,7 +128,7 @@ Required repository secrets (same as production deploy):
 - `TYPESENSE_API_KEY`
 - `ADMIN_SECRET`
 - `SEARCH_EVENT_SALT`
-- `SRA_APIM_SUBSCRIPTION_KEY` (weekly only)
+- `SRA_APIM_SUBSCRIPTION_KEY` (daily + weekly)
 
 ## Fail-safe behaviour
 

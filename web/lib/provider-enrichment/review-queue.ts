@@ -11,6 +11,11 @@ import {
   resolvePolicyStatus,
 } from "@/lib/provider-enrichment/submit-with-policy";
 import { validateEnrichmentCandidate } from "@/lib/provider-enrichment/validators";
+import {
+  isRegulatoryOrDirectoryUrl,
+  REGULATORY_REJECT_REASON,
+} from "@/lib/provider-enrichment/regulatory-url-filter";
+import { rejectSyntheticWebsiteCandidate } from "@/lib/provider-enrichment/synthetic-website-gate";
 
 function toRecord(row: {
   id: string;
@@ -48,6 +53,23 @@ export async function submitEnrichmentCandidate(
   const validation = validateEnrichmentCandidate(candidate);
   if (!validation.valid) {
     return { status: "rejected", reason: validation.reason };
+  }
+
+  if (
+    candidate.fieldName === "website" &&
+    isRegulatoryOrDirectoryUrl(candidate.extractedValue)
+  ) {
+    return { status: "rejected", reason: REGULATORY_REJECT_REASON };
+  }
+
+  if (candidate.fieldName === "website") {
+    const syntheticReject = await rejectSyntheticWebsiteCandidate(
+      candidate.entityId,
+      candidate.extractedValue,
+    );
+    if (syntheticReject.reject) {
+      return { status: "rejected", reason: syntheticReject.reason };
+    }
   }
 
   const confidence = confidenceForSource(candidate.sourceType, candidate.confidence);
