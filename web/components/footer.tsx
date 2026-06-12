@@ -28,7 +28,7 @@ export function Footer() {
             </div>
             <div>
               <span className="font-serif text-2xl font-bold">Legal Shaman</span>
-              <p className="text-sm text-primary-foreground/70">Navigate Your Disputes</p>
+              <p className="text-sm text-primary-foreground/70">Fixing Legal Serach</p>
             </div>
           </div>
           
