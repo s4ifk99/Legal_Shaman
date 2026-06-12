@@ -70,6 +70,9 @@ export function Footer() {
             This site does not provide legal advice. Always consult with a qualified solicitor for legal matters. 
             For urgent legal issues, contact Citizens Advice on 0800 144 8848.
           </p>
+          <p className="text-center text-xs text-primary-foreground/60">
+            We use the Solicitors Regulation Authority (SRA) API to update and verify information about solicitors and legal professionals to ensure accuracy and compliance.
+          </p>
           <p className="mt-4 text-center text-xs text-primary-foreground/40">
             &copy; 2026 Legal Shaman. All rights reserved.
           </p>
