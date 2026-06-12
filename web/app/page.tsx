@@ -6,7 +6,9 @@ import signpostingResources from "@/data/signposting-resources.json";
 import Image from "next/image";
 
 export default function Home() {
-  const sections = signpostingResources.sections as CategorySection[];
+  const sections = (signpostingResources.sections as CategorySection[]).sort(
+    (a, b) => a.title.localeCompare(b.title)
+  );
   return (
     <div className="flex min-h-screen flex-col bg-background">
       {/* Quote header section */}
