@@ -52,12 +52,6 @@ export default function Home() {
       <section className="relative py-12 md:py-16 border-b border-border">
         <SpiralBackground className="opacity-50" />
         <div className="relative mx-auto max-w-4xl px-4">
-          <div className="text-center mb-10">
-            <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              What Is <span className="text-black">Legal Shaman</span>?
-            </h2>
-          </div>
-          
           <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
             {/* Feature 1 */}
             <div className="rounded-xl border-2 border-gold/30 bg-card p-6 md:p-8">
@@ -123,7 +117,7 @@ export default function Home() {
               Shaman&apos;s <span className="text-black">Cards</span>
             </h2>
             <p className="mt-3 text-muted-foreground md:text-lg">
-              Click to reveal useful legal contacts from the cards below
+              Click each card to reveal useful legal contacts and resources from the cards below
             </p>
           </div>
           
