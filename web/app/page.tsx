@@ -1,7 +1,7 @@
 import { Footer } from "@/components/footer";
-import { WaitlistSignup } from "@/components/waitlist-signup";
 import { CategoryCards, type CategorySection } from "@/components/category-cards";
 import { SpiralBackground } from "@/components/spiral-decoration";
+import { ShamanSearch } from "@/app/signpost/shaman-search";
 import signpostingResources from "@/data/signposting-resources.json";
 import Image from "next/image";
 
@@ -131,44 +131,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Waitlist CTA section */}
-      <section id="waitlist" className="relative overflow-hidden border-t-2 border-gold/30 bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12 md:py-16">
+      {/* Shaman Search section */}
+      <section className="relative overflow-hidden border-t-2 border-gold/30 bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12 md:py-16">
         <SpiralBackground className="opacity-30" />
         <div className="relative mx-auto max-w-3xl px-4">
-          <div className="text-center mb-10">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent/20 px-4 py-2 text-sm font-medium text-accent-foreground">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
-              </span>
-              <span>Coming Soon</span>
-            </div>
-            <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Be the First to Know
-            </h2>
-            <p className="mt-3 text-muted-foreground md:text-lg">
-              Join our waitlist to be notified the moment Legal Shaman officially launches. Get exclusive early access and help shape the future of legal assistance.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border-2 border-gold/30 bg-card p-6 shadow-xl md:p-8">
-            <WaitlistSignup />
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <div className="text-center">
-              <p className="text-3xl font-bold text-primary">Legal</p>
-              <p className="mt-1 text-sm text-muted-foreground">AI-Powered</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-secondary">Smart</p>
-              <p className="mt-1 text-sm text-muted-foreground">Agentic Matching</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-accent">Fast</p>
-              <p className="mt-1 text-sm text-muted-foreground">Instant Results</p>
-            </div>
-          </div>
+          <ShamanSearch />
         </div>
       </section>
       
