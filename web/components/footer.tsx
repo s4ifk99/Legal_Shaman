@@ -39,7 +39,7 @@ export function Footer() {
             <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Help / FAQ
             </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
+            <Link href="/terms" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Terms
             </Link>
             <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
