@@ -27,10 +27,21 @@ export function WaitlistSignup() {
     }
 
     setLoading(true);
-    
+
     try {
-      // Simulate API call - replace with actual endpoint
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        setError(data.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+
       setSubmitted(true);
       setEmail("");
       setTimeout(() => setSubmitted(false), 5000);

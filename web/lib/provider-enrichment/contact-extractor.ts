@@ -1,13 +1,5 @@
-import { createRequire } from "module";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { isRegulatoryOrDirectoryUrl } from "@/lib/provider-enrichment/regulatory-url-filter";
-
-const require = createRequire(import.meta.url);
-const { parsePhoneNumberFromString } = require("libphonenumber-js") as {
-  parsePhoneNumberFromString: (
-    text: string,
-    defaultCountry?: string | { defaultCountry?: string },
-  ) => { isValid: () => boolean; format: (f: string) => string; nationalNumber: string; country?: string } | undefined;
-};
 
 export type ExtractedPhone = {
   e164: string;

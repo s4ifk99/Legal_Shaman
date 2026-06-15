@@ -1,12 +1,4 @@
-import { createRequire } from "module";
-
-const require = createRequire(import.meta.url);
-const { parsePhoneNumberFromString } = require("libphonenumber-js") as {
-  parsePhoneNumberFromString: (
-    text: string,
-    country?: string,
-  ) => { isValid: () => boolean; format: (f: string) => string } | undefined;
-};
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 
 export function canonicalPhone(value: string): string | null {
   try {
