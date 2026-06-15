@@ -48,7 +48,7 @@ export function Footer() {
             <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Advertise
             </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
+            <Link href="https://www.linkedin.com/in/aleemthedreamm/" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Contact
             </Link>
           </nav>
