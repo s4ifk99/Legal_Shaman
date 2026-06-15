@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import {
-  appendWaitlistEmailToGoogleSheet,
   isValidWaitlistEmail,
-} from "@/lib/waitlist/google-sheet";
+  normalizeWaitlistEmail,
+} from "@/lib/waitlist/validation";
 
 export async function POST(request: Request) {
   try {
@@ -16,21 +16,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
     }
 
-    const webhookUrl = process.env.WAITLIST_GOOGLE_APPS_SCRIPT_URL?.trim();
-
-    if (webhookUrl) {
-      await appendWaitlistEmailToGoogleSheet(email);
-    } else if (process.env.NODE_ENV === "production") {
-      return NextResponse.json(
-        { error: "Waitlist is not configured" },
-        { status: 503 },
-      );
-    } else {
-      console.log("=== WAITLIST SIGNUP (no Google Sheet configured) ===");
-      console.log(`Email: ${email.trim().toLowerCase()}`);
-      console.log("Set WAITLIST_GOOGLE_APPS_SCRIPT_URL in .env.local to save to a sheet.");
-      console.log("====================================================");
-    }
+    const normalized = normalizeWaitlistEmail(email);
+    console.log(
+      JSON.stringify({
+        event: "waitlist_signup",
+        email: normalized,
+        at: new Date().toISOString(),
+      }),
+    );
 
     return NextResponse.json({
       success: true,
