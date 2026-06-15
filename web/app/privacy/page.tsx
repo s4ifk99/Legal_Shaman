@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { SpiralBackground } from "@/components/spiral-decoration";
 import { ArrowLeft } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Legal Shaman",
@@ -15,8 +14,6 @@ export const metadata: Metadata = {
 const lastUpdated = "15 June 2026";
 
 export default function PrivacyPage() {
-  const router = useRouter();
-
   return (
     <div className="flex min-h-screen flex-col bg-background">
       {/* Header */}
@@ -54,10 +51,7 @@ export default function PrivacyPage() {
       </section>
 
       {/* Content */}
-      <section 
-        className="relative py-12 md:py-16 cursor-pointer transition-opacity hover:opacity-80"
-        onClick={() => window.open('https://www.linkedin.com/in/aleemthedreamm/', '_blank')}
-      >
+      <section className="relative py-12 md:py-16">
         <SpiralBackground className="opacity-30" />
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="rounded-2xl border-2 border-gold/30 bg-card p-6 shadow-sm md:p-10">

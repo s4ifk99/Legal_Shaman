@@ -45,8 +45,8 @@ export function Footer() {
             <Link href="/privacy" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Privacy
             </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Advertise
+            <Link href="/signpost" className="text-primary-foreground/70 transition-colors hover:text-gold">
+              Signpost
             </Link>
             <Link href="https://www.linkedin.com/in/aleemthedreamm/" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Contact
