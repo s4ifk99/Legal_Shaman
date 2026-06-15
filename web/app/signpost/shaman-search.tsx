@@ -24,8 +24,18 @@ export function ShamanSearch() {
   };
 
   return (
-    <div className="w-full">
-      <form onSubmit={handleSearch} className="space-y-4">
+    <div className="w-full space-y-6">
+      <div className="text-center">
+        <h2 className="font-serif text-2xl font-bold text-foreground md:text-3xl">
+          Try Shaman Search
+        </h2>
+        <p className="mt-2 text-muted-foreground">
+          Search legal resources, filter by type, and find exactly what you need.
+        </p>
+      </div>
+      
+      <div className="rounded-2xl border-2 border-gold/30 bg-card p-8">
+        <form onSubmit={handleSearch} className="space-y-4">
         {/* Search Bar */}
         <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-4">
@@ -69,7 +79,8 @@ export function ShamanSearch() {
         >
           Search
         </button>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
