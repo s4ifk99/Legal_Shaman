@@ -16,12 +16,50 @@ export type LegalEntitiesHit = {
   textMatch?: number;
 };
 
-/** Fields queried by directory + vague rescue searches. */
+/** Weighted query_by — use with matching `query_by_weights` (Typesense does not accept `field:N` in query_by). */
 export const LEGAL_ENTITIES_QUERY_BY =
-  "title,searchText,expandedSearchText,description,practiceAreas,practiceAreaSlugs,relatedPracticeAreas,taxonomyAliases,categories,subIssues,city,postcode";
+  "title,practiceAreaSlugs,issueAliases,legalTerms,userSearchText,userPhrases,capabilitySearchText,expandedSearchText,legalSearchText,subIssues,practiceAreas,relatedPracticeAreas,taxonomyAliases,categories,searchText,description,provenanceSearchText,geoSearchText,city,postcode";
+
+export const LEGAL_ENTITIES_QUERY_BY_WEIGHTS =
+  "4,4,3,3,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1";
 
 export const LEGAL_ENTITIES_QUERY_BY_EXPANDED =
-  "expandedSearchText,searchText,taxonomyAliases,relatedPracticeAreas,practiceAreaSlugs,subIssues,practiceAreas,categories";
+  "expandedSearchText,userSearchText,legalSearchText,issueAliases,legalTerms,userPhrases,capabilitySearchText,searchText,taxonomyAliases,relatedPracticeAreas,practiceAreaSlugs,subIssues,practiceAreas,categories";
+
+export const LEGAL_ENTITIES_QUERY_BY_EXPANDED_WEIGHTS =
+  "2,2,2,2,2,2,1,1,1,1,1,1,1,1";
+
+export const LEGAL_ENTITIES_QUERY_BY_EXACT =
+  "exactTitle,exactPostcode,exactSraId,exactCity,title,sraId";
+
+export const LEGAL_ENTITIES_QUERY_BY_EXACT_WEIGHTS = "3,4,4,2,1,1";
+
+const UK_POSTCODE_RE = /\b([A-Z]{1,2}\d{1,2}[A-Z]?\s*\d[A-Z]{2})\b/i;
+const SRA_ID_RE = /^\d{5,8}$/;
+
+const LEGAL_TRIAGE_RE =
+  /\b(dismissal|eviction|tribunal|divorce|asylum|redundancy|harassment|landlord|benefits|immigration|criminal|prison|housing|employment|neighbour|sacked|fired|arrested)\b/i;
+
+/** Firm names, postcodes, SRA IDs — not vague legal-issue queries. */
+export function isExactMatchStyleQuery(q: string): boolean {
+  const t = q.trim();
+  if (t.length < 2 || LEGAL_TRIAGE_RE.test(t)) return false;
+  if (UK_POSTCODE_RE.test(t)) return true;
+  if (SRA_ID_RE.test(t.replace(/\s/g, ""))) return true;
+  if (/\b(LLP|Ltd|Limited|Solicitors?|Lawyers?|Law Firm|Chambers|& Co)\b/i.test(t)) return true;
+  const words = t.split(/\s+/).filter(Boolean);
+  if (words.length >= 2 && words.length <= 5 && t.length <= 72) {
+    if (/\b(need|help|find|looking|advice|lawyer|solicitor)\b/i.test(t)) return false;
+    return true;
+  }
+  return false;
+}
+
+function normaliseExactQuery(q: string): string {
+  const pc = q.match(UK_POSTCODE_RE)?.[1];
+  if (pc) return pc.replace(/\s+/g, "").toUpperCase();
+  return q.trim().toLowerCase();
+}
 
 function escapeFilterValue(s: string): string {
   return s.replace(/\\/g, "\\\\").replace(/`/g, "\\`");
@@ -131,15 +169,28 @@ export async function searchLegalEntitiesMulti(
       ...common,
       q: params.q,
       query_by: LEGAL_ENTITIES_QUERY_BY,
+      query_by_weights: LEGAL_ENTITIES_QUERY_BY_WEIGHTS,
       typo_tolerance: true,
     },
     {
       ...common,
       q: params.expandedQ,
       query_by: LEGAL_ENTITIES_QUERY_BY_EXPANDED,
+      query_by_weights: LEGAL_ENTITIES_QUERY_BY_EXPANDED_WEIGHTS,
       typo_tolerance: true,
     },
   ];
+
+  if (isExactMatchStyleQuery(params.q)) {
+    searches.push({
+      ...common,
+      q: normaliseExactQuery(params.q),
+      query_by: LEGAL_ENTITIES_QUERY_BY_EXACT,
+      query_by_weights: LEGAL_ENTITIES_QUERY_BY_EXACT_WEIGHTS,
+      typo_tolerance: false,
+      drop_tokens_threshold: 0,
+    });
+  }
 
   if (
     params.geoSortLat != null &&
@@ -150,6 +201,7 @@ export async function searchLegalEntitiesMulti(
       ...common,
       q: params.q || "*",
       query_by: LEGAL_ENTITIES_QUERY_BY,
+      query_by_weights: LEGAL_ENTITIES_QUERY_BY_WEIGHTS,
       sort_by: `locationPoint(${params.geoSortLat}, ${params.geoSortLng}):asc`,
     });
   }

@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const EnrichmentStatusSchema = z.enum([
   "pending_review",
+  "audit_review",
   "approved",
   "rejected",
   "auto_approved",
@@ -17,6 +18,9 @@ export const EnrichmentSourceTypeSchema = z.enum([
   "sra_register",
   "curated_source",
   "external_directory",
+  "trustpilot_api",
+  "manual_approved",
+  "yell",
 ]);
 
 export type EnrichmentSourceType = z.infer<typeof EnrichmentSourceTypeSchema>;
@@ -28,6 +32,8 @@ export const ExtractionMethodSchema = z.enum([
   "html_parse",
   "manual",
   "capability_patterns",
+  "trustpilot_api",
+  "robots_skip",
 ]);
 
 export type ExtractionMethod = z.infer<typeof ExtractionMethodSchema>;
@@ -53,6 +59,11 @@ export type EnrichmentFieldName =
   | "phone"
   | "email"
   | "website"
+  | "contactPageUrl"
+  | "practiceAreaSlugs"
+  | "openingHours"
+  | "address"
+  | "discovered_firm_name"
   | "capabilities"
   | "fundingCapabilities"
   | "urgencyCapabilities"

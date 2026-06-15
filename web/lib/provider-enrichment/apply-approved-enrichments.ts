@@ -1,3 +1,5 @@
+import { computeProviderCompletenessScore } from "@/lib/provider-enrichment-ladder/provider-completeness-score";
+import { isWeakProvider } from "@/lib/provider-enrichment-ladder/weak-provider-detector";
 import type { LegalEntityDocument } from "@/lib/search-index/types";
 import type { ProviderEnrichment } from "@/lib/provider-enrichment/types";
 
@@ -37,6 +39,20 @@ export function applyApprovedEnrichmentsToDocument(
       case "website":
         next.website = e.extractedValue;
         break;
+      case "contactPageUrl":
+        next.contactPageUrl = e.extractedValue;
+        break;
+      case "openingHours":
+        next.openingHours = e.extractedValue;
+        break;
+      case "address":
+        next.address = e.extractedValue;
+        break;
+      case "practiceAreaSlugs": {
+        const slugs = parseList(e.extractedValue);
+        next.practiceAreaSlugs = [...new Set([...(next.practiceAreaSlugs ?? []), ...slugs])];
+        break;
+      }
       case "capabilities":
         next.capabilities = parseList(e.extractedValue);
         break;
@@ -60,11 +76,17 @@ export function applyApprovedEnrichmentsToDocument(
     }
   }
 
+  const approvedOnly = forEntity.filter(
+    (e) => e.status === "approved" || e.status === "auto_approved",
+  );
+
   return {
     ...next,
     enrichmentStatus,
     contactSource,
     contactConfidence,
+    providerCompletenessScore: computeProviderCompletenessScore(next, approvedOnly),
+    weakProvider: isWeakProvider(next, approvedOnly),
   };
 }
 

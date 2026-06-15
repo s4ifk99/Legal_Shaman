@@ -6,6 +6,11 @@ import type { UnifiedSearchHit } from "@/lib/search/unified-search";
 import { fromUnifiedHit } from "@/lib/legal-search/adapters/listing-adapter";
 import type { ParsedQuery } from "@/lib/legal-search/types";
 import { sanitiseContactForDisplay } from "@/lib/provider-intelligence/provider-capability-ranker";
+import { enrichSearchResultForPublic } from "@/lib/legal-search/public-search-result";
+import {
+  extractPhoneFromSraSearchText,
+  resolveSraDisplayName,
+} from "@/lib/search/sra-display";
 
 function entityTypeToSource(entityType: string, source: string): SearchSource {
   if (entityType === "lawyer") return "lawyer";
@@ -59,14 +64,32 @@ export function legalEntityDocToSearchResult(
   const keywordScore = textMatch != null ? Math.min(1, textMatch / 1e8) : 0.5;
 
   const enrichmentStatus = String(doc.enrichmentStatus ?? "");
-  const contactSource = String(doc.contactSource ?? "");
+  let contactSource = String(doc.contactSource ?? "");
   const contactConfidence =
     typeof doc.contactConfidence === "number" ? doc.contactConfidence : undefined;
+
+  const sraId = String(doc.sraId ?? doc.exactSraId ?? "");
+  const searchText = String(doc.searchText ?? doc.description ?? "");
+  const isSra = entityType === "sra_organisation";
+  const title = isSra
+    ? String(doc.displayName ?? "").trim() ||
+      resolveSraDisplayName(String(doc.title ?? ""), searchText, sraId, {
+        displayName: String(doc.displayName ?? ""),
+        tradingName: String(doc.tradingName ?? ""),
+        organisationName: String(doc.organisationName ?? ""),
+        firmName: String(doc.firmName ?? ""),
+      })
+    : String(doc.displayName ?? doc.title ?? "");
+  const sraPhone =
+    String(doc.phone ?? "").trim() ||
+    (isSra ? extractPhoneFromSraSearchText(searchText) : null) ||
+    undefined;
+  if (isSra && sraPhone && !contactSource) contactSource = "sra_register";
 
   const result: import("@/lib/legal-search/types").SearchResult = {
     id,
     source,
-    title: String(doc.title ?? ""),
+    title,
     description: String(doc.description ?? ""),
     practiceAreas: mergedPracticeAreas,
     categories,
@@ -80,11 +103,14 @@ export function legalEntityDocToSearchResult(
     jurisdictions: Array.isArray(doc.jurisdictions) ? (doc.jurisdictions as string[]) : [],
     languages: Array.isArray(doc.languages) ? (doc.languages as string[]) : [],
     contact: {
-      phone: String(doc.phone ?? "") || undefined,
+      phone: sraPhone || String(doc.phone ?? "") || undefined,
       email: String(doc.email ?? "") || undefined,
       website: String(doc.website ?? "") || undefined,
     },
     url: String(doc.profileUrl ?? doc.website ?? "") || undefined,
+    contactPageUrl:
+      String(doc.contactPageUrl ?? doc.profileUrl ?? "").trim() || undefined,
+    address: String(doc.address ?? "") || undefined,
     verified: doc.verified === true,
     rating: typeof doc.rating === "number" ? doc.rating : undefined,
     raw: {
@@ -110,7 +136,7 @@ export function legalEntityDocToSearchResult(
     firmGroupId: undefined,
   };
 
-  return sanitiseContactForDisplay(result);
+  return enrichSearchResultForPublic(sanitiseContactForDisplay(result));
 }
 
 /** Hydrate listing-backed results with full legacy group data when possible. */

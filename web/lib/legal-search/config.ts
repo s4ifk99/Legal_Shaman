@@ -3,7 +3,7 @@
  * All default to safe/off or "inherit existing behaviour" unless noted.
  */
 
-function envBool(name: string, defaultValue: boolean): boolean {
+export function envBool(name: string, defaultValue: boolean): boolean {
   const v = process.env[name]?.trim().toLowerCase();
   if (v === undefined || v === "") return defaultValue;
   return v === "1" || v === "true" || v === "yes";
@@ -55,4 +55,9 @@ export function enableGeocodingRuntime(): boolean {
 
 export function enableResultClustering(): boolean {
   return envBool("ENABLE_RESULT_CLUSTERING", true);
+}
+
+/** Cross-encoder open reranker (BGE / Qwen via HF inference). Off by default. */
+export function enableOpenReranker(): boolean {
+  return envBool("ENABLE_OPEN_RERANKER", false);
 }

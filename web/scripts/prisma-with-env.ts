@@ -4,6 +4,7 @@
  */
 import "./load-dotenv";
 import { spawnSync } from "node:child_process";
+import { resolve } from "node:path";
 
 const args = process.argv.slice(2);
 if (args.length === 0) {
@@ -12,10 +13,10 @@ if (args.length === 0) {
   process.exit(1);
 }
 
-const r = spawnSync("npx", ["prisma", ...args], {
+const prismaBin = resolve(process.cwd(), "node_modules", ".bin", "prisma");
+const r = spawnSync(prismaBin, args, {
   stdio: "inherit",
   env: process.env,
-  shell: true,
   cwd: process.cwd(),
 });
 

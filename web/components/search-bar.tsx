@@ -3,8 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, Loader2, Building2, FolderOpen } from "lucide-react";
+import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { SpiralDecoration } from "./spiral-decoration";
 
 type SuggestListing = {
   id: string;
@@ -87,16 +89,39 @@ export function SearchBar() {
   const showPanel = open && q.trim().length >= 2;
 
   return (
-    <div className="border-b-2 border-primary/10 bg-secondary/30 py-10">
-      <div className="mx-auto max-w-4xl px-4 text-center">
-        <h1 className="mb-2 font-serif text-3xl font-semibold tracking-tight text-primary md:text-4xl">
-          Find Legal Assistance
+    <div className="relative overflow-hidden border-b-2 border-gold/30 bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12">
+      {/* Decorative spirals */}
+      <div className="absolute -left-20 -top-20 opacity-15">
+        <SpiralDecoration size={250} color="var(--teal)" />
+      </div>
+      <div className="absolute -bottom-16 -right-16 opacity-15">
+        <SpiralDecoration size={200} color="var(--coral)" />
+      </div>
+      
+      <div className="relative mx-auto max-w-4xl px-4 text-center">
+        <div className="mb-6 flex justify-center">
+          <div className="relative">
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 blur-lg" />
+            <Image
+              src="/logo.jpg"
+              alt="Legal Shaman Logo"
+              width={100}
+              height={100}
+              className="relative h-24 w-24 rounded-full border-4 border-gold/50 shadow-lg"
+            />
+          </div>
+        </div>
+        <h1 className="mb-2 font-serif text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+          <span className="text-primary">Legal</span>{" "}
+          <span className="text-secondary">Shaman</span>
         </h1>
-        <p className="mb-6 text-muted-foreground">
-          Search and browse a wide UK legal directory — solicitors, clinics, and charities. Use filters for{" "}
-          <span className="text-foreground/90">free</span> or{" "}
-          <span className="text-foreground/90">legal aid</span> when you need them.
+        <p className="mb-1 text-base font-medium text-foreground md:text-lg">
+          The Most Powerful Agentic Search Engine for All Your Disputes
         </p>
+        <p className="mb-8 text-muted-foreground">
+          Tell us your problem and we&apos;ll point you in the right direction — solicitors, legal aid, free advice, and more.
+        </p>
+        
         <form onSubmit={onSubmit} className="mx-auto flex max-w-2xl flex-col gap-3 sm:flex-row">
           <div ref={wrapRef} className="relative flex-1 text-left">
             <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
@@ -109,7 +134,7 @@ export function SearchBar() {
               }}
               onFocus={() => setOpen(true)}
               placeholder="Search legal advice, solicitors, charities…"
-              className="h-12 border-2 border-primary/20 bg-card pl-12 text-base placeholder:text-muted-foreground/60 focus:border-primary/40"
+              className="h-14 border-2 border-gold/30 bg-card pl-12 text-base placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-gold/30"
               autoComplete="off"
               aria-autocomplete="list"
               aria-expanded={showPanel}
@@ -117,12 +142,12 @@ export function SearchBar() {
             />
             {showPanel && (
               <div
-                className="absolute left-0 right-0 top-full z-50 mt-1 max-h-80 overflow-auto rounded-md border border-border bg-popover text-popover-foreground shadow-md"
+                className="absolute left-0 right-0 top-full z-50 mt-1 max-h-80 overflow-auto rounded-xl border-2 border-gold/30 bg-popover text-popover-foreground shadow-xl"
                 role="listbox"
               >
                 {loading && (
-                  <div className="flex items-center gap-2 px-3 py-3 text-sm text-muted-foreground">
-                    <Loader2 className="h-4 w-4 animate-spin" />
+                  <div className="flex items-center gap-2 px-4 py-4 text-sm text-muted-foreground">
+                    <Loader2 className="h-4 w-4 animate-spin text-primary" />
                     Searching…
                   </div>
                 )}
@@ -130,7 +155,7 @@ export function SearchBar() {
                   <>
                     {data.categories.length > 0 && (
                       <div className="border-b border-border px-2 py-2">
-                        <div className="px-2 py-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        <div className="px-2 py-1 text-xs font-medium uppercase tracking-wide text-gold">
                           Categories
                         </div>
                         {data.categories.map((c) => (
@@ -138,10 +163,10 @@ export function SearchBar() {
                             key={c.slug}
                             type="button"
                             role="option"
-                            className="flex w-full items-center gap-2 rounded px-2 py-2 text-left text-sm hover:bg-muted"
+                            className="flex w-full items-center gap-2 rounded-lg px-2 py-2.5 text-left text-sm hover:bg-primary/10"
                             onClick={() => router.push(`/category/${c.slug}`)}
                           >
-                            <FolderOpen className="h-4 w-4 shrink-0 text-muted-foreground" />
+                            <FolderOpen className="h-4 w-4 shrink-0 text-primary" />
                             <span>
                               <span className="font-medium">{c.name}</span>
                               <span className="text-muted-foreground"> · {c.parentCategory}</span>
@@ -152,7 +177,7 @@ export function SearchBar() {
                     )}
                     {data.listings.length > 0 && (
                       <div className="px-2 py-2">
-                        <div className="px-2 py-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        <div className="px-2 py-1 text-xs font-medium uppercase tracking-wide text-gold">
                           Organisations
                         </div>
                         {data.listings.map((l) => (
@@ -160,17 +185,17 @@ export function SearchBar() {
                             key={l.id}
                             type="button"
                             role="option"
-                            className="flex w-full items-center gap-2 rounded px-2 py-2 text-left text-sm hover:bg-muted"
+                            className="flex w-full items-center gap-2 rounded-lg px-2 py-2.5 text-left text-sm hover:bg-secondary/10"
                             onClick={() => router.push(`/category/${l.subcategory}`)}
                           >
-                            <Building2 className="h-4 w-4 shrink-0 text-muted-foreground" />
+                            <Building2 className="h-4 w-4 shrink-0 text-secondary" />
                             <span>
                               <span className="font-medium">{l.businessName}</span>
                               {l.city ? (
                                 <span className="text-muted-foreground"> · {l.city}</span>
                               ) : null}
                               {l.isLegalAid ? (
-                                <span className="ml-1 text-xs text-primary">Legal Aid</span>
+                                <span className="ml-2 rounded-full bg-primary/20 px-2 py-0.5 text-xs text-primary">Legal Aid</span>
                               ) : null}
                             </span>
                           </button>
@@ -178,19 +203,19 @@ export function SearchBar() {
                       </div>
                     )}
                     {!data.categories.length && !data.listings.length && (
-                      <div className="px-3 py-3 text-sm text-muted-foreground">No suggestions — press Search</div>
+                      <div className="px-4 py-4 text-sm text-muted-foreground">No suggestions — press Search</div>
                     )}
                     <div className="border-t border-border px-2 py-2">
                       <button
                         type="button"
-                        className="w-full rounded px-2 py-2 text-left text-sm font-medium text-primary hover:bg-muted"
+                        className="w-full rounded-lg px-2 py-2.5 text-left text-sm font-medium text-primary hover:bg-primary/10"
                         onClick={() => goSearch(q, true)}
                       >
                         Search all with smart match →
                       </button>
                       <button
                         type="button"
-                        className="w-full rounded px-2 py-2 text-left text-sm text-muted-foreground hover:bg-muted"
+                        className="w-full rounded-lg px-2 py-2.5 text-left text-sm text-muted-foreground hover:bg-muted"
                         onClick={() => goSearch(q, false)}
                       >
                         View all text matches →
@@ -201,7 +226,7 @@ export function SearchBar() {
               </div>
             )}
           </div>
-          <Button type="submit" className="h-12 px-8 text-base font-medium">
+          <Button type="submit" className="h-14 px-8 text-base font-medium bg-primary hover:bg-primary/90 hover:scale-[1.02] transition-all shadow-lg">
             Search
           </Button>
         </form>

@@ -6,7 +6,10 @@ import type {
   TriageAnswers,
   TriageState,
 } from "@/lib/legal-search/triage/types";
-import { detectFundingPreference } from "@/lib/legal-search/triage/funding-router";
+import {
+  detectFundingPreference,
+  fundingPreferenceFromChip,
+} from "@/lib/legal-search/triage/funding-router";
 import { assessUrgency } from "@/lib/legal-search/triage/urgency-router";
 import { assessTriageConfidence } from "@/lib/legal-search/triage/triage-engine";
 
@@ -51,7 +54,8 @@ export function applyTriageAnswer(
   if (field === "subIssue") {
     answers.subIssue = value;
   } else if (field === "fundingPreference") {
-    answers.fundingPreference = value as FundingPreference;
+    answers.fundingPreference =
+      fundingPreferenceFromChip(value) ?? (value as FundingPreference);
   } else if (field === "clientType") {
     answers.clientType = value as ClientType;
   } else if (field === "courtOrDeadline") {

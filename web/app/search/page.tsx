@@ -8,7 +8,10 @@ import {
   DirectorySearchTracking,
   type DirectoryImpressionRow,
 } from "@/components/search/directory-search-tracking";
-import { RefinementPromptTracked } from "@/components/search/refinement-prompt-tracked";
+import {
+  RefinementChips,
+  RefinementPromptTracked,
+} from "@/components/search/refinement-prompt-tracked";
 import { SearchFormWithSuggestions } from "@/components/search-form-with-suggestions";
 import { SearchDirectorySidebar } from "@/components/search-directory-sidebar";
 import { SearchResultsLayout } from "@/components/search/search-results-layout";
@@ -18,6 +21,7 @@ import { buildMapMarkers } from "@/lib/search/map-results";
 import { SearchDebugPanel } from "@/components/search/search-debug-panel";
 import { ResultDebugSection } from "@/components/search/result-debug-section";
 import { ExternalFallbackSection } from "@/components/triage/external-fallback-section";
+import { formatPhoneForDisplay, telHref } from "@/lib/search/sra-display";
 
 type PageProps = {
   searchParams: Promise<{
@@ -144,7 +148,17 @@ export default async function SearchPage({ searchParams }: PageProps) {
                   {dir.vagueRescueNotice ? (
                     <p className="mt-2 text-muted-foreground">{dir.vagueRescueNotice}</p>
                   ) : null}
-                  {dir.parsedQuery.refinementQuestion ? (
+                  {dir.parsedQuery.refinementChips?.length ? (
+                    <RefinementChips
+                      baseQuery={q}
+                      chips={dir.parsedQuery.refinementChips}
+                      parsedPracticeArea={parsedPracticeArea ?? undefined}
+                      parsedLocation={parsedLocation ?? undefined}
+                      freeOnly={freeOnly}
+                      legalAidOnly={legalAidOnly}
+                      city={cityFacet || undefined}
+                    />
+                  ) : dir.parsedQuery.refinementQuestion ? (
                     <RefinementPromptTracked
                       q={q}
                       question={dir.parsedQuery.refinementQuestion}
@@ -187,27 +201,57 @@ export default async function SearchPage({ searchParams }: PageProps) {
                     const resultDebug = debugByIndex[index];
 
                     if (row.kind === "adl" && "sourceType" in row && row.sourceType === "sra") {
+                      const sraPhone = row.phone?.trim();
+                      const sraId = row.id.replace(/^sra:/, "");
+                      const locationLabel = [row.city, row.postcode].filter(Boolean).join(", ");
                       return (
                         <li key={stableRowKey(row)}>
                           <Card className="border-emerald-500/20">
                             <CardContent className="p-4">
                               <div className="flex flex-wrap items-start justify-between gap-2">
-                                <div>
-                                  <p className="font-semibold text-foreground">{row.businessName}</p>
-                                  <Badge variant="outline" className="mt-1 border-emerald-600/40 text-emerald-800">
-                                    SRA organisation
-                                  </Badge>
-                                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{row.description}</p>
-                                  <p className="mt-2 text-xs text-muted-foreground">
-                                    {[row.city, row.postcode].filter(Boolean).join(" · ")}
-                                  </p>
-                                  {explanation ? (
-                                    <p className="mt-2 text-xs text-muted-foreground/90">
-                                      <span className="font-medium">Why this match: </span>
-                                      {explanation}
-                                    </p>
-                                  ) : null}
-                                </div>
+                                <h3 className="text-lg font-semibold text-foreground">{row.businessName}</h3>
+                                <Badge variant="outline" className="border-emerald-600/40 text-emerald-800">
+                                  SRA-regulated organisation
+                                </Badge>
+                              </div>
+                              {row.subcategory ? (
+                                <p className="mt-2 text-sm text-muted-foreground">
+                                  Practice areas: {row.category}
+                                </p>
+                              ) : null}
+                              {locationLabel ? (
+                                <p className="mt-1 text-sm text-muted-foreground">
+                                  Location: {locationLabel}
+                                </p>
+                              ) : null}
+                              {sraPhone ? (
+                                <p className="mt-2 text-sm">
+                                  <span className="text-muted-foreground">Phone: </span>
+                                  <a
+                                    href={telHref(sraPhone)}
+                                    className="font-medium text-primary hover:underline"
+                                  >
+                                    {formatPhoneForDisplay(sraPhone)}
+                                  </a>
+                                </p>
+                              ) : null}
+                              <p className="mt-2 flex flex-wrap gap-3 text-sm">
+                                {row.website && !row.website.includes("sra.org.uk") ? (
+                                  <SearchResultLink
+                                    href={row.website}
+                                    openInNewTab
+                                    listingId={row.id}
+                                    position={index}
+                                    q={q}
+                                    resultSource="sra"
+                                    parsedPracticeArea={parsedPracticeArea ?? undefined}
+                                    parsedLocation={parsedLocation ?? undefined}
+                                    clickEventType="website_click"
+                                    className="font-medium text-primary hover:underline"
+                                  >
+                                    Website
+                                  </SearchResultLink>
+                                ) : null}
                                 {row.sraProfileUrl ? (
                                   <SearchResultLink
                                     href={row.sraProfileUrl}
@@ -219,12 +263,18 @@ export default async function SearchPage({ searchParams }: PageProps) {
                                     parsedPracticeArea={parsedPracticeArea ?? undefined}
                                     parsedLocation={parsedLocation ?? undefined}
                                     clickEventType="website_click"
-                                    className="text-sm font-medium text-primary hover:underline"
+                                    className="font-medium text-primary hover:underline"
                                   >
-                                    View on SRA register
+                                    {sraPhone ? "SRA register" : "Contact"}
                                   </SearchResultLink>
                                 ) : null}
-                              </div>
+                              </p>
+                              {explanation ? (
+                                <p className="mt-3 text-sm leading-relaxed text-foreground/90">
+                                  <span className="font-medium">Why shown: </span>
+                                  {explanation}
+                                </p>
+                              ) : null}
                               {resultDebug ? <ResultDebugSection debug={resultDebug} /> : null}
                             </CardContent>
                           </Card>

@@ -21,6 +21,7 @@ async function main() {
     headers: {
       "Cache-Control": "no-cache",
       "Ocp-Apim-Subscription-Key": key,
+      "Accept-Encoding": "gzip",
     },
   });
 

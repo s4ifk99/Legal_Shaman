@@ -1,12 +1,5 @@
-import { createRequire } from "module";
-
-const require = createRequire(import.meta.url);
-const { parsePhoneNumberFromString } = require("libphonenumber-js") as {
-  parsePhoneNumberFromString: (
-    text: string,
-    defaultCountry?: string | { defaultCountry?: string },
-  ) => { isValid: () => boolean; format: (f: string) => string; nationalNumber: string; country?: string } | undefined;
-};
+import { parsePhoneNumberFromString } from "libphonenumber-js";
+import { isRegulatoryOrDirectoryUrl } from "@/lib/provider-enrichment/regulatory-url-filter";
 
 export type ExtractedPhone = {
   e164: string;
@@ -98,12 +91,22 @@ export function extractEmailFromText(text: string): { email: string; confidence:
   return { email, confidence: 0.8 };
 }
 
-export function extractWebsiteFromText(text: string, baseUrl?: string): string | null {
+export function extractWebsiteFromText(
+  text: string,
+  baseUrl?: string,
+  opts?: { allowRegulatoryBase?: boolean },
+): string | null {
   const m = text.match(/https?:\/\/[^\s"'<>]+/i);
-  if (m) return m[0].replace(/[),.;]+$/, "");
+  if (m) {
+    const url = m[0].replace(/[),.;]+$/, "");
+    if (isRegulatoryOrDirectoryUrl(url)) return null;
+    return url;
+  }
   if (baseUrl) {
     try {
-      return new URL(baseUrl).origin;
+      const origin = new URL(baseUrl).origin;
+      if (!opts?.allowRegulatoryBase && isRegulatoryOrDirectoryUrl(origin)) return null;
+      return origin;
     } catch {
       return null;
     }

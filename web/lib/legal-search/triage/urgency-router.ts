@@ -15,7 +15,8 @@ const RISK_PATTERNS: { flag: RiskFlag; pattern: RegExp }[] = [
   },
   {
     flag: "eviction",
-    pattern: /\b(evict|eviction|bailiff|section 21|notice to quit|possession order)\b/i,
+    pattern:
+      /\b(evict|eviction|bailiff|section 21|notice to quit|possession order|kicking me out|kick(?:ed|ing)?\s+(?:me\s+)?out)\b/i,
   },
   {
     flag: "immigration_removal",
@@ -64,11 +65,13 @@ export function assessUrgency(
   if (parsed.intent === "emergency") flags.add("court_deadline");
 
   const riskFlags = [...flags];
+  const imminent = /\b(now|tonight|today)\b/i.test(text);
   if (
     riskFlags.includes("domestic_abuse") ||
     riskFlags.includes("homelessness") ||
     riskFlags.includes("child_protection") ||
-    (riskFlags.includes("police") && /\b(now|tonight|today)\b/i.test(text))
+    (riskFlags.includes("police") && imminent) ||
+    (riskFlags.includes("eviction") && imminent)
   ) {
     return { urgency: "urgent", riskFlags };
   }

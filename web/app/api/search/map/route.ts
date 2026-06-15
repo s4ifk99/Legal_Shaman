@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { runTypesenseDirectorySearch } from "@/lib/legal-search/typesense-directory-search";
+import { runDirectorySearch } from "@/lib/legal-search/run-directory-search";
 import { enableMapSearch, enableSearchDebug } from "@/lib/legal-search/config";
 import { buildMapMarkers } from "@/lib/search/map-results";
 import { logSearchInteraction } from "@/lib/legal-search/observability";
@@ -40,7 +40,7 @@ export async function GET(req: Request) {
   }
 
   const origin = boundsCenter(bounds);
-  const dir = await runTypesenseDirectorySearch({
+  const dir = await runDirectorySearch({
     query: q,
     limit,
     semantic: false,

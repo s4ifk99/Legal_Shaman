@@ -12,10 +12,15 @@ export type SraPracticeAreaProjectionInput = {
   descriptionText?: string;
   serviceText?: string;
   websiteText?: string;
+  /** Enrichment / capability text (weighted higher in matching). */
+  enrichmentText?: string;
   practiceKeywords?: string[];
   city?: string;
   /** Optional extra text (e.g. semantic taxonomy hints). */
   semanticHints?: string[];
+  /** Approved enrichment capability slugs (e.g. tribunal.employment). */
+  approvedCapabilities?: string[];
+  enrichmentApproved?: boolean;
 };
 
 export type SraPracticeAreaProjection = {
@@ -23,6 +28,8 @@ export type SraPracticeAreaProjection = {
   relatedPracticeAreas: string[];
   taxonomyAliases: string[];
   confidence: number;
+  /** Employment slug confidence when employment signals are present (0–1). */
+  employmentProjectionConfidence?: number;
   matchedSignals: string[];
 };
 
@@ -46,6 +53,27 @@ const STRENGTH_WEIGHT: Record<SignalStrength, number> = {
 const MAX_PRIMARY_SLUGS = 3;
 const MIN_STRONG_FOR_PRIMARY = 3;
 const MIN_MEDIUM_PAIR_FOR_PRIMARY = 4;
+/** Relaxed primary threshold for employment when corroborated signals exist. */
+const MIN_EMPLOYMENT_RELAXED_PRIMARY = 2;
+
+const EMPLOYMENT_SLUG = "employment";
+
+const DEBUG_EMPLOYMENT_PROJECTION =
+  process.env.DEBUG_SRA_EMPLOYMENT_PROJECTION === "1" ||
+  process.env.DEBUG_SRA_EMPLOYMENT_PROJECTION === "true";
+
+const DEBUG_EMPLOYMENT_PHRASES = [
+  "employment law",
+  "unfair dismissal",
+  "redundancy",
+  "employment tribunal",
+  "workplace discrimination",
+  "constructive dismissal",
+  "TUPE",
+] as const;
+
+const GENERIC_COMMERCIAL_PATTERN =
+  /\b(commercial litigation|commercial law|business law|corporate law|corporate litigation|company law|banking disputes?)\b/i;
 
 const CAPABILITY_TO_SLUG: Partial<
   Record<ProviderCapability, { slug: string; strength: SignalStrength }>
@@ -95,11 +123,35 @@ const AREA_SIGNALS: AreaSignal[] = [
   { slug: "housing", pattern: /\bsection 21\b/i, strength: "strong", label: "section 21" },
   { slug: "housing", pattern: /\bhousing disrepair\b/i, strength: "medium", label: "housing disrepair" },
   { slug: "housing", pattern: /\btenant\b/i, strength: "weak", label: "tenant" },
-  // Employment
-  { slug: "employment", pattern: /\bunfair dismissal\b/i, strength: "strong", label: "unfair dismissal" },
-  { slug: "employment", pattern: /\bredundancy\b/i, strength: "medium", label: "redundancy" },
-  { slug: "employment", pattern: /\bemployment tribunal\b/i, strength: "strong", label: "employment tribunal" },
-  { slug: "employment", pattern: /\bemployment law\b/i, strength: "medium", label: "employment law" },
+  // Employment (specific phrases only — no generic commercial/business)
+  { slug: EMPLOYMENT_SLUG, pattern: /\bemployment law\b/i, strength: "strong", label: "employment law" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bunfair dismissal\b/i, strength: "strong", label: "unfair dismissal" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bwrongful dismissal\b/i, strength: "strong", label: "wrongful dismissal" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bconstructive dismissal\b/i, strength: "strong", label: "constructive dismissal" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bworkplace discrimination\b/i, strength: "strong", label: "workplace discrimination" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bdiscrimination at work\b/i, strength: "strong", label: "discrimination at work" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bredundancy\b/i, strength: "strong", label: "redundancy" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bsettlement agreement\b/i, strength: "strong", label: "settlement agreement" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bwhistleblowing\b/i, strength: "strong", label: "whistleblowing" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bemployment tribunal\b/i, strength: "strong", label: "employment tribunal" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bTUPE\b/i, strength: "strong", label: "TUPE" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bworkplace harassment\b/i, strength: "strong", label: "workplace harassment" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\blabour law\b/i, strength: "strong", label: "labour law" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\blabor law\b/i, strength: "strong", label: "labor law" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bemployee dispute\b/i, strength: "medium", label: "employee dispute" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bemployer dispute\b/i, strength: "medium", label: "employer dispute" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bHR dispute\b/i, strength: "medium", label: "HR dispute" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bwage dispute\b/i, strength: "medium", label: "wage dispute" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bworkplace dispute\b/i, strength: "medium", label: "workplace dispute" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bemployment solicitor\b/i, strength: "medium", label: "employment solicitor" },
+  { slug: EMPLOYMENT_SLUG, pattern: /\bemployment department\b/i, strength: "medium", label: "employment department" },
+  /** SRA PracticeAreas / areas-of-law label (authoritative metadata). */
+  {
+    slug: EMPLOYMENT_SLUG,
+    pattern: /\bemployment\b/i,
+    strength: "strong",
+    label: "employment practice area",
+  },
   // Immigration
   { slug: "immigration", pattern: /\basylum\b/i, strength: "strong", label: "asylum" },
   { slug: "immigration", pattern: /\bvisa\b/i, strength: "medium", label: "visa" },
@@ -179,18 +231,56 @@ function uniqueStrings(items: string[], max = 24): string[] {
 }
 
 function buildHaystack(input: SraPracticeAreaProjectionInput): string {
-  return [
+  const core = [
     input.organisationName,
     input.descriptionText,
     input.serviceText,
-    input.websiteText,
     input.city,
     ...(input.practiceKeywords ?? []),
     ...(input.semanticHints ?? []),
   ]
     .filter(Boolean)
-    .join("\n")
-    .toLowerCase();
+    .join("\n");
+  const websiteBoost = input.websiteText ? `${input.websiteText}\n${input.websiteText}` : "";
+  const enrichmentBoost = input.enrichmentText
+    ? `${input.enrichmentText}\n${input.enrichmentText}`
+    : "";
+  return [core, websiteBoost, enrichmentBoost].filter(Boolean).join("\n").toLowerCase();
+}
+
+function employmentPracticeKeywordHit(keywords: string[] | undefined): boolean {
+  if (!keywords?.length) return false;
+  return keywords.some((k) => /\bemployment\b/i.test(k));
+}
+
+function hasApprovedEmploymentCapability(input: SraPracticeAreaProjectionInput): boolean {
+  if (!input.enrichmentApproved || !input.approvedCapabilities?.length) return false;
+  return input.approvedCapabilities.some(
+    (c) => c === "tribunal.employment" || c.includes("employment"),
+  );
+}
+
+function employmentMinPrimaryScore(
+  employmentPhraseCount: number,
+  hasEmploymentTribunal: boolean,
+  hasApprovedEmploymentCapability: boolean,
+): number {
+  if (
+    employmentPhraseCount >= 2 ||
+    hasEmploymentTribunal ||
+    hasApprovedEmploymentCapability
+  ) {
+    return MIN_EMPLOYMENT_RELAXED_PRIMARY;
+  }
+  return MIN_STRONG_FOR_PRIMARY;
+}
+
+function employmentProjectionConfidenceValue(
+  employmentScore: number,
+  minPrimary: number,
+): number {
+  if (employmentScore <= 0) return 0;
+  return Math.min(1, Math.round((employmentScore / (minPrimary * 1.2)) * 100) / 100);
 }
 
 function scoreSlug(
@@ -204,8 +294,30 @@ function scoreSlug(
   matchedSignals.push(`${slug}:${label} (${strength})`);
 }
 
-function qualifiesForPrimary(slug: string, slugScores: Map<string, number>): boolean {
+function qualifiesForPrimary(
+  slug: string,
+  slugScores: Map<string, number>,
+  employmentContext?: {
+    hasEmploymentSpecific: boolean;
+    employmentPhraseCount: number;
+    hasEmploymentTribunal: boolean;
+    hasApprovedEmploymentCapability: boolean;
+    genericCommercialOnly: boolean;
+  },
+): boolean {
   const score = slugScores.get(slug) ?? 0;
+  if (slug === EMPLOYMENT_SLUG && employmentContext) {
+    if (!employmentContext.hasEmploymentSpecific) return false;
+    if (employmentContext.genericCommercialOnly) return false;
+    const minPrimary = employmentMinPrimaryScore(
+      employmentContext.employmentPhraseCount,
+      employmentContext.hasEmploymentTribunal,
+      employmentContext.hasApprovedEmploymentCapability,
+    );
+    if (score >= minPrimary) return true;
+    if (score >= MIN_MEDIUM_PAIR_FOR_PRIMARY) return true;
+    return false;
+  }
   if (score >= MIN_STRONG_FOR_PRIMARY) return true;
   if (score >= MIN_MEDIUM_PAIR_FOR_PRIMARY) return true;
   return false;
@@ -227,17 +339,31 @@ export function projectSraPracticeAreas(
   const haystack = buildHaystack(input);
   const matchedSignals: string[] = [];
   const slugScores = new Map<string, number>();
+  let employmentPhraseCount = 0;
+  let hasEmploymentTribunal = false;
+  let hasEmploymentSpecific = false;
 
   for (const sig of AREA_SIGNALS) {
     if (sig.pattern.test(haystack)) {
       scoreSlug(slugScores, sig.slug, sig.strength, matchedSignals, sig.label);
+      if (sig.slug === EMPLOYMENT_SLUG) {
+        employmentPhraseCount += 1;
+        hasEmploymentSpecific = true;
+        if (sig.label === "employment tribunal") hasEmploymentTribunal = true;
+      }
     }
+  }
+
+  if (employmentPracticeKeywordHit(input.practiceKeywords)) {
+    hasEmploymentSpecific = true;
+    scoreSlug(slugScores, EMPLOYMENT_SLUG, "medium", matchedSignals, "practice_keyword");
   }
 
   const capabilityBlob = [
     input.descriptionText,
     input.serviceText,
     input.websiteText,
+    input.enrichmentText,
     ...(input.practiceKeywords ?? []),
   ]
     .filter(Boolean)
@@ -255,7 +381,22 @@ export function projectSraPracticeAreas(
       const strength =
         c.confidence >= 0.9 ? mapped.strength : c.confidence >= 0.8 ? mapped.strength : "weak";
       scoreSlug(slugScores, mapped.slug, strength, matchedSignals, c.capability);
+      if (mapped.slug === EMPLOYMENT_SLUG) {
+        hasEmploymentSpecific = true;
+        if (c.capability === "tribunal.employment") hasEmploymentTribunal = true;
+      }
     }
+  }
+
+  if (hasApprovedEmploymentCapability(input)) {
+    hasEmploymentSpecific = true;
+    scoreSlug(
+      slugScores,
+      EMPLOYMENT_SLUG,
+      "strong",
+      matchedSignals,
+      "approved_enrichment:tribunal.employment",
+    );
   }
 
   const resolution = resolveLegalIssueFromQuery(haystack);
@@ -274,6 +415,16 @@ export function projectSraPracticeAreas(
     }
   }
 
+  const genericCommercialOnly =
+    GENERIC_COMMERCIAL_PATTERN.test(haystack) && !hasEmploymentSpecific;
+  const employmentContext = {
+    hasEmploymentSpecific,
+    employmentPhraseCount,
+    hasEmploymentTribunal,
+    hasApprovedEmploymentCapability: hasApprovedEmploymentCapability(input),
+    genericCommercialOnly,
+  };
+
   const ranked = [...slugScores.entries()].sort((a, b) => b[1] - a[1]);
   const practiceAreaSlugs: string[] = [];
   const relatedPracticeAreas: string[] = [];
@@ -282,7 +433,10 @@ export function projectSraPracticeAreas(
   for (const [slug, score] of ranked) {
     const entry = bySlug.get(slug);
     if (!entry) continue;
-    if (qualifiesForPrimary(slug, slugScores) && practiceAreaSlugs.length < MAX_PRIMARY_SLUGS) {
+    if (
+      qualifiesForPrimary(slug, slugScores, employmentContext) &&
+      practiceAreaSlugs.length < MAX_PRIMARY_SLUGS
+    ) {
       practiceAreaSlugs.push(slug);
     } else if (score >= STRENGTH_WEIGHT.medium) {
       if (!relatedPracticeAreas.includes(entry.canonicalName)) {
@@ -298,11 +452,64 @@ export function projectSraPracticeAreas(
   const confidence =
     topScore === 0 ? 0 : Math.min(1, Math.round((topScore / (MIN_STRONG_FOR_PRIMARY * 1.2)) * 100) / 100);
 
+  const employmentScore = slugScores.get(EMPLOYMENT_SLUG) ?? 0;
+  const employmentMinPrimary = employmentMinPrimaryScore(
+    employmentPhraseCount,
+    hasEmploymentTribunal,
+    employmentContext.hasApprovedEmploymentCapability,
+  );
+  const employmentProjectionConfidence = employmentProjectionConfidenceValue(
+    employmentScore,
+    employmentMinPrimary,
+  );
+
+  if (DEBUG_EMPLOYMENT_PROJECTION) {
+    const empPhraseHits = DEBUG_EMPLOYMENT_PHRASES.filter((p) => haystack.includes(p));
+    const orgId =
+      input.descriptionText?.match(/\bsra[:\-]?(\d+)\b/i)?.[1] ??
+      input.organisationName.slice(0, 40);
+    if (empPhraseHits.length > 0 || employmentScore > 0) {
+      console.info(
+        JSON.stringify({
+          event: "sra_employment_projection_debug",
+          orgId,
+          organisationName: input.organisationName.slice(0, 80),
+          matchedEmploymentPhrases: empPhraseHits,
+          employmentPhraseCount,
+          hasEmploymentSpecific,
+          hasEmploymentTribunal,
+          genericCommercialOnly,
+          employmentScore,
+          employmentMinPrimary,
+          qualifiesEmployment: qualifiesForPrimary(
+            EMPLOYMENT_SLUG,
+            slugScores,
+            employmentContext,
+          ),
+          practiceAreaSlugs,
+          confidence,
+          employmentProjectionConfidence,
+          employmentSignals: matchedSignals.filter((s) => s.startsWith("employment:")),
+        }),
+      );
+    }
+  }
+
+  const employmentEntry = bySlug.get(EMPLOYMENT_SLUG);
+  if (employmentEntry && (employmentScore > 0 || practiceAreaSlugs.includes(EMPLOYMENT_SLUG))) {
+    for (const rel of employmentEntry.relatedPracticeAreas) {
+      if (!relatedPracticeAreas.includes(rel)) relatedPracticeAreas.push(rel);
+    }
+    taxonomyAliases.push(...aliasesForEntry(employmentEntry, 6));
+  }
+
   return {
     practiceAreaSlugs: uniqueStrings(practiceAreaSlugs, MAX_PRIMARY_SLUGS),
     relatedPracticeAreas: uniqueStrings(relatedPracticeAreas, 12),
     taxonomyAliases: uniqueStrings(taxonomyAliases, 20),
     confidence,
+    employmentProjectionConfidence:
+      employmentProjectionConfidence > 0 ? employmentProjectionConfidence : undefined,
     matchedSignals: uniqueStrings(matchedSignals, 32),
   };
 }
@@ -370,19 +577,35 @@ export function applySraPracticeAreaProjection(
   doc.taxonomyAliases = uniqueStrings(doc.taxonomyAliases, 24);
   doc.taxonomyProjectionMatches = uniqueStrings(doc.taxonomyProjectionMatches, 24);
   doc.sraProjectionConfidence = projection.confidence;
+  if (
+    projection.employmentProjectionConfidence != null &&
+    projection.practiceAreaSlugs.includes(EMPLOYMENT_SLUG)
+  ) {
+    doc.employmentProjectionConfidence = projection.employmentProjectionConfidence;
+  }
 
   return doc;
 }
 
 /** Project from a built SRA document (includes enrichment fields when present). */
 export function projectAndApplySraPracticeAreas(doc: LegalEntityDocument): LegalEntityDocument {
+  const enrichmentApproved =
+    doc.enrichmentStatus === "approved" || doc.enrichmentStatus === "auto_approved";
+  // Use only structured enrichment/capabilities — not expandedSearchText (contains projected
+  // taxonomy aliases and causes feedback loops on re-projection during indexing).
+  const enrichmentText = [doc.capabilities?.join(" "), doc.tribunalCapabilities?.join(" ")]
+    .filter(Boolean)
+    .join("\n");
   const projection = projectSraPracticeAreas({
     organisationName: doc.title,
     descriptionText: doc.searchText,
     serviceText: doc.description,
     websiteText: doc.website,
+    enrichmentText: enrichmentText || undefined,
     practiceKeywords: doc.practiceAreas,
     city: doc.city,
+    approvedCapabilities: enrichmentApproved ? doc.capabilities : undefined,
+    enrichmentApproved,
   });
   return applySraPracticeAreaProjection(doc, projection);
 }

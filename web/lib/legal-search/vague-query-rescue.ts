@@ -3,10 +3,17 @@ import {
   LEGAL_ISSUE_TAXONOMY,
   type LegalIssueTaxonomyEntry,
 } from "@/lib/legal/legal-issue-taxonomy-data";
+import {
+  narrowHintsFromTaxonomyEntry,
+  refinementChipsFromEntry,
+  refinementChipsFromHints,
+} from "@/lib/legal/refinement-chips";
 import { resolveLegalIssueFromQuery } from "@/lib/legal/taxonomy";
 import {
   LEGAL_ENTITIES_QUERY_BY,
   LEGAL_ENTITIES_QUERY_BY_EXPANDED,
+  LEGAL_ENTITIES_QUERY_BY_EXPANDED_WEIGHTS,
+  LEGAL_ENTITIES_QUERY_BY_WEIGHTS,
   performLegalEntitiesMultiSearch,
   searchLegalEntitiesMulti,
   type LegalEntitiesHit,
@@ -248,14 +255,7 @@ export function buildVagueQueryRescuePlan(parsed: ParsedQuery): VagueQueryRescue
     40,
   );
 
-  const narrowHints =
-    entry.clarificationQuestions[0]
-      ?.replace(/^Is this about\s+/i, "")
-      .replace(/\?$/, "")
-      .split(/,|\bor\b/i)
-      .map((s) => s.trim())
-      .filter((s) => s.length > 2)
-      .slice(0, 6) ?? entry.subIssues.slice(0, 5);
+  const narrowHints = narrowHintsFromTaxonomyEntry(entry);
 
   return {
     taxonomySlug: match.slug,
@@ -289,23 +289,27 @@ export function buildTaxonomyFallbackNotice(plan: VagueQueryRescuePlan): string 
   return `We found related ${related || "Criminal Defence and Legal Aid"} providers because dedicated Prison Law listings are limited.`;
 }
 
-export function buildVagueRefinementPrompt(
+/** Intro copy for vague / medium-confidence directory search (chips carry refinements). */
+export function buildVagueRefinementSummary(
   parsed: ParsedQuery,
   plan?: VagueQueryRescuePlan | null,
 ): string {
   const p = plan ?? buildVagueQueryRescuePlan(parsed);
-  if (!p) return parsed.refinementQuestion?.trim() ?? "";
+  if (!p) return parsed.taxonomySummary?.trim() ?? parsed.refinementQuestion?.trim() ?? "";
 
   const related = p.relatedAreaLabels.slice(0, 4).join(", ");
-  const narrow =
-    p.narrowHints.length > 0
-      ? p.narrowHints.join(", ")
-      : "using the filters on the left";
-
   if (related) {
-    return `Here are results related to ${p.canonicalName} and ${related}. You can narrow this by ${narrow}.`;
+    return `Here are results related to ${p.canonicalName} and ${related}.`;
   }
-  return `Here are results related to ${p.canonicalName}. You can narrow this by ${narrow}.`;
+  return `Here are results related to ${p.canonicalName}.`;
+}
+
+/** @deprecated Use buildVagueRefinementSummary; kept for eval scripts. */
+export function buildVagueRefinementPrompt(
+  parsed: ParsedQuery,
+  plan?: VagueQueryRescuePlan | null,
+): string {
+  return buildVagueRefinementSummary(parsed, plan);
 }
 
 function docFieldsHaystack(raw: unknown): string {
@@ -461,32 +465,37 @@ export async function searchVagueLegalEntitiesMulti(
 
   const searches: Record<string, unknown>[] = [];
 
-  const pushSearch = (q: string, by: string) => {
+  const pushSearch = (q: string, by: string, weights: string) => {
     if (!q.trim()) return;
     searches.push({
       q: q.trim().slice(0, 200),
       query_by: by,
+      query_by_weights: weights,
       per_page: perPage,
       filter_by: params.filterBy,
       typo_tolerance: true,
     });
   };
 
-  pushSearch(plan.canonicalName, queryBy);
+  pushSearch(plan.canonicalName, queryBy, LEGAL_ENTITIES_QUERY_BY_WEIGHTS);
   for (const a of plan.retrievalQueries.filter((q) => q !== plan.canonicalName).slice(0, 3)) {
-    pushSearch(a, queryByExpanded);
+    pushSearch(a, queryByExpanded, LEGAL_ENTITIES_QUERY_BY_EXPANDED_WEIGHTS);
   }
   for (const rel of plan.relatedAreaLabels.slice(0, 3)) {
-    pushSearch(rel, queryByExpanded);
+    pushSearch(rel, queryByExpanded, LEGAL_ENTITIES_QUERY_BY_EXPANDED_WEIGHTS);
   }
   if (plan.legalAidLikely) {
-    pushSearch("Legal Aid", queryByExpanded);
+    pushSearch("Legal Aid", queryByExpanded, LEGAL_ENTITIES_QUERY_BY_EXPANDED_WEIGHTS);
   }
   const fallback = plan.retrievalQueries[plan.retrievalQueries.length - 1] ?? plan.canonicalName;
-  pushSearch(fallback, queryBy);
+  pushSearch(fallback, queryBy, LEGAL_ENTITIES_QUERY_BY_WEIGHTS);
 
   if (params.locationQ?.trim()) {
-    pushSearch(`${plan.canonicalName} ${params.locationQ.trim()}`, queryBy);
+    pushSearch(
+      `${plan.canonicalName} ${params.locationQ.trim()}`,
+      queryBy,
+      LEGAL_ENTITIES_QUERY_BY_WEIGHTS,
+    );
   }
 
   if (
@@ -497,6 +506,7 @@ export async function searchVagueLegalEntitiesMulti(
     searches.push({
       q: plan.canonicalName || "*",
       query_by: queryBy,
+      query_by_weights: LEGAL_ENTITIES_QUERY_BY_WEIGHTS,
       per_page: perPage,
       filter_by: params.filterBy,
       sort_by: `locationPoint(${params.geoSortLat}, ${params.geoSortLng}):asc`,
@@ -527,6 +537,7 @@ export async function searchVagueLegalEntitiesMulti(
       {
         q: plan.zeroResultFallbackQuery,
         query_by: queryBy,
+        query_by_weights: LEGAL_ENTITIES_QUERY_BY_WEIGHTS,
         per_page: perPage,
         filter_by: params.filterBy,
         typo_tolerance: true,
@@ -534,6 +545,7 @@ export async function searchVagueLegalEntitiesMulti(
       {
         q: plan.canonicalName,
         query_by: queryByExpanded,
+        query_by_weights: LEGAL_ENTITIES_QUERY_BY_EXPANDED_WEIGHTS,
         per_page: perPage,
         filter_by: params.filterBy,
         typo_tolerance: true,
@@ -638,11 +650,19 @@ export async function searchWithTaxonomyRescue(args: {
 /** Enrich parsed query with vague-mode refinement copy (does not force clarify). */
 export function applyVagueParsedQueryUx(parsed: ParsedQuery): ParsedQuery {
   if (!detectVagueLegalQuery(parsed)) return parsed;
-  const prompt = buildVagueRefinementPrompt(parsed);
+  const plan = buildVagueQueryRescuePlan(parsed);
+  const summary = buildVagueRefinementSummary(parsed, plan);
+  const match = getTaxonomyMatch(parsed);
+  const entry = match ? bySlug.get(match.slug) : null;
+  const chips = entry
+    ? refinementChipsFromEntry(entry)
+    : refinementChipsFromHints(plan?.narrowHints ?? []);
+
   return {
     ...parsed,
-    refinementQuestion: prompt,
-    taxonomySummary: prompt,
+    taxonomySummary: summary,
+    refinementQuestion: null,
+    refinementChips: chips.length > 0 ? chips : parsed.refinementChips,
   };
 }
 

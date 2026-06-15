@@ -20,9 +20,9 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Legal Shaman | UK Legal Resources & Services',
+  title: 'Legal Shaman | The Most Powerful Agentic Search Engine for All Your Disputes',
   description:
-    'UK legal services directory: browse by practice area and search solicitors, firms, and organisations — including free and legal-aid options where listed.',
+    'Legal Shaman is the most powerful agentic search engine for all your disputes. Tell us your problem and we\'ll point you in the right direction — solicitors, legal aid, free advice, and more.',
   generator: 'v0.app',
   icons: {
     icon: [

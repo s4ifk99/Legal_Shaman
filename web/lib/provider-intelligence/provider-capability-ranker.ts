@@ -198,16 +198,19 @@ export function sanitiseContactForDisplay(r: SearchResult): SearchResult {
   const structuredSource =
     raw?.contactSource === "structured_db" ||
     raw?.contactSource === "govuk_legal_aid" ||
-    raw?.contactSource === "curated_listing";
+    raw?.contactSource === "curated_listing" ||
+    raw?.contactSource === "sra_register";
 
-  if (r.contact?.phone && !approved && !structuredSource) {
+  if (!approved && !structuredSource && (r.contact?.phone || r.contact?.email)) {
     return {
       ...r,
       contact: {
         ...r.contact,
-        phone: undefined,
+        phone: r.contact?.phone ? undefined : r.contact?.phone,
+        email: r.contact?.email ? undefined : r.contact?.email,
       },
     };
   }
+
   return r;
 }

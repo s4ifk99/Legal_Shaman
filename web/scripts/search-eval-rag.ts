@@ -16,10 +16,31 @@ nodeModule._load = function (request: string, parent: unknown, isMain: boolean) 
 };
 
 import { runSearchEval } from "../lib/search-eval/runner";
+import { SEARCH_EVAL_CASES } from "../lib/search-eval/cases";
 import {
   formatConsoleSummary,
   writeSearchEvalReports,
 } from "../lib/search-eval/reporters";
+
+async function runBehaviouralSignalDegradationEval(): Promise<void> {
+  const prev = process.env.SEARCH_SIGNALS_FORCE_UNAVAILABLE;
+  try {
+    process.env.SEARCH_SIGNALS_FORCE_UNAVAILABLE = "1";
+    const oneCase = SEARCH_EVAL_CASES.find(
+      (c) => c.channel === "directory" && c.id === "dir-employment-topical-gate-01",
+    );
+    if (!oneCase) return;
+    const report = await runSearchEval({ cases: [oneCase], skipMatcher: true });
+    const r = report.results[0];
+    if (!r || !r.resultCount) {
+      throw new Error("degradation eval expected non-empty directory results");
+    }
+    console.log("PASS behavioural signals graceful degradation eval");
+  } finally {
+    if (prev == null) delete process.env.SEARCH_SIGNALS_FORCE_UNAVAILABLE;
+    else process.env.SEARCH_SIGNALS_FORCE_UNAVAILABLE = prev;
+  }
+}
 
 async function main() {
   const skipMatcher = !process.env.DATABASE_URL?.trim();
@@ -29,6 +50,7 @@ async function main() {
 
   const report = await runSearchEval({ skipMatcher });
   console.log(formatConsoleSummary(report));
+  await runBehaviouralSignalDegradationEval();
 
   const reportsDir = path.join(process.cwd(), "reports");
   const { jsonPath, mdPath } = await writeSearchEvalReports(report, reportsDir);

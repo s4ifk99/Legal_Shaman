@@ -1,4 +1,9 @@
 import { isKnownCapability } from "@/lib/provider-intelligence/capability-taxonomy";
+import {
+  APPROVED_PRACTICE_AREA_SLUGS,
+  gatePracticeAreaSlug,
+  isBlockedPracticeAreaPhrase,
+} from "@/lib/provider-intelligence-crawler-v2/practice-area-taxonomy-gate";
 import type { EnrichmentCandidate } from "@/lib/provider-enrichment/types";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
@@ -26,6 +31,30 @@ export function validateEnrichmentCandidate(candidate: EnrichmentCandidate): {
   if (candidate.fieldName === "website") {
     if (!/^https?:\/\//i.test(v) && !/^[a-z0-9.-]+\.[a-z]{2,}/i.test(v)) {
       return { valid: false, reason: "invalid_website" };
+    }
+  }
+
+  if (candidate.fieldName === "contactPageUrl") {
+    if (!/^https?:\/\//i.test(v)) return { valid: false, reason: "invalid_contact_page" };
+  }
+
+  if (candidate.fieldName === "discovered_firm_name") {
+    if (v.length < 3) return { valid: false, reason: "discovered_name_too_short" };
+  }
+
+  if (candidate.fieldName === "practiceAreaSlugs") {
+    const slugs = v.split(",").map((s) => s.trim()).filter(Boolean);
+    if (!slugs.length) return { valid: false, reason: "no_slugs" };
+    for (const s of slugs) {
+      if (!/^[a-z][a-z0-9_]*$/i.test(s)) {
+        return { valid: false, reason: `invalid_slug:${s}` };
+      }
+      if (!APPROVED_PRACTICE_AREA_SLUGS.has(s.toLowerCase())) {
+        return { valid: false, reason: `slug_not_in_taxonomy:${s}` };
+      }
+      if (isBlockedPracticeAreaPhrase(s)) {
+        return { valid: false, reason: `blocked_practice_phrase:${s}` };
+      }
     }
   }
 

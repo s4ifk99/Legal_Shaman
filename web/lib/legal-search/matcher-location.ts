@@ -11,6 +11,10 @@ import type { RankedCandidate } from "@/lib/lawyers/rank";
 import type { ExtractedFilters } from "@/lib/agent/types";
 import type { LatLng } from "@/lib/search/location";
 import { distanceMiles, isValidUkCoordinate } from "@/lib/search/location";
+import {
+  extractPhoneFromSraSearchText,
+  resolveSraDisplayName,
+} from "@/lib/search/sra-display";
 
 export { isValidUkCoordinate };
 
@@ -193,6 +197,10 @@ export function buildMapMarkerForMatch(args: {
   practiceAreaNames: string[];
   coords: ResolvedCoords;
   url?: string;
+  phone?: string;
+  website?: string;
+  contactPageUrl?: string;
+  sourceLabel?: string;
   verified?: boolean;
   explanation?: string;
   origin?: LatLng;
@@ -220,6 +228,7 @@ export function buildMapMarkerForMatch(args: {
     entityId: args.matchId,
     entityType: args.entityType,
     title: args.title,
+    displayName: args.title,
     subtitle: args.practiceAreaNames[0],
     practiceAreas: args.practiceAreaNames,
     address: args.coords.address,
@@ -228,7 +237,11 @@ export function buildMapMarkerForMatch(args: {
     lat: args.coords.lat,
     lng: args.coords.lng,
     source: args.entityType === "lawyer" ? "lawyer" : "sra",
+    sourceLabel: args.sourceLabel,
     verified: args.verified,
+    phone: args.phone,
+    website: args.website,
+    contactPageUrl: args.contactPageUrl,
     url: args.url,
     explanation: args.explanation,
   };
@@ -251,7 +264,11 @@ export async function resolveRankedCandidateLocation(
   if (!coords) return {};
 
   const matchId = r.kind === "lawyer" ? r.lawyer.id : r.org.id;
-  const title = r.kind === "lawyer" ? r.lawyer.name : r.org.businessName;
+  const isOrg = r.kind !== "lawyer";
+  const title =
+    r.kind === "lawyer"
+      ? r.lawyer.name
+      : resolveSraDisplayName(r.org.businessName, r.org.searchText ?? "", r.org.sraId);
   const practiceAreaNames =
     r.kind === "lawyer"
       ? r.lawyer.practiceAreas.map((p) => p.practiceArea.name)
@@ -260,6 +277,9 @@ export async function resolveRankedCandidateLocation(
     r.kind === "lawyer"
       ? r.lawyer.profileUrl ?? undefined
       : r.org.sraProfileUrl;
+  const phone = isOrg
+    ? r.org.phone?.trim() || extractPhoneFromSraSearchText(r.org.searchText ?? "") || undefined
+    : undefined;
   const verified = r.kind === "lawyer" ? r.lawyer.verifiedCredentials : true;
 
   return buildMapMarkerForMatch({
@@ -267,6 +287,9 @@ export async function resolveRankedCandidateLocation(
     entityType: r.kind === "lawyer" ? "lawyer" : "sra_organisation",
     title,
     practiceAreaNames,
+    phone,
+    contactPageUrl: isOrg ? r.org.sraProfileUrl : undefined,
+    sourceLabel: isOrg ? "SRA-regulated organisation" : undefined,
     coords,
     url,
     verified,

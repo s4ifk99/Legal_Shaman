@@ -2,11 +2,12 @@
 
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Mic, Search } from "lucide-react";
+import { Mic, Search, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { SpiralDecoration } from "./spiral-decoration";
 
 type BrowserSpeechRec = {
   continuous: boolean;
@@ -86,43 +87,62 @@ export function ProblemAssistant() {
   return (
     <section
       id="find-help"
-      className="border-t-2 border-primary/15 bg-background py-10 md:py-12"
+      className="relative overflow-hidden border-t-2 border-gold/30 bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12 md:py-16"
       aria-labelledby="find-help-heading"
     >
-      <div className="mx-auto max-w-3xl px-4">
-        <h2 id="find-help-heading" className="font-serif text-2xl font-semibold tracking-tight text-primary md:text-3xl">
-          Search the directory
-        </h2>
-        <p className="mt-2 text-muted-foreground">
-          Enter what you need. We&apos;ll open the directory search with your words and any filters you choose. You can
-          type or use your browser&apos;s voice input (no account required).
-        </p>
+      {/* Decorative spirals */}
+      <div className="absolute -left-16 -top-16 opacity-15">
+        <SpiralDecoration size={200} color="var(--teal)" />
+      </div>
+      <div className="absolute -bottom-20 -right-20 opacity-15">
+        <SpiralDecoration size={250} color="var(--coral)" />
+      </div>
+      
+      <div className="relative mx-auto max-w-3xl px-4">
+        <div className="text-center">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent/20 px-4 py-2 text-sm font-medium text-accent-foreground">
+            <Sparkles className="h-4 w-4 text-gold" />
+            <span>Agentic AI Search</span>
+          </div>
+          <h2 id="find-help-heading" className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            Tell Us Your <span className="text-secondary">Dispute</span>
+          </h2>
+          <p className="mt-3 text-muted-foreground md:text-lg">
+            Describe your situation and we&apos;ll point you in the right direction — solicitors, legal aid, free advice, and more.
+          </p>
+        </div>
 
-        <div className="mt-6 space-y-4">
+        <div className="mt-8 rounded-2xl border-2 border-gold/30 bg-card p-6 shadow-xl md:p-8">
           <Textarea
             value={problem}
             onChange={(e) => setProblem(e.target.value)}
-            placeholder="e.g. I’ve been given notice to leave my flat and I’m on a low income…"
-            className="min-h-[120px] resize-y text-base"
+            placeholder="e.g. I've been given notice to leave my flat and I'm on a low income…"
+            className="min-h-[140px] resize-y border-2 border-primary/20 bg-background text-base focus:border-primary focus:ring-2 focus:ring-gold/30"
             rows={5}
           />
 
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
               <div className="flex items-center gap-2">
                 <Checkbox
                   id="pa-legal-aid"
                   checked={legalAid}
                   onCheckedChange={(v) => setLegalAid(v === true)}
+                  className="border-primary data-[state=checked]:bg-primary"
                 />
                 <Label htmlFor="pa-legal-aid" className="text-sm font-normal leading-none peer-disabled:cursor-not-allowed">
-                  I&apos;m looking for legal aid
+                  Legal aid needed
                 </Label>
               </div>
               <div className="flex items-center gap-2">
-                <Checkbox id="pa-free" checked={freeOnly} onCheckedChange={(v) => setFreeOnly(v === true)} />
+                <Checkbox 
+                  id="pa-free" 
+                  checked={freeOnly} 
+                  onCheckedChange={(v) => setFreeOnly(v === true)}
+                  className="border-secondary data-[state=checked]:bg-secondary"
+                />
                 <Label htmlFor="pa-free" className="text-sm font-normal leading-none peer-disabled:cursor-not-allowed">
-                  Prefer free / pro bono services
+                  Free / pro bono only
                 </Label>
               </div>
             </div>
@@ -131,25 +151,29 @@ export function ProblemAssistant() {
               type="button"
               variant="outline"
               size="sm"
-              className="gap-2 shrink-0"
+              className="gap-2 shrink-0 border-gold/50 hover:bg-gold/10 hover:text-foreground"
               onClick={startBrowserDictation}
             >
-              <Mic className="h-4 w-4" />
-              Browser voice
+              <Mic className="h-4 w-4 text-secondary" />
+              Voice input
             </Button>
           </div>
 
-          {voiceNote && <p className="text-sm text-amber-700 dark:text-amber-400">{voiceNote}</p>}
+          {voiceNote && (
+            <p className="mt-4 rounded-lg bg-gold/10 px-4 py-2 text-sm text-foreground">
+              {voiceNote}
+            </p>
+          )}
 
           <Button
             type="button"
-            className="w-full gap-2 sm:w-auto"
+            className="mt-6 w-full gap-2 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] transition-all shadow-lg"
             size="lg"
             onClick={onFindHelp}
             disabled={!problem.trim()}
           >
-            <Search className="h-4 w-4" />
-            Search directory
+            <Search className="h-5 w-5" />
+            Search for Help
           </Button>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import "server-only";
 
 import { prisma } from "@/lib/db/prisma";
+import { safeOptionalPrisma } from "@/lib/db/safe-optional-prisma";
 
 const DEFAULT_DAYS = 30;
 
@@ -70,10 +71,15 @@ export async function analyzeSourceBalance(opts?: { days?: number }): Promise<So
     contactRateBySource[s] = imp > 0 ? Math.round((con / imp) * 1000) / 1000 : 0;
   }
 
-  const signals = await prisma.searchRankingSignal.findMany({
-    orderBy: { impressions: "desc" },
-    take: 40,
-  });
+  const signals = await safeOptionalPrisma(
+    "searchRankingSignal.findMany",
+    (db) =>
+      db.searchRankingSignal.findMany({
+        orderBy: { impressions: "desc" },
+        take: 40,
+      }),
+    [],
+  );
 
   const signalRows = signals.map((r) => ({
     entitySource: r.entitySource,

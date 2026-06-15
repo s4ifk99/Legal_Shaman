@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { OrgMatch } from "@/lib/agent/types";
+import { formatPhoneForDisplay, telHref } from "@/lib/search/sra-display";
 import { trackSearchEvent } from "@/lib/search-events/client";
 
 /**
@@ -35,7 +36,7 @@ export function OrgResultCard({
   parsedLocation,
   trackEvents = false,
 }: OrgResultCardProps) {
-  const track = (eventType: "result_click" | "contact_cta_click" | "website_click") => {
+  const track = (eventType: "result_click" | "contact_cta_click" | "website_click" | "phone_click") => {
     if (!trackEvents) return;
     trackSearchEvent({
       eventType,
@@ -48,6 +49,8 @@ export function OrgResultCard({
       resultRank,
     });
   };
+  const hasPhone = Boolean(match.phone?.trim());
+
   return (
     <Card
       data-entity-id={match.id}
@@ -69,7 +72,7 @@ export function OrgResultCard({
                 SRA Verified
               </Badge>
             </div>
-            <p className="text-xs text-muted-foreground">SRA-registered firm</p>
+            <p className="text-xs text-muted-foreground">SRA-regulated organisation</p>
           </div>
         </div>
 
@@ -93,6 +96,32 @@ export function OrgResultCard({
                   : ""}
             </span>
           </div>
+          {hasPhone ? (
+            <div className="flex items-center gap-2">
+              <span className="text-muted-foreground">Phone: </span>
+              <a
+                href={telHref(match.phone!)}
+                className="font-medium text-primary hover:underline"
+                onClick={() => track("phone_click")}
+              >
+                {formatPhoneForDisplay(match.phone!)}
+              </a>
+            </div>
+          ) : null}
+        </div>
+
+        <div className="flex flex-wrap gap-3 text-sm">
+          {!hasPhone && match.sraProfileUrl ? (
+            <a
+              href={match.sraProfileUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-primary hover:underline"
+              onClick={() => track("website_click")}
+            >
+              SRA register
+            </a>
+          ) : null}
         </div>
 
         <div className="flex items-center justify-between gap-3 pt-1">

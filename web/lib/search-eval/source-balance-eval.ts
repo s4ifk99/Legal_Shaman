@@ -83,6 +83,8 @@ export function runSourceBalanceEval(): number {
       sraByPracticeAreaSlug: { family: 0 },
       sraProjectionSamples: [],
       sraProjectionConfidenceRange: null,
+      employmentProjectionSamples: [],
+      employmentProjectionConfidenceRange: null,
     },
   });
   if (!coverage.showCoverageNotice) fail("should show coverage notice");

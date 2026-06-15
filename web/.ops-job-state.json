@@ -1,0 +1,41 @@
+{
+  "daily": {
+    "status": "failed",
+    "startedAt": "2026-05-28T17:10:18.364Z",
+    "completedAt": "2026-05-28T17:22:18.669Z",
+    "steps": [
+      {
+        "name": "prod:health",
+        "ok": true,
+        "exitCode": 0
+      },
+      {
+        "name": "providers:coverage-report",
+        "ok": true,
+        "exitCode": 0
+      },
+      {
+        "name": "providers:enrich:weak",
+        "ok": true,
+        "exitCode": 0
+      },
+      {
+        "name": "jobs:refresh-approved",
+        "ok": true,
+        "exitCode": 0,
+        "detail": "processed=0 failed=0"
+      },
+      {
+        "name": "search:index:verify",
+        "ok": false,
+        "exitCode": 1,
+        "detail": "practice_area_by_source                pass       Overall: FAIL (see failed rows)"
+      }
+    ],
+    "errors": [
+      "search:index:verify: practice_area_by_source                pass       Overall: FAIL (see failed rows)"
+    ]
+  },
+  "weekly": null,
+  "refreshApproved": null
+}

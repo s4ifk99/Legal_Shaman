@@ -291,6 +291,28 @@ export function rankSearchResults(
       const signal = classifyTaxonomySignal(r, opts.vagueRescuePlan);
       if (signal === "none") finalScore = clamp01(finalScore * 0.35);
     }
+
+    const indexQ = (r.raw as { indexQualityScore?: number } | null)?.indexQualityScore;
+    const completeness = (r.raw as { providerCompletenessScore?: number } | null)
+      ?.providerCompletenessScore;
+    if (
+      typeof indexQ === "number" &&
+      indexQ >= 0.72 &&
+      scores.practiceArea >= 0.45 &&
+      scores.keyword >= DIRECTORY_KEYWORD_MATCH_STRONG
+    ) {
+      finalScore = clamp01(finalScore + 0.02 * indexQ);
+    }
+    if (
+      typeof completeness === "number" &&
+      completeness >= 0.55 &&
+      completeness < 0.85 &&
+      scores.practiceArea >= 0.45 &&
+      scores.keyword >= DIRECTORY_KEYWORD_MATCH_STRONG
+    ) {
+      finalScore = clamp01(finalScore + 0.015 * completeness);
+    }
+
     scores.final = finalScore;
 
     return { ...r, scores };
@@ -311,6 +333,7 @@ export function emptyScores(partial: Partial<SearchResultScores> = {}): SearchRe
     language: partial.language ?? 0,
     authority: partial.authority ?? 0,
     freshness: partial.freshness ?? 0,
+    reranker: partial.reranker,
     final: partial.final ?? 0,
   };
 }

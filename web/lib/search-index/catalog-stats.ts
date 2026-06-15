@@ -1,8 +1,9 @@
-import { prisma } from "@/lib/db/prisma";
+import { safeOptionalPrisma } from "@/lib/db/safe-optional-prisma";
 import { buildTypesenseListingsClientFromEnv } from "@/lib/search/typesense-listings-client";
 import { LEGAL_ENTITIES_COLLECTION } from "@/lib/search-index/config";
 import probonoData from "@/data/probono-sources.json";
 import { readSraSyncState } from "@/lib/sra/sync-state";
+import { getLatestIndexBuildForStatus } from "@/lib/ops/search-index-builds";
 
 export type CatalogStats = {
   sraPostgresCount: number | null;
@@ -38,12 +39,11 @@ export async function getCatalogStats(): Promise<CatalogStats> {
   const proBonoSourceCount = (probonoData as { sources: unknown[] }).sources?.length ?? 0;
   const sraSync = await readSraSyncState();
 
-  let sraPostgresCount: number | null = null;
-  try {
-    sraPostgresCount = await prisma.sraOrganisation.count();
-  } catch {
-    sraPostgresCount = null;
-  }
+  const sraPostgresCount = await safeOptionalPrisma(
+    "sraOrganisation.count",
+    (db) => db.sraOrganisation.count(),
+    null,
+  );
 
   const client = buildTypesenseListingsClientFromEnv();
   let legalEntitiesTotal: number | null = null;
@@ -64,6 +64,14 @@ export async function getCatalogStats(): Promise<CatalogStats> {
     ),
   ]);
 
+  let lastIndexBuildAt = process.env.SEARCH_INDEX_BUILT_AT ?? null;
+  const build = await getLatestIndexBuildForStatus();
+  if (build?.completedAt) {
+    lastIndexBuildAt = build.completedAt.toISOString();
+  } else if (build?.startedAt) {
+    lastIndexBuildAt = build.startedAt.toISOString();
+  }
+
   return {
     sraPostgresCount,
     sraTypesenseCount,
@@ -71,7 +79,7 @@ export async function getCatalogStats(): Promise<CatalogStats> {
     proBonoSourceCount,
     proBonoIndexedEstimate,
     legalEntitiesTotal,
-    lastIndexBuildAt: process.env.SEARCH_INDEX_BUILT_AT ?? null,
+    lastIndexBuildAt,
     sraSync,
   };
 }

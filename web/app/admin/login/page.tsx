@@ -38,7 +38,9 @@ function AdminLoginForm() {
     <main style={{ maxWidth: 420, margin: "4rem auto", padding: "0 1rem", fontFamily: "system-ui" }}>
       <h1 style={{ fontSize: "1.25rem" }}>Admin sign-in</h1>
       <p style={{ color: "#444", fontSize: "0.95rem" }}>
-        Enter the value of <code>ADMIN_SECRET</code> from the server environment.
+        Enter the value of <code>ADMIN_SECRET</code> from the server environment. For scripts and{" "}
+        <code>curl</code>, send the same value as header <code>x-admin-secret</code> (see{" "}
+        <code>npm run admin:api -- --help</code>).
       </p>
       <form onSubmit={onSubmit} style={{ marginTop: "1.5rem" }}>
         <label style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Password</label>

@@ -13,6 +13,7 @@ import { enableUnifiedDirectory } from "@/lib/legal-search/config";
 import { rowMatchesPracticeTaxonomySlug } from "@/lib/legal/taxonomy";
 import { toLegacyGetResponse } from "@/lib/legal-search/legacy-get-response";
 import { finalizeDirectoryDiagnostics } from "@/lib/legal-search/search-diagnostics";
+import { repairDirectorySearchResponse } from "@/lib/sra/runtime-name-repair";
 import {
   applyVagueParsedQueryUx,
   detectVagueLegalQuery,
@@ -118,7 +119,7 @@ export async function runDirectorySearchLegacy(
   results = results.slice(off, off + lim);
   results = attachExplanations(results, parsed);
 
-  return finalizeDirectoryDiagnostics(
+  const finalized = finalizeDirectoryDiagnostics(
     {
       results,
       legacyRows: toLegacyGetResponse(results),
@@ -129,4 +130,5 @@ export async function runDirectorySearchLegacy(
     params.query,
     { preRankIndexById },
   );
+  return repairDirectorySearchResponse(finalized);
 }

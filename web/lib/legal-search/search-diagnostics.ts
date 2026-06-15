@@ -171,11 +171,41 @@ export function buildDirectoryResultDebug(
         enrichmentStatus?: string;
       }
     | undefined;
+  const topicalDebug = raw?._topicalGate as
+    | {
+        topicalGatePassed?: boolean;
+        topicalGateReason?: string;
+        primaryTaxonomyMatch?: boolean;
+        overlapReason?: string;
+        suppressedPracticeAreaReason?: string;
+      }
+    | undefined;
+
+  const openRerank = raw?._openReranker as
+    | {
+        rerankerModel?: string;
+        rerankerScore?: number;
+        preRerankRank?: number;
+        postRerankRank?: number;
+      }
+    | undefined;
 
   return {
     retrievalSources,
-    originalRankBySource: ctx?.originalRankBySource,
+    originalRankBySource: {
+      ...ctx?.originalRankBySource,
+      ...(openRerank?.preRerankRank != null
+        ? { preRerank: openRerank.preRerankRank }
+        : {}),
+      ...(openRerank?.postRerankRank != null
+        ? { postRerank: openRerank.postRerankRank }
+        : {}),
+    },
     scoreBreakdown: { ...result.scores },
+    rerankerModel: openRerank?.rerankerModel,
+    rerankerScore: openRerank?.rerankerScore ?? result.scores.reranker,
+    preRerankRank: openRerank?.preRerankRank ?? ctx?.originalRankBySource?.preRerank,
+    postRerankRank: openRerank?.postRerankRank,
     matchedPracticeAreas: matchedPracticeAreas(result, parsed),
     matchedTaxonomyTerms: taxonomyTerms(parsed),
     matchedLocationSignals: locationSignals(result, parsed),
@@ -192,6 +222,12 @@ export function buildDirectoryResultDebug(
     contactConfidence: capDebug?.contactConfidence ?? (raw?.contactConfidence as number | undefined),
     missingContactFields: capDebug?.missingContactFields,
     enrichmentStatus: capDebug?.enrichmentStatus ?? (raw?.enrichmentStatus as string | undefined),
+    topicalGatePassed: topicalDebug?.topicalGatePassed,
+    topicalGateReason: topicalDebug?.topicalGateReason,
+    primaryTaxonomyMatch: topicalDebug?.primaryTaxonomyMatch,
+    overlapReason: topicalDebug?.overlapReason,
+    suppressedPracticeAreaReason: topicalDebug?.suppressedPracticeAreaReason,
+    nameRepairedFromDatabase: raw?.nameRepairedFromDatabase === true,
   };
 }
 
@@ -294,6 +330,19 @@ export function buildSearchResponseDebug(args: {
   clarificationDecision?: ClarificationDecision;
   sourceDiversity?: SourceDiversityDebug;
   rankingStages?: import("@/lib/legal-search/search-diagnostics-types").RankingStageSnapshot[];
+  openRerankerModel?: string;
+  openRerankerDegraded?: boolean;
+  topicalGateApplied?: boolean;
+  topicalGateMode?: "strict" | "soft" | "off";
+  primaryTaxonomySlug?: string;
+  allowedOverlapSlugs?: string[];
+  suppressedSlugs?: string[];
+  resultsRemovedByTopicalGate?: number;
+  rescueBeforeGateCount?: number;
+  rescueAfterGateCount?: number;
+  placeholderTitlesResolved?: number;
+  runtimeTitleResolutionRate?: number;
+  sraPlaceholderTitlesChecked?: number;
 }): SearchResponseDebug {
   const sd = args.sourceDiversity;
   return {
@@ -340,6 +389,19 @@ export function buildSearchResponseDebug(args: {
     legalAidBoostApplied: sd?.legalAidBoostApplied,
     legalAidBoostReason: sd?.legalAidBoostReason,
     rankingStages: args.rankingStages,
+    openRerankerModel: args.openRerankerModel,
+    openRerankerDegraded: args.openRerankerDegraded,
+    topicalGateApplied: args.topicalGateApplied,
+    topicalGateMode: args.topicalGateMode,
+    primaryTaxonomySlug: args.primaryTaxonomySlug,
+    allowedOverlapSlugs: args.allowedOverlapSlugs,
+    suppressedSlugs: args.suppressedSlugs,
+    resultsRemovedByTopicalGate: args.resultsRemovedByTopicalGate,
+    rescueBeforeGateCount: args.rescueBeforeGateCount,
+    rescueAfterGateCount: args.rescueAfterGateCount,
+    placeholderTitlesResolved: args.placeholderTitlesResolved,
+    runtimeTitleResolutionRate: args.runtimeTitleResolutionRate,
+    sraPlaceholderTitlesChecked: args.sraPlaceholderTitlesChecked,
   };
 }
 
@@ -424,6 +486,16 @@ export function finalizeDirectoryDiagnostics(
     /** When true, attach debug even if ENABLE_SEARCH_DEBUG is false (admin tooling). */
     includeDebug?: boolean;
     rankingStages?: import("@/lib/legal-search/search-diagnostics-types").RankingStageSnapshot[];
+    openRerankerModel?: string;
+    openRerankerDegraded?: boolean;
+    topicalGateApplied?: boolean;
+    topicalGateMode?: "strict" | "soft" | "off";
+    primaryTaxonomySlug?: string;
+    allowedOverlapSlugs?: string[];
+    suppressedSlugs?: string[];
+    resultsRemovedByTopicalGate?: number;
+    rescueBeforeGateCount?: number;
+    rescueAfterGateCount?: number;
   },
 ): DirectorySearchResponse {
   const showDebug = ctx?.includeDebug === true || enableSearchDebug();
@@ -453,6 +525,19 @@ export function finalizeDirectoryDiagnostics(
     clarificationDecision: "none",
     sourceDiversity: ctx?.sourceDiversity,
     rankingStages: ctx?.rankingStages,
+    openRerankerModel: ctx?.openRerankerModel,
+    openRerankerDegraded: ctx?.openRerankerDegraded,
+    topicalGateApplied: ctx?.topicalGateApplied,
+    topicalGateMode: ctx?.topicalGateMode,
+    primaryTaxonomySlug: ctx?.primaryTaxonomySlug,
+    allowedOverlapSlugs: ctx?.allowedOverlapSlugs,
+    suppressedSlugs: ctx?.suppressedSlugs,
+    resultsRemovedByTopicalGate: ctx?.resultsRemovedByTopicalGate,
+    rescueBeforeGateCount: ctx?.rescueBeforeGateCount,
+    rescueAfterGateCount: ctx?.rescueAfterGateCount,
+    placeholderTitlesResolved: resp.sraTitleRepair?.placeholderTitlesResolved,
+    runtimeTitleResolutionRate: resp.sraTitleRepair?.runtimeTitleResolutionRate,
+    sraPlaceholderTitlesChecked: resp.sraTitleRepair?.sraResultsChecked,
   });
 
   return { ...resp, results, searchDebug };

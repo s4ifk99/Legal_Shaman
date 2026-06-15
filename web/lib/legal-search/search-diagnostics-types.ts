@@ -29,6 +29,18 @@ export type ResultDebugDiagnostics = {
   contactConfidence?: number;
   missingContactFields?: string[];
   enrichmentStatus?: string;
+  /** SRA title was Organisation &lt;id&gt; in index; replaced from Postgres at serve time. */
+  nameRepairedFromDatabase?: boolean;
+  /** Open cross-encoder reranker (when ENABLE_OPEN_RERANKER). */
+  rerankerModel?: string;
+  rerankerScore?: number;
+  preRerankRank?: number;
+  postRerankRank?: number;
+  topicalGatePassed?: boolean;
+  topicalGateReason?: string;
+  primaryTaxonomyMatch?: boolean;
+  overlapReason?: string;
+  suppressedPracticeAreaReason?: string;
 };
 
 export type ClarificationDecision = "none" | "asked" | "skipped_filters";
@@ -75,6 +87,20 @@ export type SearchResponseDebug = {
   legalAidBoostReason?: string;
   /** Optional ranking pipeline snapshots (admin tooling). */
   rankingStages?: RankingStageSnapshot[];
+  openRerankerModel?: string;
+  openRerankerDegraded?: boolean;
+  topicalGateApplied?: boolean;
+  topicalGateMode?: "strict" | "soft" | "off";
+  primaryTaxonomySlug?: string;
+  allowedOverlapSlugs?: string[];
+  suppressedSlugs?: string[];
+  resultsRemovedByTopicalGate?: number;
+  rescueBeforeGateCount?: number;
+  rescueAfterGateCount?: number;
+  /** SRA placeholder titles fixed from Postgres (Typesense reindex pending). */
+  placeholderTitlesResolved?: number;
+  runtimeTitleResolutionRate?: number;
+  sraPlaceholderTitlesChecked?: number;
 };
 
 export type RankingStageSnapshot = {
@@ -82,7 +108,7 @@ export type RankingStageSnapshot = {
   top: { rank: number; id: string; title: string; source: string; final: number; keyword: number }[];
 };
 
-export const DIRECTORY_RERANKER_VERSION = "directory-v4-capabilities";
+export const DIRECTORY_RERANKER_VERSION = "directory-v5-open-reranker";
 export const MATCHER_RERANKER_VERSION = "matcher-v2";
 
 /** Client-safe: strip debug fields from a cloned payload (for eval / tests). */

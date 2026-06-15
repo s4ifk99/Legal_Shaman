@@ -1,17 +1,15 @@
 # Weekly (or manual) full upsert of SRA organisations into MySQL (optional) + Meilisearch.
-# Repository secrets: SRA_APIM_SUBSCRIPTION_KEY, MEILISEARCH_HOST, MEILISEARCH_API_KEY
-# Optional: DATABASE_URL (mysql://…) — when set, sync writes sra_organisations before each Meili batch.
+# Daily sync + purge runs in sra-daily-sync.yml — use this workflow for manual reruns only.
 
-name: Sync SRA organisations to Meilisearch
+name: Sync SRA organisations to Meilisearch (manual)
 
 on:
-  schedule:
-    - cron: "0 5 * * 1"
   workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 360
     defaults:
       run:
         working-directory: web
@@ -38,4 +36,7 @@ jobs:
           MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST }}
           MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: npm run sra:sync
+          TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
+          TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
+          SRA_INDEX_SKIP_GEO: "1"
+        run: npm run sra:sync -- --skip-embeddings
