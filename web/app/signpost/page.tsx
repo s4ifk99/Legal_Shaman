@@ -3,8 +3,8 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { SpiralBackground } from "@/components/spiral-decoration";
-import { ArrowLeft, Download, Share2, EyeOff, Users, Sparkles } from "lucide-react";
-import { WaitlistForm } from "./waitlist-form";
+import { ArrowLeft, Download, Share2, EyeOff, Users } from "lucide-react";
+import { ShamanSearch } from "./shaman-search";
 
 export const metadata: Metadata = {
   title: "Signpost | Legal Shaman",
@@ -65,20 +65,15 @@ export default function SignpostPage() {
               />
             </div>
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold">
-                <Sparkles className="h-3.5 w-3.5" />
-                Coming soon
-              </span>
-              <h1 className="mt-2 font-serif text-3xl font-bold text-foreground md:text-4xl">
-                Signpost
+              <h1 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
+                Shaman Search
               </h1>
             </div>
           </div>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            A feature in development that lets you{" "}
-            <strong className="text-foreground">send and receive client referrals directly</strong>{" "}
-            through our platform — building one massive, smart, agentic ecosystem that helps everyone
-            access the law.
+            Find legal help, advice, and resources tailored to your needs.{" "}
+            <strong className="text-foreground">Filter by Legal Aid or Open Source Legal Research</strong>{" "}
+            to discover exactly what you're looking for.
           </p>
         </div>
       </section>
@@ -118,20 +113,11 @@ export default function SignpostPage() {
         </div>
       </section>
 
-      {/* Waitlist */}
+      {/* Shaman Search */}
       <section className="relative border-t-2 border-gold/30 bg-gradient-to-b from-muted/30 to-background py-12 md:py-16">
         <SpiralBackground className="opacity-30" />
         <div className="relative mx-auto max-w-2xl px-4">
-          <div className="mb-8 text-center">
-            <h2 className="font-serif text-2xl font-bold text-foreground md:text-3xl">
-              Join the waitlist
-            </h2>
-            <p className="mt-3 text-muted-foreground leading-relaxed">
-              Signpost is coming soon. Be among the first firms in the ecosystem — add your details
-              and we&apos;ll let you know the moment it&apos;s ready.
-            </p>
-          </div>
-          <WaitlistForm />
+          <ShamanSearch />
         </div>
       </section>
 
