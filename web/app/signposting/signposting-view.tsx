@@ -29,40 +29,24 @@ type Props = {
   variant?: "page" | "embedded";
 };
 
-function AccordionSection({ section, defaultOpen = false, index = 0 }: { section: Section; defaultOpen?: boolean; index?: number }) {
+function AccordionSection({ section, defaultOpen = false }: { section: Section; defaultOpen?: boolean }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
-  const isEven = index % 2 === 0;
 
   return (
-    <div className="rounded-xl border-2 border-gold/30 bg-card overflow-hidden transition-shadow hover:shadow-lg">
+    <div className="border-b border-teal/40">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex w-full items-center justify-between p-5 text-left transition-colors ${
-          isOpen 
-            ? isEven ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'
-            : 'hover:bg-muted/50'
-        }`}
+        aria-expanded={isOpen}
+        className="flex w-full items-center justify-between py-5 text-left transition-colors"
       >
-        <div className="flex items-center gap-3">
-          <div className={`flex h-10 w-10 items-center justify-center rounded-full ${
-            isOpen 
-              ? 'bg-gold/30 text-current' 
-              : isEven ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'
-          }`}>
-            <span className="font-serif text-lg font-bold">{section.title.charAt(0)}</span>
-          </div>
-          <h2 className={`text-lg font-bold ${isOpen ? '' : 'text-foreground'}`}>{section.title}</h2>
-        </div>
-        <div className={`flex items-center gap-2 ${isOpen ? '' : 'text-muted-foreground'}`}>
-          <span className="text-sm">{section.resources.length} resources</span>
-          <ChevronDown
-            className={`h-5 w-5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-          />
-        </div>
+        <h2 className="font-serif text-xl font-semibold text-foreground md:text-2xl">{section.title}</h2>
+        <ChevronDown
+          className={`h-5 w-5 shrink-0 text-foreground/70 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+        />
       </button>
       {isOpen && (
-        <div className="p-5 pt-4 border-t border-gold/20">
+        <div className="pb-5">
           <div className="space-y-4">
             {section.resources.map((resource, idx) => (
               <div key={idx} className="flex gap-3 rounded-lg p-3 transition-colors hover:bg-muted/50">
@@ -140,9 +124,9 @@ export default function SignpostingView({
   );
 
   const mainInner = (
-    <div className="space-y-4">
+    <div className="border-t border-teal/40">
       {allSections.map((section, idx) => (
-        <AccordionSection key={`${section.title}-${idx}`} section={section} defaultOpen={idx === 0} index={idx} />
+        <AccordionSection key={`${section.title}-${idx}`} section={section} />
       ))}
     </div>
   );
