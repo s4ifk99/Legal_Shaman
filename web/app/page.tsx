@@ -120,10 +120,10 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="mb-10 text-center">
             <h2 className="font-serif text-3xl font-bold text-black md:text-4xl">
-              Shaman&apos;s <span className="text-black">Cards</span>
+              <span className="text-black">Signpost</span>
             </h2>
             <p className="mt-3 text-muted-foreground md:text-lg">
-              Click to reveal useful legal contacts from the cards below
+              Click to reveal useful contacts to start your search
             </p>
           </div>
           
