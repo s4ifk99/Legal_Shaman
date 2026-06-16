@@ -96,18 +96,30 @@ export async function linkFirmsToSra(): Promise<LinkResult> {
       continue;
     }
     const match = candidates[0]!;
-    await prisma.firm.update({
-      where: { id: firm.id },
-      data: {
-        sraId: match.sraId,
-        sraProfileUrl: match.sraProfileUrl || null,
-        city: match.city || null,
-        postcode: match.postcode || null,
-        country: match.country || null,
-        verified: true,
-      },
-    });
-    linked++;
+    try {
+      await prisma.firm.update({
+        where: { id: firm.id },
+        data: {
+          sraId: match.sraId,
+          sraProfileUrl: match.sraProfileUrl || null,
+          city: match.city || null,
+          postcode: match.postcode || null,
+          country: match.country || null,
+          verified: true,
+        },
+      });
+      linked++;
+    } catch (err) {
+      const code =
+        err && typeof err === "object" && "code" in err
+          ? String((err as { code?: string }).code)
+          : "";
+      if (code === "P2002") {
+        skipped++;
+        continue;
+      }
+      throw err;
+    }
   }
 
   return { linked, skipped, ambiguous };
