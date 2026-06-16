@@ -1,4 +1,4 @@
-CREATE TABLE signpost_waitlist (
+CREATE TABLE IF NOT EXISTS signpost_waitlist (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   email TEXT NOT NULL,
@@ -9,4 +9,4 @@ CREATE TABLE signpost_waitlist (
   created_at TIMESTAMPTZ(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE UNIQUE INDEX signpost_waitlist_email_lower_key ON signpost_waitlist (lower(email));
+CREATE UNIQUE INDEX IF NOT EXISTS signpost_waitlist_email_lower_key ON signpost_waitlist (lower(email));

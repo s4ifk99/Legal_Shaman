@@ -38,4 +38,10 @@ jobs:
           MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST }}
           MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
           SRA_INDEX_SKIP_GEO: "1"
-        run: npm run sra:sync -- --skip-embeddings
+        run: |
+          FLAGS=(--skip-embeddings)
+          if [ -z "$TYPESENSE_HOST" ] || [ -z "$TYPESENSE_API_KEY" ]; then
+            FLAGS+=(--skip-typesense)
+            echo "Typesense secrets not set — running Postgres SRA sync only."
+          fi
+          npm run sra:sync -- "${FLAGS[@]}"
