@@ -29,21 +29,24 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npm run db:migrate
-      - name: SRA GetAll sync (purge stale + re-index)
+      - name: SRA GetAll sync (Postgres + purge)
         env:
           SRA_APIM_SUBSCRIPTION_KEY: ${{ secrets.SRA_APIM_SUBSCRIPTION_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST }}
+          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+          SRA_INDEX_SKIP_GEO: "1"
+        run: npm run sra:sync -- --skip-embeddings --skip-typesense
+      - name: Typesense SRA re-index (throttled)
+        continue-on-error: true
+        env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
           TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
           TYPESENSE_PROTOCOL: ${{ secrets.TYPESENSE_PROTOCOL }}
           TYPESENSE_PORT: ${{ secrets.TYPESENSE_PORT }}
-          MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST }}
-          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+          TYPESENSE_IMPORT_BATCH_SIZE: "5"
+          TYPESENSE_IMPORT_PAUSE_MS: "3000"
+          SEARCH_INDEX_SRA_PAGE_SIZE: "100"
           SRA_INDEX_SKIP_GEO: "1"
-        run: |
-          FLAGS=(--skip-embeddings)
-          if [ -z "$TYPESENSE_HOST" ] || [ -z "$TYPESENSE_API_KEY" ]; then
-            FLAGS+=(--skip-typesense)
-            echo "Typesense secrets not set — running Postgres SRA sync only."
-          fi
-          npm run sra:sync -- "${FLAGS[@]}"
+        run: npm run search:index:sra
