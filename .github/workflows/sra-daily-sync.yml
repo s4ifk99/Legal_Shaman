@@ -35,6 +35,8 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
           TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
+          TYPESENSE_PROTOCOL: ${{ secrets.TYPESENSE_PROTOCOL }}
+          TYPESENSE_PORT: ${{ secrets.TYPESENSE_PORT }}
           MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST }}
           MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
           SRA_INDEX_SKIP_GEO: "1"
