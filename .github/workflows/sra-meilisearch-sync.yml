@@ -10,6 +10,8 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
     defaults:
       run:
         working-directory: web

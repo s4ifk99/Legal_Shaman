@@ -4,7 +4,7 @@
  */
 import { config } from "dotenv";
 import { resolve } from "node:path";
-import { defineConfig, env } from "prisma/config";
+import { defineConfig } from "prisma/config";
 
 config({ path: resolve(process.cwd(), ".env") });
 config({ path: resolve(process.cwd(), ".env.local"), override: true });
@@ -16,6 +16,9 @@ export default defineConfig({
     seed: "tsx prisma/seed.ts",
   },
   datasource: {
-    url: env("DATABASE_URL"),
+    // Generate/migrate need a URL in config; real connection uses DATABASE_URL from CI or .env.local.
+    url:
+      process.env.DATABASE_URL ??
+      "postgresql://postgres:postgres@127.0.0.1:5432/legal_shaman?schema=public",
   },
 });
