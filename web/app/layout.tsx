@@ -21,19 +21,51 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Legal Shaman | The Most Powerful Agentic Search Engine for All Your Disputes',
+  metadataBase: new URL("https://www.legalshaman.com"),
+  title: {
+    default: "Legal Shaman | Navigate Your Legal Disputes",
+    template: "%s | Legal Shaman",
+  },
   description:
-    'Legal Shaman is the most powerful agentic search engine for all your disputes. Tell us your problem and we\'ll point you in the right direction — solicitors, legal aid, free advice, and more.',
-  generator: 'v0.app',
+    "Legal Shaman helps you navigate UK legal disputes — search solicitors, legal aid, and free advice; get guided lawyer matches; and explore signposting resources. Not legal advice.",
+  keywords: [
+    "legal aid UK",
+    "find a solicitor",
+    "free legal advice",
+    "legal directory",
+    "housing lawyer",
+    "employment lawyer",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: "https://www.legalshaman.com",
+    siteName: "Legal Shaman",
+    title: "Legal Shaman | Navigate Your Legal Disputes",
+    description:
+      "Search the UK legal directory, get guided lawyer matches, and find free legal help — solicitors, legal aid, and signposting resources.",
+    images: [{ url: "/logo.jpg", width: 512, height: 512, alt: "Legal Shaman" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Legal Shaman | Navigate Your Legal Disputes",
+    description:
+      "Search solicitors, legal aid, and free advice across the UK. The Shaman does not advise, only guides.",
+    images: ["/logo.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: [
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: '/favicon-32x32.png',
-    apple: '/apple-icon.png',
+    shortcut: "/favicon-32x32.png",
+    apple: "/apple-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,

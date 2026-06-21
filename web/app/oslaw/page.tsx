@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { ArrowLeft, Search } from "lucide-react";
+import { Search } from "lucide-react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 import { OslawTrendingMarquee } from "@/components/oslaw/trending-marquee";
 import { OslawPostList } from "@/components/oslaw/post-list";
 import { OslawSubredditCard } from "@/components/oslaw/subreddit-card";
@@ -18,16 +20,17 @@ export default function OslawPage() {
   const hasData = data.subreddits.length > 0;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex min-h-screen flex-col bg-background">
+      <Header />
       <OslawTrendingMarquee />
-      <div className="mx-auto max-w-6xl px-4 py-8 md:py-12">
-        <div className="mb-8">
+      <div className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 md:py-12">
+        <div className="mb-8 flex flex-wrap items-center justify-end gap-3">
           <Link
-            href="/"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+            href="/search"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-primary/30 px-4 py-2 text-sm font-medium text-primary transition-all hover:-translate-y-0.5 hover:bg-primary/10 hover:shadow-sm"
           >
-            <ArrowLeft className="h-4 w-4" />
-            Back to home
+            <Search className="h-4 w-4" />
+            Search directory
           </Link>
         </div>
 
@@ -118,6 +121,7 @@ export default function OslawPage() {
           situation.
         </p>
       </div>
+      <Footer />
     </div>
   );
 }

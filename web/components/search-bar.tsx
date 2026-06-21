@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SpiralDecoration } from "./spiral-decoration";
+import { cn } from "@/lib/utils";
 
 type SuggestListing = {
   id: string;
@@ -29,7 +30,7 @@ type SuggestResponse = {
   categories: SuggestCategory[];
 };
 
-export function SearchBar() {
+export function SearchBar({ compact = false }: { compact?: boolean }) {
   const router = useRouter();
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
@@ -89,7 +90,10 @@ export function SearchBar() {
   const showPanel = open && q.trim().length >= 2;
 
   return (
-    <div className="relative overflow-hidden border-b-2 border-gold/30 bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12">
+    <div className={cn(
+      "relative overflow-hidden border-b-2 border-gold/30 bg-gradient-to-br from-primary/5 via-background to-secondary/5",
+      compact ? "py-8 md:py-10" : "py-12",
+    )}>
       {/* Decorative spirals */}
       <div className="absolute -left-20 -top-20 opacity-15">
         <SpiralDecoration size={250} color="var(--teal)" />
@@ -99,26 +103,36 @@ export function SearchBar() {
       </div>
       
       <div className="relative mx-auto max-w-4xl px-4 text-center">
-        <div className="mb-6 flex justify-center">
-          <div className="relative">
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 blur-lg" />
-            <Image
-              src="/logo.jpg"
-              alt="Legal Shaman Logo"
-              width={100}
-              height={100}
-              className="relative h-24 w-24 rounded-full border-4 border-gold/50 shadow-lg"
-            />
+        {!compact && (
+          <div className="mb-6 flex justify-center">
+            <div className="relative">
+              <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 blur-lg" />
+              <Image
+                src="/logo.jpg"
+                alt="Legal Shaman Logo"
+                width={100}
+                height={100}
+                className="relative h-24 w-24 rounded-full border-4 border-gold/50 shadow-lg"
+              />
+            </div>
           </div>
-        </div>
-        <h1 className="mb-2 font-serif text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-          <span className="text-primary">Legal</span>{" "}
-          <span className="text-secondary">Shaman</span>
-        </h1>
-        <p className="mb-1 text-base font-medium text-foreground md:text-lg">
-          The Most Powerful Agentic Search Engine for All Your Disputes
-        </p>
-        <p className="mb-8 text-muted-foreground">
+        )}
+        {!compact ? (
+          <>
+            <h1 className="mb-2 font-serif text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+              <span className="text-primary">Legal</span>{" "}
+              <span className="text-secondary">Shaman</span>
+            </h1>
+            <p className="mb-1 text-base font-medium text-foreground md:text-lg">
+              The Most Powerful Agentic Search Engine for All Your Disputes
+            </p>
+          </>
+        ) : (
+          <h1 className="mb-2 font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
+            Navigate your <span className="text-primary">legal dispute</span>
+          </h1>
+        )}
+        <p className={cn("text-muted-foreground", compact ? "mb-6 md:text-lg" : "mb-8")}>
           Tell us your problem and we&apos;ll point you in the right direction — solicitors, legal aid, free advice, and more.
         </p>
         

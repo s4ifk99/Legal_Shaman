@@ -20,6 +20,8 @@ import { enableMapSearch, enableSearchDebug } from "@/lib/legal-search/config";
 import { buildMapMarkers } from "@/lib/search/map-results";
 import { SearchDebugPanel } from "@/components/search/search-debug-panel";
 import { OslawTrendingMarquee } from "@/components/oslaw/trending-marquee";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 type PageProps = {
   searchParams: Promise<{
@@ -86,7 +88,8 @@ export default async function SearchPage({ searchParams }: PageProps) {
   const wideLayout = Boolean(mapPayload?.markers.length);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex min-h-screen flex-col bg-background">
+      <Header />
       <OslawTrendingMarquee />
       {q.length >= 2 ? (
         <DirectorySearchTracking
@@ -101,7 +104,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
           city={cityFacet || undefined}
         />
       ) : null}
-      <div className={`mx-auto px-4 py-10 ${wideLayout ? "max-w-7xl" : "max-w-5xl"}`}>
+      <div className={`mx-auto flex-1 px-4 py-10 ${wideLayout ? "max-w-7xl" : "max-w-5xl"}`}>
         <div className="mb-6 flex flex-wrap items-start justify-between gap-3">
           <div>
             <h1 className="mb-2 font-serif text-3xl font-semibold text-primary">Search directory</h1>
@@ -207,6 +210,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

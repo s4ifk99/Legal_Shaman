@@ -146,12 +146,13 @@ export function Header() {
             </DropdownMenu>
 
             {/* Desktop nav */}
-            <nav className="hidden items-center gap-1.5 md:flex">
+            <nav className="hidden items-center gap-1.5 lg:flex">
               <NavBoxLink href="/find-a-lawyer" variant="primary">
                 Find a Lawyer
               </NavBoxLink>
-              <NavBoxLink href="/oslaw">OSLAW</NavBoxLink>
               <NavBoxLink href="/search">Search</NavBoxLink>
+              <NavBoxLink href="/ask-the-shaman">Ask the Shaman</NavBoxLink>
+              <NavBoxLink href="/oslaw">OSLAW</NavBoxLink>
               <NavBoxLink href="/bookmarks">
                 <Bookmark className="h-4 w-4" />
                 Bookmarks
@@ -159,7 +160,7 @@ export function Header() {
               {!user ? (
                 <NavBoxButton onClick={() => setAuthOpen(true)}>Sign in</NavBoxButton>
               ) : null}
-              <NavBoxLink href="/#categories">Categories</NavBoxLink>
+              <NavBoxLink href="/signposting">Signposting</NavBoxLink>
               <NavBoxLink href="/submit" variant="accent">
                 List Business
               </NavBoxLink>
@@ -188,11 +189,14 @@ export function Header() {
             >
               Find a Lawyer
             </NavBoxLink>
-            <NavBoxLink href="/oslaw" className="w-full" onClick={() => setMobileMenuOpen(false)}>
-              OSLAW
-            </NavBoxLink>
             <NavBoxLink href="/search" className="w-full" onClick={() => setMobileMenuOpen(false)}>
               Search
+            </NavBoxLink>
+            <NavBoxLink href="/ask-the-shaman" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+              Ask the Shaman
+            </NavBoxLink>
+            <NavBoxLink href="/oslaw" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+              OSLAW
             </NavBoxLink>
             <NavBoxLink href="/bookmarks" className="w-full" onClick={() => setMobileMenuOpen(false)}>
               <Bookmark className="h-4 w-4" />
@@ -209,8 +213,8 @@ export function Header() {
                 Sign in
               </NavBoxButton>
             ) : null}
-            <NavBoxLink href="/#categories" className="w-full" onClick={() => setMobileMenuOpen(false)}>
-              Categories
+            <NavBoxLink href="/signposting" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+              Signposting
             </NavBoxLink>
             <NavBoxLink
               href="/submit"

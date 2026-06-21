@@ -1,15 +1,19 @@
-"use client";
+import signpostingResources from "@/data/signposting-resources.json";
+import advocateStub from "@/data/signposting-advocate.json";
+import SignpostingView from "./signposting-view";
 
-import { useEffect } from "react";
+export const metadata = {
+  title: "Signposting Resources | Legal Shaman",
+  description:
+    "National signposting resources for UK legal help — Citizens Advice, legal aid, housing, employment, family, and more.",
+};
 
-export default function SignpostingRedirectPage() {
-  useEffect(() => {
-    window.location.replace("/#signposting");
-  }, []);
-
+export default function SignpostingPage() {
   return (
-    <div className="flex min-h-[40vh] items-center justify-center bg-background text-muted-foreground">
-      Taking you to signposting on the home page…
-    </div>
+    <SignpostingView
+      sections={signpostingResources.sections}
+      advocateResources={advocateStub.resources ?? []}
+      variant="page"
+    />
   );
 }
