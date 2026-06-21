@@ -1,0 +1,288 @@
+{
+  "meta": {
+    "scrapedAt": "2026-06-18T09:24:47.358Z",
+    "subredditCount": 4,
+    "postCount": 8,
+    "topicCount": 4,
+    "ingestSource": "public"
+  },
+  "subreddits": [
+    {
+      "name": "LegalAdviceUK",
+      "displayName": "r/LegalAdviceUK",
+      "description": "Peer discussions on everyday UK legal problems — housing, work, family, police, and more.",
+      "subscribers": 50000,
+      "posts": [
+        {
+          "id": "seed1",
+          "title": "Landlord withholding deposit after tenancy ended",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed1/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed1/",
+          "subreddit": "LegalAdviceUK",
+          "score": 142,
+          "numComments": 58,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        },
+        {
+          "id": "seed2",
+          "title": "Unfair dismissal — probation period and notice",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed2/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed2/",
+          "subreddit": "LegalAdviceUK",
+          "score": 89,
+          "numComments": 34,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        },
+        {
+          "id": "seed3",
+          "title": "Section 21 notice received — is it valid?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed3/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed3/",
+          "subreddit": "LegalAdviceUK",
+          "score": 201,
+          "numComments": 91,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        }
+      ]
+    },
+    {
+      "name": "uklaw",
+      "displayName": "r/uklaw",
+      "description": "UK law students and practitioners — statute, case law, and professional practice.",
+      "subscribers": 50000,
+      "posts": [
+        {
+          "id": "seed4",
+          "title": "Recent employment tribunal trends on remote work",
+          "url": "https://www.reddit.com/r/uklaw/comments/seed4/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/seed4/",
+          "subreddit": "uklaw",
+          "score": 67,
+          "numComments": 22,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        },
+        {
+          "id": "seed5",
+          "title": "Interpretation of Consumer Rights Act refunds",
+          "url": "https://www.reddit.com/r/uklaw/comments/seed5/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/seed5/",
+          "subreddit": "uklaw",
+          "score": 45,
+          "numComments": 18,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        }
+      ]
+    },
+    {
+      "name": "HousingUK",
+      "displayName": "r/HousingUK",
+      "description": "Renting, landlords, deposits, eviction, and housing rights in the UK.",
+      "subscribers": 50000,
+      "posts": [
+        {
+          "id": "seed6",
+          "title": "Council tax liability when moving between properties",
+          "url": "https://www.reddit.com/r/HousingUK/comments/seed6/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/seed6/",
+          "subreddit": "HousingUK",
+          "score": 112,
+          "numComments": 44,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        },
+        {
+          "id": "seed7",
+          "title": "Damp and mould — landlord repair obligations",
+          "url": "https://www.reddit.com/r/HousingUK/comments/seed7/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/seed7/",
+          "subreddit": "HousingUK",
+          "score": 178,
+          "numComments": 73,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        }
+      ]
+    },
+    {
+      "name": "UKPersonalFinance",
+      "displayName": "r/UKPersonalFinance",
+      "description": "Debt, benefits, tax disputes, and consumer rights with legal crossover.",
+      "subscribers": 50000,
+      "posts": [
+        {
+          "id": "seed8",
+          "title": "County Court Judgment and credit file impact",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/seed8/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/seed8/",
+          "subreddit": "UKPersonalFinance",
+          "score": 95,
+          "numComments": 41,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        }
+      ]
+    }
+  ],
+  "trendingTopics": [
+    {
+      "slug": "housing-law",
+      "label": "Housing Law",
+      "legalAreaSlug": "housing",
+      "postCount": 3,
+      "engagementScore": 965,
+      "subreddits": [
+        "LegalAdviceUK",
+        "HousingUK"
+      ],
+      "posts": [
+        {
+          "id": "seed3",
+          "title": "Section 21 notice received — is it valid?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed3/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed3/",
+          "subreddit": "LegalAdviceUK",
+          "score": 201,
+          "numComments": 91,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        },
+        {
+          "id": "seed7",
+          "title": "Damp and mould — landlord repair obligations",
+          "url": "https://www.reddit.com/r/HousingUK/comments/seed7/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/seed7/",
+          "subreddit": "HousingUK",
+          "score": 178,
+          "numComments": 73,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        },
+        {
+          "id": "seed1",
+          "title": "Landlord withholding deposit after tenancy ended",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed1/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed1/",
+          "subreddit": "LegalAdviceUK",
+          "score": 142,
+          "numComments": 58,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        }
+      ]
+    },
+    {
+      "slug": "general-legal-discussion",
+      "label": "General legal discussion",
+      "legalAreaSlug": null,
+      "postCount": 2,
+      "engagementScore": 377,
+      "subreddits": [
+        "HousingUK",
+        "UKPersonalFinance"
+      ],
+      "posts": [
+        {
+          "id": "seed6",
+          "title": "Council tax liability when moving between properties",
+          "url": "https://www.reddit.com/r/HousingUK/comments/seed6/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/seed6/",
+          "subreddit": "HousingUK",
+          "score": 112,
+          "numComments": 44,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        },
+        {
+          "id": "seed8",
+          "title": "County Court Judgment and credit file impact",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/seed8/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/seed8/",
+          "subreddit": "UKPersonalFinance",
+          "score": 95,
+          "numComments": 41,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 2,
+      "engagementScore": 268,
+      "subreddits": [
+        "LegalAdviceUK",
+        "uklaw"
+      ],
+      "posts": [
+        {
+          "id": "seed2",
+          "title": "Unfair dismissal — probation period and notice",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed2/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed2/",
+          "subreddit": "LegalAdviceUK",
+          "score": 89,
+          "numComments": 34,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        },
+        {
+          "id": "seed4",
+          "title": "Recent employment tribunal trends on remote work",
+          "url": "https://www.reddit.com/r/uklaw/comments/seed4/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/seed4/",
+          "subreddit": "uklaw",
+          "score": 67,
+          "numComments": 22,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        }
+      ]
+    },
+    {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 1,
+      "engagementScore": 81,
+      "subreddits": [
+        "uklaw"
+      ],
+      "posts": [
+        {
+          "id": "seed5",
+          "title": "Interpretation of Consumer Rights Act refunds",
+          "url": "https://www.reddit.com/r/uklaw/comments/seed5/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/seed5/",
+          "subreddit": "uklaw",
+          "score": 45,
+          "numComments": 18,
+          "createdUtc": 1781753087,
+          "snippet": "Sample discussion post for local OSLAW development.",
+          "listingSource": "hot"
+        }
+      ]
+    }
+  ]
+}

@@ -33,8 +33,8 @@ export function Footer() {
           </div>
           
           <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm">
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              About
+            <Link href="/ask-the-shaman" className="text-primary-foreground/70 transition-colors hover:text-gold">
+              Ask the Shaman
             </Link>
             <Link href="/terms" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Terms

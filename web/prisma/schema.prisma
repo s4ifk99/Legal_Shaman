@@ -638,3 +638,30 @@ model SearchIndexBuild {
   @@index([status, startedAt])
   @@map("search_index_builds")
 }
+
+/// Public user account (name + email) for saved firm bookmarks.
+model User {
+  id        String     @id @default(cuid())
+  name      String     @db.VarChar(255)
+  email     String     @unique @db.VarChar(255)
+  createdAt DateTime   @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime   @updatedAt @map("updated_at") @db.Timestamptz(3)
+  bookmarks Bookmark[]
+
+  @@map("users")
+}
+
+/// Saved law firm / provider bookmark for a signed-in user.
+model Bookmark {
+  id           String   @id @default(cuid())
+  userId       String   @map("user_id")
+  entityId     String   @map("entity_id") @db.VarChar(128)
+  resultSource String   @map("result_source") @db.VarChar(32)
+  businessName String   @map("business_name") @db.VarChar(512)
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, entityId, resultSource])
+  @@index([userId, createdAt])
+  @@map("bookmarks")
+}

@@ -17,22 +17,14 @@ type SearchResultsLayoutProps = {
   markers: MapMarker[];
   missingCoordinatesCount: number;
   children: React.ReactNode;
-  selectedId?: string | null;
-  onSelect?: (entityId: string) => void;
 };
 
 export function SearchResultsLayout({
   markers,
   missingCoordinatesCount,
   children,
-  selectedId: selectedIdProp,
-  onSelect: onSelectProp,
 }: SearchResultsLayoutProps) {
   const [view, setView] = useState<ViewMode>(markers.length ? "split" : "list");
-  const [internalSelectedId, setInternalSelectedId] = useState<string | null>(null);
-  const selectedId = selectedIdProp ?? internalSelectedId;
-  const onSelect = onSelectProp ?? setInternalSelectedId;
-
   const showMap = markers.length > 0;
 
   return (
@@ -77,11 +69,11 @@ export function SearchResultsLayout({
       {view === "list" || !showMap ? (
         children
       ) : view === "map" ? (
-        <LegalMap markers={markers} selectedId={selectedId} onSelect={onSelect} />
+        <LegalMap markers={markers} />
       ) : (
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="min-w-0">{children}</div>
-          <LegalMap markers={markers} selectedId={selectedId} onSelect={onSelect} />
+          <LegalMap markers={markers} />
         </div>
       )}
     </div>

@@ -59,11 +59,13 @@ export type RedditTokenResponse = {
 /** Reddit listing API child node (partial). */
 export type RedditListingChild = {
   data?: {
+    id?: string;
     title?: string;
     url?: string;
     permalink?: string;
     subreddit?: string;
     score?: number;
+    num_comments?: number;
     created_utc?: number;
     selftext?: string;
   };

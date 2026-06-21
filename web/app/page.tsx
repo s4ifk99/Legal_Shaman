@@ -1,6 +1,7 @@
 import { Footer } from "@/components/footer";
 import { WaitlistSignup } from "@/components/waitlist-signup";
 import { CategoryCards, type CategorySection } from "@/components/category-cards";
+import { OslawTrendingMarquee } from "@/components/oslaw/trending-marquee";
 import { SpiralBackground } from "@/components/spiral-decoration";
 import signpostingResources from "@/data/signposting-resources.json";
 import Image from "next/image";
@@ -9,6 +10,7 @@ export default function Home() {
   const sections = signpostingResources.sections as CategorySection[];
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <OslawTrendingMarquee />
       {/* Quote header section */}
       <section className="relative overflow-hidden border-b-2 border-gold/30 bg-gradient-to-r from-primary/10 via-background to-secondary/10 py-8 md:py-10">
         <SpiralBackground className="opacity-20" />

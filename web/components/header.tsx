@@ -1,10 +1,9 @@
 "use client";
 
-import { MapPin, ChevronDown, Menu, X } from "lucide-react";
+import { MapPin, ChevronDown, Menu, X, Bookmark } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useState, type ReactNode } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +11,68 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { SpiralDecoration } from "./spiral-decoration";
+import { useBookmarks } from "@/components/bookmarks/bookmarks-provider";
+import { cn } from "@/lib/utils";
+
+const navBoxBase =
+  "inline-flex items-center justify-center gap-1.5 rounded-xl border px-3.5 py-2 text-sm font-medium shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98]";
+
+const navBoxVariants = {
+  default:
+    "border-border/70 bg-card/90 text-muted-foreground hover:border-primary/30 hover:bg-muted/60 hover:text-foreground",
+  primary:
+    "border-primary/50 bg-primary text-primary-foreground hover:border-primary hover:bg-primary/90 hover:shadow-primary/25",
+  accent:
+    "border-secondary/40 bg-card/90 text-secondary hover:border-secondary/70 hover:bg-secondary/10 hover:text-secondary",
+} as const;
+
+type NavBoxVariant = keyof typeof navBoxVariants;
+
+function NavBoxLink({
+  href,
+  variant = "default",
+  className,
+  children,
+  onClick,
+}: {
+  href: string;
+  variant?: NavBoxVariant;
+  className?: string;
+  children: ReactNode;
+  onClick?: () => void;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={cn(navBoxBase, navBoxVariants[variant], className)}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function NavBoxButton({
+  variant = "default",
+  className,
+  children,
+  onClick,
+}: {
+  variant?: NavBoxVariant;
+  className?: string;
+  children: ReactNode;
+  onClick?: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={cn(navBoxBase, navBoxVariants[variant], className)}
+    >
+      {children}
+    </button>
+  );
+}
 
 const locations = [
   "All United Kingdom",
@@ -29,6 +90,7 @@ const locations = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, setAuthOpen } = useBookmarks();
 
   return (
     <header className="relative overflow-hidden border-b-2 border-gold/30 bg-card">
@@ -62,14 +124,17 @@ export function Header() {
             </div>
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="gap-2 border-primary/30 bg-transparent hover:bg-primary/10">
-                  <MapPin className="h-4 w-4 text-primary" />
+                <button
+                  type="button"
+                  className={cn(navBoxBase, navBoxVariants.default, "gap-2 px-3 py-2")}
+                >
+                  <MapPin className="h-4 w-4 shrink-0 text-primary" />
                   <span className="hidden sm:inline">UK</span>
-                  <ChevronDown className="h-3 w-3" />
-                </Button>
+                  <ChevronDown className="h-3 w-3 shrink-0 opacity-60" />
+                </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="border-gold/30">
                 {locations.map((location) => (
@@ -81,76 +146,80 @@ export function Header() {
             </DropdownMenu>
 
             {/* Desktop nav */}
-            <nav className="hidden items-center gap-1 md:flex">
-              <Link
-                href="/find-a-lawyer"
-                className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:scale-105 hover:shadow-lg"
-              >
+            <nav className="hidden items-center gap-1.5 md:flex">
+              <NavBoxLink href="/find-a-lawyer" variant="primary">
                 Find a Lawyer
-              </Link>
-              <Link
-                href="/search"
-                className="rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-              >
-                Search
-              </Link>
-              <Link
-                href="/#categories"
-                className="rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-              >
-                Categories
-              </Link>
-              <Link
-                href="/submit"
-                className="rounded-full border border-secondary/50 px-4 py-2 text-sm text-secondary transition-colors hover:bg-secondary hover:text-secondary-foreground"
-              >
+              </NavBoxLink>
+              <NavBoxLink href="/oslaw">OSLAW</NavBoxLink>
+              <NavBoxLink href="/search">Search</NavBoxLink>
+              <NavBoxLink href="/bookmarks">
+                <Bookmark className="h-4 w-4" />
+                Bookmarks
+              </NavBoxLink>
+              {!user ? (
+                <NavBoxButton onClick={() => setAuthOpen(true)}>Sign in</NavBoxButton>
+              ) : null}
+              <NavBoxLink href="/#categories">Categories</NavBoxLink>
+              <NavBoxLink href="/submit" variant="accent">
                 List Business
-              </Link>
+              </NavBoxLink>
             </nav>
 
             {/* Mobile menu button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="md:hidden"
+            <button
+              type="button"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              className={cn(navBoxBase, navBoxVariants.default, "px-2.5 py-2 md:hidden")}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
+            </button>
           </div>
         </div>
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <nav className="mt-4 flex flex-col gap-2 border-t border-border pt-4 md:hidden">
-            <Link
+          <nav className="mt-4 grid grid-cols-2 gap-2 border-t border-border/70 pt-4 md:hidden">
+            <NavBoxLink
               href="/find-a-lawyer"
-              className="rounded-lg bg-primary px-4 py-3 text-center font-medium text-primary-foreground"
+              variant="primary"
+              className="col-span-2 w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
               Find a Lawyer
-            </Link>
-            <Link
-              href="/search"
-              className="rounded-lg px-4 py-3 text-center text-muted-foreground hover:bg-muted"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            </NavBoxLink>
+            <NavBoxLink href="/oslaw" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+              OSLAW
+            </NavBoxLink>
+            <NavBoxLink href="/search" className="w-full" onClick={() => setMobileMenuOpen(false)}>
               Search
-            </Link>
-            <Link
-              href="/#categories"
-              className="rounded-lg px-4 py-3 text-center text-muted-foreground hover:bg-muted"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            </NavBoxLink>
+            <NavBoxLink href="/bookmarks" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+              <Bookmark className="h-4 w-4" />
+              Bookmarks
+            </NavBoxLink>
+            {!user ? (
+              <NavBoxButton
+                className="w-full"
+                onClick={() => {
+                  setAuthOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+              >
+                Sign in
+              </NavBoxButton>
+            ) : null}
+            <NavBoxLink href="/#categories" className="w-full" onClick={() => setMobileMenuOpen(false)}>
               Categories
-            </Link>
-            <Link
+            </NavBoxLink>
+            <NavBoxLink
               href="/submit"
-              className="rounded-lg border border-secondary/50 px-4 py-3 text-center text-secondary"
+              variant="accent"
+              className="col-span-2 w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
-              List Your Business
-            </Link>
+              List Business
+            </NavBoxLink>
           </nav>
         )}
       </div>

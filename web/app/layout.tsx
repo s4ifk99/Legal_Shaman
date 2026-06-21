@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Libre_Baskerville, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { AppProviders } from '@/components/app-providers'
 import './globals.css'
 
 // Declare the Geist and Geist_Mono variables before using them
@@ -42,7 +43,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${libreBaskerville.variable} ${playfairDisplay.variable} font-sans antialiased`}>
-        {children}
+        <AppProviders>
+          {children}
+        </AppProviders>
         <Analytics />
       </body>
     </html>

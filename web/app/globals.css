@@ -182,3 +182,35 @@
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+
+/* OSLAW trending news marquee */
+@keyframes oslaw-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.oslaw-marquee-track {
+  animation: oslaw-marquee-scroll 80s linear infinite;
+}
+
+.oslaw-marquee:hover .oslaw-marquee-track,
+.oslaw-marquee:focus-within .oslaw-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oslaw-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .oslaw-marquee .relative.min-w-0 {
+    overflow-x: auto;
+  }
+}

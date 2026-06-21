@@ -421,12 +421,30 @@ function stringListFromApi(value: unknown): string[] {
       if (t) out.push(t);
     } else if (item && typeof item === "object") {
       const label = asString(
-        pick(item as Record<string, unknown>, ["Name", "name", "TradingName", "tradingName"]),
+        pick(item as Record<string, unknown>, [
+          "Name",
+          "name",
+          "TradingName",
+          "tradingName",
+          "Description",
+          "description",
+          "AreaOfLaw",
+          "areaOfLaw",
+        ]),
       );
       if (label) out.push(label);
     }
   }
   return out;
+}
+
+/** SRA register work areas and practice-area metadata (WorkArea + PracticeAreas). */
+export function collectSraWorkAreaLabels(raw: Record<string, unknown>): string[] {
+  const labels = [
+    ...stringListFromApi(raw.WorkArea ?? raw.workArea),
+    ...stringListFromApi(raw.PracticeAreas ?? raw.practiceAreas ?? raw.AreasOfLaw ?? raw.areasOfLaw),
+  ];
+  return [...new Set(labels.map((label) => label.trim()).filter(Boolean))];
 }
 
 export function normaliseSraOffices(offices: unknown[]): SraOfficeRecord[] {
@@ -477,7 +495,7 @@ export function normaliseSraOrganisationV2(raw: Record<string, unknown>): SraV2R
 
   const tradingNames = stringListFromApi(raw.TradingNames ?? raw.tradingNames ?? raw.TradingName ?? raw.tradingName);
   const previousNames = stringListFromApi(raw.PreviousNames ?? raw.previousNames);
-  const workArea = stringListFromApi(raw.WorkArea ?? raw.workArea);
+  const workArea = collectSraWorkAreaLabels(raw);
 
   const website = base.website ?? collectWebsites(raw, officesList);
   const email = base.email ?? collectEmail(raw, officesList);

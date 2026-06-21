@@ -11,6 +11,13 @@ import {
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  if (pathname === "/embed/signpost") {
+    const res = NextResponse.next();
+    res.headers.delete("X-Frame-Options");
+    res.headers.set("Content-Security-Policy", "frame-ancestors *");
+    return res;
+  }
+
   if (!pathname.startsWith("/admin") && !pathname.startsWith("/api/admin")) {
     return NextResponse.next();
   }
@@ -61,5 +68,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/admin/:path*"],
+  matcher: ["/embed/signpost", "/admin/:path*", "/api/admin/:path*"],
 };

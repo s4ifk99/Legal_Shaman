@@ -19,6 +19,7 @@ type LegacyAdl = {
   website?: string;
   category: string;
   subcategory: string;
+  practiceAreas?: string[];
   isFree: boolean;
   isLegalAid?: boolean;
   isSponsored: boolean;
@@ -59,6 +60,7 @@ type LegacySra = {
   website?: string;
   category: string;
   subcategory: string;
+  practiceAreas: string[];
   isFree: boolean;
   isLegalAid: boolean;
   isSponsored: boolean;
@@ -150,6 +152,7 @@ export function toLegacyGetResponse(results: SearchResult[]): LegacyGetRow[] {
         website: doc.sraProfileUrl,
         category: "SRA",
         subcategory: "sra-organisation",
+        practiceAreas: r.practiceAreas.filter(Boolean).slice(0, 8),
         isFree: false,
         isLegalAid: false,
         isSponsored: false,

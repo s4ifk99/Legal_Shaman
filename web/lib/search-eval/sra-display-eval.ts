@@ -10,6 +10,7 @@ import { sanitiseContactForDisplay } from "@/lib/provider-intelligence/provider-
 import {
   extractFirmNameFromSraSearchText,
   isPlaceholderSraBusinessName,
+  parseSraAboutFields,
   resolveSraDisplayName,
 } from "@/lib/search/sra-display";
 import {
@@ -127,6 +128,35 @@ export async function runSraDisplayEval(): Promise<number> {
   const extracted = extractFirmNameFromSraSearchText("921469\nTest Firm LLP\nLondon", "921469");
   if (extracted !== "Test Firm LLP") fail(`extractFirmNameFromSraSearchText got "${extracted}"`);
 
+  const about = parseSraAboutFields(
+    [
+      "Greengage LLP",
+      "838245",
+      "07973674579",
+      "glyn@greengagelaw.com",
+      "https://www.greengagelaw.com",
+      "YES",
+      "58A Gondar Gardens, London, NW6 1HG, England",
+      "Commercial / Corporate Work for Non-Listed Companies and Other",
+      "Employment",
+      "Intellectual Property",
+    ].join("\n"),
+    {
+      businessName: "Greengage LLP",
+      sraId: "838245",
+      excludePhone: "07973674579",
+      listedPracticeAreas: ["Employment Law"],
+    },
+  );
+  const aboutLabels = about.map((f) => f.label);
+  if (!aboutLabels.includes("SRA number")) fail("about fields should include SRA number");
+  if (!aboutLabels.includes("Email")) fail("about fields should include Email");
+  if (!aboutLabels.includes("Address")) fail("about fields should include Address");
+  if (about.some((f) => f.label === "Phone")) fail("about should skip phone when already shown above");
+  if (!about.some((f) => f.label === "Areas of law (SRA register)" && f.value.includes("Intellectual Property"))) {
+    fail("about should include register practice areas");
+  }
+
   const placeholder = mockSraResult({ title: "Organisation 921469" });
   const repaired = await repairSraSearchResults([placeholder]);
   const repairedTitle = repaired.results[0]?.title ?? "";
@@ -142,6 +172,6 @@ export async function runSraDisplayEval(): Promise<number> {
   if (repaired.stats.runtimeTitleResolutionRate < 1) {
     fail("runtimeTitleResolutionRate should be 1 for single placeholder hit");
   }
-  if (failed === 0) console.info("PASS sra display eval (names, contact, map, runtime repair)");
+  if (failed === 0) console.info("PASS sra display eval (names, contact, map, runtime repair, about fields)");
   return failed;
 }

@@ -1,0 +1,44 @@
+name: Reddit OSLAW trending ingest
+
+on:
+  schedule:
+    # 06:00 and 18:00 UTC — twice daily
+    - cron: "0 6 * * *"
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Scrape Reddit trending data
+        working-directory: web
+        run: npm run reddit:trending:ingest
+
+      - name: Commit updated trending data
+        run: |
+          if git diff --quiet -- web/data/reddit-trending.json; then
+            echo "No trending data changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/data/reddit-trending.json
+          git commit -m "chore: refresh OSLAW Reddit trending data"
+          git push

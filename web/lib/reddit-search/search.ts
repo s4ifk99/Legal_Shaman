@@ -1,3 +1,4 @@
+import { REDDIT_USER_AGENT } from "./public-fetch";
 import type {
   RedditListingChild,
   RedditResult,
@@ -7,9 +8,7 @@ import type {
 
 const SUBREDDIT = "LegalAdviceUK";
 const SEARCH_LIMIT = 10;
-const USER_AGENT =
-  process.env.REDDIT_USER_AGENT?.trim() ||
-  "LegalShaman/1.0 (reddit-search; early-stage legal information retrieval)";
+const USER_AGENT = REDDIT_USER_AGENT;
 
 export class RedditSearchError extends Error {
   constructor(message: string) {
@@ -86,7 +85,7 @@ function mapListingChild(child: RedditListingChild): RedditResult | null {
 /**
  * Obtain a Reddit OAuth access token (password grant), with in-memory caching.
  */
-async function getRedditAccessToken(): Promise<string> {
+export async function getRedditAccessToken(): Promise<string> {
   if (cachedToken && Date.now() < cachedToken.expiresAtMs - 60_000) {
     return cachedToken.accessToken;
   }
@@ -134,6 +133,15 @@ async function getRedditAccessToken(): Promise<string> {
   };
 
   return data.access_token;
+}
+
+export function hasRedditOAuthCredentials(): boolean {
+  return Boolean(
+    process.env.REDDIT_CLIENT_ID?.trim() &&
+      process.env.REDDIT_CLIENT_SECRET?.trim() &&
+      process.env.REDDIT_USERNAME?.trim() &&
+      process.env.REDDIT_PASSWORD?.trim(),
+  );
 }
 
 /**

@@ -11,6 +11,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      { source: "/oslr", destination: "/oslaw", permanent: true },
+      { source: "/oslr/:path*", destination: "/oslaw/:path*", permanent: true },
+    ];
+  },
   // When the repo root has another lockfile (e.g. pnpm), Turbopack must treat `web/` as the app root.
   turbopack: {
     root: __dirname,

@@ -1,9 +1,6 @@
-import Link from "next/link";
 import { runDirectorySearch } from "@/lib/legal-search/run-directory-search";
 import { getDistinctCities, getListingsBySubcategory } from "@/lib/data";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { SearchResultLink } from "@/components/search-result-link";
 import {
   DirectorySearchTracking,
   type DirectoryImpressionRow,
@@ -14,14 +11,15 @@ import {
 } from "@/components/search/refinement-prompt-tracked";
 import { SearchFormWithSuggestions } from "@/components/search-form-with-suggestions";
 import { SearchDirectorySidebar } from "@/components/search-directory-sidebar";
-import { SearchResultsLayout } from "@/components/search/search-results-layout";
+import { DirectorySearchResults } from "@/components/search/directory-search-results";
+import { RedditResults } from "@/components/search/reddit-results";
+import Link from "next/link";
+import { Bookmark } from "lucide-react";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 import { enableMapSearch, enableSearchDebug } from "@/lib/legal-search/config";
 import { buildMapMarkers } from "@/lib/search/map-results";
 import { SearchDebugPanel } from "@/components/search/search-debug-panel";
-import { ResultDebugSection } from "@/components/search/result-debug-section";
-import { ExternalFallbackSection } from "@/components/triage/external-fallback-section";
-import { formatPhoneForDisplay, telHref } from "@/lib/search/sra-display";
+import { OslawTrendingMarquee } from "@/components/oslaw/trending-marquee";
 
 type PageProps = {
   searchParams: Promise<{
@@ -30,23 +28,11 @@ type PageProps = {
     legalAid?: string;
     city?: string;
     source?: string;
+    reddit?: string;
     practiceArea?: string;
     location?: string;
   }>;
 };
-
-function matchExplainAdl(sources: ("lexical" | "semantic")[]): string {
-  const lex = sources.includes("lexical");
-  const sem = sources.includes("semantic");
-  if (lex && sem) return "Keywords + similar topic";
-  if (sem) return "Similar topic";
-  return "Matched keywords";
-}
-
-function stableRowKey(row: LegacyGetRow): string {
-  if (row.kind === "adlGroup") return `adlg:${row.firmGroupId}`;
-  return `adl:${row.id}`;
-}
 
 function impressionRowsFromLegacy(rows: LegacyGetRow[]): DirectoryImpressionRow[] {
   return rows.map((row) => {
@@ -67,6 +53,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
   const legalAidOnly = sp.legalAid === "1";
   const cityFacet = (sp.city || "").trim();
   const source = sp.source?.trim();
+  const redditEnabled = sp.reddit === "1";
   const practiceArea = sp.practiceArea?.trim();
   const location = sp.location?.trim();
 
@@ -100,6 +87,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background">
+      <OslawTrendingMarquee />
       {q.length >= 2 ? (
         <DirectorySearchTracking
           searchKey={`${q}|${freeOnly}|${legalAidOnly}|${cityFacet}|${source ?? ""}|${practiceArea ?? ""}`}
@@ -114,10 +102,23 @@ export default async function SearchPage({ searchParams }: PageProps) {
         />
       ) : null}
       <div className={`mx-auto px-4 py-10 ${wideLayout ? "max-w-7xl" : "max-w-5xl"}`}>
-        <h1 className="mb-2 font-serif text-3xl font-semibold text-primary">Search directory</h1>
-        <p className="mb-6 text-sm text-muted-foreground">
-          Search curated listings, legal aid providers, and SRA organisations. This is not legal advice.
-        </p>
+        <div className="mb-6 flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h1 className="mb-2 font-serif text-3xl font-semibold text-primary">Search directory</h1>
+            <p className="text-sm text-muted-foreground">
+              Search curated listings, legal aid providers, and SRA organisations. This is not legal advice.
+            </p>
+          </div>
+          <Link
+            href="/bookmarks"
+            className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/10"
+          >
+            <Bookmark className="h-4 w-4" />
+            Bookmarks
+          </Link>
+        </div>
+
+        <RedditResults query={q} enabled={redditEnabled} />
 
         <SearchFormWithSuggestions
           key={`${q}|${freeOnly}|${legalAidOnly}|${cityFacet}`}
@@ -187,273 +188,21 @@ export default async function SearchPage({ searchParams }: PageProps) {
               </div>
             ) : null}
             {q.length >= 2 && (
-              <SearchResultsLayout
+              <DirectorySearchResults
+                rows={rows}
+                explanations={explanations}
+                debugByIndex={debugByIndex}
+                q={q}
+                parsedPracticeArea={parsedPracticeArea ?? undefined}
+                parsedLocation={parsedLocation ?? undefined}
+                freeOnly={freeOnly}
+                legalAidOnly={legalAidOnly}
+                cityFacet={cityFacet}
                 markers={mapPayload?.markers ?? []}
                 missingCoordinatesCount={mapPayload?.missingCoordinatesCount ?? 0}
-              >
-                <p className="mb-4 text-sm text-muted-foreground">
-                  {rows.length} result{rows.length === 1 ? "" : "s"}
-                  {(freeOnly || legalAidOnly || cityFacet) && " · filters applied"}
-                </p>
-                <ul className="space-y-3">
-                  {rows.map((row, index) => {
-                    const explanation = explanations[index];
-                    const resultDebug = debugByIndex[index];
-
-                    if (row.kind === "adl" && "sourceType" in row && row.sourceType === "sra") {
-                      const sraPhone = row.phone?.trim();
-                      const sraId = row.id.replace(/^sra:/, "");
-                      const locationLabel = [row.city, row.postcode].filter(Boolean).join(", ");
-                      return (
-                        <li key={stableRowKey(row)}>
-                          <Card className="border-emerald-500/20">
-                            <CardContent className="p-4">
-                              <div className="flex flex-wrap items-start justify-between gap-2">
-                                <h3 className="text-lg font-semibold text-foreground">{row.businessName}</h3>
-                                <Badge variant="outline" className="border-emerald-600/40 text-emerald-800">
-                                  SRA-regulated organisation
-                                </Badge>
-                              </div>
-                              {row.subcategory ? (
-                                <p className="mt-2 text-sm text-muted-foreground">
-                                  Practice areas: {row.category}
-                                </p>
-                              ) : null}
-                              {locationLabel ? (
-                                <p className="mt-1 text-sm text-muted-foreground">
-                                  Location: {locationLabel}
-                                </p>
-                              ) : null}
-                              {sraPhone ? (
-                                <p className="mt-2 text-sm">
-                                  <span className="text-muted-foreground">Phone: </span>
-                                  <a
-                                    href={telHref(sraPhone)}
-                                    className="font-medium text-primary hover:underline"
-                                  >
-                                    {formatPhoneForDisplay(sraPhone)}
-                                  </a>
-                                </p>
-                              ) : null}
-                              <p className="mt-2 flex flex-wrap gap-3 text-sm">
-                                {row.website && !row.website.includes("sra.org.uk") ? (
-                                  <SearchResultLink
-                                    href={row.website}
-                                    openInNewTab
-                                    listingId={row.id}
-                                    position={index}
-                                    q={q}
-                                    resultSource="sra"
-                                    parsedPracticeArea={parsedPracticeArea ?? undefined}
-                                    parsedLocation={parsedLocation ?? undefined}
-                                    clickEventType="website_click"
-                                    className="font-medium text-primary hover:underline"
-                                  >
-                                    Website
-                                  </SearchResultLink>
-                                ) : null}
-                                {row.sraProfileUrl ? (
-                                  <SearchResultLink
-                                    href={row.sraProfileUrl}
-                                    openInNewTab
-                                    listingId={row.id}
-                                    position={index}
-                                    q={q}
-                                    resultSource="sra"
-                                    parsedPracticeArea={parsedPracticeArea ?? undefined}
-                                    parsedLocation={parsedLocation ?? undefined}
-                                    clickEventType="website_click"
-                                    className="font-medium text-primary hover:underline"
-                                  >
-                                    {sraPhone ? "SRA register" : "Contact"}
-                                  </SearchResultLink>
-                                ) : null}
-                              </p>
-                              {explanation ? (
-                                <p className="mt-3 text-sm leading-relaxed text-foreground/90">
-                                  <span className="font-medium">Why shown: </span>
-                                  {explanation}
-                                </p>
-                              ) : null}
-                              {resultDebug ? <ResultDebugSection debug={resultDebug} /> : null}
-                            </CardContent>
-                          </Card>
-                        </li>
-                      );
-                    }
-
-                    if (row.kind === "adl") {
-                      const listing = row;
-                      const sources = listing.sources;
-                      return (
-                        <li key={stableRowKey(listing)}>
-                          <Card className="border-primary/15">
-                            <CardContent className="p-4">
-                              <div className="flex flex-wrap items-start justify-between gap-2">
-                                <div>
-                                  <SearchResultLink
-                                    href={`/category/${listing.subcategory}`}
-                                    className="font-semibold text-foreground hover:underline"
-                                    listingId={listing.id}
-                                    position={index}
-                                    q={q}
-                                    parsedPracticeArea={parsedPracticeArea ?? undefined}
-                                    parsedLocation={parsedLocation ?? undefined}
-                                  >
-                                    {listing.businessName}
-                                  </SearchResultLink>
-                                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                                    {listing.description}
-                                  </p>
-                                  <p className="mt-2 text-xs text-muted-foreground">
-                                    {[listing.city, listing.postcode].filter(Boolean).join(" · ")}
-                                  </p>
-                                  <p className="mt-1 text-[11px] text-muted-foreground/80">{matchExplainAdl(sources)}</p>
-                                  {explanation ? (
-                                    <p className="mt-2 text-xs text-muted-foreground/90">
-                                      <span className="font-medium">Why this match: </span>
-                                      {explanation}
-                                    </p>
-                                  ) : null}
-                                </div>
-                                <div className="flex flex-wrap gap-1">
-                                  {listing.isFree && <Badge className="bg-green-100 text-green-800">Free</Badge>}
-                                  {listing.isLegalAid && <Badge variant="secondary">Legal Aid *</Badge>}
-                                  {listing.isSponsored && <Badge variant="outline">Sponsored</Badge>}
-                                  {sources.includes("semantic") && (
-                                    <Badge variant="outline" className="text-xs">
-                                      semantic
-                                    </Badge>
-                                  )}
-                                </div>
-                              </div>
-                              {resultDebug ? <ResultDebugSection debug={resultDebug} /> : null}
-                            </CardContent>
-                          </Card>
-                        </li>
-                      );
-                    }
-
-                    if (row.kind === "adlGroup") {
-                      const rep = row;
-                      const sources = rep.sources;
-                      return (
-                        <li key={stableRowKey(rep)}>
-                          <Card className="border-primary/15">
-                            <CardContent className="p-4">
-                              <div className="flex flex-wrap items-start justify-between gap-2">
-                                <div className="min-w-0 flex-1">
-                                  <p className="font-semibold text-foreground">{rep.businessName}</p>
-                                  <p className="mt-1 text-xs text-muted-foreground">
-                                    Legal aid provider · {rep.locations.length} office
-                                    {rep.locations.length === 1 ? "" : "s"} (GOV.UK directory)
-                                  </p>
-                                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{rep.description}</p>
-                                  <p className="mt-1 text-[11px] text-muted-foreground/80">{matchExplainAdl(sources)}</p>
-                                  {explanation ? (
-                                    <p className="mt-2 text-xs text-muted-foreground/90">
-                                      <span className="font-medium">Why this match: </span>
-                                      {explanation}
-                                    </p>
-                                  ) : null}
-                                  <p className="mt-3 text-xs font-medium text-foreground">Locations</p>
-                                  <ul className="mt-2 space-y-3 border-t border-border/60 pt-3">
-                                    {rep.locations.map((loc) => {
-                                      const l = loc as {
-                                        id: string;
-                                        city: string;
-                                        postcode: string;
-                                        subcategory: string;
-                                        address?: string;
-                                        phone?: string;
-                                      };
-                                      return (
-                                        <li key={l.id} className="text-sm">
-                                          <SearchResultLink
-                                            href={`/category/${l.subcategory}`}
-                                            className="font-medium text-primary hover:underline"
-                                            listingId={l.id}
-                                            position={index}
-                                            q={q}
-                                          >
-                                            {[l.city, l.postcode].filter(Boolean).join(" · ") || "View office"}
-                                          </SearchResultLink>
-                                          {l.address ? (
-                                            <p className="mt-0.5 text-xs text-muted-foreground">{l.address}</p>
-                                          ) : null}
-                                          {l.phone ? (
-                                            <p className="text-xs text-muted-foreground">
-                                              <a href={`tel:${String(l.phone).replace(/\s/g, "")}`} className="hover:underline">
-                                                {l.phone}
-                                              </a>
-                                            </p>
-                                          ) : null}
-                                        </li>
-                                      );
-                                    })}
-                                  </ul>
-                                </div>
-                                <div className="flex flex-wrap gap-1">
-                                  <Badge variant="secondary">Legal Aid *</Badge>
-                                  {rep.isFree && <Badge className="bg-green-100 text-green-800">Free</Badge>}
-                                  {rep.isSponsored && <Badge variant="outline">Sponsored</Badge>}
-                                  {sources.includes("semantic") && (
-                                    <Badge variant="outline" className="text-xs">
-                                      semantic
-                                    </Badge>
-                                  )}
-                                </div>
-                              </div>
-                              {resultDebug ? <ResultDebugSection debug={resultDebug} /> : null}
-                            </CardContent>
-                          </Card>
-                        </li>
-                      );
-                    }
-
-                    const _exhaustive: never = row;
-                    return _exhaustive;
-                  })}
-                </ul>
-                {dir?.externalFallback?.triggered ? (
-                  <div className="mt-8">
-                    <ExternalFallbackSection payload={dir.externalFallback} />
-                  </div>
-                ) : null}
-                {rows.length === 0 && (
-                  <div className="space-y-4">
-                    <Card>
-                      <CardContent className="py-10 text-center text-muted-foreground">
-                        No listings matched your search and filters. Try different words, clear filters, or browse{" "}
-                        <Link href="/" className="text-primary underline">
-                          categories
-                        </Link>
-                        .
-                      </CardContent>
-                    </Card>
-                    {citizensFallback.length > 0 && (
-                      <Card className="border-green-200/50 bg-green-50/40 dark:bg-green-950/20">
-                        <CardContent className="p-4">
-                          <p className="mb-2 text-sm font-medium text-foreground">Not sure where to start?</p>
-                          <p className="mb-3 text-xs text-muted-foreground">
-                            Citizens Advice offers general guidance and signposting (not a substitute for a solicitor).
-                          </p>
-                          <ul className="space-y-2 text-sm">
-                            {citizensFallback.map((l) => (
-                              <li key={l.id}>
-                                <Link href={`/category/${l.subcategory}`} className="text-primary underline">
-                                  {l.businessName}
-                                </Link>
-                                {l.phone ? <span className="text-muted-foreground"> · {l.phone}</span> : null}
-                              </li>
-                            ))}
-                          </ul>
-                        </CardContent>
-                      </Card>
-                    )}
-                  </div>
-                )}
-              </SearchResultsLayout>
+                externalFallback={dir?.externalFallback ?? null}
+                citizensFallback={citizensFallback}
+              />
             )}
           </div>
         </div>

@@ -93,7 +93,11 @@
     "jobs:daily": "tsx scripts/jobs-daily.ts",
     "jobs:weekly": "tsx scripts/jobs-weekly.ts",
     "jobs:refresh-approved": "tsx scripts/jobs-refresh-approved.ts",
-    "index:provider": "tsx scripts/index-provider.ts"
+    "index:provider": "tsx scripts/index-provider.ts",
+    "index:wiki": "tsx scripts/index-wiki.ts",
+    "reddit:search": "tsx scripts/reddit-search.ts",
+    "reddit:trending:ingest": "tsx scripts/reddit-trending-ingest.ts",
+    "reddit:trending:seed": "tsx scripts/reddit-trending-seed.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

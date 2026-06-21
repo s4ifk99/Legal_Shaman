@@ -7,7 +7,7 @@ import {
   resolveLegalIssueFromQuery,
 } from "@/lib/legal/taxonomy";
 import { getListingSearchDocument } from "@/lib/search/listing-document";
-import { sraProfileUrlForId } from "@/lib/search/sra-document";
+import { collectSraWorkAreaLabels, sraProfileUrlForId } from "@/lib/search/sra-document";
 import {
   buildSraNamePatchRecord,
   chooseSraIndexTitle,
@@ -423,7 +423,14 @@ export async function sraOrganisationToDocument(
     applyGeo(doc, geo);
   }
 
-  const workAreas = parseSraWorkAreaField(org.workArea);
+  const workAreas = (() => {
+    const fromColumn = parseSraWorkAreaField(org.workArea);
+    if (fromColumn.length > 0) return fromColumn;
+    if (org.rawPayload && typeof org.rawPayload === "object") {
+      return collectSraWorkAreaLabels(org.rawPayload as Record<string, unknown>);
+    }
+    return fromColumn;
+  })();
   if (workAreas.length > 0) {
     applySraWorkAreaSlugsToDocument(doc, workAreas);
   } else {

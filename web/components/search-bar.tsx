@@ -186,7 +186,7 @@ export function SearchBar() {
                             type="button"
                             role="option"
                             className="flex w-full items-center gap-2 rounded-lg px-2 py-2.5 text-left text-sm hover:bg-secondary/10"
-                            onClick={() => router.push(`/category/${l.subcategory}`)}
+                            onClick={() => goSearch(l.businessName)}
                           >
                             <Building2 className="h-4 w-4 shrink-0 text-secondary" />
                             <span>

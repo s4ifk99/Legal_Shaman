@@ -23,11 +23,9 @@ const defaultIcon = L.icon({
 type LegalMapProps = {
   markers: MapMarker[];
   className?: string;
-  selectedId?: string | null;
-  onSelect?: (id: string) => void;
 };
 
-export function LegalMap({ markers, className, selectedId, onSelect }: LegalMapProps) {
+export function LegalMap({ markers, className }: LegalMapProps) {
   const center = useMemo((): [number, number] => {
     if (!markers.length) return UK_CENTER;
     const lat = markers.reduce((s, m) => s + m.lat, 0) / markers.length;
@@ -45,18 +43,10 @@ export function LegalMap({ markers, className, selectedId, onSelect }: LegalMapP
       <MapContainer center={center} zoom={zoom} scrollWheelZoom className="h-full w-full">
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url="https://{s}tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {markers.map((m) => (
-          <Marker
-            key={m.id}
-            position={[m.lat, m.lng]}
-            icon={defaultIcon}
-            eventHandlers={{
-              click: () => onSelect?.(m.entityId),
-            }}
-            opacity={selectedId && selectedId !== m.entityId ? 0.55 : 1}
-          >
+          <Marker key={m.id} position={[m.lat, m.lng]} icon={defaultIcon}>
             <Popup>
               <MapMarkerPopup marker={m} />
             </Popup>

@@ -347,8 +347,6 @@ export function TriageGuidedSearch({
             <SearchResultsLayout
               markers={mapMarkers}
               missingCoordinatesCount={allResults.length - mapMarkers.length}
-              selectedId={selectedId}
-              onSelect={setSelectedId}
             >
               {resultsBlock}
             </SearchResultsLayout>
