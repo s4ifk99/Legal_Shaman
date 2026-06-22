@@ -330,7 +330,10 @@ export async function runTypesenseDirectorySearch(
   pushRankingStage("after_topical_gate", results);
 
   const diversityTopK = Math.min(10, params.limit ?? 40);
-  const diversityPass = applySourceDiversity(results, fundingIntent, { topK: diversityTopK });
+  const diversityPass = applySourceDiversity(results, fundingIntent, {
+    topK: diversityTopK,
+    query: params.query,
+  });
   results = diversityPass.results;
   sourceDiversityDebug = diversityPass.debug;
   pushRankingStage("after_source_diversity", results);

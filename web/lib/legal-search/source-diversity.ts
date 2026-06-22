@@ -23,6 +23,13 @@ const DEFAULT_TOP_K = 10;
 const DEFAULT_MAX_LEGAL_AID_SHARE = 0.35;
 const DEFAULT_MAX_SINGLE_TIER_SHARE = 0.7;
 
+const GENERIC_LAWYER_QUERY =
+  /\b(solicitor|solicitors|lawyer|lawyers|barrister|attorney|law firm|law firms)\b/i;
+
+function isGenericLawyerQuery(text: string): boolean {
+  return GENERIC_LAWYER_QUERY.test(text);
+}
+
 function maxSingleTierInTopK(topK: number): number {
   const env = Number(process.env.SOURCE_DIVERSITY_MAX_TIER_SHARE);
   const share = Number.isFinite(env) && env > 0 && env <= 1 ? env : DEFAULT_MAX_SINGLE_TIER_SHARE;
@@ -153,7 +160,7 @@ function tierPriorityForIntent(intent: FundingIntent, tier: SourceDiversityTier)
 export function applySourceDiversity(
   sortedResults: SearchResult[],
   fundingIntent: FundingIntent,
-  opts?: { topK?: number; maxLegalAidShare?: number },
+  opts?: { topK?: number; maxLegalAidShare?: number; query?: string },
 ): { results: SearchResult[]; debug: SourceDiversityDebug } {
   const topK = opts?.topK ?? DEFAULT_TOP_K;
   const maxShare = opts?.maxLegalAidShare ?? DEFAULT_MAX_LEGAL_AID_SHARE;
@@ -207,13 +214,9 @@ export function applySourceDiversity(
   const tail = sortedResults.slice(head.length);
 
   if (isGenericUnspecified && !boostLegalAid) {
-    const genericTierOrder: SourceDiversityTier[] = [
-      "pro_bono",
-      "legal_aid",
-      "curated",
-      "lawyer_firm",
-      "sra",
-    ];
+    const genericTierOrder: SourceDiversityTier[] = isGenericLawyerQuery(opts?.query ?? "")
+      ? ["sra", "lawyer_firm", "curated", "pro_bono", "legal_aid"]
+      : ["pro_bono", "legal_aid", "curated", "lawyer_firm", "sra"];
     const byTier = new Map<SourceDiversityTier, SearchResult[]>();
     for (const r of head) {
       const tier = sourceDiversityTier(r);

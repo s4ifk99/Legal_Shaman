@@ -70,8 +70,9 @@ export async function mergeAndRankDirectoryHits(args: {
 
   if (includeSra && retrieval.length >= 2) {
     const city = facets?.city?.trim() || parsed.location || undefined;
+    const sraSearchQuery = query.trim() || retrieval;
     const sraOpts = {
-      limit: Math.min(40, limit),
+      limit: Math.min(80, Math.max(40, limit)),
       city: city && city.length > 1 ? city : undefined,
     };
     let sraDocs: Awaited<ReturnType<typeof searchSraOrganisations>> = [];
@@ -79,6 +80,9 @@ export async function mergeAndRankDirectoryHits(args: {
     if (enableMeilisearch()) {
       try {
         sraDocs = await searchSraOrganisations(retrieval, sraOpts);
+        if (sraDocs.length === 0) {
+          sraDocs = await searchSraOrganisations(sraSearchQuery, sraOpts);
+        }
       } catch {
         degradedModes.push("meilisearch_sra");
       }
@@ -87,7 +91,7 @@ export async function mergeAndRankDirectoryHits(args: {
     }
 
     if (sraDocs.length === 0) {
-      const pgDocs = await searchSraOrganisationsPostgres(retrieval, sraOpts);
+      const pgDocs = await searchSraOrganisationsPostgres(sraSearchQuery, sraOpts);
       if (pgDocs.length > 0) {
         sraDocs = pgDocs;
         degradedModes.push("postgres_sra_fallback");
@@ -144,6 +148,7 @@ export async function mergeAndRankDirectoryHits(args: {
   const fundingIntent = parsed.fundingIntent ?? detectFundingIntent(parsed.semanticQuery);
   const diversified = applySourceDiversity(filtered, fundingIntent, {
     topK: Math.min(10, limit),
+    query,
   });
   const sliced = diversified.results.slice(0, limit);
   const explained = attachExplanations(sliced, parsed, rescuePlan ?? undefined);

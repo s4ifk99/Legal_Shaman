@@ -1,15 +1,11 @@
 import "server-only";
 
-import { unifiedSearchListings } from "@/lib/search/unified-search";
-import type { SearchFacets } from "@/lib/search/rerank";
 import { mergeAndRankDirectoryHits } from "@/lib/legal-search/hybrid-search";
+import type { SearchFacets } from "@/lib/search/rerank";
 import { parseQuery } from "@/lib/legal-search/query-understanding";
-import { rankSearchResults, sortByFinalScore } from "@/lib/legal-search/ranking";
-import { loadBehaviouralSignalsForEntities } from "@/lib/search-events/load-ranking-signals";
+import { sortByFinalScore } from "@/lib/legal-search/ranking";
 import { attachExplanations } from "@/lib/legal-search/explanations";
-import { fromUnifiedHit } from "@/lib/legal-search/adapters/listing-adapter";
 import type { DirectorySearchParams, DirectorySearchResponse, SearchResult } from "@/lib/legal-search/types";
-import { enableUnifiedDirectory } from "@/lib/legal-search/config";
 import { rowMatchesPracticeTaxonomySlug } from "@/lib/legal/taxonomy";
 import { toLegacyGetResponse } from "@/lib/legal-search/legacy-get-response";
 import { finalizeDirectoryDiagnostics } from "@/lib/legal-search/search-diagnostics";
@@ -89,36 +85,23 @@ export async function runDirectorySearchLegacy(
     stack.degradedModeWarnings.includes("legal_entities_collection_missing") ||
     stack.degradedModeWarnings.includes("legal_entities_empty");
 
-  if (enableUnifiedDirectory() || needsSraFromDb) {
-    const merged = await mergeAndRankDirectoryHits({
-      query: params.query,
-      limit: Math.min(120, Math.max(params.limit, 40)),
-      semantic: params.semantic,
-      facets,
-      includeSra: true,
-      parsed,
-    });
-    results = merged.results;
-    degradedModes = merged.degradedModes;
-  } else {
-    const hits = await unifiedSearchListings(params.query, {
-      limit: params.limit,
-      semantic: params.semantic,
-      facets,
-      retrievalQuery: retrieval,
-    });
-    results = hits.map((h) => fromUnifiedHit(h, parsed));
-    const behaviouralSignals = await loadBehaviouralSignalsForEntities(
-      results.map((r) => ({ id: r.id, source: r.source })),
-      { practiceArea: parsed.practiceAreaSlug, city: parsed.location },
-    );
-    results = rankSearchResults(results, parsed, { behaviouralSignals });
+  if (needsSraFromDb) {
+    degradedModes.push("postgres_sra_fallback");
   }
 
+  const merged = await mergeAndRankDirectoryHits({
+    query: params.query,
+    limit: Math.min(120, Math.max(params.limit, 40)),
+    semantic: params.semantic,
+    facets,
+    includeSra: true,
+    parsed,
+  });
+  results = merged.results;
+  degradedModes = [...degradedModes, ...merged.degradedModes];
+
   results = filterByParams(results, params, { vagueQueryMode });
-  if (enableUnifiedDirectory()) {
-    results = sortByFinalScore(results);
-  }
+  results = sortByFinalScore(results);
   const preRankIndexById = new Map<string, number>();
   results.forEach((r, i) => preRankIndexById.set(r.id, i + 1));
   const off = params.offset ?? 0;
