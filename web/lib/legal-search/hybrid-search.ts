@@ -2,6 +2,7 @@ import "server-only";
 
 import type { SearchResult } from "@/lib/legal-search/types";
 import { searchSraOrganisations } from "@/lib/search/meilisearch-sra";
+import { searchSraOrganisationsPostgres } from "@/lib/search/postgres-sra";
 import { unifiedSearchListings } from "@/lib/search/unified-search";
 import type { SearchFacets } from "@/lib/search/rerank";
 import { parseQuery } from "@/lib/legal-search/query-understanding";
@@ -17,6 +18,7 @@ import {
 } from "@/lib/legal-search/vague-query-rescue";
 import { detectFundingIntent } from "@/lib/legal-search/funding-intent";
 import { applySourceDiversity } from "@/lib/legal-search/source-diversity";
+import type { RetrievalSource } from "@/lib/legal-search/search-diagnostics-types";
 
 /**
  * Collect directory + optional SRA Meilisearch hits, rank, explain.
@@ -66,22 +68,38 @@ export async function mergeAndRankDirectoryHits(args: {
   let results: SearchResult[] = [...hitMap.values()];
   const retrieval = parsed.expandedSearchText?.trim() || query;
 
-  if (includeSra && enableMeilisearch() && retrieval.length >= 2) {
-    try {
-      const city = facets?.city?.trim() || parsed.location || undefined;
-      const sraDocs = await searchSraOrganisations(retrieval, {
-        limit: Math.min(40, limit),
-        city: city && city.length > 1 ? city : undefined,
-      });
-      const sraResults = sraDocs.map((d) => fromSraMeili(d, parsed));
-      results = [...results, ...sraResults];
-    } catch {
-      degradedModes.push("meilisearch_sra");
+  if (includeSra && retrieval.length >= 2) {
+    const city = facets?.city?.trim() || parsed.location || undefined;
+    const sraOpts = {
+      limit: Math.min(40, limit),
+      city: city && city.length > 1 ? city : undefined,
+    };
+    let sraDocs: Awaited<ReturnType<typeof searchSraOrganisations>> = [];
+
+    if (enableMeilisearch()) {
+      try {
+        sraDocs = await searchSraOrganisations(retrieval, sraOpts);
+      } catch {
+        degradedModes.push("meilisearch_sra");
+      }
+    } else {
+      degradedModes.push("meilisearch_disabled");
     }
-  } else if (!includeSra) {
-    // no-op
-  } else if (!enableMeilisearch()) {
-    degradedModes.push("meilisearch_disabled");
+
+    if (sraDocs.length === 0) {
+      const pgDocs = await searchSraOrganisationsPostgres(retrieval, sraOpts);
+      if (pgDocs.length > 0) {
+        sraDocs = pgDocs;
+        degradedModes.push("postgres_sra_fallback");
+      }
+    }
+
+    if (sraDocs.length > 0) {
+      const source: RetrievalSource = degradedModes.includes("postgres_sra_fallback")
+        ? "ilike"
+        : "meilisearch";
+      results = [...results, ...sraDocs.map((d) => fromSraMeili(d, parsed, source))];
+    }
   }
 
   const behaviouralSignals = await loadBehaviouralSignalsForEntities(

@@ -38,7 +38,6 @@ jobs:
           SRA_INDEX_SKIP_GEO: "1"
         run: npm run sra:sync -- --skip-embeddings --skip-typesense
       - name: Typesense SRA re-index (throttled)
-        continue-on-error: true
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
@@ -49,4 +48,13 @@ jobs:
           TYPESENSE_IMPORT_PAUSE_MS: "3000"
           SEARCH_INDEX_SRA_PAGE_SIZE: "100"
           SRA_INDEX_SKIP_GEO: "1"
-        run: npm run search:index:sra
+        run: |
+          if [ -z "$TYPESENSE_HOST" ]; then
+            echo "::error::TYPESENSE_HOST secret is not set — search index cannot be rebuilt."
+            exit 1
+          fi
+          if ! getent hosts "$TYPESENSE_HOST" >/dev/null 2>&1; then
+            echo "::error::TYPESENSE_HOST does not resolve ($TYPESENSE_HOST). Update the Typesense Cloud cluster hostname in GitHub + Vercel secrets."
+            exit 1
+          fi
+          npm run search:index:sra

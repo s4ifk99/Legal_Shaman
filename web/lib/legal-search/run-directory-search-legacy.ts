@@ -18,6 +18,7 @@ import {
   applyVagueParsedQueryUx,
   detectVagueLegalQuery,
 } from "@/lib/legal-search/vague-query-rescue";
+import { getSearchStackStatus } from "@/lib/legal-search/search-startup";
 
 function buildFacets(p: DirectorySearchParams): SearchFacets | undefined {
   if (!p.freeOnly && !p.legalAidOnly && !p.city) return undefined;
@@ -82,7 +83,13 @@ export async function runDirectorySearchLegacy(
   let degradedModes: string[] = [];
   let results: SearchResult[];
 
-  if (enableUnifiedDirectory()) {
+  const stack = await getSearchStackStatus();
+  const needsSraFromDb =
+    stack.degradedModeWarnings.includes("typesense_unreachable") ||
+    stack.degradedModeWarnings.includes("legal_entities_collection_missing") ||
+    stack.degradedModeWarnings.includes("legal_entities_empty");
+
+  if (enableUnifiedDirectory() || needsSraFromDb) {
     const merged = await mergeAndRankDirectoryHits({
       query: params.query,
       limit: Math.min(120, Math.max(params.limit, 40)),

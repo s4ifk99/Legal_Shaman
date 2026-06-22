@@ -6,6 +6,7 @@ import { lexicalSearchListings } from "@/lib/search/lexical";
 import {
   searchListingsTypesense,
   typesenseListingsConfigured,
+  typesenseListingsReachable,
 } from "@/lib/search/typesense-listings";
 import {
   finalizeHybridHits,
@@ -31,10 +32,12 @@ export async function hybridSearchListings(
   } = options;
   if (!qUser || !rq || limit <= 0) return [];
 
-  const lexicalHits =
-    enableTypesense() && typesenseListingsConfigured()
-      ? await searchListingsTypesense(rq, 120, facets)
-      : lexicalSearchListings(rq, 120);
+  let lexicalHits;
+  if (enableTypesense() && typesenseListingsConfigured() && (await typesenseListingsReachable())) {
+    lexicalHits = await searchListingsTypesense(rq, 120, facets);
+  } else {
+    lexicalHits = lexicalSearchListings(rq, 120);
+  }
   const lexicalIds = lexicalHits.map((h) => h.listing.id);
 
   let semanticIds: string[] = [];

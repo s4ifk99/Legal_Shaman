@@ -75,7 +75,11 @@ export function fromUnifiedHit(hit: UnifiedSearchHit, parsed: ParsedQuery): Sear
   };
 }
 
-export function fromSraMeili(doc: SraMeiliDocument, parsed: ParsedQuery): SearchResult {
+export function fromSraMeili(
+  doc: SraMeiliDocument,
+  parsed: ParsedQuery,
+  retrievalSource: RetrievalSource = "meilisearch",
+): SearchResult {
   const slug = parsed.practiceAreaSlug;
   const pa = slug ? [displayNameForSlug(slug)] : [];
   const displayName = resolveSraDisplayName(doc.businessName, doc.searchText, doc.sraId);
@@ -102,7 +106,7 @@ export function fromSraMeili(doc: SraMeiliDocument, parsed: ParsedQuery): Search
         ...doc,
         entityType: "sra_organisation",
         contactSource: phone ? "sra_register" : undefined,
-        _retrievalSources: ["meilisearch"] as RetrievalSource[],
+        _retrievalSources: [retrievalSource] as RetrievalSource[],
       },
       scores: emptyScores({ keyword: 0.55, semantic: 0.4 }),
       explanation: "",
