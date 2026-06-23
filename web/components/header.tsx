@@ -15,7 +15,7 @@ import { useBookmarks } from "@/components/bookmarks/bookmarks-provider";
 import { cn } from "@/lib/utils";
 
 const navBoxBase =
-  "inline-flex h-10 min-w-[6.75rem] items-center justify-center gap-1.5 rounded-xl border px-3.5 text-sm font-medium shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98]";
+  "inline-flex h-8 items-center justify-center gap-1 rounded-lg border px-2.5 text-xs font-medium shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98]";
 
 const navBoxVariants = {
   default:
@@ -104,7 +104,7 @@ export function Header() {
       
       <div className="relative mx-auto max-w-6xl px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center group" aria-label="Legal Shaman home">
             <div className="relative">
               <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 opacity-0 blur transition-opacity group-hover:opacity-100" />
               <Image
@@ -114,15 +114,6 @@ export function Header() {
                 height={52}
                 className="relative h-13 w-13 rounded-full border-2 border-gold/50"
               />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-xl font-bold tracking-tight md:text-2xl">
-                <span className="text-primary">Legal</span>{" "}
-                <span className="text-secondary">Shaman</span>
-              </span>
-              <span className="hidden text-xs text-muted-foreground md:block">
-                Fixing Search for Legal Disputes
-              </span>
             </div>
           </Link>
 
