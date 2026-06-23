@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Loader2, RotateCcw, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -75,7 +75,6 @@ export function TriageGuidedSearch({
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<TriageUiState>({ kind: "idle" });
   const [filters, setFilters] = useState<AppliedFilters>({});
-  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const sessionId = useMemo(
     () =>
@@ -99,7 +98,6 @@ export function TriageGuidedSearch({
   const startTriage = useCallback(
     async (q: string) => {
       setStatus({ kind: "loading" });
-      setSelectedId(null);
       try {
         const data = await postTriage({ action: "start", query: q });
         applyResponse(data);
@@ -183,16 +181,8 @@ export function TriageGuidedSearch({
 
   const startOver = useCallback(async () => {
     setQuery("");
-    setSelectedId(null);
     setStatus({ kind: "idle" });
   }, []);
-
-  useEffect(() => {
-    if (!selectedId) return;
-    document
-      .querySelector(`[data-entity-id="${CSS.escape(selectedId)}"]`)
-      ?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, [selectedId]);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -257,8 +247,10 @@ export function TriageGuidedSearch({
         ) : null}
         <TriageResultsSections
           sections={status.payload.sections}
-          selectedId={selectedId}
-          onSelect={setSelectedId}
+          legacyRowByResultId={status.payload.legacyRowByResultId}
+          query={status.payload.triageState.mergedQuery}
+          parsedPracticeArea={status.payload.parsedQuery.practiceAreaSlug ?? undefined}
+          parsedLocation={status.payload.parsedQuery.location ?? undefined}
         />
         {status.payload.externalFallback ? (
           <ExternalFallbackSection payload={status.payload.externalFallback} />

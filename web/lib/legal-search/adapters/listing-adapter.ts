@@ -105,7 +105,7 @@ export function fromSraMeili(
       raw: {
         ...doc,
         entityType: "sra_organisation",
-        contactSource: phone ? "sra_register" : undefined,
+        contactSource: phone || doc.sraProfileUrl ? "sra_register" : undefined,
         _retrievalSources: [retrievalSource] as RetrievalSource[],
       },
       scores: emptyScores({ keyword: 0.55, semantic: 0.4 }),

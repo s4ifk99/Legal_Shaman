@@ -34,7 +34,9 @@ import type { SearchResponseDebug } from "@/lib/legal-search/search-diagnostics-
 import { TRIAGE_DISCLAIMER } from "@/lib/legal-search/triage/types";
 import { runExternalFallback } from "@/lib/legal-search/external-fallback/web-search-client";
 import type { TriageResultSection } from "@/lib/legal-search/triage/types";
-import { enableSearchDebug } from "@/lib/legal-search/config";
+import { enableSearchDebug, usePostgresDirectorySearch } from "@/lib/legal-search/config";
+import { userFacingDegradedModes } from "@/lib/legal-search/degraded-modes";
+import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 
 export type TriageRequest =
   | { action: "start"; query: string; sessionId: string }
@@ -61,10 +63,7 @@ export async function runTriageSearch(req: TriageRequest): Promise<TriageRespons
   const parsed = await parseQuery(state.mergedQuery);
   const stack = await getSearchStackStatus();
   const catalog = await getCatalogStats();
-  const degradedModes = [...stack.degradedModeWarnings];
-  if ((catalog.sraTypesenseCount ?? 0) === 0) {
-    degradedModes.push("SRA data unavailable");
-  }
+  const degradedModes = buildInitialTriageDegradedModes(stack, catalog);
 
   const completeness = assessTriageCompleteness(state, parsed);
   const fundingRoutesPreview = resolveFundingRoutes(state);
@@ -206,6 +205,13 @@ async function executeTriageSearch(
     degradedModes.push(...dir.degradedModes);
   }
 
+  const legacyRows = (dir.legacyRows ?? []) as LegacyGetRow[];
+  const legacyRowByResultId: Record<string, LegacyGetRow> = {};
+  dir.results.forEach((r, i) => {
+    const row = legacyRows[i];
+    if (row) legacyRowByResultId[r.id] = row;
+  });
+
   const sections = groupResultsByFundingRoute(dir.results, fundingRoutes, 10);
   const flat = flattenSections(sections);
   const markers = buildMapMarkersFromResults(flat);
@@ -241,9 +247,30 @@ async function executeTriageSearch(
     searchDebug,
     externalFallback: externalFallback?.triggered ? externalFallback : undefined,
     coverageNotice: dir.coverageNotice,
-    degradedModes: [...new Set(degradedModes)],
+    degradedModes: userFacingDegradedModes([...new Set(degradedModes)]),
+    legacyRowByResultId,
     urgentSignposting: resolveUrgentSignposting(state, parsed),
   };
+}
+
+function buildInitialTriageDegradedModes(
+  stack: Awaited<ReturnType<typeof getSearchStackStatus>>,
+  catalog: Awaited<ReturnType<typeof getCatalogStats>>,
+): string[] {
+  const modes: string[] = [];
+  const postgres = usePostgresDirectorySearch();
+  const sraCount = postgres ? catalog.sraPostgresCount : catalog.sraTypesenseCount;
+  if ((sraCount ?? 0) === 0) {
+    modes.push("SRA data unavailable");
+  }
+  if (postgres) {
+    if (stack.degradedModeWarnings.includes("database_url_missing")) {
+      modes.push("database_url_missing");
+    }
+  } else {
+    modes.push(...stack.degradedModeWarnings);
+  }
+  return modes;
 }
 
 function resolveUrgentSignposting(
@@ -288,6 +315,7 @@ function resultsResponse(
     parsedQuery: results.parsedQuery,
     markers: results.markers,
     degradedModes: results.degradedModes,
+    legacyRowByResultId: results.legacyRowByResultId,
     searchDebug:
       results.searchDebug ??
       attachTriageDebug(undefined, {

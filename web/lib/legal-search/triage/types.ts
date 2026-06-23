@@ -3,6 +3,7 @@ import type { SearchResult } from "@/lib/legal-search/types";
 import type { SearchResponseDebug } from "@/lib/legal-search/search-diagnostics-types";
 import type { ExternalFallbackPayload } from "@/lib/legal-search/external-fallback/types";
 import type { TriageCompletenessReport } from "@/lib/legal-search/triage/completeness";
+import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 
 export type { TriageCompletenessReport } from "@/lib/legal-search/triage/completeness";
 
@@ -117,6 +118,8 @@ export type TriageResultsResponse = {
   parsedQuery: ParsedQuery;
   markers: { id: string; lat: number; lng: number; title: string }[];
   degradedModes: string[];
+  /** Legacy rows keyed by `SearchResult.id` for expandable detail panels. */
+  legacyRowByResultId?: Record<string, LegacyGetRow>;
   searchDebug?: SearchResponseDebug;
   disclaimer: string;
 };

@@ -15,6 +15,8 @@ type PublicResultCardProps = {
   selected?: boolean;
   explanation?: string;
   debugSlot?: React.ReactNode;
+  /** When true, contact links are omitted (render separately outside expand buttons). */
+  hideContactLinks?: boolean;
 };
 
 export function PublicResultCard({
@@ -22,6 +24,7 @@ export function PublicResultCard({
   selected,
   explanation,
   debugSlot,
+  hideContactLinks = false,
 }: PublicResultCardProps) {
   const title = result.displayName?.trim() || publicResultTitle(result);
   const sourceLabel = result.sourceLabel ?? "Directory listing";
@@ -59,7 +62,7 @@ export function PublicResultCard({
         <p className="mt-1 text-sm text-muted-foreground">Location: {locationLabel}</p>
       ) : null}
 
-      {phone ? (
+      {phone && !hideContactLinks ? (
         <p className="mt-2 text-sm">
           <span className="text-muted-foreground">Phone: </span>
           <a href={telHref(phone)} className="font-medium text-primary hover:underline">
@@ -68,33 +71,35 @@ export function PublicResultCard({
         </p>
       ) : null}
 
-      <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-sm">
-        {website ? (
-          <a
-            href={website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-primary hover:underline"
-          >
-            Website
-          </a>
-        ) : null}
-        {contactPage ? (
-          <a
-            href={contactPage}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-primary hover:underline"
-          >
-            {website ? "Contact" : contactPage.includes("sra.org.uk") ? "SRA register" : "Contact page"}
-          </a>
-        ) : null}
-        {!phone && !website && !contactPage ? (
-          <span className="text-muted-foreground">Contact details not listed</span>
-        ) : null}
-      </p>
+      {!hideContactLinks ? (
+        <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-sm">
+          {website ? (
+            <a
+              href={website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary hover:underline"
+            >
+              Website
+            </a>
+          ) : null}
+          {contactPage ? (
+            <a
+              href={contactPage}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary hover:underline"
+            >
+              {website ? "Contact" : contactPage.includes("sra.org.uk") ? "SRA register" : "Contact page"}
+            </a>
+          ) : null}
+          {!phone && !website && !contactPage ? (
+            <span className="text-muted-foreground">Contact details not listed</span>
+          ) : null}
+        </p>
+      ) : null}
 
-      {email ? (
+      {email && !hideContactLinks ? (
         <p className="mt-1 text-sm">
           <a href={`mailto:${email}`} className="text-primary hover:underline">
             {email}

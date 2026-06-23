@@ -10,6 +10,8 @@ import { rankSearchResults, sortByFinalScore } from "@/lib/legal-search/ranking"
 import { loadBehaviouralSignalsForEntities } from "@/lib/search-events/load-ranking-signals";
 import { attachExplanations } from "@/lib/legal-search/explanations";
 import { fromSraMeili, fromUnifiedHit } from "@/lib/legal-search/adapters/listing-adapter";
+import { enrichSearchResultForPublic } from "@/lib/legal-search/public-search-result";
+import { sanitiseContactForDisplay } from "@/lib/provider-intelligence/provider-capability-ranker";
 import { enableMeilisearch, usePostgresDirectorySearch } from "@/lib/legal-search/config";
 import {
   buildVagueQueryRescuePlan,
@@ -61,7 +63,12 @@ export async function mergeAndRankDirectoryHits(args: {
         h.kind === "adlGroup"
           ? `g:${h.firmGroupId}`
           : `adl:${h.hit.listing.id}`;
-      if (!hitMap.has(key)) hitMap.set(key, fromUnifiedHit(h, parsed));
+      if (!hitMap.has(key)) {
+        hitMap.set(
+          key,
+          enrichSearchResultForPublic(sanitiseContactForDisplay(fromUnifiedHit(h, parsed))),
+        );
+      }
     }
   }
 
@@ -133,7 +140,9 @@ export async function mergeAndRankDirectoryHits(args: {
       facets: undefined,
       retrievalQuery: rescuePlan.retrievalQueries.join(" "),
     });
-    const extra = broadHits.map((h) => fromUnifiedHit(h, parsed));
+    const extra = broadHits.map((h) =>
+      enrichSearchResultForPublic(sanitiseContactForDisplay(fromUnifiedHit(h, parsed))),
+    );
     const ids = new Set(filtered.map((r) => r.id));
     filtered = [
       ...filtered,
