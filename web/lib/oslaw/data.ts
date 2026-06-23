@@ -43,8 +43,8 @@ export function formatRelativeTime(unixSeconds: number): string {
   return new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format(new Date(unixSeconds * 1000));
 }
 
-/** Top posts for the OSLAW news-style marquee (deduped, by engagement). */
-export function getOslawMarqueePosts(limit = 16): OslawPost[] {
+/** Top posts for the OSLAW stock-style ticker (deduped, by engagement). */
+export function getOslawMarqueePosts(limit = 48): OslawPost[] {
   const data = getOslawTrendingData();
   const seen = new Set<string>();
   const posts: OslawPost[] = [];

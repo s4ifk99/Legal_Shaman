@@ -1,57 +1,53 @@
-import Link from "next/link";
-import { Radio } from "lucide-react";
 import { getOslawMarqueePosts } from "@/lib/oslaw/data";
 
+function formatTickerTime(unixSeconds: number): string {
+  const d = new Date(unixSeconds * 1000);
+  return new Intl.DateTimeFormat("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone: "Europe/London",
+  }).format(d);
+}
+
 export function OslawTrendingMarquee() {
-  const posts = getOslawMarqueePosts();
+  const posts = getOslawMarqueePosts(48);
   if (!posts.length) return null;
 
-  const items = [...posts, ...posts];
+  const items = [...posts, ...posts, ...posts];
 
   return (
     <div
-      className="oslaw-marquee border-b-2 border-gold/40 bg-foreground text-primary-foreground"
+      className="oslaw-marquee border-b border-gold/30 bg-foreground text-primary-foreground"
       role="region"
-      aria-label="Trending legal discussions from Reddit"
+      aria-label="Live legal discussion ticker from Reddit"
     >
-      <div className="mx-auto flex max-w-6xl items-stretch">
-        <div className="flex shrink-0 items-center gap-2 bg-gold px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-gold-foreground md:px-4">
-          <Radio className="h-3.5 w-3.5 animate-pulse" aria-hidden />
-          <span className="hidden sm:inline">OSLAW Trending</span>
-          <span className="sm:hidden">Trending</span>
-        </div>
-
-        <div className="relative min-w-0 flex-1 overflow-hidden py-2.5">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-foreground to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-foreground to-transparent" />
-          <div className="oslaw-marquee-track flex w-max items-center gap-0">
-            {items.map((post, index) => (
-              <span key={`${post.id}-${index}`} className="inline-flex shrink-0 items-center">
-                <a
-                  href={post.permalink || post.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex max-w-[min(100vw,28rem)] items-center gap-2 px-4 text-sm hover:underline md:max-w-md"
-                >
-                  <span className="shrink-0 rounded bg-primary/30 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary-foreground/90">
-                    r/{post.subreddit}
-                  </span>
-                  <span className="truncate font-medium">{post.title}</span>
-                </a>
-                <span className="text-gold/60" aria-hidden>
-                  ◆
+      <div className="relative overflow-hidden py-2">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-foreground to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-foreground to-transparent" />
+        <div className="oslaw-marquee-track flex w-max items-center">
+          {items.map((post, index) => (
+            <span
+              key={`${post.id}-${index}`}
+              className="oslaw-ticker-item inline-flex shrink-0 items-center whitespace-nowrap px-6"
+            >
+              <a
+                href={post.permalink || post.url}
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-[11px] uppercase tracking-wide text-primary-foreground/95 hover:text-gold md:text-xs"
+              >
+                <span className="text-gold">r/{post.subreddit}</span>
+                <span className="text-primary-foreground/40"> · </span>
+                <span>{post.title}</span>
+                <span className="text-primary-foreground/40"> · </span>
+                <span className="text-primary-foreground/70">
+                  {formatTickerTime(post.createdUtc)} · ↑{post.score}
                 </span>
-              </span>
-            ))}
-          </div>
+              </a>
+            </span>
+          ))}
         </div>
-
-        <Link
-          href="/oslaw"
-          className="hidden shrink-0 items-center border-l border-gold/30 px-4 text-xs font-semibold uppercase tracking-wide text-gold hover:bg-gold/10 md:flex"
-        >
-          View all
-        </Link>
       </div>
     </div>
   );

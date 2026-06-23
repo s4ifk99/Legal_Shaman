@@ -15,7 +15,7 @@ import { useBookmarks } from "@/components/bookmarks/bookmarks-provider";
 import { cn } from "@/lib/utils";
 
 const navBoxBase =
-  "inline-flex items-center justify-center gap-1.5 rounded-xl border px-3.5 py-2 text-sm font-medium shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98]";
+  "inline-flex h-10 min-w-[6.75rem] items-center justify-center gap-1.5 rounded-xl border px-3.5 text-sm font-medium shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98]";
 
 const navBoxVariants = {
   default:
@@ -120,7 +120,9 @@ export function Header() {
                 <span className="text-primary">Legal</span>{" "}
                 <span className="text-secondary">Shaman</span>
               </span>
-              <span className="hidden text-xs text-muted-foreground md:block">Navigate Your Disputes</span>
+              <span className="hidden text-xs text-muted-foreground md:block">
+                Fixing Search for Legal Disputes
+              </span>
             </div>
           </Link>
 
@@ -129,7 +131,7 @@ export function Header() {
               <DropdownMenuTrigger asChild>
                 <button
                   type="button"
-                  className={cn(navBoxBase, navBoxVariants.default, "gap-2 px-3 py-2")}
+                  className={cn(navBoxBase, navBoxVariants.default, "gap-2 px-3")}
                 >
                   <MapPin className="h-4 w-4 shrink-0 text-primary" />
                   <span className="hidden sm:inline">UK</span>
@@ -170,7 +172,7 @@ export function Header() {
             <button
               type="button"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              className={cn(navBoxBase, navBoxVariants.default, "px-2.5 py-2 md:hidden")}
+              className={cn(navBoxBase, navBoxVariants.default, "px-2.5 md:hidden")}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

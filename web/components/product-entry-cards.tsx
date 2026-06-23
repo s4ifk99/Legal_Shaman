@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BookOpen, Scale, Search, Sparkles } from "lucide-react";
+import { EmergencyCallbackCard } from "@/components/emergency-callback-card";
 import { cn } from "@/lib/utils";
 
 const entries = [
@@ -37,30 +38,34 @@ const entries = [
   },
 ] as const;
 
+const cardShell =
+  "group flex h-full min-h-[10.5rem] gap-4 rounded-2xl border-2 p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.99]";
+
 export function ProductEntryCards() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:gap-5">
-      {entries.map((entry) => (
-        <Link
-          key={entry.href}
-          href={entry.href}
-          className={cn(
-            "group flex gap-4 rounded-2xl border-2 p-5 shadow-sm transition-all duration-200",
-            "hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.99]",
-            entry.accent,
-          )}
-        >
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-card/80">
-            <entry.icon className={cn("h-5 w-5", entry.iconClass)} />
-          </div>
-          <div className="min-w-0">
-            <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-primary">
-              {entry.title}
-            </h3>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{entry.description}</p>
-          </div>
-        </Link>
-      ))}
+    <div className="space-y-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {entries.map((entry) => (
+          <Link
+            key={entry.href}
+            href={entry.href}
+            className={cn(cardShell, entry.accent)}
+          >
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-card/80">
+              <entry.icon className={cn("h-5 w-5", entry.iconClass)} />
+            </div>
+            <div className="flex min-w-0 flex-1 flex-col">
+              <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-primary">
+                {entry.title}
+              </h3>
+              <p className="mt-1 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                {entry.description}
+              </p>
+            </div>
+          </Link>
+        ))}
+      </div>
+      <EmergencyCallbackCard />
     </div>
   );
 }

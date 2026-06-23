@@ -194,7 +194,11 @@
 }
 
 .oslaw-marquee-track {
-  animation: oslaw-marquee-scroll 80s linear infinite;
+  animation: oslaw-marquee-scroll 140s linear infinite;
+}
+
+.oslaw-ticker-item + .oslaw-ticker-item {
+  border-left: 1px solid color-mix(in oklab, var(--gold) 35%, transparent);
 }
 
 .oslaw-marquee:hover .oslaw-marquee-track,

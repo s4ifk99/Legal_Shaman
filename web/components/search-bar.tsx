@@ -124,13 +124,28 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
               <span className="text-secondary">Shaman</span>
             </h1>
             <p className="mb-1 text-base font-medium text-foreground md:text-lg">
-              The Most Powerful Agentic Search Engine for All Your Disputes
+              Fixing Search for Legal Disputes
             </p>
           </>
         ) : (
-          <h1 className="mb-2 font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
-            Navigate your <span className="text-primary">legal dispute</span>
-          </h1>
+          <>
+            <div className="mb-4 flex justify-center">
+              <Image
+                src="/logo.jpg"
+                alt="Legal Shaman Logo"
+                width={72}
+                height={72}
+                className="h-16 w-16 rounded-full border-2 border-gold/50 shadow-md md:h-[4.5rem] md:w-[4.5rem]"
+              />
+            </div>
+            <h1 className="mb-1 font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
+              <span className="text-primary">Legal</span>{" "}
+              <span className="text-secondary">Shaman</span>
+            </h1>
+            <p className="mb-2 text-base font-medium text-foreground md:text-lg">
+              Fixing Search for Legal Disputes
+            </p>
+          </>
         )}
         <p className={cn("text-muted-foreground", compact ? "mb-6 md:text-lg" : "mb-8")}>
           Tell us your problem and we&apos;ll point you in the right direction — solicitors, legal aid, free advice, and more.

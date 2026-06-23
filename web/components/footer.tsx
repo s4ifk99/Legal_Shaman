@@ -65,7 +65,7 @@ export function Footer() {
         
         <div className="mt-10 border-t border-primary-foreground/20 pt-8 space-y-4">
           <p className="text-center font-serif text-lg font-medium text-gold">
-            The Most Powerful Agentic Search Engine for All Your Disputes
+            Fixing Search for Legal Disputes
           </p>
           <p className="text-center text-sm text-primary-foreground/70 max-w-2xl mx-auto">
             Legal Shaman is the UK&apos;s agentic legal signposting platform — search solicitors, legal aid, and free advice; get guided lawyer matches; and explore wiki resources across the UK.
