@@ -10,7 +10,7 @@ import { rankSearchResults, sortByFinalScore } from "@/lib/legal-search/ranking"
 import { loadBehaviouralSignalsForEntities } from "@/lib/search-events/load-ranking-signals";
 import { attachExplanations } from "@/lib/legal-search/explanations";
 import { fromSraMeili, fromUnifiedHit } from "@/lib/legal-search/adapters/listing-adapter";
-import { enableMeilisearch } from "@/lib/legal-search/config";
+import { enableMeilisearch, usePostgresDirectorySearch } from "@/lib/legal-search/config";
 import {
   buildVagueQueryRescuePlan,
   detectVagueLegalQuery,
@@ -76,8 +76,15 @@ export async function mergeAndRankDirectoryHits(args: {
       city: city && city.length > 1 ? city : undefined,
     };
     let sraDocs: Awaited<ReturnType<typeof searchSraOrganisations>> = [];
+    let sraRetrievalSource: RetrievalSource = "meilisearch";
 
-    if (enableMeilisearch()) {
+    if (usePostgresDirectorySearch()) {
+      sraDocs = await searchSraOrganisationsPostgres(sraSearchQuery, sraOpts);
+      if (sraDocs.length > 0) {
+        sraRetrievalSource = "postgres_fts";
+        degradedModes.push("postgres_sra");
+      }
+    } else if (enableMeilisearch()) {
       try {
         sraDocs = await searchSraOrganisations(retrieval, sraOpts);
         if (sraDocs.length === 0) {
@@ -90,19 +97,17 @@ export async function mergeAndRankDirectoryHits(args: {
       degradedModes.push("meilisearch_disabled");
     }
 
-    if (sraDocs.length === 0) {
+    if (!usePostgresDirectorySearch() && sraDocs.length === 0) {
       const pgDocs = await searchSraOrganisationsPostgres(sraSearchQuery, sraOpts);
       if (pgDocs.length > 0) {
         sraDocs = pgDocs;
+        sraRetrievalSource = "ilike";
         degradedModes.push("postgres_sra_fallback");
       }
     }
 
     if (sraDocs.length > 0) {
-      const source: RetrievalSource = degradedModes.includes("postgres_sra_fallback")
-        ? "ilike"
-        : "meilisearch";
-      results = [...results, ...sraDocs.map((d) => fromSraMeili(d, parsed, source))];
+      results = [...results, ...sraDocs.map((d) => fromSraMeili(d, parsed, sraRetrievalSource))];
     }
   }
 

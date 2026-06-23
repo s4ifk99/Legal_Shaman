@@ -4,6 +4,7 @@ export type RetrievalSource =
   | "typesense"
   | "pgvector"
   | "ilike"
+  | "postgres_fts"
   | "taxonomy"
   | "legacy"
   | "meilisearch"

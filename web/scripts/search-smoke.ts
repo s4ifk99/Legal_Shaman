@@ -54,14 +54,20 @@ async function main() {
   const stack = await getSearchStackStatus();
   console.info(JSON.stringify({ event: "search_smoke_stack", ...stack }));
 
-  if (!stack.enableTypesenseUnified) {
-    fail("ENABLE_TYPESENSE_UNIFIED is not true — set in .env.local");
-  }
-  if (!stack.typesenseReachable) {
-    fail("Typesense is not reachable");
-  }
-  if (!stack.legalEntitiesCollectionExists || (stack.legalEntitiesDocumentCount ?? 0) === 0) {
-    fail("legal_entities collection missing or empty");
+  if (stack.directorySearchBackend === "postgres") {
+    if (!process.env.DATABASE_URL?.trim()) {
+      fail("DATABASE_URL is not set — required for postgres directory search");
+    }
+  } else {
+    if (!stack.enableTypesenseUnified) {
+      fail("ENABLE_TYPESENSE_UNIFIED is not true — set in .env.local for local Typesense dev");
+    }
+    if (!stack.typesenseReachable) {
+      fail("Typesense is not reachable");
+    }
+    if (!stack.legalEntitiesCollectionExists || (stack.legalEntitiesDocumentCount ?? 0) === 0) {
+      fail("legal_entities collection missing or empty");
+    }
   }
 
   for (const query of SMOKE_QUERIES) {

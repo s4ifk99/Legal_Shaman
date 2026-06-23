@@ -13,7 +13,7 @@ import {
   type HybridHit,
   type HybridSearchOptions,
 } from "@/lib/search/hybrid-core";
-import { enableTypesense, enableVectorSearch } from "@/lib/legal-search/config";
+import { enableTypesense, enableVectorSearch, usePostgresDirectorySearch } from "@/lib/legal-search/config";
 
 export type { HybridHit, HybridSearchOptions, SearchFacets } from "@/lib/search/hybrid-core";
 
@@ -33,7 +33,12 @@ export async function hybridSearchListings(
   if (!qUser || !rq || limit <= 0) return [];
 
   let lexicalHits;
-  if (enableTypesense() && typesenseListingsConfigured() && (await typesenseListingsReachable())) {
+  const useTypesenseLexical =
+    !usePostgresDirectorySearch() &&
+    enableTypesense() &&
+    typesenseListingsConfigured() &&
+    (await typesenseListingsReachable());
+  if (useTypesenseLexical) {
     lexicalHits = await searchListingsTypesense(rq, 120, facets);
   } else {
     lexicalHits = lexicalSearchListings(rq, 120);

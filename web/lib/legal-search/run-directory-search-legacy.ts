@@ -14,6 +14,7 @@ import {
   applyVagueParsedQueryUx,
   detectVagueLegalQuery,
 } from "@/lib/legal-search/vague-query-rescue";
+import { usePostgresDirectorySearch } from "@/lib/legal-search/config";
 import { getSearchStackStatus } from "@/lib/legal-search/search-startup";
 
 function buildFacets(p: DirectorySearchParams): SearchFacets | undefined {
@@ -81,11 +82,14 @@ export async function runDirectorySearchLegacy(
 
   const stack = await getSearchStackStatus();
   const needsSraFromDb =
-    stack.degradedModeWarnings.includes("typesense_unreachable") ||
-    stack.degradedModeWarnings.includes("legal_entities_collection_missing") ||
-    stack.degradedModeWarnings.includes("legal_entities_empty");
+    !usePostgresDirectorySearch() &&
+    (stack.degradedModeWarnings.includes("typesense_unreachable") ||
+      stack.degradedModeWarnings.includes("legal_entities_collection_missing") ||
+      stack.degradedModeWarnings.includes("legal_entities_empty"));
 
-  if (needsSraFromDb) {
+  if (usePostgresDirectorySearch()) {
+    degradedModes.push("postgres_directory");
+  } else if (needsSraFromDb) {
     degradedModes.push("postgres_sra_fallback");
   }
 

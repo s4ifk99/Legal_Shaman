@@ -4,6 +4,7 @@ import { DIRECTORY_LISTINGS_COLLECTION } from "@/lib/search/typesense-listings-c
 import { typesenseListingsConfigured } from "@/lib/search/typesense-listings";
 import { LEGAL_ENTITIES_COLLECTION } from "@/lib/search-index/config";
 import {
+  directorySearchBackend,
   enableTypesense,
   enableTypesenseUnified,
   enableVectorSearch,
@@ -35,6 +36,7 @@ export async function GET() {
     enableTypesense: enableTypesense(),
     enableTypesenseUnified: enableTypesenseUnified(),
     enableVectorSearch: enableVectorSearch(),
+    directorySearchBackend: directorySearchBackend(),
     activeDirectoryEngine: stack.activeDirectoryEngine,
     degradedModeWarnings: stack.degradedModeWarnings,
     legalEntitiesCollection: LEGAL_ENTITIES_COLLECTION,

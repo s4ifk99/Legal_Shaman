@@ -4,6 +4,36 @@ import { prisma } from "@/lib/db/prisma";
 import { pickSraIndexTitle } from "@/lib/search/sra-name-fields";
 import type { SraMeiliDocument } from "@/lib/search/sra-document";
 import type { Prisma } from "@prisma/client";
+import { Prisma as PrismaSql } from "@prisma/client";
+
+const FTS_DOCUMENT_SQL = PrismaSql.sql`
+  coalesce(business_name, '') || ' ' ||
+  coalesce(display_name, '') || ' ' ||
+  coalesce(organisation_name, '') || ' ' ||
+  coalesce(trading_name, '') || ' ' ||
+  coalesce(firm_name, '') || ' ' ||
+  coalesce(search_text, '') || ' ' ||
+  coalesce(city, '') || ' ' ||
+  coalesce(county, '')
+`;
+
+type SraOrgRow = {
+  id: string;
+  sraId: string;
+  businessName: string;
+  displayName: string;
+  organisationName: string;
+  tradingName: string;
+  firmName: string;
+  searchText: string;
+  phone: string;
+  city: string;
+  postcode: string;
+  county: string;
+  country: string;
+  sraProfileUrl: string;
+  rank?: number;
+};
 
 const SEARCH_STOPWORDS = new Set([
   "the",
@@ -199,7 +229,57 @@ function scoreRow(
   return score;
 }
 
-/** Keyword search over synced `sra_organisations` when Meilisearch/Typesense are unavailable. */
+async function searchSraOrganisationsFts(
+  query: string,
+  options: { limit: number; city?: string },
+): Promise<SraMeiliDocument[]> {
+  const trimmed = query.trim().slice(0, 200);
+  if (trimmed.length < 2) return [];
+
+  const city = options.city?.trim();
+  const take = Math.min(200, Math.max(1, options.limit * 3));
+  const cityFilter =
+    city && city.length > 1
+      ? PrismaSql.sql`AND (
+          city ILIKE ${`%${city}%`}
+          OR county ILIKE ${`%${city}%`}
+          OR search_text ILIKE ${`%${city}%`}
+        )`
+      : PrismaSql.empty;
+
+  const rows = await prisma.$queryRaw<SraOrgRow[]>`
+    SELECT
+      id,
+      sra_id AS "sraId",
+      business_name AS "businessName",
+      display_name AS "displayName",
+      organisation_name AS "organisationName",
+      trading_name AS "tradingName",
+      firm_name AS "firmName",
+      search_text AS "searchText",
+      phone,
+      city,
+      postcode,
+      county,
+      country,
+      sra_profile_url AS "sraProfileUrl",
+      ts_rank(
+        to_tsvector('english', ${FTS_DOCUMENT_SQL}),
+        websearch_to_tsquery('english', ${trimmed})
+      )::float8 AS rank
+    FROM sra_organisations
+    WHERE to_tsvector('english', ${FTS_DOCUMENT_SQL})
+      @@ websearch_to_tsquery('english', ${trimmed})
+    ${cityFilter}
+    ORDER BY rank DESC, business_name ASC
+    LIMIT ${take}
+  `;
+
+  const limit = Math.min(120, Math.max(1, options.limit));
+  return rows.slice(0, limit).map((row) => rowToMeiliDoc(row));
+}
+
+/** Keyword search over synced `sra_organisations` (Postgres FTS with ILIKE fallback). */
 export async function searchSraOrganisationsPostgres(
   query: string,
   options: { limit: number; city?: string },
@@ -208,6 +288,13 @@ export async function searchSraOrganisationsPostgres(
 
   const trimmed = query.trim().slice(0, 200);
   if (trimmed.length < 2) return [];
+
+  try {
+    const ftsHits = await searchSraOrganisationsFts(trimmed, options);
+    if (ftsHits.length > 0) return ftsHits;
+  } catch (e) {
+    console.warn("[postgres-sra] FTS search failed, falling back to ILIKE:", e);
+  }
 
   const terms = tokenizeForSearch(trimmed);
   const city = options.city?.trim();
@@ -247,7 +334,7 @@ export async function searchSraOrganisationsPostgres(
       .slice(0, limit)
       .map((r) => r.doc);
   } catch (e) {
-    console.warn("[postgres-sra] search failed:", e);
+    console.warn("[postgres-sra] ILIKE search failed:", e);
     return [];
   }
 }

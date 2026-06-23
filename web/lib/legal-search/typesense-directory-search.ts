@@ -93,7 +93,7 @@ export async function runTypesenseDirectorySearch(
 ): Promise<DirectorySearchResponse> {
   const t0 = Date.now();
   const stack = await getSearchStackStatus();
-  if (!enableTypesenseUnified() || stack.activeDirectoryEngine === "legacy") {
+  if (!enableTypesenseUnified() || stack.activeDirectoryEngine !== "typesense_unified") {
     if (stack.degradedModeWarnings.length) {
       console.warn(
         JSON.stringify({

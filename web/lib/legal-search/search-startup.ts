@@ -2,20 +2,27 @@ import { buildTypesenseListingsClientFromEnv } from "@/lib/search/typesense-list
 import { LEGAL_ENTITIES_COLLECTION } from "@/lib/search-index/config";
 import { typesenseServerHealth } from "@/lib/search-index/typesense-legal-entities-index";
 import {
+  directorySearchBackend,
   enableTypesense,
   enableTypesenseUnified,
   enableVectorSearch,
+  usePostgresDirectorySearch,
 } from "@/lib/legal-search/config";
+
+function postgresSraConfigured(): boolean {
+  return Boolean(process.env.DATABASE_URL?.trim());
+}
 
 export type SearchStackStatus = {
   typesenseReachable: boolean;
   typesenseVersion: string | null;
   legalEntitiesCollectionExists: boolean;
   legalEntitiesDocumentCount: number | null;
+  directorySearchBackend: "postgres" | "typesense";
   enableTypesenseUnified: boolean;
   enableTypesense: boolean;
   enableVectorSearch: boolean;
-  activeDirectoryEngine: "typesense_unified" | "legacy";
+  activeDirectoryEngine: "postgres" | "typesense_unified" | "legacy";
   degradedModeWarnings: string[];
 };
 
@@ -58,16 +65,24 @@ export async function getSearchStackStatus(): Promise<SearchStackStatus> {
   }
   if (!tsFlag) warnings.push("enable_typesense_false");
 
-  const activeDirectoryEngine: SearchStackStatus["activeDirectoryEngine"] =
-    unified && typesenseReachable && legalEntitiesCollectionExists
-      ? "typesense_unified"
-      : "legacy";
+  const backend = directorySearchBackend();
+  let activeDirectoryEngine: SearchStackStatus["activeDirectoryEngine"];
+  if (usePostgresDirectorySearch()) {
+    activeDirectoryEngine = "postgres";
+    if (!postgresSraConfigured()) warnings.push("database_url_missing");
+  } else {
+    activeDirectoryEngine =
+      unified && typesenseReachable && legalEntitiesCollectionExists
+        ? "typesense_unified"
+        : "legacy";
+  }
 
   return {
     typesenseReachable,
     typesenseVersion,
     legalEntitiesCollectionExists,
     legalEntitiesDocumentCount,
+    directorySearchBackend: backend,
     enableTypesenseUnified: unified,
     enableTypesense: tsFlag,
     enableVectorSearch: enableVectorSearch(),
