@@ -44,9 +44,6 @@ export function EmergencyCallbackCard({ className }: EmergencyCallbackCardProps)
               Coming soon
             </span>
           </div>
-          <p className="mt-1 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
-            For emergencies only — request an immediate callback from a legal adviser. $10.00 per request.
-          </p>
           <p className="mt-2 text-xs font-medium text-destructive/90">
             Not for life-threatening emergencies — call 999.
           </p>
