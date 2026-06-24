@@ -4,6 +4,7 @@ import { mergeAndRankDirectoryHits } from "@/lib/legal-search/hybrid-search";
 import type { SearchFacets } from "@/lib/search/rerank";
 import { parseQuery } from "@/lib/legal-search/query-understanding";
 import { sortByFinalScore } from "@/lib/legal-search/ranking";
+import { rerankSearchResults } from "@/lib/legal-search/rerank";
 import { attachExplanations } from "@/lib/legal-search/explanations";
 import type { DirectorySearchParams, DirectorySearchResponse, SearchResult } from "@/lib/legal-search/types";
 import { rowMatchesPracticeTaxonomySlug } from "@/lib/legal/taxonomy";
@@ -16,6 +17,7 @@ import {
 } from "@/lib/legal-search/vague-query-rescue";
 import { usePostgresDirectorySearch } from "@/lib/legal-search/config";
 import { getSearchStackStatus } from "@/lib/legal-search/search-startup";
+import { filterResultsByLocation } from "@/lib/search/location-filter";
 
 function buildFacets(p: DirectorySearchParams): SearchFacets | undefined {
   if (!p.freeOnly && !p.legalAidOnly && !p.city) return undefined;
@@ -47,8 +49,7 @@ function filterByParams(
     });
   }
   if (p.location) {
-    const loc = p.location.toLowerCase();
-    out = out.filter((r) => r.location?.city?.toLowerCase().includes(loc));
+    out = filterResultsByLocation(out, p.location);
   }
   if (p.language) {
     const lang = p.language.toLowerCase();
@@ -105,6 +106,9 @@ export async function runDirectorySearchLegacy(
   degradedModes = [...degradedModes, ...merged.degradedModes];
 
   results = filterByParams(results, params, { vagueQueryMode });
+  if (params.origin) {
+    results = rerankSearchResults(results, parsed, { origin: params.origin });
+  }
   results = sortByFinalScore(results);
   const preRankIndexById = new Map<string, number>();
   results.forEach((r, i) => preRankIndexById.set(r.id, i + 1));

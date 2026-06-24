@@ -37,28 +37,46 @@ import type { TriageResultSection } from "@/lib/legal-search/triage/types";
 import { enableSearchDebug, usePostgresDirectorySearch } from "@/lib/legal-search/config";
 import { userFacingDegradedModes } from "@/lib/legal-search/degraded-modes";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
+import type { AppliedFilters } from "@/lib/agent/types";
+import type { LatLng } from "@/lib/search/location";
+
+export type TriageSearchContext = {
+  appliedFilters?: AppliedFilters;
+  searchOrigin?: LatLng;
+};
 
 export type TriageRequest =
-  | { action: "start"; query: string; sessionId: string }
-  | {
+  | ({ action: "start"; query: string; sessionId: string } & TriageSearchContext)
+  | ({
       action: "answer";
       sessionId: string;
       state: TriageState;
       field: TriageQuestion["field"];
       value: string;
-    }
-  | { action: "skip"; sessionId: string; state: TriageState; field: TriageQuestion["field"] };
+    } & TriageSearchContext)
+  | ({ action: "skip"; sessionId: string; state: TriageState; field: TriageQuestion["field"] } & TriageSearchContext)
+  | ({ action: "refine"; sessionId: string; state: TriageState } & TriageSearchContext);
 
 export async function runTriageSearch(req: TriageRequest): Promise<TriageResponse> {
   let state: TriageState;
 
   if (req.action === "start") {
     state = createInitialTriageState(req.query, req.sessionId);
+    state = applyAppliedFiltersToState(state, req.appliedFilters);
   } else if (req.action === "answer") {
     state = applyTriageAnswer(req.state, req.field, req.value);
+    state = applyAppliedFiltersToState(state, req.appliedFilters);
+  } else if (req.action === "refine") {
+    state = applyAppliedFiltersToState(req.state, req.appliedFilters);
   } else {
     state = skipTriageStep(req.state, req.field);
+    state = applyAppliedFiltersToState(state, req.appliedFilters);
   }
+
+  const searchContext: TriageSearchContext = {
+    appliedFilters: req.appliedFilters,
+    searchOrigin: req.searchOrigin,
+  };
 
   const parsed = await parseQuery(state.mergedQuery);
   const stack = await getSearchStackStatus();
@@ -68,13 +86,13 @@ export async function runTriageSearch(req: TriageRequest): Promise<TriageRespons
   const completeness = assessTriageCompleteness(state, parsed);
   const fundingRoutesPreview = resolveFundingRoutes(state);
 
-  if (completeness.shouldAskBeforeSearch && completeness.nextBestQuestion) {
+  if (req.action !== "refine" && completeness.shouldAskBeforeSearch && completeness.nextBestQuestion) {
     const q = safeQuestion(completeness.nextBestQuestion);
     return questionResponse(state, q, parsed, completeness, fundingRoutesPreview);
   }
 
-  if (completeness.canSearchNow) {
-    const results = await executeTriageSearch(state, parsed, degradedModes);
+  if (req.action === "refine" || completeness.canSearchNow) {
+    const results = await executeTriageSearch(state, parsed, degradedModes, searchContext);
     const updatedState: TriageState = {
       ...state,
       fundingRoutes: results.fundingRoutes,
@@ -103,7 +121,7 @@ export async function runTriageSearch(req: TriageRequest): Promise<TriageRespons
     return questionResponse(state, q, parsed, completeness, fundingRoutesPreview);
   }
 
-  const results = await executeTriageSearch(state, parsed, degradedModes);
+  const results = await executeTriageSearch(state, parsed, degradedModes, searchContext);
   const afterCompleteness = assessTriageCompleteness(state, results.parsedQuery, {
     afterResults: true,
   });
@@ -120,6 +138,15 @@ export async function runTriageSearch(req: TriageRequest): Promise<TriageRespons
 function safeQuestion(q: TriageQuestion): TriageQuestion {
   if (triageCopyPassesSafety(q.prompt)) return q;
   return { ...q, prompt: "Can you tell us a bit more so we can signpost you?" };
+}
+
+function applyAppliedFiltersToState(
+  state: TriageState,
+  applied?: AppliedFilters,
+): TriageState {
+  if (!applied?.city?.trim()) return state;
+  if (state.answers.location?.trim()) return state;
+  return applyTriageAnswer(state, "location", applied.city.trim());
 }
 
 function attachTriageDebug(
@@ -190,15 +217,29 @@ async function executeTriageSearch(
   state: TriageState,
   parsed: Awaited<ReturnType<typeof parseQuery>>,
   degradedModes: string[],
+  searchContext: TriageSearchContext = {},
 ) {
   const fundingRoutes = resolveFundingRoutes(state);
   state = { ...state, fundingRoutes };
+
+  const applied = searchContext.appliedFilters;
+  const location =
+    applied?.city?.trim() ||
+    state.answers.location?.trim() ||
+    parsed.location?.trim() ||
+    undefined;
 
   const dir = await runDirectorySearch({
     query: state.mergedQuery,
     limit: 30,
     semantic: false,
     legalAidOnly: state.fundingPreference === "legal_aid",
+    location,
+    city: location,
+    practiceArea: applied?.practiceArea,
+    language: applied?.language ?? state.answers.language,
+    verifiedOnly: applied?.verifiedOnly,
+    origin: searchContext.searchOrigin,
   });
 
   if (degradedModes.includes("SRA data unavailable") || dir.degradedModes.length) {

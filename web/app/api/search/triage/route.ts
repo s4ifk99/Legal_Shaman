@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { runTriageSearch } from "@/lib/legal-search/triage/run-triage-search";
-import type { TriageState } from "@/lib/legal-search/triage/types";
+import type { AppliedFilters } from "@/lib/agent/types";
+import { AppliedFiltersSchema } from "@/lib/agent/types";
+import type { LatLng } from "@/lib/search/location";
 
 export const runtime = "nodejs";
 
@@ -20,11 +22,22 @@ const TriageStateSchema = z.object({
   clientType: z.enum(["individual", "business", "charity", "unsure"]),
 });
 
+const AppliedFiltersBody = AppliedFiltersSchema.optional();
+
+const SearchOriginSchema = z
+  .object({
+    lat: z.number().finite(),
+    lng: z.number().finite(),
+  })
+  .optional();
+
 const BodySchema = z.discriminatedUnion("action", [
   z.object({
     action: z.literal("start"),
     query: z.string().trim().min(2).max(800),
     sessionId: z.string().trim().min(1).max(128).optional(),
+    appliedFilters: AppliedFiltersBody,
+    searchOrigin: SearchOriginSchema,
   }),
   z.object({
     action: z.literal("answer"),
@@ -32,17 +45,30 @@ const BodySchema = z.discriminatedUnion("action", [
     field: z.string(),
     value: z.string().trim().min(1).max(400),
     sessionId: z.string().optional(),
+    appliedFilters: AppliedFiltersBody,
+    searchOrigin: SearchOriginSchema,
   }),
   z.object({
     action: z.literal("skip"),
     state: z.custom<TriageState>(),
     field: z.string(),
     sessionId: z.string().optional(),
+    appliedFilters: AppliedFiltersBody,
+    searchOrigin: SearchOriginSchema,
+  }),
+  z.object({
+    action: z.literal("refine"),
+    state: z.custom<TriageState>(),
+    sessionId: z.string().optional(),
+    appliedFilters: AppliedFiltersBody,
+    searchOrigin: SearchOriginSchema,
   }),
   z.object({
     action: z.literal("restart"),
     sessionId: z.string().trim().min(1).max(128),
     query: z.string().trim().min(0).max(800).optional(),
+    appliedFilters: AppliedFiltersBody,
+    searchOrigin: SearchOriginSchema,
   }),
 ]);
 
@@ -61,15 +87,32 @@ export async function POST(req: Request) {
         ? crypto.randomUUID()
         : `s-${Date.now()}`);
 
+    const appliedFilters =
+      "appliedFilters" in body ? body.appliedFilters : undefined;
+    const searchOrigin =
+      "searchOrigin" in body ? (body.searchOrigin as LatLng | undefined) : undefined;
+
     if (body.action === "start") {
-      const result = await runTriageSearch({ action: "start", query: body.query, sessionId });
+      const result = await runTriageSearch({
+        action: "start",
+        query: body.query,
+        sessionId,
+        appliedFilters,
+        searchOrigin,
+      });
       return NextResponse.json(result);
     }
 
     if (body.action === "restart") {
       const q = body.query?.trim() || "";
       if (q.length >= 2) {
-        const result = await runTriageSearch({ action: "start", query: q, sessionId });
+        const result = await runTriageSearch({
+          action: "start",
+          query: q,
+          sessionId,
+          appliedFilters,
+          searchOrigin,
+        });
         return NextResponse.json(result);
       }
       return NextResponse.json({
@@ -99,6 +142,18 @@ export async function POST(req: Request) {
     }
 
     const state = body.state as TriageState;
+
+    if (body.action === "refine") {
+      const result = await runTriageSearch({
+        action: "refine",
+        sessionId: state.sessionId,
+        state,
+        appliedFilters,
+        searchOrigin,
+      });
+      return NextResponse.json(result);
+    }
+
     const field = body.field as keyof TriageState["answers"] | "subIssue";
 
     if (body.action === "answer") {
@@ -108,6 +163,8 @@ export async function POST(req: Request) {
         state,
         field,
         value: body.value,
+        appliedFilters,
+        searchOrigin,
       });
       return NextResponse.json(result);
     }
@@ -117,6 +174,8 @@ export async function POST(req: Request) {
       sessionId: state.sessionId,
       state,
       field,
+      appliedFilters,
+      searchOrigin,
     });
     return NextResponse.json(result);
   } catch (err) {

@@ -17,6 +17,7 @@ import { typesenseServerHealth } from "@/lib/search-index/typesense-legal-entiti
 import type { LatLng } from "@/lib/search/location";
 import { distanceMiles } from "@/lib/legal-search/location";
 import { rowMatchesPracticeTaxonomySlug } from "@/lib/legal/taxonomy";
+import { filterResultsByLocation } from "@/lib/search/location-filter";
 import { toLegacyGetResponse } from "@/lib/legal-search/legacy-get-response";
 import type { DirectorySearchResponse } from "@/lib/legal-search/types";
 import { finalizeDirectoryDiagnostics } from "@/lib/legal-search/search-diagnostics";
@@ -444,8 +445,7 @@ function filterByParams(
     });
   }
   if (p.location) {
-    const loc = p.location.toLowerCase();
-    out = out.filter((r) => r.location?.city?.toLowerCase().includes(loc));
+    out = filterResultsByLocation(out, p.location);
   }
   if (p.language) {
     const lang = p.language.toLowerCase();

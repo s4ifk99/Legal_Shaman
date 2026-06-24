@@ -65,17 +65,6 @@ export function LawyerFiltersSidebar({ value, onChange, disabled }: Props) {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="filter-city">City</Label>
-          <Input
-            id="filter-city"
-            disabled={disabled}
-            placeholder="e.g. London"
-            value={value.city ?? ""}
-            onChange={(e) => set("city", e.target.value.trim() || undefined)}
-          />
-        </div>
-
-        <div className="space-y-2">
           <Label htmlFor="filter-language">Language</Label>
           <Input
             id="filter-language"

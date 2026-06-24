@@ -4,10 +4,18 @@ import { useCallback, useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import type { TriageResultSection } from "@/lib/legal-search/triage/types";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
-import { DirectoryResultCard } from "@/components/triage/directory-result-card";
 import { DirectoryResultDetail } from "@/components/search/directory-result-detail";
 import { TriageResultContactLinks } from "@/components/triage/triage-result-contact-links";
-import { Card } from "@/components/ui/card";
+import {
+  contactPageUrlForResult,
+  emailForDisplay,
+  formatPhoneForDisplay,
+  phoneForDisplay,
+  publicResultTitle,
+  websiteUrlForResult,
+} from "@/lib/legal-search/public-search-result";
+import { telHref } from "@/lib/search/sra-display";
+import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 type TriageResultsSectionsProps = {
@@ -103,6 +111,13 @@ function TriageResultItem({
   parsedLocation?: string;
 }) {
   const isSra = result.source === "sra";
+  const title = result.displayName?.trim() || publicResultTitle(result);
+  const sourceLabel = result.sourceLabel ?? "Directory listing";
+  const locationLabel = result.locationLabel;
+  const practiceLine =
+    result.practiceAreas.length > 0
+      ? `Practice areas: ${result.practiceAreas.slice(0, 4).join(", ")}`
+      : null;
 
   return (
     <li data-entity-id={result.id}>
@@ -113,49 +128,109 @@ function TriageResultItem({
           isExpanded && "shadow-md ring-2 ring-primary/40",
         )}
       >
-        <div className="relative">
-          <button
-            type="button"
-            className="w-full text-left"
-            onClick={onToggle}
-            aria-expanded={isExpanded}
-          >
-            <div className="pr-10">
-              <DirectoryResultCard result={result} selected={isExpanded} hideContactLinks />
+        <button
+          type="button"
+          className="w-full cursor-pointer text-left"
+          onClick={onToggle}
+          aria-expanded={isExpanded}
+        >
+          <CardContent className="p-4">
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+                  <span className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
+                    {sourceLabel}
+                  </span>
+                </div>
+                {practiceLine ? (
+                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{practiceLine}</p>
+                ) : null}
+                {locationLabel ? (
+                  <p className="mt-1 text-sm text-muted-foreground">Location: {locationLabel}</p>
+                ) : null}
+                {!isExpanded && result.explanation ? (
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/90 line-clamp-2">
+                    <span className="font-medium">Why shown: </span>
+                    {result.explanation}
+                  </p>
+                ) : null}
+              </div>
+              <ChevronDown
+                className={cn(
+                  "mt-1 h-5 w-5 shrink-0 text-muted-foreground transition-transform",
+                  isExpanded && "rotate-180",
+                )}
+              />
             </div>
-            <ChevronDown
-              className={cn(
-                "pointer-events-none absolute right-4 top-5 h-5 w-5 text-muted-foreground transition-transform",
-                isExpanded && "rotate-180",
-              )}
-            />
-          </button>
-          <div className="border-t border-border/40 px-4 pb-4">
-            <TriageResultContactLinks result={result} />
-          </div>
-        </div>
+          </CardContent>
+        </button>
 
-        {isExpanded && legacyRow ? (
-          <DirectoryResultDetail
-            row={legacyRow}
-            explanation={result.explanation}
-            q={query}
-            index={index}
-            parsedPracticeArea={parsedPracticeArea}
-            parsedLocation={parsedLocation}
-          />
-        ) : null}
-
-        {isExpanded && !legacyRow ? (
-          <div className="border-t border-border/60 bg-muted/20 p-5 text-sm text-muted-foreground">
-            Full detail is not available for this listing. Use the contact links above or search again on the{" "}
-            <a href="/search" className="text-primary underline">
-              directory page
-            </a>
-            .
-          </div>
+        {isExpanded ? (
+          <>
+            <div className="border-t border-border/40 px-4 pb-4">
+              <TriageResultContactLinks result={result} />
+            </div>
+            {legacyRow ? (
+              <DirectoryResultDetail
+                row={legacyRow}
+                explanation={result.explanation}
+                q={query}
+                index={index}
+                parsedPracticeArea={parsedPracticeArea}
+                parsedLocation={parsedLocation}
+              />
+            ) : (
+              <div className="border-t border-border/60 bg-muted/20 p-5 text-sm text-muted-foreground">
+                <CollapsedContactSummary result={result} />
+                <p className="mt-3">
+                  Full detail is not available for this listing. Use the contact links above or search again on the{" "}
+                  <a href="/search" className="text-primary underline">
+                    directory page
+                  </a>
+                  .
+                </p>
+              </div>
+            )}
+          </>
         ) : null}
       </Card>
     </li>
+  );
+}
+
+function CollapsedContactSummary({ result }: { result: import("@/lib/legal-search/types").SearchResult }) {
+  const phone = phoneForDisplay(result);
+  const email = emailForDisplay(result);
+  const website = websiteUrlForResult(result);
+  const contactPage = contactPageUrlForResult(result);
+
+  if (!phone && !email && !website && !contactPage) return null;
+
+  return (
+    <div className="space-y-1 text-sm text-foreground">
+      {phone ? (
+        <p>
+          <span className="text-muted-foreground">Phone: </span>
+          <a href={telHref(phone)} className="font-medium text-primary hover:underline">
+            {formatPhoneForDisplay(phone)}
+          </a>
+        </p>
+      ) : null}
+      {website ? (
+        <p>
+          <a href={website} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            Website
+          </a>
+        </p>
+      ) : null}
+      {email ? (
+        <p>
+          <a href={`mailto:${email}`} className="text-primary hover:underline">
+            {email}
+          </a>
+        </p>
+      ) : null}
+    </div>
   );
 }

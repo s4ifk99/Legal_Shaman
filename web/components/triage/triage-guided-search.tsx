@@ -1,12 +1,13 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Loader2, RotateCcw, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { LawyerFiltersSidebar } from "@/components/lawyer-filters-sidebar";
+import { SearchLocationBar, type SearchOrigin } from "@/components/search/search-location-bar";
 import { SearchResultsLayout } from "@/components/search/search-results-layout";
 import { SearchDebugPanel } from "@/components/search/search-debug-panel";
 import { TriageQuestionCard } from "@/components/triage/triage-question-card";
@@ -73,8 +74,11 @@ export function TriageGuidedSearch({
   debugEnabled = false,
 }: TriageGuidedSearchProps) {
   const [query, setQuery] = useState("");
+  const [locationCity, setLocationCity] = useState("");
+  const [searchOrigin, setSearchOrigin] = useState<SearchOrigin | null>(null);
   const [status, setStatus] = useState<TriageUiState>({ kind: "idle" });
   const [filters, setFilters] = useState<AppliedFilters>({});
+  const prevFilterKeyRef = useRef<string | null>(null);
 
   const sessionId = useMemo(
     () =>
@@ -84,31 +88,31 @@ export function TriageGuidedSearch({
     [],
   );
 
-  const postTriage = useCallback(async (body: Record<string, unknown>) => {
-    const res = await fetch("/api/search/triage", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...body, sessionId }),
-    });
-    const data = (await res.json()) as TriageResponse & { error?: string };
-    if (!res.ok) throw new Error(data.error || "Triage request failed");
-    return data;
-  }, [sessionId]);
+  const appliedFilters = useMemo<AppliedFilters>(() => {
+    const next: AppliedFilters = { ...filters };
+    const city = locationCity.trim();
+    if (city) next.city = city;
+    else delete next.city;
+    return next;
+  }, [filters, locationCity]);
 
-  const startTriage = useCallback(
-    async (q: string) => {
-      setStatus({ kind: "loading" });
-      try {
-        const data = await postTriage({ action: "start", query: q });
-        applyResponse(data);
-      } catch (err) {
-        setStatus({
-          kind: "error",
-          message: err instanceof Error ? err.message : String(err),
-        });
-      }
+  const postTriage = useCallback(
+    async (body: Record<string, unknown>) => {
+      const res = await fetch("/api/search/triage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...body,
+          sessionId,
+          appliedFilters,
+          searchOrigin: searchOrigin ?? undefined,
+        }),
+      });
+      const data = (await res.json()) as TriageResponse & { error?: string };
+      if (!res.ok) throw new Error(data.error || "Triage request failed");
+      return data;
     },
-    [postTriage],
+    [sessionId, appliedFilters, searchOrigin],
   );
 
   const applyResponse = useCallback(
@@ -126,6 +130,22 @@ export function TriageGuidedSearch({
       }
     },
     [debugEnabled],
+  );
+
+  const startTriage = useCallback(
+    async (q: string) => {
+      setStatus({ kind: "loading" });
+      try {
+        const data = await postTriage({ action: "start", query: q });
+        applyResponse(data);
+      } catch (err) {
+        setStatus({
+          kind: "error",
+          message: err instanceof Error ? err.message : String(err),
+        });
+      }
+    },
+    [postTriage, applyResponse],
   );
 
   const submitTriageAnswer = useCallback(
@@ -166,6 +186,22 @@ export function TriageGuidedSearch({
     [postTriage, applyResponse],
   );
 
+  const refineResults = useCallback(
+    async (triageState: TriageState) => {
+      setStatus({ kind: "loading" });
+      try {
+        const data = await postTriage({ action: "refine", state: triageState });
+        applyResponse(data);
+      } catch (err) {
+        setStatus({
+          kind: "error",
+          message: err instanceof Error ? err.message : String(err),
+        });
+      }
+    },
+    [postTriage, applyResponse],
+  );
+
   const answerQuestion = useCallback(
     async (value: string) => {
       if (status.kind !== "question") return;
@@ -181,8 +217,33 @@ export function TriageGuidedSearch({
 
   const startOver = useCallback(async () => {
     setQuery("");
+    setLocationCity("");
+    setSearchOrigin(null);
+    setFilters({});
     setStatus({ kind: "idle" });
   }, []);
+
+  useEffect(() => {
+    if (status.kind !== "results") {
+      if (status.kind === "idle") prevFilterKeyRef.current = null;
+      return;
+    }
+
+    const filterKey = JSON.stringify({ appliedFilters, searchOrigin });
+    const triageState = status.payload.triageState;
+
+    if (prevFilterKeyRef.current === null) {
+      prevFilterKeyRef.current = filterKey;
+      return;
+    }
+    if (prevFilterKeyRef.current === filterKey) return;
+
+    prevFilterKeyRef.current = filterKey;
+    const handle = window.setTimeout(() => {
+      void refineResults(triageState);
+    }, 450);
+    return () => window.clearTimeout(handle);
+  }, [status, appliedFilters, searchOrigin, refineResults]);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -223,6 +284,12 @@ export function TriageGuidedSearch({
             Note: some data sources may be limited ({status.payload.degradedModes.join(", ")}).
           </p>
         ) : null}
+        {locationCity.trim() ? (
+          <p className="text-xs text-muted-foreground">
+            Showing providers near <span className="font-medium text-foreground">{locationCity.trim()}</span>
+            {searchOrigin ? " (using your current area)" : null}.
+          </p>
+        ) : null}
         {status.payload.nextQuestion ? (
           <TriageQuestionCard
             question={status.payload.nextQuestion}
@@ -250,7 +317,7 @@ export function TriageGuidedSearch({
           legacyRowByResultId={status.payload.legacyRowByResultId}
           query={status.payload.triageState.mergedQuery}
           parsedPracticeArea={status.payload.parsedQuery.practiceAreaSlug ?? undefined}
-          parsedLocation={status.payload.parsedQuery.location ?? undefined}
+          parsedLocation={status.payload.parsedQuery.location ?? locationCity.trim() ?? undefined}
         />
         {status.payload.externalFallback ? (
           <ExternalFallbackSection payload={status.payload.externalFallback} />
@@ -278,6 +345,13 @@ export function TriageGuidedSearch({
             onChange={(e) => setQuery(e.target.value)}
             placeholder="e.g. I was unfairly dismissed and need legal aid advice in Manchester"
             rows={3}
+            disabled={isLoading}
+          />
+          <SearchLocationBar
+            city={locationCity}
+            onCityChange={setLocationCity}
+            origin={searchOrigin}
+            onOriginChange={setSearchOrigin}
             disabled={isLoading}
           />
           <div className="flex flex-wrap items-center gap-2">
