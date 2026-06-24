@@ -17,28 +17,6 @@ export default function Home() {
       <Header />
       <OslawTrendingMarquee />
 
-      <section className="relative overflow-hidden border-b-2 border-gold/30 bg-gradient-to-r from-primary/10 via-background to-secondary/10 py-5 md:py-6">
-        <SpiralBackground className="opacity-20" />
-        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 text-center sm:flex-row sm:justify-center">
-          <Image
-            src="/logo.jpg"
-            alt="Legal Shaman Logo"
-            width={56}
-            height={56}
-            className="h-14 w-14 rounded-full border-2 border-gold/50 shadow-sm"
-          />
-          <div>
-            <p className="font-serif text-lg font-bold text-foreground md:text-xl">
-              <span className="text-primary">Legal</span>{" "}
-              <span className="text-secondary">Shaman</span>
-            </p>
-            <p className="text-sm font-medium text-muted-foreground md:text-base">
-              Fixing Search for Legal Disputes
-            </p>
-          </div>
-        </div>
-      </section>
-
       <SearchBar compact />
 
       <section className="relative border-b border-border py-12 md:py-16">
