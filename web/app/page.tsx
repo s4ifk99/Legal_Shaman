@@ -6,7 +6,6 @@ import { ProductEntryCards } from "@/components/product-entry-cards";
 import { SearchBar } from "@/components/search-bar";
 import { SpiralBackground } from "@/components/spiral-decoration";
 import signpostingResources from "@/data/signposting-resources.json";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
