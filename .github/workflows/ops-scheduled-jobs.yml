@@ -23,6 +23,7 @@ jobs:
     timeout-minutes: 45
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DIRECTORY_SEARCH_BACKEND: postgres
     defaults:
       run:
         working-directory: web
@@ -54,6 +55,7 @@ jobs:
     timeout-minutes: 180
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DIRECTORY_SEARCH_BACKEND: postgres
     defaults:
       run:
         working-directory: web

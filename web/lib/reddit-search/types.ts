@@ -1,9 +1,25 @@
-/** A normalized Reddit post from r/LegalAdviceUK search. */
-export type RedditResult = {
+/** A normalized live Reddit post (search / RSS / OAuth). */
+export type LiveRedditSearchResult = {
+  id: string;
   title: string;
   url: string;
   subreddit: string;
   score: number;
+  comments: number;
+  snippet: string;
+  createdUtc: number;
+};
+
+export type LiveSearchSource = "oauth" | "rss" | "public";
+
+/** A normalized Reddit post from subreddit search. */
+export type RedditResult = {
+  id: string;
+  title: string;
+  url: string;
+  subreddit: string;
+  score: number;
+  numComments: number;
   createdUtc: number;
   snippet: string;
 };

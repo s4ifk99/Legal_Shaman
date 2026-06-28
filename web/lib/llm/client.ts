@@ -2,17 +2,23 @@ import "server-only";
 
 import OpenAI from "openai";
 
+import {
+  openRouterDefaultHeaders,
+  resolveChatModel,
+  resolveLlmApiKey,
+  resolveLlmBaseUrl,
+} from "./openrouter";
+
 /**
  * OpenAI-compatible LLM client (chat + embeddings).
+ * OpenRouter: set in `web/.env.local`:
+ *   LLM_API_KEY=sk-or-...
+ *   LLM_BASE_URL=https://openrouter.ai/api/v1
+ *   LLM_MODEL=openai/gpt-4o-mini  (or e.g. qwen/qwen3-32b)
  *
- * Aliases (optional):
- *   LLM_MODEL          — same as LLM_CHAT_MODEL
- *   EMBEDDING_BASE_URL, EMBEDDING_API_KEY, EMBEDDING_MODEL — dedicated embed endpoint;
- *   when unset, embeddings use LLM_BASE_URL + LLM_API_KEY + LLM_EMBED_MODEL.
+ * Aliases: OPENROUTER_API_KEY, OPENROUTER_BASE_URL, LLM_CHAT_MODEL
  */
 
-const DEFAULT_BASE_URL = "https://api.openai.com/v1";
-const DEFAULT_CHAT_MODEL = "gpt-4o-mini";
 const DEFAULT_EMBED_MODEL = "text-embedding-3-small";
 const DEFAULT_EMBED_DIM = 1536;
 
@@ -20,13 +26,11 @@ let _chatClient: OpenAI | null = null;
 let _embedClient: OpenAI | null = null;
 
 export function llmConfigured(): boolean {
-  return Boolean(process.env.LLM_API_KEY?.trim());
+  return Boolean(resolveLlmApiKey());
 }
 
 export function embedConfigured(): boolean {
-  return Boolean(
-    process.env.EMBEDDING_API_KEY?.trim() || process.env.LLM_API_KEY?.trim(),
-  );
+  return Boolean(process.env.EMBEDDING_API_KEY?.trim() || resolveLlmApiKey());
 }
 
 export function llmEmbedDim(): number {
@@ -37,15 +41,17 @@ export function llmEmbedDim(): number {
 
 function getChatClient(): OpenAI {
   if (_chatClient) return _chatClient;
-  const apiKey = process.env.LLM_API_KEY?.trim();
+  const apiKey = resolveLlmApiKey();
   if (!apiKey) {
     throw new Error(
-      "LLM_API_KEY is not set. Configure it in .env.local (any non-empty string for Ollama).",
+      "LLM_API_KEY is not set. Add your OpenRouter key to web/.env.local (LLM_API_KEY + LLM_BASE_URL=https://openrouter.ai/api/v1).",
     );
   }
+  const defaultHeaders = openRouterDefaultHeaders();
   _chatClient = new OpenAI({
     apiKey,
-    baseURL: process.env.LLM_BASE_URL?.trim() || DEFAULT_BASE_URL,
+    baseURL: resolveLlmBaseUrl(),
+    ...(defaultHeaders ? { defaultHeaders } : {}),
   });
   return _chatClient;
 }
@@ -54,9 +60,7 @@ function getEmbedClient(): OpenAI {
   if (_embedClient) return _embedClient;
   const embedKey = process.env.EMBEDDING_API_KEY?.trim();
   const embedBase =
-    process.env.EMBEDDING_BASE_URL?.trim() ||
-    process.env.LLM_BASE_URL?.trim() ||
-    DEFAULT_BASE_URL;
+    process.env.EMBEDDING_BASE_URL?.trim() || resolveLlmBaseUrl();
   if (embedKey) {
     _embedClient = new OpenAI({ apiKey: embedKey, baseURL: embedBase });
     return _embedClient;
@@ -82,11 +86,7 @@ export async function chat(
   options: ChatOptions = {},
 ): Promise<string> {
   const client = getChatClient();
-  const model =
-    options.model ||
-    process.env.LLM_MODEL?.trim() ||
-    process.env.LLM_CHAT_MODEL?.trim() ||
-    DEFAULT_CHAT_MODEL;
+  const model = resolveChatModel(options.model);
   const response = await client.chat.completions.create({
     model,
     messages,

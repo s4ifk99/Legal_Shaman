@@ -2,6 +2,7 @@ import { getOptionalPrismaClient, prisma } from "@/lib/db/prisma";
 import { buildTypesenseListingsClientFromEnv } from "@/lib/search/typesense-listings-client";
 import { LEGAL_ENTITIES_COLLECTION } from "@/lib/search-index/config";
 import { getEnvironmentSnapshot } from "@/lib/ops/environment-guard";
+import { shouldRunTypesenseOps, typesenseOptionalForOps } from "@/lib/ops/typesense-host";
 
 export type ProdHealthCheck = {
   name: string;
@@ -128,6 +129,15 @@ export async function checkDatabase(): Promise<{
 }
 
 async function checkTypesense(): Promise<ProdHealthCheck> {
+  const tsOps = await shouldRunTypesenseOps();
+  if (!tsOps.run) {
+    return {
+      name: "typesense",
+      ok: typesenseOptionalForOps(),
+      detail: tsOps.reason,
+    };
+  }
+
   const client = buildTypesenseListingsClientFromEnv();
   if (!client) {
     return { name: "typesense", ok: false, detail: "TYPESENSE_HOST or TYPESENSE_API_KEY missing" };

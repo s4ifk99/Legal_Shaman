@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { formatOslawSearchSubredditList } from "@/lib/oslaw/config";
 
 type RedditResult = {
   id: string;
@@ -12,6 +13,7 @@ type RedditResult = {
   subreddit: string;
   score: number;
   comments: number;
+  snippet?: string;
 };
 
 type RedditResultsProps = {
@@ -40,7 +42,7 @@ export function RedditResults({ query, enabled }: RedditResultsProps) {
     setError(null);
     setNotice(null);
 
-    fetch(`/api/search/reddit?q=${encodeURIComponent(trimmed)}&limit=8`, {
+    fetch(`/api/oslaw/search?q=${encodeURIComponent(trimmed)}&limit=8`, {
       cache: "no-store",
     })
       .then(async (res) => {
@@ -84,7 +86,8 @@ export function RedditResults({ query, enabled }: RedditResultsProps) {
       <CardContent className="p-4">
         <h2 className="font-serif text-xl font-semibold text-foreground">OSLAW — Reddit search</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Results from r/LegalAdviceUK for: <span className="font-medium text-foreground">{query}</span>
+          Live results from {formatOslawSearchSubredditList()} for:{" "}
+          <span className="font-medium text-foreground">{query}</span>
         </p>
 
         {loading ? <p className="mt-3 text-sm text-muted-foreground">Loading Reddit results...</p> : null}
@@ -125,6 +128,9 @@ export function RedditResults({ query, enabled }: RedditResultsProps) {
                 <p className="mt-1 text-xs text-muted-foreground">
                   {item.subreddit} · {item.score} score · {item.comments} comments
                 </p>
+                {item.snippet ? (
+                  <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{item.snippet}</p>
+                ) : null}
               </li>
             ))}
           </ul>

@@ -1,188 +1,283 @@
 {
   "meta": {
-    "scrapedAt": "2026-06-18T09:24:47.358Z",
-    "subredditCount": 4,
-    "postCount": 8,
-    "topicCount": 4,
+    "scrapedAt": "2026-06-28T03:11:13.854Z",
+    "subredditCount": 1,
+    "postCount": 20,
+    "topicCount": 3,
     "ingestSource": "public"
   },
   "subreddits": [
     {
-      "name": "LegalAdviceUK",
-      "displayName": "r/LegalAdviceUK",
-      "description": "Peer discussions on everyday UK legal problems — housing, work, family, police, and more.",
-      "subscribers": 50000,
-      "posts": [
-        {
-          "id": "seed1",
-          "title": "Landlord withholding deposit after tenancy ended",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed1/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed1/",
-          "subreddit": "LegalAdviceUK",
-          "score": 142,
-          "numComments": 58,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
-        },
-        {
-          "id": "seed2",
-          "title": "Unfair dismissal — probation period and notice",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed2/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed2/",
-          "subreddit": "LegalAdviceUK",
-          "score": 89,
-          "numComments": 34,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
-        },
-        {
-          "id": "seed3",
-          "title": "Section 21 notice received — is it valid?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed3/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed3/",
-          "subreddit": "LegalAdviceUK",
-          "score": 201,
-          "numComments": 91,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
-        }
-      ]
-    },
-    {
-      "name": "uklaw",
-      "displayName": "r/uklaw",
-      "description": "UK law students and practitioners — statute, case law, and professional practice.",
-      "subscribers": 50000,
-      "posts": [
-        {
-          "id": "seed4",
-          "title": "Recent employment tribunal trends on remote work",
-          "url": "https://www.reddit.com/r/uklaw/comments/seed4/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/seed4/",
-          "subreddit": "uklaw",
-          "score": 67,
-          "numComments": 22,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
-        },
-        {
-          "id": "seed5",
-          "title": "Interpretation of Consumer Rights Act refunds",
-          "url": "https://www.reddit.com/r/uklaw/comments/seed5/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/seed5/",
-          "subreddit": "uklaw",
-          "score": 45,
-          "numComments": 18,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
-        }
-      ]
-    },
-    {
       "name": "HousingUK",
       "displayName": "r/HousingUK",
       "description": "Renting, landlords, deposits, eviction, and housing rights in the UK.",
-      "subscribers": 50000,
+      "subscribers": null,
       "posts": [
         {
-          "id": "seed6",
-          "title": "Council tax liability when moving between properties",
-          "url": "https://www.reddit.com/r/HousingUK/comments/seed6/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/seed6/",
+          "id": "1uhfu8r",
+          "title": "Am I being too sensitive about my flatshare rules, or is this unreasonable? (London)",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhfu8r/am_i_being_too_sensitive_about_my_flatshare_rules/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhfu8r/am_i_being_too_sensitive_about_my_flatshare_rules/",
           "subreddit": "HousingUK",
-          "score": 112,
-          "numComments": 44,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782599117,
+          "snippet": "Hi, I’m a tenant in London working as a barista. I am looking for an objective reality check on whether I am being \"too sensitive\" or \"unreasonable\" regarding the current situation in my flatshare. Please give me your honest feedback. Here is the factual timeline of what has happ",
+          "listingSource": "rss:hot"
         },
         {
-          "id": "seed7",
-          "title": "Damp and mould — landlord repair obligations",
-          "url": "https://www.reddit.com/r/HousingUK/comments/seed7/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/seed7/",
+          "id": "1uhajce",
+          "title": "Would it be crazy to pull out of a flat purchase due to extreme heat?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhajce/would_it_be_crazy_to_pull_out_of_a_flat_purchase/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhajce/would_it_be_crazy_to_pull_out_of_a_flat_purchase/",
           "subreddit": "HousingUK",
-          "score": 178,
-          "numComments": 73,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
-        }
-      ]
-    },
-    {
-      "name": "UKPersonalFinance",
-      "displayName": "r/UKPersonalFinance",
-      "description": "Debt, benefits, tax disputes, and consumer rights with legal crossover.",
-      "subscribers": 50000,
-      "posts": [
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782585955,
+          "snippet": "Really into a flat built into the roof space of a Victorian building. EPC is E and can’t be improved. During the heatwave it’s been 5-10 degrees hotter in there than outside. On the flip side, winters will be cold. Can’t increase insulation. Conservation area so don’t think I can",
+          "listingSource": "rss:hot"
+        },
         {
-          "id": "seed8",
-          "title": "County Court Judgment and credit file impact",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/seed8/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/seed8/",
-          "subreddit": "UKPersonalFinance",
-          "score": 95,
-          "numComments": 41,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
+          "id": "1ugwwp2",
+          "title": "Would you buy a house where a murder had taken place?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ugwwp2/would_you_buy_a_house_where_a_murder_had_taken/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ugwwp2/would_you_buy_a_house_where_a_murder_had_taken/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782547791,
+          "snippet": "Very sad story of an old guy smothering his equally old wife as he had it in his head she was dying (she wasn’t). Sympathy aside, is this going to be a long term problem (when it comes to selling), or is it going to be forgotten in a few years? It’s a great house, I’m just in two",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uh8y74",
+          "title": "Would you buy this type of House?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uh8y74/would_you_buy_this_type_of_house/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uh8y74/would_you_buy_this_type_of_house/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782582129,
+          "snippet": "My husband loves this house and wants to buy it but I don't like the 1970s slanted roof and placing of the staircase. The house is in a good location and houses in this area don't come on the market at this price regularly so I feel like my husband is right that we should go for ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uh4bgd",
+          "title": "“Offers in region of”",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uh4bgd/offers_in_region_of/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uh4bgd/offers_in_region_of/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782570863,
+          "snippet": "We’ve found a house we really love. It’s on at “offers in region of” £350k, but our ceiling is £330k. Two questions: 1. Would it be reasonable to offer £330k? 2. Would you offer £325k first to give room to negotiate? I feel £325k could be taken as insulting?! submitted by /u/Sign",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uhdyo1",
+          "title": "House needs new roof - are we idiots to proceed?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhdyo1/house_needs_new_roof_are_we_idiots_to_proceed/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhdyo1/house_needs_new_roof_are_we_idiots_to_proceed/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782594372,
+          "snippet": "We’re first time buyers proceeding with a sale for a 3 bed doer upper for 480k, in a very desirable area in Kent. (We know the price is crazy already), next to all the best schools in the area/close to the station etc. We’ve savings enough for some of the issues we expected (litt",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ughhrx",
+          "title": "Our seller paid 6 weeks rent for us to complete early",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ughhrx/our_seller_paid_6_weeks_rent_for_us_to_complete/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ughhrx/our_seller_paid_6_weeks_rent_for_us_to_complete/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782504408,
+          "snippet": "Just what the title says really. We are first time buyers and had our offer accepted back in February. The whole way along the process, the sellers solicitors have been slow to respond and it's been a stressful drawn out experience. We were ready to exchange apart from waiting on",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uhawr4",
+          "title": "Is this enforceable? [Scotland]",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhawr4/is_this_enforceable_scotland/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhawr4/is_this_enforceable_scotland/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782586860,
+          "snippet": "For context, moved in 2022, paid a deposit of £850. Since then, previous flatmates have caused damage to parts of property, which normally I would have to repair before moving out. When called out last year for a leak, landlord expressed to me that she would like me to repaint th",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ugv2j4",
+          "title": "Downstairs neighbour playing music overnight - anxiety through the roof.",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ugv2j4/downstairs_neighbour_playing_music_overnight/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ugv2j4/downstairs_neighbour_playing_music_overnight/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782541479,
+          "snippet": "Since May, my downstairs neighbour has started having friends over mostly at the weekends. They play bassy music which wakes me up as it fills my flat, usually from 2am, even when I ask him to turn it down. I've spoken to him both during and after it happening. He acts like he's ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uh65ec",
+          "title": "Completing/moving during this epic heatwave?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uh65ec/completingmoving_during_this_epic_heatwave/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uh65ec/completingmoving_during_this_epic_heatwave/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782575375,
+          "snippet": "Just curious if, like me, anyone else here has moved over the last couple of days during 30+C conditions, and how well you have coped? It has been brutally tiring for us - a portable air conditioner or two would have been invaluable, particularly to get some rejuvenating sleep. P",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ug5o8f",
+          "title": "Neighbour complaining about state of garden (Update)",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ug5o8f/neighbour_complaining_about_state_of_garden_update/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ug5o8f/neighbour_complaining_about_state_of_garden_update/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782477503,
+          "snippet": "Hi all! Link to the original post: https://www.reddit.com/r/HousingUK/s/hJFxQH8vyP Had many responses to my original post so figured I would drop an update. Thank you for all that commented both for and against! So, this morning I went out with a strimmer and took everything down",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ugyu5f",
+          "title": "Viewings",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ugyu5f/viewings/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ugyu5f/viewings/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782554740,
+          "snippet": "Hi, so, I'm due to move out of the rented property in just over a month. The landlord rang today to talk about viewings and I asked if all viewings could be done on a Monday, between 5pm - 7/8 pm. His response was - no, because not everyone will be available on Monday evening and",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ugzg5h",
+          "title": "Am I being ripped off? One wall and a celling painting for £1600",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ugzg5h/am_i_being_ripped_off_one_wall_and_a_celling/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ugzg5h/am_i_being_ripped_off_one_wall_and_a_celling/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782556831,
+          "snippet": "Hi, I wanted to ask if this sounds like a fair price or if I’m being overcharged. We bought a house recently, and the previous owners had left lots of patched holes in the walls and ceiling. I tried to repair and paint them myself, but even though they gave us the exact paint col",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uhgeum",
+          "title": "Looking for advice on new builds",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhgeum/looking_for_advice_on_new_builds/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhgeum/looking_for_advice_on_new_builds/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782600613,
+          "snippet": "Quick question. Looking to move house in the near future, upsize as the family is expanding etc. I see new builds popping up all the time and thought, somehow people must be able to afford them so i'll have a genuine look. Obviously they come with incentives, and the one that i'd",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uhf7u8",
+          "title": "What is the matrimonial home?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhf7u8/what_is_the_matrimonial_home/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhf7u8/what_is_the_matrimonial_home/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782597574,
+          "snippet": "My fiancé and I have never lived together and we're getting married next month. We're each selling our own houses and will be buying one together. We've both accepted offers and have had an offer accepted on the new home. It's early in the process, so we'd be looking at September",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uhe6nf",
+          "title": "Buying items from seller privately instead of through solicitors",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhe6nf/buying_items_from_seller_privately_instead_of/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhe6nf/buying_items_from_seller_privately_instead_of/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782594919,
+          "snippet": "Hi everyone, My house purchase has come to a standstill due to issues with sellers land reg. docs. We have not even received memorandum of sale. (The seller was only made aware of these issues once they accepted our offer and began legal proceedings). I noticed my seller was sell",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uhds1g",
+          "title": "House opinion",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhds1g/house_opinion/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhds1g/house_opinion/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782593923,
+          "snippet": "Hi, Can i have your thoughts on two houses please. I found this property on the Rightmove Android app and wanted you to see it: https://www.rightmove.co.uk/properties/90073059 I found this property on the Rightmove Android app and wanted you to see it: https://www.rightmove.co.uk",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ugzrbq",
+          "title": "Would you stretch your budget for a 4-bed house if you planned to sell in 7–10 years?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ugzrbq/would_you_stretch_your_budget_for_a_4bed_house_if/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ugzrbq/would_you_stretch_your_budget_for_a_4bed_house_if/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782557860,
+          "snippet": "Hi everyone, my husband and I are moving to Dundee from Edinburgh after securing higher specialty training posts and are planning to buy our first home. We're deciding between two new-build houses done about 5 years ago in the same area: 3-bed: around £260k – comfortably within o",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ugbwt3",
+          "title": "Conveyancers should not exist",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ugbwt3/conveyancers_should_not_exist/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ugbwt3/conveyancers_should_not_exist/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782491907,
+          "snippet": "In many other countries. You can complete a property transaction in less than 1 week, because the process is basically sign the contract and transfer the monies. But in UK you have these intermediares that slowdown the process A LOT (by months). It's insane you have to await 6-8 ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uhc7xa",
+          "title": "Neighbors rotating vent causing flickering light in my house, how do I approach them",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhc7xa/neighbors_rotating_vent_causing_flickering_light/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhc7xa/neighbors_rotating_vent_causing_flickering_light/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782590074,
+          "snippet": "Neighbour has a stainless steel spinning / rotating vent cap that catches the sun and causes flickering lights in my bedroom and living room. Just moved in and discovered this. It's severely irritating to my autistic son. Tried putting up net curtains but it passes through. Don't",
+          "listingSource": "rss:hot"
         }
       ]
     }
   ],
   "trendingTopics": [
     {
-      "slug": "housing-law",
-      "label": "Housing Law",
-      "legalAreaSlug": "housing",
-      "postCount": 3,
-      "engagementScore": 965,
+      "slug": "education-law",
+      "label": "Education Law",
+      "legalAreaSlug": "education",
+      "postCount": 1,
+      "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK",
         "HousingUK"
       ],
       "posts": [
         {
-          "id": "seed3",
-          "title": "Section 21 notice received — is it valid?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed3/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed3/",
-          "subreddit": "LegalAdviceUK",
-          "score": 201,
-          "numComments": 91,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
-        },
-        {
-          "id": "seed7",
-          "title": "Damp and mould — landlord repair obligations",
-          "url": "https://www.reddit.com/r/HousingUK/comments/seed7/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/seed7/",
+          "id": "1uhfu8r",
+          "title": "Am I being too sensitive about my flatshare rules, or is this unreasonable? (London)",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhfu8r/am_i_being_too_sensitive_about_my_flatshare_rules/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhfu8r/am_i_being_too_sensitive_about_my_flatshare_rules/",
           "subreddit": "HousingUK",
-          "score": 178,
-          "numComments": 73,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
-        },
-        {
-          "id": "seed1",
-          "title": "Landlord withholding deposit after tenancy ended",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed1/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed1/",
-          "subreddit": "LegalAdviceUK",
-          "score": 142,
-          "numComments": 58,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782599117,
+          "snippet": "Hi, I’m a tenant in London working as a barista. I am looking for an objective reality check on whether I am being \"too sensitive\" or \"unreasonable\" regarding the current situation in my flatshare. Please give me your honest feedback. Here is the factual timeline of what has happ",
+          "listingSource": "rss:hot"
         }
       ]
     },
@@ -190,97 +285,131 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 2,
-      "engagementScore": 377,
+      "postCount": 18,
+      "engagementScore": 0,
       "subreddits": [
-        "HousingUK",
-        "UKPersonalFinance"
+        "HousingUK"
       ],
       "posts": [
         {
-          "id": "seed6",
-          "title": "Council tax liability when moving between properties",
-          "url": "https://www.reddit.com/r/HousingUK/comments/seed6/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/seed6/",
+          "id": "1uhajce",
+          "title": "Would it be crazy to pull out of a flat purchase due to extreme heat?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhajce/would_it_be_crazy_to_pull_out_of_a_flat_purchase/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhajce/would_it_be_crazy_to_pull_out_of_a_flat_purchase/",
           "subreddit": "HousingUK",
-          "score": 112,
-          "numComments": 44,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782585955,
+          "snippet": "Really into a flat built into the roof space of a Victorian building. EPC is E and can’t be improved. During the heatwave it’s been 5-10 degrees hotter in there than outside. On the flip side, winters will be cold. Can’t increase insulation. Conservation area so don’t think I can",
+          "listingSource": "rss:hot"
         },
         {
-          "id": "seed8",
-          "title": "County Court Judgment and credit file impact",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/seed8/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/seed8/",
-          "subreddit": "UKPersonalFinance",
-          "score": 95,
-          "numComments": 41,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
+          "id": "1ugwwp2",
+          "title": "Would you buy a house where a murder had taken place?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ugwwp2/would_you_buy_a_house_where_a_murder_had_taken/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ugwwp2/would_you_buy_a_house_where_a_murder_had_taken/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782547791,
+          "snippet": "Very sad story of an old guy smothering his equally old wife as he had it in his head she was dying (she wasn’t). Sympathy aside, is this going to be a long term problem (when it comes to selling), or is it going to be forgotten in a few years? It’s a great house, I’m just in two",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uh8y74",
+          "title": "Would you buy this type of House?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uh8y74/would_you_buy_this_type_of_house/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uh8y74/would_you_buy_this_type_of_house/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782582129,
+          "snippet": "My husband loves this house and wants to buy it but I don't like the 1970s slanted roof and placing of the staircase. The house is in a good location and houses in this area don't come on the market at this price regularly so I feel like my husband is right that we should go for ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uh4bgd",
+          "title": "“Offers in region of”",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uh4bgd/offers_in_region_of/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uh4bgd/offers_in_region_of/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782570863,
+          "snippet": "We’ve found a house we really love. It’s on at “offers in region of” £350k, but our ceiling is £330k. Two questions: 1. Would it be reasonable to offer £330k? 2. Would you offer £325k first to give room to negotiate? I feel £325k could be taken as insulting?! submitted by /u/Sign",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uhdyo1",
+          "title": "House needs new roof - are we idiots to proceed?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhdyo1/house_needs_new_roof_are_we_idiots_to_proceed/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhdyo1/house_needs_new_roof_are_we_idiots_to_proceed/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782594372,
+          "snippet": "We’re first time buyers proceeding with a sale for a 3 bed doer upper for 480k, in a very desirable area in Kent. (We know the price is crazy already), next to all the best schools in the area/close to the station etc. We’ve savings enough for some of the issues we expected (litt",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ughhrx",
+          "title": "Our seller paid 6 weeks rent for us to complete early",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ughhrx/our_seller_paid_6_weeks_rent_for_us_to_complete/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ughhrx/our_seller_paid_6_weeks_rent_for_us_to_complete/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782504408,
+          "snippet": "Just what the title says really. We are first time buyers and had our offer accepted back in February. The whole way along the process, the sellers solicitors have been slow to respond and it's been a stressful drawn out experience. We were ready to exchange apart from waiting on",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uhawr4",
+          "title": "Is this enforceable? [Scotland]",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhawr4/is_this_enforceable_scotland/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhawr4/is_this_enforceable_scotland/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782586860,
+          "snippet": "For context, moved in 2022, paid a deposit of £850. Since then, previous flatmates have caused damage to parts of property, which normally I would have to repair before moving out. When called out last year for a leak, landlord expressed to me that she would like me to repaint th",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ugv2j4",
+          "title": "Downstairs neighbour playing music overnight - anxiety through the roof.",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1ugv2j4/downstairs_neighbour_playing_music_overnight/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1ugv2j4/downstairs_neighbour_playing_music_overnight/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782541479,
+          "snippet": "Since May, my downstairs neighbour has started having friends over mostly at the weekends. They play bassy music which wakes me up as it fills my flat, usually from 2am, even when I ask him to turn it down. I've spoken to him both during and after it happening. He acts like he's ",
+          "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 2,
-      "engagementScore": 268,
-      "subreddits": [
-        "LegalAdviceUK",
-        "uklaw"
-      ],
-      "posts": [
-        {
-          "id": "seed2",
-          "title": "Unfair dismissal — probation period and notice",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/seed2/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/seed2/",
-          "subreddit": "LegalAdviceUK",
-          "score": 89,
-          "numComments": 34,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
-        },
-        {
-          "id": "seed4",
-          "title": "Recent employment tribunal trends on remote work",
-          "url": "https://www.reddit.com/r/uklaw/comments/seed4/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/seed4/",
-          "subreddit": "uklaw",
-          "score": 67,
-          "numComments": 22,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
-        }
-      ]
-    },
-    {
-      "slug": "consumer-law",
-      "label": "Consumer Law",
-      "legalAreaSlug": "consumer",
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
       "postCount": 1,
-      "engagementScore": 81,
+      "engagementScore": 0,
       "subreddits": [
-        "uklaw"
+        "HousingUK"
       ],
       "posts": [
         {
-          "id": "seed5",
-          "title": "Interpretation of Consumer Rights Act refunds",
-          "url": "https://www.reddit.com/r/uklaw/comments/seed5/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/seed5/",
-          "subreddit": "uklaw",
-          "score": 45,
-          "numComments": 18,
-          "createdUtc": 1781753087,
-          "snippet": "Sample discussion post for local OSLAW development.",
-          "listingSource": "hot"
+          "id": "1uhe6nf",
+          "title": "Buying items from seller privately instead of through solicitors",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1uhe6nf/buying_items_from_seller_privately_instead_of/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1uhe6nf/buying_items_from_seller_privately_instead_of/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1782594919,
+          "snippet": "Hi everyone, My house purchase has come to a standstill due to issues with sellers land reg. docs. We have not even received memorandum of sale. (The seller was only made aware of these issues once they accepted our offer and began legal proceedings). I noticed my seller was sell",
+          "listingSource": "rss:hot"
         }
       ]
     }

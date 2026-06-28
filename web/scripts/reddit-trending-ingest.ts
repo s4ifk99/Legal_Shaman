@@ -21,16 +21,34 @@ const OUTPUT = resolve(process.cwd(), "data/reddit-trending.json");
 
 async function scrapeSubreddit(name: string, displayName: string, description: string) {
   const posts = [];
-  let ingestSource: "public" | "oauth" = "public";
+  let ingestSource: "public" | "oauth" | "rss" = "public";
+
   for (const source of OSLAW_LISTING_SOURCES) {
-    const batch = await fetchSubredditListing(name, {
-      sort: source.sort,
-      time: source.time,
-      limit: OSLAW_LISTING_LIMIT,
-    });
-    if (batch.source === "oauth") ingestSource = "oauth";
-    posts.push(...batch.posts);
-    await sleep(1100);
+    try {
+      const batch = await fetchSubredditListing(name, {
+        sort: source.sort,
+        time: source.time,
+        limit: OSLAW_LISTING_LIMIT,
+      });
+      if (batch.source === "oauth") ingestSource = "oauth";
+      else if (batch.source === "rss") ingestSource = "rss";
+      posts.push(...batch.posts);
+    } catch (err) {
+      console.warn(
+        JSON.stringify({
+          event: "oslaw_listing_source_error",
+          subreddit: name,
+          sort: source.sort,
+          time: source.time ?? null,
+          error: err instanceof Error ? err.message : String(err),
+        }),
+      );
+    }
+    await sleep(1500);
+  }
+
+  if (!posts.length) {
+    throw new Error("no posts from any listing source");
   }
 
   const about = await fetchSubredditAboutPublic(name);
@@ -65,7 +83,7 @@ function sleep(ms: number) {
 
 async function main() {
   const subreddits: OslawSubredditSnapshot[] = [];
-  let ingestSource: "public" | "oauth" = "public";
+  let ingestSource: "public" | "oauth" | "rss" = "public";
 
   for (const config of OSLAW_SUBREDDITS) {
     try {

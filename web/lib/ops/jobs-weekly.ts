@@ -9,6 +9,7 @@ import {
 } from "@/lib/ops/search-index-builds";
 import { logJobEvent, runJobStep, runNpmStep, summarizeSteps } from "@/lib/ops/job-runner";
 import { writeOpsJobRun } from "@/lib/ops/job-state";
+import { shouldRunTypesenseOps } from "@/lib/ops/typesense-host";
 
 export type WeeklyJobOptions = {
   force?: boolean;
@@ -74,31 +75,42 @@ export async function runWeeklyJobs(opts: WeeklyJobOptions = {}): Promise<Weekly
   const build = await startSearchIndexBuild("weekly");
   buildId = build?.id;
 
-  steps.push(
-    await runNpmStep("search:index:sra", "search:index:sra", [], {
-      SRA_INDEX_SKIP_GEO: "1",
-    }),
-  );
+  const tsOps = await shouldRunTypesenseOps();
+  if (tsOps.run) {
+    steps.push(
+      await runNpmStep("search:index:sra", "search:index:sra", [], {
+        SRA_INDEX_SKIP_GEO: "1",
+      }),
+    );
 
-  steps.push(
-    await runJobStep("search:index:all", async () => {
-      const stats = await syncLegalEntitiesToTypesense("all");
-      const ok = stats.errors.length === 0 && stats.documentsUpserted > 0;
-      return {
-        ok,
-        detail: ok
-          ? `upserted=${stats.documentsUpserted}`
-          : stats.errors.slice(0, 3).join("; ") || "no documents upserted",
-      };
-    }),
-  );
+    steps.push(
+      await runJobStep("search:index:all", async () => {
+        const stats = await syncLegalEntitiesToTypesense("all");
+        const ok = stats.errors.length === 0 && stats.documentsUpserted > 0;
+        return {
+          ok,
+          detail: ok
+            ? `upserted=${stats.documentsUpserted}`
+            : stats.errors.slice(0, 3).join("; ") || "no documents upserted",
+        };
+      }),
+    );
 
-  steps.push(
-    await runJobStep("search:index:verify", async () => {
-      const report = await verifyLegalEntitiesIndex();
-      return { ok: report.ok, detail: report.ok ? undefined : `${report.rows.filter((r) => r.status === "fail").length} failures` };
-    }),
-  );
+    steps.push(
+      await runJobStep("search:index:verify", async () => {
+        const report = await verifyLegalEntitiesIndex();
+        return {
+          ok: report.ok,
+          detail: report.ok ? undefined : `${report.rows.filter((r) => r.status === "fail").length} failures`,
+        };
+      }),
+    );
+  } else {
+    const skipDetail = tsOps.reason ?? "Typesense ops disabled";
+    steps.push({ name: "search:index:sra", ok: true, detail: `skipped: ${skipDetail}` });
+    steps.push({ name: "search:index:all", ok: true, detail: `skipped: ${skipDetail}` });
+    steps.push({ name: "search:index:verify", ok: true, detail: `skipped: ${skipDetail}` });
+  }
 
   steps.push(await runNpmStep("search:eval", "search:eval"));
 

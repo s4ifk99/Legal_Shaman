@@ -14,6 +14,7 @@ jobs:
     timeout-minutes: 360
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DIRECTORY_SEARCH_BACKEND: postgres
     defaults:
       run:
         working-directory: web
@@ -37,7 +38,24 @@ jobs:
           MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
           SRA_INDEX_SKIP_GEO: "1"
         run: npm run sra:sync -- --skip-embeddings --skip-typesense
+      - name: Check Typesense reachability
+        id: typesense
+        env:
+          TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
+        run: |
+          if [ -z "$TYPESENSE_HOST" ]; then
+            echo "reachable=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::TYPESENSE_HOST secret is not set — skipping Typesense re-index. Production search uses Postgres."
+            exit 0
+          fi
+          if getent hosts "$TYPESENSE_HOST" >/dev/null 2>&1; then
+            echo "reachable=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "reachable=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::TYPESENSE_HOST does not resolve ($TYPESENSE_HOST). Skipping Typesense re-index — restore cluster per web/docs/ops/restore-typesense.md"
+          fi
       - name: Typesense SRA re-index (throttled)
+        if: steps.typesense.outputs.reachable == 'true'
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
@@ -48,13 +66,7 @@ jobs:
           TYPESENSE_IMPORT_PAUSE_MS: "3000"
           SEARCH_INDEX_SRA_PAGE_SIZE: "100"
           SRA_INDEX_SKIP_GEO: "1"
-        run: |
-          if [ -z "$TYPESENSE_HOST" ]; then
-            echo "::error::TYPESENSE_HOST secret is not set — search index cannot be rebuilt."
-            exit 1
-          fi
-          if ! getent hosts "$TYPESENSE_HOST" >/dev/null 2>&1; then
-            echo "::error::TYPESENSE_HOST does not resolve ($TYPESENSE_HOST). Update the Typesense Cloud cluster hostname in GitHub + Vercel secrets."
-            exit 1
-          fi
-          npm run search:index:sra
+        run: npm run search:index:sra
+      - name: Typesense skipped notice
+        if: steps.typesense.outputs.reachable != 'true'
+        run: echo "SRA Postgres sync completed. Typesense re-index skipped (host unreachable or unset)."

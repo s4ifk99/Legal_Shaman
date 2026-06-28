@@ -1,6 +1,7 @@
 import type { OslawPost } from "@/lib/oslaw/types";
-import { getRedditAccessToken, hasRedditOAuthCredentials } from "./search";
+import { getRedditAccessToken, hasRedditOAuthCredentials } from "./oauth";
 import { fetchRedditPublic, REDDIT_USER_AGENT } from "./public-fetch";
+import { fetchSubredditHotRss } from "./rss";
 import type { RedditListingChild, RedditSearchListing } from "./types";
 
 function buildSnippet(selftext: string | undefined): string {
@@ -105,11 +106,11 @@ async function fetchSubredditListingOAuth(
     .filter((post): post is OslawPost => post !== null);
 }
 
-/** Public JSON with OAuth fallback when credentials are configured. */
+/** Public JSON with OAuth → RSS fallback (RSS works from CI without Reddit API app). */
 export async function fetchSubredditListing(
   subreddit: string,
   options: FetchListingOptions,
-): Promise<{ posts: OslawPost[]; source: "public" | "oauth" }> {
+): Promise<{ posts: OslawPost[]; source: "public" | "oauth" | "rss" }> {
   const errors: string[] = [];
 
   if (hasRedditOAuthCredentials()) {
@@ -126,6 +127,28 @@ export async function fetchSubredditListing(
     return { posts, source: "public" };
   } catch (err) {
     errors.push(`public: ${err instanceof Error ? err.message : String(err)}`);
+  }
+
+  if (options.sort === "hot") {
+    try {
+      const limit = Math.min(50, Math.max(1, options.limit ?? 25));
+      const rssRows = await fetchSubredditHotRss(subreddit, limit);
+      const posts: OslawPost[] = rssRows.map((row) => ({
+        id: row.id,
+        title: row.title,
+        url: row.url,
+        permalink: row.url,
+        subreddit: subreddit,
+        score: row.score,
+        numComments: row.comments,
+        createdUtc: row.createdUtc,
+        snippet: row.snippet ?? "",
+        listingSource: "rss:hot",
+      }));
+      if (posts.length) return { posts, source: "rss" };
+    } catch (err) {
+      errors.push(`rss: ${err instanceof Error ? err.message : String(err)}`);
+    }
   }
 
   throw new Error(errors.join("; ") || "reddit_unreachable");

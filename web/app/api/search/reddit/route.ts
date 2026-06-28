@@ -1,22 +1,22 @@
 import { NextResponse } from "next/server";
+import { fetchLiveRedditSearch } from "@/lib/reddit-search/live-search";
 import { formatOslawScrapedAt, getOslawTrendingData } from "@/lib/oslaw/data";
 import { searchCachedOslawPosts } from "@/lib/oslaw/search-cached";
-import { fetchLiveRedditSearch } from "@/lib/reddit-search/live-search";
 
 export const runtime = "nodejs";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const q = (searchParams.get("q") || "").trim();
-  const limit = Math.min(25, Math.max(1, Number(searchParams.get("limit") || 8) || 8));
+  const limit = Math.min(25, Math.max(1, Number(searchParams.get("limit") || 12) || 12));
 
   if (q.length < 2) {
     return NextResponse.json({ results: [] });
   }
 
   try {
-    const results = await fetchLiveRedditSearch(q, limit);
-    return NextResponse.json({ results, source: "live" as const });
+    const { results, source } = await fetchLiveRedditSearch(q, limit);
+    return NextResponse.json({ results, source });
   } catch (liveError) {
     console.warn("[/api/search/reddit] live fetch failed:", liveError);
 
@@ -37,7 +37,7 @@ export async function GET(req: Request) {
         results: [],
         error: "reddit_unreachable",
         message:
-          "Reddit is not reachable from this server and no cached OSLAW posts matched your query. Try /oslaw for trending discussions or run npm run reddit:trending:ingest.",
+          "Reddit is not reachable from this server and no cached OSLAW posts matched your query.",
       },
       { status: 503 },
     );

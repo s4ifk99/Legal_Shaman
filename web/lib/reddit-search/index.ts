@@ -88,6 +88,7 @@ export async function redditAgentSearch(
 
 export { generateQueries, generateRefinedQueries } from "./planner";
 export { searchReddit, RedditSearchError } from "./search";
+export { getRedditAccessToken, hasRedditOAuthCredentials } from "./oauth";
 export { rankResults, countHighlyRelevant } from "./scorer";
 export { OpenRouterError } from "./openrouter-client";
 export type {

@@ -36,7 +36,7 @@ export type OslawTrendingMeta = {
   subredditCount: number;
   postCount: number;
   topicCount: number;
-  ingestSource: "oauth" | "public";
+  ingestSource: "oauth" | "public" | "rss";
 };
 
 export type OslawTrendingData = {

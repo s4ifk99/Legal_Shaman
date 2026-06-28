@@ -1,38 +1,21 @@
 import { REDDIT_USER_AGENT } from "./public-fetch";
+import {
+  clearRedditTokenCache,
+  getRedditAccessToken,
+  hasRedditOAuthCredentials,
+  RedditSearchError,
+} from "./oauth";
 import type {
   RedditListingChild,
   RedditResult,
   RedditSearchListing,
-  RedditTokenResponse,
 } from "./types";
 
-const SUBREDDIT = "LegalAdviceUK";
+const DEFAULT_SUBREDDIT = "LegalAdviceUK";
 const SEARCH_LIMIT = 10;
 const USER_AGENT = REDDIT_USER_AGENT;
 
-export class RedditSearchError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = "RedditSearchError";
-  }
-}
-
-type CachedToken = {
-  accessToken: string;
-  expiresAtMs: number;
-};
-
-let cachedToken: CachedToken | null = null;
-
-function requireEnv(name: string): string {
-  const value = process.env[name]?.trim();
-  if (!value) {
-    throw new RedditSearchError(
-      `Missing required environment variable: ${name} (set in web/.env.local)`,
-    );
-  }
-  return value;
-}
+export { RedditSearchError };
 
 function normalizeUrl(url: string): string {
   try {
@@ -48,7 +31,7 @@ function normalizeUrl(url: string): string {
   }
 }
 
-function buildPostUrl(child: RedditListingChild): string {
+function buildPostUrl(child: RedditListingChild, subreddit: string): string {
   const permalink = child.data?.permalink?.trim();
   if (permalink) {
     return permalink.startsWith("http")
@@ -59,7 +42,7 @@ function buildPostUrl(child: RedditListingChild): string {
   const rawUrl = child.data?.url?.trim();
   if (rawUrl?.startsWith("http")) return rawUrl;
 
-  return `https://www.reddit.com/r/${SUBREDDIT}/`;
+  return `https://www.reddit.com/r/${subreddit}/`;
 }
 
 function buildSnippet(selftext: string | undefined): string {
@@ -68,97 +51,39 @@ function buildSnippet(selftext: string | undefined): string {
   return text.length > 280 ? `${text.slice(0, 277)}...` : text;
 }
 
-function mapListingChild(child: RedditListingChild): RedditResult | null {
+function mapListingChild(child: RedditListingChild, subreddit: string): RedditResult | null {
   const data = child.data;
   if (!data?.title?.trim()) return null;
 
   return {
+    id: data.id?.trim() || buildPostUrl(child, subreddit),
     title: data.title.trim(),
-    url: buildPostUrl(child),
-    subreddit: (data.subreddit ?? SUBREDDIT).trim(),
+    url: buildPostUrl(child, subreddit),
+    subreddit: (data.subreddit ?? subreddit).trim(),
     score: typeof data.score === "number" ? data.score : 0,
+    numComments: typeof data.num_comments === "number" ? data.num_comments : 0,
     createdUtc: typeof data.created_utc === "number" ? data.created_utc : 0,
     snippet: buildSnippet(data.selftext),
   };
 }
 
 /**
- * Obtain a Reddit OAuth access token (password grant), with in-memory caching.
- */
-export async function getRedditAccessToken(): Promise<string> {
-  if (cachedToken && Date.now() < cachedToken.expiresAtMs - 60_000) {
-    return cachedToken.accessToken;
-  }
-
-  const clientId = requireEnv("REDDIT_CLIENT_ID");
-  const clientSecret = requireEnv("REDDIT_CLIENT_SECRET");
-  const username = requireEnv("REDDIT_USERNAME");
-  const password = requireEnv("REDDIT_PASSWORD");
-
-  const credentials = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
-
-  let response: Response;
-  try {
-    response = await fetch("https://www.reddit.com/api/v1/access_token", {
-      method: "POST",
-      headers: {
-        Authorization: `Basic ${credentials}`,
-        "Content-Type": "application/x-www-form-urlencoded",
-        "User-Agent": USER_AGENT,
-      },
-      body: new URLSearchParams({
-        grant_type: "password",
-        username,
-        password,
-      }),
-    });
-  } catch (err) {
-    throw new RedditSearchError(
-      `Reddit OAuth request failed: ${err instanceof Error ? err.message : String(err)}`,
-    );
-  }
-
-  const data = (await response.json()) as RedditTokenResponse;
-
-  if (!response.ok || !data.access_token) {
-    throw new RedditSearchError(
-      data.error ?? `Reddit OAuth failed with HTTP ${response.status}`,
-    );
-  }
-
-  const expiresInSec = typeof data.expires_in === "number" ? data.expires_in : 3600;
-  cachedToken = {
-    accessToken: data.access_token,
-    expiresAtMs: Date.now() + expiresInSec * 1000,
-  };
-
-  return data.access_token;
-}
-
-export function hasRedditOAuthCredentials(): boolean {
-  return Boolean(
-    process.env.REDDIT_CLIENT_ID?.trim() &&
-      process.env.REDDIT_CLIENT_SECRET?.trim() &&
-      process.env.REDDIT_USERNAME?.trim() &&
-      process.env.REDDIT_PASSWORD?.trim(),
-  );
-}
-
-/**
- * Execute a single subreddit search query against r/LegalAdviceUK.
+ * Execute a single subreddit search query.
  */
 async function searchSingleQuery(
   accessToken: string,
   query: string,
+  subreddit: string,
+  limit = SEARCH_LIMIT,
 ): Promise<RedditResult[]> {
   const trimmed = query.trim();
   if (!trimmed) return [];
 
-  const url = new URL(`https://oauth.reddit.com/r/${SUBREDDIT}/search`);
+  const url = new URL(`https://oauth.reddit.com/r/${subreddit}/search`);
   url.searchParams.set("q", trimmed);
   url.searchParams.set("restrict_sr", "1");
   url.searchParams.set("sort", "relevance");
-  url.searchParams.set("limit", String(SEARCH_LIMIT));
+  url.searchParams.set("limit", String(limit));
 
   let response: Response;
   try {
@@ -175,7 +100,7 @@ async function searchSingleQuery(
   }
 
   if (response.status === 401) {
-    cachedToken = null;
+    clearRedditTokenCache();
     throw new RedditSearchError("Reddit access token expired or invalid");
   }
 
@@ -190,8 +115,26 @@ async function searchSingleQuery(
   const children = listing.data?.children ?? [];
 
   return children
-    .map(mapListingChild)
+    .map((child) => mapListingChild(child, subreddit))
     .filter((item): item is RedditResult => item !== null);
+}
+
+/** Search a single subreddit via OAuth. */
+export async function searchRedditInSubreddit(
+  query: string,
+  subreddit: string,
+  limit = SEARCH_LIMIT,
+): Promise<RedditResult[]> {
+  const accessToken = await getRedditAccessToken();
+  try {
+    return await searchSingleQuery(accessToken, query, subreddit, limit);
+  } catch (err) {
+    if (err instanceof RedditSearchError && err.message.includes("expired")) {
+      const refreshed = await getRedditAccessToken();
+      return await searchSingleQuery(refreshed, query, subreddit, limit);
+    }
+    throw err;
+  }
 }
 
 /**
@@ -208,11 +151,11 @@ export async function searchReddit(queries: string[]): Promise<RedditResult[]> {
   for (const query of queries) {
     let results: RedditResult[];
     try {
-      results = await searchSingleQuery(accessToken, query);
+      results = await searchSingleQuery(accessToken, query, DEFAULT_SUBREDDIT);
     } catch (err) {
       if (err instanceof RedditSearchError && err.message.includes("expired")) {
         const refreshed = await getRedditAccessToken();
-        results = await searchSingleQuery(refreshed, query);
+        results = await searchSingleQuery(refreshed, query, DEFAULT_SUBREDDIT);
       } else {
         throw err;
       }

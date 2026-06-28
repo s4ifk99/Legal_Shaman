@@ -1,7 +1,10 @@
 import type { OpenRouterChatResponse } from "./types";
-
-const DEFAULT_BASE_URL = "https://openrouter.ai/api/v1";
-const DEFAULT_MODEL = "openai/gpt-4o-mini";
+import {
+  openRouterDefaultHeaders,
+  resolveChatModel,
+  resolveLlmApiKey,
+  resolveLlmBaseUrl,
+} from "@/lib/llm/openrouter";
 
 export class OpenRouterError extends Error {
   constructor(
@@ -14,30 +17,14 @@ export class OpenRouterError extends Error {
 }
 
 /** Same keys as `lib/llm/client.ts` — reads `web/.env.local` when scripts import `load-dotenv`. */
-function resolveLlmApiKey(): string {
-  const key =
-    process.env.LLM_API_KEY?.trim() || process.env.OPENROUTER_API_KEY?.trim();
+function resolveLlmApiKeyOrThrow(): string {
+  const key = resolveLlmApiKey();
   if (!key) {
     throw new OpenRouterError(
       "Missing LLM_API_KEY (or OPENROUTER_API_KEY). Set LLM_API_KEY in web/.env.local — the same OpenRouter key used for /find-a-lawyer.",
     );
   }
   return key;
-}
-
-function resolveLlmBaseUrl(): string {
-  return (process.env.LLM_BASE_URL?.trim() || DEFAULT_BASE_URL).replace(/\/+$/, "");
-}
-
-function resolveChatModel(explicit?: string): string {
-  return (
-    explicit?.trim() ||
-    process.env.REDDIT_SEARCH_MODEL?.trim() ||
-    process.env.LLM_SMALL_MODEL?.trim() ||
-    process.env.LLM_MODEL?.trim() ||
-    process.env.LLM_CHAT_MODEL?.trim() ||
-    DEFAULT_MODEL
-  );
 }
 
 function chatCompletionsUrl(): string {
@@ -77,21 +64,23 @@ export async function openRouterJsonCompletion(
   userPrompt: string,
   model?: string,
 ): Promise<unknown> {
-  const apiKey = resolveLlmApiKey();
-  const resolvedModel = resolveChatModel(model);
+  const apiKey = resolveLlmApiKeyOrThrow();
+  const resolvedModel =
+    model?.trim() ||
+    process.env.REDDIT_SEARCH_MODEL?.trim() ||
+    process.env.LLM_SMALL_MODEL?.trim() ||
+    resolveChatModel();
 
   let response: Response;
   try {
+    const headers: Record<string, string> = {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      ...(openRouterDefaultHeaders() ?? {}),
+    };
     response = await fetch(chatCompletionsUrl(), {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer":
-          process.env.OPENROUTER_HTTP_REFERER?.trim() || "https://legalshaman.local",
-        "X-Title":
-          process.env.OPENROUTER_APP_TITLE?.trim() || "Legal Shaman Reddit Search",
-      },
+      headers,
       body: JSON.stringify({
         model: resolvedModel,
         response_format: { type: "json_object" },

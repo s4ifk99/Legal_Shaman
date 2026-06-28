@@ -2,6 +2,7 @@ import { runProdHealth } from "@/lib/ops/prod-health";
 import { logJobEvent, runJobStep, runNpmStep, summarizeSteps } from "@/lib/ops/job-runner";
 import { writeOpsJobRun } from "@/lib/ops/job-state";
 import { runRefreshApprovedJobs } from "@/lib/ops/jobs-refresh-approved";
+import { shouldRunTypesenseOps } from "@/lib/ops/typesense-host";
 
 export type DailyJobResult = {
   ok: boolean;
@@ -14,6 +15,7 @@ export type DailyJobResult = {
 export async function runDailyJobs(): Promise<DailyJobResult> {
   const startedAt = new Date().toISOString();
   const steps = [];
+  const tsOps = await shouldRunTypesenseOps();
 
   steps.push(
     await runJobStep("prod:health", async () => {
@@ -32,17 +34,30 @@ export async function runDailyJobs(): Promise<DailyJobResult> {
     ),
   );
 
-  steps.push(
-    await runJobStep("jobs:refresh-approved", async () => {
-      const refresh = await runRefreshApprovedJobs({ limit: 50 });
-      return {
-        ok: refresh.ok,
-        detail: `processed=${refresh.processed} failed=${refresh.failed}`,
-      };
-    }),
-  );
+  if (tsOps.run) {
+    steps.push(
+      await runJobStep("jobs:refresh-approved", async () => {
+        const refresh = await runRefreshApprovedJobs({ limit: 50 });
+        return {
+          ok: refresh.ok,
+          detail: `processed=${refresh.processed} failed=${refresh.failed}`,
+        };
+      }),
+    );
 
-  steps.push(await runNpmStep("search:index:verify", "search:index:verify"));
+    steps.push(await runNpmStep("search:index:verify", "search:index:verify"));
+  } else {
+    steps.push({
+      name: "jobs:refresh-approved",
+      ok: true,
+      detail: `skipped: ${tsOps.reason ?? "Typesense ops disabled"}`,
+    });
+    steps.push({
+      name: "search:index:verify",
+      ok: true,
+      detail: `skipped: ${tsOps.reason ?? "Typesense ops disabled"}`,
+    });
+  }
 
   const summary = summarizeSteps(steps);
   const completedAt = new Date().toISOString();

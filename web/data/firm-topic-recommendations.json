@@ -1,0 +1,757 @@
+{
+  "built_at": "2026-06-25T15:49:25.450897+00:00",
+  "min_articles": 5,
+  "directory_base": "https://legalshaman.com/search?q=",
+  "practice_areas": {
+    "Property Law": [
+      {
+        "firm": "Taylor Rose",
+        "article_count": 50,
+        "sra_id": "",
+        "directory_url": "https://legalshaman.com/search?q=Taylor%20Rose",
+        "source": "supplementary"
+      },
+      {
+        "firm": "M & S SOLICITORS LIMITED",
+        "article_count": 5,
+        "sra_id": "369431",
+        "directory_url": "https://legalshaman.com/search?q=M%20%26%20S%20SOLICITORS%20LIMITED"
+      }
+    ],
+    "Personal Injury": [],
+    "Commercial Law": [
+      {
+        "firm": "Taylor Rose",
+        "article_count": 76,
+        "sra_id": "",
+        "directory_url": "https://legalshaman.com/search?q=Taylor%20Rose",
+        "source": "supplementary"
+      },
+      {
+        "firm": "DEBEVOISE & PLIMPTON LLP",
+        "article_count": 28,
+        "sra_id": "264277",
+        "directory_url": "https://legalshaman.com/search?q=DEBEVOISE%20%26%20PLIMPTON%20LLP"
+      },
+      {
+        "firm": "LATHAM & WATKINS LLP",
+        "article_count": 20,
+        "sra_id": "328090",
+        "directory_url": "https://legalshaman.com/search?q=LATHAM%20%26%20WATKINS%20LLP"
+      },
+      {
+        "firm": "SIMPSON THACHER & BARTLETT LLP",
+        "article_count": 17,
+        "sra_id": "380782",
+        "directory_url": "https://legalshaman.com/search?q=SIMPSON%20THACHER%20%26%20BARTLETT%20LLP"
+      },
+      {
+        "firm": "KIRKLAND & ELLIS INTERNATIONAL LLP",
+        "article_count": 13,
+        "sra_id": "349107",
+        "directory_url": "https://legalshaman.com/search?q=KIRKLAND%20%26%20ELLIS%20INTERNATIONAL%20LLP"
+      },
+      {
+        "firm": "CURTIS MALLET-PREVOST COLT & MOSLE LLP",
+        "article_count": 11,
+        "sra_id": "367685",
+        "directory_url": "https://legalshaman.com/search?q=CURTIS%20MALLET-PREVOST%20COLT%20%26%20MOSLE%20LLP"
+      },
+      {
+        "firm": "CROWELL & MORING LLP",
+        "article_count": 9,
+        "sra_id": "347980",
+        "directory_url": "https://legalshaman.com/search?q=CROWELL%20%26%20MORING%20LLP"
+      },
+      {
+        "firm": "WEIL GOTSHAL & MANGES LLP",
+        "article_count": 9,
+        "sra_id": "264682",
+        "directory_url": "https://legalshaman.com/search?q=WEIL%20GOTSHAL%20%26%20MANGES%20LLP"
+      }
+    ],
+    "Wills and Probate": [
+      {
+        "firm": "Taylor Rose",
+        "article_count": 38,
+        "sra_id": "",
+        "directory_url": "https://legalshaman.com/search?q=Taylor%20Rose",
+        "source": "supplementary"
+      },
+      {
+        "firm": "SIMPSON THACHER & BARTLETT LLP",
+        "article_count": 20,
+        "sra_id": "380792",
+        "directory_url": "https://legalshaman.com/search?q=SIMPSON%20THACHER%20%26%20BARTLETT%20LLP"
+      },
+      {
+        "firm": "LATHAM & WATKINS LLP",
+        "article_count": 12,
+        "sra_id": "328090",
+        "directory_url": "https://legalshaman.com/search?q=LATHAM%20%26%20WATKINS%20LLP"
+      },
+      {
+        "firm": "Hopleys GMA incorporating Keene and Kelly",
+        "article_count": 7,
+        "sra_id": "303553",
+        "directory_url": "https://legalshaman.com/search?q=Hopleys%20GMA%20incorporating%20Keene%20and%20Kelly"
+      }
+    ],
+    "Family Law": [
+      {
+        "firm": "Taylor Rose",
+        "article_count": 39,
+        "sra_id": "",
+        "directory_url": "https://legalshaman.com/search?q=Taylor%20Rose",
+        "source": "supplementary"
+      },
+      {
+        "firm": "VENTERS SOLICITORS",
+        "article_count": 23,
+        "sra_id": "352598",
+        "directory_url": "https://legalshaman.com/search?q=VENTERS%20SOLICITORS"
+      },
+      {
+        "firm": "LATHAM & WATKINS LLP",
+        "article_count": 8,
+        "sra_id": "328090",
+        "directory_url": "https://legalshaman.com/search?q=LATHAM%20%26%20WATKINS%20LLP"
+      },
+      {
+        "firm": "WATKINS SOLICITORS INCORPORATING BRAIN SINNOTT & CO",
+        "article_count": 6,
+        "sra_id": "388812",
+        "directory_url": "https://legalshaman.com/search?q=WATKINS%20SOLICITORS%20INCORPORATING%20BRAIN%20SINNOTT%20%26%20CO"
+      },
+      {
+        "firm": "qualitysolicitors charlesworth nicholl",
+        "article_count": 6,
+        "sra_id": "174176",
+        "directory_url": "https://legalshaman.com/search?q=qualitysolicitors%20charlesworth%20nicholl"
+      }
+    ],
+    "Education Law": [
+      {
+        "firm": "CADWALADER WICKERSHAM & TAFT LLP",
+        "article_count": 15,
+        "sra_id": "264812",
+        "directory_url": "https://legalshaman.com/search?q=CADWALADER%20WICKERSHAM%20%26%20TAFT%20LLP"
+      }
+    ],
+    "Housing Law": [],
+    "General Legal Updates": [
+      {
+        "firm": "Taylor Rose",
+        "article_count": 36,
+        "sra_id": "",
+        "directory_url": "https://legalshaman.com/search?q=Taylor%20Rose",
+        "source": "supplementary"
+      },
+      {
+        "firm": "LATHAM & WATKINS LLP",
+        "article_count": 16,
+        "sra_id": "328090",
+        "directory_url": "https://legalshaman.com/search?q=LATHAM%20%26%20WATKINS%20LLP"
+      },
+      {
+        "firm": "COOLEY LLP",
+        "article_count": 11,
+        "sra_id": "351811",
+        "directory_url": "https://legalshaman.com/search?q=COOLEY%20LLP"
+      },
+      {
+        "firm": "ASTBURYS",
+        "article_count": 6,
+        "sra_id": "350911",
+        "directory_url": "https://legalshaman.com/search?q=ASTBURYS"
+      }
+    ],
+    "Welfare Benefits": [],
+    "Licensing": [],
+    "Consumer Law": [],
+    "Debt": [
+      {
+        "firm": "DEBEVOISE & PLIMPTON LLP",
+        "article_count": 14,
+        "sra_id": "264277",
+        "directory_url": "https://legalshaman.com/search?q=DEBEVOISE%20%26%20PLIMPTON%20LLP"
+      },
+      {
+        "firm": "qualitysolicitors charlesworth nicholl",
+        "article_count": 8,
+        "sra_id": "174176",
+        "directory_url": "https://legalshaman.com/search?q=qualitysolicitors%20charlesworth%20nicholl"
+      },
+      {
+        "firm": "LATHAM & WATKINS LLP",
+        "article_count": 7,
+        "sra_id": "328090",
+        "directory_url": "https://legalshaman.com/search?q=LATHAM%20%26%20WATKINS%20LLP"
+      },
+      {
+        "firm": "Hopleys GMA incorporating Keene and Kelly",
+        "article_count": 5,
+        "sra_id": "303553",
+        "directory_url": "https://legalshaman.com/search?q=Hopleys%20GMA%20incorporating%20Keene%20and%20Kelly"
+      },
+      {
+        "firm": "WEIL GOTSHAL & MANGES LLP",
+        "article_count": 5,
+        "sra_id": "264682",
+        "directory_url": "https://legalshaman.com/search?q=WEIL%20GOTSHAL%20%26%20MANGES%20LLP"
+      }
+    ],
+    "Employment Law": [
+      {
+        "firm": "Taylor Rose",
+        "article_count": 28,
+        "sra_id": "",
+        "directory_url": "https://legalshaman.com/search?q=Taylor%20Rose",
+        "source": "supplementary"
+      },
+      {
+        "firm": "STEEN & CO EMPLOYMENT SOLICITORS",
+        "article_count": 12,
+        "sra_id": "362884",
+        "directory_url": "https://legalshaman.com/search?q=STEEN%20%26%20CO%20EMPLOYMENT%20SOLICITORS"
+      },
+      {
+        "firm": "CATHERINE HERRIES-SMITH SOLICITOR",
+        "article_count": 9,
+        "sra_id": "361329",
+        "directory_url": "https://legalshaman.com/search?q=CATHERINE%20HERRIES-SMITH%20SOLICITOR"
+      },
+      {
+        "firm": "CROWELL & MORING LLP",
+        "article_count": 5,
+        "sra_id": "347980",
+        "directory_url": "https://legalshaman.com/search?q=CROWELL%20%26%20MORING%20LLP"
+      }
+    ],
+    "Neighbour Disputes": [],
+    "Criminal Defence": [
+      {
+        "firm": "HASELTINE LAKE LLP",
+        "article_count": 19,
+        "sra_id": "345662",
+        "directory_url": "https://legalshaman.com/search?q=HASELTINE%20LAKE%20LLP"
+      },
+      {
+        "firm": "BSB SOLICITORS",
+        "article_count": 16,
+        "sra_id": "365772",
+        "directory_url": "https://legalshaman.com/search?q=BSB%20SOLICITORS"
+      },
+      {
+        "firm": "G Q S SOLICITORS",
+        "article_count": 5,
+        "sra_id": "384484",
+        "directory_url": "https://legalshaman.com/search?q=G%20Q%20S%20SOLICITORS"
+      }
+    ],
+    "Public Law and Judicial Review": [],
+    "Immigration Law": [],
+    "Clinical Negligence": [
+      {
+        "firm": "Taylor Rose",
+        "article_count": 5,
+        "sra_id": "",
+        "directory_url": "https://legalshaman.com/search?q=Taylor%20Rose",
+        "source": "supplementary"
+      }
+    ],
+    "Motoring Law": []
+  },
+  "supplementary_publishers": {
+    "Taylor Rose": {
+      "Family Law": 39,
+      "Wills and Probate": 38,
+      "General Legal Updates": 36,
+      "Property Law": 50,
+      "Commercial Law": 76,
+      "Employment Law": 28,
+      "Clinical Negligence": 5,
+      "Immigration Law": 3,
+      "Personal Injury": 2
+    }
+  },
+  "topic_map": {
+    "Housing": "Housing Law",
+    "Housing and homelessness": "Housing Law",
+    "Housing And Homelessness": "Housing Law",
+    "Eviction": "Housing Law",
+    "Employment": "Employment Law",
+    "Work": "Employment Law",
+    "Family Law": "Family Law",
+    "Divorce": "Family Law",
+    "Immigration": "Immigration Law",
+    "Immigration and nationality": "Immigration Law",
+    "Personal Injury": "Personal Injury",
+    "Medical Negligence": "Clinical Negligence",
+    "Wills, Trust & Probate": "Wills and Probate",
+    "Private Client": "Wills and Probate",
+    "Property": "Property Law",
+    "Landlord & Tenant": "Housing Law",
+    "Neighbour Disputes": "Neighbour Disputes",
+    "Benefits": "Welfare Benefits",
+    "Universal Credit (UC)": "Welfare Benefits",
+    "Debt": "Debt",
+    "Consumer": "Consumer Law",
+    "Motoring": "Motoring Law",
+    "Criminal": "Criminal Defence",
+    "Police and crime": "Criminal Defence",
+    "Commercial": "Commercial Law",
+    "Small Business": "Commercial Law",
+    "Litigation": "Commercial Law"
+  },
+  "firms": {
+    "GABY HARDWICKE": {
+      "article_count": 11,
+      "sra_id": "173901",
+      "practice_areas": {
+        "Property Law": 1,
+        "Personal Injury": 1,
+        "Commercial Law": 4,
+        "Wills and Probate": 2,
+        "Family Law": 1,
+        "Education Law": 1,
+        "Housing Law": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=GABY%20HARDWICKE",
+      "recommendable": true
+    },
+    "qualitysolicitors charlesworth nicholl": {
+      "article_count": 23,
+      "sra_id": "174176",
+      "practice_areas": {
+        "Debt": 8,
+        "Employment Law": 1,
+        "Family Law": 6,
+        "Wills and Probate": 2,
+        "General Legal Updates": 2,
+        "Property Law": 4
+      },
+      "directory_url": "https://legalshaman.com/search?q=qualitysolicitors%20charlesworth%20nicholl",
+      "recommendable": true
+    },
+    "DEBEVOISE & PLIMPTON LLP": {
+      "article_count": 46,
+      "sra_id": "264277",
+      "practice_areas": {
+        "Commercial Law": 28,
+        "Criminal Defence": 2,
+        "Debt": 14,
+        "Wills and Probate": 2
+      },
+      "directory_url": "https://legalshaman.com/search?q=DEBEVOISE%20%26%20PLIMPTON%20LLP",
+      "recommendable": true
+    },
+    "WEIL GOTSHAL & MANGES LLP": {
+      "article_count": 16,
+      "sra_id": "264682",
+      "practice_areas": {
+        "Commercial Law": 9,
+        "Debt": 5,
+        "Personal Injury": 1,
+        "General Legal Updates": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=WEIL%20GOTSHAL%20%26%20MANGES%20LLP",
+      "recommendable": true
+    },
+    "CADWALADER WICKERSHAM & TAFT LLP": {
+      "article_count": 19,
+      "sra_id": "264812",
+      "practice_areas": {
+        "Education Law": 15,
+        "Debt": 3,
+        "Property Law": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=CADWALADER%20WICKERSHAM%20%26%20TAFT%20LLP",
+      "recommendable": true
+    },
+    "STRONACHS LLP": {
+      "article_count": 8,
+      "sra_id": "287769",
+      "practice_areas": {
+        "Wills and Probate": 2,
+        "Commercial Law": 2,
+        "Employment Law": 3,
+        "Criminal Defence": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=STRONACHS%20LLP",
+      "recommendable": true
+    },
+    "MORRISON & FOERSTER (UK) LLP": {
+      "article_count": 7,
+      "sra_id": "288135",
+      "practice_areas": {
+        "Commercial Law": 2,
+        "Licensing": 1,
+        "Debt": 3,
+        "Criminal Defence": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=MORRISON%20%26%20FOERSTER%20%28UK%29%20LLP",
+      "recommendable": true
+    },
+    "Hopleys GMA incorporating Keene and Kelly": {
+      "article_count": 22,
+      "sra_id": "303553",
+      "practice_areas": {
+        "Debt": 5,
+        "Wills and Probate": 7,
+        "Personal Injury": 3,
+        "Employment Law": 2,
+        "Family Law": 1,
+        "Education Law": 1,
+        "Criminal Defence": 2,
+        "Property Law": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=Hopleys%20GMA%20incorporating%20Keene%20and%20Kelly",
+      "recommendable": true
+    },
+    "P R SCULLY & CO": {
+      "article_count": 9,
+      "sra_id": "304185",
+      "practice_areas": {
+        "Personal Injury": 3,
+        "General Legal Updates": 2,
+        "Debt": 1,
+        "Housing Law": 2,
+        "Education Law": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=P%20R%20SCULLY%20%26%20CO",
+      "recommendable": true
+    },
+    "Sullivan & Cromwell (Australia) LLP": {
+      "article_count": 10,
+      "sra_id": "308712",
+      "practice_areas": {
+        "Commercial Law": 1,
+        "Criminal Defence": 2,
+        "Debt": 2,
+        "Personal Injury": 1,
+        "Employment Law": 1,
+        "Housing Law": 1,
+        "Consumer Law": 1,
+        "Property Law": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=Sullivan%20%26%20Cromwell%20%28Australia%29%20LLP",
+      "recommendable": true
+    },
+    "LATHAM & WATKINS LLP": {
+      "article_count": 76,
+      "sra_id": "328090",
+      "practice_areas": {
+        "General Legal Updates": 16,
+        "Education Law": 1,
+        "Family Law": 8,
+        "Commercial Law": 20,
+        "Wills and Probate": 12,
+        "Personal Injury": 4,
+        "Employment Law": 4,
+        "Debt": 7,
+        "Property Law": 4
+      },
+      "directory_url": "https://legalshaman.com/search?q=LATHAM%20%26%20WATKINS%20LLP",
+      "recommendable": true
+    },
+    "WRIGHT JOHNSTON & MACKENZIE LLP": {
+      "article_count": 9,
+      "sra_id": "333742",
+      "practice_areas": {
+        "Family Law": 3,
+        "Employment Law": 1,
+        "Debt": 1,
+        "Commercial Law": 1,
+        "Housing Law": 1,
+        "Wills and Probate": 2
+      },
+      "directory_url": "https://legalshaman.com/search?q=WRIGHT%20JOHNSTON%20%26%20MACKENZIE%20LLP",
+      "recommendable": true
+    },
+    "ADLEX SOLICITORS": {
+      "article_count": 6,
+      "sra_id": "344672",
+      "practice_areas": {
+        "Housing Law": 1,
+        "Criminal Defence": 1,
+        "Commercial Law": 1,
+        "Family Law": 2,
+        "General Legal Updates": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=ADLEX%20SOLICITORS",
+      "recommendable": true
+    },
+    "HASELTINE LAKE LLP": {
+      "article_count": 25,
+      "sra_id": "345662",
+      "practice_areas": {
+        "Criminal Defence": 19,
+        "Education Law": 1,
+        "Licensing": 1,
+        "Property Law": 1,
+        "Commercial Law": 2,
+        "Debt": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=HASELTINE%20LAKE%20LLP",
+      "recommendable": true
+    },
+    "CROWELL & MORING LLP": {
+      "article_count": 23,
+      "sra_id": "347980",
+      "practice_areas": {
+        "Employment Law": 5,
+        "Education Law": 3,
+        "Commercial Law": 9,
+        "Housing Law": 2,
+        "Debt": 3,
+        "Criminal Defence": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=CROWELL%20%26%20MORING%20LLP",
+      "recommendable": true
+    },
+    "MORRISON & FOERSTER LLP": {
+      "article_count": 7,
+      "sra_id": "348038",
+      "practice_areas": {
+        "Commercial Law": 2,
+        "Licensing": 1,
+        "Debt": 3,
+        "Criminal Defence": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=MORRISON%20%26%20FOERSTER%20LLP",
+      "recommendable": true
+    },
+    "KIRKLAND & ELLIS INTERNATIONAL LLP": {
+      "article_count": 20,
+      "sra_id": "349107",
+      "practice_areas": {
+        "Commercial Law": 13,
+        "Property Law": 1,
+        "Criminal Defence": 3,
+        "Personal Injury": 3
+      },
+      "directory_url": "https://legalshaman.com/search?q=KIRKLAND%20%26%20ELLIS%20INTERNATIONAL%20LLP",
+      "recommendable": true
+    },
+    "BROWN RUDNICK LLP": {
+      "article_count": 5,
+      "sra_id": "349936",
+      "practice_areas": {
+        "General Legal Updates": 2,
+        "Commercial Law": 3
+      },
+      "directory_url": "https://legalshaman.com/search?q=BROWN%20RUDNICK%20LLP",
+      "recommendable": true
+    },
+    "ASTBURYS": {
+      "article_count": 13,
+      "sra_id": "350911",
+      "practice_areas": {
+        "General Legal Updates": 6,
+        "Education Law": 4,
+        "Housing Law": 2,
+        "Debt": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=ASTBURYS",
+      "recommendable": true
+    },
+    "COOLEY LLP": {
+      "article_count": 14,
+      "sra_id": "351811",
+      "practice_areas": {
+        "General Legal Updates": 11,
+        "Education Law": 1,
+        "Debt": 2
+      },
+      "directory_url": "https://legalshaman.com/search?q=COOLEY%20LLP",
+      "recommendable": true
+    },
+    "VENTERS SOLICITORS": {
+      "article_count": 25,
+      "sra_id": "352598",
+      "practice_areas": {
+        "Family Law": 23,
+        "Criminal Defence": 1,
+        "Education Law": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=VENTERS%20SOLICITORS",
+      "recommendable": true
+    },
+    "NEW MEDIA LAW LLP": {
+      "article_count": 8,
+      "sra_id": "360645",
+      "practice_areas": {
+        "Commercial Law": 2,
+        "Licensing": 1,
+        "Personal Injury": 2,
+        "Education Law": 1,
+        "General Legal Updates": 2
+      },
+      "directory_url": "https://legalshaman.com/search?q=NEW%20MEDIA%20LAW%20LLP",
+      "recommendable": true
+    },
+    "CATHERINE HERRIES-SMITH SOLICITOR": {
+      "article_count": 9,
+      "sra_id": "361329",
+      "practice_areas": {
+        "Employment Law": 9
+      },
+      "directory_url": "https://legalshaman.com/search?q=CATHERINE%20HERRIES-SMITH%20SOLICITOR",
+      "recommendable": true
+    },
+    "STEEN & CO EMPLOYMENT SOLICITORS": {
+      "article_count": 13,
+      "sra_id": "362884",
+      "practice_areas": {
+        "Employment Law": 12,
+        "Education Law": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=STEEN%20%26%20CO%20EMPLOYMENT%20SOLICITORS",
+      "recommendable": true
+    },
+    "BSB SOLICITORS": {
+      "article_count": 23,
+      "sra_id": "365772",
+      "practice_areas": {
+        "Criminal Defence": 16,
+        "Family Law": 1,
+        "Education Law": 3,
+        "Personal Injury": 1,
+        "Licensing": 1,
+        "General Legal Updates": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=BSB%20SOLICITORS",
+      "recommendable": true
+    },
+    "LECOTE TECHNOLOGY LAWYERS": {
+      "article_count": 6,
+      "sra_id": "366540",
+      "practice_areas": {
+        "Commercial Law": 6
+      },
+      "directory_url": "https://legalshaman.com/search?q=LECOTE%20TECHNOLOGY%20LAWYERS",
+      "recommendable": true
+    },
+    "BonelliErede": {
+      "article_count": 10,
+      "sra_id": "367016",
+      "practice_areas": {
+        "Debt": 4,
+        "Commercial Law": 4,
+        "Housing Law": 1,
+        "Wills and Probate": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=BonelliErede",
+      "recommendable": true
+    },
+    "MAYER BROWN LLP": {
+      "article_count": 16,
+      "sra_id": "367207",
+      "practice_areas": {
+        "Debt": 4,
+        "Commercial Law": 8,
+        "Wills and Probate": 1,
+        "General Legal Updates": 2,
+        "Immigration Law": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=MAYER%20BROWN%20LLP",
+      "recommendable": true
+    },
+    "CURTIS MALLET-PREVOST COLT & MOSLE LLP": {
+      "article_count": 25,
+      "sra_id": "367685",
+      "practice_areas": {
+        "Commercial Law": 11,
+        "General Legal Updates": 4,
+        "Debt": 1,
+        "Education Law": 4,
+        "Criminal Defence": 2,
+        "Personal Injury": 1,
+        "Wills and Probate": 2
+      },
+      "directory_url": "https://legalshaman.com/search?q=CURTIS%20MALLET-PREVOST%20COLT%20%26%20MOSLE%20LLP",
+      "recommendable": true
+    },
+    "M & S SOLICITORS LIMITED": {
+      "article_count": 10,
+      "sra_id": "369431",
+      "practice_areas": {
+        "Commercial Law": 1,
+        "Property Law": 5,
+        "Housing Law": 1,
+        "Employment Law": 1,
+        "Wills and Probate": 2
+      },
+      "directory_url": "https://legalshaman.com/search?q=M%20%26%20S%20SOLICITORS%20LIMITED",
+      "recommendable": true
+    },
+    "FAEGRE BAKER DANIELS LLP": {
+      "article_count": 10,
+      "sra_id": "371115",
+      "practice_areas": {
+        "Employment Law": 2,
+        "Commercial Law": 5,
+        "Education Law": 1,
+        "Personal Injury": 2
+      },
+      "directory_url": "https://legalshaman.com/search?q=FAEGRE%20BAKER%20DANIELS%20LLP",
+      "recommendable": true
+    },
+    "Battrick Clark": {
+      "article_count": 10,
+      "sra_id": "379825",
+      "practice_areas": {
+        "Wills and Probate": 4,
+        "Family Law": 2,
+        "Property Law": 1,
+        "Public Law and Judicial Review": 3
+      },
+      "directory_url": "https://legalshaman.com/search?q=Battrick%20Clark",
+      "recommendable": true
+    },
+    "SIMPSON THACHER & BARTLETT LLP": {
+      "article_count": 40,
+      "sra_id": "380782",
+      "practice_areas": {
+        "Education Law": 3,
+        "Commercial Law": 17,
+        "Wills and Probate": 20
+      },
+      "directory_url": "https://legalshaman.com/search?q=SIMPSON%20THACHER%20%26%20BARTLETT%20LLP",
+      "recommendable": true
+    },
+    "G Q S SOLICITORS": {
+      "article_count": 5,
+      "sra_id": "384484",
+      "practice_areas": {
+        "Criminal Defence": 5
+      },
+      "directory_url": "https://legalshaman.com/search?q=G%20Q%20S%20SOLICITORS",
+      "recommendable": true
+    },
+    "DOUGLAS-JONES MERCER SOLICITORS": {
+      "article_count": 6,
+      "sra_id": "385760",
+      "practice_areas": {
+        "Employment Law": 1,
+        "Commercial Law": 5
+      },
+      "directory_url": "https://legalshaman.com/search?q=DOUGLAS-JONES%20MERCER%20SOLICITORS",
+      "recommendable": true
+    },
+    "WATKINS SOLICITORS INCORPORATING BRAIN SINNOTT & CO": {
+      "article_count": 11,
+      "sra_id": "388812",
+      "practice_areas": {
+        "Education Law": 2,
+        "Property Law": 1,
+        "Family Law": 6,
+        "Public Law and Judicial Review": 1,
+        "Wills and Probate": 1
+      },
+      "directory_url": "https://legalshaman.com/search?q=WATKINS%20SOLICITORS%20INCORPORATING%20BRAIN%20SINNOTT%20%26%20CO",
+      "recommendable": true
+    }
+  }
+}

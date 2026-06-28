@@ -35,8 +35,8 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
           </h1>
           <p className="max-w-2xl text-muted-foreground">
             Search {index.meta.pageCount.toLocaleString("en-GB")} source-grounded wiki pages on UK
-            legal topics — curated from Citizens Advice, Advicenow, Lawhive, and more. The Shaman
-            points you toward useful information; this is not legal advice.
+            legal topics — get a signposting summary with citations, then read the underlying guidance.
+            This is not legal advice.
           </p>
         </header>
 
