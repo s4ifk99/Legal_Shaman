@@ -36,7 +36,10 @@ export async function runWeeklyJobs(opts: WeeklyJobOptions = {}): Promise<Weekly
     }),
   );
 
-  const sraStep = await runNpmStep("sra:sync", "sra:sync");
+  const sraStep = await runNpmStep("sra:sync", "sra:sync", [
+    "--skip-embeddings",
+    "--skip-typesense",
+  ]);
   steps.push(sraStep);
 
   const syncState = await readSraSyncState();

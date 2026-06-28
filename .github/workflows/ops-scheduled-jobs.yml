@@ -35,9 +35,20 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
       - run: npm ci
-      - run: npm run db:migrate
+      - name: Prisma migrate (retry — may contend with daily SRA job)
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          for attempt in 1 2 3 4 5; do
+            if npm run db:migrate; then
+              echo "migrate succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "migrate attempt $attempt failed; waiting 45s..."
+            sleep 45
+          done
+          echo "::error::Prisma migrate failed after 5 attempts (advisory lock or DB unreachable)"
+          exit 1
       - run: npm run jobs:daily -- --yes
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
@@ -67,9 +78,20 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
       - run: npm ci
-      - run: npm run db:migrate
+      - name: Prisma migrate (retry — may contend with daily SRA job)
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          for attempt in 1 2 3 4 5; do
+            if npm run db:migrate; then
+              echo "migrate succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "migrate attempt $attempt failed; waiting 45s..."
+            sleep 45
+          done
+          echo "::error::Prisma migrate failed after 5 attempts (advisory lock or DB unreachable)"
+          exit 1
       - run: npm run jobs:weekly -- --yes
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
