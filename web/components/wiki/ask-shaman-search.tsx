@@ -2,102 +2,202 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ExternalLink, Loader2, Search, Sparkles } from "lucide-react";
+import { BookOpen, ExternalLink, Loader2, MapPin, MessageCircle, Scale, Search, Sparkles } from "lucide-react";
+import { ExpandableDirectoryList } from "@/components/search/expandable-directory-list";
+import type { DirectoryListItem } from "@/components/search/expandable-directory-list";
+import { SearchCriteriaPanel } from "@/components/legal-search/search-criteria-panel";
+import { ShamanRecommends } from "@/components/legal-search/shaman-recommends";
+import { OslawPostList } from "@/components/oslaw/post-list";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
+import { collapsedDirectorySummary } from "@/lib/search/directory-row-display";
+import type { LegalSearchResponse, SearchCriterion } from "@/lib/legal-knowledge/types";
+import type { OslawPost } from "@/lib/oslaw/types";
+import { useRequireAuth } from "@/lib/auth/use-require-auth";
 
-type WikiSearchHit = {
+type OslawSearchResult = {
   id: string;
   title: string;
-  category: string;
-  summary: string;
-  keyInformation: string[];
-  practicalGuidance: string[];
-  relatedConcepts: string[];
+  url: string;
+  subreddit: string;
   score: number;
+  comments: number;
+  snippet?: string;
+  createdUtc?: number;
 };
 
-type WikiAnswerFirm = {
-  firm: string;
-  practiceArea: string;
-  articleCount: number;
-  directoryUrl: string;
-};
-
-type WikiAnswerSource = {
-  name: string;
-  detail?: string;
-};
-
-type WikiAnswerResponse = {
-  query: string;
-  mode: "synthesis" | "retrieval_only" | "insufficient";
-  answer: string | null;
-  wikiPages: WikiSearchHit[];
-  sources: WikiAnswerSource[];
-  recommendedFirms: WikiAnswerFirm[];
-  disclaimer: string;
-  retrievalScore: number;
+type OslawSearchResponse = {
+  results?: OslawSearchResult[];
+  source?: "oauth" | "rss" | "public" | "cached";
+  degraded?: boolean;
   message?: string;
+  error?: string;
 };
 
 type AskShamanSearchProps = {
   initialQuery?: string;
+  initialLocation?: string;
 };
 
-function renderAnswerParagraphs(text: string) {
-  return text
-    .split(/\n{2,}/)
-    .map((block) => block.trim())
-    .filter(Boolean)
-    .map((block) => (
-      <p key={block.slice(0, 48)} className="text-sm leading-relaxed text-foreground">
-        {block}
-      </p>
-    ));
+function guidanceConfidenceLabel(score: number): string {
+  if (score >= 0.68) return "High confidence";
+  if (score >= 0.38) return "Moderate confidence";
+  return "Low confidence";
 }
 
-export function AskShamanSearch({ initialQuery = "" }: AskShamanSearchProps) {
+function toOslawPost(result: OslawSearchResult): OslawPost {
+  const subreddit = result.subreddit.replace(/^r\//, "");
+  return {
+    id: result.id,
+    title: result.title,
+    url: result.url,
+    permalink: result.url,
+    subreddit,
+    score: result.score,
+    numComments: result.comments,
+    createdUtc: result.createdUtc ?? Math.floor(Date.now() / 1000),
+    snippet: result.snippet ?? "",
+    listingSource: "search",
+  };
+}
+
+function SectionHeading({
+  icon: Icon,
+  title,
+  count,
+  live,
+}: {
+  icon: typeof BookOpen;
+  title: string;
+  count?: number;
+  live?: boolean;
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <h2 className="flex items-center gap-2 font-serif text-xl font-semibold text-foreground">
+        <Icon className="h-5 w-5 text-gold" />
+        {title}
+      </h2>
+      {typeof count === "number" ? (
+        <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+          {count} result{count === 1 ? "" : "s"}
+        </span>
+      ) : null}
+      {live ? (
+        <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:text-emerald-300">
+          Live
+        </span>
+      ) : null}
+    </div>
+  );
+}
+
+export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: AskShamanSearchProps) {
+  const { requireAuth, openAuthForSearch, user, loading: authLoading } = useRequireAuth();
   const [query, setQuery] = useState(initialQuery);
+  const [location, setLocation] = useState(initialLocation);
   const [loading, setLoading] = useState(false);
-  const [answer, setAnswer] = useState<WikiAnswerResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
   const [searched, setSearched] = useState(false);
+  const [submittedQuery, setSubmittedQuery] = useState("");
+
+  const [guidance, setGuidance] = useState<LegalSearchResponse | null>(null);
+  const [guidanceError, setGuidanceError] = useState<string | null>(null);
+  const [searchCriteria, setSearchCriteria] = useState<SearchCriterion[]>([]);
+
+  const [oslawPosts, setOslawPosts] = useState<OslawPost[]>([]);
+  const [oslawLive, setOslawLive] = useState(false);
+  const [oslawNotice, setOslawNotice] = useState<string | null>(null);
+  const [oslawError, setOslawError] = useState<string | null>(null);
 
   useEffect(() => {
     const trimmed = initialQuery.trim();
-    if (trimmed.length >= 2) {
-      void runSearch(trimmed);
+    if (trimmed.length < 2 || authLoading) return;
+    if (!user) {
+      requireAuth(() => void runSearch(trimmed, initialLocation), "search");
+      return;
     }
-  }, [initialQuery]);
+    void runSearch(trimmed, initialLocation);
+  }, [initialQuery, initialLocation, user, authLoading]);
 
-  async function runSearch(q: string) {
+  async function runSearch(q: string, loc = location) {
     const trimmed = q.trim();
     if (trimmed.length < 2) return;
 
     setLoading(true);
     setSearched(true);
-    setError(null);
+    setSubmittedQuery(trimmed);
+    setGuidanceError(null);
+    setOslawError(null);
+    setOslawNotice(null);
 
-    try {
-      const res = await fetch("/api/ask/answer", {
+    const encoded = encodeURIComponent(trimmed);
+
+    const [guidanceRes, oslawRes] = await Promise.allSettled([
+      fetch("/api/legal-search", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: trimmed }),
+        body: JSON.stringify({
+          query: trimmed,
+          location: loc.trim() || undefined,
+          includeDirectory: true,
+        }),
         cache: "no-store",
-      });
-      const payload = (await res.json()) as WikiAnswerResponse & { error?: string };
-      if (!res.ok) {
-        throw new Error(payload.error || "answer_request_failed");
+      }),
+      fetch(`/api/oslaw/search?q=${encoded}&limit=10`, { cache: "no-store" }),
+    ]);
+
+    if (guidanceRes.status === "fulfilled") {
+      if (guidanceRes.value.status === 401) {
+        openAuthForSearch(() => void runSearch(trimmed, loc));
+        setLoading(false);
+        return;
       }
-      setAnswer(payload);
-    } catch (err) {
-      setAnswer(null);
-      setError(err instanceof Error ? err.message : "answer_request_failed");
-    } finally {
-      setLoading(false);
+      try {
+        const payload = (await guidanceRes.value.json()) as LegalSearchResponse & { error?: string };
+        if (!guidanceRes.value.ok) {
+          throw new Error(payload.error || "guidance_search_failed");
+        }
+        setGuidance(payload);
+        if (payload.searchCriteria?.length) setSearchCriteria(payload.searchCriteria);
+      } catch (err) {
+        setGuidance(null);
+        setSearchCriteria([]);
+        setGuidanceError(err instanceof Error ? err.message : "guidance_search_failed");
+      }
+    } else {
+      setGuidance(null);
+      setSearchCriteria([]);
+      setGuidanceError("guidance_search_failed");
     }
+
+    if (oslawRes.status === "fulfilled") {
+      if (oslawRes.value.status === 401) {
+        openAuthForSearch(() => void runSearch(trimmed, loc));
+        setLoading(false);
+        return;
+      }
+      try {
+        const payload = (await oslawRes.value.json()) as OslawSearchResponse;
+        if (!oslawRes.value.ok) {
+          throw new Error(payload.message || payload.error || "oslaw_search_failed");
+        }
+        setOslawPosts((payload.results ?? []).map(toOslawPost));
+        setOslawLive(
+          payload.source === "oauth" || payload.source === "rss" || payload.source === "public",
+        );
+        setOslawNotice(payload.degraded && payload.message ? payload.message : null);
+      } catch (err) {
+        setOslawPosts([]);
+        setOslawError(err instanceof Error ? err.message : "oslaw_search_failed");
+      }
+    } else {
+      setOslawPosts([]);
+      setOslawError("oslaw_search_failed");
+    }
+
+    setLoading(false);
   }
 
   function handleSubmit(e: React.FormEvent) {
@@ -106,14 +206,38 @@ export function AskShamanSearch({ initialQuery = "" }: AskShamanSearchProps) {
     if (trimmed.length < 2) return;
     const url = new URL(window.location.href);
     url.searchParams.set("q", trimmed);
+    if (location.trim()) url.searchParams.set("location", location.trim());
+    else url.searchParams.delete("location");
+    url.searchParams.delete("tab");
     window.history.replaceState({}, "", url.toString());
-    void runSearch(trimmed);
+    requireAuth(() => void runSearch(trimmed), "search");
   }
 
-  const wikiPages = answer?.wikiPages ?? [];
+  const guidanceSources = guidance?.sources ?? [];
+  const directoryRows = (guidance?.directoryRows ?? []) as LegacyGetRow[];
+  const directoryItems: DirectoryListItem[] = guidance?.directoryRows?.length
+    ? directoryRows.map((row, i) => ({
+        row,
+        businessName: row.businessName,
+        explanation: guidance.directoryResults[i]?.explanation,
+        subtitle: collapsedDirectorySummary(row),
+      }))
+    : (guidance?.directoryResults ?? []).map((row) => ({
+        entityId: row.id,
+        resultSource: row.id.startsWith("sra:") ? ("sra" as const) : ("curated_listing" as const),
+        businessName: row.title,
+        explanation: row.explanation,
+        subtitle: [row.source, row.locationLabel].filter(Boolean).join(" · "),
+      }));
+
+  const hasAnyResults =
+    Boolean(guidance?.answer) ||
+    guidanceSources.length > 0 ||
+    directoryItems.length > 0 ||
+    oslawPosts.length > 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -128,7 +252,7 @@ export function AskShamanSearch({ initialQuery = "" }: AskShamanSearchProps) {
         </div>
         <Button
           type="submit"
-          className="h-12 gap-2 bg-gold px-6 text-gold-foreground hover:bg-gold/90"
+          className="h-12 gap-2 bg-gold px-6 text-gold-foreground hover:bg-gold/90 sm:w-auto"
           disabled={loading}
         >
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
@@ -136,144 +260,197 @@ export function AskShamanSearch({ initialQuery = "" }: AskShamanSearchProps) {
         </Button>
       </form>
 
+      <div className="relative">
+        <MapPin className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <Input
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          placeholder="Optional: city or postcode for lawyer results"
+          className="h-10 border-border/70 pl-10"
+        />
+      </div>
+
+      {(searchCriteria.length > 0 || loading) && searched ? (
+        <SearchCriteriaPanel query={submittedQuery || query.trim()} criteria={searchCriteria} loading={loading} />
+      ) : null}
+
+      <p className="text-sm text-muted-foreground">
+        One search across wiki guidance, solicitors &amp; legal aid, and live UK legal discussions on
+        Reddit.
+      </p>
+
       {loading ? (
-        <p className="text-sm text-muted-foreground">Searching the wiki and preparing a signposting summary…</p>
-      ) : null}
-
-      {error ? (
-        <p className="text-sm text-destructive">Could not load an answer: {error}</p>
-      ) : null}
-
-      {!loading && answer ? (
-        <Card className="border-2 border-gold/30 bg-card">
-          <CardContent className="space-y-4 p-5 md:p-6">
-            <div className="flex flex-wrap items-center gap-2">
-              <h2 className="font-serif text-xl font-semibold text-foreground">Signposting summary</h2>
-              {answer.mode === "synthesis" ? (
-                <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:text-emerald-300">
-                  Wiki-grounded
-                </span>
-              ) : null}
-            </div>
-
-            <p className="text-xs leading-relaxed text-muted-foreground">{answer.disclaimer}</p>
-
-            {answer.message ? (
-              <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">{answer.message}</p>
-            ) : null}
-
-            {answer.answer ? (
-              <div className="space-y-3 rounded-xl border border-border/70 bg-muted/30 p-4">
-                {renderAnswerParagraphs(answer.answer)}
-              </div>
-            ) : null}
-
-            {answer.recommendedFirms.length > 0 ? (
-              <section>
-                <h3 className="text-sm font-semibold text-foreground">Firms with indexed commentary</h3>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  Signposting only — not endorsements. These firms have multiple wiki articles on related topics.
-                </p>
-                <ul className="mt-3 space-y-2">
-                  {answer.recommendedFirms.map((firm) => (
-                    <li key={firm.firm} className="text-sm">
-                      <Link
-                        href={firm.directoryUrl}
-                        className="inline-flex items-center gap-1 font-medium text-primary hover:underline"
-                      >
-                        {firm.firm}
-                        <ExternalLink className="h-3.5 w-3.5" />
-                      </Link>
-                      <span className="text-muted-foreground">
-                        {" "}
-                        · {firm.practiceArea} · {firm.articleCount} articles
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ) : null}
-
-            {answer.sources.length > 0 ? (
-              <section>
-                <h3 className="text-sm font-semibold text-foreground">Source documents</h3>
-                <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  {answer.sources.map((source) => (
-                    <li key={source.name}>• {source.name}</li>
-                  ))}
-                </ul>
-              </section>
-            ) : null}
-
-            <p className="text-sm text-muted-foreground">
-              Need a solicitor?{" "}
-              <Link href="/search" className="font-medium text-primary hover:underline">
-                Find a Lawyer
-              </Link>
-            </p>
-          </CardContent>
-        </Card>
-      ) : null}
-
-      {!loading && searched && wikiPages.length === 0 && !answer?.message && answer?.mode !== "insufficient" ? (
         <p className="text-sm text-muted-foreground">
-          No wiki pages matched your question. Try different words (e.g. &quot;housing repairs&quot;,
-          &quot;redundancy&quot;).
+          Searching guidance, directory, and OSLAW…
         </p>
       ) : null}
 
-      {wikiPages.length > 0 ? (
-        <section>
-          <h2 className="font-serif text-xl font-semibold text-foreground">Relevant wiki pages</h2>
-          <p className="mt-1 text-sm text-muted-foreground">Read the source-grounded guidance behind this summary.</p>
-          <ul className="mt-4 space-y-4">
-            {wikiPages.map((hit) => (
-              <li key={hit.id}>
-                <Card className="border border-border/70 transition-colors hover:border-gold/40">
-                  <CardContent className="p-5">
-                    <div className="flex flex-wrap items-start justify-between gap-2">
-                      <div>
-                        <p className="text-xs font-medium uppercase tracking-wide text-gold">
-                          {hit.category}
-                        </p>
-                        <Link
-                          href={`/ask-the-shaman/wiki/${encodeURIComponent(hit.id)}`}
-                          className="mt-1 font-serif text-lg font-semibold text-foreground hover:text-primary"
-                        >
-                          {hit.title}
-                        </Link>
-                      </div>
+      {searched && !loading && !hasAnyResults && !guidanceError && !oslawError ? (
+        <p className="text-sm text-muted-foreground">
+          No results matched &ldquo;{submittedQuery}&rdquo;. Try different words (e.g.
+          &quot;housing repairs&quot;, &quot;redundancy&quot;, &quot;parking PCN&quot;).
+        </p>
+      ) : null}
+
+      {searched && !loading ? (
+        <>
+          <section id="wiki" className="space-y-4 scroll-mt-8">
+            <SectionHeading
+              icon={BookOpen}
+              title="Guidance"
+              count={guidanceSources.length || undefined}
+            />
+
+            {guidanceError ? (
+              <p className="text-sm text-destructive">Guidance: {guidanceError}</p>
+            ) : null}
+
+            {guidance ? (
+              <Card className="border-2 border-gold/30 bg-card">
+                <CardContent className="space-y-4 p-5 md:p-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="font-serif text-lg font-semibold text-primary">Shaman Recommends</h3>
+                    {guidance.answerMode === "synthesis" ? (
+                      <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:text-emerald-300">
+                        AI synthesised
+                      </span>
+                    ) : (
+                      <span className="rounded-full bg-amber-500/15 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:text-amber-200">
+                        Source excerpts
+                      </span>
+                    )}
+                    <span className="text-xs text-muted-foreground">
+                      {guidanceConfidenceLabel(guidance.confidence)}
+                    </span>
+                  </div>
+
+                  <p className="text-xs leading-relaxed text-muted-foreground">{guidance.disclaimer}</p>
+
+                  {guidance.clarifyingQuestion ? (
+                    <p className="rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 text-sm text-foreground">
+                      {guidance.clarifyingQuestion}
+                    </p>
+                  ) : null}
+
+                  {guidance.answer ? (
+                    <div className="rounded-xl border border-border/70 bg-muted/30 p-4 md:p-5">
+                      <ShamanRecommends
+                        answer={guidance.answer}
+                        sources={guidance.sources}
+                        confidence={guidance.confidence}
+                      />
                     </div>
+                  ) : null}
 
-                    {hit.summary ? (
-                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
-                        {hit.summary}
-                      </p>
-                    ) : null}
+                  {guidance.answerMode === "fallback" ? (
+                    <p className="text-sm text-muted-foreground">
+                      The AI summary could not be generated — showing cited source excerpts instead.
+                      Check that <code className="text-xs">LLM_API_KEY</code> and{" "}
+                      <code className="text-xs">LLM_BASE_URL</code> are set in{" "}
+                      <code className="text-xs">.env.local</code>.
+                    </p>
+                  ) : null}
 
-                    {hit.keyInformation.length ? (
-                      <ul className="mt-3 space-y-1 text-sm text-foreground">
-                        {hit.keyInformation.slice(0, 3).map((item) => (
-                          <li key={item} className="flex gap-2">
-                            <span className="text-gold">•</span>
-                            <span className="line-clamp-2">{item.replace(/\[\[([^\]]+)\]\]/g, "$1")}</span>
+                  {guidanceSources.length > 0 ? (
+                    <section>
+                      <h4 className="text-sm font-semibold text-foreground">Sources</h4>
+                      <ul className="mt-3 space-y-3">
+                        {guidanceSources.map((source, index) => (
+                          <li
+                            key={`${source.url}-${source.title}`}
+                            className="rounded-lg border border-border/60 bg-background/80 p-3"
+                          >
+                            <div className="flex flex-wrap items-start justify-between gap-2">
+                              <p className="text-sm font-medium text-foreground">
+                                <span className="mr-2 text-gold">[{index + 1}]</span>
+                                {source.title}
+                              </p>
+                              {source.url ? (
+                                <a
+                                  href={source.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline"
+                                >
+                                  Open
+                                  <ExternalLink className="h-3 w-3" />
+                                </a>
+                              ) : null}
+                            </div>
+                            <p className="mt-1 text-xs text-muted-foreground">{source.source}</p>
+                            {source.snippet ? (
+                              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                                {source.snippet}
+                              </p>
+                            ) : null}
                           </li>
                         ))}
                       </ul>
-                    ) : null}
+                    </section>
+                  ) : null}
+                </CardContent>
+              </Card>
+            ) : !guidanceError ? (
+              <p className="text-sm text-muted-foreground">
+                No curated guidance matched this query.
+              </p>
+            ) : null}
+          </section>
 
-                    <Link
-                      href={`/ask-the-shaman/wiki/${encodeURIComponent(hit.id)}`}
-                      className="mt-4 inline-block text-sm font-medium text-primary hover:underline"
-                    >
-                      Read full guidance →
-                    </Link>
-                  </CardContent>
-                </Card>
-              </li>
-            ))}
-          </ul>
-        </section>
+          <section id="lawyers" className="space-y-4 scroll-mt-8">
+            <SectionHeading icon={Scale} title="Find a lawyer" count={directoryItems.length} />
+            <p className="text-sm text-muted-foreground">
+              Solicitors and legal aid providers matched to your issue and practice area — signposting
+              only, not endorsements.
+            </p>
+
+            {guidanceError ? (
+              <p className="text-sm text-destructive">Directory: {guidanceError}</p>
+            ) : null}
+
+            {directoryItems.length > 0 ? (
+              <ExpandableDirectoryList query={submittedQuery} items={directoryItems} />
+            ) : !guidanceError ? (
+              <p className="text-sm text-muted-foreground">
+                No directory listings matched. Try adding a city or postcode, or use more specific
+                words (e.g. &quot;conveyancing solicitor Manchester&quot;).
+              </p>
+            ) : null}
+
+            <p className="text-sm text-muted-foreground">
+              Need a closer match?{" "}
+              <Link href="/ask-the-shaman?guided=1" className="font-medium text-primary hover:underline">
+                Use guided questions
+              </Link>
+            </p>
+          </section>
+
+          <section id="oslaw" className="space-y-4 scroll-mt-8">
+            <SectionHeading
+              icon={MessageCircle}
+              title="OSLAW"
+              count={oslawPosts.length}
+              live={oslawLive}
+            />
+            <p className="text-sm text-muted-foreground">
+              Live discussions from UK legal subreddits — signposting only, not legal advice.
+            </p>
+
+            {oslawNotice ? (
+              <p className="text-sm text-amber-800 dark:text-amber-200">{oslawNotice}</p>
+            ) : null}
+            {oslawError ? (
+              <p className="text-sm text-destructive">OSLAW: {oslawError}</p>
+            ) : null}
+
+            {!oslawError ? (
+              <OslawPostList
+                posts={oslawPosts}
+                emptyMessage={`No live Reddit posts matched "${submittedQuery}".`}
+              />
+            ) : null}
+          </section>
+        </>
       ) : null}
     </div>
   );

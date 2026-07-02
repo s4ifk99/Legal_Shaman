@@ -10,6 +10,8 @@ export type WikiAnswerFirm = {
   practiceArea: string;
   articleCount: number;
   directoryUrl: string;
+  entityId?: string;
+  resultSource?: "sra" | "curated_listing" | "legal_aid";
 };
 
 export type WikiAnswerPayload = {

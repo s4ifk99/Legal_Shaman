@@ -4,17 +4,12 @@ import { useCallback, useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import type { TriageResultSection } from "@/lib/legal-search/triage/types";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
+import { legacyRowFromSearchResult } from "@/lib/legal-search/legacy-get-response";
 import { DirectoryResultDetail } from "@/components/search/directory-result-detail";
 import { TriageResultContactLinks } from "@/components/triage/triage-result-contact-links";
 import {
-  contactPageUrlForResult,
-  emailForDisplay,
-  formatPhoneForDisplay,
-  phoneForDisplay,
   publicResultTitle,
-  websiteUrlForResult,
 } from "@/lib/legal-search/public-search-result";
-import { telHref } from "@/lib/search/sra-display";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
@@ -112,6 +107,7 @@ function TriageResultItem({
 }) {
   const isSra = result.source === "sra";
   const title = result.displayName?.trim() || publicResultTitle(result);
+  const detailRow = legacyRow ?? legacyRowFromSearchResult(result);
   const sourceLabel = result.sourceLabel ?? "Directory listing";
   const locationLabel = result.locationLabel;
   const practiceLine =
@@ -171,27 +167,14 @@ function TriageResultItem({
             <div className="border-t border-border/40 px-4 pb-4">
               <TriageResultContactLinks result={result} />
             </div>
-            {legacyRow ? (
-              <DirectoryResultDetail
-                row={legacyRow}
-                explanation={result.explanation}
-                q={query}
-                index={index}
-                parsedPracticeArea={parsedPracticeArea}
-                parsedLocation={parsedLocation}
-              />
-            ) : (
-              <div className="border-t border-border/60 bg-muted/20 p-5 text-sm text-muted-foreground">
-                <CollapsedContactSummary result={result} />
-                <p className="mt-3">
-                  Full detail is not available for this listing. Use the contact links above or search again on the{" "}
-                  <a href="/search" className="text-primary underline">
-                    directory page
-                  </a>
-                  .
-                </p>
-              </div>
-            )}
+            <DirectoryResultDetail
+              row={detailRow}
+              explanation={result.explanation}
+              q={query}
+              index={index}
+              parsedPracticeArea={parsedPracticeArea}
+              parsedLocation={parsedLocation}
+            />
           </>
         ) : null}
       </Card>
@@ -199,38 +182,3 @@ function TriageResultItem({
   );
 }
 
-function CollapsedContactSummary({ result }: { result: import("@/lib/legal-search/types").SearchResult }) {
-  const phone = phoneForDisplay(result);
-  const email = emailForDisplay(result);
-  const website = websiteUrlForResult(result);
-  const contactPage = contactPageUrlForResult(result);
-
-  if (!phone && !email && !website && !contactPage) return null;
-
-  return (
-    <div className="space-y-1 text-sm text-foreground">
-      {phone ? (
-        <p>
-          <span className="text-muted-foreground">Phone: </span>
-          <a href={telHref(phone)} className="font-medium text-primary hover:underline">
-            {formatPhoneForDisplay(phone)}
-          </a>
-        </p>
-      ) : null}
-      {website ? (
-        <p>
-          <a href={website} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-            Website
-          </a>
-        </p>
-      ) : null}
-      {email ? (
-        <p>
-          <a href={`mailto:${email}`} className="text-primary hover:underline">
-            {email}
-          </a>
-        </p>
-      ) : null}
-    </div>
-  );
-}

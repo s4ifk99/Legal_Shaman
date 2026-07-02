@@ -11,6 +11,7 @@ import {
   extractPhoneFromSraSearchText,
   resolveSraDisplayName,
 } from "@/lib/search/sra-display";
+import { resolveSraPracticeAreasForDisplay } from "@/lib/search/sra-practice-areas";
 
 function entityTypeToSource(entityType: string, source: string): SearchSource {
   if (entityType === "lawyer") return "lawyer";
@@ -53,9 +54,23 @@ export function legalEntityDocToSearchResult(
   const relatedPracticeAreas = Array.isArray(doc.relatedPracticeAreas)
     ? (doc.relatedPracticeAreas as string[])
     : [];
-  const mergedPracticeAreas = [
-    ...new Set([...practiceAreas, ...relatedPracticeAreas]),
-  ].slice(0, 16);
+  const practiceAreaSlugs = Array.isArray(doc.practiceAreaSlugs)
+    ? (doc.practiceAreaSlugs as string[])
+    : [];
+
+  const isSra = entityType === "sra_organisation";
+  const mergedPracticeAreas = isSra
+    ? resolveSraPracticeAreasForDisplay({
+        organisationName: String(doc.displayName ?? doc.title ?? ""),
+        searchText: String(doc.searchText ?? doc.description ?? ""),
+        description: String(doc.description ?? ""),
+        workArea: doc.workArea,
+        rawPayload: doc.rawPayload,
+        enrichmentText: Array.isArray(doc.capabilities)
+          ? (doc.capabilities as string[]).join(" ")
+          : undefined,
+      })
+    : [...new Set([...practiceAreas, ...relatedPracticeAreas])].slice(0, 16);
   const categories = Array.isArray(doc.categories) ? (doc.categories as string[]) : [];
 
   let legacyKind: SearchResult["legacyKind"] = "adl";
@@ -70,7 +85,6 @@ export function legalEntityDocToSearchResult(
 
   const sraId = String(doc.sraId ?? doc.exactSraId ?? "");
   const searchText = String(doc.searchText ?? doc.description ?? "");
-  const isSra = entityType === "sra_organisation";
   const title = isSra
     ? String(doc.displayName ?? "").trim() ||
       resolveSraDisplayName(String(doc.title ?? ""), searchText, sraId, {

@@ -11,8 +11,7 @@ import { sanitiseContactForDisplay } from "@/lib/provider-intelligence/provider-
 import type { Listing } from "@/lib/data";
 import type { ParsedQuery, SearchResult } from "@/lib/legal-search/types";
 import { emptyScores } from "@/lib/legal-search/ranking";
-import { displayNameForSlug } from "@/lib/legal/taxonomy";
-import type { RetrievalSource } from "@/lib/legal-search/search-diagnostics-types";
+import { resolveSraPracticeAreasForDisplay } from "@/lib/search/sra-practice-areas";
 
 function mapListingSources(sources: ("lexical" | "semantic")[]): RetrievalSource[] {
   const out: RetrievalSource[] = [];
@@ -80,10 +79,17 @@ export function fromSraMeili(
   parsed: ParsedQuery,
   retrievalSource: RetrievalSource = "meilisearch",
 ): SearchResult {
-  const slug = parsed.practiceAreaSlug;
-  const pa = slug ? [displayNameForSlug(slug)] : [];
   const displayName = resolveSraDisplayName(doc.businessName, doc.searchText, doc.sraId);
+  const pa = resolveSraPracticeAreasForDisplay({
+    organisationName: displayName,
+    searchText: doc.searchText,
+    workArea: doc.workArea,
+    rawPayload: doc.rawPayload,
+  });
   const phone = doc.phone?.trim() || extractPhoneFromSraSearchText(doc.searchText) || undefined;
+  const email = doc.email?.trim() || undefined;
+  const website =
+    doc.website?.trim() && !doc.website.includes("sra.org.uk") ? doc.website.trim() : undefined;
   return enrichSearchResultForPublic(
     sanitiseContactForDisplay({
       id: `sra:${doc.sraId}`,
@@ -98,8 +104,8 @@ export function fromSraMeili(
         country: doc.country,
       },
       jurisdictions: [],
-      contact: { phone },
-      url: doc.sraProfileUrl,
+      contact: { phone, email, website },
+      url: website,
       contactPageUrl: doc.sraProfileUrl,
       verified: true,
       raw: {

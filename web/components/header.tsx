@@ -3,6 +3,7 @@
 import { MapPin, ChevronDown, Menu, X, Bookmark } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import {
   DropdownMenu,
@@ -22,8 +23,6 @@ const navBoxVariants = {
     "border-border/70 bg-card/90 text-muted-foreground hover:border-primary/30 hover:bg-muted/60 hover:text-foreground",
   primary:
     "border-primary/50 bg-primary text-primary-foreground hover:border-primary hover:bg-primary/90 hover:shadow-primary/25",
-  accent:
-    "border-secondary/40 bg-card/90 text-secondary hover:border-secondary/70 hover:bg-secondary/10 hover:text-secondary",
 } as const;
 
 type NavBoxVariant = keyof typeof navBoxVariants;
@@ -34,18 +33,24 @@ function NavBoxLink({
   className,
   children,
   onClick,
+  active,
 }: {
   href: string;
   variant?: NavBoxVariant;
   className?: string;
   children: ReactNode;
   onClick?: () => void;
+  active?: boolean;
 }) {
   return (
     <Link
       href={href}
       onClick={onClick}
-      className={cn(navBoxBase, navBoxVariants[variant], className)}
+      className={cn(
+        navBoxBase,
+        active ? navBoxVariants.primary : navBoxVariants[variant],
+        className,
+      )}
     >
       {children}
     </Link>
@@ -91,17 +96,20 @@ const locations = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, setAuthOpen } = useBookmarks();
+  const pathname = usePathname();
+  const onShaman =
+    pathname === "/ask-the-shaman" || pathname.startsWith("/ask-the-shaman/");
+  const onSignpost = pathname === "/signposting" || pathname.startsWith("/signposting");
 
   return (
     <header className="relative overflow-hidden border-b-2 border-gold/30 bg-card">
-      {/* Subtle spiral decoration */}
       <div className="absolute -right-20 -top-20 opacity-10">
         <SpiralDecoration size={200} color="var(--teal)" />
       </div>
       <div className="absolute -left-16 -bottom-16 opacity-10">
         <SpiralDecoration size={150} color="var(--coral)" />
       </div>
-      
+
       <div className="relative mx-auto max-w-6xl px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center group" aria-label="Legal Shaman home">
@@ -138,14 +146,13 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Desktop nav */}
-            <nav className="hidden items-center gap-1.5 lg:flex">
-              <NavBoxLink href="/find-a-lawyer" variant="primary">
-                Find a Lawyer
+            <nav className="hidden items-center gap-1.5 md:flex">
+              <NavBoxLink href="/ask-the-shaman" active={onShaman}>
+                Ask the Shaman
               </NavBoxLink>
-              <NavBoxLink href="/search">Search</NavBoxLink>
-              <NavBoxLink href="/ask-the-shaman">Ask the Shaman</NavBoxLink>
-              <NavBoxLink href="/oslaw">OSLAW</NavBoxLink>
+              <NavBoxLink href="/signposting" active={onSignpost}>
+                Signpost
+              </NavBoxLink>
               <NavBoxLink href="/bookmarks">
                 <Bookmark className="h-4 w-4" />
                 Bookmarks
@@ -153,13 +160,8 @@ export function Header() {
               {!user ? (
                 <NavBoxButton onClick={() => setAuthOpen(true)}>Sign in</NavBoxButton>
               ) : null}
-              <NavBoxLink href="/signposting">Signposting</NavBoxLink>
-              <NavBoxLink href="/submit" variant="accent">
-                List Business
-              </NavBoxLink>
             </nav>
 
-            {/* Mobile menu button */}
             <button
               type="button"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -171,27 +173,29 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <nav className="mt-4 grid grid-cols-2 gap-2 border-t border-border/70 pt-4 md:hidden">
+        {mobileMenuOpen ? (
+          <nav className="mt-4 grid gap-2 border-t border-border/70 pt-4 md:hidden">
             <NavBoxLink
-              href="/find-a-lawyer"
-              variant="primary"
-              className="col-span-2 w-full"
+              href="/ask-the-shaman"
+              active={onShaman}
+              className="w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Find a Lawyer
-            </NavBoxLink>
-            <NavBoxLink href="/search" className="w-full" onClick={() => setMobileMenuOpen(false)}>
-              Search
-            </NavBoxLink>
-            <NavBoxLink href="/ask-the-shaman" className="w-full" onClick={() => setMobileMenuOpen(false)}>
               Ask the Shaman
             </NavBoxLink>
-            <NavBoxLink href="/oslaw" className="w-full" onClick={() => setMobileMenuOpen(false)}>
-              OSLAW
+            <NavBoxLink
+              href="/signposting"
+              active={onSignpost}
+              className="w-full"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Signpost
             </NavBoxLink>
-            <NavBoxLink href="/bookmarks" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+            <NavBoxLink
+              href="/bookmarks"
+              className="w-full"
+              onClick={() => setMobileMenuOpen(false)}
+            >
               <Bookmark className="h-4 w-4" />
               Bookmarks
             </NavBoxLink>
@@ -206,19 +210,8 @@ export function Header() {
                 Sign in
               </NavBoxButton>
             ) : null}
-            <NavBoxLink href="/signposting" className="w-full" onClick={() => setMobileMenuOpen(false)}>
-              Signposting
-            </NavBoxLink>
-            <NavBoxLink
-              href="/submit"
-              variant="accent"
-              className="col-span-2 w-full"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              List Business
-            </NavBoxLink>
           </nav>
-        )}
+        ) : null}
       </div>
     </header>
   );

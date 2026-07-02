@@ -53,7 +53,14 @@ export function DirectoryResultDetail({
       <div className="grid gap-4 border-t border-border/60 bg-muted/20 p-5 md:p-6">
         <div className="grid gap-4 sm:grid-cols-2">
           <DetailField label="Practice areas">
-            {row.practiceAreas?.length ? row.practiceAreas.join(", ") : "Not listed"}
+            {row.practiceAreas?.length
+              ? row.practiceAreas.join(", ")
+              : (() => {
+                  const fromAbout = aboutFields.find((f) =>
+                    f.label.toLowerCase().includes("areas of law"),
+                  );
+                  return fromAbout?.value ?? "Not listed";
+                })()}
           </DetailField>
           <DetailField label="Location">{location || "Not listed"}</DetailField>
           <DetailField label="Phone">

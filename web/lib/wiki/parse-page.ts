@@ -103,9 +103,11 @@ export function parseWikiPage(
   content: string,
 ): WikiPageIndex {
   const relativePath = relative(wikiPagesDir, absolutePath).replace(/\\/g, "/");
-  const category = relativePath.includes("/")
-    ? (relativePath.split("/")[0] ?? "wiki")
-    : "wiki";
+  const parts = relativePath.split("/");
+  let category = parts[0] ?? "wiki";
+  if (category === "Areas" && parts.length > 1) {
+    category = parts[1] ?? "Areas";
+  }
   const fileName = basename(absolutePath);
   const sections = splitSections(content);
   const title = extractTitle(content, fileName);

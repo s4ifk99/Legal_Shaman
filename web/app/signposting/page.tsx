@@ -3,9 +3,9 @@ import advocateStub from "@/data/signposting-advocate.json";
 import SignpostingView from "./signposting-view";
 
 export const metadata = {
-  title: "Signposting Resources | Legal Shaman",
+  title: "Signpost | Legal Shaman",
   description:
-    "National signposting resources for UK legal help — Citizens Advice, legal aid, housing, employment, family, and more.",
+    "National signposting by area of law — housing, family, work, debt, immigration, and courts. Wiki guides plus Citizens Advice, Shelter, legal aid, and more.",
 };
 
 export default function SignpostingPage() {

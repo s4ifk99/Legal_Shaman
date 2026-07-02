@@ -167,7 +167,7 @@ export default async function LawyerDetailPage({ params }: PageProps) {
             </Button>
           ) : null}
           <Button asChild variant="outline">
-            <Link href="/find-a-lawyer">Back to search</Link>
+            <Link href="/ask-the-shaman">Back to Ask the Shaman</Link>
           </Button>
         </div>
       </main>

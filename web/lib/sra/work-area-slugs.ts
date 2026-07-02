@@ -10,14 +10,17 @@ const bySlug = new Map(LEGAL_ISSUE_TAXONOMY.map((e) => [e.slug, e]));
 /** Normalised (lowercase) SRA register WorkArea label → taxonomy slug. */
 const SRA_WORK_AREA_EXACT: Record<string, string> = {
   "administrative and public law": "public_law",
-  "banking and finance": "commercial",
   "children": "family",
-  "civil liberties and human rights": "public_law",
+  "civil liberties and human rights": "human_rights",
   "civil litigation": "commercial",
   "clinical negligence": "clinical_negligence",
   "community care": "community_care",
   "company and commercial": "commercial",
   "consumer": "consumer",
+  "consumer and retail": "consumer",
+  "consumer credit": "consumer_credit_loans",
+  "e-commerce": "consumer_online_shopping",
+  "retail": "consumer_goods",
   "crime": "criminal_defence",
   "criminal defence": "criminal_defence",
   "debt": "debt",
@@ -33,18 +36,41 @@ const SRA_WORK_AREA_EXACT: Record<string, string> = {
   "housing/landlord and tenant": "housing",
   "immigration": "immigration",
   "immigration and asylum": "immigration",
-  "insolvency": "debt",
-  "intellectual property": "commercial",
+  "insolvency": "insolvency",
+  "intellectual property": "intellectual_property",
   "matrimonial": "family",
   "mental health": "mental_health",
+  "motoring": "motoring_offences",
+  "motoring offences": "motoring_offences",
   "personal injury": "personal_injury",
   "personal injury/l clinical negligence": "personal_injury",
-  "planning": "public_law",
+  "planning": "planning_law",
+  "defamation": "defamation_media",
+  "media and entertainment": "defamation_media",
+  "construction": "construction_law",
+  "environmental": "environmental_law",
+  "data protection": "data_protection",
+  "charity": "charity_law",
+  "agricultural": "agricultural_rural",
+  "military": "military_law",
+  "maritime": "maritime_law",
+  "aviation": "aviation_law",
+  "sports": "sports_law",
+  "fraud": "fraud_financial_crime",
+  "financial crime": "fraud_financial_crime",
+  "insolvency and restructuring": "insolvency",
+  "inquests": "inquests_coroners",
+  "coroners and inquests": "inquests_coroners",
   "probate and estate administration": "wills_probate",
-  "property - commercial": "commercial",
+  "property - commercial": "commercial_property",
   "property - residential": "housing",
+  conveyancing: "conveyancing",
+  "residential conveyancing": "conveyancing",
+  "commercial conveyancing": "conveyancing",
+  "property conveyancing": "conveyancing",
   "public law": "public_law",
-  "tax": "commercial",
+  "tax": "tax_law",
+  "banking and finance": "banking_finance",
   "welfare benefits": "welfare_benefits",
   "wills, trusts and tax planning": "wills_probate",
   "wills trusts and probate": "wills_probate",
@@ -61,6 +87,14 @@ export type SraWorkAreaMapping = {
 
 function normalizeWorkAreaLabel(label: string): string {
   return label.trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+/** True when a line matches a known SRA register WorkArea label (exact or normalised). */
+export function isKnownSraWorkAreaLabel(label: string): boolean {
+  const normalized = normalizeWorkAreaLabel(label);
+  if (!normalized) return false;
+  if (normalized in SRA_WORK_AREA_EXACT) return true;
+  return normalizePracticeAreas(label).canonicalSlugs.length > 0;
 }
 
 function aliasesForSlug(slug: string): string[] {

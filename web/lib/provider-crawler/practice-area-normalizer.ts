@@ -1,6 +1,6 @@
 import { LEGAL_ISSUE_TAXONOMY } from "@/lib/legal/legal-issue-taxonomy-data";
 
-/** GOV.UK / legal-aid variants not covered cleanly by taxonomy slug alone. */
+/** @deprecated supplemental slugs now live in LEGAL_ISSUE_TAXONOMY — kept for phrase-index aliases only */
 const SUPPLEMENTAL_SLUGS: Record<
   string,
   { canonicalName: string; aliases: string[] }
@@ -58,10 +58,25 @@ const EXACT_PHRASE_SLUG: Record<string, string> = {
   "housing homelessness": "housing",
   "human rights law": "human_rights",
   "human rights": "human_rights",
+  "human rights detention": "human_rights",
+  "hmrc tax investigation": "tax_law",
+  "hmrc tax": "tax_law",
+  "hmrc investigation": "tax_law",
   "housing law": "housing",
   "judicial review": "judicial_review",
   "community care": "community_care",
   debt: "debt",
+  "section 75": "consumer_credit_loans",
+  "section 75 claim": "consumer_credit_loans",
+  "faulty goods": "consumer_goods",
+  "consumer rights act": "consumer",
+  "package holiday": "consumer_travel_holidays",
+  "car finance": "consumer_car_finance",
+  "energy ombudsman": "consumer_energy_utilities",
+  "small claims court": "consumer_small_claims",
+  "money claim online": "consumer_small_claims",
+  "letting agent illegal fees": "consumer_landlord_agent_fees",
+  "illegal agency fees": "consumer_landlord_agent_fees",
 };
 
 const EXACT_PHRASE_KEYS = Object.keys(EXACT_PHRASE_SLUG).sort((a, b) => b.length - a.length);

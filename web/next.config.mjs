@@ -13,7 +13,9 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: "/oslr", destination: "/oslaw", permanent: true },
+      { source: "/find-a-lawyer", destination: "/ask-the-shaman", permanent: false },
+      { source: "/oslaw", destination: "/ask-the-shaman", permanent: false },
+      { source: "/oslr", destination: "/ask-the-shaman", permanent: true },
       { source: "/oslr/:path*", destination: "/oslaw/:path*", permanent: true },
     ];
   },

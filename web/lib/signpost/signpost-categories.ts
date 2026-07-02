@@ -26,27 +26,44 @@ type RawSection = {
   resources: RawResource[];
 };
 
-/** Homepage Signpost category titles (source of truth for V1 widget). */
+/** Consumer-facing signpost sections (aligned with wiki Areas). */
 export const SIGNPOST_CATEGORY_TITLES = [
-  "General advice",
-  "Legal aid eligibility & support",
-  "Preparing documents and going to court",
-  "Remote hearings",
-  "National legal advice organisations",
-  "Benefits, finance and debt",
-  "Financing Options",
-  "Crime",
-  "Disabilities and mental health",
-  "Domestic violence",
+  "Getting Help",
+  "Courts and Disputes",
+  "Home and Housing",
+  "Family and Relationships",
+  "Wills and Planning Ahead",
+  "Work and Employment",
+  "Your Business",
+  "Money, Benefits and Debt",
+  "Consumer Rights",
+  "Neighbours and Property",
+  "Immigration and Citizenship",
+  "Health and Injury",
+  "Driving and Parking",
+  "Rights and Discrimination",
+  "Crime and Police",
   "Education",
-  "Employment",
-  "Family",
-  "Housing",
-  "Human rights and public law",
-  "Immigration and asylum",
-  "Parking PCN",
-  "Problem with Police",
 ] as const;
+
+const SECTION_DESCRIPTIONS: Record<string, string> = {
+  "Getting Help": "Legal aid, pro bono, and national advice organisations.",
+  "Courts and Disputes": "Starting a claim, court documents, hearings, and enforcement.",
+  "Home and Housing": "Renting, buying, eviction, council housing, and repairs.",
+  "Family and Relationships": "Divorce, children, domestic abuse, and separation.",
+  "Wills and Planning Ahead": "Wills, probate, inheritance, and powers of attorney.",
+  "Work and Employment": "Rights at work, redundancy, tribunals, and small employers.",
+  "Your Business": "Contracts, company structure, and insolvency for small businesses.",
+  "Money, Benefits and Debt": "Universal Credit, debt solutions, tax, and bills.",
+  "Consumer Rights": "Faulty goods, refunds, and trader disputes.",
+  "Neighbours and Property": "Boundaries, noise, and neighbour disputes.",
+  "Immigration and Citizenship": "Visas, settled status, asylum, and citizenship.",
+  "Health and Injury": "Personal injury and clinical negligence.",
+  "Driving and Parking": "Motoring offences, PCNs, and the Highway Code.",
+  "Rights and Discrimination": "Equality Act, human rights, and disability rights.",
+  "Crime and Police": "If you are accused, victim support, and complaints about police.",
+  Education: "School exclusions, SEND, and education rights.",
+};
 
 function slugify(title: string): string {
   return title
@@ -94,7 +111,7 @@ function buildCategories(): SignpostCategory[] {
     return {
       slug: slugify(title),
       title,
-      description: `Useful contacts and resources for ${title.toLowerCase()}.`,
+      description: SECTION_DESCRIPTIONS[title] ?? `Useful contacts and resources for ${title.toLowerCase()}.`,
       links,
     };
   });

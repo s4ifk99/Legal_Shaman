@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SpiralDecoration } from "./spiral-decoration";
 import { cn } from "@/lib/utils";
+import { useRequireAuth } from "@/lib/auth/use-require-auth";
 
 type SuggestListing = {
   id: string;
@@ -32,6 +33,7 @@ type SuggestResponse = {
 
 export function SearchBar({ compact = false }: { compact?: boolean }) {
   const router = useRouter();
+  const { requireAuth } = useRequireAuth();
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -72,13 +74,16 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
 
   const goSearch = useCallback(
     (query: string, semantic?: boolean) => {
-      const params = new URLSearchParams();
-      params.set("q", query.trim());
-      if (semantic) params.set("semantic", "1");
-      router.push(`/search?${params.toString()}`);
-      setOpen(false);
+      const run = () => {
+        const params = new URLSearchParams();
+        params.set("q", query.trim());
+        if (semantic) params.set("semantic", "1");
+        router.push(`/ask-the-shaman?${params.toString()}`);
+        setOpen(false);
+      };
+      requireAuth(run, "search");
     },
-    [router],
+    [router, requireAuth],
   );
 
   const onSubmit = (e: React.FormEvent) => {

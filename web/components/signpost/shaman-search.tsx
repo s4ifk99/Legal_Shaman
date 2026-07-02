@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
+import { useRequireAuth } from "@/lib/auth/use-require-auth";
 
 type ShamanSearchProps = {
   compact?: boolean;
@@ -10,6 +11,7 @@ type ShamanSearchProps = {
 
 export function ShamanSearch({ compact = false }: ShamanSearchProps) {
   const router = useRouter();
+  const { requireAuth } = useRequireAuth();
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState({
     legalAid: false,
@@ -28,16 +30,19 @@ export function ShamanSearch({ compact = false }: ShamanSearchProps) {
     const trimmed = searchQuery.trim();
     if (trimmed.length < 2) return;
 
-    const params = new URLSearchParams();
-    params.set("q", trimmed);
-    if (filters.legalAid) {
-      params.set("legalAid", "1");
-    }
-    if (filters.oslaw) {
-      params.set("reddit", "1");
-    }
+    const run = () => {
+      const params = new URLSearchParams();
+      params.set("q", trimmed);
+      if (filters.legalAid) {
+        params.set("legalAid", "1");
+      }
+      if (filters.oslaw) {
+        params.set("reddit", "1");
+      }
 
-    router.push(`/search?${params.toString()}`);
+      router.push(`/search?${params.toString()}`);
+    };
+    requireAuth(run, "search");
   };
 
   return (

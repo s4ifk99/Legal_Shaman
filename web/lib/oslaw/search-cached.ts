@@ -1,6 +1,6 @@
 import { getOslawTrendingData } from "@/lib/oslaw/data";
+import { rankAndFilterOslawResults, scoreOslawResultRelevance } from "@/lib/oslaw/search-queries";
 import type { OslawPost } from "@/lib/oslaw/types";
-import { engagementScore } from "@/lib/reddit-search/listing";
 
 export type OslawSearchResult = {
   id: string;
@@ -9,6 +9,7 @@ export type OslawSearchResult = {
   subreddit: string;
   score: number;
   comments: number;
+  snippet?: string;
 };
 
 function toApiResult(post: OslawPost): OslawSearchResult {
@@ -19,27 +20,12 @@ function toApiResult(post: OslawPost): OslawSearchResult {
     subreddit: `r/${post.subreddit}`,
     score: post.score,
     comments: post.numComments,
+    snippet: post.snippet,
   };
-}
-
-function relevanceScore(post: OslawPost, terms: string[]): number {
-  const haystack = `${post.title} ${post.snippet}`.toLowerCase();
-  let score = 0;
-  for (const term of terms) {
-    if (haystack.includes(term)) score += term.length >= 4 ? 3 : 1;
-  }
-  return score + engagementScore(post) * 0.01;
 }
 
 /** Search locally cached OSLAW posts when live Reddit is unreachable. */
 export function searchCachedOslawPosts(query: string, limit = 8): OslawSearchResult[] {
-  const terms = query
-    .toLowerCase()
-    .split(/\s+/)
-    .map((t) => t.trim())
-    .filter((t) => t.length >= 2);
-  if (!terms.length) return [];
-
   const data = getOslawTrendingData();
   const posts: OslawPost[] = [];
   const seen = new Set<string>();
@@ -53,10 +39,31 @@ export function searchCachedOslawPosts(query: string, limit = 8): OslawSearchRes
     }
   }
 
-  return posts
-    .map((post) => ({ post, score: relevanceScore(post, terms) }))
-    .filter((row) => row.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit)
-    .map((row) => toApiResult(row.post));
+  const candidates = posts
+    .map((post) => ({
+      post,
+      title: post.title,
+      snippet: post.snippet,
+      score: post.score,
+      comments: post.numComments,
+      relevance: scoreOslawResultRelevance(query, post.title, post.snippet),
+    }))
+    .filter((row) => row.relevance >= 4);
+
+  const ranked = rankAndFilterOslawResults(
+    query,
+    candidates.map(({ title, snippet, score, comments }) => ({
+      title,
+      snippet,
+      score,
+      comments,
+    })),
+    limit,
+  );
+
+  const byTitle = new Map(candidates.map((c) => [c.title, c.post]));
+  return ranked
+    .map((row) => byTitle.get(row.title))
+    .filter((post): post is OslawPost => Boolean(post))
+    .map(toApiResult);
 }

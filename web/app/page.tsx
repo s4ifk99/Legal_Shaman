@@ -1,7 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { CategoryCards, type CategorySection } from "@/components/category-cards";
-import { OslawTrendingMarquee } from "@/components/oslaw/trending-marquee";
 import { ProductEntryCards } from "@/components/product-entry-cards";
 import { SearchBar } from "@/components/search-bar";
 import { SpiralBackground } from "@/components/spiral-decoration";
@@ -14,7 +13,6 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      <OslawTrendingMarquee />
 
       <SearchBar compact />
 
@@ -25,8 +23,9 @@ export default function Home() {
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
               How can we help?
             </h2>
-            <p className="mt-3 max-w-2xl mx-auto text-muted-foreground md:text-lg">
-              Search the UK legal directory, get guided lawyer matches, read the wiki, or explore what people are discussing online.
+            <p className="mt-3 mx-auto max-w-2xl text-muted-foreground md:text-lg">
+              Ask the Shaman for wiki guidance, lawyer matching, and live discussions — or browse
+              Signpost for trusted national resources.
             </p>
           </div>
           <ProductEntryCards />
@@ -99,10 +98,10 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="mb-10 text-center">
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Browse by <span className="text-primary">category</span>
+              Browse by <span className="text-primary">area of law</span>
             </h2>
             <p className="mt-3 text-muted-foreground md:text-lg">
-              Click to reveal useful contacts and start your search
+              Housing, family, work, debt, and more — each section links to our wiki and trusted external help
             </p>
           </div>
 
@@ -113,7 +112,7 @@ export default function Home() {
               href="/signposting"
               className="inline-flex items-center rounded-xl border-2 border-primary/30 bg-primary/5 px-6 py-3 text-sm font-medium text-primary transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/10 hover:shadow-md"
             >
-              View full signposting resources →
+              Open Signpost →
             </Link>
           </div>
         </div>

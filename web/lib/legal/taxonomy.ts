@@ -10,6 +10,7 @@ import {
   LEGAL_ISSUE_TAXONOMY,
   type LegalIssueTaxonomyEntry,
 } from "@/lib/legal/legal-issue-taxonomy-data";
+import { resolveLegalIssueFromNaturalLanguage } from "@/lib/legal/natural-language-resolver";
 import { refinementChipsFromEntry } from "@/lib/legal/refinement-chips";
 
 export type { LegalIssueTaxonomyEntry };
@@ -59,52 +60,9 @@ function phrasesForEntry(e: LegalIssueTaxonomyEntry): string[] {
   ]).sort((a, b) => b.length - a.length);
 }
 
-const phraseLists = new Map(LEGAL_ISSUE_TAXONOMY.map((e) => [e.slug, phrasesForEntry(e)] as const));
-
-/** Score query text against taxonomy; pick best legal issue. */
+/** Score query text against taxonomy; pick best legal issue from natural language. */
 export function resolveLegalIssueFromQuery(raw: string): LegalIssueResolution | null {
-  const lower = raw.toLowerCase();
-  let best: { entry: LegalIssueTaxonomyEntry; score: number } | null = null;
-
-  for (const entry of LEGAL_ISSUE_TAXONOMY) {
-    const phrases = phraseLists.get(entry.slug) ?? [];
-    let score = 0;
-    for (const ph of phrases) {
-      if (ph.length < 3) continue;
-      if (/^(solicitor|lawyers?|attorney)s?$/.test(ph)) continue;
-      if (ph.length >= 2 && lower.includes(ph)) score += ph.length;
-    }
-    for (const sig of entry.emergencySignals) {
-      const s = sig.toLowerCase();
-      if (s.length >= 3 && lower.includes(s)) score += s.length * 1.2;
-    }
-    if (score > 0 && (!best || score > best.score)) best = { entry, score };
-  }
-
-  if (!best) return null;
-
-  const e = best.entry;
-  const expandedTerms = uniqueLower([
-    ...e.searchBoostTerms,
-    ...e.subIssues,
-    ...e.relatedPracticeAreas,
-    e.canonicalName,
-  ]);
-
-  const clarificationQuestion = e.clarificationQuestions[0] ?? null;
-  const matchStrength = Math.min(1, best.score / 48);
-
-  return {
-    taxonomySlug: e.slug,
-    canonicalName: e.canonicalName,
-    matcherSlug: e.matcherSlug,
-    relatedPracticeAreas: e.relatedPracticeAreas,
-    expandedTerms,
-    clarificationQuestion,
-    searchBoostTerms: e.searchBoostTerms,
-    legalAidLikely: e.legalAidLikely,
-    matchStrength,
-  };
+  return resolveLegalIssueFromNaturalLanguage(raw);
 }
 
 export function computeQueryConfidence(
@@ -247,6 +205,7 @@ export function matcherSlugForTaxonomySlug(slug: string): string | null {
     housing: "family",
     neighbour_dispute: "family",
     wills_probate: "family",
+    conveyancing: "commercial",
     commercial: "commercial",
   };
   return map[slug] ?? null;

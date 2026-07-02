@@ -22,6 +22,9 @@ export type SraMeiliDocument = {
   website?: string;
   email?: string;
   authorisationStatus?: string;
+  /** From Postgres sync — used to populate practice areas in search UI. */
+  workArea?: unknown;
+  rawPayload?: Record<string, unknown>;
 };
 
 /** Normalised SRA office row (all offices persisted). */

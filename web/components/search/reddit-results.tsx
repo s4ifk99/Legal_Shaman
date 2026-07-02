@@ -97,7 +97,7 @@ export function RedditResults({ query, enabled }: RedditResultsProps) {
         {error ? (
           <p className="mt-3 text-sm text-destructive">
             Reddit search unavailable: {error}.{" "}
-            <Link href="/oslaw" className="font-medium underline">
+            <Link href="/ask-the-shaman" className="font-medium underline">
               Browse OSLAW trending
             </Link>
           </p>
@@ -106,7 +106,7 @@ export function RedditResults({ query, enabled }: RedditResultsProps) {
         {!loading && !error && results.length === 0 ? (
           <p className="mt-3 text-sm text-muted-foreground">
             No Reddit results found for this query.{" "}
-            <Link href="/oslaw" className="font-medium text-primary hover:underline">
+            <Link href="/ask-the-shaman" className="font-medium text-primary hover:underline">
               See trending topics
             </Link>
           </p>

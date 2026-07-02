@@ -1,5 +1,6 @@
 import { runDirectorySearch } from "@/lib/legal-search/run-directory-search";
 import { getDistinctCities, getListingsBySubcategory } from "@/lib/data";
+import { getCurrentUser } from "@/lib/auth/get-current-user";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   DirectorySearchTracking,
@@ -22,6 +23,7 @@ import { SearchDebugPanel } from "@/components/search/search-debug-panel";
 import { OslawTrendingMarquee } from "@/components/oslaw/trending-marquee";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { SearchResultsGate } from "@/components/search/search-results-gate";
 
 type PageProps = {
   searchParams: Promise<{
@@ -33,6 +35,7 @@ type PageProps = {
     reddit?: string;
     practiceArea?: string;
     location?: string;
+    entity?: string;
   }>;
 };
 
@@ -58,11 +61,14 @@ export default async function SearchPage({ searchParams }: PageProps) {
   const redditEnabled = sp.reddit === "1";
   const practiceArea = sp.practiceArea?.trim();
   const location = sp.location?.trim();
+  const initialExpandedEntity = sp.entity?.trim() || undefined;
 
   const cities = getDistinctCities({ max: 32 });
+  const currentUser = await getCurrentUser();
+  const isAuthenticated = Boolean(currentUser);
 
   const dir =
-    q.length >= 2
+    q.length >= 2 && isAuthenticated
       ? await runDirectorySearch({
           query: q,
           limit: 60,
@@ -121,7 +127,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
           </Link>
         </div>
 
-        <RedditResults query={q} enabled={redditEnabled} />
+        <RedditResults query={q} enabled={redditEnabled && isAuthenticated} />
 
         <SearchFormWithSuggestions
           key={`${q}|${freeOnly}|${legalAidOnly}|${cityFacet}`}
@@ -191,21 +197,24 @@ export default async function SearchPage({ searchParams }: PageProps) {
               </div>
             ) : null}
             {q.length >= 2 && (
-              <DirectorySearchResults
-                rows={rows}
-                explanations={explanations}
-                debugByIndex={debugByIndex}
-                q={q}
-                parsedPracticeArea={parsedPracticeArea ?? undefined}
-                parsedLocation={parsedLocation ?? undefined}
-                freeOnly={freeOnly}
-                legalAidOnly={legalAidOnly}
-                cityFacet={cityFacet}
-                markers={mapPayload?.markers ?? []}
-                missingCoordinatesCount={mapPayload?.missingCoordinatesCount ?? 0}
-                externalFallback={dir?.externalFallback ?? null}
-                citizensFallback={citizensFallback}
-              />
+              <SearchResultsGate query={q} isAuthenticated={isAuthenticated}>
+                <DirectorySearchResults
+                  rows={rows}
+                  explanations={explanations}
+                  debugByIndex={debugByIndex}
+                  q={q}
+                  initialExpandedId={initialExpandedEntity}
+                  parsedPracticeArea={parsedPracticeArea ?? undefined}
+                  parsedLocation={parsedLocation ?? undefined}
+                  freeOnly={freeOnly}
+                  legalAidOnly={legalAidOnly}
+                  cityFacet={cityFacet}
+                  markers={mapPayload?.markers ?? []}
+                  missingCoordinatesCount={mapPayload?.missingCoordinatesCount ?? 0}
+                  externalFallback={dir?.externalFallback ?? null}
+                  citizensFallback={citizensFallback}
+                />
+              </SearchResultsGate>
             )}
           </div>
         </div>

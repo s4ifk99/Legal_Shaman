@@ -11,6 +11,7 @@
     "db:generate": "prisma generate",
     "db:migrate": "tsx scripts/prisma-with-env.ts migrate deploy",
     "db:migrate:dev": "tsx scripts/prisma-with-env.ts migrate dev",
+    "db:verify": "tsx scripts/db-verify.ts",
     "db:seed": "tsx prisma/seed.ts",
     "embed:dump": "tsx scripts/dump-merged-listings.ts",
     "test:search-golden": "tsx scripts/search-golden-check.ts",
@@ -98,10 +99,14 @@
     "jobs:refresh-approved": "tsx scripts/jobs-refresh-approved.ts",
     "index:provider": "tsx scripts/index-provider.ts",
     "index:wiki": "tsx scripts/index-wiki.ts",
+    "ingest:legal-knowledge": "tsx scripts/ingest-legal-knowledge.ts",
+    "legal-knowledge:embed-backfill": "tsx scripts/embed-legal-chunks-backfill.ts",
+    "legal-search:eval": "tsx scripts/legal-knowledge-eval.ts",
     "sync:wiki-data": "tsx scripts/sync-wiki-data.ts",
     "reddit:search": "tsx scripts/reddit-search.ts",
     "reddit:trending:ingest": "tsx scripts/reddit-trending-ingest.ts",
-    "reddit:trending:seed": "tsx scripts/reddit-trending-seed.ts"
+    "reddit:trending:seed": "tsx scripts/reddit-trending-seed.ts",
+    "auth:cleanup:legacy-users": "tsx scripts/auth-cleanup-legacy-users.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -139,6 +144,7 @@
     "@radix-ui/react-tooltip": "1.1.6",
     "@vercel/analytics": "1.3.1",
     "autoprefixer": "^10.4.20",
+    "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
@@ -173,6 +179,7 @@
   "devDependencies": {
     "@prisma/client": "^7.8.0",
     "@tailwindcss/postcss": "^4.1.9",
+    "@types/bcryptjs": "^2.4.6",
     "@types/leaflet": "^1.9.21",
     "@types/node": "^22",
     "@types/pg": "^8.20.0",

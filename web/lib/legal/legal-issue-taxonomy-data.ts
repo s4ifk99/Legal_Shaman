@@ -12,11 +12,14 @@ export type LegalIssueTaxonomyEntry = {
   searchBoostTerms: string[];
 };
 
+import { LEGAL_ISSUE_TAXONOMY_EXTENDED } from "@/lib/legal/legal-issue-taxonomy-extended";
+import { LEGAL_ISSUE_TAXONOMY_CONSUMER } from "@/lib/legal/legal-issue-taxonomy-consumer";
+
 /**
  * Canonical legal-issue taxonomy (UK directory / matcher).
  * `matcherSlug` maps to seeded `PracticeArea` rows where applicable.
  */
-export const LEGAL_ISSUE_TAXONOMY: LegalIssueTaxonomyEntry[] = [
+const LEGAL_ISSUE_TAXONOMY_CORE: LegalIssueTaxonomyEntry[] = [
   {
     slug: "prison_law",
     canonicalName: "Prison Law",
@@ -186,6 +189,15 @@ export const LEGAL_ISSUE_TAXONOMY: LegalIssueTaxonomyEntry[] = [
       "neighbour harassment",
       "boundary dispute",
       "anti-social neighbour",
+      "neighbour loud noise",
+      "loud noise from neighbour",
+      "neighbour noise",
+      "noise from neighbour",
+      "fight with neighbour",
+      "argument with neighbour",
+      "neighbour keeps making noise",
+      "neighbour over loud noise",
+      "loud noise at night",
     ],
     subIssues: ["Noise nuisance", "Boundary disputes", "Harassment", "Anti-social behaviour"],
     relatedPracticeAreas: ["Public law", "Criminal Defence"],
@@ -206,9 +218,16 @@ export const LEGAL_ISSUE_TAXONOMY: LegalIssueTaxonomyEntry[] = [
   },
   {
     slug: "housing",
-    canonicalName: "Housing Law",
-    matcherSlug: "family",
-    aliases: ["landlord tenant", "renting"],
+    canonicalName: "Landlord and Tenant",
+    matcherSlug: "housing",
+    aliases: [
+      "landlord tenant",
+      "landlord and tenant",
+      "renting",
+      "tenancy",
+      "private renting",
+      "housing law",
+    ],
     userPhrases: [
       "housing problem",
       "eviction",
@@ -217,15 +236,31 @@ export const LEGAL_ISSUE_TAXONOMY: LegalIssueTaxonomyEntry[] = [
       "section 21",
       "landlord kicking me out",
       "kicking me out tonight",
+      "my landlord",
+      "landlord won't",
+      "landlord wont",
+      "deposit not returned",
+      "deposit dispute",
+      "tenancy deposit",
+      "return my deposit",
+      "private landlord",
+      "letting agent",
     ],
     subIssues: [
-      "Possession",
       "Deposit disputes",
+      "Possession",
+      "Eviction",
+      "Housing disrepair",
       "Homelessness",
       "Anti-social behaviour",
       "Neighbour dispute",
     ],
-    relatedPracticeAreas: ["Community care", "Public law"],
+    relatedPracticeAreas: [
+      "Landlord and tenant",
+      "Housing disrepair",
+      "Deposit disputes",
+      "Possession",
+    ],
     emergencySignals: ["homeless tonight", "illegal eviction now", "kicking me out tonight"],
     legalAidLikely: true,
     clarificationQuestions: [
@@ -233,9 +268,12 @@ export const LEGAL_ISSUE_TAXONOMY: LegalIssueTaxonomyEntry[] = [
     ],
     searchBoostTerms: [
       "housing solicitor",
+      "landlord and tenant",
       "eviction",
       "landlord",
       "tenant",
+      "tenancy deposit",
+      "deposit",
       "section 21",
       "section 8",
       "disrepair",
@@ -343,6 +381,42 @@ export const LEGAL_ISSUE_TAXONOMY: LegalIssueTaxonomyEntry[] = [
     ],
   },
   {
+    slug: "conveyancing",
+    canonicalName: "Conveyancing",
+    matcherSlug: "commercial",
+    aliases: [
+      "conveyancer",
+      "property lawyer",
+      "residential property",
+      "house purchase",
+      "house sale",
+    ],
+    userPhrases: [
+      "conveyancing solicitor",
+      "conveyancing lawyer",
+      "buying a house",
+      "selling a house",
+      "property purchase",
+      "remortgage",
+      "transfer of equity",
+    ],
+    subIssues: ["Purchase", "Sale", "Remortgage", "Leasehold", "Transfer of equity"],
+    relatedPracticeAreas: ["Commercial property", "Wills and probate"],
+    emergencySignals: [],
+    legalAidLikely: false,
+    clarificationQuestions: [
+      "Is this for buying, selling, remortgaging, or transferring a share in a property?",
+    ],
+    searchBoostTerms: [
+      "conveyancing",
+      "residential conveyancing",
+      "property purchase",
+      "house sale",
+      "remortgage",
+      "transfer of equity",
+    ],
+  },
+  {
     slug: "commercial",
     canonicalName: "Commercial Law",
     matcherSlug: "commercial",
@@ -413,16 +487,77 @@ export const LEGAL_ISSUE_TAXONOMY: LegalIssueTaxonomyEntry[] = [
     slug: "consumer",
     canonicalName: "Consumer Law",
     matcherSlug: "commercial",
-    aliases: ["consumer rights", "faulty goods"],
-    userPhrases: ["refund", "trader dispute", "Section 75"],
-    subIssues: ["Goods", "Services", "Travel", "Finance complaints"],
-    relatedPracticeAreas: ["Debt", "Small claims"],
+    aliases: [
+      "consumer rights",
+      "consumer protection",
+      "consumer dispute",
+      "trader complaint",
+      "retailer complaint",
+      "Citizens Advice consumer",
+      "Citizens Advice",
+      "Trading Standards",
+      "Citizens Advice consumer service",
+    ],
+    userPhrases: [
+      "consumer rights",
+      "consumer advice",
+      "consumer solicitor",
+      "consumer lawyer",
+      "refund",
+      "trader dispute",
+      "Section 75",
+      "section 75 claim",
+      "faulty goods",
+      "poor service",
+      "company won't help",
+      "complaint ignored",
+      "ombudsman complaint",
+      "Consumer Rights Act",
+      "unfair contract",
+      "misleading advert",
+      "false advertising",
+      "cooling off period",
+      "chargeback",
+    ],
+    subIssues: [
+      "Goods and refunds",
+      "Services and traders",
+      "Travel and holidays",
+      "Finance and credit",
+      "Utilities and telecoms",
+      "Online shopping",
+      "Insurance",
+      "Subscriptions",
+      "Small claims",
+    ],
+    relatedPracticeAreas: [
+      "Debt",
+      "Small claims",
+      "Housing",
+      "Travel",
+      "Energy and utilities",
+    ],
     emergencySignals: [],
     legalAidLikely: false,
     clarificationQuestions: [
-      "Is this about faulty goods, poor services, a holiday or travel issue, or a finance/loan complaint?",
+      "Is this about faulty goods, poor services, a holiday or travel issue, finance, utilities, or something bought online?",
     ],
-    searchBoostTerms: ["consumer law", "faulty goods", "trader", "small claims", "ombudsman"],
+    searchBoostTerms: [
+      "consumer law",
+      "consumer rights",
+      "Consumer Rights Act",
+      "faulty goods",
+      "trader",
+      "retailer",
+      "small claims",
+      "ombudsman",
+      "Financial Ombudsman",
+      "Trading Standards",
+      "Citizens Advice",
+      "chargeback",
+      "refund",
+      "mis-selling",
+    ],
   },
   {
     slug: "debt",
@@ -505,4 +640,17 @@ export const LEGAL_ISSUE_TAXONOMY: LegalIssueTaxonomyEntry[] = [
     ],
     searchBoostTerms: ["judicial review", "public law", "JR", "unlawful decision", "Crown Court challenge"],
   },
+];
+
+/** Core + extended + consumer practice areas for natural-language identification. */
+export const LEGAL_ISSUE_TAXONOMY: LegalIssueTaxonomyEntry[] = [
+  ...LEGAL_ISSUE_TAXONOMY_CORE,
+  ...LEGAL_ISSUE_TAXONOMY_EXTENDED.filter(
+    (ext) => !LEGAL_ISSUE_TAXONOMY_CORE.some((core) => core.slug === ext.slug),
+  ),
+  ...LEGAL_ISSUE_TAXONOMY_CONSUMER.filter(
+    (c) =>
+      !LEGAL_ISSUE_TAXONOMY_CORE.some((core) => core.slug === c.slug) &&
+      !LEGAL_ISSUE_TAXONOMY_EXTENDED.some((ext) => ext.slug === c.slug),
+  ),
 ];

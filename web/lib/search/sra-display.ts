@@ -1,4 +1,5 @@
 import { extractPhonesFromText } from "@/lib/provider-enrichment/contact-extractor";
+import { isKnownSraWorkAreaLabel } from "@/lib/sra/work-area-slugs";
 
 export type SraNameFields = {
   displayName?: string | null;
@@ -128,17 +129,66 @@ function isAuthorisationLine(line: string): boolean {
 
 function looksLikePracticeAreaLine(line: string): boolean {
   const l = line.trim();
-  if (!l) return false;
+  if (!l || l.length < 3) return false;
+  if (/^areas? of law\b/i.test(l)) return false;
+  if (/\b(LLP|Ltd|Limited|Solicitors?|Chambers|Partners|Attorneys)\b/i.test(l)) return false;
+  if (
+    /^[A-Z][A-Z0-9 &.'-]{0,40}\b(Legal|Law)\s*$/i.test(l) &&
+    !isKnownSraWorkAreaLabel(l)
+  ) {
+    return false;
+  }
+  if (isKnownSraWorkAreaLabel(l)) return true;
   if (/\//.test(l)) return true;
   if (/\bwork for\b/i.test(l)) return true;
   if (
-    /^(commercial|corporate|employment|immigration|family|housing|criminal|litigation|conveyancing|probate|personal injury|intellectual property)\b/i.test(
+    /^(commercial|corporate|employment|immigration|family|housing|criminal|litigation|conveyancing|probate|personal injury|intellectual property|crime|children|debt|welfare|mental health|community care|planning|tax|insolvency|consumer|administrative|motoring|fraud|maritime|aviation|sports|charity|agricultural|military|environmental|construction|defamation|data protection|banking|wills|probate and estate|litigation\s*-\s*other)\b/i.test(
       l,
     )
   ) {
     return true;
   }
+  if (/\b(law|legal)\b/i.test(l) && l.length <= 48) return true;
+  if (l.length <= 40 && /\b(and|\/|-)\b/.test(l) && /\b(law|rights|care|disputes?|claims?|negligence|conveyancing)\b/i.test(l)) {
+    return true;
+  }
   return false;
+}
+
+/** Split SRA register lines like "Family / Crime / Housing" into separate labels. */
+function splitCompoundPracticeAreaLine(line: string): string[] {
+  const trimmed = line.trim();
+  if (!trimmed) return [];
+  if (isKnownSraWorkAreaLabel(trimmed)) return [trimmed];
+  if (trimmed.includes("/")) {
+    return trimmed
+      .split(/\s*\/\s*/)
+      .map((p) => p.trim())
+      .filter((p) => p.length >= 3);
+  }
+  return [trimmed];
+}
+
+/** Practice-area lines embedded in SRA `searchText` (from WorkArea / AreasOfLaw sync). */
+export function extractPracticeAreaLinesFromSraSearchText(searchText: string): string[] {
+  const lines = searchText
+    .split(/\n/)
+    .map((l) => l.trim())
+    .filter(Boolean);
+  const out: string[] = [];
+  const seen = new Set<string>();
+
+  for (const line of lines) {
+    if (!looksLikePracticeAreaLine(line)) continue;
+    for (const part of splitCompoundPracticeAreaLine(line)) {
+      const key = part.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(part);
+    }
+  }
+
+  return out;
 }
 
 function looksLikeTradingName(line: string, businessName: string): boolean {

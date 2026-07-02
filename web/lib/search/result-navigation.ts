@@ -5,6 +5,12 @@ export function entityIdFromLegacyRow(row: LegacyGetRow): string {
   return row.id;
 }
 
-export function searchUrlForListingName(businessName: string): string {
-  return `/search?q=${encodeURIComponent(businessName.trim())}`;
+export function searchUrlForListingName(businessName: string, entityId?: string): string {
+  const params = new URLSearchParams({ q: businessName.trim() });
+  if (entityId?.trim()) params.set("entity", entityId.trim());
+  return `/search?${params.toString()}`;
+}
+
+export function searchUrlForEntity(entityId: string, businessName: string): string {
+  return searchUrlForListingName(businessName, entityId);
 }

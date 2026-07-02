@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { ResourceAnchor } from "@/components/signpost/resource-link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SpiralDecoration } from "@/components/spiral-decoration";
@@ -56,14 +57,12 @@ function AccordionSection({ section, defaultOpen = false }: { section: Section; 
                 <div className="flex-1">
                   <p className="text-foreground">
                     {resource.url ? (
-                      <a
+                      <ResourceAnchor
                         href={resource.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="font-semibold text-primary hover:underline"
                       >
                         {resource.name}
-                      </a>
+                      </ResourceAnchor>
                     ) : (
                       <span className="font-semibold">{resource.name}</span>
                     )}
@@ -84,14 +83,12 @@ function AccordionSection({ section, defaultOpen = false }: { section: Section; 
                       {resource.links.map((link, linkIdx) => (
                         <li key={linkIdx} className="flex items-center gap-2">
                           <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                          <a
+                          <ResourceAnchor
                             href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
                             className="text-sm text-primary hover:underline"
                           >
                             {link.text}
-                          </a>
+                          </ResourceAnchor>
                         </li>
                       ))}
                     </ul>
@@ -118,8 +115,8 @@ export default function SignpostingView({
 
   const intro = (
     <p className="text-lg text-muted-foreground">
-      If we are unable to assist you, here is a list of other organisations and resources that we hope you might
-      find useful in your search for the right help.
+      Browse by the kind of problem you have — for families, households, and people running a small business.
+      Each area links to our wiki and trusted national organisations.
     </p>
   );
 
@@ -166,11 +163,10 @@ export default function SignpostingView({
         
         <div className="relative mx-auto max-w-4xl px-4">
           <h1 className="font-serif text-4xl font-bold text-foreground md:text-5xl">
-            <span className="text-primary">Signposting</span>{" "}
-            <span className="text-gold">Resources</span>
+            <span className="text-primary">Signpost</span>
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Helpful organisations, guides, and support services
+            Wiki guides and national organisations — organised by area of law
           </p>
         </div>
       </div>

@@ -2,8 +2,26 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db/prisma";
 import { RegisterSchema } from "@/lib/bookmarks/schemas";
 import { setUserSessionCookie } from "@/lib/auth/user-session";
+import { hashPassword } from "@/lib/auth/password";
+import { clientIpFromRequest, verifyTurnstileToken } from "@/lib/auth/turnstile";
+import { authRateLimitKey, checkAuthRateLimit } from "@/lib/auth/rate-limit";
+
+function defaultNameFromEmail(email: string): string {
+  const local = email.split("@")[0]?.trim();
+  if (!local) return "User";
+  return local.replace(/[._-]+/g, " ").slice(0, 255) || "User";
+}
 
 export async function POST(req: Request) {
+  const rateKey = authRateLimitKey(req, "register");
+  const rate = checkAuthRateLimit(rateKey);
+  if (!rate.allowed) {
+    return NextResponse.json(
+      { error: "Too many attempts. Try again later." },
+      { status: 429, headers: { "retry-after": String(rate.retryAfterSec ?? 60) } },
+    );
+  }
+
   let body: unknown;
   try {
     body = await req.json();
@@ -19,6 +37,14 @@ export async function POST(req: Request) {
     );
   }
 
+  const captcha = await verifyTurnstileToken(
+    parsed.data.captchaToken ?? "",
+    clientIpFromRequest(req),
+  );
+  if (!captcha.ok) {
+    return NextResponse.json({ error: captcha.error ?? "CAPTCHA failed" }, { status: 400 });
+  }
+
   const email = parsed.data.email.toLowerCase();
   const existing = await prisma.user.findUnique({ where: { email } });
   if (existing) {
@@ -28,8 +54,11 @@ export async function POST(req: Request) {
     );
   }
 
+  const passwordHash = await hashPassword(parsed.data.password);
+  const name = parsed.data.name?.trim() || defaultNameFromEmail(email);
+
   const user = await prisma.user.create({
-    data: { name: parsed.data.name, email },
+    data: { name, email, passwordHash },
     select: { id: true, name: true, email: true },
   });
 

@@ -9,6 +9,7 @@ import {
   SearchIntentSchema,
 } from "@/lib/legal-search/types";
 import { enableLlmSearch } from "@/lib/legal-search/config";
+import { allTaxonomySlugs } from "@/lib/legal/natural-language-resolver";
 import { enrichParsedQueryWithTaxonomy } from "@/lib/legal/taxonomy";
 import {
   extractedToParsedQuery,
@@ -59,7 +60,7 @@ export async function parseQuery(raw: string): Promise<ParsedQuery> {
             content: `You extract structured search intent for a UK legal directory (not legal advice).
 Return JSON only with keys: legalIssue?, practiceAreaSlug?, location?, postcode?, radiusMiles?, urgency?, languagePreference?, budgetPreference?, legalAidSignal?, entityPreference? ("individual"|"organisation"|"either"), jurisdiction?, intent, semanticQuery, confidence?
 intent one of: browse, find_lawyer, find_legal_aid, find_firm, emergency, unclear.
-practiceAreaSlug optional: employment, immigration, family, criminal_defence, personal_injury, housing, wills_probate, commercial.
+practiceAreaSlug optional — use the closest taxonomy slug from: ${allTaxonomySlugs().join(", ")}.
 Never give legal advice in output.`,
           },
           { role: "user", content: rawText.slice(0, 800) },

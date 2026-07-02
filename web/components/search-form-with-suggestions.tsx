@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useRequireAuth } from "@/lib/auth/use-require-auth";
 
 type SuggestListing = {
   id: string;
@@ -48,6 +49,7 @@ export function SearchFormWithSuggestions({
   cities,
 }: Props) {
   const router = useRouter();
+  const { requireAuth } = useRequireAuth();
   const listId = useId();
   const [query, setQuery] = useState(initialQuery);
   const [freeOnly, setFreeOnly] = useState(initialFreeOnly);
@@ -93,11 +95,14 @@ export function SearchFormWithSuggestions({
 
   const goSearch = useCallback(
     (qOverride?: string) => {
-      const qs = buildSearchParams(qOverride ?? query, freeOnly, legalAidOnly, city);
-      router.push(`/search${qs ? `?${qs}` : ""}`);
-      setOpen(false);
+      const run = () => {
+        const qs = buildSearchParams(qOverride ?? query, freeOnly, legalAidOnly, city);
+        router.push(`/search${qs ? `?${qs}` : ""}`);
+        setOpen(false);
+      };
+      requireAuth(run, "search");
     },
-    [query, freeOnly, legalAidOnly, city, router],
+    [query, freeOnly, legalAidOnly, city, router, requireAuth],
   );
 
   useEffect(() => {

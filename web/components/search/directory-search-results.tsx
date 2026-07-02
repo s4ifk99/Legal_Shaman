@@ -13,6 +13,10 @@ import { ResultDebugSection } from "@/components/search/result-debug-section";
 import { ExternalFallbackSection } from "@/components/triage/external-fallback-section";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 import type { MapMarker } from "@/lib/search/map-results";
+import {
+  collapsedDirectorySummary,
+  stableDirectoryRowKey,
+} from "@/lib/search/directory-row-display";
 import { entityIdFromLegacyRow, searchUrlForListingName } from "@/lib/search/result-navigation";
 import type { Listing } from "@/lib/data";
 import type { ExternalFallbackPayload } from "@/lib/legal-search/external-fallback/types";
@@ -28,20 +32,11 @@ function matchExplainAdl(sources: ("lexical" | "semantic")[]): string {
 }
 
 function stableRowKey(row: LegacyGetRow): string {
-  if (row.kind === "adlGroup") return `adlg:${row.firmGroupId}`;
-  return `adl:${row.id}`;
+  return stableDirectoryRowKey(row);
 }
 
 function collapsedSummary(row: LegacyGetRow): string {
-  if (row.kind === "adlGroup") {
-    return `${row.locations.length} office${row.locations.length === 1 ? "" : "s"} · Legal aid provider`;
-  }
-  const location = [row.city, row.postcode].filter(Boolean).join(", ");
-  if (row.kind === "adl" && row.sourceType === "sra") {
-    const areas = row.practiceAreas?.slice(0, 2).join(", ");
-    return [areas, location].filter(Boolean).join(" · ");
-  }
-  return [row.description.slice(0, 120), location].filter(Boolean).join(" · ");
+  return collapsedDirectorySummary(row);
 }
 
 type DirectorySearchResultsProps = {
@@ -58,6 +53,7 @@ type DirectorySearchResultsProps = {
   missingCoordinatesCount: number;
   externalFallback?: ExternalFallbackPayload | null;
   citizensFallback: Listing[];
+  initialExpandedId?: string;
 };
 
 export function DirectorySearchResults({
@@ -74,8 +70,13 @@ export function DirectorySearchResults({
   missingCoordinatesCount,
   externalFallback,
   citizensFallback,
+  initialExpandedId,
 }: DirectorySearchResultsProps) {
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(initialExpandedId ?? null);
+
+  useEffect(() => {
+    if (initialExpandedId) setExpandedId(initialExpandedId);
+  }, [initialExpandedId]);
 
   const toggleExpand = useCallback((entityId: string) => {
     setExpandedId((current) => (current === entityId ? null : entityId));

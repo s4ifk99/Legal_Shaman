@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { ResourceAnchor } from "@/components/signpost/resource-link";
 
 export type ResourceLink = { text: string; url: string };
 
@@ -50,14 +51,12 @@ function AccordionRow({ section }: { section: CategorySection }) {
                 <div className="flex-1">
                   <p className="text-foreground">
                     {resource.url ? (
-                      <a
+                      <ResourceAnchor
                         href={resource.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="font-semibold text-primary hover:underline"
                       >
                         {resource.name}
-                      </a>
+                      </ResourceAnchor>
                     ) : (
                       <span className="font-semibold">{resource.name}</span>
                     )}
@@ -81,14 +80,12 @@ function AccordionRow({ section }: { section: CategorySection }) {
                       {resource.links.map((link, linkIdx) => (
                         <li key={linkIdx} className="flex items-center gap-2">
                           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                          <a
+                          <ResourceAnchor
                             href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
                             className="text-sm text-primary hover:underline"
                           >
                             {link.text}
-                          </a>
+                          </ResourceAnchor>
                         </li>
                       ))}
                     </ul>

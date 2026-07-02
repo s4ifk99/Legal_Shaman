@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
+import { ResourceAnchor } from "@/components/signpost/resource-link";
 import type { SignpostCategory } from "@/lib/signpost/signpost-categories";
 
 type SignpostCategoryCardProps = {
@@ -34,14 +35,9 @@ export function SignpostCategoryCard({
           <ul className="space-y-3">
             {category.links.map((link) => (
               <li key={`${category.slug}-${link.label}-${link.url}`} className="text-sm">
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-primary hover:underline"
-                >
+                <ResourceAnchor href={link.url} className="font-medium text-primary hover:underline">
                   {link.label}
-                </a>
+                </ResourceAnchor>
                 {link.note ? <p className="mt-1 text-muted-foreground">{link.note}</p> : null}
               </li>
             ))}

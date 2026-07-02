@@ -6,6 +6,7 @@ import {
   extractPhoneFromSraSearchText,
   resolveSraDisplayName,
 } from "@/lib/search/sra-display";
+import { resolveSraPracticeAreasForDisplay } from "@/lib/search/sra-practice-areas";
 
 type LegacyAdl = {
   kind: "adl";
@@ -72,6 +73,15 @@ type LegacySra = {
 };
 
 export type LegacyGetRow = LegacyAdl | LegacyGroup | LegacySra;
+
+/** Build a legacy directory row from a single unified search result. */
+export function legacyRowFromSearchResult(result: SearchResult): LegacyGetRow {
+  const row = toLegacyGetResponse([result])[0];
+  if (!row) {
+    throw new Error("legacyRowFromSearchResult: empty mapping");
+  }
+  return row;
+}
 
 /**
  * Map unified SearchResult[] to the existing GET /api/search JSON rows
@@ -140,6 +150,28 @@ export function toLegacyGetResponse(results: SearchResult[]): LegacyGetRow[] {
         doc.phone?.trim() ||
         extractPhoneFromSraSearchText(searchText) ||
         "";
+      const email = r.contact?.email?.trim() || doc.email?.trim() || "";
+      const firmWebsite =
+        r.contact?.website?.trim() ||
+        (doc.website?.trim() && !doc.website.includes("sra.org.uk") ? doc.website.trim() : "");
+      const rawDoc = doc as {
+        workArea?: unknown;
+        rawPayload?: unknown;
+        capabilities?: string[];
+      };
+      const practiceAreas =
+        r.practiceAreas.length > 0
+          ? r.practiceAreas.filter(Boolean).slice(0, 8)
+          : resolveSraPracticeAreasForDisplay({
+              organisationName: displayName,
+              searchText,
+              description: r.description ?? searchText,
+              workArea: rawDoc.workArea,
+              rawPayload: rawDoc.rawPayload,
+              enrichmentText: Array.isArray(rawDoc.capabilities)
+                ? rawDoc.capabilities.join(" ")
+                : undefined,
+            }).slice(0, 8);
       return {
         kind: "adl" as const,
         id: r.id,
@@ -148,11 +180,11 @@ export function toLegacyGetResponse(results: SearchResult[]): LegacyGetRow[] {
         city: doc.city,
         postcode: doc.postcode,
         phone,
-        email: "",
-        website: doc.sraProfileUrl,
+        email,
+        website: firmWebsite || undefined,
         category: "SRA",
         subcategory: "sra-organisation",
-        practiceAreas: r.practiceAreas.filter(Boolean).slice(0, 8),
+        practiceAreas: practiceAreas.slice(0, 8),
         isFree: false,
         isLegalAid: false,
         isSponsored: false,
@@ -201,6 +233,7 @@ export function toLegacyGetResponse(results: SearchResult[]): LegacyGetRow[] {
       website: listing.website,
       category: listing.category,
       subcategory: listing.subcategory,
+      ...(r.practiceAreas.length ? { practiceAreas: r.practiceAreas.filter(Boolean).slice(0, 8) } : {}),
       isFree: listing.isFree,
       isLegalAid: listing.isLegalAid,
       isSponsored: listing.isSponsored,

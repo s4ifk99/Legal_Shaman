@@ -109,6 +109,8 @@ function mapFirms(
     practiceArea: row.practiceArea,
     articleCount: row.article_count,
     directoryUrl: row.directory_url,
+    entityId: row.sra_id ? `sra:${row.sra_id}` : undefined,
+    resultSource: row.sra_id ? ("sra" as const) : undefined,
   }));
 }
 
@@ -211,7 +213,13 @@ ${wikiContext}`;
     );
 
     const parsed = parseLlmJson(raw);
-    const answer = sanitizeAdviceText(parsed?.answer?.trim() ?? "");
+    let answer = sanitizeAdviceText(parsed?.answer?.trim() ?? "");
+    if (!answer) {
+      const plain = raw.trim();
+      if (plain && !plain.startsWith("{")) {
+        answer = sanitizeAdviceText(plain);
+      }
+    }
 
     if (!answer) {
       return {
@@ -247,11 +255,12 @@ ${wikiContext}`;
       latencyMs: Date.now() - started,
     };
   } catch (err) {
-    console.warn("[wiki.generate-answer] LLM failed:", err);
+    const message = err instanceof Error ? err.message : String(err);
+    console.warn("[wiki.generate-answer] LLM failed:", message);
     return {
       ...base,
       mode: "retrieval_only",
-      message: "Synthesised answer unavailable right now. Browse the wiki results below.",
+      message: `Synthesised answer unavailable (${message}). Browse the wiki results below.`,
       latencyMs: Date.now() - started,
     };
   }

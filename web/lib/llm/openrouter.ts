@@ -9,11 +9,14 @@ export function resolveLlmApiKey(): string | undefined {
 }
 
 export function resolveLlmBaseUrl(): string {
-  return (
-    process.env.LLM_BASE_URL?.trim() ||
-    process.env.OPENROUTER_BASE_URL?.trim() ||
-    "https://api.openai.com/v1"
-  ).replace(/\/+$/, "");
+  const explicit =
+    process.env.LLM_BASE_URL?.trim() || process.env.OPENROUTER_BASE_URL?.trim();
+  if (explicit) return explicit.replace(/\/+$/, "");
+
+  const key = resolveLlmApiKey();
+  if (key?.startsWith("sk-or-")) return OPENROUTER_DEFAULT_BASE;
+
+  return "https://api.openai.com/v1";
 }
 
 export function isOpenRouterBaseUrl(baseUrl: string): boolean {

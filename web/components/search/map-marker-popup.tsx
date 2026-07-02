@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import type { MapMarker } from "@/lib/search/map-results";
 import { formatPhoneForDisplay } from "@/lib/search/sra-display";
+import { searchUrlForEntity } from "@/lib/search/result-navigation";
 
 type MapMarkerPopupProps = {
   marker: MapMarker;
@@ -28,6 +30,12 @@ export function MapMarkerPopup({ marker }: MapMarkerPopupProps) {
         </p>
       ) : null}
       <p className="mt-1 flex flex-wrap gap-2 text-xs">
+        <Link
+          href={searchUrlForEntity(marker.entityId, title)}
+          className="font-medium text-primary underline"
+        >
+          Full details
+        </Link>
         {marker.website ? (
           <a href={marker.website} className="text-primary underline" target="_blank" rel="noreferrer">
             Website

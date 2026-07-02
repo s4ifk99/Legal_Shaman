@@ -1,7 +1,8 @@
 import { listOslawSearchSubredditNames } from "@/lib/oslaw/config";
 import {
   buildOslawSearchQueryVariants,
-  topicalRelevanceBoost,
+  hasStrongOslawMatches,
+  rankAndFilterOslawResults,
 } from "@/lib/oslaw/search-queries";
 import { hasRedditOAuthCredentials } from "./oauth";
 import { searchRedditInSubreddit } from "./search";
@@ -95,28 +96,6 @@ function dedupeResults(results: LiveRedditSearchResult[]): LiveRedditSearchResul
   return [...byKey.values()];
 }
 
-function sortByRelevance(query: string, results: LiveRedditSearchResult[]): LiveRedditSearchResult[] {
-  const terms = query
-    .toLowerCase()
-    .split(/\s+/)
-    .map((t) => t.trim())
-    .filter((t) => t.length >= 2);
-
-  return [...results].sort((a, b) => {
-    const scoreA =
-      a.score +
-      a.comments * 2 +
-      topicalRelevanceBoost(query, a.title, a.snippet) +
-      terms.reduce((sum, term) => sum + (a.title.toLowerCase().includes(term) ? 5 : 0), 0);
-    const scoreB =
-      b.score +
-      b.comments * 2 +
-      topicalRelevanceBoost(query, b.title, b.snippet) +
-      terms.reduce((sum, term) => sum + (b.title.toLowerCase().includes(term) ? 5 : 0), 0);
-    return scoreB - scoreA;
-  });
-}
-
 const SEARCH_SUB_BATCH_SIZE = 2;
 const SEARCH_SUB_BATCH_DELAY_MS = 400;
 const SEARCH_VARIANT_DELAY_MS = 500;
@@ -129,8 +108,8 @@ function hasEnoughRelevantResults(
   if (results.length >= limit) return true;
   const minCount = Math.min(5, Math.max(3, Math.ceil(limit / 2)));
   if (results.length < minCount) return false;
-  const strong = results.filter((row) => topicalRelevanceBoost(query, row.title, row.snippet) > 0);
-  return strong.length >= Math.min(3, minCount);
+  const strong = hasStrongOslawMatches(query, results, Math.min(3, minCount));
+  return strong;
 }
 
 async function mapInBatches<T, R>(
@@ -163,7 +142,7 @@ export async function fetchLiveRedditSearch(
 
   const searchSubs = listOslawSearchSubredditNames();
   const queryVariants = buildOslawSearchQueryVariants(trimmed);
-  const perSub = Math.min(12, Math.ceil(limit / 2) + 2);
+  const perSub = Math.min(15, Math.ceil(limit / 2) + 4);
   const errors: string[] = [];
 
   async function collectForSource(
@@ -195,7 +174,7 @@ export async function fetchLiveRedditSearch(
 
     if (!merged.length) return null;
     return {
-      results: sortByRelevance(trimmed, merged).slice(0, limit),
+      results: rankAndFilterOslawResults(trimmed, merged, limit),
       source: label,
     };
   }

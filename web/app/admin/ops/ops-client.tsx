@@ -94,6 +94,9 @@ export default function OpsClient() {
           <Button type="button" variant="outline" size="sm" onClick={() => void load()}>
             Refresh
           </Button>
+          <Link href="/admin/users" className="text-sm text-primary hover:underline">
+            Users
+          </Link>
           <Link href="/admin/provider-enrichment" className="text-sm text-primary hover:underline">
             Enrichment
           </Link>

@@ -32,6 +32,8 @@ type SraOrgRow = {
   county: string;
   country: string;
   sraProfileUrl: string;
+  workArea?: unknown;
+  rawPayload?: unknown;
   rank?: number;
 };
 
@@ -139,6 +141,8 @@ function rowToMeiliDoc(row: {
   county: string;
   country: string;
   sraProfileUrl: string;
+  workArea?: unknown;
+  rawPayload?: unknown;
 }): SraMeiliDocument {
   const businessName = pickSraIndexTitle(row.sraId, row.searchText, {
     displayName: row.displayName,
@@ -163,6 +167,10 @@ function rowToMeiliDoc(row: {
     country: row.country,
     source: "sra",
     sraProfileUrl: row.sraProfileUrl,
+    ...(row.workArea != null ? { workArea: row.workArea } : {}),
+    ...(row.rawPayload && typeof row.rawPayload === "object"
+      ? { rawPayload: row.rawPayload as Record<string, unknown> }
+      : {}),
   };
 }
 
@@ -263,6 +271,8 @@ async function searchSraOrganisationsFts(
       county,
       country,
       sra_profile_url AS "sraProfileUrl",
+      work_area AS "workArea",
+      raw_payload AS "rawPayload",
       ts_rank(
         to_tsvector('english', ${FTS_DOCUMENT_SQL}),
         websearch_to_tsquery('english', ${trimmed})
@@ -319,6 +329,8 @@ export async function searchSraOrganisationsPostgres(
         county: true,
         country: true,
         sraProfileUrl: true,
+        workArea: true,
+        rawPayload: true,
       },
       take,
       orderBy: { businessName: "asc" },

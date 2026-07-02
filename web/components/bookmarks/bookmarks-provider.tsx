@@ -6,20 +6,24 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
 import type { PublicUser } from "@/lib/auth/user-session";
 import type { BookmarkInput, BookmarkKey, BookmarkRecord } from "@/lib/bookmarks/types";
 import { bookmarkKeyString } from "@/lib/bookmarks/types";
-import { AuthDialog } from "@/components/bookmarks/auth-dialog";
+import { AuthDialog, type AuthDialogReason } from "@/components/bookmarks/auth-dialog";
 
 type BookmarksContextValue = {
   user: PublicUser | null;
   bookmarks: BookmarkRecord[];
   loading: boolean;
   authOpen: boolean;
+  authReason: AuthDialogReason;
   setAuthOpen: (open: boolean) => void;
+  requireAuth: (action: () => void, reason?: AuthDialogReason) => void;
+  openAuthForSearch: (retry?: () => void) => void;
   isBookmarked: (key: BookmarkKey) => boolean;
   toggleBookmark: (input: BookmarkInput) => Promise<boolean>;
   refreshBookmarks: () => Promise<void>;
@@ -41,7 +45,9 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   const [bookmarks, setBookmarks] = useState<BookmarkRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [authOpen, setAuthOpen] = useState(false);
+  const [authReason, setAuthReason] = useState<AuthDialogReason>("bookmark");
   const [pendingBookmark, setPendingBookmark] = useState<BookmarkInput | null>(null);
+  const pendingSearchActionRef = useRef<(() => void) | null>(null);
 
   const refreshBookmarks = useCallback(async () => {
     const res = await fetch("/api/bookmarks");
@@ -111,11 +117,36 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     [bookmarks],
   );
 
+  const openAuth = useCallback((reason: AuthDialogReason) => {
+    setAuthReason(reason);
+    setAuthOpen(true);
+  }, []);
+
+  const requireAuth = useCallback(
+    (action: () => void, reason: AuthDialogReason = "search") => {
+      if (user) {
+        action();
+        return;
+      }
+      pendingSearchActionRef.current = action;
+      openAuth(reason);
+    },
+    [user, openAuth],
+  );
+
+  const openAuthForSearch = useCallback(
+    (retry?: () => void) => {
+      if (retry) pendingSearchActionRef.current = retry;
+      openAuth("search");
+    },
+    [openAuth],
+  );
+
   const toggleBookmark = useCallback(
     async (input: BookmarkInput): Promise<boolean> => {
       if (!user) {
         setPendingBookmark(input);
-        setAuthOpen(true);
+        openAuth("bookmark");
         return false;
       }
 
@@ -125,7 +156,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       }
       return addBookmark(input);
     },
-    [user, isBookmarked, removeBookmark, addBookmark],
+    [user, isBookmarked, removeBookmark, addBookmark, openAuth],
   );
 
   const handleAuthSuccess = useCallback(
@@ -138,6 +169,9 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       } else {
         await refreshBookmarks();
       }
+      const pendingSearch = pendingSearchActionRef.current;
+      pendingSearchActionRef.current = null;
+      if (pendingSearch) pendingSearch();
     },
     [pendingBookmark, addBookmark, refreshBookmarks],
   );
@@ -147,6 +181,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     setUser(null);
     setBookmarks([]);
     setPendingBookmark(null);
+    pendingSearchActionRef.current = null;
   }, []);
 
   const value = useMemo(
@@ -155,7 +190,10 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       bookmarks,
       loading,
       authOpen,
+      authReason,
       setAuthOpen,
+      requireAuth,
+      openAuthForSearch,
       isBookmarked,
       toggleBookmark,
       refreshBookmarks,
@@ -166,6 +204,9 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       bookmarks,
       loading,
       authOpen,
+      authReason,
+      requireAuth,
+      openAuthForSearch,
       isBookmarked,
       toggleBookmark,
       refreshBookmarks,
@@ -180,9 +221,13 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
         open={authOpen}
         onOpenChange={(open) => {
           setAuthOpen(open);
-          if (!open) setPendingBookmark(null);
+          if (!open) {
+            setPendingBookmark(null);
+            pendingSearchActionRef.current = null;
+          }
         }}
         onSuccess={handleAuthSuccess}
+        reason={authReason}
         pendingFirmName={pendingBookmark?.businessName}
       />
     </BookmarksContext.Provider>
