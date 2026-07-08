@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-07-08T08:12:51.796Z",
+    "scrapedAt": "2026-07-08T19:23:39.819Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 5,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,78 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uqm89c",
+          "title": "We opposed a Subway being opened in a residential area. After meeting with councilors we agreed because they promised in writing to create 5 local jobs.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqm89c/we_opposed_a_subway_being_opened_in_a_residential/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqm89c/we_opposed_a_subway_being_opened_in_a_residential/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783497815,
+          "snippet": "Residential area. Very limited commerical shops. A Marie Curie closed down in 2023. In 2024 it was bought by a man who wanted to turn it into a Subway franchise. Local residents complained and it went on for a long time. We were concerned about rats etc. A pizza place closed down",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqmeef",
+          "title": "What would be the safest, fully legal way to fundraise for Count Binface (Clacton By-Election, England, with UK-based donations)?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqmeef/what_would_be_the_safest_fully_legal_way_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqmeef/what_would_be_the_safest_fully_legal_way_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783498419,
+          "snippet": "Asking on behalf of r/VoteBinface . Count Binface will be running in the upcoming Clacton By-Election as the biggest opposition to Nigel Farage. We want to hold a hustings, a ma​rch, and just generally get out there. We also need money, and want to donate (safely) to The Count Bi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqntco",
+          "title": "(England) can my mother make decisions for me because I have an autism diagnosis?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqntco/england_can_my_mother_make_decisions_for_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqntco/england_can_my_mother_make_decisions_for_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783503480,
+          "snippet": "I feel paranoid even writing this but I’m 19 and I’m scared I’m going to be forced to leave uni and be stripped of my legal autonomy. My mum has threatened for a while now that if I don’t listen to her she’ll get me pulled out of uni using my autism diagnosis. She’s now fully sai",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqtym6",
+          "title": "Evri left parcel in a safeplace without my consent and now its missing. Retailer refusing refund.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqtym6/evri_left_parcel_in_a_safeplace_without_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqtym6/evri_left_parcel_in_a_safeplace_without_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783520171,
+          "snippet": "A parcel of mine was left in a safe place but now it has gone missing. I did not ask them to leave it in a safeplace. I have raised this with the retailer who is refusing my refund. They have sent this message to me: “I completely understand your frustration, especially as you di",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqr7oj",
+          "title": "(England) Being taken to small claims court (maybe) by painter who walked out mid job.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqr7oj/england_being_taken_to_small_claims_court_maybe/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqr7oj/england_being_taken_to_small_claims_court_maybe/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783513618,
+          "snippet": "This is kinda long so I will try keep it brief. I hired a painter through check a trade to paint my whole house (3 bed). We agreed on a price of 3.2k. When he came to collect keys for the house, he asked me about floors, I said the downstairs is all staying, upstairs I’m changing",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ur1emy",
+          "title": "Not allowed to smoke in garden",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ur1emy/not_allowed_to_smoke_in_garden/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ur1emy/not_allowed_to_smoke_in_garden/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783535704,
+          "snippet": "I posted in housing UK as kind of a rant, but a lot of comments seem to believe that this may not be enforceable. So I thought I'd come here as well to see if this is actually something I can fight or not (I assumed not, but maybe I'm wrong?) I'll copy and paste the post below - ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uqb864",
           "title": "Im at war with a street lamp, England.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqb864/im_at_war_with_a_street_lamp_england/",
@@ -50,15 +122,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uq01ie",
-          "title": "Neighbour has piped into my property's waste pipe without telling me. What should I do? Northern England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq01ie/neighbour_has_piped_into_my_propertys_waste_pipe/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq01ie/neighbour_has_piped_into_my_propertys_waste_pipe/",
+          "id": "1uquxo1",
+          "title": "Can an ex employer demand payment for a previous employee benefit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uquxo1/can_an_ex_employer_demand_payment_for_a_previous/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uquxo1/can_an_ex_employer_demand_payment_for_a_previous/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783441488,
-          "snippet": "Next door (through terrace) have fitted this 2-inch pipe without telling me. They obviously had to come into my back yard to do the job too. I'm guessing that the house has been turned into a HMO, as there are several persons of foreign origin living there. There is also a large ",
+          "createdUtc": 1783522305,
+          "snippet": "I used to work at a very small business and I left my ex employer in April this year. We left on bad terms, as I found a better job and when I told my boss about this he was extremely irate and aggressive. Threatening to take me to court if I didn’t give him 6 months notice for l",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqtb57",
+          "title": "Sainsbury's chop chop - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqtb57/sainsburys_chop_chop_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqtb57/sainsburys_chop_chop_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783518712,
+          "snippet": "Hi, Just wanted to know where i stand legally. I ordered a small delivery from Sainsbury's chop chop on 23rd june. The delivery never arrived but was delivered elsewhere. I have no idea where but it wasn't my address or anyone on my street. I called chop chop immediately and was ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqvn9c",
+          "title": "England - Dismissed after 2.5 years with no PIP or warnings. Is this likely to be unfair dismissal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqvn9c/england_dismissed_after_25_years_with_no_pip_or/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqvn9c/england_dismissed_after_25_years_with_no_pip_or/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783523820,
+          "snippet": "I'm trying to understand whether I have a realistic case before spending money on a solicitor. I worked for a UK company in England for 2.5 years as a Product Manager on a £95k salary. Last week, I was called into a meeting and told my employment was being terminated. My access t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqzccx",
+          "title": "Expedia cancelled our flight and now won’t refund plz help",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqzccx/expedia_cancelled_our_flight_and_now_wont_refund/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqzccx/expedia_cancelled_our_flight_and_now_wont_refund/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783531476,
+          "snippet": "Looking for some advice because Expedia are refusing to help and I’m not sure if what they’re doing is legal. We booked a £10,000 holiday through Expedia . The fare we originally booked was non-refundable , but the issue is that the airline cancelled our original return flight , ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqmk21",
+          "title": "Lufthansa refusing flight compensation due to flying to the UK and not EU",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqmk21/lufthansa_refusing_flight_compensation_due_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqmk21/lufthansa_refusing_flight_compensation_due_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783498985,
+          "snippet": "Early this year I flew from Argentina to the UK via Frankfurt but this was cancelled and I ended up flying 24 hours later. Lufthansa will only reimburse the hotel / food costs etc but they refuse to pay the compensation. I am almost certain I qualify for this or am I missing some",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqrz4o",
+          "title": "Brother stole from me when moving out and police wont help. What can I do? - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqrz4o/brother_stole_from_me_when_moving_out_and_police/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqrz4o/brother_stole_from_me_when_moving_out_and_police/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783515595,
+          "snippet": "Hello, I was told to come to reddit and post here for advice by a friend. Im hoping to get some help. I recently had my brother staying with me for a few months rent free while he was down on his luck. I recently found out he was stealing money from my cash savings box when I wen",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ur0ks1",
+          "title": "A random fake facebook profile had a photo of my dead relative on their profile then an anonymous poster took the photo and posted it on a \"are we dating the same guy facebook page\" - am I going to be wasting my time going to the police about it?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ur0ks1/a_random_fake_facebook_profile_had_a_photo_of_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ur0ks1/a_random_fake_facebook_profile_had_a_photo_of_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783534005,
+          "snippet": "The photo of my relative was taken from a news article he was featured in many years ago. The account has now dissapeared but they had used the photo from 2022 but the anonymous poster who posted it is still there and using this photo to take the piss. I dont think its the fake a",
           "listingSource": "rss:hot"
         },
         {
@@ -74,183 +218,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1upzmsm",
-          "title": "Incorrectly accused of littering (Bexley, England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1upzmsm/incorrectly_accused_of_littering_bexley_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1upzmsm/incorrectly_accused_of_littering_bexley_england/",
+          "id": "1ur0wq6",
+          "title": "Local authority have declined me 'permission' to record a meeting about my child - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ur0wq6/local_authority_have_declined_me_permission_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ur0wq6/local_authority_have_declined_me_permission_to/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783440595,
-          "snippet": "I've been sent two letters (!) for the same alleged offence - dropping cigarette butts. Let's set aside the facts that (a) I don't smoke, (b) I don't litter, (c) I haven't been to Bexley for years. I wrote an email to the address on the letters telling them the above and asking f",
+          "createdUtc": 1783534677,
+          "snippet": "As the title states, a member of staff my local authority has told me verbally that they are not able to proceed with a meeting about my child's EHCP unless I confirm I will not record the session. After being invited, I told them I would be recording the meeting for my personal ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1upqsta",
-          "title": "Used image in blog post and now they’re chasing for money",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1upqsta/used_image_in_blog_post_and_now_theyre_chasing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1upqsta/used_image_in_blog_post_and_now_theyre_chasing/",
+          "id": "1uqzst3",
+          "title": "I was placed on section 2 under the Mental Health act (England) 23 days ago.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqzst3/i_was_placed_on_section_2_under_the_mental_health/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqzst3/i_was_placed_on_section_2_under_the_mental_health/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783419187,
-          "snippet": "Based in wales. I run a music blog and 13 years ago posted about a band and shared their new music video and added an image of the band. Today I received an email from the photographer organisation saying I have to pay a fee, and have said simply removing the article won’t make i",
+          "createdUtc": 1783532409,
+          "snippet": "please excuse me this is my first post on Reddit and I’m very emotional. I had a ward review meeting today, once finished I was told by the deputy ward manager I had been made an informal patient and could expect discharge on Wednesday 15th. I signed a document which contained de",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uptkty",
-          "title": "Is an 8 month holiday suspension every year legal in england.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uptkty/is_an_8_month_holiday_suspension_every_year_legal/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uptkty/is_an_8_month_holiday_suspension_every_year_legal/",
+          "id": "1uqv99n",
+          "title": "Employer requesting repayments due to incorrect contract [Scotland]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqv99n/employer_requesting_repayments_due_to_incorrect/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqv99n/employer_requesting_repayments_due_to_incorrect/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783427169,
-          "snippet": "At my work place we are not allowed to take holidays from the last week of October until the last week of June. People have tried to book one off special event holidays (stags, hens or birthdays) with plenty of warning but they are always refused. Wouldn’t bother me much but they",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1upwp5f",
-          "title": "Potential clinical negligence claim following stillbirth – looking for advice on next steps (UK, England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1upwp5f/potential_clinical_negligence_claim_following/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1upwp5f/potential_clinical_negligence_claim_following/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783434402,
-          "snippet": "I’m looking for general advice about a possible clinical negligence claim following the stillbirth of my baby at term. During pregnancy I had significant hyperemesis requiring medication and multiple healthcare contacts. I was referred for consultant review on more than one occas",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uq1d27",
-          "title": "Can someone stand as an MP once they’ve accepted a crown position in order to resign?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq1d27/can_someone_stand_as_an_mp_once_theyve_accepted_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq1d27/can_someone_stand_as_an_mp_once_theyve_accepted_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783444292,
-          "snippet": "Nigel Farage has said he intends to resign and then stand again. In order to resign an MP accepts a crown position as Steward of the Chiltern Hundreds or Manor of Northstead which makes him or her ineligible to be an MP. They then hold this position until another MP resigns and t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uptloy",
-          "title": "Told boss about medical condition, now have 'adjustments' forced upon me.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uptloy/told_boss_about_medical_condition_now_have/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uptloy/told_boss_about_medical_condition_now_have/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783427228,
-          "snippet": "Hey folks Bit of background, have worked for my employer for around 4 years, with the same manager for around 3, we're an engineering services company in Scotland &amp; I am one of the field engineers. I have a chronic medical condition that falls under the Equality Act 2010. I m",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1upzabu",
-          "title": "Advice on kids not in school or homeschooling - England, UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1upzabu/advice_on_kids_not_in_school_or_homeschooling/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1upzabu/advice_on_kids_not_in_school_or_homeschooling/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783439878,
-          "snippet": "There’s kids in my neighbourhood that are never in school. I’ve heard that they’re homeschooled but I always see them playing out, riding their bikes and shouting with no adult supervision. To me, they are clearly not being schooled at home and are just so noisy all day around my",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uqkttq",
-          "title": "Hypothetical: would complications from a surgery for a long-term condition be covered by Equality Act? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqkttq/hypothetical_would_complications_from_a_surgery/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqkttq/hypothetical_would_complications_from_a_surgery/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783492974,
-          "snippet": "I've been suffering from a chronic anal fissure for 3 years. Because of high levels of absence, I'm on a final warning from work, with attendance targets to meet, but they said any time needed for further surgical procedures wouldn't be counted towards the targets. Worked there f",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uppoxz",
-          "title": "Late for the Dentist - deposit back?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uppoxz/late_for_the_dentist_deposit_back/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uppoxz/late_for_the_dentist_deposit_back/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783415507,
-          "snippet": "England- for the last 5 years the dentist I have been with (private) has always been late, 15-20 mins at least, with one earlier this year being 45 mins late. On 2 occasions this year the dentist has cancelled and rescheduled my appointments, one a few days before and the other a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1upqg6m",
-          "title": "Recovery Driver refused to winch my car (totalling alternator), was on the phone the whole way home, then made me climb up and drive the car off the truck. Now denying anything. Motor legal? Police? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1upqg6m/recovery_driver_refused_to_winch_my_car_totalling/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1upqg6m/recovery_driver_refused_to_winch_my_car_totalling/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783418058,
-          "snippet": "My car started making a terrible noise on my way home from work. I pulled over sharpish and found that my serpentine belt had frayed, leaving a long rope whipping around the in the engine bay. Called One Call Breakdown. They advised recovery would be with me in a few hours. Recov",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uq8jsx",
-          "title": "Increase to price after signing of contract (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq8jsx/increase_to_price_after_signing_of_contract/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq8jsx/increase_to_price_after_signing_of_contract/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783459412,
-          "snippet": "Hi everyone, I am just looking for some guidance on an event contract. The facts are as follows: - I called a local hotel to host a birthday party last year and they quoted room hire fee of £200 over the phone, no minimum bar spend etc - I visited the hotel and agreed to hire the",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1upef6a",
-          "title": "My partner was violently attacked in his car today and the police said my partner put his hand out of the car window so that's the end of it. He didn't!England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1upef6a/my_partner_was_violently_attacked_in_his_car/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1upef6a/my_partner_was_violently_attacked_in_his_car/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783381646,
-          "snippet": "UPDATE: A senior officer has taken over, CCTV is clear. OIC has been lying and we don't know why. Complaint also put in, because this is disgraceful. So my partner was driving today around a roundabout in London, some bloke shouted, my partner shouted, whatever. Next thing is, th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uq4q00",
-          "title": "External wall belongs to our house but someone has started drilling into it. What should I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq4q00/external_wall_belongs_to_our_house_but_someone/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq4q00/external_wall_belongs_to_our_house_but_someone/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783451263,
-          "snippet": "Hi everyone, I am just looking for some advice because I am not sure what the best way to deal with this is. We live in an end terrace house and one of our outside walls backs onto someone else’s garden. They are not our direct neighbours, but the end of their garden is against o",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uqm89c",
-          "title": "We opposed a Subway being opened in a residential area. After meeting with councilors we agreed because they promised in writing to create 5 local jobs.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqm89c/we_opposed_a_subway_being_opened_in_a_residential/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqm89c/we_opposed_a_subway_being_opened_in_a_residential/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783497815,
-          "snippet": "Residential area. Very limited commerical shops. A Marie Curie closed down in 2023. In 2024 it was bought by a man who wanted to turn it into a Subway franchise. Local residents complained and it went on for a long time. We were concerned about rats etc. A pizza place closed down",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1up9457",
-          "title": "I spent thosuands in family court getting an order in place so I can have access to my child. She never dropped him off today. Do I call police?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1up9457/i_spent_thosuands_in_family_court_getting_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1up9457/i_spent_thosuands_in_family_court_getting_an/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783369500,
-          "snippet": "I was supposed to have my child dropped off at noon. She has not done so. What she has done is post images on Facebook of them visiting the zoo, going out for dinner, then going to the cinrma to see Toy Story 5. I have sent 20 messages and called 8 times demanding she follow the ",
+          "createdUtc": 1783522991,
+          "snippet": "I really hope someone can help! I applied for a new job 3 years ago, and the job advert stated a salary scale of £36-40k. I got the job, but it took around 3 months due to various paperwork issues. They sent me a letter of employment and contract which both stated a salary scale ",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 15,
+      "postCount": 13,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,54 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uqm89c",
+          "title": "We opposed a Subway being opened in a residential area. After meeting with councilors we agreed because they promised in writing to create 5 local jobs.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqm89c/we_opposed_a_subway_being_opened_in_a_residential/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqm89c/we_opposed_a_subway_being_opened_in_a_residential/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783497815,
+          "snippet": "Residential area. Very limited commerical shops. A Marie Curie closed down in 2023. In 2024 it was bought by a man who wanted to turn it into a Subway franchise. Local residents complained and it went on for a long time. We were concerned about rats etc. A pizza place closed down",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqmeef",
+          "title": "What would be the safest, fully legal way to fundraise for Count Binface (Clacton By-Election, England, with UK-based donations)?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqmeef/what_would_be_the_safest_fully_legal_way_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqmeef/what_would_be_the_safest_fully_legal_way_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783498419,
+          "snippet": "Asking on behalf of r/VoteBinface . Count Binface will be running in the upcoming Clacton By-Election as the biggest opposition to Nigel Farage. We want to hold a hustings, a ma​rch, and just generally get out there. We also need money, and want to donate (safely) to The Count Bi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uqntco",
+          "title": "(England) can my mother make decisions for me because I have an autism diagnosis?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqntco/england_can_my_mother_make_decisions_for_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqntco/england_can_my_mother_make_decisions_for_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783503480,
+          "snippet": "I feel paranoid even writing this but I’m 19 and I’m scared I’m going to be forced to leave uni and be stripped of my legal autonomy. My mum has threatened for a while now that if I don’t listen to her she’ll get me pulled out of uni using my autism diagnosis. She’s now fully sai",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ur1emy",
+          "title": "Not allowed to smoke in garden",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ur1emy/not_allowed_to_smoke_in_garden/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ur1emy/not_allowed_to_smoke_in_garden/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783535704,
+          "snippet": "I posted in housing UK as kind of a rant, but a lot of comments seem to believe that this may not be enforceable. So I thought I'd come here as well to see if this is actually something I can fight or not (I assumed not, but maybe I'm wrong?) I'll copy and paste the post below - ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uqb864",
           "title": "Im at war with a street lamp, England.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqb864/im_at_war_with_a_street_lamp_england/",
@@ -292,75 +340,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uq01ie",
-          "title": "Neighbour has piped into my property's waste pipe without telling me. What should I do? Northern England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq01ie/neighbour_has_piped_into_my_propertys_waste_pipe/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq01ie/neighbour_has_piped_into_my_propertys_waste_pipe/",
+          "id": "1uquxo1",
+          "title": "Can an ex employer demand payment for a previous employee benefit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uquxo1/can_an_ex_employer_demand_payment_for_a_previous/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uquxo1/can_an_ex_employer_demand_payment_for_a_previous/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783441488,
-          "snippet": "Next door (through terrace) have fitted this 2-inch pipe without telling me. They obviously had to come into my back yard to do the job too. I'm guessing that the house has been turned into a HMO, as there are several persons of foreign origin living there. There is also a large ",
+          "createdUtc": 1783522305,
+          "snippet": "I used to work at a very small business and I left my ex employer in April this year. We left on bad terms, as I found a better job and when I told my boss about this he was extremely irate and aggressive. Threatening to take me to court if I didn’t give him 6 months notice for l",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uqld6i",
-          "title": "Question over Fathers will after stepmothers death - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqld6i/question_over_fathers_will_after_stepmothers/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqld6i/question_over_fathers_will_after_stepmothers/",
+          "id": "1uqtb57",
+          "title": "Sainsbury's chop chop - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqtb57/sainsburys_chop_chop_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqtb57/sainsburys_chop_chop_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783494833,
-          "snippet": "My father died and his will stated that his wife (my stepmother) was to have the benefit of his estate during her lifetime, and that after her death the estate should pass equally to all five children (her children and my father's children). My stepmother has now died, but her ch",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1upzmsm",
-          "title": "Incorrectly accused of littering (Bexley, England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1upzmsm/incorrectly_accused_of_littering_bexley_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1upzmsm/incorrectly_accused_of_littering_bexley_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783440595,
-          "snippet": "I've been sent two letters (!) for the same alleged offence - dropping cigarette butts. Let's set aside the facts that (a) I don't smoke, (b) I don't litter, (c) I haven't been to Bexley for years. I wrote an email to the address on the letters telling them the above and asking f",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1upqsta",
-          "title": "Used image in blog post and now they’re chasing for money",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1upqsta/used_image_in_blog_post_and_now_theyre_chasing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1upqsta/used_image_in_blog_post_and_now_theyre_chasing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783419187,
-          "snippet": "Based in wales. I run a music blog and 13 years ago posted about a band and shared their new music video and added an image of the band. Today I received an email from the photographer organisation saying I have to pay a fee, and have said simply removing the article won’t make i",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uptkty",
-          "title": "Is an 8 month holiday suspension every year legal in england.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uptkty/is_an_8_month_holiday_suspension_every_year_legal/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uptkty/is_an_8_month_holiday_suspension_every_year_legal/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783427169,
-          "snippet": "At my work place we are not allowed to take holidays from the last week of October until the last week of June. People have tried to book one off special event holidays (stags, hens or birthdays) with plenty of warning but they are always refused. Wouldn’t bother me much but they",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uq1d27",
-          "title": "Can someone stand as an MP once they’ve accepted a crown position in order to resign?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq1d27/can_someone_stand_as_an_mp_once_theyve_accepted_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uq1d27/can_someone_stand_as_an_mp_once_theyve_accepted_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783444292,
-          "snippet": "Nigel Farage has said he intends to resign and then stand again. In order to resign an MP accepts a crown position as Steward of the Chiltern Hundreds or Manor of Northstead which makes him or her ineligible to be an MP. They then hold this position until another MP resigns and t",
+          "createdUtc": 1783518712,
+          "snippet": "Hi, Just wanted to know where i stand legally. I ordered a small delivery from Sainsbury's chop chop on 23rd june. The delivery never arrived but was delivered elsewhere. I have no idea where but it wasn't my address or anyone on my street. I called chop chop immediately and was ",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -386,25 +386,49 @@
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
           "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "faulty-goods-and-refunds",
+      "label": "Faulty Goods and Refunds",
+      "legalAreaSlug": "consumer_goods",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1uqtym6",
+          "title": "Evri left parcel in a safeplace without my consent and now its missing. Retailer refusing refund.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqtym6/evri_left_parcel_in_a_safeplace_without_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqtym6/evri_left_parcel_in_a_safeplace_without_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783520171,
+          "snippet": "A parcel of mine was left in a safe place but now it has gone missing. I did not ask them to leave it in a safeplace. I have raised this with the retailer who is refusing my refund. They have sent this message to me: “I completely understand your frustration, especially as you di",
+          "listingSource": "rss:hot"
         },
         {
-          "id": "1uppoxz",
-          "title": "Late for the Dentist - deposit back?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uppoxz/late_for_the_dentist_deposit_back/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uppoxz/late_for_the_dentist_deposit_back/",
+          "id": "1uqzccx",
+          "title": "Expedia cancelled our flight and now won’t refund plz help",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqzccx/expedia_cancelled_our_flight_and_now_wont_refund/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqzccx/expedia_cancelled_our_flight_and_now_wont_refund/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783415507,
-          "snippet": "England- for the last 5 years the dentist I have been with (private) has always been late, 15-20 mins at least, with one earlier this year being 45 mins late. On 2 occasions this year the dentist has cancelled and rescheduled my appointments, one a few days before and the other a",
+          "createdUtc": 1783531476,
+          "snippet": "Looking for some advice because Expedia are refusing to help and I’m not sure if what they’re doing is legal. We booked a £10,000 holiday through Expedia . The fare we originally booked was non-refundable , but the issue is that the airline cancelled our original return flight , ",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "clinical-negligence",
-      "label": "Clinical Negligence",
-      "legalAreaSlug": "clinical_negligence",
+      "slug": "small-claims-and-county-court",
+      "label": "Small Claims and County Court",
+      "legalAreaSlug": "consumer_small_claims",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -412,23 +436,23 @@
       ],
       "posts": [
         {
-          "id": "1upwp5f",
-          "title": "Potential clinical negligence claim following stillbirth – looking for advice on next steps (UK, England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1upwp5f/potential_clinical_negligence_claim_following/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1upwp5f/potential_clinical_negligence_claim_following/",
+          "id": "1uqr7oj",
+          "title": "(England) Being taken to small claims court (maybe) by painter who walked out mid job.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqr7oj/england_being_taken_to_small_claims_court_maybe/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqr7oj/england_being_taken_to_small_claims_court_maybe/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783434402,
-          "snippet": "I’m looking for general advice about a possible clinical negligence claim following the stillbirth of my baby at term. During pregnancy I had significant hyperemesis requiring medication and multiple healthcare contacts. I was referred for consultant review on more than one occas",
+          "createdUtc": 1783513618,
+          "snippet": "This is kinda long so I will try keep it brief. I hired a painter through check a trade to paint my whole house (3 bed). We agreed on a price of 3.2k. When he came to collect keys for the house, he asked me about floors, I said the downstairs is all staying, upstairs I’m changing",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "discrimination-and-equality",
-      "label": "Discrimination and Equality",
-      "legalAreaSlug": "discrimination_equality",
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -436,23 +460,23 @@
       ],
       "posts": [
         {
-          "id": "1uqkttq",
-          "title": "Hypothetical: would complications from a surgery for a long-term condition be covered by Equality Act? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqkttq/hypothetical_would_complications_from_a_surgery/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqkttq/hypothetical_would_complications_from_a_surgery/",
+          "id": "1uqvn9c",
+          "title": "England - Dismissed after 2.5 years with no PIP or warnings. Is this likely to be unfair dismissal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqvn9c/england_dismissed_after_25_years_with_no_pip_or/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqvn9c/england_dismissed_after_25_years_with_no_pip_or/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783492974,
-          "snippet": "I've been suffering from a chronic anal fissure for 3 years. Because of high levels of absence, I'm on a final warning from work, with attendance targets to meet, but they said any time needed for further surgical procedures wouldn't be counted towards the targets. Worked there f",
+          "createdUtc": 1783523820,
+          "snippet": "I'm trying to understand whether I have a realistic case before spending money on a solicitor. I worked for a UK company in England for 2.5 years as a Product Manager on a £95k salary. Last week, I was called into a meeting and told my employment was being terminated. My access t",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
+      "slug": "aviation-law",
+      "label": "Aviation Law",
+      "legalAreaSlug": "aviation_law",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -460,15 +484,39 @@
       ],
       "posts": [
         {
-          "id": "1up9457",
-          "title": "I spent thosuands in family court getting an order in place so I can have access to my child. She never dropped him off today. Do I call police?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1up9457/i_spent_thosuands_in_family_court_getting_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1up9457/i_spent_thosuands_in_family_court_getting_an/",
+          "id": "1uqmk21",
+          "title": "Lufthansa refusing flight compensation due to flying to the UK and not EU",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqmk21/lufthansa_refusing_flight_compensation_due_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqmk21/lufthansa_refusing_flight_compensation_due_to/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783369500,
-          "snippet": "I was supposed to have my child dropped off at noon. She has not done so. What she has done is post images on Facebook of them visiting the zoo, going out for dinner, then going to the cinrma to see Toy Story 5. I have sent 20 messages and called 8 times demanding she follow the ",
+          "createdUtc": 1783498985,
+          "snippet": "Early this year I flew from Argentina to the UK via Frankfurt but this was cancelled and I ended up flying 24 hours later. Lufthansa will only reimburse the hotel / food costs etc but they refuse to pay the compensation. I am almost certain I qualify for this or am I missing some",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "mental-health-law",
+      "label": "Mental Health Law",
+      "legalAreaSlug": "mental_health",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1uqzst3",
+          "title": "I was placed on section 2 under the Mental Health act (England) 23 days ago.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqzst3/i_was_placed_on_section_2_under_the_mental_health/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uqzst3/i_was_placed_on_section_2_under_the_mental_health/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783532409,
+          "snippet": "please excuse me this is my first post on Reddit and I’m very emotional. I had a ward review meeting today, once finished I was told by the deputy ward manager I had been made an informal patient and could expect discharge on Wednesday 15th. I signed a document which contained de",
           "listingSource": "rss:hot"
         }
       ]
