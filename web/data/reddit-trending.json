@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-07-11T07:43:41.957Z",
+    "scrapedAt": "2026-07-11T19:01:43.947Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 6,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,123 +38,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uslzcv",
-          "title": "Service charge is £10k per year more expensive then advertised.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uslzcv/service_charge_is_10k_per_year_more_expensive/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uslzcv/service_charge_is_10k_per_year_more_expensive/",
+          "id": "1uti6gb",
+          "title": "Service charge is £10k per year more expensive then advertised. Update",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uti6gb/service_charge_is_10k_per_year_more_expensive/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uti6gb/service_charge_is_10k_per_year_more_expensive/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783685745,
-          "snippet": "I am in the process of buying a flat, the service charges were advertised at £2k per year. Offered £220k for the flat and was accepted. We are now a few weeks away from completing and my solicitor informs me that their service charges are a lot higher, £12k per year. The sellers ",
+          "createdUtc": 1783771107,
+          "snippet": "Original post https://www.reddit.com/r/LegalAdviceUK/s/3ul8Dw2GjK Since the estate agent called me with his offer, I did not call him back. This led to him panicking and he raised it in the team meeting they had this morning. Following that the CEO and branch manager called me an",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1usud6h",
-          "title": "Executor (my father) threatening to change locks on property I live in, 5 days after mother's death. What are my rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usud6h/executor_my_father_threatening_to_change_locks_on/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usud6h/executor_my_father_threatening_to_change_locks_on/",
+          "id": "1utk26a",
+          "title": "[England] Manager uploaded my private and personal 121 meeting notes onto the world intranet for everyone to see",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utk26a/england_manager_uploaded_my_private_and_personal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utk26a/england_manager_uploaded_my_private_and_personal/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783704748,
-          "snippet": "My mother died 5 days ago from a terminal illness. I am her daughter (29F) and was her sole live-in carer for over a year, with additional carers provided by the NHS for last week of her life. I live in her flat as my only residence, and have to leave by the beginning of October.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1usq5dt",
-          "title": "My solicitor has admitted fault and has asked me what I want to resolve the issue.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usq5dt/my_solicitor_has_admitted_fault_and_has_asked_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usq5dt/my_solicitor_has_admitted_fault_and_has_asked_me/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783695637,
-          "snippet": "EDIT: England. Long story short, one of the hard lines for my buying a house was owning the road. Absolutely no interest in it. In the process of buying a new build, I see that the plot contains the road. This was after the searches had confirmed that the road was covered by the ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1usffds",
-          "title": "Someone registered a company using my home address without asking. What do I do? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usffds/someone_registered_a_company_using_my_home/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usffds/someone_registered_a_company_using_my_home/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783664502,
-          "snippet": "Over the last couple of weeks I've started getting letters from Companies House and HMRC for a company I've never heard of. I looked it up and somehow my home address has been listed as the company's registered office. I have nothing to do with this business and I've never given ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1ut0383",
-          "title": "Neighbour refusing to allow our chimney to be fixed",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ut0383/neighbour_refusing_to_allow_our_chimney_to_be/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ut0383/neighbour_refusing_to_allow_our_chimney_to_be/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783717293,
-          "snippet": "Location: England I live in my grandmas old house which my grandparents converted from a cow shed into a 2 bedroom bungalow in the 80’s. The entire back of the house backs onto a neighbours property and the chimney is in the middle of the bungalow. Think a long sausage with the c",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uspplz",
-          "title": "Continuous parking tickets when I’m not driving my car.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uspplz/continuous_parking_tickets_when_im_not_driving_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uspplz/continuous_parking_tickets_when_im_not_driving_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783694667,
-          "snippet": "My mother has been borrowing my car for two years now when she needs things I keep getting parking and speeding tickets in my name. I just had to pay £500 for a parking ticket she refused to pay and it racked up. For this one, apparently she forgot to open her disability badge ca",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1ut2yfg",
-          "title": "Landlord of freehold property issuing blanket ban on pets",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ut2yfg/landlord_of_freehold_property_issuing_blanket_ban/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ut2yfg/landlord_of_freehold_property_issuing_blanket_ban/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783724096,
-          "snippet": "I'm renting a flat in England and have a query that I wondered if anyone could help with following the renter's rights act. I submitted a request in writing to my landlord requesting to have a cat at my flat. She replied immediately saying no and informed me that the new act does",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1utdd5x",
-          "title": "Landlord says I owe rent after tenancy end date even though they confirmed end date when I left",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utdd5x/landlord_says_i_owe_rent_after_tenancy_end_date/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utdd5x/landlord_says_i_owe_rent_after_tenancy_end_date/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783754836,
-          "snippet": "I’m in England. I didn’t give two months’ notice before moving out, but when I handed the keys back, the agent told me in writing that my tenancy would end on 15 July 2026 and that this was the official end date. I vacated and returned the keys before that date, and they confirme",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1usm4o5",
-          "title": "What rights do we have re. neighbour's non-essential de-looping work (EV charger installation) that involves digging up our driveway?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usm4o5/what_rights_do_we_have_re_neighbours_nonessential/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usm4o5/what_rights_do_we_have_re_neighbours_nonessential/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783686129,
-          "snippet": "England, UK - Our neighbour bought an EV and since learnt he can't fit a charger for it from his house. This is because our houses have a looped/shared power supply and his house only has a 60 Amp fuse. Apparently lots of the houses down our street, and in the UK, have been set u",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1usd7vh",
-          "title": "2 year old was knocked down by someone on an electric scooter. Northern Ireland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usd7vh/2_year_old_was_knocked_down_by_someone_on_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usd7vh/2_year_old_was_knocked_down_by_someone_on_an/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783657411,
-          "snippet": "So, on Sunday night, I decided that my 2 year old daughter &amp; I would go &amp; meet her mother at work &amp; come home to have a nice little family night to end up spending the night up at the RVH Kids. This absolute rocket of a woman knocked my child down driving an electric ",
+          "createdUtc": 1783776276,
+          "snippet": "I found out that my 121 meeting notes from my meeting with my manager have been visible on works intranet for anyone to read for over a year. My manager has somehow uploaded mine and another colleague's notes. My notes contained person stuff relating to ADHD, autism, occupational",
           "listingSource": "rss:hot"
         },
         {
@@ -170,87 +74,183 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1usibvz",
-          "title": "Shift coverage - who should be paid?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usibvz/shift_coverage_who_should_be_paid/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usibvz/shift_coverage_who_should_be_paid/",
+          "id": "1utehpe",
+          "title": "[England] Scammed by major UK retailer Sunglass Hut.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utehpe/england_scammed_by_major_uk_retailer_sunglass_hut/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utehpe/england_scammed_by_major_uk_retailer_sunglass_hut/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783674543,
-          "snippet": "So, at my friend's job, they have a system in place where workers can cover each other's shifts. The process for a shift cover is: Shift holder and shift coverer fill in a form, which is submitted to local HR Shift coverer clocks in as themselves, and works the shift Shift holder",
+          "createdUtc": 1783758753,
+          "snippet": "Sunglass Hut won’t refund me 2+ months after confirming they received my return, or return my parcel back — now inventing excuses. Chargeback filed, what else can I do? Ordered Ray-Ban Meta glasses from Sunglass Hut (£255.60 after discount) in May, returned them using the UPS lab",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1ust799",
-          "title": "My sister passed away and my nephews dad wants to give me legal rights to make decisions for my nephews",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ust799/my_sister_passed_away_and_my_nephews_dad_wants_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ust799/my_sister_passed_away_and_my_nephews_dad_wants_to/",
+          "id": "1uthbsw",
+          "title": "Openreach rocked up unannounced, drilled my front garden wall three times, including breaking the face of a brick, and missing twice. I never gave them permission to drill anything and I want it repaired. How do I do that? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uthbsw/openreach_rocked_up_unannounced_drilled_my_front/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uthbsw/openreach_rocked_up_unannounced_drilled_my_front/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783702272,
-          "snippet": "He doesn’t want to give up any rights but wants to give me rights so I can deal with things like EHCPs, medical decisions and school. Is there a legal way for me to have rights without him giving his rights up? (England) submitted by /u/HalfArsedIntrovert [link] [comments]",
+          "createdUtc": 1783768528,
+          "snippet": "I’m getting my broadband upgraded from FTTC to FTTP. My ISP is Zen. I ordered the upgrade through them and they are liaising with Openreach to do the upgrade. We live in a mid terrace house with only a copper Openreach phone line and a Virgin Media coax cable running to the house",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1usms74",
-          "title": "I think my cousin is trying to steal my inheritance (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usms74/i_think_my_cousin_is_trying_to_steal_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usms74/i_think_my_cousin_is_trying_to_steal_my/",
+          "id": "1uslzcv",
+          "title": "Service charge is £10k per year more expensive then advertised.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uslzcv/service_charge_is_10k_per_year_more_expensive/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uslzcv/service_charge_is_10k_per_year_more_expensive/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783687832,
-          "snippet": "I was 16, just about to turn 17 when my paternal Grandmother passed away. She wrote in her will that she wanted her jewellery to go to me and her other granddaughter, my cousin - who I will refer to as ‘M’ and have only met once in my life. M is somewhere in her 30s and I think l",
+          "createdUtc": 1783685745,
+          "snippet": "I am in the process of buying a flat, the service charges were advertised at £2k per year. Offered £220k for the flat and was accepted. We are now a few weeks away from completing and my solicitor informs me that their service charges are a lot higher, £12k per year. The sellers ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1usa3wc",
-          "title": "Unknown package due to be sent to my address seized by Border Force, potential identity theft or something else? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usa3wc/unknown_package_due_to_be_sent_to_my_address/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usa3wc/unknown_package_due_to_be_sent_to_my_address/",
+          "id": "1utdqhw",
+          "title": "[UPDATE] Neighbour Delaying Reclaiming of Shed (UK)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utdqhw/update_neighbour_delaying_reclaiming_of_shed_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utdqhw/update_neighbour_delaying_reclaiming_of_shed_uk/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783648516,
-          "snippet": "This afternoon I had a knock at the door from a policewoman who had come to ask me why I was ordering sodium nitrate from abroad. I had no idea what this was (have since googled it and discovered it is a common food additive which can also be used for fertilisers and explosives) ",
+          "createdUtc": 1783756098,
+          "snippet": "Hi everyone, forgot to put England. Just wanted to give an update and ask if I am doing the right thing again. Last time I posted here I was discussing about my shed, roughly a third of it has been used by the neighbour and I had written (email) acknowledgement from her that it i",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1us1qa4",
-          "title": "Police pulled me over in England due to insurance mistake.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1us1qa4/police_pulled_me_over_in_england_due_to_insurance/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1us1qa4/police_pulled_me_over_in_england_due_to_insurance/",
+          "id": "1utr5mi",
+          "title": "Job not allowing me to work due to a disability",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utr5mi/job_not_allowing_me_to_work_due_to_a_disability/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utr5mi/job_not_allowing_me_to_work_due_to_a_disability/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783628192,
-          "snippet": "Hello everyone, I’m in worst situation of my life and this is my first experiencing this. I have held my full UK license for nearly 2years with no issues. I recently bought a new car and immediately phoned my insurance company to transfer my new car on my existing insurance polic",
+          "createdUtc": 1783793151,
+          "snippet": "I have a 0 hour contract with this company and have been working for them for 9 months. Every few months we are sent online training modules that have to be completed by the deadline otherwise we won’t be assigned any shifts. I’ve never had an issue with this until now after they",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1ususug",
-          "title": "Consumer rights question for returning an online purchase",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ususug/consumer_rights_question_for_returning_an_online/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ususug/consumer_rights_question_for_returning_an_online/",
+          "id": "1utqyxl",
+          "title": "Debt from 20 years - chasing up, need script. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utqyxl/debt_from_20_years_chasing_up_need_script_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utqyxl/debt_from_20_years_chasing_up_need_script_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783705688,
-          "snippet": "OK, so a couple of weeks ago I bought a TV for my father in law, from Samsung (online). TV arrived, I opened it, turned it on and got the blue setup screen. No option to proceed unless I set the TV up. So I do. Quickly realise that he can't see then text well enough and factory r",
+          "createdUtc": 1783792740,
+          "snippet": "Debt from 20 years ago from a magazine, haven’t paid anything to it for 15 years, haven’t acknowledged the debt. Debt collectors came up, only told them my name but didn’t acknowledge the debt. Next time the debt collectors come up, what should I say? I assume the debt is statute",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1usl1nm",
-          "title": "Neighbour’s delivery damaged my drive (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usl1nm/neighbours_delivery_damaged_my_drive_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usl1nm/neighbours_delivery_damaged_my_drive_england/",
+          "id": "1utp3dj",
+          "title": "Error on middle name for newborn Birth Certificate (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utp3dj/error_on_middle_name_for_newborn_birth/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utp3dj/error_on_middle_name_for_newborn_birth/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783683181,
-          "snippet": "4 properties share access to private drives, I own the first drive, the 4th (and furthest) property have been re-building their drive. (They haven’t notified any of us that this would be happening, nor when we’d need to move our vehicles for deliveries). They had a cement lorry d",
+          "createdUtc": 1783788446,
+          "snippet": "New mum here, please go easy on me for this silly mistake. Earlier this week, we registered our new baby. In our newborn haze, we inadvertently have a hyphen between baby's two middle names (not our intention) on his birth certificate. First name and surname are correct. We've co",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1usud6h",
+          "title": "Executor (my father) threatening to change locks on property I live in, 5 days after mother's death. What are my rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usud6h/executor_my_father_threatening_to_change_locks_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usud6h/executor_my_father_threatening_to_change_locks_on/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783704748,
+          "snippet": "My mother died 5 days ago from a terminal illness. I am her daughter (29F) and was her sole live-in carer for over a year, with additional carers provided by the NHS for last week of her life. I live in her flat as my only residence, and have to leave by the beginning of October.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uth684",
+          "title": "Landlady asked me to stay until end of tenancy in order for rent not to increase - can I still leave?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uth684/landlady_asked_me_to_stay_until_end_of_tenancy_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uth684/landlady_asked_me_to_stay_until_end_of_tenancy_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783768033,
+          "snippet": "Landlady asked me to stay until end of tenancy in order for rent not to increase - can I still leave? Hi everyone I entered a 3 year tenancy agreement in Jan 2023, with a 1 year break clause every year. Around December 2025, the property management informed me that the rent was g",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1utr516",
+          "title": "Do I have any legal recourse to get my money back?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utr516/do_i_have_any_legal_recourse_to_get_my_money_back/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utr516/do_i_have_any_legal_recourse_to_get_my_money_back/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783793114,
+          "snippet": "I am based in England. I lent someone money around 3 years ago. A former friend who needed a bit of help. He said he would pay me back within a year but I have been chasing him for 3 years. I didn't initially want to escalate but I think I am now going to have to. I lent him £2.5",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1utnnaj",
+          "title": "I pre-ordered food and drink for a specific event that was cancelled. What are my rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utnnaj/i_preordered_food_and_drink_for_a_specific_event/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utnnaj/i_preordered_food_and_drink_for_a_specific_event/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783785037,
+          "snippet": "Was due to attend an event on 24/06 in London which was cancelled by organisers 4 hours before due the heatwave. I am not the ticket holder (my friend was). I ordered food and drink as the instructions said we should pre-order to save time. We weren’t able to rebook onto a differ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1utpksk",
+          "title": "Joint owners of a property, one wants to evict lodger, the other doesn’t. London-based",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utpksk/joint_owners_of_a_property_one_wants_to_evict/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utpksk/joint_owners_of_a_property_one_wants_to_evict/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783789578,
+          "snippet": "My mum and dad have a lodger in their house, which is my mum’s nephew and the nephew’s wife. They pay their rent on time and there is no problem with them. My dad is a very erratic person and he’s decided he wants them out now but my mum wants to keep them on as lodgers. My mum a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ut0383",
+          "title": "Neighbour refusing to allow our chimney to be fixed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ut0383/neighbour_refusing_to_allow_our_chimney_to_be/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ut0383/neighbour_refusing_to_allow_our_chimney_to_be/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783717293,
+          "snippet": "Location: England I live in my grandmas old house which my grandparents converted from a cow shed into a 2 bedroom bungalow in the 80’s. The entire back of the house backs onto a neighbours property and the chimney is in the middle of the bungalow. Think a long sausage with the c",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1usq5dt",
+          "title": "My solicitor has admitted fault and has asked me what I want to resolve the issue.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usq5dt/my_solicitor_has_admitted_fault_and_has_asked_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usq5dt/my_solicitor_has_admitted_fault_and_has_asked_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783695637,
+          "snippet": "EDIT: England. Long story short, one of the hard lines for my buying a house was owning the road. Absolutely no interest in it. In the process of buying a new build, I see that the plot contains the road. This was after the searches had confirmed that the road was covered by the ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1utli6n",
+          "title": "Breach of Restraining Order Allegation - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utli6n/breach_of_restraining_order_allegation_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utli6n/breach_of_restraining_order_allegation_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783779892,
+          "snippet": "hi, as above. I have a restraining order and I’m being questioned as to an alleged breach, I was arrested and then de arrested after custody was refused. I was then invited to a voluntary interview which I’ve had. the allegation is that I’ve applied for a job where the complainan",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 11,
+      "postCount": 12,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,51 +280,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1usq5dt",
-          "title": "My solicitor has admitted fault and has asked me what I want to resolve the issue.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usq5dt/my_solicitor_has_admitted_fault_and_has_asked_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usq5dt/my_solicitor_has_admitted_fault_and_has_asked_me/",
+          "id": "1utk26a",
+          "title": "[England] Manager uploaded my private and personal 121 meeting notes onto the world intranet for everyone to see",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utk26a/england_manager_uploaded_my_private_and_personal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utk26a/england_manager_uploaded_my_private_and_personal/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783695637,
-          "snippet": "EDIT: England. Long story short, one of the hard lines for my buying a house was owning the road. Absolutely no interest in it. In the process of buying a new build, I see that the plot contains the road. This was after the searches had confirmed that the road was covered by the ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1usffds",
-          "title": "Someone registered a company using my home address without asking. What do I do? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usffds/someone_registered_a_company_using_my_home/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usffds/someone_registered_a_company_using_my_home/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783664502,
-          "snippet": "Over the last couple of weeks I've started getting letters from Companies House and HMRC for a company I've never heard of. I looked it up and somehow my home address has been listed as the company's registered office. I have nothing to do with this business and I've never given ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1ut0383",
-          "title": "Neighbour refusing to allow our chimney to be fixed",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ut0383/neighbour_refusing_to_allow_our_chimney_to_be/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ut0383/neighbour_refusing_to_allow_our_chimney_to_be/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783717293,
-          "snippet": "Location: England I live in my grandmas old house which my grandparents converted from a cow shed into a 2 bedroom bungalow in the 80’s. The entire back of the house backs onto a neighbours property and the chimney is in the middle of the bungalow. Think a long sausage with the c",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1usd7vh",
-          "title": "2 year old was knocked down by someone on an electric scooter. Northern Ireland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usd7vh/2_year_old_was_knocked_down_by_someone_on_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usd7vh/2_year_old_was_knocked_down_by_someone_on_an/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783657411,
-          "snippet": "So, on Sunday night, I decided that my 2 year old daughter &amp; I would go &amp; meet her mother at work &amp; come home to have a nice little family night to end up spending the night up at the RVH Kids. This absolute rocket of a woman knocked my child down driving an electric ",
+          "createdUtc": 1783776276,
+          "snippet": "I found out that my 121 meeting notes from my meeting with my manager have been visible on works intranet for anyone to read for over a year. My manager has somehow uploaded mine and another colleague's notes. My notes contained person stuff relating to ADHD, autism, occupational",
           "listingSource": "rss:hot"
         },
         {
@@ -340,27 +304,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1usibvz",
-          "title": "Shift coverage - who should be paid?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usibvz/shift_coverage_who_should_be_paid/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usibvz/shift_coverage_who_should_be_paid/",
+          "id": "1uthbsw",
+          "title": "Openreach rocked up unannounced, drilled my front garden wall three times, including breaking the face of a brick, and missing twice. I never gave them permission to drill anything and I want it repaired. How do I do that? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uthbsw/openreach_rocked_up_unannounced_drilled_my_front/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uthbsw/openreach_rocked_up_unannounced_drilled_my_front/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783674543,
-          "snippet": "So, at my friend's job, they have a system in place where workers can cover each other's shifts. The process for a shift cover is: Shift holder and shift coverer fill in a form, which is submitted to local HR Shift coverer clocks in as themselves, and works the shift Shift holder",
+          "createdUtc": 1783768528,
+          "snippet": "I’m getting my broadband upgraded from FTTC to FTTP. My ISP is Zen. I ordered the upgrade through them and they are liaising with Openreach to do the upgrade. We live in a mid terrace house with only a copper Openreach phone line and a Virgin Media coax cable running to the house",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1ust799",
-          "title": "My sister passed away and my nephews dad wants to give me legal rights to make decisions for my nephews",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ust799/my_sister_passed_away_and_my_nephews_dad_wants_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ust799/my_sister_passed_away_and_my_nephews_dad_wants_to/",
+          "id": "1utdqhw",
+          "title": "[UPDATE] Neighbour Delaying Reclaiming of Shed (UK)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utdqhw/update_neighbour_delaying_reclaiming_of_shed_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utdqhw/update_neighbour_delaying_reclaiming_of_shed_uk/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783702272,
-          "snippet": "He doesn’t want to give up any rights but wants to give me rights so I can deal with things like EHCPs, medical decisions and school. Is there a legal way for me to have rights without him giving his rights up? (England) submitted by /u/HalfArsedIntrovert [link] [comments]",
+          "createdUtc": 1783756098,
+          "snippet": "Hi everyone, forgot to put England. Just wanted to give an update and ask if I am doing the right thing again. Last time I posted here I was discussing about my shed, roughly a third of it has been used by the neighbour and I had written (email) acknowledgement from her that it i",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1utp3dj",
+          "title": "Error on middle name for newborn Birth Certificate (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utp3dj/error_on_middle_name_for_newborn_birth/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utp3dj/error_on_middle_name_for_newborn_birth/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783788446,
+          "snippet": "New mum here, please go easy on me for this silly mistake. Earlier this week, we registered our new baby. In our newborn haze, we inadvertently have a hyphen between baby's two middle names (not our intention) on his birth certificate. First name and surname are correct. We've co",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1utr516",
+          "title": "Do I have any legal recourse to get my money back?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utr516/do_i_have_any_legal_recourse_to_get_my_money_back/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utr516/do_i_have_any_legal_recourse_to_get_my_money_back/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783793114,
+          "snippet": "I am based in England. I lent someone money around 3 years ago. A former friend who needed a bit of help. He said he would pay me back within a year but I have been chasing him for 3 years. I didn't initially want to escalate but I think I am now going to have to. I lent him £2.5",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1utnnaj",
+          "title": "I pre-ordered food and drink for a specific event that was cancelled. What are my rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utnnaj/i_preordered_food_and_drink_for_a_specific_event/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utnnaj/i_preordered_food_and_drink_for_a_specific_event/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783785037,
+          "snippet": "Was due to attend an event on 24/06 in London which was cancelled by organisers 4 hours before due the heatwave. I am not the ticket holder (my friend was). I ordered food and drink as the instructions said we should pre-order to save time. We weren’t able to rebook onto a differ",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 3,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -388,27 +388,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1ut2yfg",
-          "title": "Landlord of freehold property issuing blanket ban on pets",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ut2yfg/landlord_of_freehold_property_issuing_blanket_ban/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ut2yfg/landlord_of_freehold_property_issuing_blanket_ban/",
+          "id": "1uth684",
+          "title": "Landlady asked me to stay until end of tenancy in order for rent not to increase - can I still leave?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uth684/landlady_asked_me_to_stay_until_end_of_tenancy_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uth684/landlady_asked_me_to_stay_until_end_of_tenancy_in/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783724096,
-          "snippet": "I'm renting a flat in England and have a query that I wondered if anyone could help with following the renter's rights act. I submitted a request in writing to my landlord requesting to have a cat at my flat. She replied immediately saying no and informed me that the new act does",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1utdd5x",
-          "title": "Landlord says I owe rent after tenancy end date even though they confirmed end date when I left",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utdd5x/landlord_says_i_owe_rent_after_tenancy_end_date/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utdd5x/landlord_says_i_owe_rent_after_tenancy_end_date/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783754836,
-          "snippet": "I’m in England. I didn’t give two months’ notice before moving out, but when I handed the keys back, the agent told me in writing that my tenancy would end on 15 July 2026 and that this was the official end date. I vacated and returned the keys before that date, and they confirme",
+          "createdUtc": 1783768033,
+          "snippet": "Landlady asked me to stay until end of tenancy in order for rent not to increase - can I still leave? Hi everyone I entered a 3 year tenancy agreement in Jan 2023, with a 1 year break clause every year. Around December 2025, the property management informed me that the rent was g",
           "listingSource": "rss:hot"
         }
       ]
@@ -424,6 +412,18 @@
       ],
       "posts": [
         {
+          "id": "1uti6gb",
+          "title": "Service charge is £10k per year more expensive then advertised. Update",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uti6gb/service_charge_is_10k_per_year_more_expensive/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uti6gb/service_charge_is_10k_per_year_more_expensive/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783771107,
+          "snippet": "Original post https://www.reddit.com/r/LegalAdviceUK/s/3ul8Dw2GjK Since the estate agent called me with his offer, I did not call him back. This led to him panicking and he raised it in the team meeting they had this morning. Following that the CEO and branch manager called me an",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uslzcv",
           "title": "Service charge is £10k per year more expensive then advertised.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uslzcv/service_charge_is_10k_per_year_more_expensive/",
@@ -434,17 +434,77 @@
           "createdUtc": 1783685745,
           "snippet": "I am in the process of buying a flat, the service charges were advertised at £2k per year. Offered £220k for the flat and was accepted. We are now a few weeks away from completing and my solicitor informs me that their service charges are a lot higher, £12k per year. The sellers ",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "faulty-goods-and-refunds",
+      "label": "Faulty Goods and Refunds",
+      "legalAreaSlug": "consumer_goods",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1usm4o5",
-          "title": "What rights do we have re. neighbour's non-essential de-looping work (EV charger installation) that involves digging up our driveway?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1usm4o5/what_rights_do_we_have_re_neighbours_nonessential/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1usm4o5/what_rights_do_we_have_re_neighbours_nonessential/",
+          "id": "1utehpe",
+          "title": "[England] Scammed by major UK retailer Sunglass Hut.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utehpe/england_scammed_by_major_uk_retailer_sunglass_hut/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utehpe/england_scammed_by_major_uk_retailer_sunglass_hut/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783686129,
-          "snippet": "England, UK - Our neighbour bought an EV and since learnt he can't fit a charger for it from his house. This is because our houses have a looped/shared power supply and his house only has a 60 Amp fuse. Apparently lots of the houses down our street, and in the UK, have been set u",
+          "createdUtc": 1783758753,
+          "snippet": "Sunglass Hut won’t refund me 2+ months after confirming they received my return, or return my parcel back — now inventing excuses. Chargeback filed, what else can I do? Ordered Ray-Ban Meta glasses from Sunglass Hut (£255.60 after discount) in May, returned them using the UPS lab",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "discrimination-and-equality",
+      "label": "Discrimination and Equality",
+      "legalAreaSlug": "discrimination_equality",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1utr5mi",
+          "title": "Job not allowing me to work due to a disability",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utr5mi/job_not_allowing_me_to_work_due_to_a_disability/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utr5mi/job_not_allowing_me_to_work_due_to_a_disability/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783793151,
+          "snippet": "I have a 0 hour contract with this company and have been working for them for 9 months. Every few months we are sent online training modules that have to be completed by the deadline otherwise we won’t be assigned any shifts. I’ve never had an issue with this until now after they",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1utqyxl",
+          "title": "Debt from 20 years - chasing up, need script. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utqyxl/debt_from_20_years_chasing_up_need_script_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utqyxl/debt_from_20_years_chasing_up_need_script_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783792740,
+          "snippet": "Debt from 20 years ago from a magazine, haven’t paid anything to it for 15 years, haven’t acknowledged the debt. Debt collectors came up, only told them my name but didn’t acknowledge the debt. Next time the debt collectors come up, what should I say? I assume the debt is statute",
           "listingSource": "rss:hot"
         }
       ]
@@ -469,66 +529,6 @@
           "numComments": 0,
           "createdUtc": 1783704748,
           "snippet": "My mother died 5 days ago from a terminal illness. I am her daughter (29F) and was her sole live-in carer for over a year, with additional carers provided by the NHS for last week of her life. I live in her flat as my only residence, and have to leave by the beginning of October.",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "parking-and-pcns",
-      "label": "Parking and PCNs",
-      "legalAreaSlug": "parking_pcn",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1uspplz",
-          "title": "Continuous parking tickets when I’m not driving my car.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uspplz/continuous_parking_tickets_when_im_not_driving_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uspplz/continuous_parking_tickets_when_im_not_driving_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783694667,
-          "snippet": "My mother has been borrowing my car for two years now when she needs things I keep getting parking and speeding tickets in my name. I just had to pay £500 for a parking ticket she refused to pay and it racked up. For this one, apparently she forgot to open her disability badge ca",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "consumer-law",
-      "label": "Consumer Law",
-      "legalAreaSlug": "consumer",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1us1qa4",
-          "title": "Police pulled me over in England due to insurance mistake.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1us1qa4/police_pulled_me_over_in_england_due_to_insurance/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1us1qa4/police_pulled_me_over_in_england_due_to_insurance/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783628192,
-          "snippet": "Hello everyone, I’m in worst situation of my life and this is my first experiencing this. I have held my full UK license for nearly 2years with no issues. I recently bought a new car and immediately phoned my insurance company to transfer my new car on my existing insurance polic",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1ususug",
-          "title": "Consumer rights question for returning an online purchase",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ususug/consumer_rights_question_for_returning_an_online/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ususug/consumer_rights_question_for_returning_an_online/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783705688,
-          "snippet": "OK, so a couple of weeks ago I bought a TV for my father in law, from Samsung (online). TV arrived, I opened it, turned it on and got the blue setup screen. No option to proceed unless I set the TV up. So I do. Quickly realise that he can't see then text well enough and factory r",
           "listingSource": "rss:hot"
         }
       ]
