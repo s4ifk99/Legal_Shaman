@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-07-12T19:04:14.218Z",
+    "scrapedAt": "2026-07-13T08:54:48.636Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 3,
+    "topicCount": 4,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uuowy5",
+          "title": "Landlord wants £1000 out of our £1500 deposit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuowy5/landlord_wants_1000_out_of_our_1500_deposit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuowy5/landlord_wants_1000_out_of_our_1500_deposit/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783884275,
+          "snippet": "Hello, a bit of background on my living situation. I live with my two friends in a 3 bedroom university house in England. When we first arrived at this house I realised it was in bad condition the fridge door was loose as well as the freezer having broken draws. ( I have photo an",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uuqums",
+          "title": "My friend has been forced to stay in Libya against her will. She’s a British citizen - what can I do to help?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuqums/my_friend_has_been_forced_to_stay_in_libya/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuqums/my_friend_has_been_forced_to_stay_in_libya/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783888730,
+          "snippet": "Apologies if this isn’t the correct place to post this, but I’m not sure where else to ask. My friend is a 20-year-old British/Libyan citizen from Scotland. She travelled to Libya with her parents for the summer under the guise of it being a holiday, today they told her she will ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uuyj79",
+          "title": "tenancy being taken over 20 days before move in? (england)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuyj79/tenancy_being_taken_over_20_days_before_move_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuyj79/tenancy_being_taken_over_20_days_before_move_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783908637,
+          "snippet": "hello. me and 3 other friends are moving into our third year university accommodation soon, ofc into a student house. on friday one of us was called and told there will be some changes happening to the property and that was it. we then had a follow up email saying that the previo",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uukvgg",
           "title": "My uncle is being dodgy about my late dad's pension (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uukvgg/my_uncle_is_being_dodgy_about_my_late_dads/",
@@ -47,18 +83,6 @@
           "numComments": 0,
           "createdUtc": 1783875381,
           "snippet": "I lost my dad about 6 weeks ago and we know he had a couple of pensions worth a few quid. My aunties and uncles on my dad's side have mentioned these to us on multiple occasions and keep texting to ask if we're working on getting them. My uncle has also requested a copy of my dad",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uul465",
-          "title": "New neighbours on our street are blasting loud party dance music from 11am to after midnight. How do we handle this?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uul465/new_neighbours_on_our_street_are_blasting_loud/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uul465/new_neighbours_on_our_street_are_blasting_loud/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783875921,
-          "snippet": "15 homes on our lane. It is a very quiet and Peaceful street. From early 2025 to March 2026 three homes were purchased by the council and refurbished into social housing. The council finished refurbishing the homes in June and the families moved in. We've been dealing with endles",
           "listingSource": "rss:hot"
         },
         {
@@ -74,15 +98,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uuabkl",
-          "title": "Neighbour’s fireworks caused damage",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuabkl/neighbours_fireworks_caused_damage/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuabkl/neighbours_fireworks_caused_damage/",
+          "id": "1uul465",
+          "title": "New neighbours on our street are blasting loud party dance music from 11am to after midnight. How do we handle this?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uul465/new_neighbours_on_our_street_are_blasting_loud/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uul465/new_neighbours_on_our_street_are_blasting_loud/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783847149,
-          "snippet": "Last night, somebody in one of the flats at the end of our road was letting fireworks off at 1.30am, instead of pointing them up as I assume you would with fireworks, they seemed to be pointing them down our road as they were going off right outside our bedroom window and they we",
+          "createdUtc": 1783875921,
+          "snippet": "15 homes on our lane. It is a very quiet and Peaceful street. From early 2025 to March 2026 three homes were purchased by the council and refurbished into social housing. The council finished refurbishing the homes in June and the families moved in. We've been dealing with endles",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uv5pph",
+          "title": "British citizen married in Japan - wife left while pregnant, now living with parents. What are my legal options (UK/Japan)?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv5pph/british_citizen_married_in_japan_wife_left_while/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv5pph/british_citizen_married_in_japan_wife_left_while/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783931691,
+          "snippet": "I’m a British citizen currently staying in Japan on a Working Holiday visa and I’m looking for legal guidance because I’m unsure whether I should begin with a UK family solicitor or a Japanese family lawyer. I met my wife in Japan last year and we married earlier this year after ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uuq8m9",
+          "title": "Neighbour felled a tree onto our garden and removed our boundary hedge in breach of planning conditions - now demanding we pay for a new fence. What are our rights? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuq8m9/neighbour_felled_a_tree_onto_our_garden_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuq8m9/neighbour_felled_a_tree_onto_our_garden_and/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783887303,
+          "snippet": "Location: England Long post, but trying to give full context. Semi-detached house. This is about the neighbour on our right (looking out to the back garden), who we are attached to, and has new owners who are mid-renovation. What happened: - Previously, the boundary between our g",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uuswxc",
+          "title": "Worried Our Son Is Being Caught in the Middle of Adult Issues - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuswxc/worried_our_son_is_being_caught_in_the_middle_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuswxc/worried_our_son_is_being_caught_in_the_middle_of/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783893692,
+          "snippet": "My partner's ex has applied for mediation and is now seeking full custody of their 10-year-old son. We're feeling completely lost and would really appreciate some advice. For context, their son has lived with us full-time since his parents separated 7 years ago. During that time,",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uv49z5",
+          "title": "Do I have to pay for party wall works the neighbours want? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv49z5/do_i_have_to_pay_for_party_wall_works_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv49z5/do_i_have_to_pay_for_party_wall_works_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783926574,
+          "snippet": "Based in England. I am in a flat, which has been converted from a house. I am in the middle flat and don't have access to the garden. We have a party wall with the neighbours next door who have bought the entire house as is (I say this for context as their property is worth 3x mo",
           "listingSource": "rss:hot"
         },
         {
@@ -98,6 +170,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uuabkl",
+          "title": "Neighbour’s fireworks caused damage",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuabkl/neighbours_fireworks_caused_damage/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuabkl/neighbours_fireworks_caused_damage/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783847149,
+          "snippet": "Last night, somebody in one of the flats at the end of our road was letting fireworks off at 1.30am, instead of pointing them up as I assume you would with fireworks, they seemed to be pointing them down our road as they were going off right outside our bedroom window and they we",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uv5hkf",
+          "title": "Debt collection letter for unpaid parking tickets, even though it's the work car park?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv5hkf/debt_collection_letter_for_unpaid_parking_tickets/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv5hkf/debt_collection_letter_for_unpaid_parking_tickets/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783930865,
+          "snippet": "I live in England. So over the past few months ive been receiving parking tickets from ParkingEye for parking in my workplace car park. Ive worked there for a year and haven't had this issue until now My manager has confirmed with ParkingEye that my registration is on the system ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uudics",
           "title": "(England) What can you realistically do while signed off long-term sick in the UK?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uudics/england_what_can_you_realistically_do_while/",
@@ -107,42 +203,6 @@
           "numComments": 0,
           "createdUtc": 1783857538,
           "snippet": "I've been signed off due to chronic migraines and neurological symptoms that make it difficult to work safely. My symptoms include severe dizziness, light sensitivity, pain, fatigue, and difficulty standing or walking for extended periods. I often have to sit down regularly due t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uub2pn",
-          "title": "Ultrasonic Cat Repellents - Can I do anything? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uub2pn/ultrasonic_cat_repellents_can_i_do_anything/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uub2pn/ultrasonic_cat_repellents_can_i_do_anything/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783849806,
-          "snippet": "I have two neighbours using these ultrasonic cat repellents, one of which is opposite us and the nextdoor neighbour has two of them. It was just the opposite neighbour that set one up about a year ago, it was annoying but manageable, so we just lived with it. However, the nextdoo",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uug4nc",
-          "title": "Can i get videos of me working taken down (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uug4nc/can_i_get_videos_of_me_working_taken_down_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uug4nc/can_i_get_videos_of_me_working_taken_down_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783864449,
-          "snippet": "I work in a restaurant which blew up on tiktok and now influencers come in and vlog/post about their experience there. In a couple of videos im in them quite clearly (and i didnt consent), its so bad one of my friends recognised me in a video n forwarded it to me. I dont post pic",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uti6gb",
-          "title": "Service charge is £10k per year more expensive then advertised. Update",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uti6gb/service_charge_is_10k_per_year_more_expensive/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uti6gb/service_charge_is_10k_per_year_more_expensive/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783771107,
-          "snippet": "Original post https://www.reddit.com/r/LegalAdviceUK/s/3ul8Dw2GjK Since the estate agent called me with his offer, I did not call him back. This led to him panicking and he raised it in the team meeting they had this morning. Following that the CEO and branch manager called me an",
           "listingSource": "rss:hot"
         },
         {
@@ -158,99 +218,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1utwqf4",
-          "title": "Neighbour keeps climbing into my garden, what can I do about this? NI",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utwqf4/neighbour_keeps_climbing_into_my_garden_what_can/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utwqf4/neighbour_keeps_climbing_into_my_garden_what_can/",
+          "id": "1uus0t8",
+          "title": "i’m being stalked by my cousin’s ex boyfriend. is there anything i can do? england",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uus0t8/im_being_stalked_by_my_cousins_ex_boyfriend_is/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uus0t8/im_being_stalked_by_my_cousins_ex_boyfriend_is/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783806588,
-          "snippet": "I moved into a new house end of last year and am having an ongoing problem with my neighbours behind my house. They have a football loving child and have a goal set up against our shared wall so a fair few footballs go over the fence. Until I moved in the house was empty for abou",
+          "createdUtc": 1783891520,
+          "snippet": "my 18 year old cousin broke up with her boyfriend 5 months ago. her boyfriend is 17. the boy didn’t take it well and harassed my cousin through calls, emails and getting his friends to contact her. when they were together, he was obsessive, abusive and a horrible boyfriend when s",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1utvfve",
-          "title": "I F21 England started a new job a week ago and employer is refusing my pre-booked holidays",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1utvfve/i_f21_england_started_a_new_job_a_week_ago_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1utvfve/i_f21_england_started_a_new_job_a_week_ago_and/",
+          "id": "1uub2pn",
+          "title": "Ultrasonic Cat Repellents - Can I do anything? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uub2pn/ultrasonic_cat_repellents_can_i_do_anything/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uub2pn/ultrasonic_cat_repellents_can_i_do_anything/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783803291,
-          "snippet": "I started a new job a week ago and, before accepting the position, I made my employer aware that I had two holidays already booked. They acknowledged this at the time, so I believed the dates had been noted and that there wouldn’t be an issue. After the rota was released, I notic",
+          "createdUtc": 1783849806,
+          "snippet": "I have two neighbours using these ultrasonic cat repellents, one of which is opposite us and the nextdoor neighbour has two of them. It was just the opposite neighbour that set one up about a year ago, it was annoying but manageable, so we just lived with it. However, the nextdoo",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uubwjb",
-          "title": "Neighbour Accessing Garden to Dispose of Grass Cuttings - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uubwjb/neighbour_accessing_garden_to_dispose_of_grass/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uubwjb/neighbour_accessing_garden_to_dispose_of_grass/",
+          "id": "1uup9du",
+          "title": "Is this a CCJ? If so how far along are we? WALES",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uup9du/is_this_a_ccj_if_so_how_far_along_are_we_wales/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uup9du/is_this_a_ccj_if_so_how_far_along_are_we_wales/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783852594,
-          "snippet": "(Apologies for long post!) Context: I live in an upper maisonette style flat. I own it (not rent). My garden is at the rear of the property, behind my downstairs neighbours’ garden. I have right of way access through a section of neighbours’ garden - they do not have right of way",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uujen9",
-          "title": "England. Dangerous carbon monoxide issue in workplace and owners not fixing it",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uujen9/england_dangerous_carbon_monoxide_issue_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uujen9/england_dangerous_carbon_monoxide_issue_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783872076,
-          "snippet": "I'm the manager of a pub that's owned by a major brewery (I'll abbreviate to MB going forward) but tenanted. I answer to the tenants, my employers. Our oil boiler is faulty and is putting out noxious black fumes and carbon monoxide. We know this because the carbon monoxide alarm ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uubrdb",
-          "title": "Disobeying Traffic Signal from Volunteer Query (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uubrdb/disobeying_traffic_signal_from_volunteer_query/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uubrdb/disobeying_traffic_signal_from_volunteer_query/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783852103,
-          "snippet": "Sorry if this isn't the right place, can't seem to find a UK traffic subreddit Bit confused here and could do with some guidance. There's some marathon through my town today on the roads, and lots of volunteers in hi-vis stopping and starting traffic. I was stopped and thought th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uua7gq",
-          "title": "Is this valid enough? Im 15 turnung 16 in 13 days is this enough to stop living with my mother? Is this abuse??",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uua7gq/is_this_valid_enough_im_15_turnung_16_in_13_days/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uua7gq/is_this_valid_enough_im_15_turnung_16_in_13_days/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783846765,
-          "snippet": "I will try to go into detail about everything and read straight from everything ive typed. Im from England. Back in year 7 i was probably 11 or 12 at the time my mum had witness inappropriate content on my laptop. This was from youtube when it had a lot less restrictions than it ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uunrhf",
-          "title": "How likely is it for action to be taken?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uunrhf/how_likely_is_it_for_action_to_be_taken/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uunrhf/how_likely_is_it_for_action_to_be_taken/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783881722,
-          "snippet": "Hi guys, today I had to report the use of an electric scooter(s) after a few months of seeing it in use on my street. (England) Two of these scooters are being ridden up and down the roads/paths of my road by 4 kids under 12. They keep riding it across my property and others, goi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uuc7bn",
-          "title": "Neighbours illegal cars on the road",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuc7bn/neighbours_illegal_cars_on_the_road/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuc7bn/neighbours_illegal_cars_on_the_road/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783853571,
-          "snippet": "Our neighbour has a number of untaxed, uninsured cars without MOT that he parks on the road and drives locally frequently. He often leaves them blocking people’s drives, so most of the other neighbours are unhappy with the situation. He is a very aggressive individual and will no",
+          "createdUtc": 1783885065,
+          "snippet": "Hey all, So my girlfriend has received this letter in the post along with a form from a solicitor stating a debt she owes and how to pay etc. Does this mean she now has a CCJ on her file? We will contact them tomorrow but just checking here first. Potentially worth noting this is",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 18,
+      "postCount": 15,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uuqums",
+          "title": "My friend has been forced to stay in Libya against her will. She’s a British citizen - what can I do to help?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuqums/my_friend_has_been_forced_to_stay_in_libya/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuqums/my_friend_has_been_forced_to_stay_in_libya/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783888730,
+          "snippet": "Apologies if this isn’t the correct place to post this, but I’m not sure where else to ask. My friend is a 20-year-old British/Libyan citizen from Scotland. She travelled to Libya with her parents for the summer under the guise of it being a holiday, today they told her she will ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uukvgg",
           "title": "My uncle is being dodgy about my late dad's pension (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uukvgg/my_uncle_is_being_dodgy_about_my_late_dads/",
@@ -289,18 +301,6 @@
           "numComments": 0,
           "createdUtc": 1783875381,
           "snippet": "I lost my dad about 6 weeks ago and we know he had a couple of pensions worth a few quid. My aunties and uncles on my dad's side have mentioned these to us on multiple occasions and keep texting to ask if we're working on getting them. My uncle has also requested a copy of my dad",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uul465",
-          "title": "New neighbours on our street are blasting loud party dance music from 11am to after midnight. How do we handle this?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uul465/new_neighbours_on_our_street_are_blasting_loud/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uul465/new_neighbours_on_our_street_are_blasting_loud/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783875921,
-          "snippet": "15 homes on our lane. It is a very quiet and Peaceful street. From early 2025 to March 2026 three homes were purchased by the council and refurbished into social housing. The council finished refurbishing the homes in June and the families moved in. We've been dealing with endles",
           "listingSource": "rss:hot"
         },
         {
@@ -316,51 +316,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uuabkl",
-          "title": "Neighbour’s fireworks caused damage",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuabkl/neighbours_fireworks_caused_damage/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuabkl/neighbours_fireworks_caused_damage/",
+          "id": "1uul465",
+          "title": "New neighbours on our street are blasting loud party dance music from 11am to after midnight. How do we handle this?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uul465/new_neighbours_on_our_street_are_blasting_loud/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uul465/new_neighbours_on_our_street_are_blasting_loud/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783847149,
-          "snippet": "Last night, somebody in one of the flats at the end of our road was letting fireworks off at 1.30am, instead of pointing them up as I assume you would with fireworks, they seemed to be pointing them down our road as they were going off right outside our bedroom window and they we",
+          "createdUtc": 1783875921,
+          "snippet": "15 homes on our lane. It is a very quiet and Peaceful street. From early 2025 to March 2026 three homes were purchased by the council and refurbished into social housing. The council finished refurbishing the homes in June and the families moved in. We've been dealing with endles",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uu8ayq",
-          "title": "Car lease company told me they gave me the wrong car",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uu8ayq/car_lease_company_told_me_they_gave_me_the_wrong/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uu8ayq/car_lease_company_told_me_they_gave_me_the_wrong/",
+          "id": "1uv5pph",
+          "title": "British citizen married in Japan - wife left while pregnant, now living with parents. What are my legal options (UK/Japan)?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv5pph/british_citizen_married_in_japan_wife_left_while/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv5pph/british_citizen_married_in_japan_wife_left_while/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783840116,
-          "snippet": "I'm in England. I have a been driving my car for around 2 months now after signing a PCH lease for 3 years at the agreed price. I got a phone call from the garage last week telling me that they had a quoted me on a slightly different spec and that it should have been £30 a month ",
+          "createdUtc": 1783931691,
+          "snippet": "I’m a British citizen currently staying in Japan on a Working Holiday visa and I’m looking for legal guidance because I’m unsure whether I should begin with a UK family solicitor or a Japanese family lawyer. I met my wife in Japan last year and we married earlier this year after ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uudics",
-          "title": "(England) What can you realistically do while signed off long-term sick in the UK?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uudics/england_what_can_you_realistically_do_while/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uudics/england_what_can_you_realistically_do_while/",
+          "id": "1uuq8m9",
+          "title": "Neighbour felled a tree onto our garden and removed our boundary hedge in breach of planning conditions - now demanding we pay for a new fence. What are our rights? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuq8m9/neighbour_felled_a_tree_onto_our_garden_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuq8m9/neighbour_felled_a_tree_onto_our_garden_and/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783857538,
-          "snippet": "I've been signed off due to chronic migraines and neurological symptoms that make it difficult to work safely. My symptoms include severe dizziness, light sensitivity, pain, fatigue, and difficulty standing or walking for extended periods. I often have to sit down regularly due t",
+          "createdUtc": 1783887303,
+          "snippet": "Location: England Long post, but trying to give full context. Semi-detached house. This is about the neighbour on our right (looking out to the back garden), who we are attached to, and has new owners who are mid-renovation. What happened: - Previously, the boundary between our g",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uub2pn",
-          "title": "Ultrasonic Cat Repellents - Can I do anything? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uub2pn/ultrasonic_cat_repellents_can_i_do_anything/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uub2pn/ultrasonic_cat_repellents_can_i_do_anything/",
+          "id": "1uuswxc",
+          "title": "Worried Our Son Is Being Caught in the Middle of Adult Issues - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuswxc/worried_our_son_is_being_caught_in_the_middle_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuswxc/worried_our_son_is_being_caught_in_the_middle_of/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783849806,
-          "snippet": "I have two neighbours using these ultrasonic cat repellents, one of which is opposite us and the nextdoor neighbour has two of them. It was just the opposite neighbour that set one up about a year ago, it was annoying but manageable, so we just lived with it. However, the nextdoo",
+          "createdUtc": 1783893692,
+          "snippet": "My partner's ex has applied for mediation and is now seeking full custody of their 10-year-old son. We're feeling completely lost and would really appreciate some advice. For context, their son has lived with us full-time since his parents separated 7 years ago. During that time,",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -386,13 +386,37 @@
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
           "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uuowy5",
+          "title": "Landlord wants £1000 out of our £1500 deposit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuowy5/landlord_wants_1000_out_of_our_1500_deposit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuowy5/landlord_wants_1000_out_of_our_1500_deposit/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783884275,
+          "snippet": "Hello, a bit of background on my living situation. I live with my two friends in a 3 bedroom university house in England. When we first arrived at this house I realised it was in bad condition the fridge door was loose as well as the freezer having broken draws. ( I have photo an",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uuyj79",
+          "title": "tenancy being taken over 20 days before move in? (england)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuyj79/tenancy_being_taken_over_20_days_before_move_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuyj79/tenancy_being_taken_over_20_days_before_move_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783908637,
+          "snippet": "hello. me and 3 other friends are moving into our third year university accommodation soon, ofc into a student house. on friday one of us was called and told there will be some changes happening to the property and that was it. we then had a follow up email saying that the previo",
+          "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -400,15 +424,39 @@
       ],
       "posts": [
         {
-          "id": "1uti6gb",
-          "title": "Service charge is £10k per year more expensive then advertised. Update",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uti6gb/service_charge_is_10k_per_year_more_expensive/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uti6gb/service_charge_is_10k_per_year_more_expensive/",
+          "id": "1uv5hkf",
+          "title": "Debt collection letter for unpaid parking tickets, even though it's the work car park?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv5hkf/debt_collection_letter_for_unpaid_parking_tickets/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv5hkf/debt_collection_letter_for_unpaid_parking_tickets/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783771107,
-          "snippet": "Original post https://www.reddit.com/r/LegalAdviceUK/s/3ul8Dw2GjK Since the estate agent called me with his offer, I did not call him back. This led to him panicking and he raised it in the team meeting they had this morning. Following that the CEO and branch manager called me an",
+          "createdUtc": 1783930865,
+          "snippet": "I live in England. So over the past few months ive been receiving parking tickets from ParkingEye for parking in my workplace car park. Ive worked there for a year and haven't had this issue until now My manager has confirmed with ParkingEye that my registration is on the system ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1uup9du",
+          "title": "Is this a CCJ? If so how far along are we? WALES",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uup9du/is_this_a_ccj_if_so_how_far_along_are_we_wales/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uup9du/is_this_a_ccj_if_so_how_far_along_are_we_wales/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783885065,
+          "snippet": "Hey all, So my girlfriend has received this letter in the post along with a form from a solicitor stating a debt she owes and how to pay etc. Does this mean she now has a CCJ on her file? We will contact them tomorrow but just checking here first. Potentially worth noting this is",
           "listingSource": "rss:hot"
         }
       ]
