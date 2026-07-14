@@ -1,3 +1,10 @@
+export type SubIssueRule = {
+  label: string;
+  anyTerms: string[];
+  allTerms?: string[];
+  excludeTerms?: string[];
+};
+
 export type LegalIssueTaxonomyEntry = {
   slug: string;
   canonicalName: string;
@@ -5,6 +12,7 @@ export type LegalIssueTaxonomyEntry = {
   aliases: string[];
   userPhrases: string[];
   subIssues: string[];
+  subIssueRules?: SubIssueRule[];
   relatedPracticeAreas: string[];
   emergencySignals: string[];
   legalAidLikely: boolean;
@@ -90,6 +98,15 @@ const LEGAL_ISSUE_TAXONOMY_CORE: LegalIssueTaxonomyEntry[] = [
       "dismissed",
       "redundancy",
       "tribunal",
+      "my employer",
+      "employer",
+      "unpaid commission",
+      "unpaid wages",
+      "commission",
+      "wages",
+      "salary",
+      "holiday pay",
+      "workplace dispute",
     ],
     subIssues: [
       "Unfair dismissal",
@@ -98,6 +115,46 @@ const LEGAL_ISSUE_TAXONOMY_CORE: LegalIssueTaxonomyEntry[] = [
       "Settlement agreements",
       "Workplace grievances",
       "Unpaid wages",
+      "Unpaid commission",
+      "Holiday pay",
+    ],
+    subIssueRules: [
+      {
+        label: "unpaid commission",
+        anyTerms: ["commission", "comission"],
+        excludeTerms: ["universal credit", "benefits appeal"],
+      },
+      {
+        label: "unpaid wages",
+        anyTerms: ["wage", "wages", "salary"],
+        allTerms: ["unpaid", "paid"],
+        excludeTerms: ["universal credit"],
+      },
+      {
+        label: "unpaid wages",
+        anyTerms: ["unpaid wage", "unpaid wages", "not paid", "hasnt paid", "haven't paid", "hasn't paid"],
+      },
+      {
+        label: "holiday pay",
+        anyTerms: ["holiday pay"],
+      },
+      {
+        label: "redundancy",
+        anyTerms: ["redundan"],
+      },
+      {
+        label: "unfair dismissal",
+        anyTerms: ["dismiss", "fired", "sacked", "unfair dismissal"],
+      },
+      {
+        label: "discrimination at work",
+        anyTerms: ["discriminat"],
+      },
+      {
+        label: "unpaid wages or pay dispute",
+        anyTerms: ["employer", "boss", "workplace"],
+        allTerms: ["pay", "paid"],
+      },
     ],
     relatedPracticeAreas: ["Whistleblowing", "TUPE", "Restrictive covenants"],
     emergencySignals: [],
@@ -115,6 +172,10 @@ const LEGAL_ISSUE_TAXONOMY_CORE: LegalIssueTaxonomyEntry[] = [
       "employment tribunal",
       "ACAS",
       "grievance",
+      "unpaid wages",
+      "unpaid commission",
+      "commission",
+      "employer",
     ],
   },
   {
@@ -162,13 +223,36 @@ const LEGAL_ISSUE_TAXONOMY_CORE: LegalIssueTaxonomyEntry[] = [
       "child arrangements",
       "custody",
       "contact",
+      "prenup",
+      "prenuptial",
+      "prenuptial agreement",
+      "postnup",
+      "cohabitation agreement",
     ],
-    subIssues: ["Divorce", "Child arrangements", "Domestic abuse", "Financial remedies", "Care proceedings"],
+    subIssues: [
+      "Divorce",
+      "Child arrangements",
+      "Domestic abuse",
+      "Financial remedies",
+      "Care proceedings",
+      "Prenuptial agreements",
+      "Cohabitation agreements",
+    ],
+    subIssueRules: [
+      {
+        label: "prenuptial agreement",
+        anyTerms: ["prenup", "prenuptial", "pre-nup", "postnup", "post-nup"],
+      },
+      {
+        label: "cohabitation agreement",
+        anyTerms: ["cohabitation agreement", "living together agreement", "cohabitation"],
+      },
+    ],
     relatedPracticeAreas: ["Mediation", "Injunctions"],
     emergencySignals: ["domestic violence", "child abduction", "urgent injunction"],
     legalAidLikely: true,
     clarificationQuestions: [
-      "Is this about divorce, child arrangements, domestic abuse, finances on separation, or care proceedings?",
+      "Is this about divorce, child arrangements, domestic abuse, finances on separation, prenuptial or cohabitation agreements, or care proceedings?",
     ],
     searchBoostTerms: [
       "family solicitor",
@@ -176,6 +260,8 @@ const LEGAL_ISSUE_TAXONOMY_CORE: LegalIssueTaxonomyEntry[] = [
       "child arrangements",
       "contact order",
       "financial remedy",
+      "prenuptial agreement",
+      "marriage",
       "CAFCASS",
     ],
   },
@@ -254,6 +340,17 @@ const LEGAL_ISSUE_TAXONOMY_CORE: LegalIssueTaxonomyEntry[] = [
       "Homelessness",
       "Anti-social behaviour",
       "Neighbour dispute",
+    ],
+    subIssueRules: [
+      { label: "deposit dispute", anyTerms: ["deposit", "tenancy deposit", "holding deposit", "bond"] },
+      {
+        label: "eviction or possession",
+        anyTerms: ["eviction", "section 21", "section 8", "possession", "kicking me out", "notice to quit"],
+      },
+      { label: "housing disrepair", anyTerms: ["disrepair", "damp", "mould", "mold", "repair", "leak", "unsafe"] },
+      { label: "homelessness", anyTerms: ["homeless", "homelessness"] },
+      { label: "neighbour dispute", anyTerms: ["neighbour", "asb", "anti-social", "harassment"] },
+      { label: "landlord and tenant", anyTerms: ["landlord", "tenant", "renting", "tenancy", "letting"] },
     ],
     relatedPracticeAreas: [
       "Landlord and tenant",

@@ -69,14 +69,28 @@ export async function upsertFirmFromSraV2(
     website: doc.website || null,
     verified: true,
   };
-  await prisma.firm.upsert({
-    where: { sraId: doc.sraId },
-    create: {
-      id: `firm-sra-${doc.sraId}`,
+  const firmId = `firm-sra-${doc.sraId}`;
+
+  // Curated Firm rows may already use firm-sra-{id} without sraId set (link-firms / seed data).
+  const existing = await prisma.firm.findFirst({
+    where: { OR: [{ sraId: doc.sraId }, { id: firmId }] },
+    select: { id: true },
+  });
+
+  if (existing) {
+    await prisma.firm.update({
+      where: { id: existing.id },
+      data: { sraId: doc.sraId, ...data },
+    });
+    return;
+  }
+
+  await prisma.firm.create({
+    data: {
+      id: firmId,
       sraId: doc.sraId,
       ...data,
     },
-    update: data,
   });
 }
 

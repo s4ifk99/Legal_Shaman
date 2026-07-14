@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 import { fetchDirectoryEntity, fetchDirectoryEntityByName } from "@/lib/legal-search/fetch-directory-entity";
 import type { SearchResultSource } from "@/lib/search-events/types";
 
@@ -14,6 +15,9 @@ const SOURCES = new Set<SearchResultSource>([
 ]);
 
 export async function GET(req: Request) {
+  const authBlock = await requireSearchAuthResponse();
+  if (authBlock) return authBlock;
+
   const url = new URL(req.url);
   const entityId = url.searchParams.get("entityId")?.trim() ?? "";
   const name = url.searchParams.get("name")?.trim() ?? "";

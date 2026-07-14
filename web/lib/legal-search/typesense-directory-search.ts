@@ -1,5 +1,9 @@
 import "server-only";
 
+import {
+  filterDirectoryResultsByIntent,
+  overlayIntentOnParsedQuery,
+} from "@/lib/legal-knowledge/search-intent";
 import { parseQuery } from "@/lib/legal-search/query-understanding";
 import type { DirectorySearchParams, ParsedQuery, SearchResult } from "@/lib/legal-search/types";
 import { attachExplanations } from "@/lib/legal-search/explanations";
@@ -111,7 +115,11 @@ export async function runTypesenseDirectorySearch(
     };
   }
 
-  let parsed = await parseQuery(params.query);
+  const searchQuery = params.searchIntent?.semanticQuery ?? params.query;
+  let parsed = params.parsed ?? (await parseQuery(searchQuery));
+  if (params.searchIntent) {
+    parsed = overlayIntentOnParsedQuery(parsed, params.searchIntent);
+  }
   const vagueDetectOpts = {
     cityFilter: params.city,
     locationFilter: params.location,
@@ -342,6 +350,9 @@ export async function runTypesenseDirectorySearch(
   pushRankingStage("before_result_filters", results);
 
   results = filterByParams(results, params, { vagueQueryMode });
+  if (params.searchIntent) {
+    results = filterDirectoryResultsByIntent(results, params.searchIntent);
+  }
   const off = params.offset ?? 0;
   const lim = params.limit ?? 40;
   results = results.slice(off, off + lim);

@@ -12,6 +12,7 @@ import {
 } from "@/lib/legal/legal-issue-taxonomy-data";
 import { resolveLegalIssueFromNaturalLanguage } from "@/lib/legal/natural-language-resolver";
 import { refinementChipsFromEntry } from "@/lib/legal/refinement-chips";
+import { legalClassifyRuleStrongThreshold } from "@/lib/legal-knowledge/classify-config";
 
 export type { LegalIssueTaxonomyEntry };
 
@@ -227,9 +228,20 @@ export function enrichParsedQueryWithTaxonomy(parsed: ParsedQuery): ParsedQuery 
 
   const inferredMatcher = resolution?.matcherSlug ?? null;
   const inferredTaxonomy = resolution?.taxonomySlug ?? null;
-  const practiceAreaSlug =
+  const ruleStrong =
+    resolution != null && resolution.matchStrength >= legalClassifyRuleStrongThreshold();
+
+  const taxonomySlug = ruleStrong
+    ? inferredTaxonomy ?? parsed.taxonomySlug
+    : parsed.taxonomySlug ?? inferredTaxonomy;
+
+  let practiceAreaSlug =
     parsed.practiceAreaSlug?.trim() ||
-    (inferredMatcher ?? (inferredTaxonomy ? matcherSlugForTaxonomySlug(inferredTaxonomy) : null)) ||
+    (ruleStrong
+      ? (inferredMatcher ??
+        (inferredTaxonomy ? matcherSlugForTaxonomySlug(inferredTaxonomy) : null))
+      : (inferredMatcher ??
+        (taxonomySlug ? matcherSlugForTaxonomySlug(taxonomySlug) : null))) ||
     undefined;
 
   const expandedSearchText = buildExpandedSearchText(resolution, raw);
@@ -255,8 +267,11 @@ export function enrichParsedQueryWithTaxonomy(parsed: ParsedQuery): ParsedQuery 
     ...parsed,
     fundingIntent,
     practiceAreaSlug: practiceAreaSlug ?? parsed.practiceAreaSlug,
-    taxonomySlug: inferredTaxonomy ?? parsed.taxonomySlug,
-    taxonomyPrimaryLabel: resolution?.canonicalName ?? parsed.taxonomyPrimaryLabel,
+    taxonomySlug,
+    taxonomyPrimaryLabel:
+      (taxonomySlug && byTaxonomySlug.get(taxonomySlug)?.canonicalName) ??
+      resolution?.canonicalName ??
+      parsed.taxonomyPrimaryLabel,
     taxonomyRelatedLabels: resolution?.relatedPracticeAreas ?? parsed.taxonomyRelatedLabels,
     expandedSearchText,
     queryConfidence,

@@ -1,0 +1,23 @@
+# Cloudflare Tunnel config for Legal Shaman hybrid hosting.
+# Copy to ~/.cloudflared/config.yml and replace placeholders.
+#
+# Setup:
+#   cloudflared tunnel create legal-shaman-home
+#   cloudflared tunnel route dns legal-shaman-home search.legalshaman.com
+#   cloudflared tunnel route dns legal-shaman-home llm.legalshaman.com
+#
+# Credentials file is written by `tunnel create` under ~/.cloudflared/<TUNNEL_ID>.json
+
+tunnel: <TUNNEL_ID>
+credentials-file: /home/<USER>/.cloudflared/<TUNNEL_ID>.json
+
+ingress:
+  # Typesense (Vercel sends X-TYPESENSE-API-KEY header)
+  - hostname: search.legalshaman.com
+    service: http://127.0.0.1:8108
+
+  # Ollama OpenAI-compatible API (via ollama-proxy.py — rewrites Host header)
+  - hostname: llm.legalshaman.com
+    service: http://127.0.0.1:11435
+
+  - service: http_status:404

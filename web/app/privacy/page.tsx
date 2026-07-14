@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "How Legal Shaman collects, uses, and protects your personal information, including our commitment never to share your details without your consent.",
 };
 
-const lastUpdated = "15 June 2026";
+const lastUpdated = "9 July 2026";
 
 export default function PrivacyPage() {
   return (
@@ -110,26 +110,38 @@ export default function PrivacyPage() {
                       recommendations, and overall user experience.
                     </span>
                   </li>
+                  <li className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                    <span>
+                      If you opt in on guided search, we email you a summary of your results.
+                      With your separate consent, we may share your email with Trustpilot so they
+                      can invite you to leave a review about Legal Shaman.
+                    </span>
+                  </li>
                 </ul>
               </PrivacySection>
 
-              <PrivacySection number="3" title="We Do Not Share Your Details">
+              <PrivacySection number="3" title="We Do Not Share Your Details Without Consent">
                 <p>
                   <strong className="text-foreground">
-                    We do not share your client details or email address.
+                    We do not sell or rent your contact information.
                   </strong>{" "}
-                  Your contact information is never sold, rented, or passed on to
-                  third parties for marketing purposes.
+                  Your email address is not passed to third parties for their own marketing
+                  purposes.
                 </p>
                 <p className="mt-4">
                   <strong className="text-foreground">
-                    We would only ever share your details with your explicit
-                    consent.
+                    We only share your details when you have agreed.
                   </strong>{" "}
-                  For example, if you ask us to connect you with a specific
-                  solicitor or service, we will only pass on your details once
-                  you have agreed. Without your consent, your details stay with
-                  us.
+                  For example, if you ask us to connect you with a specific solicitor or service,
+                  we will only pass on your details once you have agreed. If you opt in to receive a
+                  search summary and a Trustpilot review invitation, we share your email with
+                  Trustpilot solely so they can send that invitation on our behalf.
+                </p>
+                <p className="mt-4">
+                  Trustpilot processes review invitations under their own privacy policy. You can
+                  withdraw consent for future review invitations by contacting us using the details
+                  below.
                 </p>
               </PrivacySection>
 

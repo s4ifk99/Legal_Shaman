@@ -1,17 +1,19 @@
 import { detectFundingIntent } from "@/lib/legal-search/funding-intent";
-import {
-  buildExpandedSearchText,
-  resolveLegalIssueFromQuery,
-} from "@/lib/legal/taxonomy";
+import { buildExpandedSearchText, resolveLegalIssueFromQuery } from "@/lib/legal/taxonomy";
 import { LEGAL_ISSUE_TAXONOMY } from "@/lib/legal/legal-issue-taxonomy-data";
 
+import type { LegalSearchContext } from "./search-context";
+import type { LegalSearchIntent } from "./search-intent";
 import { classifyLegalIssue, inferHousingSubIssue } from "./classify";
 import type { IssueClassification, LegalSearchRequest, SearchCriterion } from "./types";
 
 export type DecomposeQueryInput = Pick<
   LegalSearchRequest,
   "query" | "location" | "jurisdiction" | "includeDirectory"
->;
+> & {
+  context?: LegalSearchContext;
+  intent?: LegalSearchIntent;
+};
 
 function matchedUserPhrases(query: string, taxonomySlug: string | undefined): string[] {
   if (!taxonomySlug) return [];
@@ -57,7 +59,7 @@ function sourcePreferenceText(): string {
   return "Prefer official UK guidance first (GOV.UK, Citizens Advice, ACAS, Shelter), then curated Legal Shaman wiki, before generic law firm marketing pages.";
 }
 
-function retrievalText(expanded: string, includeDirectory: boolean): string {
+function retrievalText(expanded: string, includeDirectory: boolean, intent?: LegalSearchIntent): string {
   const terms = expanded
     .split(/\s+/)
     .filter((t) => t.length >= 4)
@@ -65,7 +67,8 @@ function retrievalText(expanded: string, includeDirectory: boolean): string {
     .join(", ");
   const modes = ["keyword match on your wording", "semantic similarity when embeddings are available"];
   if (includeDirectory) modes.push("directory practice-area match");
-  return `${modes.join(" + ")}${terms ? `; boosted terms: ${terms}` : ""}`;
+  const intentNote = intent?.specificIssue ? `; issue focus: ${intent.specificIssue}` : "";
+  return `${modes.join(" + ")}${terms ? `; boosted terms: ${terms}` : ""}${intentNote}`;
 }
 
 let criterionCounter = 0;
@@ -88,11 +91,12 @@ export function decomposeLegalSearchQuery(input: DecomposeQueryInput): SearchCri
 
   if (query.length < 2) return [];
 
-  const classification = classifyLegalIssue(query);
-  const resolution = resolveLegalIssueFromQuery(query);
+  const classification = input.context?.classification ?? classifyLegalIssue(query);
+  const resolution = input.context?.resolution ?? resolveLegalIssueFromQuery(query);
   const funding = detectFundingIntent(query);
   const expanded = buildExpandedSearchText(resolution, query);
   const matched = matchedUserPhrases(query, classification.subArea || undefined);
+  const intent = input.intent;
 
   const criteria: SearchCriterion[] = [];
 
@@ -108,6 +112,7 @@ export function decomposeLegalSearchQuery(input: DecomposeQueryInput): SearchCri
   if (resolution) {
     const specific =
       classification.specificIssue ??
+      intent?.specificIssue ??
       (classification.subArea === "housing" ? inferHousingSubIssue(query) : null);
 
     let issueText: string;
@@ -115,6 +120,10 @@ export function decomposeLegalSearchQuery(input: DecomposeQueryInput): SearchCri
       issueText = specific
         ? `This is a Landlord and Tenant issue — specifically a ${specific}.`
         : "This is a Landlord and Tenant issue (private renting, deposits, eviction, or repairs).";
+    } else if (classification.subArea === "employment" || resolution.taxonomySlug === "employment") {
+      issueText = specific
+        ? `This looks like an Employment Law issue — specifically ${specific}.`
+        : "This looks like an Employment Law issue (pay, dismissal, discrimination, or workplace disputes).";
     } else if (specific) {
       issueText = `This looks like a ${resolution.canonicalName} issue — specifically ${specific}.`;
     } else {
@@ -195,7 +204,7 @@ export function decomposeLegalSearchQuery(input: DecomposeQueryInput): SearchCri
 
   criteria.push(criterion("sources", "Sources", sourcePreferenceText()));
 
-  criteria.push(criterion("retrieval", "Retrieval", retrievalText(expanded, includeDirectory)));
+  criteria.push(criterion("retrieval", "Retrieval", retrievalText(expanded, includeDirectory, intent)));
 
   return criteria;
 }

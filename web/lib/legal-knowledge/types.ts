@@ -96,12 +96,33 @@ export type LegalSearchResponse = {
   clarifyingQuestion: string | null;
   answer: string | null;
   disclaimer: string;
-  answerMode?: "synthesis" | "fallback";
+  answerMode?: "synthesis" | "fallback" | "graph_assembly";
   searchCriteria: SearchCriterion[];
   debug?: {
     retrievalCount: number;
     rerankedCount: number;
-    mode: "hybrid" | "lexical_only" | "empty";
+    mode: "hybrid" | "lexical_only" | "empty" | "graph";
+    intentSignals?: string[];
+    conceptCluster?: string[];
+    classificationFusion?: {
+      fusionSource: string;
+      ruleTaxonomySlug?: string;
+      llmTaxonomySlug?: string;
+      ruleMatchStrength?: number;
+      llmConfidence?: number;
+      phraseCandidates?: string[];
+    };
+    graphShadow?: {
+      graphAvailable?: boolean;
+      graphConfidence?: number;
+      graphAnswerPreview?: string;
+      ragAnswerMode?: string;
+      conceptCluster?: string[];
+      /** @deprecated use graphAnswerPreview */
+      ragAnswerPreview?: string;
+      /** @deprecated use graphAvailable */
+      graphUsed?: boolean;
+    };
   };
 };
 

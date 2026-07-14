@@ -6,6 +6,10 @@ import type { PrismaClient } from "@prisma/client";
 import { chunkLegalText } from "@/lib/legal-knowledge/chunker";
 import { loadWikiSourceConfig } from "@/lib/wiki/load-config";
 import { parseWikiPage } from "@/lib/wiki/parse-page";
+import {
+  wikiPagePublicUrl,
+  wikiPageSlugFromRelativePath,
+} from "@/lib/wiki/public-url";
 
 const WIKI_DOMAIN = "wiki.legalshaman";
 
@@ -28,8 +32,7 @@ function isQuarantined(relativePath: string): boolean {
 }
 
 function wikiUrlForPage(relativePath: string): string {
-  const slug = relativePath.replace(/\.md$/i, "");
-  return `https://legalshaman.com/wiki/${encodeURI(slug)}`;
+  return wikiPagePublicUrl(wikiPageSlugFromRelativePath(relativePath));
 }
 
 export type WikiImportResult = {

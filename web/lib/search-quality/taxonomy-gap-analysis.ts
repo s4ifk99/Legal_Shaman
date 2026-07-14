@@ -29,10 +29,24 @@ function confidenceFromParsed(parsed: unknown): string | null {
   return typeof p.queryConfidence === "string" ? p.queryConfidence : null;
 }
 
-export async function analyzeTaxonomyGaps(opts?: { days?: number }): Promise<TaxonomyGapReport> {
+export type LegalKnowledgeGapReport = TaxonomyGapReport & {
+  channel: "legal_knowledge";
+  lowConfidenceSourceMismatches: Array<{
+    query: string;
+    count: number;
+    taxonomySlug: string | null;
+    sampleInteractionId: string;
+  }>;
+  evalCaseSuggestions: string[];
+};
+
+async function analyzeChannelGaps(
+  channel: "directory" | "legal_knowledge",
+  opts?: { days?: number },
+): Promise<TaxonomyGapReport> {
   const since = new Date(Date.now() - (opts?.days ?? DEFAULT_DAYS) * 86400000);
   const interactions = await prisma.searchInteraction.findMany({
-    where: { createdAt: { gte: since }, channel: "directory" },
+    where: { createdAt: { gte: since }, channel },
     select: { id: true, rawQuery: true, parsedQuery: true, clarifyingAsked: true },
     take: 5000,
   });
@@ -93,5 +107,70 @@ export async function analyzeTaxonomyGaps(opts?: { days?: number }): Promise<Tax
     clarifyHeavy,
     taxonomySlugHistogram,
     unusedAliasExamples,
+  };
+}
+
+export async function analyzeTaxonomyGaps(opts?: { days?: number }): Promise<TaxonomyGapReport> {
+  return analyzeChannelGaps("directory", opts);
+}
+
+export async function analyzeLegalKnowledgeGaps(opts?: {
+  days?: number;
+}): Promise<LegalKnowledgeGapReport> {
+  const interactions = await prisma.searchInteraction.findMany({
+    where: { createdAt: { gte: since }, channel: "legal_knowledge" },
+    select: {
+      id: true,
+      rawQuery: true,
+      parsedQuery: true,
+      clarifyingAsked: true,
+      extractedFilters: true,
+    },
+    take: 5000,
+  });
+
+  const base = await analyzeChannelGaps("legal_knowledge", opts);
+
+  const lowConfidenceSourceMismatches = interactions
+    .filter((row) => confidenceFromParsed(row.parsedQuery) === "low")
+    .reduce((acc, row) => {
+      const q = row.rawQuery.trim().toLowerCase().slice(0, 120);
+      const slug = slugFromParsed(row.parsedQuery);
+      const cur = acc.get(q) ?? { count: 0, sampleId: row.id, slug };
+      acc.set(q, { count: cur.count + 1, sampleId: cur.sampleId || row.id, slug });
+      return acc;
+    }, new Map<string, { count: number; sampleId: string; slug: string | null }>());
+
+  const mismatches = [...lowConfidenceSourceMismatches.entries()]
+    .map(([query, v]) => ({
+      query,
+      count: v.count,
+      taxonomySlug: v.slug,
+      sampleInteractionId: v.sampleId,
+    }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 40);
+
+  const { formatLegalKnowledgeEvalCaseSnippet } = await import(
+    "@/lib/search-quality/eval-integration"
+  );
+
+  const evalCaseSuggestions = base.lowConfidenceQueries.slice(0, 8).map((row) => {
+    const sample = interactions.find((i) => i.id === row.sampleInteractionId);
+    const slug = sample ? slugFromParsed(sample.parsedQuery) : null;
+    return formatLegalKnowledgeEvalCaseSnippet({
+      id: `gap_${row.query.replace(/[^a-z0-9]+/gi, "_").slice(0, 32)}`,
+      query: row.query,
+      expectTaxonomySlug: slug ?? undefined,
+      tiers: ["unit", "retrieval", "integration"],
+      notes: `From legal_knowledge gap analysis (${row.count} low-confidence hits)`,
+    });
+  });
+
+  return {
+    ...base,
+    channel: "legal_knowledge",
+    lowConfidenceSourceMismatches: mismatches,
+    evalCaseSuggestions,
   };
 }

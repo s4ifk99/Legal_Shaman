@@ -1,0 +1,3 @@
+# Minimal config passed to `cloudflared tunnel --url …` so cloudflared does not
+# merge in ~/.cloudflared/config.yml (named tunnel credentials). Do not add
+# ingress rules here — they override --url and break quick tunnels.

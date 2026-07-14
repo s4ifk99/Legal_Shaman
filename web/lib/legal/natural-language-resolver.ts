@@ -7,6 +7,7 @@ import {
   LEGAL_ISSUE_TAXONOMY,
   type LegalIssueTaxonomyEntry,
 } from "@/lib/legal/legal-issue-taxonomy-data";
+import { inferSubIssueFromTaxonomy } from "@/lib/legal/sub-issue-rules";
 import {
   normalizePhrase,
   normalizePracticeAreas,
@@ -236,6 +237,11 @@ export function resolveLegalIssueFromNaturalLanguage(
       return phrase === slugPhrase || phrase.includes(slugPhrase) || slugPhrase.includes(phrase);
     });
     if (direct) candidates.push({ entry: direct, score: 26 });
+  }
+
+  if (inferSubIssueFromTaxonomy(trimmed, "employment")) {
+    const employment = byTaxonomySlug.get("employment");
+    if (employment) candidates.push({ entry: employment, score: 44 });
   }
 
   const best = mergeCandidates(candidates);

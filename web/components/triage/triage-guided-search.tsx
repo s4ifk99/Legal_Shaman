@@ -13,6 +13,7 @@ import { SearchDebugPanel } from "@/components/search/search-debug-panel";
 import { TriageQuestionCard } from "@/components/triage/triage-question-card";
 import { TriageResultsSections } from "@/components/triage/triage-results-sections";
 import { ExternalFallbackSection } from "@/components/triage/external-fallback-section";
+import { TriageResultsEmailCard } from "@/components/triage/triage-results-email-card";
 import { TriageUrgentBanner } from "@/components/triage/triage-urgent-banner";
 import type { AppliedFilters } from "@/lib/agent/types";
 import type { MapMarker } from "@/lib/search/map-results";
@@ -24,6 +25,7 @@ import type {
 } from "@/lib/legal-search/triage/types";
 import type { SearchResponseDebug } from "@/lib/legal-search/search-diagnostics-types";
 import type { SearchResult } from "@/lib/legal-search/types";
+import { useRequireAuth } from "@/lib/auth/use-require-auth";
 
 type TriageUiState =
   | { kind: "idle" }
@@ -73,6 +75,7 @@ export function TriageGuidedSearch({
   mapEnabled = true,
   debugEnabled = false,
 }: TriageGuidedSearchProps) {
+  const { requireAuth, openAuthForSearch } = useRequireAuth();
   const [query, setQuery] = useState("");
   const [locationCity, setLocationCity] = useState("");
   const [searchOrigin, setSearchOrigin] = useState<SearchOrigin | null>(null);
@@ -109,10 +112,14 @@ export function TriageGuidedSearch({
         }),
       });
       const data = (await res.json()) as TriageResponse & { error?: string };
+      if (res.status === 401) {
+        openAuthForSearch();
+        throw new Error("auth_required");
+      }
       if (!res.ok) throw new Error(data.error || "Triage request failed");
       return data;
     },
-    [sessionId, appliedFilters, searchOrigin],
+    [sessionId, appliedFilters, searchOrigin, openAuthForSearch],
   );
 
   const applyResponse = useCallback(
@@ -249,7 +256,7 @@ export function TriageGuidedSearch({
     e.preventDefault();
     const q = query.trim();
     if (q.length < 2) return;
-    startTriage(q);
+    requireAuth(() => void startTriage(q), "search");
   };
 
   const isLoading = status.kind === "loading";
@@ -319,6 +326,11 @@ export function TriageGuidedSearch({
           parsedPracticeArea={status.payload.parsedQuery.practiceAreaSlug ?? undefined}
           parsedLocation={status.payload.parsedQuery.location ?? locationCity.trim() ?? undefined}
         />
+        <TriageResultsEmailCard
+          sessionId={status.payload.triageState.sessionId}
+          mergedQuery={status.payload.triageState.mergedQuery}
+          sections={status.payload.sections}
+        />
         {status.payload.externalFallback ? (
           <ExternalFallbackSection payload={status.payload.externalFallback} />
         ) : null}
@@ -378,7 +390,7 @@ export function TriageGuidedSearch({
                 key={ex}
                 onClick={() => {
                   setQuery(ex);
-                  startTriage(ex);
+                  requireAuth(() => void startTriage(ex), "search");
                 }}
                 disabled={isLoading}
                 className="rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground hover:bg-muted"

@@ -2,16 +2,17 @@ import "server-only";
 
 import { prisma } from "@/lib/db/prisma";
 import { embedOne, embedConfigured, toPgVectorLiteral } from "@/lib/llm/client";
-import { resolveLegalIssueFromQuery, buildExpandedSearchText } from "@/lib/legal/taxonomy";
+import { buildExpandedSearchText } from "@/lib/legal/taxonomy";
 
 import {
   authorityForDomain,
   freshnessScoreFromDate,
   isMarketingContent,
 } from "./authority";
-import { inferHousingSubIssue } from "./classify";
 import { buildSnippet } from "./chunker";
+import type { LegalSearchIntent } from "./search-intent";
 import type { RetrievedChunk } from "./types";
+import { normalizeLegalSourceUrl } from "@/lib/wiki/public-url";
 
 const LEXICAL_POOL = 50;
 const VECTOR_POOL = 50;
@@ -38,6 +39,7 @@ type RawRow = {
 export type RetrievalOptions = {
   limit?: number;
   jurisdiction?: string;
+  intent?: LegalSearchIntent;
 };
 
 function extractPhrases(query: string, boostTerms: string[]): string[] {
@@ -74,6 +76,7 @@ function scoreRow(
   row: RawRow,
   phrases: string[],
   query: string,
+  intent?: LegalSearchIntent,
 ): Omit<RetrievedChunk, "snippet" | "finalScore"> & { marketingPenalty: number } {
   const authorityScore = Math.min(1, row.authority_weight);
   const freshnessScore = freshnessScoreFromDate(row.fetched_at, row.source_updated_at);
@@ -83,8 +86,26 @@ function scoreRow(
   const marketingPenalty = isMarketingContent(row.chunk_text) ? 0.35 : 0;
 
   const titleLower = row.title.toLowerCase();
-  const qLower = query.toLowerCase();
+  const blobLower = `${titleLower} ${row.source_url.toLowerCase()}`;
   let titleBoost = 0;
+
+  if (intent?.requiredTopicTerms.length) {
+    const onTopic = intent.requiredTopicTerms.some((t) => blobLower.includes(t.toLowerCase()));
+    if (onTopic) titleBoost += 0.35;
+    const isWikiIndex = /—\s*sources$/i.test(row.title) || /—\s*key information$/i.test(row.title);
+    if (isWikiIndex && !onTopic) titleBoost -= 0.3;
+    if (/money,\s*benefits|universal credit|welfare benefits/i.test(blobLower) && !onTopic) {
+      titleBoost -= 0.25;
+    }
+  }
+
+  if (intent?.suppressTerms.length) {
+    const suppressed = intent.suppressTerms.some((t) => blobLower.includes(t.toLowerCase()));
+    const onTopic = intent.requiredTopicTerms.some((t) => blobLower.includes(t.toLowerCase()));
+    if (suppressed && !onTopic) titleBoost -= 0.2;
+  }
+
+  const qLower = query.toLowerCase();
   if (/\bdeposit\b/.test(qLower) && /\bdeposit\b/.test(titleLower)) titleBoost += 0.4;
   if (/\bevict/.test(qLower) && /\bevict|possession/.test(titleLower)) titleBoost += 0.3;
   if (/\bdisrepair|damp|mould|repair\b/.test(qLower) && /\brepair|disrepair|damp|mould/.test(titleLower)) {
@@ -102,7 +123,7 @@ function scoreRow(
   return {
     id: row.id,
     documentId: row.document_id,
-    sourceUrl: row.source_url,
+    sourceUrl: normalizeLegalSourceUrl(row.source_url),
     title: row.title,
     heading: row.heading,
     chunkText: row.chunk_text,
@@ -124,14 +145,11 @@ function scoreRow(
   };
 }
 
-/** FTS query — user wording plus a narrow sub-issue hint when detected. */
-function buildLexicalQuery(raw: string): string {
-  let q = raw.replace(/\s+/g, " ").trim();
-  const sub = inferHousingSubIssue(raw);
-  if (sub === "deposit dispute" && !/\bdeposit\b/i.test(q)) q += " deposit";
-  else if (sub === "eviction or possession" && !/\bevict/i.test(q)) q += " eviction";
-  else if (sub === "housing disrepair" && !/\brepair|disrepair/i.test(q)) q += " disrepair";
-  return q.slice(0, 300);
+function buildLexicalQuery(raw: string, intent?: LegalSearchIntent): string {
+  if (intent?.retrievalQueries[0]?.trim()) {
+    return intent.retrievalQueries[0]!.trim().slice(0, 300);
+  }
+  return raw.replace(/\s+/g, " ").trim().slice(0, 300);
 }
 
 export async function hybridLegalRetrieval(
@@ -141,11 +159,13 @@ export async function hybridLegalRetrieval(
   const trimmed = query.trim();
   if (trimmed.length < 2) return { chunks: [], mode: "empty" };
 
-  const resolution = resolveLegalIssueFromQuery(trimmed);
-  const expanded = buildExpandedSearchText(resolution, trimmed);
-  const boostTerms = resolution?.searchBoostTerms ?? [];
+  const intent = options.intent;
+  const expanded =
+    intent?.retrievalQueries[0]?.trim() ||
+    buildExpandedSearchText(null, trimmed);
+  const boostTerms = intent?.searchBoostTerms ?? [];
   const phrases = extractPhrases(expanded, boostTerms);
-  const lexicalQuery = buildLexicalQuery(trimmed);
+  const lexicalQuery = buildLexicalQuery(trimmed, intent);
 
   const lexicalRows = await prisma.$queryRaw<
     Array<{
@@ -268,7 +288,7 @@ export async function hybridLegalRetrieval(
   if (!merged.size) return { chunks: [], mode: "empty" };
 
   const scored = [...merged.values()]
-    .map((row) => scoreRow(row, phrases, trimmed))
+    .map((row) => scoreRow(row, phrases, trimmed, intent))
     .map((row) => {
       const finalScore =
         row.relevanceScore * 0.72 +

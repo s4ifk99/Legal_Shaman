@@ -18,6 +18,10 @@ import {
 import { usePostgresDirectorySearch } from "@/lib/legal-search/config";
 import { getSearchStackStatus } from "@/lib/legal-search/search-startup";
 import { filterResultsByLocation } from "@/lib/search/location-filter";
+import {
+  filterDirectoryResultsByIntent,
+  overlayIntentOnParsedQuery,
+} from "@/lib/legal-knowledge/search-intent";
 
 function buildFacets(p: DirectorySearchParams): SearchFacets | undefined {
   if (!p.freeOnly && !p.legalAidOnly && !p.city) return undefined;
@@ -67,7 +71,11 @@ export async function runDirectorySearchLegacy(
 ): Promise<DirectorySearchResponse> {
   const t0 = Date.now();
   const facets = buildFacets(params);
-  let parsed = await parseQuery(params.query);
+  const searchQuery = params.searchIntent?.semanticQuery ?? params.query;
+  let parsed = params.parsed ?? (await parseQuery(searchQuery));
+  if (params.searchIntent) {
+    parsed = overlayIntentOnParsedQuery(parsed, params.searchIntent);
+  }
   const vagueQueryMode = detectVagueLegalQuery(parsed, {
     cityFilter: params.city,
     locationFilter: params.location,
@@ -95,7 +103,7 @@ export async function runDirectorySearchLegacy(
   }
 
   const merged = await mergeAndRankDirectoryHits({
-    query: params.query,
+    query: searchQuery,
     limit: Math.min(120, Math.max(params.limit, 40)),
     semantic: params.semantic,
     facets,
@@ -106,6 +114,9 @@ export async function runDirectorySearchLegacy(
   degradedModes = [...degradedModes, ...merged.degradedModes];
 
   results = filterByParams(results, params, { vagueQueryMode });
+  if (params.searchIntent) {
+    results = filterDirectoryResultsByIntent(results, params.searchIntent);
+  }
   if (params.origin) {
     results = rerankSearchResults(results, parsed, { origin: params.origin });
   }

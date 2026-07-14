@@ -15,3 +15,8 @@ Thumbs.db
 web/.sra-sync-state.json
 web/reports/
 *api-keys*.txt
+.vercel
+.env*
+
+# Local ops logs
+web/logs/

@@ -116,6 +116,8 @@ export async function runWeeklyJobs(opts: WeeklyJobOptions = {}): Promise<Weekly
   }
 
   steps.push(await runNpmStep("search:eval", "search:eval"));
+  steps.push(await runNpmStep("legal-search:eval:unit", "legal-search:eval:unit"));
+  steps.push(await runNpmStep("legal-search:eval:retrieval", "legal-search:eval:retrieval"));
 
   const catalog = await getCatalogStats();
   const summary = summarizeSteps(steps);

@@ -1,0 +1,72 @@
+name: Legal knowledge eval
+
+on:
+  pull_request:
+    paths:
+      - "web/lib/legal-knowledge/**"
+      - "web/lib/knowledge-compiler/**"
+      - "web/lib/legal/**"
+      - "web/scripts/legal-knowledge-eval.ts"
+      - "web/package.json"
+      - ".github/workflows/legal-knowledge-eval.yml"
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: "Eval tier"
+        required: true
+        type: choice
+        options:
+          - unit
+          - retrieval
+          - integration
+          - compiler
+
+jobs:
+  unit:
+    if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && github.event.inputs.tier == 'unit')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm run legal-search:eval:unit
+
+  integration:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.tier != 'unit'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
+      TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
+      DIRECTORY_SEARCH_BACKEND: postgres
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - name: Run eval tier
+        run: |
+          if [ "${{ github.event.inputs.tier }}" = "retrieval" ]; then
+            npm run legal-search:eval:retrieval
+          elif [ "${{ github.event.inputs.tier }}" = "compiler" ]; then
+            npm run legal-search:eval -- --tier=compiler
+          else
+            npm run legal-search:eval
+          fi

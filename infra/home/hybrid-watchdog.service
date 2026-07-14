@@ -1,0 +1,7 @@
+[Unit]
+Description=Legal Shaman hybrid stack watchdog (Typesense + quick tunnels)
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Projects/Legal Shaman/Signpost/infra/home
+ExecStart=/bin/bash -c './health-check.sh --quiet || ./ensure-hybrid.sh'

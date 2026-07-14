@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 import { getWikiIndex } from "@/lib/wiki/load-index";
 import { getWikiPageById, searchWikiPages } from "@/lib/wiki/search";
 
@@ -29,6 +30,9 @@ export async function GET(req: Request) {
       },
     });
   }
+
+  const authBlock = await requireSearchAuthResponse();
+  if (authBlock) return authBlock;
 
   const results = searchWikiPages(q, limit);
   return NextResponse.json({

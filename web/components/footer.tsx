@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Star, Youtube } from "lucide-react";
+import { trustpilotUrl, youtubeUrl } from "@/lib/site/social-links";
 import { SpiralDecoration } from "./spiral-decoration";
+
+const socialLinkClass =
+  "inline-flex items-center gap-2 text-sm text-primary-foreground/70 transition-colors hover:text-gold";
 
 export function Footer() {
   return (
@@ -54,6 +59,26 @@ export function Footer() {
             <Link href="https://www.linkedin.com/in/aleemthedreamm/" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Contact
             </Link>
+            <a
+              href={youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Legal Shaman on YouTube (opens in new tab)"
+              className={socialLinkClass}
+            >
+              <Youtube className="h-4 w-4 shrink-0" aria-hidden />
+              YouTube
+            </a>
+            <a
+              href={trustpilotUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Legal Shaman reviews on Trustpilot (opens in new tab)"
+              className={socialLinkClass}
+            >
+              <Star className="h-4 w-4 shrink-0" aria-hidden />
+              Trustpilot
+            </a>
           </nav>
         </div>
         
@@ -73,6 +98,32 @@ export function Footer() {
             This site does not provide legal advice. Always consult with a qualified solicitor for legal matters. 
             For urgent legal issues, contact Citizens Advice on 0800 144 8848.
           </p>
+          <p className="text-center text-sm font-medium text-gold pt-2">Follow us</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <a
+              href={youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Legal Shaman on YouTube (opens in new tab)"
+              className={socialLinkClass}
+            >
+              <Youtube className="h-4 w-4 shrink-0" aria-hidden />
+              YouTube
+            </a>
+            <span className="hidden text-primary-foreground/30 sm:inline" aria-hidden>
+              ·
+            </span>
+            <a
+              href={trustpilotUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Legal Shaman reviews on Trustpilot (opens in new tab)"
+              className={socialLinkClass}
+            >
+              <Star className="h-4 w-4 shrink-0" aria-hidden />
+              Trustpilot
+            </a>
+          </div>
           <p className="mt-4 text-center text-xs text-primary-foreground/40">
             &copy; 2026 Legal Shaman. All rights reserved.
           </p>

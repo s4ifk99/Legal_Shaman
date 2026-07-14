@@ -4,6 +4,7 @@ import { runTriageSearch } from "@/lib/legal-search/triage/run-triage-search";
 import type { AppliedFilters } from "@/lib/agent/types";
 import { AppliedFiltersSchema } from "@/lib/agent/types";
 import type { LatLng } from "@/lib/search/location";
+import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 
 export const runtime = "nodejs";
 
@@ -73,6 +74,9 @@ const BodySchema = z.discriminatedUnion("action", [
 ]);
 
 export async function POST(req: Request) {
+  const authBlock = await requireSearchAuthResponse();
+  if (authBlock) return authBlock;
+
   try {
     const json = await req.json();
     const parsed = BodySchema.safeParse(json);

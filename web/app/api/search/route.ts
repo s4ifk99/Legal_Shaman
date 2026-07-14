@@ -11,6 +11,7 @@ import { stripSearchDebug } from "@/lib/legal-search/search-diagnostics";
 import { logSearchInteraction } from "@/lib/legal-search/observability";
 import { ensureSearchStartupLogged } from "@/lib/legal-search/search-startup";
 import { AgentInputSchema, DISCLAIMER } from "@/lib/agent/types";
+import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 
 export const runtime = "nodejs";
 
@@ -19,6 +20,9 @@ export const runtime = "nodejs";
  * GET: directory search (unified engine with legacy JSON mapping).
  */
 export async function POST(req: Request) {
+  const authBlock = await requireSearchAuthResponse();
+  if (authBlock) return authBlock;
+
   let body: unknown;
   try {
     body = await req.json();
@@ -65,6 +69,11 @@ export async function POST(req: Request) {
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const q = (searchParams.get("q") || "").trim();
+
+  if (q.length >= 2) {
+    const authBlock = await requireSearchAuthResponse();
+    if (authBlock) return authBlock;
+  }
   const semantic = searchParams.get("semantic") === "1";
   const limit = Math.min(80, Math.max(1, Number(searchParams.get("limit") || 40) || 40));
   const freeOnly = searchParams.get("free") === "1";

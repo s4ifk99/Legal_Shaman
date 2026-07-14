@@ -23,6 +23,12 @@ export function isOpenRouterBaseUrl(baseUrl: string): boolean {
   return /openrouter\.ai/i.test(baseUrl);
 }
 
+/** Self-hosted Ollama (local or trycloudflare tunnel). Too slow for Vercel Hobby (~10s). */
+export function isHomeOllamaBaseUrl(baseUrl?: string): boolean {
+  const url = (baseUrl ?? resolveLlmBaseUrl()).toLowerCase();
+  return /trycloudflare\.com|127\.0\.0\.1:1143|localhost:1143/.test(url);
+}
+
 export function openRouterDefaultHeaders(): Record<string, string> | undefined {
   const baseUrl = resolveLlmBaseUrl();
   if (!isOpenRouterBaseUrl(baseUrl)) return undefined;

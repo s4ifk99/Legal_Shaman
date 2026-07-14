@@ -1,30 +1,12 @@
 import { resolveLegalIssueFromQuery } from "@/lib/legal/taxonomy";
 import { LEGAL_ISSUE_TAXONOMY } from "@/lib/legal/legal-issue-taxonomy-data";
+import { inferSubIssueFromTaxonomy } from "@/lib/legal/sub-issue-rules";
 
 import type { IssueClassification } from "./types";
 
 /** Narrow housing queries to a tenant-facing sub-issue label. */
 export function inferHousingSubIssue(query: string): string | null {
-  const lower = query.toLowerCase();
-  if (/\b(deposit|tenancy deposit|holding deposit|bond)\b/.test(lower)) {
-    return "deposit dispute";
-  }
-  if (/\b(eviction|section 21|section 8|possession|kicking me out|notice to quit)\b/.test(lower)) {
-    return "eviction or possession";
-  }
-  if (/\b(disrepair|damp|mould|mold|repairs?|leak|unsafe)\b/.test(lower)) {
-    return "housing disrepair";
-  }
-  if (/\b(homeless|homelessness)\b/.test(lower)) {
-    return "homelessness";
-  }
-  if (/\b(neighbour|asb|anti-social|harassment)\b/.test(lower)) {
-    return "neighbour dispute";
-  }
-  if (/\b(landlord|tenant|renting|tenancy|letting)\b/.test(lower)) {
-    return "landlord and tenant";
-  }
-  return null;
+  return inferSubIssueFromTaxonomy(query, "housing");
 }
 
 export function classifyLegalIssue(query: string): IssueClassification {
@@ -43,7 +25,11 @@ export function classifyLegalIssue(query: string): IssueClassification {
 
   if (resolution.taxonomySlug === "housing") {
     area = "Landlord and Tenant";
-    specificIssue = inferHousingSubIssue(query) ?? undefined;
+    specificIssue = inferSubIssueFromTaxonomy(query, "housing") ?? undefined;
+  } else if (resolution.taxonomySlug === "employment") {
+    specificIssue = inferSubIssueFromTaxonomy(query, "employment") ?? undefined;
+  } else {
+    specificIssue = inferSubIssueFromTaxonomy(query, resolution.taxonomySlug) ?? undefined;
   }
 
   return {

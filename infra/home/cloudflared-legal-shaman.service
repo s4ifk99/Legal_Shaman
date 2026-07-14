@@ -1,0 +1,13 @@
+[Unit]
+Description=Cloudflare Tunnel for Legal Shaman (Typesense + Ollama)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/cloudflared tunnel run legal-shaman-home
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

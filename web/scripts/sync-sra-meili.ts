@@ -94,7 +94,9 @@ async function main() {
           fetched: result.fetched,
           processed: result.processed,
           failed: result.failed,
+          failedSraIds: result.failedSraIds,
           completed: result.completed,
+          substantiallyComplete: result.substantiallyComplete,
           typesenseUpserted: result.typesenseUpserted,
           purged: result.purged,
         },
@@ -103,7 +105,14 @@ async function main() {
       ),
     );
 
-    if (result.failed > 0) process.exit(1);
+    if (!result.substantiallyComplete) {
+      process.exit(1);
+    }
+    if (result.failed > 0) {
+      console.warn(
+        `[sra:sync] finished with ${result.failed} non-fatal upsert failure(s); nightly purge/index ran.`,
+      );
+    }
   } finally {
     await prisma.$disconnect();
   }

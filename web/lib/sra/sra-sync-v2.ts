@@ -56,6 +56,7 @@ export type SraV2SyncResult = {
   processed: number;
   skipped: number;
   failed: number;
+  failedSraIds: string[];
   syncedSraIds: string[];
   beforeMetrics: SraCoverageMetrics;
   afterMetrics: SraCoverageMetrics;
@@ -63,7 +64,10 @@ export type SraV2SyncResult = {
   coverageComparison: ReturnType<typeof formatCoverageComparison>;
   typesenseUpserted: number;
   purged?: Awaited<ReturnType<typeof purgeStaleSraOrganisations>>;
+  /** Every row handled with zero failures. */
   completed: boolean;
+  /** Full run finished; failures within tolerance — purge/link may still run. */
+  substantiallyComplete: boolean;
 };
 
 async function fetchAllOrganisations(key: string, startUrl: string): Promise<Record<string, unknown>[]> {
@@ -91,6 +95,16 @@ function isFullSyncRun(options: SraV2SyncOptions): boolean {
     options.offset == null &&
     !options.resume
   );
+}
+
+function maxAcceptableSraSyncFailures(queueLength: number): number {
+  const raw = process.env.SRA_SYNC_MAX_FAILURES?.trim();
+  if (raw) {
+    const n = Number(raw);
+    if (Number.isFinite(n) && n >= 0) return Math.floor(n);
+  }
+  // Default: allow a handful of bad rows on large nightly syncs.
+  return Math.max(10, Math.ceil(queueLength * 0.001));
 }
 
 export async function runSraV2Sync(
@@ -137,6 +151,7 @@ export async function runSraV2Sync(
   }
 
   const syncedSraIds: string[] = [];
+  const failedSraIds: string[] = [];
   const batchDocs: SraV2Record[] = [];
   const meiliBuffer: SraV2Record[] = [];
   let processed = 0;
@@ -199,6 +214,7 @@ export async function runSraV2Sync(
       }
     } catch (err) {
       failed++;
+      failedSraIds.push(doc.sraId);
       console.error(
         `Failed upsert sra-${doc.sraId}:`,
         err instanceof Error ? err.message : err,
@@ -207,6 +223,41 @@ export async function runSraV2Sync(
   }
 
   await flushMeili();
+
+  const allRowsHandled = processed + failed === queue.length;
+  const failureTolerance = maxAcceptableSraSyncFailures(queue.length);
+  const completed = allRowsHandled && failed === 0;
+  const substantiallyComplete =
+    allRowsHandled &&
+    (failed === 0 ||
+      (isFullSyncRun(options) && failed <= failureTolerance));
+
+  if (failed > 0 && substantiallyComplete) {
+    console.warn(
+      `[sra:sync] ${failed} upsert failure(s) within tolerance (${failureTolerance}); continuing purge/link. IDs: ${failedSraIds.slice(0, 20).join(", ")}${failedSraIds.length > 20 ? "…" : ""}`,
+    );
+  } else if (failed > 0) {
+    console.error(
+      `[sra:sync] ${failed} upsert failure(s) exceed tolerance (${failureTolerance}); skipping purge/link.`,
+    );
+  }
+
+  if (completed && checkpointEnabled) {
+    await clearSraSyncCheckpoint();
+    console.log("Sync complete — checkpoint cleared.");
+  } else if (substantiallyComplete && checkpointEnabled) {
+    await clearSraSyncCheckpoint();
+    console.log("Sync substantially complete — checkpoint cleared.");
+  } else if (checkpointEnabled && processed > 0) {
+    await writeSraSyncCheckpoint({
+      version: 2,
+      lastSuccessfulSraNumber,
+      processedCount: (checkpoint?.processedCount ?? 0) + processed,
+      runStartedAt: checkpoint?.runStartedAt ?? runStartedAt,
+      checkpointAt: new Date().toISOString(),
+      beforeMetrics: checkpoint?.beforeMetrics ?? beforeMetrics,
+    });
+  }
 
   if (willEmbed && batchDocs.length > 0) {
     try {
@@ -220,21 +271,6 @@ export async function runSraV2Sync(
         err instanceof Error ? err.message : err,
       );
     }
-  }
-
-  const completed = processed === queue.length && failed === 0;
-  if (completed && checkpointEnabled) {
-    await clearSraSyncCheckpoint();
-    console.log("Sync complete — checkpoint cleared.");
-  } else if (checkpointEnabled && processed > 0) {
-    await writeSraSyncCheckpoint({
-      version: 2,
-      lastSuccessfulSraNumber,
-      processedCount: (checkpoint?.processedCount ?? 0) + processed,
-      runStartedAt: checkpoint?.runStartedAt ?? runStartedAt,
-      checkpointAt: new Date().toISOString(),
-      beforeMetrics: checkpoint?.beforeMetrics ?? beforeMetrics,
-    });
   }
 
   let typesenseUpserted = 0;
@@ -258,7 +294,7 @@ export async function runSraV2Sync(
     afterMetrics,
   );
 
-  if (!options.skipLinkFirms && !options.limit && completed) {
+  if (!options.skipLinkFirms && !options.limit && substantiallyComplete) {
     console.log("Linking existing Firm rows to SRA records by normalised name…");
     const linkResult = await linkFirmsToSra();
     console.log(
@@ -267,7 +303,7 @@ export async function runSraV2Sync(
   }
 
   let purged: Awaited<ReturnType<typeof purgeStaleSraOrganisations>> | undefined;
-  if (completed && isFullSyncRun(options) && !options.skipPurge) {
+  if (substantiallyComplete && isFullSyncRun(options) && !options.skipPurge) {
     console.log("Purging SRA organisations not in latest GetAll…");
     purged = await purgeStaleSraOrganisations(prisma, {
       activeSraIds,
@@ -284,7 +320,9 @@ export async function runSraV2Sync(
     lastSuccessAt: new Date().toISOString(),
     organisationsUpserted: processed,
     activeGetAllCount: activeSraIds.length,
-    errors: failed ? [`${failed} upsert failures`] : [],
+    errors: failed
+      ? [`${failed} upsert failures`, ...failedSraIds.slice(0, 50).map((id) => `sra-${id}`)]
+      : [],
     ...(options.limit != null ? { partialSyncLimit: options.limit } : {}),
   });
 
@@ -298,6 +336,7 @@ export async function runSraV2Sync(
     processed,
     skipped: skippedByResume + (options.offset ?? 0),
     failed,
+    failedSraIds,
     syncedSraIds,
     beforeMetrics: checkpoint?.beforeMetrics ?? beforeMetrics,
     afterMetrics,
@@ -306,5 +345,6 @@ export async function runSraV2Sync(
     typesenseUpserted,
     purged,
     completed,
+    substantiallyComplete,
   };
 }

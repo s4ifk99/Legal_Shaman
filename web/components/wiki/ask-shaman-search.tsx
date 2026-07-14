@@ -310,7 +310,11 @@ export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: Ask
                 <CardContent className="space-y-4 p-5 md:p-6">
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="font-serif text-lg font-semibold text-primary">Shaman Recommends</h3>
-                    {guidance.answerMode === "synthesis" ? (
+                    {guidance.answerMode === "graph_assembly" ? (
+                      <span className="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-800 dark:text-sky-200">
+                        Pre-connected guidance
+                      </span>
+                    ) : guidance.answerMode === "synthesis" ? (
                       <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:text-emerald-300">
                         AI synthesised
                       </span>
@@ -345,8 +349,8 @@ export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: Ask
                   {guidance.answerMode === "fallback" ? (
                     <p className="text-sm text-muted-foreground">
                       The AI summary could not be generated — showing cited source excerpts instead.
-                      Check that <code className="text-xs">LLM_API_KEY</code> and{" "}
-                      <code className="text-xs">LLM_BASE_URL</code> are set in{" "}
+                      On production, check <code className="text-xs">LLM_API_KEY</code> and{" "}
+                      <code className="text-xs">LLM_BASE_URL</code> in Vercel env; locally use{" "}
                       <code className="text-xs">.env.local</code>.
                     </p>
                   ) : null}

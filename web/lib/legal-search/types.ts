@@ -168,6 +168,10 @@ export type DirectorySearchParams = {
   forceSearchDebug?: boolean;
   /** Admin / tooling: record ranking stage snapshots in searchDebug.rankingStages. */
   includeRankingStages?: boolean;
+  /** Pre-parsed query from legal-knowledge search (avoids double parse). */
+  parsed?: ParsedQuery;
+  /** Unified issue intent from guidance pipeline. */
+  searchIntent?: import("@/lib/legal-knowledge/search-intent").LegalSearchIntent;
 };
 
 export type DirectorySearchResponse = {

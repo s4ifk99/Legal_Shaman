@@ -667,6 +667,21 @@ model Bookmark {
   @@map("bookmarks")
 }
 
+/// One triage summary email per session (Trustpilot AFS + consent audit).
+model TriageFeedbackEmail {
+  id            String   @id @default(cuid())
+  sessionId     String   @unique @map("session_id") @db.VarChar(128)
+  email         String   @db.VarChar(255)
+  reviewConsent Boolean  @map("review_consent")
+  userId        String?  @map("user_id") @db.VarChar(64)
+  mergedQuery   String?  @map("merged_query") @db.VarChar(800)
+  resultCount   Int?     @map("result_count")
+  sentAt        DateTime @default(now()) @map("sent_at") @db.Timestamptz(3)
+
+  @@index([email, sentAt])
+  @@map("triage_feedback_emails")
+}
+
 /// Trusted UK legal-help publisher (GOV.UK, Citizens Advice, etc.).
 model LegalSource {
   id              String          @id @default(cuid())
@@ -739,4 +754,89 @@ model IngestionRun {
 
   @@index([startedAt])
   @@map("ingestion_runs")
+}
+
+/// Canonical concept node linked to a consumer wiki page.
+model KnowledgeConcept {
+  id           String    @id @default(cuid())
+  taxonomySlug String?   @map("taxonomy_slug") @db.VarChar(64)
+  wikiPageId   String    @unique @map("wiki_page_id") @db.VarChar(1024)
+  title        String    @db.VarChar(512)
+  areaPath     String?   @map("area_path") @db.VarChar(512)
+  summaryText  String?   @map("summary_text")
+  embedding    Unsupported("vector")?
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt    DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  claims       KnowledgeClaim[]
+  edgesFrom    KnowledgeEdge[] @relation("KnowledgeEdgeFrom")
+  edgesTo      KnowledgeEdge[] @relation("KnowledgeEdgeTo")
+
+  @@index([taxonomySlug])
+  @@index([areaPath])
+  @@map("knowledge_concepts")
+}
+
+/// Atomic fact extracted from a source and attached to a concept.
+model KnowledgeClaim {
+  id            String   @id @default(cuid())
+  conceptId     String   @map("concept_id")
+  sourceUrl     String?  @map("source_url") @db.VarChar(2048)
+  claimText     String   @map("claim_text")
+  sectionTarget String?  @map("section_target") @db.VarChar(64)
+  extractedAt   DateTime @default(now()) @map("extracted_at") @db.Timestamptz(3)
+  concept       KnowledgeConcept @relation(fields: [conceptId], references: [id], onDelete: Cascade)
+  contradictionsA KnowledgeContradiction[] @relation("ContradictionClaimA")
+  contradictionsB KnowledgeContradiction[] @relation("ContradictionClaimB")
+
+  @@index([conceptId])
+  @@map("knowledge_claims")
+}
+
+/// Graph edge between concepts (related, parent_area, sub_issue).
+model KnowledgeEdge {
+  id            String @id @default(cuid())
+  fromConceptId String @map("from_concept_id")
+  toConceptId   String @map("to_concept_id")
+  edgeType      String @map("edge_type") @db.VarChar(32)
+  fromConcept   KnowledgeConcept @relation("KnowledgeEdgeFrom", fields: [fromConceptId], references: [id], onDelete: Cascade)
+  toConcept     KnowledgeConcept @relation("KnowledgeEdgeTo", fields: [toConceptId], references: [id], onDelete: Cascade)
+
+  @@unique([fromConceptId, toConceptId, edgeType])
+  @@index([fromConceptId])
+  @@index([toConceptId])
+  @@map("knowledge_edges")
+}
+
+/// Detected contradiction between two claims (human review gate).
+model KnowledgeContradiction {
+  id         String    @id @default(cuid())
+  claimAId   String    @map("claim_a_id")
+  claimBId   String    @map("claim_b_id")
+  status     String    @default("pending") @db.VarChar(32)
+  rationale  String?
+  detectedAt DateTime  @default(now()) @map("detected_at") @db.Timestamptz(3)
+  resolvedAt DateTime? @map("resolved_at") @db.Timestamptz(3)
+  claimA     KnowledgeClaim @relation("ContradictionClaimA", fields: [claimAId], references: [id], onDelete: Cascade)
+  claimB     KnowledgeClaim @relation("ContradictionClaimB", fields: [claimBId], references: [id], onDelete: Cascade)
+
+  @@index([status])
+  @@map("knowledge_contradictions")
+}
+
+/// Audit trail for knowledge compiler source integration.
+model KnowledgeIntegrationRun {
+  id                 String    @id @default(cuid())
+  sourceUrl          String?   @map("source_url") @db.VarChar(2048)
+  sourceType         String    @map("source_type") @db.VarChar(64)
+  status             String    @default("running") @db.VarChar(32)
+  conceptsCreated    Int       @default(0) @map("concepts_created")
+  conceptsUpdated    Int       @default(0) @map("concepts_updated")
+  claimsCreated      Int       @default(0) @map("claims_created")
+  contradictionCount Int       @default(0) @map("contradiction_count")
+  errors             Json?
+  startedAt          DateTime  @default(now()) @map("started_at") @db.Timestamptz(3)
+  completedAt        DateTime? @map("completed_at") @db.Timestamptz(3)
+
+  @@index([startedAt])
+  @@map("knowledge_integration_runs")
 }

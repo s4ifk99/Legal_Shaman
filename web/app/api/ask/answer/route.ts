@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 import { generateWikiAnswer } from "@/lib/wiki/generate-answer";
 import { getWikiIndex } from "@/lib/wiki/load-index";
 
@@ -10,6 +11,9 @@ type AnswerRequestBody = {
 };
 
 export async function POST(req: Request) {
+  const authBlock = await requireSearchAuthResponse();
+  if (authBlock) return authBlock;
+
   let body: AnswerRequestBody;
   try {
     body = (await req.json()) as AnswerRequestBody;
