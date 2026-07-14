@@ -25,7 +25,7 @@ function sourceLabel(source: BookmarkRecord["resultSource"]): string {
 }
 
 export function BookmarksPageClient() {
-  const { user, bookmarks, loading, setAuthOpen, signOut } = useBookmarks();
+  const { user, bookmarks, loading, signOut } = useBookmarks();
 
   if (loading) {
     return <p className="text-sm text-muted-foreground">Loading…</p>;
@@ -40,8 +40,8 @@ export function BookmarksPageClient() {
             Sign in or create a free account with your name and email to save firms and view your
             shortlist here.
           </p>
-          <Button className="mt-6" onClick={() => setAuthOpen(true)}>
-            Create account or sign in
+          <Button className="mt-6" asChild>
+            <Link href="/login">Create account or sign in</Link>
           </Button>
         </CardContent>
       </Card>

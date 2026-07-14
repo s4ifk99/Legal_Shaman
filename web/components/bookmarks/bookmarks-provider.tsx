@@ -22,6 +22,7 @@ type BookmarksContextValue = {
   authOpen: boolean;
   authReason: AuthDialogReason;
   setAuthOpen: (open: boolean) => void;
+  openAuth: (reason?: AuthDialogReason) => void;
   requireAuth: (action: () => void, reason?: AuthDialogReason) => void;
   openAuthForSearch: (retry?: () => void) => void;
   isBookmarked: (key: BookmarkKey) => boolean;
@@ -117,7 +118,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     [bookmarks],
   );
 
-  const openAuth = useCallback((reason: AuthDialogReason) => {
+  const openAuth = useCallback((reason: AuthDialogReason = "login") => {
     setAuthReason(reason);
     setAuthOpen(true);
   }, []);
@@ -192,6 +193,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       authOpen,
       authReason,
       setAuthOpen,
+      openAuth,
       requireAuth,
       openAuthForSearch,
       isBookmarked,
@@ -205,6 +207,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       loading,
       authOpen,
       authReason,
+      openAuth,
       requireAuth,
       openAuthForSearch,
       isBookmarked,

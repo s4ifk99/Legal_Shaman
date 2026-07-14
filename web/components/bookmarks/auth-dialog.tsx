@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { PublicUser } from "@/lib/auth/user-session";
 import {
   Dialog,
@@ -15,7 +15,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TurnstileField } from "@/components/auth/turnstile-field";
 
-export type AuthDialogReason = "bookmark" | "search";
+export type AuthDialogReason = "bookmark" | "search" | "login";
 
 type AuthDialogProps = {
   open: boolean;
@@ -25,12 +25,23 @@ type AuthDialogProps = {
   pendingFirmName?: string;
 };
 
+function defaultTabForReason(reason: AuthDialogReason): "register" | "login" {
+  return reason === "login" ? "login" : "register";
+}
+
 function copyForReason(reason: AuthDialogReason, pendingFirmName?: string) {
   if (reason === "search") {
     return {
       title: "Create a free account to view results",
       description:
         "Sign up with your email and password to see lawyer matches, guidance, and directory results.",
+    };
+  }
+  if (reason === "login") {
+    return {
+      title: "Sign in to Legal Shaman",
+      description:
+        "Use your email and password to access bookmarks, search results, and your saved shortlist.",
     };
   }
   return {
@@ -48,7 +59,7 @@ export function AuthDialog({
   reason = "bookmark",
   pendingFirmName,
 }: AuthDialogProps) {
-  const [tab, setTab] = useState<"register" | "login">("register");
+  const [tab, setTab] = useState<"register" | "login">(() => defaultTabForReason(reason));
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -60,6 +71,16 @@ export function AuthDialog({
 
   const { title, description } = copyForReason(reason, pendingFirmName);
   const turnstileRequired = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim());
+
+  // Align the active tab whenever the dialog opens for a new reason.
+  useEffect(() => {
+    if (open) {
+      setTab(defaultTabForReason(reason));
+      setError(null);
+      setCaptchaToken(null);
+      setCaptchaResetKey((k) => k + 1);
+    }
+  }, [open, reason]);
 
   const handleCaptchaChange = useCallback((token: string | null) => {
     setCaptchaToken(token);
@@ -225,7 +246,11 @@ export function AuthDialog({
                   required
                 />
               </div>
-              <TurnstileField onTokenChange={handleCaptchaChange} resetKey={captchaResetKey} />
+              <TurnstileField
+                key={`register-captcha-${captchaResetKey}`}
+                onTokenChange={handleCaptchaChange}
+                resetKey={captchaResetKey}
+              />
               {error ? <p className="text-sm text-destructive">{error}</p> : null}
               <Button type="submit" className="w-full" disabled={submitting}>
                 {submitting ? "Creating account…" : "Create free account"}
@@ -260,7 +285,11 @@ export function AuthDialog({
                   required
                 />
               </div>
-              <TurnstileField onTokenChange={handleCaptchaChange} resetKey={captchaResetKey} />
+              <TurnstileField
+                key={`login-captcha-${captchaResetKey}`}
+                onTokenChange={handleCaptchaChange}
+                resetKey={captchaResetKey}
+              />
               {error ? <p className="text-sm text-destructive">{error}</p> : null}
               <Button type="submit" className="w-full" disabled={submitting}>
                 {submitting ? "Signing in…" : "Sign in"}
