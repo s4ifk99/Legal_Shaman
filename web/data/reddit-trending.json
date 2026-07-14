@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-07-13T19:21:55.991Z",
+    "scrapedAt": "2026-07-14T07:50:45.827Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 5,
+    "topicCount": 6,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -50,6 +50,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uvolkl",
+          "title": "Should I be concerned about neighbours changing house number (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvolkl/should_i_be_concerned_about_neighbours_changing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvolkl/should_i_be_concerned_about_neighbours_changing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783977499,
+          "snippet": "Hi, some advice please - we live on a new build housing estate with detached houses . We’re number 15. Our neighbours who are at number 17 have changed the number outside their house to 15a, and we’ve started getting the odd item through the post for them with their name but addr",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uvldux",
+          "title": "Festival cancelled, promoter and ticket seller telling me the other is responsible for refunds. England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvldux/festival_cancelled_promoter_and_ticket_seller/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvldux/festival_cancelled_promoter_and_ticket_seller/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783970566,
+          "snippet": "The photo is the first email I received, the text below is the auto-response I received when I emailed the suggested address: Ticket Refunds You will have bought your tickets via one of our reputable ticket agents, either AXS Ticketing, Ticketmaster, See Tickets, Gigantic, Skiddl",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uvl83f",
+          "title": "England Landlord is deducting from our deposit but refusing to give evidence amongst other things",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvl83f/england_landlord_is_deducting_from_our_deposit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvl83f/england_landlord_is_deducting_from_our_deposit/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783970223,
+          "snippet": "Me and my 2 housemates have recently moved out of our uni house. Our lease ended a few weeks ago and we each received an email from our landlord about deductions from our deposits. The first 2 charges are £50 per 2 of the bedrooms for some forgotten clothes. We're not disputing t",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uv7vt9",
           "title": "Parent tailgated through an automatic barrier and damaged both her car and the school's barrier. Is the school actually liable?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv7vt9/parent_tailgated_through_an_automatic_barrier_and/",
@@ -62,15 +98,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uv70qx",
-          "title": "Can my sister be forced into a care home against her will? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv70qx/can_my_sister_be_forced_into_a_care_home_against/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv70qx/can_my_sister_be_forced_into_a_care_home_against/",
+          "id": "1uvr5j9",
+          "title": "My partner lost his hearing in a work accident.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvr5j9/my_partner_lost_his_hearing_in_a_work_accident/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvr5j9/my_partner_lost_his_hearing_in_a_work_accident/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783936227,
-          "snippet": "Hi everyone, I’m hoping someone can give me some advice because I’m at a loss. My sister has been in hospital for around 7 months. She has very complex physical care needs, is bedridden, requires specialist equipment, but she has full mental capacity and has been assessed as havi",
+          "createdUtc": 1783983489,
+          "snippet": "My partner, who lives in Wales, is an apprentice to be a mechanic. At the time it hadn't even been two months into his apprenticeship. Back in October, he was working in a car with a coworker. The coworker was welding underneath the car, and my partner had his head in the car to ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uvmat1",
+          "title": "Family tampering with my food. Is this considered a crime? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvmat1/family_tampering_with_my_food_is_this_considered/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvmat1/family_tampering_with_my_food_is_this_considered/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783972502,
+          "snippet": "Edit: One of the questions I get asked is \"why do you keep coming back?\" So, I thought I'd answer it here. For about three years now, I have been mentally, emotionally and physically exausted from dealing with these stomach issues. I've been dealing with them for five years, but ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uvp96z",
+          "title": "Do pub licensees have a duty of care to degenerate gamblers playing the slot machines in their establishments? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvp96z/do_pub_licensees_have_a_duty_of_care_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvp96z/do_pub_licensees_have_a_duty_of_care_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783978989,
+          "snippet": "Just something I'm curious about, based on a discussion with my friend (who pretty much runs a pub for his great uncle) last night. There was a guy in the pub who must've shoveled more than £500 into one of the fruit machines over the course of a few hours, losing most, if not al",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uvh51o",
+          "title": "Received drive off notice after purchasing petrol.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvh51o/received_drive_off_notice_after_purchasing_petrol/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvh51o/received_drive_off_notice_after_purchasing_petrol/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783961604,
+          "snippet": "ENGLAND, UK. I bought £15.27 worth of petrol at my local garage and walked in to the kiosk to pay. At the same time I went to purchase a 30g pouch of tobacco, which I know is approximately £25-28ish quid - however prices aren't posted, and I don't always purchase tobacco from pet",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uw1600",
+          "title": "Child Maintenance Question - 50/50 custody but still paying.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw1600/child_maintenance_question_5050_custody_but_still/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw1600/child_maintenance_question_5050_custody_but_still/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784012269,
+          "snippet": "This is a question about Child Maintenance in England. background In 2024, the relationship between myself and my child’s father broke down. He kicked me out of the house and stopped me seeing my son for around 6 months. During this time, he contacted CMS and I was instructed to ",
           "listingSource": "rss:hot"
         },
         {
@@ -86,15 +170,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uuowy5",
-          "title": "Landlord wants £1000 out of our £1500 deposit",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuowy5/landlord_wants_1000_out_of_our_1500_deposit/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuowy5/landlord_wants_1000_out_of_our_1500_deposit/",
+          "id": "1uv70qx",
+          "title": "Can my sister be forced into a care home against her will? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv70qx/can_my_sister_be_forced_into_a_care_home_against/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv70qx/can_my_sister_be_forced_into_a_care_home_against/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783884275,
-          "snippet": "Hello, a bit of background on my living situation. I live with my two friends in a 3 bedroom university house in England. When we first arrived at this house I realised it was in bad condition the fridge door was loose as well as the freezer having broken draws. ( I have photo an",
+          "createdUtc": 1783936227,
+          "snippet": "Hi everyone, I’m hoping someone can give me some advice because I’m at a loss. My sister has been in hospital for around 7 months. She has very complex physical care needs, is bedridden, requires specialist equipment, but she has full mental capacity and has been assessed as havi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uvnmfx",
+          "title": "Won a £30k Employment Tribunal judgment, but HCEOs are letting the debtor \"phoenix\" and shuffle assets. What are my next steps?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvnmfx/won_a_30k_employment_tribunal_judgment_but_hceos/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvnmfx/won_a_30k_employment_tribunal_judgment_but_hceos/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783975340,
+          "snippet": "Hi everyone, I’m looking for some advice or next-step suggestions regarding an Employment Tribunal award of over £30k that I won in England. The employer has refused to pay, and I am currently in a nightmare loop with my chosen High Court Enforcement Officers (HCEOs) and their de",
           "listingSource": "rss:hot"
         },
         {
@@ -110,15 +206,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uv9ftw",
-          "title": "Wife in wheelchair was unable to access shop due to lack of ramp.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv9ftw/wife_in_wheelchair_was_unable_to_access_shop_due/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv9ftw/wife_in_wheelchair_was_unable_to_access_shop_due/",
+          "id": "1uuowy5",
+          "title": "Landlord wants £1000 out of our £1500 deposit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuowy5/landlord_wants_1000_out_of_our_1500_deposit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuowy5/landlord_wants_1000_out_of_our_1500_deposit/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783943749,
-          "snippet": "On Friday, I was out with my wife and we try to go to a shop to get some food. This shop has over 300 locations worldwide including many in the UK. The one in the city near where we live opened in December 2025 and is along the main shopping street. When we got there the shop has",
+          "createdUtc": 1783884275,
+          "snippet": "Hello, a bit of background on my living situation. I live with my two friends in a 3 bedroom university house in England. When we first arrived at this house I realised it was in bad condition the fridge door was loose as well as the freezer having broken draws. ( I have photo an",
           "listingSource": "rss:hot"
         },
         {
@@ -146,111 +242,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uvckte",
-          "title": "Can my firm enforce an LPC fee clawback when they chose not to retain me?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvckte/can_my_firm_enforce_an_lpc_fee_clawback_when_they/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvckte/can_my_firm_enforce_an_lpc_fee_clawback_when_they/",
+          "id": "1uv9ftw",
+          "title": "Wife in wheelchair was unable to access shop due to lack of ramp.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv9ftw/wife_in_wheelchair_was_unable_to_access_shop_due/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv9ftw/wife_in_wheelchair_was_unable_to_access_shop_due/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783951609,
-          "snippet": "I’m looking for some opinions on whether it’s worth challenging a clawback clause in my contract, or whether I have little option but to pay. I’m a 23-year-old trainee solicitor. At my firm, trainees complete the LPC/SQE alongside their training contract, with the firm funding th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvh51o",
-          "title": "Received drive off notice after purchasing petrol.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvh51o/received_drive_off_notice_after_purchasing_petrol/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvh51o/received_drive_off_notice_after_purchasing_petrol/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783961604,
-          "snippet": "ENGLAND, UK. I bought £15.27 worth of petrol at my local garage and walked in to the kiosk to pay. At the same time I went to purchase a 30g pouch of tobacco, which I know is approximately £25-28ish quid - however prices aren't posted, and I don't always purchase tobacco from pet",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uuqums",
-          "title": "My friend has been forced to stay in Libya against her will. She’s a British citizen - what can I do to help?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuqums/my_friend_has_been_forced_to_stay_in_libya/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuqums/my_friend_has_been_forced_to_stay_in_libya/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783888730,
-          "snippet": "Apologies if this isn’t the correct place to post this, but I’m not sure where else to ask. My friend is a 20-year-old British/Libyan citizen from Scotland. She travelled to Libya with her parents for the summer under the guise of it being a holiday, today they told her she will ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uv8uzv",
-          "title": "Neighbours bullying friend/Possibly a cautionary tale of the worst thing that can happen?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv8uzv/neighbours_bullying_friendpossibly_a_cautionary/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv8uzv/neighbours_bullying_friendpossibly_a_cautionary/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783942054,
-          "snippet": "Hi all, this is a weird one that my friend is in the middle of. He owned his own business including the property (warehouse) in England where he worked with 10 employees for 3 decades. About 5 years ago, someone bought the warehouse opposite and was immediately being difficult re",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uuyj79",
-          "title": "tenancy being taken over 20 days before move in? (england)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuyj79/tenancy_being_taken_over_20_days_before_move_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuyj79/tenancy_being_taken_over_20_days_before_move_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783908637,
-          "snippet": "hello. me and 3 other friends are moving into our third year university accommodation soon, ofc into a student house. on friday one of us was called and told there will be some changes happening to the property and that was it. we then had a follow up email saying that the previo",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvcvun",
-          "title": "Two Companies - which is legally responsible for my refund.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvcvun/two_companies_which_is_legally_responsible_for_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvcvun/two_companies_which_is_legally_responsible_for_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783952313,
-          "snippet": "England based I received a email from See Tickets “on behalf of” Heritage Live this morning advising a gig I was attending has been cancelled. However the email and Heritage Live both give contradictory information essentially hold the other party responsible and there is 0% cust",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvbknw",
-          "title": "Can I refuse a collection of ex-employer's assets when the timeframe is unreasonable?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvbknw/can_i_refuse_a_collection_of_exemployers_assets/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvbknw/can_i_refuse_a_collection_of_exemployers_assets/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783949263,
-          "snippet": "England. I worked for a company where we were all made remote over COV and local office was shuttered. We were given the opportunity to take equipment home from the office, including chair, desk, screens and headsets, cat cables etc. I left my employer months ago and had radio si",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvdhf7",
-          "title": "Hospital misdiagnosed a broken ankle twice.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvdhf7/hospital_misdiagnosed_a_broken_ankle_twice/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvdhf7/hospital_misdiagnosed_a_broken_ankle_twice/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783953662,
-          "snippet": "England. My family member fell over 2 weeks ago and hurt their ankle. I took them to the hospital. They did an X-ray and confirmed there was no break, just a bad sprain. They also said to use and exercise the foot as much as possible. \"If you sit in a chair for 3 days your ankle ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvfp0y",
-          "title": "Court made an order lifting the stay on my divorce, but HMCTS/financial court can’t seem to find or issue it. What can I do? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvfp0y/court_made_an_order_lifting_the_stay_on_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvfp0y/court_made_an_order_lifting_the_stay_on_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783958486,
-          "snippet": "I’m looking for some advice because I’ve been going around in circles with HMCTS for weeks. Earlier this year, my final divorce order was stayed because my ex claimed she was pregnant with my child. That claim later turned out to be completely false. At a Financial Remedy hearing",
+          "createdUtc": 1783943749,
+          "snippet": "On Friday, I was out with my wife and we try to go to a shop to get some food. This shop has over 300 locations worldwide including many in the UK. The one in the city near where we live opened in December 2025 and is along the main shopping street. When we got there the shop has",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 11,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uvolkl",
+          "title": "Should I be concerned about neighbours changing house number (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvolkl/should_i_be_concerned_about_neighbours_changing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvolkl/should_i_be_concerned_about_neighbours_changing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783977499,
+          "snippet": "Hi, some advice please - we live on a new build housing estate with detached houses . We’re number 15. Our neighbours who are at number 17 have changed the number outside their house to 15a, and we’ve started getting the odd item through the post for them with their name but addr",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uv7vt9",
           "title": "Parent tailgated through an automatic barrier and damaged both her car and the school's barrier. Is the school actually liable?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv7vt9/parent_tailgated_through_an_automatic_barrier_and/",
@@ -289,6 +301,42 @@
           "numComments": 0,
           "createdUtc": 1783939037,
           "snippet": "hello, I'm a caretaker at a primary school in the UK and I'm trying to understand where we legally stand after an incident this weekend. ( I wanna see if I am in trouble basically ) Our school hires out the sports hall on Sundays for children's martial arts classes (karate/judo e",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uvr5j9",
+          "title": "My partner lost his hearing in a work accident.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvr5j9/my_partner_lost_his_hearing_in_a_work_accident/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvr5j9/my_partner_lost_his_hearing_in_a_work_accident/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783983489,
+          "snippet": "My partner, who lives in Wales, is an apprentice to be a mechanic. At the time it hadn't even been two months into his apprenticeship. Back in October, he was working in a car with a coworker. The coworker was welding underneath the car, and my partner had his head in the car to ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uvp96z",
+          "title": "Do pub licensees have a duty of care to degenerate gamblers playing the slot machines in their establishments? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvp96z/do_pub_licensees_have_a_duty_of_care_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvp96z/do_pub_licensees_have_a_duty_of_care_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783978989,
+          "snippet": "Just something I'm curious about, based on a discussion with my friend (who pretty much runs a pub for his great uncle) last night. There was a guy in the pub who must've shoveled more than £500 into one of the fruit machines over the course of a few hours, losing most, if not al",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uvh51o",
+          "title": "Received drive off notice after purchasing petrol.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvh51o/received_drive_off_notice_after_purchasing_petrol/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvh51o/received_drive_off_notice_after_purchasing_petrol/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783961604,
+          "snippet": "ENGLAND, UK. I bought £15.27 worth of petrol at my local garage and walked in to the kiosk to pay. At the same time I went to purchase a 30g pouch of tobacco, which I know is approximately £25-28ish quid - however prices aren't posted, and I don't always purchase tobacco from pet",
           "listingSource": "rss:hot"
         },
         {
@@ -313,54 +361,6 @@
           "numComments": 0,
           "createdUtc": 1783958729,
           "snippet": "I find these sources (alongside Western agencies and the maritime trade press) helpful in my understanding of what's going on in the Strait of Hormuz, and occasionally repost or share their content with like-minded friends. Unfortunately they are both owned and run by the IRGC, a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uv9ftw",
-          "title": "Wife in wheelchair was unable to access shop due to lack of ramp.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv9ftw/wife_in_wheelchair_was_unable_to_access_shop_due/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv9ftw/wife_in_wheelchair_was_unable_to_access_shop_due/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783943749,
-          "snippet": "On Friday, I was out with my wife and we try to go to a shop to get some food. This shop has over 300 locations worldwide including many in the UK. The one in the city near where we live opened in December 2025 and is along the main shopping street. When we got there the shop has",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvhfgy",
-          "title": "Help really needed - advice for my gramps who wants out of his current care home.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvhfgy/help_really_needed_advice_for_my_gramps_who_wants/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvhfgy/help_really_needed_advice_for_my_gramps_who_wants/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783962213,
-          "snippet": "Location: wales *** EDITED*** My nana became poorly with heart issues and dementia 2 years ago, she was moved in to a care home due to needing 24/7 care - my nan and gramps have been married for 72 years and have been literally inseparable. My gramps then decided to move in with ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uv5pph",
-          "title": "British citizen married in Japan - wife left while pregnant, now living with parents. What are my legal options (UK/Japan)?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv5pph/british_citizen_married_in_japan_wife_left_while/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv5pph/british_citizen_married_in_japan_wife_left_while/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783931691,
-          "snippet": "I’m a British citizen currently staying in Japan on a Working Holiday visa and I’m looking for legal guidance because I’m unsure whether I should begin with a UK family solicitor or a Japanese family lawyer. I met my wife in Japan last year and we married earlier this year after ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvckte",
-          "title": "Can my firm enforce an LPC fee clawback when they chose not to retain me?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvckte/can_my_firm_enforce_an_lpc_fee_clawback_when_they/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvckte/can_my_firm_enforce_an_lpc_fee_clawback_when_they/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783951609,
-          "snippet": "I’m looking for some opinions on whether it’s worth challenging a clawback clause in my contract, or whether I have little option but to pay. I’m a 23-year-old trainee solicitor. At my firm, trainees complete the LPC/SQE alongside their training contract, with the firm funding th",
           "listingSource": "rss:hot"
         }
       ]
@@ -388,6 +388,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uvl83f",
+          "title": "England Landlord is deducting from our deposit but refusing to give evidence amongst other things",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvl83f/england_landlord_is_deducting_from_our_deposit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvl83f/england_landlord_is_deducting_from_our_deposit/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783970223,
+          "snippet": "Me and my 2 housemates have recently moved out of our uni house. Our lease ended a few weeks ago and we each received an email from our landlord about deductions from our deposits. The first 2 charges are £50 per 2 of the bedrooms for some forgotten clothes. We're not disputing t",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uv987o",
           "title": "Landlord wants to gain entry to our property with two hours notice",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uv987o/landlord_wants_to_gain_entry_to_our_property_with/",
@@ -409,18 +421,6 @@
           "numComments": 0,
           "createdUtc": 1783884275,
           "snippet": "Hello, a bit of background on my living situation. I live with my two friends in a 3 bedroom university house in England. When we first arrived at this house I realised it was in bad condition the fridge door was loose as well as the freezer having broken draws. ( I have photo an",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uuyj79",
-          "title": "tenancy being taken over 20 days before move in? (england)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuyj79/tenancy_being_taken_over_20_days_before_move_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uuyj79/tenancy_being_taken_over_20_days_before_move_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783908637,
-          "snippet": "hello. me and 3 other friends are moving into our third year university accommodation soon, ofc into a student house. on friday one of us was called and told there will be some changes happening to the property and that was it. we then had a follow up email saying that the previo",
           "listingSource": "rss:hot"
         }
       ]
@@ -460,15 +460,15 @@
       ],
       "posts": [
         {
-          "id": "1uvcvun",
-          "title": "Two Companies - which is legally responsible for my refund.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvcvun/two_companies_which_is_legally_responsible_for_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvcvun/two_companies_which_is_legally_responsible_for_my/",
+          "id": "1uvldux",
+          "title": "Festival cancelled, promoter and ticket seller telling me the other is responsible for refunds. England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvldux/festival_cancelled_promoter_and_ticket_seller/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvldux/festival_cancelled_promoter_and_ticket_seller/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783952313,
-          "snippet": "England based I received a email from See Tickets “on behalf of” Heritage Live this morning advising a gig I was attending has been cancelled. However the email and Heritage Live both give contradictory information essentially hold the other party responsible and there is 0% cust",
+          "createdUtc": 1783970566,
+          "snippet": "The photo is the first email I received, the text below is the auto-response I received when I emailed the suggested address: Ticket Refunds You will have bought your tickets via one of our reputable ticket agents, either AXS Ticketing, Ticketmaster, See Tickets, Gigantic, Skiddl",
           "listingSource": "rss:hot"
         }
       ]
@@ -477,6 +477,42 @@
       "slug": "family-law",
       "label": "Family Law",
       "legalAreaSlug": "family",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1uvmat1",
+          "title": "Family tampering with my food. Is this considered a crime? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvmat1/family_tampering_with_my_food_is_this_considered/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvmat1/family_tampering_with_my_food_is_this_considered/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1783972502,
+          "snippet": "Edit: One of the questions I get asked is \"why do you keep coming back?\" So, I thought I'd answer it here. For about three years now, I have been mentally, emotionally and physically exausted from dealing with these stomach issues. I've been dealing with them for five years, but ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uw1600",
+          "title": "Child Maintenance Question - 50/50 custody but still paying.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw1600/child_maintenance_question_5050_custody_but_still/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw1600/child_maintenance_question_5050_custody_but_still/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784012269,
+          "snippet": "This is a question about Child Maintenance in England. background In 2024, the relationship between myself and my child’s father broke down. He kicked me out of the house and stopped me seeing my son for around 6 months. During this time, he contacted CMS and I was instructed to ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -484,15 +520,15 @@
       ],
       "posts": [
         {
-          "id": "1uvfp0y",
-          "title": "Court made an order lifting the stay on my divorce, but HMCTS/financial court can’t seem to find or issue it. What can I do? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvfp0y/court_made_an_order_lifting_the_stay_on_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvfp0y/court_made_an_order_lifting_the_stay_on_my/",
+          "id": "1uvnmfx",
+          "title": "Won a £30k Employment Tribunal judgment, but HCEOs are letting the debtor \"phoenix\" and shuffle assets. What are my next steps?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvnmfx/won_a_30k_employment_tribunal_judgment_but_hceos/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvnmfx/won_a_30k_employment_tribunal_judgment_but_hceos/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783958486,
-          "snippet": "I’m looking for some advice because I’ve been going around in circles with HMCTS for weeks. Earlier this year, my final divorce order was stayed because my ex claimed she was pregnant with my child. That claim later turned out to be completely false. At a Financial Remedy hearing",
+          "createdUtc": 1783975340,
+          "snippet": "Hi everyone, I’m looking for some advice or next-step suggestions regarding an Employment Tribunal award of over £30k that I won in England. The employer has refused to pay, and I am currently in a nightmare loop with my chosen High Court Enforcement Officers (HCEOs) and their de",
           "listingSource": "rss:hot"
         }
       ]
