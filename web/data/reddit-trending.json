@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-07-14T19:18:02.229Z",
+    "scrapedAt": "2026-07-15T07:54:22.316Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 7,
+    "topicCount": 6,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -35,6 +35,30 @@
           "numComments": 0,
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uws8xi",
+          "title": "My child was attacked by a group of 5 children at school and as a result has a broken foot.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uws8xi/my_child_was_attacked_by_a_group_of_5_children_at/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uws8xi/my_child_was_attacked_by_a_group_of_5_children_at/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784080417,
+          "snippet": "Hi all, On Friday, my 7 year old daughter was attacked by a group of 5 children on the field. The children are in the same class as her, so were also 7 years old. They cornered her, surrounded her, then proceeded to kick and stomp on her foot whilst shouting at her. She managed t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uwyk12",
+          "title": "Boy in my class has used AI to undress me twice. Police intervemed both times. School wont permanently exclude him",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwyk12/boy_in_my_class_has_used_ai_to_undress_me_twice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwyk12/boy_in_my_class_has_used_ai_to_undress_me_twice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784099688,
+          "snippet": "He's coming back in Sept 2026. I wanted him expelled after the 2nd time he did it but it isnt happening. Is there anything else I can do? I really don't want to go through it a 3rd time. submitted by /u/Strange-Pop-7359 [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
@@ -74,15 +98,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uw5cpr",
-          "title": "Bellway homes border dispute England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw5cpr/bellway_homes_border_dispute_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw5cpr/bellway_homes_border_dispute_england/",
+          "id": "1uwooyo",
+          "title": "Ex only wants one of the children at a time…",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwooyo/ex_only_wants_one_of_the_children_at_a_time/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwooyo/ex_only_wants_one_of_the_children_at_a_time/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784026620,
-          "snippet": "Hi! I live in a new build (less than 10 year old) housing estate built by bellway homes. I've lived here for 3 years. My street backs onto a dual carriageway (about 30 yards from the back of my back fence), and a couple of years after the housing estate was built, Bellway erected",
+          "createdUtc": 1784071002,
+          "snippet": "The topic in a nutshell is the children’s father is asking for more contact, but has specified only one of them at a time. My instinctive feeling is that this would be an incredibly bad precedent to set. I think it is harmful to both children. And I think that it will give a fals",
           "listingSource": "rss:hot"
         },
         {
@@ -98,6 +122,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uwk9s4",
+          "title": "Divorce after short marriage. What will a court order?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwk9s4/divorce_after_short_marriage_what_will_a_court/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwk9s4/divorce_after_short_marriage_what_will_a_court/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784060818,
+          "snippet": "England. Can anyone give insight into what a court may determine in my case? My solicitor keeps changing his tune, first telling me my wife is owed nothing and then weeks later trying to scare me by saying she may get something from my house (I think to squeeze more fees from me)",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uwrs12",
+          "title": "UK - Filmed by teenagers and threatened with legal action",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwrs12/uk_filmed_by_teenagers_and_threatened_with_legal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwrs12/uk_filmed_by_teenagers_and_threatened_with_legal/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784079106,
+          "snippet": "England! So I had a nonviolent encounter with a bunch of teenagers today. I (43F, 5ft 3 for context) walked past 2 female teenagers in a nearby park, who were surrounded by litter and in my frustration I said \"pick your shit up please' as I went past with my dog. Within moments I",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uwrsyy",
+          "title": "Employer mistakenly paid me money for several months while I was on a career break to complete a college course. I believed it was salary being paid out. What should my next steps be? (Wales)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwrsyy/employer_mistakenly_paid_me_money_for_several/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwrsyy/employer_mistakenly_paid_me_money_for_several/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784079173,
+          "snippet": "I worked in a school kitchen for a year after completing my level 1 in catering. In order to get promoted I asked for a career break so I could finish my level 3. The person in charge of this was terrible with communication (could barely get one response a week at times) and the ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uwbjq0",
           "title": "Letting agent demanded 3–6 months' 'rent credit' as a condition of tenancy — Tenant Fees Act violation? (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwbjq0/letting_agent_demanded_36_months_rent_credit_as_a/",
@@ -107,6 +167,66 @@
           "numComments": 0,
           "createdUtc": 1784042071,
           "snippet": "Hi, wanted to get some advice and also warn others about something that happened to us recently. We viewed a property in Wimbledon listed at £1,900pcm and submitted an offer. We don’t have a UK-based guarantor, so we said we would apply to a private UK guarantor service ex) Housi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uw5cpr",
+          "title": "Bellway homes border dispute England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw5cpr/bellway_homes_border_dispute_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw5cpr/bellway_homes_border_dispute_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784026620,
+          "snippet": "Hi! I live in a new build (less than 10 year old) housing estate built by bellway homes. I've lived here for 3 years. My street backs onto a dual carriageway (about 30 yards from the back of my back fence), and a couple of years after the housing estate was built, Bellway erected",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uwomjj",
+          "title": "My landlord is about to be served with an eviction notice for illegally subletting his social housing. Does the Renters' Rights Act mean that I still need to serve him 2 months notice and pay 2 months rent if I move out immediately? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwomjj/my_landlord_is_about_to_be_served_with_an/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwomjj/my_landlord_is_about_to_be_served_with_an/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784070835,
+          "snippet": "8 months ago I found a room in a shared London flat on Spareroom and signed an assured shorthold tenancy agreement with the landlord. Last week, a woman turned up saying that she was a fraud investigation officer from a social housing company that manages the property. She reveal",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uwxy82",
+          "title": "Parent remarried later in life. What happens if they won't do a will?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwxy82/parent_remarried_later_in_life_what_happens_if/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwxy82/parent_remarried_later_in_life_what_happens_if/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784097675,
+          "snippet": "(England) My mum is in her 60s, recently remarried for the 3rd time. She had 2 kids (me and sister) and he has 1- all kids in 20s and 30s. Mum and step dad each own a house though hers is worth significantly more and his is rented out while he lives in with her. A reasonable amou",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uwz3h6",
+          "title": "CCJ from private parking charge I never received letters for can bailiffs affect my cousin’s house?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwz3h6/ccj_from_private_parking_charge_i_never_received/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwz3h6/ccj_from_private_parking_charge_i_never_received/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784101511,
+          "snippet": "Hi everyone, I would appreciate some advice about a private parking charge and CCJ situation. In May 2026, my cousin informed me that a letter had arrived from HM Courts and Tribunals Service saying I needed to respond regarding a claim from Smart Parking Limited, otherwise it co",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uwz2te",
+          "title": "Neighbor drove 7 long sharp screws through fence into my chicken coop and scratched my arm. Police say \"it's a civil matter because you can't prove malice.\" What are my options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwz2te/neighbor_drove_7_long_sharp_screws_through_fence/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwz2te/neighbor_drove_7_long_sharp_screws_through_fence/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784101447,
+          "snippet": "I'm at absolute breaking point with my neighbor and the complete lack of help from the authorities. We have lived here (UK, permanent homeowners) since 2013. Our neighbor has a long history of being a serial nightmare on the street—she targets anyone with kids, and because most s",
           "listingSource": "rss:hot"
         },
         {
@@ -132,126 +252,6 @@
           "createdUtc": 1784051539,
           "snippet": "Theoretical question, I’m just wondering Let’s assume that during my life I decide to leave my body to science Once I’m dead, presumably I am not legal entity so I cannot have any rights, responsibilities, or obligations I’m not sure what the legal status is of human remains. The",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uw23wq",
-          "title": "(England) Dealer rejected my \"formal rejection of faulty used car under Consumer Rights Act 2015\" — Next steps?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw23wq/england_dealer_rejected_my_formal_rejection_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw23wq/england_dealer_rejected_my_formal_rejection_of/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784015545,
-          "snippet": "Hello all, I am looking for legal and realistic advice regarding a dispute with Hilton Garage (used car dealership in Derby, England). Summarized timeline below: Sunday, 22 March 2026: Collected a used 2018 Kia Optima from Hilton Garage (which I test drove a few days prior and wa",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvldux",
-          "title": "Festival cancelled, promoter and ticket seller telling me the other is responsible for refunds. England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvldux/festival_cancelled_promoter_and_ticket_seller/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvldux/festival_cancelled_promoter_and_ticket_seller/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783970566,
-          "snippet": "The photo is the first email I received, the text below is the auto-response I received when I emailed the suggested address: Ticket Refunds You will have bought your tickets via one of our reputable ticket agents, either AXS Ticketing, Ticketmaster, See Tickets, Gigantic, Skiddl",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvr5j9",
-          "title": "My partner lost his hearing in a work accident.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvr5j9/my_partner_lost_his_hearing_in_a_work_accident/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvr5j9/my_partner_lost_his_hearing_in_a_work_accident/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783983489,
-          "snippet": "My partner, who lives in Wales, is an apprentice to be a mechanic. At the time it hadn't even been two months into his apprenticeship. Back in October, he was working in a car with a coworker. The coworker was welding underneath the car, and my partner had his head in the car to ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvl83f",
-          "title": "England Landlord is deducting from our deposit but refusing to give evidence amongst other things",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvl83f/england_landlord_is_deducting_from_our_deposit/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvl83f/england_landlord_is_deducting_from_our_deposit/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783970223,
-          "snippet": "Me and my 2 housemates have recently moved out of our uni house. Our lease ended a few weeks ago and we each received an email from our landlord about deductions from our deposits. The first 2 charges are £50 per 2 of the bedrooms for some forgotten clothes. We're not disputing t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uwbm5w",
-          "title": "England- Need help understanding a council letter I have received regarding a pcn (of which I have already paid)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwbm5w/england_need_help_understanding_a_council_letter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwbm5w/england_need_help_understanding_a_council_letter/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784042228,
-          "snippet": "Hi, I’m hoping someone can help me out. Back in March I was sent a bus gate fine from my council however I never recieved this as it went to my previous address. I was contacted in May by the current tenant of that address regarding this. I didn’t see this message until June as t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uw92qb",
-          "title": "[ENGLAND] CEX staff saying 30 day right to return faulty goods doesn’t apply to refurbished phones?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw92qb/england_cex_staff_saying_30_day_right_to_return/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw92qb/england_cex_staff_saying_30_day_right_to_return/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784036551,
-          "snippet": "I’ve purchased a B class refurbed phone 2 days ago, it has battery and speaker issues. Speaker issues I’ve video footage of. I want to return the phone for a refund, but CEX staff in store have told me that as it is refurbed, therefore technically second hand, I’ve no right to an",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uwdxoo",
-          "title": "Could my college im enrolling in cancel my enrollment/position there for invoking my GDPR rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwdxoo/could_my_college_im_enrolling_in_cancel_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwdxoo/could_my_college_im_enrolling_in_cancel_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784047190,
-          "snippet": "I'm starting college in september, Ive already been accepted, passed interview, etc, but im yet to do my enrollment forum. Recently, they sent out consent forums, one section of which includes consent for marketing. I would rather not have my photo nor my data used for marketing,",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvmat1",
-          "title": "Family tampering with my food. Is this considered a crime? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvmat1/family_tampering_with_my_food_is_this_considered/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvmat1/family_tampering_with_my_food_is_this_considered/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783972502,
-          "snippet": "Edit: One of the questions I get asked is \"why do you keep coming back?\" So, I thought I'd answer it here. For about three years now, I have been mentally, emotionally and physically exausted from dealing with these stomach issues. I've been dealing with them for five years, but ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uwf3s0",
-          "title": "Flight rebooked for several days later, how to claim compensation?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwf3s0/flight_rebooked_for_several_days_later_how_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwf3s0/flight_rebooked_for_several_days_later_how_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784049689,
-          "snippet": "Location: England If there's a more appropriate place to ask about this please let me know. We had a flight booked from Copenhagen to Birmingham this Sunday with SAS airlines booked via trip.com. Without our knowledge this was cancelled and rebooked to the following Tuesday, we o",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uweul9",
-          "title": "Water Leak in Neighbour's Property - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uweul9/water_leak_in_neighbours_property_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uweul9/water_leak_in_neighbours_property_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784049145,
-          "snippet": "My colleague moved into a house and found a small but significant amount of groundwater. A builder constructed a makeshift sump and pump system to periodically pump the water away and she's been putting up with it. Since then her neighbour has built an extension and the amount of",
-          "listingSource": "rss:hot"
         }
       ]
     }
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 8,
+      "postCount": 9,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uwyk12",
+          "title": "Boy in my class has used AI to undress me twice. Police intervemed both times. School wont permanently exclude him",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwyk12/boy_in_my_class_has_used_ai_to_undress_me_twice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwyk12/boy_in_my_class_has_used_ai_to_undress_me_twice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784099688,
+          "snippet": "He's coming back in Sept 2026. I wanted him expelled after the 2nd time he did it but it isnt happening. Is there anything else I can do? I really don't want to go through it a 3rd time. submitted by /u/Strange-Pop-7359 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uwbfa9",
           "title": "Suing Apple for a 22 month old iPad with a Hardware fault, Apple is responding to the claim with all guns blazing",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwbfa9/suing_apple_for_a_22_month_old_ipad_with_a/",
@@ -289,18 +301,6 @@
           "numComments": 0,
           "createdUtc": 1784041806,
           "snippet": "My wife bought a £499 iPad in December 2023 for our son. By October 2025 the video playback was broken: stuttering and pausing on everything. Apple refused to fix it twice, both times citing their 1-year warranty. We cited the Consumer Rights Act 2015, section 9 (durability), and",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uw5cpr",
-          "title": "Bellway homes border dispute England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw5cpr/bellway_homes_border_dispute_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw5cpr/bellway_homes_border_dispute_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784026620,
-          "snippet": "Hi! I live in a new build (less than 10 year old) housing estate built by bellway homes. I've lived here for 3 years. My street backs onto a dual carriageway (about 30 yards from the back of my back fence), and a couple of years after the housing estate was built, Bellway erected",
           "listingSource": "rss:hot"
         },
         {
@@ -316,51 +316,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uvolkl",
-          "title": "Should I be concerned about neighbours changing house number (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvolkl/should_i_be_concerned_about_neighbours_changing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvolkl/should_i_be_concerned_about_neighbours_changing/",
+          "id": "1uwrs12",
+          "title": "UK - Filmed by teenagers and threatened with legal action",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwrs12/uk_filmed_by_teenagers_and_threatened_with_legal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwrs12/uk_filmed_by_teenagers_and_threatened_with_legal/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783977499,
-          "snippet": "Hi, some advice please - we live on a new build housing estate with detached houses . We’re number 15. Our neighbours who are at number 17 have changed the number outside their house to 15a, and we’ve started getting the odd item through the post for them with their name but addr",
+          "createdUtc": 1784079106,
+          "snippet": "England! So I had a nonviolent encounter with a bunch of teenagers today. I (43F, 5ft 3 for context) walked past 2 female teenagers in a nearby park, who were surrounded by litter and in my frustration I said \"pick your shit up please' as I went past with my dog. Within moments I",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uvr5j9",
-          "title": "My partner lost his hearing in a work accident.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvr5j9/my_partner_lost_his_hearing_in_a_work_accident/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvr5j9/my_partner_lost_his_hearing_in_a_work_accident/",
+          "id": "1uw5cpr",
+          "title": "Bellway homes border dispute England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw5cpr/bellway_homes_border_dispute_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw5cpr/bellway_homes_border_dispute_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783983489,
-          "snippet": "My partner, who lives in Wales, is an apprentice to be a mechanic. At the time it hadn't even been two months into his apprenticeship. Back in October, he was working in a car with a coworker. The coworker was welding underneath the car, and my partner had his head in the car to ",
+          "createdUtc": 1784026620,
+          "snippet": "Hi! I live in a new build (less than 10 year old) housing estate built by bellway homes. I've lived here for 3 years. My street backs onto a dual carriageway (about 30 yards from the back of my back fence), and a couple of years after the housing estate was built, Bellway erected",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uwf3s0",
-          "title": "Flight rebooked for several days later, how to claim compensation?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwf3s0/flight_rebooked_for_several_days_later_how_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwf3s0/flight_rebooked_for_several_days_later_how_to/",
+          "id": "1uwxy82",
+          "title": "Parent remarried later in life. What happens if they won't do a will?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwxy82/parent_remarried_later_in_life_what_happens_if/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwxy82/parent_remarried_later_in_life_what_happens_if/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784049689,
-          "snippet": "Location: England If there's a more appropriate place to ask about this please let me know. We had a flight booked from Copenhagen to Birmingham this Sunday with SAS airlines booked via trip.com. Without our knowledge this was cancelled and rebooked to the following Tuesday, we o",
+          "createdUtc": 1784097675,
+          "snippet": "(England) My mum is in her 60s, recently remarried for the 3rd time. She had 2 kids (me and sister) and he has 1- all kids in 20s and 30s. Mum and step dad each own a house though hers is worth significantly more and his is rented out while he lives in with her. A reasonable amou",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uweul9",
-          "title": "Water Leak in Neighbour's Property - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uweul9/water_leak_in_neighbours_property_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uweul9/water_leak_in_neighbours_property_england/",
+          "id": "1uwz2te",
+          "title": "Neighbor drove 7 long sharp screws through fence into my chicken coop and scratched my arm. Police say \"it's a civil matter because you can't prove malice.\" What are my options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwz2te/neighbor_drove_7_long_sharp_screws_through_fence/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwz2te/neighbor_drove_7_long_sharp_screws_through_fence/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784049145,
-          "snippet": "My colleague moved into a house and found a small but significant amount of groundwater. A builder constructed a makeshift sump and pump system to periodically pump the water away and she's been putting up with it. Since then her neighbour has built an extension and the amount of",
+          "createdUtc": 1784101447,
+          "snippet": "I'm at absolute breaking point with my neighbor and the complete lack of help from the authorities. We have lived here (UK, permanent homeowners) since 2013. Our neighbor has a long history of being a serial nightmare on the street—she targets anyone with kids, and because most s",
           "listingSource": "rss:hot"
         }
       ]
@@ -400,15 +400,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1uvl83f",
-          "title": "England Landlord is deducting from our deposit but refusing to give evidence amongst other things",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvl83f/england_landlord_is_deducting_from_our_deposit/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvl83f/england_landlord_is_deducting_from_our_deposit/",
+          "id": "1uwomjj",
+          "title": "My landlord is about to be served with an eviction notice for illegally subletting his social housing. Does the Renters' Rights Act mean that I still need to serve him 2 months notice and pay 2 months rent if I move out immediately? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwomjj/my_landlord_is_about_to_be_served_with_an/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwomjj/my_landlord_is_about_to_be_served_with_an/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783970223,
-          "snippet": "Me and my 2 housemates have recently moved out of our uni house. Our lease ended a few weeks ago and we each received an email from our landlord about deductions from our deposits. The first 2 charges are £50 per 2 of the bedrooms for some forgotten clothes. We're not disputing t",
+          "createdUtc": 1784070835,
+          "snippet": "8 months ago I found a room in a shared London flat on Spareroom and signed an assured shorthold tenancy agreement with the landlord. Last week, a woman turned up saying that she was a fraud investigation officer from a social housing company that manages the property. She reveal",
           "listingSource": "rss:hot"
         }
       ]
@@ -417,12 +417,24 @@
       "slug": "family-law",
       "label": "Family Law",
       "legalAreaSlug": "family",
-      "postCount": 3,
+      "postCount": 5,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
+        {
+          "id": "1uws8xi",
+          "title": "My child was attacked by a group of 5 children at school and as a result has a broken foot.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uws8xi/my_child_was_attacked_by_a_group_of_5_children_at/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uws8xi/my_child_was_attacked_by_a_group_of_5_children_at/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784080417,
+          "snippet": "Hi all, On Friday, my 7 year old daughter was attacked by a group of 5 children on the field. The children are in the same class as her, so were also 7 years old. They cornered her, surrounded her, then proceeded to kick and stomp on her foot whilst shouting at her. She managed t",
+          "listingSource": "rss:hot"
+        },
         {
           "id": "1uw58rf",
           "title": "I got told off by a representative from a water company for cleaning my van's windows with a hosepipe. The family across the road were letting their 3 boys play with a hose and paddling pool in the front garden. Water company says it doesn't apply to everyone. Is this actually true?",
@@ -436,6 +448,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1uwooyo",
+          "title": "Ex only wants one of the children at a time…",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwooyo/ex_only_wants_one_of_the_children_at_a_time/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwooyo/ex_only_wants_one_of_the_children_at_a_time/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784071002,
+          "snippet": "The topic in a nutshell is the children’s father is asking for more contact, but has specified only one of them at a time. My instinctive feeling is that this would be an incredibly bad precedent to set. I think it is harmful to both children. And I think that it will give a fals",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1uwk9s4",
+          "title": "Divorce after short marriage. What will a court order?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwk9s4/divorce_after_short_marriage_what_will_a_court/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwk9s4/divorce_after_short_marriage_what_will_a_court/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784060818,
+          "snippet": "England. Can anyone give insight into what a court may determine in my case? My solicitor keeps changing his tune, first telling me my wife is owed nothing and then weeks later trying to scare me by saying she may get something from my house (I think to squeeze more fees from me)",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1uwfzay",
           "title": "If I leave my body to science on my death, are my children able to override my wishes? (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwfzay/if_i_leave_my_body_to_science_on_my_death_are_my/",
@@ -446,17 +482,29 @@
           "createdUtc": 1784051539,
           "snippet": "Theoretical question, I’m just wondering Let’s assume that during my life I decide to leave my body to science Once I’m dead, presumably I am not legal entity so I cannot have any rights, responsibilities, or obligations I’m not sure what the legal status is of human remains. The",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1uvmat1",
-          "title": "Family tampering with my food. Is this considered a crime? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvmat1/family_tampering_with_my_food_is_this_considered/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvmat1/family_tampering_with_my_food_is_this_considered/",
+          "id": "1uwrsyy",
+          "title": "Employer mistakenly paid me money for several months while I was on a career break to complete a college course. I believed it was salary being paid out. What should my next steps be? (Wales)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwrsyy/employer_mistakenly_paid_me_money_for_several/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwrsyy/employer_mistakenly_paid_me_money_for_several/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1783972502,
-          "snippet": "Edit: One of the questions I get asked is \"why do you keep coming back?\" So, I thought I'd answer it here. For about three years now, I have been mentally, emotionally and physically exausted from dealing with these stomach issues. I've been dealing with them for five years, but ",
+          "createdUtc": 1784079173,
+          "snippet": "I worked in a school kitchen for a year after completing my level 1 in catering. In order to get promoted I asked for a career break so I could finish my level 3. The person in charge of this was terrible with communication (could barely get one response a week at times) and the ",
           "listingSource": "rss:hot"
         }
       ]
@@ -486,54 +534,6 @@
       ]
     },
     {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
-      "postCount": 3,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1uw23wq",
-          "title": "(England) Dealer rejected my \"formal rejection of faulty used car under Consumer Rights Act 2015\" — Next steps?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw23wq/england_dealer_rejected_my_formal_rejection_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw23wq/england_dealer_rejected_my_formal_rejection_of/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784015545,
-          "snippet": "Hello all, I am looking for legal and realistic advice regarding a dispute with Hilton Garage (used car dealership in Derby, England). Summarized timeline below: Sunday, 22 March 2026: Collected a used 2018 Kia Optima from Hilton Garage (which I test drove a few days prior and wa",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uvldux",
-          "title": "Festival cancelled, promoter and ticket seller telling me the other is responsible for refunds. England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvldux/festival_cancelled_promoter_and_ticket_seller/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uvldux/festival_cancelled_promoter_and_ticket_seller/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1783970566,
-          "snippet": "The photo is the first email I received, the text below is the auto-response I received when I emailed the suggested address: Ticket Refunds You will have bought your tickets via one of our reputable ticket agents, either AXS Ticketing, Ticketmaster, See Tickets, Gigantic, Skiddl",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1uw92qb",
-          "title": "[ENGLAND] CEX staff saying 30 day right to return faulty goods doesn’t apply to refurbished phones?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw92qb/england_cex_staff_saying_30_day_right_to_return/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uw92qb/england_cex_staff_saying_30_day_right_to_return/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784036551,
-          "snippet": "I’ve purchased a B class refurbed phone 2 days ago, it has battery and speaker issues. Speaker issues I’ve video footage of. I want to return the phone for a refund, but CEX staff in store have told me that as it is refurbed, therefore technically second hand, I’ve no right to an",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
       "slug": "parking-and-pcns",
       "label": "Parking and PCNs",
       "legalAreaSlug": "parking_pcn",
@@ -544,39 +544,15 @@
       ],
       "posts": [
         {
-          "id": "1uwbm5w",
-          "title": "England- Need help understanding a council letter I have received regarding a pcn (of which I have already paid)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwbm5w/england_need_help_understanding_a_council_letter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwbm5w/england_need_help_understanding_a_council_letter/",
+          "id": "1uwz3h6",
+          "title": "CCJ from private parking charge I never received letters for can bailiffs affect my cousin’s house?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwz3h6/ccj_from_private_parking_charge_i_never_received/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwz3h6/ccj_from_private_parking_charge_i_never_received/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784042228,
-          "snippet": "Hi, I’m hoping someone can help me out. Back in March I was sent a bus gate fine from my council however I never recieved this as it went to my previous address. I was contacted in May by the current tenant of that address regarding this. I didn’t see this message until June as t",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "data-protection-and-privacy",
-      "label": "Data Protection and Privacy",
-      "legalAreaSlug": "data_protection",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1uwdxoo",
-          "title": "Could my college im enrolling in cancel my enrollment/position there for invoking my GDPR rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwdxoo/could_my_college_im_enrolling_in_cancel_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1uwdxoo/could_my_college_im_enrolling_in_cancel_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784047190,
-          "snippet": "I'm starting college in september, Ive already been accepted, passed interview, etc, but im yet to do my enrollment forum. Recently, they sent out consent forums, one section of which includes consent for marketing. I would rather not have my photo nor my data used for marketing,",
+          "createdUtc": 1784101511,
+          "snippet": "Hi everyone, I would appreciate some advice about a private parking charge and CCJ situation. In May 2026, my cousin informed me that a letter had arrived from HM Courts and Tribunals Service saying I needed to respond regarding a claim from Smart Parking Limited, otherwise it co",
           "listingSource": "rss:hot"
         }
       ]
