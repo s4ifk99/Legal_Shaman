@@ -65,6 +65,14 @@ const QUERY_CONTEXT_RULES: QueryContextRule[] = [
     allowSlugs: ["immigration", "employment", "public_law"],
   },
   {
+    id: "first_time_buyer_conveyancing",
+    queryPatterns: [
+      /\b(first[- ]?time buyer|ftb|buying my first home|buying a house|property purchase|conveyancing)\b/i,
+    ],
+    primarySlugs: ["conveyancing"],
+    allowSlugs: ["housing", "wills_probate"],
+  },
+  {
     id: "housing_disrepair_injury",
     queryPatterns: [/\b(disrepair.{0,40}(injur|ill)|housing.{0,30}injur|damp|mould.{0,20}health)\b/i],
     primarySlugs: ["housing"],
@@ -184,6 +192,21 @@ function profileForSlug(slug: string): GateProfile {
       tribunalTerms: ["possession", "housing tribunal"],
       suppressedSlugs: ["employment", "immigration", "personal_injury"],
       overlapSlugs: ["immigration", "personal_injury", "public_law", "community_care", "neighbour_dispute"],
+    },
+    conveyancing: {
+      extraTerms: [
+        "conveyancing",
+        "conveyancer",
+        "property purchase",
+        "first time buyer",
+        "remortgage",
+        "leasehold",
+        "transfer of equity",
+      ],
+      capabilityTerms: ["conveyancing", "conveyancer", "property", "residential", "purchase", "sale"],
+      tribunalTerms: [],
+      suppressedSlugs: ["employment", "immigration", "criminal_defence", "clinical_negligence"],
+      overlapSlugs: ["housing", "wills_probate", "commercial_property"],
     },
     immigration: {
       extraTerms: ["visa", "asylum", "deportation", "leave to remain", "detention"],

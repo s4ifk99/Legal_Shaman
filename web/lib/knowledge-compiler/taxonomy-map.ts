@@ -12,6 +12,7 @@ export const TAXONOMY_TO_WIKI_AREA: Record<string, string> = {
   personal_injury: "Health and Injury",
   prison_law: "Crime and Police",
   neighbour_dispute: "Neighbours and Property",
+  conveyancing: "Home and Housing",
 };
 
 export function wikiAreaForTaxonomy(slug: string | undefined): string | null {

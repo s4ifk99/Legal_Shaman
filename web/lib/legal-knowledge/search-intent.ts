@@ -1,6 +1,6 @@
 import { LEGAL_ISSUE_TAXONOMY } from "@/lib/legal/legal-issue-taxonomy-data";
 import { inferSubIssueFromTaxonomy } from "@/lib/legal/sub-issue-rules";
-import { matcherSlugForTaxonomySlug } from "@/lib/legal/taxonomy";
+import { matcherSlugForTaxonomySlug, rowMatchesPracticeTaxonomySlug } from "@/lib/legal/taxonomy";
 import { resolveLegalIssueFromNaturalLanguage } from "@/lib/legal/natural-language-resolver";
 import type { ParsedQuery, SearchResult } from "@/lib/legal-search/types";
 import { ParsedQuerySchema } from "@/lib/legal-search/types";
@@ -55,7 +55,7 @@ const TOPIC_TERMS_BY_SLUG: Record<string, string[]> = {
     "grievance",
   ],
   housing: ["housing", "landlord", "tenant", "deposit", "evict", "tenancy", "disrepair", "possession"],
-  immigration: ["immigration", "visa", "asylum", "home office", "leave to remain"],
+  immigration: ["immigration", "visa", "asylum", "home office", "leave to remain", "indefinite leave"],
   family: [
     "family",
     "divorce",
@@ -67,9 +67,17 @@ const TOPIC_TERMS_BY_SLUG: Record<string, string[]> = {
     "marriage",
     "cohabitation",
     "financial remedy",
+    "domestic abuse",
+    "domestic violence",
+    "co-parent",
+    "coparent",
+    "contact order",
+    "non-molestation",
+    "child arrangements",
   ],
   debt: ["debt", "bailiff", "creditor", "bankruptcy", "ccj"],
   welfare_benefits: ["benefit", "universal credit", "pip", "esa"],
+  consumer: ["consumer", "customs", "import", "excise", "hmrc", "refund", "faulty", "trader"],
   consumer_small_claims: [
     "small claim",
     "small claims",
@@ -89,6 +97,20 @@ const TOPIC_TERMS_BY_SLUG: Record<string, string[]> = {
     "custody",
     "hmp",
     "adjudication",
+  ],
+  conveyancing: [
+    "conveyancing",
+    "conveyancer",
+    "property purchase",
+    "buying",
+    "house purchase",
+    "first time buyer",
+    "first-time buyer",
+    "ftb",
+    "remortgage",
+    "leasehold",
+    "transfer of equity",
+    "solicitor",
   ],
 };
 
@@ -157,6 +179,40 @@ function slugFromChunk(chunk: RetrievedChunk): string | null {
     }
   }
   return best?.slug ?? null;
+}
+
+/** Slugs accepted when filtering directory results for a citizen issue area. */
+const DIRECTORY_SLUG_OVERLAP: Record<string, string[]> = {
+  conveyancing: ["conveyancing", "housing"],
+};
+
+/** Practice area slug sent to directory search — prefer citizen issue over matcher bucket. */
+export function directoryPracticeAreaForIntent(intent: LegalSearchIntent): string | undefined {
+  return intent.taxonomySlug ?? intent.matcherSlug;
+}
+
+export function directoryPracticeAreaSlugsForIntent(intent: LegalSearchIntent): string[] {
+  const primary = directoryPracticeAreaForIntent(intent);
+  if (!primary) return [];
+  const overlap = DIRECTORY_SLUG_OVERLAP[primary] ?? [];
+  return [...new Set([primary, ...overlap])];
+}
+
+export function directoryRowMatchesPracticeArea(
+  result: SearchResult,
+  slugs: string[],
+): boolean {
+  if (!slugs.length) return true;
+  const raw = result.raw as { practiceAreaSlugs?: string[] } | null;
+  if (raw?.practiceAreaSlugs?.some((s) => slugs.includes(s.toLowerCase()))) return true;
+
+  const hay = `${result.title} ${result.description ?? ""} ${result.practiceAreas.join(" ")} ${result.categories.join(" ")}`;
+  return slugs.some(
+    (slug) =>
+      rowMatchesPracticeTaxonomySlug(slug, hay) ||
+      result.practiceAreas.some((x) => x.toLowerCase().includes(slug.replace(/_/g, " "))) ||
+      result.categories.some((c) => c.toLowerCase().includes(slug.replace(/_/g, " "))),
+  );
 }
 
 /** Derive search intent from parsed context before guidance retrieval. */
@@ -334,7 +390,7 @@ export function overlayIntentOnParsedQuery(
     semanticQuery: intent.semanticQuery || parsed.semanticQuery,
     expandedSearchText: intent.retrievalQueries[0] ?? parsed.expandedSearchText,
     taxonomySlug: intent.taxonomySlug ?? parsed.taxonomySlug,
-    practiceAreaSlug: intent.matcherSlug ?? parsed.practiceAreaSlug,
+    practiceAreaSlug: directoryPracticeAreaForIntent(intent) ?? parsed.practiceAreaSlug,
     taxonomyPrimaryLabel: intent.canonicalName ?? parsed.taxonomyPrimaryLabel,
     queryConfidence:
       intent.confidence === "high"

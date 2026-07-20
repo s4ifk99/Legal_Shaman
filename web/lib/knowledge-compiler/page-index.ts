@@ -22,7 +22,7 @@ const TOPIC_TERMS_BY_SLUG: Record<string, string[]> = {
     "grievance",
   ],
   housing: ["housing", "landlord", "tenant", "deposit", "evict", "tenancy", "disrepair", "possession"],
-  immigration: ["immigration", "visa", "asylum", "home office", "leave to remain"],
+  immigration: ["immigration", "visa", "asylum", "home office", "leave to remain", "indefinite leave"],
   family: [
     "family",
     "divorce",
@@ -34,9 +34,17 @@ const TOPIC_TERMS_BY_SLUG: Record<string, string[]> = {
     "marriage",
     "cohabitation",
     "financial remedy",
+    "domestic abuse",
+    "domestic violence",
+    "co-parent",
+    "coparent",
+    "contact order",
+    "non-molestation",
+    "child arrangements",
   ],
   debt: ["debt", "bailiff", "creditor", "bankruptcy", "ccj"],
   welfare_benefits: ["benefit", "universal credit", "pip", "esa"],
+  consumer: ["consumer", "customs", "import", "excise", "hmrc", "refund", "faulty", "trader"],
   consumer_small_claims: [
     "small claim",
     "small claims",
@@ -57,7 +65,82 @@ const TOPIC_TERMS_BY_SLUG: Record<string, string[]> = {
     "hmp",
     "adjudication",
   ],
+  conveyancing: [
+    "conveyancing",
+    "conveyancer",
+    "property purchase",
+    "buying",
+    "house purchase",
+    "first time buyer",
+    "first-time buyer",
+    "ftb",
+    "remortgage",
+    "leasehold",
+    "transfer of equity",
+    "solicitor",
+  ],
 };
+
+const FAMILY_QUERY_SIGNALS =
+  /\b(co-?parent|domestic abuse|domestic violence|abusive ex|abusive partner|non-?molestation|contact order|child arrangements|custody|cafcass)\b/i;
+
+const CUSTOMS_QUERY_SIGNALS =
+  /\b(customs|import duty|import tax|excise|hmrc|bringing .+ into (the )?(uk|england|scotland|wales)|fly(ing)? from .+ with|bringing .+ from abroad)\b/i;
+
+/** Meaningful query tokens for page–query overlap (length ≥ 4, drop stopwords). */
+export function queryContentTokens(query: string): string[] {
+  const stop = new Set([
+    "that",
+    "this",
+    "with",
+    "from",
+    "have",
+    "been",
+    "will",
+    "would",
+    "about",
+    "into",
+    "they",
+    "them",
+    "then",
+    "than",
+    "what",
+    "when",
+    "where",
+    "which",
+    "there",
+    "their",
+    "should",
+    "could",
+    "need",
+    "help",
+    "want",
+    "just",
+    "like",
+    "some",
+    "also",
+    "very",
+    "england",
+    "scotland",
+    "wales",
+    "london",
+  ]);
+  return query
+    .toLowerCase()
+    .split(/\W+/)
+    .filter((t) => t.length >= 4 && !stop.has(t));
+}
+
+export function queryPageTokenOverlap(query: string, page: WikiPageIndex): number {
+  const tokens = queryContentTokens(query);
+  if (!tokens.length) return 0;
+  const blob = pageHaystack(page);
+  let hits = 0;
+  for (const t of tokens) {
+    if (blob.includes(t)) hits += 1;
+  }
+  return hits / tokens.length;
+}
 
 function pageHaystack(page: WikiPageIndex): string {
   return [
@@ -109,6 +192,24 @@ export function pageMatchesIntent(page: WikiPageIndex, intent: LegalSearchIntent
     }
   }
 
+  // Family intent must not land on housing/landlord pages.
+  if (
+    intent.taxonomySlug === "family" &&
+    (page.category === "Home and Housing" ||
+      /\b(landlord|tenant|tenancy|section 21|deposit)\b/i.test(blob))
+  ) {
+    return false;
+  }
+
+  // Immigration intent must not land on customs/import consumer guides, and vice versa.
+  if (
+    intent.taxonomySlug === "immigration" &&
+    /\b(customs|import duty|excise|hmrc border)\b/i.test(blob) &&
+    !/\b(visa|asylum|leave to remain|home office)\b/i.test(blob)
+  ) {
+    return false;
+  }
+
   return required.some((t) => blob.includes(t.toLowerCase()));
 }
 
@@ -119,6 +220,10 @@ function scorePageForIntent(
   embeddingBoost = 0,
 ): number {
   if (!pageMatchesIntent(page, intent)) return -1;
+
+  const overlap = queryPageTokenOverlap(query, page);
+  // Require real query↔page token overlap — taxonomy alone is not enough.
+  if (overlap < 0.12) return -1;
 
   const blob = pageHaystack(page);
   let score = 0;
@@ -138,8 +243,23 @@ function scorePageForIntent(
     score += 2;
   }
 
+  score += Math.min(3, overlap * 8);
+
+  if (FAMILY_QUERY_SIGNALS.test(qLower) && page.category === "Family and Relationships") {
+    score += 3;
+  }
+  if (CUSTOMS_QUERY_SIGNALS.test(qLower) && page.category === "Consumer Rights") {
+    score += 3;
+  }
+  if (CUSTOMS_QUERY_SIGNALS.test(qLower) && page.category === "Immigration and Citizenship") {
+    return -1;
+  }
+  if (FAMILY_QUERY_SIGNALS.test(qLower) && page.category === "Home and Housing") {
+    return -1;
+  }
+
   if (page.summary.length > 40) score += 0.5;
-  if (embeddingBoost > 0) score += embeddingBoost * 4;
+  if (embeddingBoost > 0) score += embeddingBoost * 2;
   return score;
 }
 

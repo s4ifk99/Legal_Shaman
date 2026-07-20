@@ -20,6 +20,7 @@ import { rerankLegalChunks } from "./rerank";
 import { buildLegalSearchContext } from "./search-context";
 import {
   deriveLegalSearchIntent,
+  directoryPracticeAreaForIntent,
   filterDirectoryResultsByIntent,
   refineIntentFromChunks,
 } from "./search-intent";
@@ -30,7 +31,7 @@ import { toLegacyGetResponse } from "@/lib/legal-search/legacy-get-response";
 
 type GraphMode = "primary" | "shadow" | "off";
 
-const GRAPH_MIN_CONFIDENCE = 0.42;
+const GRAPH_MIN_CONFIDENCE = 0.58;
 
 function fusionDebug(context: Awaited<ReturnType<typeof buildLegalSearchContext>>) {
   return {
@@ -68,7 +69,7 @@ async function runDirectorySlice(
       limit: 8,
       semantic: true,
       location: input.location,
-      practiceArea: intent.matcherSlug ?? intent.taxonomySlug,
+      practiceArea: directoryPracticeAreaForIntent(intent),
       parsed: context.parsedQuery,
       searchIntent: intent,
       legalAidOnly: context.resolution?.legalAidLikely || undefined,
@@ -179,7 +180,11 @@ export async function runLegalKnowledgeSearch(
     }
   }
 
-  const reranked = rerankLegalChunks(query, retrieved, { poolSize: 45, topK: 8 });
+  const reranked = rerankLegalChunks(query, retrieved, {
+    poolSize: 45,
+    topK: 8,
+    intent,
+  });
   const answerPool = rankChunksForAnswer(query, retrieved).slice(0, 12);
 
   const confidenceResult = scoreRetrievalConfidence({
@@ -199,7 +204,10 @@ export async function runLegalKnowledgeSearch(
   const { directoryResults, directoryRows } = await runDirectorySlice(input, context, intent);
 
   const suggestedNextSteps = suggestedNextStepsForClassification(context.classification);
-  if (confidenceResult.level === "low" && confidenceResult.clarifyingQuestion) {
+  if (
+    (confidenceResult.level === "low" || confidenceResult.level === "medium") &&
+    confidenceResult.clarifyingQuestion
+  ) {
     suggestedNextSteps.unshift("Answer the clarifying question to improve source matching.");
   }
 

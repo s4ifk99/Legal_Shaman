@@ -206,7 +206,7 @@ export function matcherSlugForTaxonomySlug(slug: string): string | null {
     housing: "family",
     neighbour_dispute: "family",
     wills_probate: "family",
-    conveyancing: "commercial",
+    conveyancing: "conveyancing",
     commercial: "commercial",
   };
   return map[slug] ?? null;

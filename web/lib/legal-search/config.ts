@@ -43,11 +43,26 @@ export function enableSearchDebug(): boolean {
   return envBool("ENABLE_SEARCH_DEBUG", false) || process.env.NODE_ENV === "development";
 }
 
-/** V1: production uses Postgres FTS; local dev defaults to Typesense. */
+function typesenseDirectoryConfigured(): boolean {
+  return Boolean(
+    process.env.TYPESENSE_HOST?.trim() && process.env.TYPESENSE_API_KEY?.trim(),
+  );
+}
+
+/**
+ * Directory backend selection:
+ * - Explicit `DIRECTORY_SEARCH_BACKEND` wins.
+ * - When Typesense is configured (host + API key), use it on all environments
+ *   so production matches local dev ranking.
+ * - Otherwise production/preview falls back to Postgres FTS; local dev to Typesense.
+ */
 export function directorySearchBackend(): DirectorySearchBackend {
   const explicit = process.env.DIRECTORY_SEARCH_BACKEND?.trim().toLowerCase();
   if (explicit === "postgres" || explicit === "typesense") {
     return explicit;
+  }
+  if (typesenseDirectoryConfigured()) {
+    return "typesense";
   }
   const vercelEnv = process.env.VERCEL_ENV?.trim();
   if (vercelEnv === "production" || vercelEnv === "preview") {

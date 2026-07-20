@@ -109,9 +109,12 @@
     "knowledge:backfill-areas": "tsx scripts/knowledge-backfill-areas.ts",
     "knowledge:integrate": "tsx scripts/knowledge-integrate.ts",
     "sync:wiki-data": "tsx scripts/sync-wiki-data.ts",
+    "search:audit-env": "tsx scripts/audit-production-search-env.ts",
+    "search:audit-env:vercel": "tsx scripts/audit-production-search-env.ts --vercel",
     "reddit:search": "tsx scripts/reddit-search.ts",
     "reddit:trending:ingest": "tsx scripts/reddit-trending-ingest.ts",
     "reddit:trending:seed": "tsx scripts/reddit-trending-seed.ts",
+    "reddit:shaman:eval": "tsx scripts/reddit-shaman-eval.ts",
     "auth:cleanup:legacy-users": "tsx scripts/auth-cleanup-legacy-users.ts"
   },
   "prisma": {

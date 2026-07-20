@@ -7,7 +7,6 @@ import { sortByFinalScore } from "@/lib/legal-search/ranking";
 import { rerankSearchResults } from "@/lib/legal-search/rerank";
 import { attachExplanations } from "@/lib/legal-search/explanations";
 import type { DirectorySearchParams, DirectorySearchResponse, SearchResult } from "@/lib/legal-search/types";
-import { rowMatchesPracticeTaxonomySlug } from "@/lib/legal/taxonomy";
 import { toLegacyGetResponse } from "@/lib/legal-search/legacy-get-response";
 import { finalizeDirectoryDiagnostics } from "@/lib/legal-search/search-diagnostics";
 import { repairDirectorySearchResponse } from "@/lib/sra/runtime-name-repair";
@@ -21,6 +20,8 @@ import { filterResultsByLocation } from "@/lib/search/location-filter";
 import {
   filterDirectoryResultsByIntent,
   overlayIntentOnParsedQuery,
+  directoryPracticeAreaSlugsForIntent,
+  directoryRowMatchesPracticeArea,
 } from "@/lib/legal-knowledge/search-intent";
 
 function buildFacets(p: DirectorySearchParams): SearchFacets | undefined {
@@ -42,15 +43,10 @@ function filterByParams(
   if (p.source === "legal_aid") out = out.filter((r) => r.source === "legal_aid");
   if (p.source === "curated") out = out.filter((r) => r.source === "curated_listing");
   if (p.practiceArea && !opts?.vagueQueryMode) {
-    const slug = p.practiceArea.toLowerCase();
-    out = out.filter((r) => {
-      const hay = `${r.title} ${r.description ?? ""} ${r.practiceAreas.join(" ")} ${r.categories.join(" ")}`;
-      return (
-        rowMatchesPracticeTaxonomySlug(slug, hay) ||
-        r.practiceAreas.some((x) => x.toLowerCase().includes(slug.replace(/_/g, " "))) ||
-        r.categories.some((c) => c.toLowerCase().includes(slug.replace(/_/g, " ")))
-      );
-    });
+    const slugs = p.searchIntent
+      ? directoryPracticeAreaSlugsForIntent(p.searchIntent)
+      : [p.practiceArea.toLowerCase()];
+    out = out.filter((r) => directoryRowMatchesPracticeArea(r, slugs));
   }
   if (p.location) {
     out = filterResultsByLocation(out, p.location);

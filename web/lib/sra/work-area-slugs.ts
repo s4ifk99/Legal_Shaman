@@ -63,7 +63,7 @@ const SRA_WORK_AREA_EXACT: Record<string, string> = {
   "coroners and inquests": "inquests_coroners",
   "probate and estate administration": "wills_probate",
   "property - commercial": "commercial_property",
-  "property - residential": "housing",
+  "property - residential": "conveyancing",
   conveyancing: "conveyancing",
   "residential conveyancing": "conveyancing",
   "commercial conveyancing": "conveyancing",

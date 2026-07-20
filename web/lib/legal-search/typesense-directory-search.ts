@@ -3,6 +3,8 @@ import "server-only";
 import {
   filterDirectoryResultsByIntent,
   overlayIntentOnParsedQuery,
+  directoryPracticeAreaSlugsForIntent,
+  directoryRowMatchesPracticeArea,
 } from "@/lib/legal-knowledge/search-intent";
 import { parseQuery } from "@/lib/legal-search/query-understanding";
 import type { DirectorySearchParams, ParsedQuery, SearchResult } from "@/lib/legal-search/types";
@@ -20,7 +22,6 @@ import { LEGAL_ENTITIES_COLLECTION } from "@/lib/search-index/config";
 import { typesenseServerHealth } from "@/lib/search-index/typesense-legal-entities-index";
 import type { LatLng } from "@/lib/search/location";
 import { distanceMiles } from "@/lib/legal-search/location";
-import { rowMatchesPracticeTaxonomySlug } from "@/lib/legal/taxonomy";
 import { filterResultsByLocation } from "@/lib/search/location-filter";
 import { toLegacyGetResponse } from "@/lib/legal-search/legacy-get-response";
 import type { DirectorySearchResponse } from "@/lib/legal-search/types";
@@ -443,17 +444,10 @@ function filterByParams(
   if (p.source === "legal_aid") out = out.filter((r) => r.source === "legal_aid");
   if (p.source === "curated") out = out.filter((r) => r.source === "curated_listing");
   if (p.practiceArea && !opts?.vagueQueryMode) {
-    const slug = p.practiceArea.toLowerCase();
-    out = out.filter((r) => {
-      const hay = `${r.title} ${r.description ?? ""} ${r.practiceAreas.join(" ")} ${r.categories.join(" ")}`;
-      const raw = r.raw as { practiceAreaSlugs?: string[] } | null;
-      if (raw?.practiceAreaSlugs?.includes(slug)) return true;
-      return (
-        rowMatchesPracticeTaxonomySlug(slug, hay) ||
-        r.practiceAreas.some((x) => x.toLowerCase().includes(slug.replace(/_/g, " "))) ||
-        r.categories.some((c) => c.toLowerCase().includes(slug.replace(/_/g, " ")))
-      );
-    });
+    const slugs = p.searchIntent
+      ? directoryPracticeAreaSlugsForIntent(p.searchIntent)
+      : [p.practiceArea.toLowerCase()];
+    out = out.filter((r) => directoryRowMatchesPracticeArea(r, slugs));
   }
   if (p.location) {
     out = filterResultsByLocation(out, p.location);
