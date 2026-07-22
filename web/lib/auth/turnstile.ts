@@ -11,6 +11,35 @@ function turnstileConfigured(): boolean {
   );
 }
 
+async function callTurnstileSiteverify(
+  secret: string,
+  token: string,
+  remoteIp?: string,
+): Promise<TurnstileVerifyResponse> {
+  const body = new URLSearchParams({
+    secret,
+    response: token,
+  });
+  if (remoteIp) body.set("remoteip", remoteIp);
+
+  const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body,
+  });
+  return (await res.json()) as TurnstileVerifyResponse;
+}
+
+function turnstileUserError(codes: string[] | undefined): string {
+  if (codes?.includes("timeout-or-duplicate")) {
+    return "CAPTCHA expired or already used. Complete it again and sign in promptly.";
+  }
+  if (codes?.includes("hostname-mismatch")) {
+    return "CAPTCHA domain mismatch. Try again on www.legalshaman.com.";
+  }
+  return "CAPTCHA verification failed. Try again.";
+}
+
 /** Verify Cloudflare Turnstile token server-side. */
 export async function verifyTurnstileToken(
   token: string,
@@ -29,21 +58,18 @@ export async function verifyTurnstileToken(
     return { ok: false, error: "Complete the CAPTCHA verification" };
   }
 
-  const body = new URLSearchParams({
-    secret,
-    response: token.trim(),
-  });
-  if (remoteIp) body.set("remoteip", remoteIp);
+  const trimmed = token.trim();
 
   try {
-    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-      method: "POST",
-      headers: { "content-type": "application/x-www-form-urlencoded" },
-      body,
-    });
-    const data = (await res.json()) as TurnstileVerifyResponse;
+    // Prefer verification without remoteip — Vercel/proxy IPs often mismatch Turnstile's
+    // client IP and cause false failures even when the widget shows Success.
+    let data = await callTurnstileSiteverify(secret, trimmed);
+    if (!data.success && remoteIp) {
+      data = await callTurnstileSiteverify(secret, trimmed, remoteIp);
+    }
     if (!data.success) {
-      return { ok: false, error: "CAPTCHA verification failed. Try again." };
+      console.warn("[turnstile] siteverify rejected:", data["error-codes"] ?? []);
+      return { ok: false, error: turnstileUserError(data["error-codes"]) };
     }
     return { ok: true };
   } catch (err) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 declare global {
   interface Window {
@@ -62,7 +62,12 @@ export function TurnstileField({ onTokenChange, resetKey = 0 }: TurnstileFieldPr
     document.head.appendChild(script);
   }, [siteKey]);
 
-  const renderWidget = useCallback(() => {
+  const onTokenChangeRef = useRef(onTokenChange);
+  useEffect(() => {
+    onTokenChangeRef.current = onTokenChange;
+  }, [onTokenChange]);
+
+  useEffect(() => {
     if (!siteKey || !scriptReady || !containerRef.current || !window.turnstile) return;
 
     if (widgetIdRef.current) {
@@ -78,14 +83,11 @@ export function TurnstileField({ onTokenChange, resetKey = 0 }: TurnstileFieldPr
     widgetIdRef.current = window.turnstile.render(containerRef.current, {
       sitekey: siteKey,
       theme: "auto",
-      callback: (token) => onTokenChange(token),
-      "expired-callback": () => onTokenChange(null),
-      "error-callback": () => onTokenChange(null),
+      callback: (token) => onTokenChangeRef.current(token),
+      "expired-callback": () => onTokenChangeRef.current(null),
+      "error-callback": () => onTokenChangeRef.current(null),
     });
-  }, [siteKey, scriptReady, onTokenChange]);
 
-  useEffect(() => {
-    renderWidget();
     return () => {
       if (widgetIdRef.current && window.turnstile) {
         try {
@@ -93,9 +95,10 @@ export function TurnstileField({ onTokenChange, resetKey = 0 }: TurnstileFieldPr
         } catch {
           /* ignore */
         }
+        widgetIdRef.current = null;
       }
     };
-  }, [renderWidget, resetKey]);
+  }, [siteKey, scriptReady, resetKey]);
 
   if (!siteKey) {
     if (process.env.NODE_ENV === "production") {
