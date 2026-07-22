@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-07-22T08:12:48.174Z",
-    "subredditCount": 1,
-    "postCount": 20,
-    "topicCount": 5,
+    "scrapedAt": "2026-07-22T19:16:07.211Z",
+    "subredditCount": 2,
+    "postCount": 40,
+    "topicCount": 12,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1v3kzg1",
+          "title": "My uni accommodation is taking the mick (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3kzg1/my_uni_accommodation_is_taking_the_mick_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3kzg1/my_uni_accommodation_is_taking_the_mick_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784737359,
+          "snippet": "They’re trying to charge me £140 for this tiny stain. There is no way that they weren’t able to clean out that they had to replace the mattress. It’s the fact that in the email they don’t state if they’ve cleaned it and it’s like a cleaning charge or they’ve replaced it so it’s l",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1v38w0h",
           "title": "Men on bicycles are intimidating women in our area. We've called police every time it happens.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v38w0h/men_on_bicycles_are_intimidating_women_in_our/",
@@ -50,15 +62,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v2o5pf",
-          "title": "Adult son [27m] has anxiety and ADHD. He has refused to search for work and has been signed off last year on LCWRA. I can't handle it anymore. If I were to divorce my wife, would my wife or son have any claim to my house?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2o5pf/adult_son_27m_has_anxiety_and_adhd_he_has_refused/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2o5pf/adult_son_27m_has_anxiety_and_adhd_he_has_refused/",
+          "id": "1v3c7ub",
+          "title": "I negotiated a higher salary and signed a contract for my new role, but my employer now says I must sign a new contract with a lower salary because they accidentally offered me too much (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3c7ub/i_negotiated_a_higher_salary_and_signed_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3c7ub/i_negotiated_a_higher_salary_and_signed_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784652902,
-          "snippet": "I'm on the verge of a breakdown over this. My question is primarily around how assets are divided during a divorce though. Adult son graduated at 21 with a 2:1 in English Literature. I advised him to study something else, but he wasn't interested in something more vocational and ",
+          "createdUtc": 1784716226,
+          "snippet": "Hi Reddit, I’m looking for some advice about a job I’m due to start in a few weeks. After interviewing, I was offered the role, but the starting salary was at the bottom of the advertised pay scale. Given my experience, I didn’t think it fairly reflected my background, so I asked",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3bona",
+          "title": "OpenAI accidentally hacked HuggingFace; How does the law view it?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3bona/openai_accidentally_hacked_huggingface_how_does/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3bona/openai_accidentally_hacked_huggingface_how_does/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784714539,
+          "snippet": "I'll try to summarise the pertinent points for you here, according to OpenAI (OAI) and HuggingFace (HF). OAI was testing their latest AI. They had put multiple safeguards around where it was running, including blocking internet access. The AI decided it needed internet access to ",
           "listingSource": "rss:hot"
         },
         {
@@ -74,27 +98,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v2m5nv",
-          "title": "What to do about neighbor using my driveway- London",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2m5nv/what_to_do_about_neighbor_using_my_driveway_london/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2m5nv/what_to_do_about_neighbor_using_my_driveway_london/",
+          "id": "1v3hkst",
+          "title": "Privately bought a car 2 weeks ago, just discovered serious issues",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3hkst/privately_bought_a_car_2_weeks_ago_just/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3hkst/privately_bought_a_car_2_weeks_ago_just/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784648618,
-          "snippet": "Edit: Moderators seem to be blocking non-legal advice, and it seems I can no longer comment on posts. Obstructing the driveway once they move seems to be a resounding good suggestion. If only they would move their car… I have a neighbor who periodically uses my driveway. I speak ",
+          "createdUtc": 1784730075,
+          "snippet": "Hi all, I would appreciate some advice. I purchased a vehicle privately 2 weeks ago for £9600, it was advertised on Autotrader as recently serviced, no indication it had any faults. I met the seller in person and took the car on a quick test drive around the block. I noted at the",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v2t86v",
-          "title": "Neighbour installed and locked gate attached to house, now demanding £900",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2t86v/neighbour_installed_and_locked_gate_attached_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2t86v/neighbour_installed_and_locked_gate_attached_to/",
+          "id": "1v3fezd",
+          "title": "Dad’s ex-partner from 40 years ago is still on his joint bank account.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3fezd/dads_expartner_from_40_years_ago_is_still_on_his/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3fezd/dads_expartner_from_40_years_ago_is_still_on_his/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784663474,
-          "snippet": "England Hi all, Looking for some advice before my girlfriend's parents take any action. For the last couple of years they've had ongoing issues with their neighbour regarding the fencing in their adjoining garden. Earlier this year, my girlfriend's parents replaced their own fenc",
+          "createdUtc": 1784725065,
+          "snippet": "My father has left all of his estate to me. (A paid off house &amp; around 70k in one bank account.) He is very unwell and unlikely to leave hospital. He is confused and mostly asleep so i cannot ask him about any of this or obtain a power of attorney over him. When he purchased ",
           "listingSource": "rss:hot"
         },
         {
@@ -110,197 +134,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v2qzj7",
-          "title": "England social services are expecting me to care for my younger brother while they look for foster care, but I genuinely can’t",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2qzj7/england_social_services_are_expecting_me_to_care/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2qzj7/england_social_services_are_expecting_me_to_care/",
+          "id": "1v3clem",
+          "title": "Arrested but don’t know what I’m being accused of",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3clem/arrested_but_dont_know_what_im_being_accused_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3clem/arrested_but_dont_know_what_im_being_accused_of/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784658750,
-          "snippet": "Hi everyone. I’m really lost and I don’t know what to do anymore. I recently moved to the UK on my own and I don’t have any family or friends here who can help me. My younger brother has been staying with me because social services are involved and are applying for a court order ",
+          "createdUtc": 1784717413,
+          "snippet": "I was arrested for harassment. The police said I had sent messages to somebody. But I have no idea what these messages are. They interviewed me but never showed me the messages or read them out. I’ve found that there is a paragraph in the interview rules of PACE code C that says ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v2oa5t",
-          "title": "My partner is threatening to go for full custody if I choose to continue with my pregnancy",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2oa5t/my_partner_is_threatening_to_go_for_full_custody/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2oa5t/my_partner_is_threatening_to_go_for_full_custody/",
+          "id": "1v3j0q5",
+          "title": "Ever since I bought my car about a 2 month now, I haven’t received the logbook. But today I received a letter from dvla my car is sold and no longer belongs to me. What should I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3j0q5/ever_since_i_bought_my_car_about_a_2_month_now_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3j0q5/ever_since_i_bought_my_car_about_a_2_month_now_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784653167,
-          "snippet": "I found out I was pregnant last week, paid for a private scan which shows me now at 18 weeks and 1 day. My boyfriend initially said he would stand by me and whatever I decision I made, however, less than 1 week in he is now saying I have tricked him into this pregnancy and I am f",
+          "createdUtc": 1784733231,
+          "snippet": "It was bought from Audi main dealership at Canterbury. Should I contact them? Or contact dvla? This is England submitted by /u/thmt11 [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v2d2qq",
-          "title": "Neighbour is stealing our electricity and electric company is telling us to pay - how to dispute? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2d2qq/neighbour_is_stealing_our_electricity_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2d2qq/neighbour_is_stealing_our_electricity_and/",
+          "id": "1v2o5pf",
+          "title": "Adult son [27m] has anxiety and ADHD. He has refused to search for work and has been signed off last year on LCWRA. I can't handle it anymore. If I were to divorce my wife, would my wife or son have any claim to my house?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2o5pf/adult_son_27m_has_anxiety_and_adhd_he_has_refused/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2o5pf/adult_son_27m_has_anxiety_and_adhd_he_has_refused/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784624807,
-          "snippet": "As per title, we noticed our neighbour (block of flats) does not have their own meter. E.g. We are Flat 10, they are Flat 10A. We turned off the electricity in the flat and checked the meter - it was still running. We reported this to the landlord who admitted they suspected some",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v2xa4b",
-          "title": "[England] Summer school in student accommodation (uni owned) repeatedly triggering fire alarm + screaming at night - options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2xa4b/england_summer_school_in_student_accommodation/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2xa4b/england_summer_school_in_student_accommodation/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784672528,
-          "snippet": "Hi, so I’m a uni student living in university-owned accommodation, I’m a nursing student and have to go on placement (working as a student nurse in a hospital) as a part of my course, on placement I am administering medications, providing care, etc. and as such it is vital that I",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v2ugew",
-          "title": "neighbour has threatened me regarding the parking - england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2ugew/neighbour_has_threatened_me_regarding_the_parking/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2ugew/neighbour_has_threatened_me_regarding_the_parking/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784666132,
-          "snippet": "I ll try to be short. sorry for the mistakes, english is not my main language we moved to this neighbourhood about 4 years ago, and when we viewed the flat, the landlord told us that both sides of the road have public parking. I thought that was that, but after a while, we starte",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v1t8yc",
-          "title": "68 year old woman. The government sent me a letter saying I can't feed my seagull.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v1t8yc/68_year_old_woman_the_government_sent_me_a_letter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v1t8yc/68_year_old_woman_the_government_sent_me_a_letter/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784571078,
-          "snippet": "Ive been feeding a seagull for 3+ years now. There was 2, but back down to 1 now. New neighbour moved in and complained to me about feeding the seagull. He said they were disgusting creatures. I live in a rural area so we have lots of wildlife anyway. He took it to the council. H",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v24xdo",
-          "title": "My (F27) policeman bf (M32) was arrested this afternoon on suspicion of IIOC (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v24xdo/my_f27_policeman_bf_m32_was_arrested_this/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v24xdo/my_f27_policeman_bf_m32_was_arrested_this/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784599133,
-          "snippet": "I’m still in a state of shock. We’ve been together 5 years. He’s been a special constable for 10 years and passed his probation as a response officer last September. As expected, the investigators couldn’t give me much information regarding the case other than stating an IP addre",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v319bw",
-          "title": "(England) Does my dad have the right to give away a dog that I own and how can i get it back?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v319bw/england_does_my_dad_have_the_right_to_give_away_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v319bw/england_does_my_dad_have_the_right_to_give_away_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784682481,
-          "snippet": "I'm 18 and was given my mum's dog a few months ago. I have photos of messages between my mum and dad proving this, as well as bank transactions proving I cared for the dog. Today my dad gave my dog away without my knowledge or consent. A man came to fix our window and my dad offe",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v2riht",
-          "title": "Old dyke council advice interpretation - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2riht/old_dyke_council_advice_interpretation_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2riht/old_dyke_council_advice_interpretation_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784659849,
-          "snippet": "We're looking at options on what to do with an old dyke in our garden. When we moved into our property we had decking all along the back of our garden which concealed an old dyke. The dyke is in our property but doesn't appear to do much. It was even full of old timber, rumble an",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v240px",
-          "title": "Dad convinced me to transfer my £50k trust fund back to him at 18. I recently found an investment account in my name with £250k. Do I have any legal rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v240px/dad_convinced_me_to_transfer_my_50k_trust_fund/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v240px/dad_convinced_me_to_transfer_my_50k_trust_fund/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784596634,
-          "snippet": "This is a throwaway account for obvious personal reasons. Sorry in advance for the long rant. Basically, my parents split up when I was young. Instead of paying child support, my dad set up a trust fund for me and agreed to contribute to it every year. When I turned 18, the trust",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v39qqv",
-          "title": "Non-return fee of medical equipment after I asked to return it",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v39qqv/nonreturn_fee_of_medical_equipment_after_i_asked/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v39qqv/nonreturn_fee_of_medical_equipment_after_i_asked/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784707896,
-          "snippet": "Hi, In May/june I requested to return a piece of medical equipment to a private company because the NHS had stopped funding it and the private company had not sent me a price list for two months so I just said let me return it - they said ok I've taken ages to return it (posted t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v39p25",
-          "title": "Driving without due care and attention - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v39p25/driving_without_due_care_and_attention_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v39p25/driving_without_due_care_and_attention_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784707738,
-          "snippet": "Hi everyone, I hope you're all doing well. I'm looking for some advice or guidance regarding my younger brother (20M). He was recently released from prison and has been working hard to turn his life around. He's got a job, passed his driving test, and has genuinely been trying to",
-          "listingSource": "rss:hot"
-        }
-      ]
-    }
-  ],
-  "trendingTopics": [
-    {
-      "slug": "general-legal-discussion",
-      "label": "General legal discussion",
-      "legalAreaSlug": null,
-      "postCount": 14,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1u1ku10",
-          "title": "If you use generative AI to provide advice, you will be banned",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1u1ku10/if_you_use_generative_ai_to_provide_advice_you/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1u1ku10/if_you_use_generative_ai_to_provide_advice_you/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1781046142,
-          "snippet": "If OP wanted advice from AI, they would have asked AI, rather than posted on a forum containing humans. The AI advice that we see here is more often than not one (or more) of the following: completely lacking in nuance, fails to appreciate that there is no such thing as \"UK law\",",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v38w0h",
-          "title": "Men on bicycles are intimidating women in our area. We've called police every time it happens.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v38w0h/men_on_bicycles_are_intimidating_women_in_our/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v38w0h/men_on_bicycles_are_intimidating_women_in_our/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784704987,
-          "snippet": "For about 3 months now we've been dealing with groups of young men on bicicles intimidating women (if they've targeted men too we haven't witnessed it.) They're doing stuff like blocking footpaths or doing a wheelie right up into your face, then swerving with maybe only a couple ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v2ztx8",
-          "title": "Wife's cat not welcome - parents telling us to leave the home I (34M) own. England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2ztx8/wifes_cat_not_welcome_parents_telling_us_to_leave/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2ztx8/wifes_cat_not_welcome_parents_telling_us_to_leave/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784678780,
-          "snippet": "TL;DR: parents hate my wife's cat - kicking us out of a home I own, but they gave much of the money to buy the house. Could I sell it without parents blocking (and give them back their money)? A ridiculous situation, I'm aware. In 2021, I was emotionally blackmailed into using my",
+          "createdUtc": 1784652902,
+          "snippet": "I'm on the verge of a breakdown over this. My question is primarily around how assets are divided during a divorce though. Adult son graduated at 21 with a 2:1 in English Literature. I advised him to study something else, but he wasn't interested in something more vocational and ",
           "listingSource": "rss:hot"
         },
         {
@@ -328,39 +194,422 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v2d2qq",
-          "title": "Neighbour is stealing our electricity and electric company is telling us to pay - how to dispute? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2d2qq/neighbour_is_stealing_our_electricity_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2d2qq/neighbour_is_stealing_our_electricity_and/",
+          "id": "1v3lwp2",
+          "title": "Contract say notice period is one week, HR disagrees",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3lwp2/contract_say_notice_period_is_one_week_hr/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3lwp2/contract_say_notice_period_is_one_week_hr/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784624807,
-          "snippet": "As per title, we noticed our neighbour (block of flats) does not have their own meter. E.g. We are Flat 10, they are Flat 10A. We turned off the electricity in the flat and checked the meter - it was still running. We reported this to the landlord who admitted they suspected some",
+          "createdUtc": 1784739298,
+          "snippet": "More wanting a sanity check. I (20s. England) started as an apprentice at my current company and stayed on as permanent staff once I completed it. I signed an employment contract in 2022 which stated my notice period was 1 week. I’ve done quite well with a long term client and am",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v2xa4b",
-          "title": "[England] Summer school in student accommodation (uni owned) repeatedly triggering fire alarm + screaming at night - options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2xa4b/england_summer_school_in_student_accommodation/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2xa4b/england_summer_school_in_student_accommodation/",
+          "id": "1v3kyi5",
+          "title": "can my mother deny me acces to the child trust fund? england",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3kyi5/can_my_mother_deny_me_acces_to_the_child_trust/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3kyi5/can_my_mother_deny_me_acces_to_the_child_trust/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784672528,
-          "snippet": "Hi, so I’m a uni student living in university-owned accommodation, I’m a nursing student and have to go on placement (working as a student nurse in a hospital) as a part of my course, on placement I am administering medications, providing care, etc. and as such it is vital that I",
+          "createdUtc": 1784737305,
+          "snippet": "i'm 18 in a couple months so i was thinking about my child trust fund and i've seen theres about £3000 in there for me of course to save for uni but to also spend on myself but my mother seems to be convinced i'm not entitled to this money for context i'm a closeted ex-muslim liv",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v2ugew",
-          "title": "neighbour has threatened me regarding the parking - england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2ugew/neighbour_has_threatened_me_regarding_the_parking/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2ugew/neighbour_has_threatened_me_regarding_the_parking/",
+          "id": "1v3a67z",
+          "title": "CCTV recording of postman taking my parcel England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3a67z/cctv_recording_of_postman_taking_my_parcel_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3a67z/cctv_recording_of_postman_taking_my_parcel_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784666132,
-          "snippet": "I ll try to be short. sorry for the mistakes, english is not my main language we moved to this neighbourhood about 4 years ago, and when we viewed the flat, the landlord told us that both sides of the road have public parking. I thought that was that, but after a while, we starte",
+          "createdUtc": 1784709368,
+          "snippet": "So I ordered parcel, haven’t chosen safe place but usually postman’s use my back terrace to leave parcels and it’s very safe. never had any parcels stolen for years and it’s hidden from public. yesterday I was supposed to get a parcel(adidas shoes 40£) and i don’t know if postman",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3c3ef",
+          "title": "Mystery gardener botches our garden in our new home - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3c3ef/mystery_gardener_botches_our_garden_in_our_new/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3c3ef/mystery_gardener_botches_our_garden_in_our_new/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784715823,
+          "snippet": "Hello, We completed on a house on Friday and are in between properties while our lease runs out at the end of August. We weren’t at the house on Monday and came on Tuesday evening to find the gate unlocked, badly cut grass and a bit of overall dodgy gardening done. We were incred",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3ml7e",
+          "title": "eBay Watch Purchase Gone Bad...",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3ml7e/ebay_watch_purchase_gone_bad/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3ml7e/ebay_watch_purchase_gone_bad/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784740663,
+          "snippet": "Hi, I believe this is my first post to Reddit, quite new here so please bear with me. Long story short, I purchased a Bremont watch from eBay (to the tune of £1,350 approx.) and when it came it was not functioning correctly. I then sent it off to a Bremont service centre to have ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "name": "UKPersonalFinance",
+      "displayName": "r/UKPersonalFinance",
+      "description": "Debt, benefits, tax disputes, and consumer rights with legal crossover.",
+      "subscribers": null,
+      "posts": [
+        {
+          "id": "1v3evc6",
+          "title": "6 year old receiving £60k inheritance",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3evc6/6_year_old_receiving_60k_inheritance/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3evc6/6_year_old_receiving_60k_inheritance/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784723672,
+          "snippet": "My 6 year old is due to receive £60k inheritance. This is to be paid to him ‘absolutely’ with no limits on age. I am looking for advice on what to do to maximise it. I appreciate it is his money and there’s nothing I can do to stop him having it at 18, so I’m going to have to ens",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v384po",
+          "title": "Helping my 16-year-old apprentice understand what to do with his first proper wage",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v384po/helping_my_16yearold_apprentice_understand_what/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v384po/helping_my_16yearold_apprentice_understand_what/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784702483,
+          "snippet": "My 16-year-old son is about to start a plumbing apprenticeship earning £16,640 a year. He’ll be living at home with very few overheads for the next few years. To be clear, I’m not looking to control his wages or force him to save everything. I want to help him understand the oppo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3mp1j",
+          "title": "Receiving £22000 inheritance on benefits ,I'm in poverty, can I spend £4000 on certain items",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3mp1j/receiving_22000_inheritance_on_benefits_im_in/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3mp1j/receiving_22000_inheritance_on_benefits_im_in/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784740881,
+          "snippet": "I'm in receipt of universal credit and limited capacity to work benefit I want to know as I am currently in poverty with few clothes and shoes can I spend that £4000 that otherwise stops my UC claim on items such as clothes , new shoes , shirts etc, I have no proper shirts etc no",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3ozca",
+          "title": "Brother died unexpectedly leaving wife and 5 kids behind. Is there anything we can claim/do to help his family get as much financial support as possible?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ozca/brother_died_unexpectedly_leaving_wife_and_5_kids/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ozca/brother_died_unexpectedly_leaving_wife_and_5_kids/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784745587,
+          "snippet": "Additional info: - he was a farmer all his life and recently left the family farm to work on a self employed basis at another farm - due to recent change, he hasn’t yet sorted any life insurance for himself (was planning to next week typically) - he died as a result of a mechanic",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3dfww",
+          "title": "Adding £9k for Solar + Battery via mortgage equity loan vs. staying as-is. Does the math hold up?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3dfww/adding_9k_for_solar_battery_via_mortgage_equity/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3dfww/adding_9k_for_solar_battery_via_mortgage_equity/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784719849,
+          "snippet": "Trying to get my head around the pros and cons of investing in solar panels. I have been using A.I to run the numbers but it's always good to get a human input into these things. This post has been written with the help of A.I because I struggle with numbers and keeping track, I ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3i4q1",
+          "title": "Elderly Grandmother wants me to hold onto her money?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3i4q1/elderly_grandmother_wants_me_to_hold_onto_her/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3i4q1/elderly_grandmother_wants_me_to_hold_onto_her/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784731324,
+          "snippet": "Hi! First time posting here, so grateful if folks could go easy on me. Basically, my grandmother (90 years of age) a little while back got back pay as she had been receiving the incorrect amount from her pension. I'm not sure on the total amount, but I believe it's around £20k. N",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3oqit",
+          "title": "Cifas - bank wrongly filled against me! Help!",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3oqit/cifas_bank_wrongly_filled_against_me_help/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3oqit/cifas_bank_wrongly_filled_against_me_help/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784745064,
+          "snippet": "Hi all, After years banking with a certain bank I suddenly received an sms that one of my business accounts have been closed after a review. I contacted the bank and unfortunately they were not able to provide me a further information and said it wasn’t related to KYC. Following ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3drr4",
+          "title": "ISA help. Help to Buy or Lifetime?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3drr4/isa_help_help_to_buy_or_lifetime/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3drr4/isa_help_help_to_buy_or_lifetime/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784720788,
+          "snippet": "Hi all, So I paid £20,000 into a new Cash ISA this tax year. I also have a Help to Buy ISA with just over £12,000 ( max amount for the bonus) and have not paid anything into it this tax year. I am looking to buy my first home but not within then next 2 years at least. So I was ju",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3ogkj",
+          "title": "What to do with spare 4k tax refund",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ogkj/what_to_do_with_spare_4k_tax_refund/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ogkj/what_to_do_with_spare_4k_tax_refund/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784744486,
+          "snippet": "I used to work part time as a student and today, 1 year later i received a letter from hmrc stating I’ve over paid my taxes and I’m due a refund. As a recent graduate, Im new to investing and managing money and would appreciate advice on how to best invest it. submitted by /u/Fan",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3fabl",
+          "title": "Savings In ISA vs Deposit For FTB",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3fabl/savings_in_isa_vs_deposit_for_ftb/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3fabl/savings_in_isa_vs_deposit_for_ftb/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784724735,
+          "snippet": "Hi everyone. Solo ftb. I have lived at home all my life. I am 32. I am buying my first home. I lived at home rent free, we also all work in the same small family business. My take home is around £1850 per month. I have no kids, debts, commitments etc but am not likely to earn muc",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3ku9j",
+          "title": "IVA- money earned over threshold",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ku9j/iva_money_earned_over_threshold/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ku9j/iva_money_earned_over_threshold/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784737052,
+          "snippet": "I have just had my annual review and I am being asked to pay a substantial amount (to me) as I have earned over the threshold. I increased my hours to be able to afford the new rent when I moved. If my income and costs raised at the same time can they make me pay this? I don’t ha",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v2dq8u",
+          "title": "Vanguard cuts fee of VWRP from 0.19% to 0.14%",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v2dq8u/vanguard_cuts_fee_of_vwrp_from_019_to_014/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v2dq8u/vanguard_cuts_fee_of_vwrp_from_019_to_014/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784627093,
+          "snippet": "Vanguard will cut the ongoing charges figure (OCF) on the Vanguard FTSE All World UCITS ETF from 0.19% to 0.14%. The fee reduction of more than 25% will apply from 28 July 2026 and the firm estimates it will save investors about $37m a year. The Vanguard FTSE All World UCITS ETF ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3hhw6",
+          "title": "Hastings wants to cancel my insurance because of extension building works",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3hhw6/hastings_wants_to_cancel_my_insurance_because_of/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3hhw6/hastings_wants_to_cancel_my_insurance_because_of/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784729896,
+          "snippet": "Hi. Hope this is correct place for this question. I am planning the house extension works - ground floor kitchen/dining room: have architect drawn the plans, applied and received the approval, notified the mortgage bank company, builder lined up, got a date, etc. everything is in",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v2ixsv",
+          "title": "How to correctly declare additional income (Adult content) away from normal self employment (Aesthetics/Beauty) and expenses ?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v2ixsv/how_to_correctly_declare_additional_income_adult/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v2ixsv/how_to_correctly_declare_additional_income_adult/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784641581,
+          "snippet": "I’ve rewrote this so many times in the attempt to not be judged and to ensure I get this across in the right way so please do excuse me. My doubts and concerns are that I have been self employed doing beauty and aesthetics for several years now and the self assessments have been ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3eq3h",
+          "title": "Am I viewing my financial situation/potential house move correctly?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3eq3h/am_i_viewing_my_financial_situationpotential/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3eq3h/am_i_viewing_my_financial_situationpotential/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784723306,
+          "snippet": "Apologies if this is a bit vague for this sub. I tried posting elsewhere but was pointed here! Currently thinking about moving house in the next couple of years and considering options. As I'm sure is the case with a lot of people in this position, I'm looking at houses that feel",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3e124",
+          "title": "Early closure fees after Plum license change",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3e124/early_closure_fees_after_plum_license_change/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3e124/early_closure_fees_after_plum_license_change/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784721512,
+          "snippet": "Plum has sent an email last week saying that their license name is changing, you don't need to anything if you're happy with it, etc. and added a line at the end saying that \"If you'd prefer to opt out of these changes, you can withdraw your balance and close your account free of",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3con2",
+          "title": "Advice about choosing a credit card",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3con2/advice_about_choosing_a_credit_card/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3con2/advice_about_choosing_a_credit_card/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784717688,
+          "snippet": "Hello Everyone, I am a 26/F nurse living in London. I earn decently, around £3.6k–£4k a month. I have savings and have never really had to worry about paying my bills or essentials. I come from a poor family with very little financial knowledge. Growing up, I was only taught to s",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3c3f1",
+          "title": "Debt relief order and Monzo pension. Is it affected?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3c3f1/debt_relief_order_and_monzo_pension_is_it_affected/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3c3f1/debt_relief_order_and_monzo_pension_is_it_affected/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784715825,
+          "snippet": "I am about to submit a Drop after getting advice. I have a debt with Monzo, which is being put into it and I have been advised by Money wellness that Monzo will close my account. I transferred my meagre pension to Monzo several months back, so I wondered whether they would use pa",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3jvv6",
+          "title": "What do I do with inheritance money?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3jvv6/what_do_i_do_with_inheritance_money/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3jvv6/what_do_i_do_with_inheritance_money/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784735066,
+          "snippet": "Inheriting approx £350k after all taxes etc have been paid. What low risk actions should I take with this? I have a steady, comfortable income from job, rent out my property now and only major debt is a £130k mortgage + maybe £10k left of a student loan. 1 - Pay off my mortgage? ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3b9sv",
+          "title": "Short term cash holding- what next?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3b9sv/short_term_cash_holding_what_next/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3b9sv/short_term_cash_holding_what_next/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784713146,
+          "snippet": "House purchase fell through. We’ll be moving in with family temporarily. I think it will take up to 6 months to find and complete on a new place. Meanwhile I’ll have the equity from my sale in my bank account. Where’s best to keep it for (hopefully) 6 months? submitted by /u/Cute",
+          "listingSource": "rss:hot"
+        }
+      ]
+    }
+  ],
+  "trendingTopics": [
+    {
+      "slug": "general-legal-discussion",
+      "label": "General legal discussion",
+      "legalAreaSlug": null,
+      "postCount": 23,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK",
+        "UKPersonalFinance"
+      ],
+      "posts": [
+        {
+          "id": "1u1ku10",
+          "title": "If you use generative AI to provide advice, you will be banned",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1u1ku10/if_you_use_generative_ai_to_provide_advice_you/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1u1ku10/if_you_use_generative_ai_to_provide_advice_you/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1781046142,
+          "snippet": "If OP wanted advice from AI, they would have asked AI, rather than posted on a forum containing humans. The AI advice that we see here is more often than not one (or more) of the following: completely lacking in nuance, fails to appreciate that there is no such thing as \"UK law\",",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3kzg1",
+          "title": "My uni accommodation is taking the mick (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3kzg1/my_uni_accommodation_is_taking_the_mick_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3kzg1/my_uni_accommodation_is_taking_the_mick_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784737359,
+          "snippet": "They’re trying to charge me £140 for this tiny stain. There is no way that they weren’t able to clean out that they had to replace the mattress. It’s the fact that in the email they don’t state if they’ve cleaned it and it’s like a cleaning charge or they’ve replaced it so it’s l",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v38w0h",
+          "title": "Men on bicycles are intimidating women in our area. We've called police every time it happens.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v38w0h/men_on_bicycles_are_intimidating_women_in_our/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v38w0h/men_on_bicycles_are_intimidating_women_in_our/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784704987,
+          "snippet": "For about 3 months now we've been dealing with groups of young men on bicicles intimidating women (if they've targeted men too we haven't witnessed it.) They're doing stuff like blocking footpaths or doing a wheelie right up into your face, then swerving with maybe only a couple ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3bona",
+          "title": "OpenAI accidentally hacked HuggingFace; How does the law view it?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3bona/openai_accidentally_hacked_huggingface_how_does/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3bona/openai_accidentally_hacked_huggingface_how_does/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784714539,
+          "snippet": "I'll try to summarise the pertinent points for you here, according to OpenAI (OAI) and HuggingFace (HF). OAI was testing their latest AI. They had put multiple safeguards around where it was running, including blocking internet access. The AI decided it needed internet access to ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v2ztx8",
+          "title": "Wife's cat not welcome - parents telling us to leave the home I (34M) own. England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2ztx8/wifes_cat_not_welcome_parents_telling_us_to_leave/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2ztx8/wifes_cat_not_welcome_parents_telling_us_to_leave/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784678780,
+          "snippet": "TL;DR: parents hate my wife's cat - kicking us out of a home I own, but they gave much of the money to buy the house. Could I sell it without parents blocking (and give them back their money)? A ridiculous situation, I'm aware. In 2021, I was emotionally blackmailed into using my",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3hkst",
+          "title": "Privately bought a car 2 weeks ago, just discovered serious issues",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3hkst/privately_bought_a_car_2_weeks_ago_just/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3hkst/privately_bought_a_car_2_weeks_ago_just/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784730075,
+          "snippet": "Hi all, I would appreciate some advice. I purchased a vehicle privately 2 weeks ago for £9600, it was advertised on Autotrader as recently serviced, no indication it had any faults. I met the seller in person and took the car on a quick test drive around the block. I noted at the",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3fezd",
+          "title": "Dad’s ex-partner from 40 years ago is still on his joint bank account.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3fezd/dads_expartner_from_40_years_ago_is_still_on_his/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3fezd/dads_expartner_from_40_years_ago_is_still_on_his/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784725065,
+          "snippet": "My father has left all of his estate to me. (A paid off house &amp; around 70k in one bank account.) He is very unwell and unlikely to leave hospital. He is confused and mostly asleep so i cannot ask him about any of this or obtain a power of attorney over him. When he purchased ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v2m5nv",
+          "title": "What to do about neighbor using my driveway- London",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2m5nv/what_to_do_about_neighbor_using_my_driveway_london/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2m5nv/what_to_do_about_neighbor_using_my_driveway_london/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784648618,
+          "snippet": "Edit: Moderators seem to be blocking non-legal advice, and it seems I can no longer comment on posts. Obstructing the driveway once they move seems to be a resounding good suggestion. If only they would move their car… I have a neighbor who periodically uses my driveway. I speak ",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,10 +618,11 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "UKPersonalFinance"
       ],
       "posts": [
         {
@@ -386,41 +636,54 @@
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
           "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3fabl",
+          "title": "Savings In ISA vs Deposit For FTB",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3fabl/savings_in_isa_vs_deposit_for_ftb/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3fabl/savings_in_isa_vs_deposit_for_ftb/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784724735,
+          "snippet": "Hi everyone. Solo ftb. I have lived at home all my life. I am 32. I am buying my first home. I lived at home rent free, we also all work in the same small family business. My take home is around £1850 per month. I have no kids, debts, commitments etc but am not likely to earn muc",
+          "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
       "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "UKPersonalFinance"
       ],
       "posts": [
         {
-          "id": "1v2o5pf",
-          "title": "Adult son [27m] has anxiety and ADHD. He has refused to search for work and has been signed off last year on LCWRA. I can't handle it anymore. If I were to divorce my wife, would my wife or son have any claim to my house?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2o5pf/adult_son_27m_has_anxiety_and_adhd_he_has_refused/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2o5pf/adult_son_27m_has_anxiety_and_adhd_he_has_refused/",
+          "id": "1v3c7ub",
+          "title": "I negotiated a higher salary and signed a contract for my new role, but my employer now says I must sign a new contract with a lower salary because they accidentally offered me too much (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3c7ub/i_negotiated_a_higher_salary_and_signed_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3c7ub/i_negotiated_a_higher_salary_and_signed_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784652902,
-          "snippet": "I'm on the verge of a breakdown over this. My question is primarily around how assets are divided during a divorce though. Adult son graduated at 21 with a 2:1 in English Literature. I advised him to study something else, but he wasn't interested in something more vocational and ",
+          "createdUtc": 1784716226,
+          "snippet": "Hi Reddit, I’m looking for some advice about a job I’m due to start in a few weeks. After interviewing, I was offered the role, but the starting salary was at the bottom of the advertised pay scale. Given my experience, I didn’t think it fairly reflected my background, so I asked",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v2oa5t",
-          "title": "My partner is threatening to go for full custody if I choose to continue with my pregnancy",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2oa5t/my_partner_is_threatening_to_go_for_full_custody/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2oa5t/my_partner_is_threatening_to_go_for_full_custody/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1v2ixsv",
+          "title": "How to correctly declare additional income (Adult content) away from normal self employment (Aesthetics/Beauty) and expenses ?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v2ixsv/how_to_correctly_declare_additional_income_adult/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v2ixsv/how_to_correctly_declare_additional_income_adult/",
+          "subreddit": "UKPersonalFinance",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784653167,
-          "snippet": "I found out I was pregnant last week, paid for a private scan which shows me now at 18 weeks and 1 day. My boyfriend initially said he would stand by me and whatever I decision I made, however, less than 1 week in he is now saying I have tricked him into this pregnancy and I am f",
+          "createdUtc": 1784641581,
+          "snippet": "I’ve rewrote this so many times in the attempt to not be judged and to ensure I get this across in the right way so please do excuse me. My doubts and concerns are that I have been self employed doing beauty and aesthetics for several years now and the self assessments have been ",
           "listingSource": "rss:hot"
         }
       ]
@@ -448,23 +711,23 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v24xdo",
-          "title": "My (F27) policeman bf (M32) was arrested this afternoon on suspicion of IIOC (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v24xdo/my_f27_policeman_bf_m32_was_arrested_this/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v24xdo/my_f27_policeman_bf_m32_was_arrested_this/",
+          "id": "1v3clem",
+          "title": "Arrested but don’t know what I’m being accused of",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3clem/arrested_but_dont_know_what_im_being_accused_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3clem/arrested_but_dont_know_what_im_being_accused_of/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784599133,
-          "snippet": "I’m still in a state of shock. We’ve been together 5 years. He’s been a special constable for 10 years and passed his probation as a response officer last September. As expected, the investigators couldn’t give me much information regarding the case other than stating an IP addre",
+          "createdUtc": 1784717413,
+          "snippet": "I was arrested for harassment. The police said I had sent messages to somebody. But I have no idea what these messages are. They interviewed me but never showed me the messages or read them out. I’ve found that there is a paragraph in the interview rules of PACE code C that says ",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "community-care",
-      "label": "Community Care",
-      "legalAreaSlug": "community_care",
+      "slug": "motoring-offences",
+      "label": "Motoring Offences",
+      "legalAreaSlug": "motoring_offences",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -472,15 +735,208 @@
       ],
       "posts": [
         {
-          "id": "1v2qzj7",
-          "title": "England social services are expecting me to care for my younger brother while they look for foster care, but I genuinely can’t",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2qzj7/england_social_services_are_expecting_me_to_care/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2qzj7/england_social_services_are_expecting_me_to_care/",
+          "id": "1v3j0q5",
+          "title": "Ever since I bought my car about a 2 month now, I haven’t received the logbook. But today I received a letter from dvla my car is sold and no longer belongs to me. What should I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3j0q5/ever_since_i_bought_my_car_about_a_2_month_now_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3j0q5/ever_since_i_bought_my_car_about_a_2_month_now_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784658750,
-          "snippet": "Hi everyone. I’m really lost and I don’t know what to do anymore. I recently moved to the UK on my own and I don’t have any family or friends here who can help me. My younger brother has been staying with me because social services are involved and are applying for a court order ",
+          "createdUtc": 1784733231,
+          "snippet": "It was bought from Audi main dealership at Canterbury. Should I contact them? Or contact dvla? This is England submitted by /u/thmt11 [link] [comments]",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK",
+        "UKPersonalFinance"
+      ],
+      "posts": [
+        {
+          "id": "1v2o5pf",
+          "title": "Adult son [27m] has anxiety and ADHD. He has refused to search for work and has been signed off last year on LCWRA. I can't handle it anymore. If I were to divorce my wife, would my wife or son have any claim to my house?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2o5pf/adult_son_27m_has_anxiety_and_adhd_he_has_refused/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v2o5pf/adult_son_27m_has_anxiety_and_adhd_he_has_refused/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784652902,
+          "snippet": "I'm on the verge of a breakdown over this. My question is primarily around how assets are divided during a divorce though. Adult son graduated at 21 with a 2:1 in English Literature. I advised him to study something else, but he wasn't interested in something more vocational and ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3ozca",
+          "title": "Brother died unexpectedly leaving wife and 5 kids behind. Is there anything we can claim/do to help his family get as much financial support as possible?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ozca/brother_died_unexpectedly_leaving_wife_and_5_kids/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ozca/brother_died_unexpectedly_leaving_wife_and_5_kids/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784745587,
+          "snippet": "Additional info: - he was a farmer all his life and recently left the family farm to work on a self employed basis at another farm - due to recent change, he hasn’t yet sorted any life insurance for himself (was planning to next week typically) - he died as a result of a mechanic",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1v3ml7e",
+          "title": "eBay Watch Purchase Gone Bad...",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3ml7e/ebay_watch_purchase_gone_bad/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v3ml7e/ebay_watch_purchase_gone_bad/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784740663,
+          "snippet": "Hi, I believe this is my first post to Reddit, quite new here so please bear with me. Long story short, I purchased a Bremont watch from eBay (to the tune of £1,350 approx.) and when it came it was not functioning correctly. I then sent it off to a Bremont service centre to have ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "welfare-benefits",
+      "label": "Welfare Benefits",
+      "legalAreaSlug": "welfare_benefits",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "UKPersonalFinance"
+      ],
+      "posts": [
+        {
+          "id": "1v3mp1j",
+          "title": "Receiving £22000 inheritance on benefits ,I'm in poverty, can I spend £4000 on certain items",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3mp1j/receiving_22000_inheritance_on_benefits_im_in/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3mp1j/receiving_22000_inheritance_on_benefits_im_in/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784740881,
+          "snippet": "I'm in receipt of universal credit and limited capacity to work benefit I want to know as I am currently in poverty with few clothes and shoes can I spend that £4000 that otherwise stops my UC claim on items such as clothes , new shoes , shirts etc, I have no proper shirts etc no",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "banking-and-finance",
+      "label": "Banking and Finance",
+      "legalAreaSlug": "banking_finance",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "UKPersonalFinance"
+      ],
+      "posts": [
+        {
+          "id": "1v3dfww",
+          "title": "Adding £9k for Solar + Battery via mortgage equity loan vs. staying as-is. Does the math hold up?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3dfww/adding_9k_for_solar_battery_via_mortgage_equity/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3dfww/adding_9k_for_solar_battery_via_mortgage_equity/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784719849,
+          "snippet": "Trying to get my head around the pros and cons of investing in solar panels. I have been using A.I to run the numbers but it's always good to get a human input into these things. This post has been written with the help of A.I because I struggle with numbers and keeping track, I ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "faulty-goods-and-refunds",
+      "label": "Faulty Goods and Refunds",
+      "legalAreaSlug": "consumer_goods",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "UKPersonalFinance"
+      ],
+      "posts": [
+        {
+          "id": "1v3ogkj",
+          "title": "What to do with spare 4k tax refund",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ogkj/what_to_do_with_spare_4k_tax_refund/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ogkj/what_to_do_with_spare_4k_tax_refund/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784744486,
+          "snippet": "I used to work part time as a student and today, 1 year later i received a letter from hmrc stating I’ve over paid my taxes and I’m due a refund. As a recent graduate, Im new to investing and managing money and would appreciate advice on how to best invest it. submitted by /u/Fan",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "UKPersonalFinance"
+      ],
+      "posts": [
+        {
+          "id": "1v3ku9j",
+          "title": "IVA- money earned over threshold",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ku9j/iva_money_earned_over_threshold/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3ku9j/iva_money_earned_over_threshold/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784737052,
+          "snippet": "I have just had my annual review and I am being asked to pay a substantial amount (to me) as I have earned over the threshold. I increased my hours to be able to afford the new rent when I moved. If my income and costs raised at the same time can they make me pay this? I don’t ha",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v3c3f1",
+          "title": "Debt relief order and Monzo pension. Is it affected?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3c3f1/debt_relief_order_and_monzo_pension_is_it_affected/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3c3f1/debt_relief_order_and_monzo_pension_is_it_affected/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784715825,
+          "snippet": "I am about to submit a Drop after getting advice. I have a debt with Monzo, which is being put into it and I have been advised by Money wellness that Monzo will close my account. I transferred my meagre pension to Monzo several months back, so I wondered whether they would use pa",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "UKPersonalFinance"
+      ],
+      "posts": [
+        {
+          "id": "1v3hhw6",
+          "title": "Hastings wants to cancel my insurance because of extension building works",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3hhw6/hastings_wants_to_cancel_my_insurance_because_of/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1v3hhw6/hastings_wants_to_cancel_my_insurance_because_of/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784729896,
+          "snippet": "Hi. Hope this is correct place for this question. I am planning the house extension works - ground floor kitchen/dining room: have architect drawn the plans, applied and received the approval, notified the mortgage bank company, builder lined up, got a date, etc. everything is in",
           "listingSource": "rss:hot"
         }
       ]
