@@ -20,22 +20,21 @@ declare global {
           "expired-callback"?: () => void;
           "error-callback"?: () => void;
           theme?: "light" | "dark" | "auto";
-          execution?: "render" | "execute";
         },
       ) => string;
-      execute: (widgetId?: string) => void;
       reset: (widgetId?: string) => void;
       remove: (widgetId?: string) => void;
+      getResponse: (widgetId?: string) => string | undefined;
     };
   }
 }
 
 const TURNSTILE_SCRIPT_ID = "cloudflare-turnstile-script";
-const CHALLENGE_TIMEOUT_MS = 30_000;
 
 export type TurnstileHandle = {
-  /** Run a fresh challenge and return a single-use token for the login/register request. */
-  runChallenge: () => Promise<string>;
+  getToken: () => string | null;
+  resetWidget: () => void;
+  isReady: () => boolean;
 };
 
 type TurnstileFieldProps = {
@@ -47,54 +46,37 @@ export const TurnstileField = forwardRef<TurnstileHandle, TurnstileFieldProps>(
     const containerId = useId().replace(/:/g, "");
     const containerRef = useRef<HTMLDivElement>(null);
     const widgetIdRef = useRef<string | null>(null);
-    const pendingRef = useRef<{
-      resolve: (token: string) => void;
-      reject: (error: Error) => void;
-      timeoutId: ReturnType<typeof setTimeout>;
-    } | null>(null);
+    const tokenRef = useRef<string | null>(null);
     const [scriptReady, setScriptReady] = useState(false);
     const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() ?? "";
-
-    function clearPending(rejectReason?: Error) {
-      const pending = pendingRef.current;
-      if (!pending) return;
-      clearTimeout(pending.timeoutId);
-      pendingRef.current = null;
-      if (rejectReason) pending.reject(rejectReason);
-    }
 
     useImperativeHandle(
       ref,
       () => ({
-        runChallenge: () =>
-          new Promise<string>((resolve, reject) => {
-            if (!siteKey) {
-              reject(new Error("CAPTCHA is not configured"));
-              return;
-            }
-            if (!window.turnstile || !widgetIdRef.current) {
-              reject(new Error("CAPTCHA is not ready yet"));
-              return;
-            }
-
-            clearPending(new Error("CAPTCHA was restarted"));
-
-            const timeoutId = setTimeout(() => {
-              clearPending(new Error("CAPTCHA timed out"));
-            }, CHALLENGE_TIMEOUT_MS);
-
-            pendingRef.current = { resolve, reject, timeoutId };
-
+        getToken: () => {
+          if (tokenRef.current) return tokenRef.current;
+          if (!window.turnstile || !widgetIdRef.current) return null;
+          const live = window.turnstile.getResponse(widgetIdRef.current);
+          return live?.trim() ? live : null;
+        },
+        resetWidget: () => {
+          tokenRef.current = null;
+          if (window.turnstile && widgetIdRef.current) {
             try {
               window.turnstile.reset(widgetIdRef.current);
-              window.turnstile.execute(widgetIdRef.current);
             } catch {
-              clearPending(new Error("CAPTCHA could not start"));
+              /* ignore */
             }
-          }),
+          }
+        },
+        isReady: () => Boolean(window.turnstile && widgetIdRef.current),
       }),
-      [siteKey],
+      [],
     );
+
+    useEffect(() => {
+      tokenRef.current = null;
+    }, [resetKey]);
 
     useEffect(() => {
       if (!siteKey) return;
@@ -120,10 +102,6 @@ export const TurnstileField = forwardRef<TurnstileHandle, TurnstileFieldProps>(
     }, [siteKey]);
 
     useEffect(() => {
-      clearPending(new Error("CAPTCHA was reset"));
-    }, [resetKey]);
-
-    useEffect(() => {
       if (!siteKey || !scriptReady || !containerRef.current || !window.turnstile) return;
 
       if (widgetIdRef.current) {
@@ -135,24 +113,24 @@ export const TurnstileField = forwardRef<TurnstileHandle, TurnstileFieldProps>(
         widgetIdRef.current = null;
       }
 
+      tokenRef.current = null;
       containerRef.current.innerHTML = "";
       widgetIdRef.current = window.turnstile.render(containerRef.current, {
         sitekey: siteKey,
         theme: "auto",
-        execution: "execute",
         callback: (token) => {
-          const pending = pendingRef.current;
-          if (!pending) return;
-          clearTimeout(pending.timeoutId);
-          pendingRef.current = null;
-          pending.resolve(token);
+          tokenRef.current = token;
         },
-        "expired-callback": () => clearPending(new Error("CAPTCHA expired")),
-        "error-callback": () => clearPending(new Error("CAPTCHA failed")),
+        "expired-callback": () => {
+          tokenRef.current = null;
+        },
+        "error-callback": () => {
+          tokenRef.current = null;
+        },
       });
 
       return () => {
-        clearPending(new Error("CAPTCHA was reset"));
+        tokenRef.current = null;
         if (widgetIdRef.current && window.turnstile) {
           try {
             window.turnstile.remove(widgetIdRef.current);

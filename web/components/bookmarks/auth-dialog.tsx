@@ -25,6 +25,8 @@ type AuthDialogProps = {
   pendingFirmName?: string;
 };
 
+const AUTH_FETCH_TIMEOUT_MS = 20_000;
+
 function defaultTabForReason(reason: AuthDialogReason): "register" | "login" {
   return reason === "login" ? "login" : "register";
 }
@@ -52,6 +54,31 @@ function copyForReason(reason: AuthDialogReason, pendingFirmName?: string) {
   };
 }
 
+async function postAuth(
+  path: "/api/auth/login" | "/api/auth/register",
+  body: Record<string, unknown>,
+): Promise<{ ok: boolean; status: number; data: { user?: PublicUser; error?: string } }> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), AUTH_FETCH_TIMEOUT_MS);
+  try {
+    const res = await fetch(path, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+    const data = (await res.json()) as { user?: PublicUser; error?: string };
+    return { ok: res.ok, status: res.status, data };
+  } catch (err) {
+    if (err instanceof Error && err.name === "AbortError") {
+      return { ok: false, status: 0, data: { error: "Request timed out. Try again." } };
+    }
+    return { ok: false, status: 0, data: { error: "Network error. Try again." } };
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
 export function AuthDialog({
   open,
   onOpenChange,
@@ -72,7 +99,6 @@ export function AuthDialog({
   const { title, description } = copyForReason(reason, pendingFirmName);
   const turnstileRequired = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim());
 
-  // Align the active tab whenever the dialog opens for a new reason.
   useEffect(() => {
     if (open) {
       setTab(defaultTabForReason(reason));
@@ -82,6 +108,7 @@ export function AuthDialog({
   }, [open, reason]);
 
   function bumpCaptcha() {
+    turnstileRef.current?.resetWidget();
     setCaptchaResetKey((k) => k + 1);
   }
 
@@ -91,19 +118,18 @@ export function AuthDialog({
     bumpCaptcha();
   }
 
-  async function resolveCaptchaToken(): Promise<string | undefined> {
-    if (!turnstileRequired) return undefined;
-    try {
-      return await turnstileRef.current?.runChallenge();
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Complete the CAPTCHA verification";
-      setError(
-        message.includes("timed out") || message.includes("expired")
-          ? "CAPTCHA timed out. Click Sign in again to retry."
-          : "Complete the CAPTCHA verification",
-      );
-      return undefined;
+  function resolveCaptchaToken(): string | null {
+    if (!turnstileRequired) return null;
+    if (!turnstileRef.current?.isReady()) {
+      setError("CAPTCHA is still loading. Wait a moment and try again.");
+      return null;
     }
+    const token = turnstileRef.current.getToken();
+    if (!token) {
+      setError("Complete the CAPTCHA check below, then click Sign in.");
+      return null;
+    }
+    return token;
   }
 
   async function submitRegister(e: React.FormEvent) {
@@ -112,37 +138,33 @@ export function AuthDialog({
       setError("Passwords do not match");
       return;
     }
+
+    const captchaToken = resolveCaptchaToken();
+    if (turnstileRequired && !captchaToken) return;
+
     setSubmitting(true);
     setError(null);
     try {
-      const captchaToken = await resolveCaptchaToken();
-      if (turnstileRequired && !captchaToken) {
-        setSubmitting(false);
-        return;
-      }
-
-      const res = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          name: name.trim() || undefined,
-          email,
-          password,
-          confirmPassword,
-          captchaToken,
-        }),
+      const { ok, status, data } = await postAuth("/api/auth/register", {
+        name: name.trim() || undefined,
+        email,
+        password,
+        confirmPassword,
+        captchaToken: captchaToken ?? undefined,
       });
-      const data = (await res.json()) as { user?: PublicUser; error?: string };
-      if (!res.ok) {
+      if (!ok) {
         setError(data.error ?? "Could not create account");
-        if (res.status === 409) setTab("login");
+        if (status === 409) setTab("login");
         bumpCaptcha();
         return;
       }
-      if (data.user) {
-        resetSensitiveFields();
-        onSuccess(data.user);
+      if (!data.user) {
+        setError("Account created but sign-in failed. Try signing in.");
+        bumpCaptcha();
+        return;
       }
+      resetSensitiveFields();
+      onSuccess(data.user);
     } finally {
       setSubmitting(false);
     }
@@ -150,37 +172,30 @@ export function AuthDialog({
 
   async function submitLogin(e: React.FormEvent) {
     e.preventDefault();
+
+    const captchaToken = resolveCaptchaToken();
+    if (turnstileRequired && !captchaToken) return;
+
     setSubmitting(true);
     setError(null);
     try {
-      const captchaToken = await resolveCaptchaToken();
-      if (turnstileRequired && !captchaToken) {
-        setSubmitting(false);
-        return;
-      }
-
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          email,
-          password,
-          captchaToken,
-        }),
+      const { ok, data } = await postAuth("/api/auth/login", {
+        email,
+        password,
+        captchaToken: captchaToken ?? undefined,
       });
-      const data = (await res.json()) as {
-        user?: PublicUser;
-        error?: string;
-      };
-      if (!res.ok) {
+      if (!ok) {
         setError(data.error ?? "Could not sign in");
         bumpCaptcha();
         return;
       }
-      if (data.user) {
-        resetSensitiveFields();
-        onSuccess(data.user);
+      if (!data.user) {
+        setError("Signed in but session could not be created. Try again.");
+        bumpCaptcha();
+        return;
       }
+      resetSensitiveFields();
+      onSuccess(data.user);
     } finally {
       setSubmitting(false);
     }
@@ -259,6 +274,11 @@ export function AuthDialog({
                   required
                 />
               </div>
+              <TurnstileField
+                ref={turnstileRef}
+                key={`register-captcha-${captchaResetKey}`}
+                resetKey={captchaResetKey}
+              />
               {error ? <p className="text-sm text-destructive">{error}</p> : null}
               <Button type="submit" className="w-full" disabled={submitting}>
                 {submitting ? "Creating account…" : "Create free account"}
@@ -293,6 +313,11 @@ export function AuthDialog({
                   required
                 />
               </div>
+              <TurnstileField
+                ref={turnstileRef}
+                key={`login-captcha-${captchaResetKey}`}
+                resetKey={captchaResetKey}
+              />
               {error ? <p className="text-sm text-destructive">{error}</p> : null}
               <Button type="submit" className="w-full" disabled={submitting}>
                 {submitting ? "Signing in…" : "Sign in"}
@@ -300,17 +325,6 @@ export function AuthDialog({
             </form>
           </TabsContent>
         </Tabs>
-
-        <TurnstileField
-          ref={turnstileRef}
-          key={`auth-captcha-${captchaResetKey}`}
-          resetKey={captchaResetKey}
-        />
-        {turnstileRequired ? (
-          <p className="text-xs text-muted-foreground">
-            CAPTCHA runs when you click Sign in or Create account.
-          </p>
-        ) : null}
       </DialogContent>
     </Dialog>
   );
