@@ -14,6 +14,7 @@ import type { PublicUser } from "@/lib/auth/user-session";
 import type { BookmarkInput, BookmarkKey, BookmarkRecord } from "@/lib/bookmarks/types";
 import { bookmarkKeyString } from "@/lib/bookmarks/types";
 import { AuthDialog, type AuthDialogReason } from "@/components/bookmarks/auth-dialog";
+import { resolveApiUrl } from "@/lib/site/api-url";
 
 type BookmarksContextValue = {
   user: PublicUser | null;
@@ -51,7 +52,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   const pendingSearchActionRef = useRef<(() => void) | null>(null);
 
   const refreshBookmarks = useCallback(async () => {
-    const res = await fetch("/api/bookmarks");
+    const res = await fetch(resolveApiUrl("/api/bookmarks"));
     if (res.status === 401) {
       setBookmarks([]);
       return;
@@ -64,7 +65,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   const loadSession = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/auth/session");
+      const res = await fetch(resolveApiUrl("/api/auth/session"));
       if (!res.ok) {
         setUser(null);
         setBookmarks([]);
@@ -87,7 +88,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   }, [loadSession]);
 
   const addBookmark = useCallback(async (input: BookmarkInput): Promise<boolean> => {
-    const res = await fetch("/api/bookmarks", {
+    const res = await fetch(resolveApiUrl("/api/bookmarks"), {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(input),
@@ -103,7 +104,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const removeBookmark = useCallback(async (key: BookmarkKey): Promise<boolean> => {
-    const res = await fetch("/api/bookmarks", {
+    const res = await fetch(resolveApiUrl("/api/bookmarks"), {
       method: "DELETE",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(key),
@@ -178,7 +179,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   );
 
   const signOut = useCallback(async () => {
-    await fetch("/api/auth/logout", { method: "POST" });
+    await fetch(resolveApiUrl("/api/auth/logout"), { method: "POST" });
     setUser(null);
     setBookmarks([]);
     setPendingBookmark(null);

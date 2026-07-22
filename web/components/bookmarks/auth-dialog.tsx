@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TurnstileField, type TurnstileHandle } from "@/components/auth/turnstile-field";
+import { resolveApiUrl } from "@/lib/site/api-url";
 
 export type AuthDialogReason = "bookmark" | "search" | "login";
 
@@ -61,13 +62,37 @@ async function postAuth(
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), AUTH_FETCH_TIMEOUT_MS);
   try {
-    const res = await fetch(path, {
+    const url = resolveApiUrl(path);
+    const crossOrigin =
+      typeof window !== "undefined" &&
+      url.startsWith("http") &&
+      !url.startsWith(window.location.origin);
+
+    const res = await fetch(url, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(body),
       signal: controller.signal,
+      credentials: crossOrigin ? "include" : "same-origin",
     });
-    const data = (await res.json()) as { user?: PublicUser; error?: string };
+    const text = await res.text();
+    let data: { user?: PublicUser; error?: string } = {};
+    if (text) {
+      try {
+        data = JSON.parse(text) as { user?: PublicUser; error?: string };
+      } catch {
+        return {
+          ok: false,
+          status: res.status,
+          data: {
+            error:
+              res.status >= 500
+                ? "Server error. Try again on www.legalshaman.com."
+                : "Unexpected server response. Try again.",
+          },
+        };
+      }
+    }
     return { ok: res.ok, status: res.status, data };
   } catch (err) {
     if (err instanceof Error && err.name === "AbortError") {
