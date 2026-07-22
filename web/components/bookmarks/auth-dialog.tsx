@@ -76,10 +76,10 @@ async function postAuth(
       credentials: crossOrigin ? "include" : "same-origin",
     });
     const text = await res.text();
-    let data: { user?: PublicUser; error?: string } = {};
+    let data: { user?: PublicUser; error?: string; message?: string } = {};
     if (text) {
       try {
-        data = JSON.parse(text) as { user?: PublicUser; error?: string };
+        data = JSON.parse(text) as { user?: PublicUser; error?: string; message?: string };
       } catch {
         return {
           ok: false,
@@ -93,7 +93,8 @@ async function postAuth(
         };
       }
     }
-    return { ok: res.ok, status: res.status, data };
+    const error = data.error ?? data.message;
+    return { ok: res.ok, status: res.status, data: { user: data.user, error } };
   } catch (err) {
     if (err instanceof Error && err.name === "AbortError") {
       return { ok: false, status: 0, data: { error: "Request timed out. Try again." } };
