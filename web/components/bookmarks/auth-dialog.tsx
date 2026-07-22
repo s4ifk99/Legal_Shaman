@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { PublicUser } from "@/lib/auth/user-session";
 import {
   Dialog,
@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TurnstileField } from "@/components/auth/turnstile-field";
+import { TurnstileField, type TurnstileHandle } from "@/components/auth/turnstile-field";
 
 export type AuthDialogReason = "bookmark" | "search" | "login";
 
@@ -64,10 +64,10 @@ export function AuthDialog({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [captchaResetKey, setCaptchaResetKey] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const turnstileRef = useRef<TurnstileHandle>(null);
 
   const { title, description } = copyForReason(reason, pendingFirmName);
   const turnstileRequired = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim());
@@ -77,17 +77,11 @@ export function AuthDialog({
     if (open) {
       setTab(defaultTabForReason(reason));
       setError(null);
-      setCaptchaToken(null);
       setCaptchaResetKey((k) => k + 1);
     }
   }, [open, reason]);
 
-  const handleCaptchaChange = useCallback((token: string | null) => {
-    setCaptchaToken(token);
-  }, []);
-
   function bumpCaptcha() {
-    setCaptchaToken(null);
     setCaptchaResetKey((k) => k + 1);
   }
 
@@ -97,19 +91,36 @@ export function AuthDialog({
     bumpCaptcha();
   }
 
+  async function resolveCaptchaToken(): Promise<string | undefined> {
+    if (!turnstileRequired) return undefined;
+    try {
+      return await turnstileRef.current?.runChallenge();
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Complete the CAPTCHA verification";
+      setError(
+        message.includes("timed out") || message.includes("expired")
+          ? "CAPTCHA timed out. Click Sign in again to retry."
+          : "Complete the CAPTCHA verification",
+      );
+      return undefined;
+    }
+  }
+
   async function submitRegister(e: React.FormEvent) {
     e.preventDefault();
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
-    if (turnstileRequired && !captchaToken) {
-      setError("Complete the CAPTCHA verification");
-      return;
-    }
     setSubmitting(true);
     setError(null);
     try {
+      const captchaToken = await resolveCaptchaToken();
+      if (turnstileRequired && !captchaToken) {
+        setSubmitting(false);
+        return;
+      }
+
       const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -118,7 +129,7 @@ export function AuthDialog({
           email,
           password,
           confirmPassword,
-          captchaToken: captchaToken ?? undefined,
+          captchaToken,
         }),
       });
       const data = (await res.json()) as { user?: PublicUser; error?: string };
@@ -139,20 +150,22 @@ export function AuthDialog({
 
   async function submitLogin(e: React.FormEvent) {
     e.preventDefault();
-    if (turnstileRequired && !captchaToken) {
-      setError("Complete the CAPTCHA verification");
-      return;
-    }
     setSubmitting(true);
     setError(null);
     try {
+      const captchaToken = await resolveCaptchaToken();
+      if (turnstileRequired && !captchaToken) {
+        setSubmitting(false);
+        return;
+      }
+
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           email,
           password,
-          captchaToken: captchaToken ?? undefined,
+          captchaToken,
         }),
       });
       const data = (await res.json()) as {
@@ -246,11 +259,6 @@ export function AuthDialog({
                   required
                 />
               </div>
-              <TurnstileField
-                key={`register-captcha-${captchaResetKey}`}
-                onTokenChange={handleCaptchaChange}
-                resetKey={captchaResetKey}
-              />
               {error ? <p className="text-sm text-destructive">{error}</p> : null}
               <Button type="submit" className="w-full" disabled={submitting}>
                 {submitting ? "Creating account…" : "Create free account"}
@@ -285,11 +293,6 @@ export function AuthDialog({
                   required
                 />
               </div>
-              <TurnstileField
-                key={`login-captcha-${captchaResetKey}`}
-                onTokenChange={handleCaptchaChange}
-                resetKey={captchaResetKey}
-              />
               {error ? <p className="text-sm text-destructive">{error}</p> : null}
               <Button type="submit" className="w-full" disabled={submitting}>
                 {submitting ? "Signing in…" : "Sign in"}
@@ -297,6 +300,17 @@ export function AuthDialog({
             </form>
           </TabsContent>
         </Tabs>
+
+        <TurnstileField
+          ref={turnstileRef}
+          key={`auth-captcha-${captchaResetKey}`}
+          resetKey={captchaResetKey}
+        />
+        {turnstileRequired ? (
+          <p className="text-xs text-muted-foreground">
+            CAPTCHA runs when you click Sign in or Create account.
+          </p>
+        ) : null}
       </DialogContent>
     </Dialog>
   );

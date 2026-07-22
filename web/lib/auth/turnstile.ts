@@ -43,7 +43,7 @@ function turnstileUserError(codes: string[] | undefined): string {
 /** Verify Cloudflare Turnstile token server-side. */
 export async function verifyTurnstileToken(
   token: string,
-  remoteIp?: string,
+  _remoteIp?: string,
 ): Promise<{ ok: boolean; error?: string }> {
   const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
   if (!secret) {
@@ -61,12 +61,7 @@ export async function verifyTurnstileToken(
   const trimmed = token.trim();
 
   try {
-    // Prefer verification without remoteip — Vercel/proxy IPs often mismatch Turnstile's
-    // client IP and cause false failures even when the widget shows Success.
-    let data = await callTurnstileSiteverify(secret, trimmed);
-    if (!data.success && remoteIp) {
-      data = await callTurnstileSiteverify(secret, trimmed, remoteIp);
-    }
+    const data = await callTurnstileSiteverify(secret, trimmed);
     if (!data.success) {
       console.warn("[turnstile] siteverify rejected:", data["error-codes"] ?? []);
       return { ok: false, error: turnstileUserError(data["error-codes"]) };
