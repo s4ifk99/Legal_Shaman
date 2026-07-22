@@ -28,10 +28,14 @@ if (!url) {
   process.exit(1);
 }
 
+const host = url.match(/@([^/?]+)/)?.[1] ?? "(unknown host)";
+console.info(JSON.stringify({ event: "prisma_migrate_target", target, host }));
+
 const prismaBin = resolve(process.cwd(), "node_modules", ".bin", "prisma");
 const r = spawnSync(prismaBin, ["migrate", "deploy"], {
   stdio: "inherit",
-  env: { ...process.env, DATABASE_URL: url },
+  // PRISMA_DATABASE_URL wins over .env.local in prisma.config.ts
+  env: { ...process.env, PRISMA_DATABASE_URL: url, DATABASE_URL: url },
   cwd: process.cwd(),
 });
 
