@@ -1,6 +1,6 @@
 import "./load-dotenv";
 
-import { prisma } from "@/lib/db/prisma";
+import { accountsPrisma } from "@/lib/db/accounts";
 
 type LegacyUserRow = {
   id: string;
@@ -15,7 +15,7 @@ async function main() {
   const limitArg = process.argv.find((a) => a.startsWith("--limit="));
   const limit = limitArg ? Number(limitArg.split("=")[1]) : undefined;
 
-  const users = await prisma.user.findMany({
+  const users = await accountsPrisma.user.findMany({
     where: { passwordHash: null },
     select: {
       id: true,
@@ -53,7 +53,7 @@ async function main() {
     return;
   }
 
-  const deleted = await prisma.user.deleteMany({
+  const deleted = await accountsPrisma.user.deleteMany({
     where: { id: { in: legacyIds }, passwordHash: null },
   });
 
@@ -75,5 +75,5 @@ main()
     process.exit(1);
   })
   .finally(async () => {
-    await prisma.$disconnect();
+    await accountsPrisma.$disconnect();
   });

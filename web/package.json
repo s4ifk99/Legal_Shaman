@@ -10,6 +10,8 @@
     "postinstall": "prisma generate",
     "db:generate": "prisma generate",
     "db:migrate": "tsx scripts/prisma-with-env.ts migrate deploy",
+    "db:migrate:accounts": "tsx scripts/prisma-migrate-target.ts accounts",
+    "db:migrate:data": "tsx scripts/prisma-migrate-target.ts data",
     "db:migrate:dev": "tsx scripts/prisma-with-env.ts migrate dev",
     "db:verify": "tsx scripts/db-verify.ts",
     "db:seed": "tsx prisma/seed.ts",

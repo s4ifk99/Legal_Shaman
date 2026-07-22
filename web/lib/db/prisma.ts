@@ -5,16 +5,24 @@ import { Pool } from "pg";
 export type CreatePrismaClientOptions = {
   /** When true, omit error-level Prisma logs (for optional catalogue / signal reads). */
   quiet?: boolean;
+  /**
+   * Explicit connection string. When omitted, uses DATABASE_URL.
+   * Prefer ACCOUNTS_DATABASE_URL / DATA_DATABASE_URL helpers in sibling modules.
+   */
+  connectionString?: string;
+  /** Label for error messages (e.g. "accounts", "data"). */
+  label?: string;
 };
 
 /**
  * Prisma 7 requires a driver adapter (or Accelerate URL) at construction time.
  */
 export function createPrismaClient(options?: CreatePrismaClientOptions): PrismaClient {
-  const connectionString = process.env.DATABASE_URL;
+  const connectionString = options?.connectionString ?? process.env.DATABASE_URL;
+  const label = options?.label ?? "default";
   if (!connectionString) {
     throw new Error(
-      "DATABASE_URL is not set. Copy .env.example to .env.local and configure Postgres.",
+      `DATABASE_URL is not set (${label}). Copy .env.example to .env.local and configure Postgres.`,
     );
   }
 
@@ -50,14 +58,23 @@ export function getOptionalPrismaClient(): PrismaClient {
 }
 
 /**
- * Singleton Prisma client. Reuse one instance per Node process so we don't
- * exhaust Postgres connections during Next.js dev hot-reloads.
+ * Singleton Prisma client for heavy / catalogue data (SRA, knowledge, search events).
+ * Uses DATA_DATABASE_URL when set, otherwise DATABASE_URL.
  */
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
 };
 
-export const prisma = globalForPrisma.prisma ?? createPrismaClient();
+function dataConnectionString(): string | undefined {
+  return process.env.DATA_DATABASE_URL?.trim() || process.env.DATABASE_URL?.trim();
+}
+
+export const prisma =
+  globalForPrisma.prisma ??
+  createPrismaClient({
+    connectionString: dataConnectionString(),
+    label: "data",
+  });
 
 if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = prisma;

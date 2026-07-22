@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db/prisma";
+import { accountsPrisma } from "@/lib/db/accounts";
 import { getCurrentUser } from "@/lib/auth/get-current-user";
 import { BookmarkDeleteSchema, BookmarkSchema } from "@/lib/bookmarks/schemas";
 import type { BookmarkRecord } from "@/lib/bookmarks/types";
@@ -26,7 +26,7 @@ export async function GET() {
     return NextResponse.json({ error: "Sign in required" }, { status: 401 });
   }
 
-  const rows = await prisma.bookmark.findMany({
+  const rows = await accountsPrisma.bookmark.findMany({
     where: { userId: user.id },
     orderBy: { createdAt: "desc" },
   });
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
   }
 
   const { entityId, resultSource, businessName } = parsed.data;
-  const bookmark = await prisma.bookmark.upsert({
+  const bookmark = await accountsPrisma.bookmark.upsert({
     where: {
       userId_entityId_resultSource: {
         userId: user.id,
@@ -99,7 +99,7 @@ export async function DELETE(req: Request) {
     );
   }
 
-  await prisma.bookmark.deleteMany({
+  await accountsPrisma.bookmark.deleteMany({
     where: {
       userId: user.id,
       entityId: parsed.data.entityId,

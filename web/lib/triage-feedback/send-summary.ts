@@ -1,6 +1,6 @@
 import "server-only";
 
-import { prisma } from "@/lib/db/prisma";
+import { accountsPrisma } from "@/lib/db/accounts";
 import { isTriageFeedbackEmailEnabled } from "@/lib/email/config";
 import { sendTriageSummaryEmail } from "@/lib/email/triage-summary";
 import type { TriageResultSection } from "@/lib/legal-search/triage/types";
@@ -43,7 +43,7 @@ export async function sendTriageFeedbackSummary(
     return { ok: false, error: "no_results", status: 400 };
   }
 
-  const existing = await prisma.triageFeedbackEmail.findUnique({
+  const existing = await accountsPrisma.triageFeedbackEmail.findUnique({
     where: { sessionId: input.sessionId },
     select: { id: true },
   });
@@ -65,7 +65,7 @@ export async function sendTriageFeedbackSummary(
     return { ok: false, error: sendResult.error ?? "email_send_failed", status: 502 };
   }
 
-  await prisma.triageFeedbackEmail.create({
+  await accountsPrisma.triageFeedbackEmail.create({
     data: {
       sessionId: input.sessionId,
       email,

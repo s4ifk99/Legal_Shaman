@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db/prisma";
+import { accountsPrisma } from "@/lib/db/accounts";
 import { LoginSchema } from "@/lib/bookmarks/schemas";
 import { setUserSessionCookie } from "@/lib/auth/user-session";
 import { verifyPassword } from "@/lib/auth/password";
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     }
 
     const email = parsed.data.email.toLowerCase();
-    const user = await prisma.user.findUnique({
+    const user = await accountsPrisma.user.findUnique({
       where: { email },
       select: { id: true, name: true, email: true, passwordHash: true },
     });

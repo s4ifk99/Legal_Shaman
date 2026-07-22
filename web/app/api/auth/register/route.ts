@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db/prisma";
+import { accountsPrisma } from "@/lib/db/accounts";
 import { RegisterSchema } from "@/lib/bookmarks/schemas";
 import { setUserSessionCookie } from "@/lib/auth/user-session";
 import { hashPassword } from "@/lib/auth/password";
@@ -48,7 +48,7 @@ export async function POST(req: Request) {
     }
 
     const email = parsed.data.email.toLowerCase();
-    const existing = await prisma.user.findUnique({ where: { email } });
+    const existing = await accountsPrisma.user.findUnique({ where: { email } });
     if (existing) {
       return NextResponse.json(
         { error: "An account with this email already exists. Sign in instead." },
@@ -59,7 +59,7 @@ export async function POST(req: Request) {
     const passwordHash = await hashPassword(parsed.data.password);
     const name = parsed.data.name?.trim() || defaultNameFromEmail(email);
 
-    const user = await prisma.user.create({
+    const user = await accountsPrisma.user.create({
       data: { name, email, passwordHash },
       select: { id: true, name: true, email: true },
     });

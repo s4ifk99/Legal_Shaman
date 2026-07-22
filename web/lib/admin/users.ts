@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/db/prisma";
+import { accountsPrisma } from "@/lib/db/accounts";
 
 export type AdminUserRow = {
   id: string;
@@ -22,7 +22,7 @@ export async function getAdminUsers(): Promise<AdminUsersPayload> {
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 
   const [users, total, withPassword, last7Days] = await Promise.all([
-    prisma.user.findMany({
+    accountsPrisma.user.findMany({
       orderBy: { createdAt: "desc" },
       select: {
         id: true,
@@ -34,9 +34,9 @@ export async function getAdminUsers(): Promise<AdminUsersPayload> {
         _count: { select: { bookmarks: true } },
       },
     }),
-    prisma.user.count(),
-    prisma.user.count({ where: { passwordHash: { not: null } } }),
-    prisma.user.count({ where: { createdAt: { gte: sevenDaysAgo } } }),
+    accountsPrisma.user.count(),
+    accountsPrisma.user.count({ where: { passwordHash: { not: null } } }),
+    accountsPrisma.user.count({ where: { createdAt: { gte: sevenDaysAgo } } }),
   ]);
 
   return {

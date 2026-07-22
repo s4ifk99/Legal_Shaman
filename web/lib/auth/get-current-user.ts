@@ -1,11 +1,11 @@
-import { prisma } from "@/lib/db/prisma";
+import { accountsPrisma } from "@/lib/db/accounts";
 import { getUserIdFromSessionCookie, type PublicUser } from "@/lib/auth/user-session";
 
 export async function getCurrentUser(): Promise<PublicUser | null> {
   const userId = await getUserIdFromSessionCookie();
   if (!userId) return null;
 
-  const user = await prisma.user.findUnique({
+  const user = await accountsPrisma.user.findUnique({
     where: { id: userId },
     select: { id: true, name: true, email: true },
   });
