@@ -1,15 +1,44 @@
 import type { RetrievedChunk } from "./types";
 
+/** Strip Obsidian/wiki/markdown noise into readable user-facing prose. */
+export function cleanWikiMarkup(text: string): string {
+  if (!text) return "";
+  let cleaned = text
+    // Obsidian wikilinks: [[Title]] or [[path|Title]]
+    .replace(/\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|([^\]]+))?\]\]/g, (_m, path: string, alias?: string) => {
+      const label = (alias ?? path).split("/").pop()?.trim() ?? path;
+      return label;
+    })
+    // Markdown links: [label](url)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+    // Bare "Source: ..." fragments (often scraped into summaries)
+    .replace(/(?:^|\s)Source:\s*[^.!?\n]+[.!?]?/gi, " ")
+    // Leaked authoring instructions from wiki pages
+    .replace(
+      /\bAnswers should cite the source URL and raw file path from each page'?s Sources section\.?/gi,
+      "",
+    )
+    .replace(/\b(raw file path|cite the source URL)\b[^.?!]*[.?!]?/gi, "")
+    .replace(/^#+\s+.+$/gm, "")
+    .replace(/^\s*[-*]\s+/gm, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  cleaned = cleaned
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+([,.;:!?])/g, "$1")
+    .replace(/([.!?])\s*([.!?])+/g, "$1")
+    .trim();
+
+  return cleaned;
+}
+
 /** Strip wiki/markdown noise and return 1–2 complete sentences for prose answers. */
 export function cleanChunkForProse(text: string, maxSentences = 2): string {
-  let cleaned = text
-    .replace(/^#+\s+.+$/gm, "")
+  let cleaned = cleanWikiMarkup(text)
     .replace(/^\s*Summary\s*/i, "")
     .replace(/^\s*Key [Ii]nformation\s*/i, "")
     .replace(/^\s*Practical [Gg]uidance\s*/i, "")
-    .replace(/\n-\s+/g, ". ")
-    .replace(/\s+-\s+/g, ". ")
-    .replace(/\s+/g, " ")
     .trim();
 
   cleaned = cleaned.replace(/^[^A-Za-z0-9]{0,2}[a-z]{0,3}\.\s*/i, "");
@@ -21,6 +50,7 @@ export function cleanChunkForProse(text: string, maxSentences = 2): string {
   const usable = sentences
     .map((s) => s.replace(/^\d+\.\s*/, "").trim())
     .filter((s) => s.length >= 25 && !/^about this guide$/i.test(s))
+    .filter((s) => !/\b(cite the source|raw file path|Answers should)\b/i.test(s))
     .map((s) => s.replace(/\.\.+/g, ".").replace(/\s+\./g, "."));
 
   if (!usable.length) {
