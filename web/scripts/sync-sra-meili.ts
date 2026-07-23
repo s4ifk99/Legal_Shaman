@@ -46,14 +46,15 @@ async function main() {
   const sraKey = process.env.SRA_APIM_SUBSCRIPTION_KEY?.trim();
   const host = process.env.MEILISEARCH_HOST?.trim();
   const meiliKey = process.env.MEILISEARCH_API_KEY?.trim() ?? "";
-  const databaseUrl = process.env.DATABASE_URL?.trim();
+  const databaseUrl =
+    process.env.DATA_DATABASE_URL?.trim() || process.env.DATABASE_URL?.trim();
 
   if (!sraKey) {
     console.error("Missing SRA_APIM_SUBSCRIPTION_KEY");
     process.exit(1);
   }
   if (!databaseUrl) {
-    console.error("DATABASE_URL required for SRA v2 sync.");
+    console.error("DATA_DATABASE_URL or DATABASE_URL required for SRA v2 sync.");
     process.exit(1);
   }
 
@@ -70,8 +71,17 @@ async function main() {
   if (offset != null) console.log(`--offset=${offset}`);
   if (limit != null) console.log(`--limit=${limit}`);
   if (checkpoint) console.log("Checkpoints enabled (every 500 records).");
+  console.info(
+    JSON.stringify({
+      event: "sra_sync_target",
+      host: databaseUrl.match(/@([^/?]+)/)?.[1] ?? "(unknown)",
+    }),
+  );
 
-  const prisma = createPrismaClient();
+  const prisma = createPrismaClient({
+    connectionString: databaseUrl,
+    label: "data",
+  });
   try {
     const result = await runSraV2Sync(prisma, sraKey, {
       limit,
