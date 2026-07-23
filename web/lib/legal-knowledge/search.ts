@@ -105,17 +105,16 @@ export async function runLegalKnowledgeSearch(
   const graphMode = knowledgeGraphMode();
 
   if (graphMode !== "off" && isConsumerIntent(initialIntent)) {
-    const graphResult = await assembleFromKnowledgeGraph(context, initialIntent);
+    const graphPromise = assembleFromKnowledgeGraph(context, initialIntent);
+    const directoryPromise = runDirectorySlice(input, context, initialIntent);
+    const [graphResult, directorySlice] = await Promise.all([graphPromise, directoryPromise]);
+
     if (
       graphResult &&
       graphMode === "primary" &&
       graphResult.confidence >= GRAPH_MIN_CONFIDENCE
     ) {
-      const { directoryResults, directoryRows } = await runDirectorySlice(
-        input,
-        context,
-        initialIntent,
-      );
+      const { directoryResults, directoryRows } = directorySlice;
       const searchCriteria = decomposeLegalSearchQuery({
         query,
         location: input.location,

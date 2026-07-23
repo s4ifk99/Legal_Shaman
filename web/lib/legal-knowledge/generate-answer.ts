@@ -284,6 +284,19 @@ export async function generateCitationFirstAnswer(
     };
   }
 
+  // Vercel serverless: skip slow LLM synthesis unless explicitly enabled.
+  // Prevents 60s platform kills that return non-JSON error pages to the client.
+  if (process.env.VERCEL === "1" && process.env.ENABLE_LLM_ANSWER !== "true") {
+    const sourceChunks = resolveFallbackSources(query, effectiveChunks, intent);
+    const base = fallbackAnswer(query, effectiveChunks, intent);
+    return {
+      answer: sanitizeAdviceText(base),
+      sources: mapSourceHits(sourceChunks),
+      disclaimer,
+      mode: "fallback",
+    };
+  }
+
   try {
     const context = buildSourceContext(effectiveChunks.slice(0, 6));
     const issueBlock = buildIssuePrompt(intent);

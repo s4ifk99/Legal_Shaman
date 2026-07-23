@@ -231,7 +231,7 @@ export async function hybridLegalRetrieval(
 
   let mode: "hybrid" | "lexical_only" | "empty" = "lexical_only";
 
-  if (embedConfigured()) {
+  if (embedConfigured() && process.env.VERCEL !== "1") {
     try {
       const embedding = await embedOne(expanded);
       const literal = toPgVectorLiteral(embedding);
