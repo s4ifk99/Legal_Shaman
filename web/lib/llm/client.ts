@@ -7,6 +7,7 @@ import {
   resolveChatModel,
   resolveLlmApiKey,
   resolveLlmBaseUrl,
+  isHomeOllamaBaseUrl,
 } from "./openrouter";
 
 /**
@@ -47,10 +48,19 @@ function getChatClient(): OpenAI {
       "LLM_API_KEY is not set. Add your OpenRouter key to web/.env.local (LLM_API_KEY + LLM_BASE_URL=https://openrouter.ai/api/v1).",
     );
   }
+  const baseURL = resolveLlmBaseUrl();
+  if (isHomeOllamaBaseUrl(baseURL) && process.env.VERCEL === "1") {
+    throw new Error(
+      "Home Ollama is not usable from Vercel (tunnel latency). Set LLM_BASE_URL=https://openrouter.ai/api/v1.",
+    );
+  }
   const defaultHeaders = openRouterDefaultHeaders();
+  const timeoutMs = Number(process.env.LLM_TIMEOUT_MS ?? 12_000);
   _chatClient = new OpenAI({
     apiKey,
-    baseURL: resolveLlmBaseUrl(),
+    baseURL,
+    timeout: Number.isFinite(timeoutMs) ? timeoutMs : 12_000,
+    maxRetries: 0,
     ...(defaultHeaders ? { defaultHeaders } : {}),
   });
   return _chatClient;
@@ -61,8 +71,19 @@ function getEmbedClient(): OpenAI {
   const embedKey = process.env.EMBEDDING_API_KEY?.trim();
   const embedBase =
     process.env.EMBEDDING_BASE_URL?.trim() || resolveLlmBaseUrl();
+  if (isHomeOllamaBaseUrl(embedBase) && process.env.VERCEL === "1") {
+    throw new Error(
+      "Home Ollama embeddings are not usable from Vercel. Set EMBEDDING_BASE_URL to OpenRouter/OpenAI.",
+    );
+  }
+  const timeoutMs = Number(process.env.LLM_EMBED_TIMEOUT_MS ?? 15_000);
   if (embedKey) {
-    _embedClient = new OpenAI({ apiKey: embedKey, baseURL: embedBase });
+    _embedClient = new OpenAI({
+      apiKey: embedKey,
+      baseURL: embedBase,
+      timeout: Number.isFinite(timeoutMs) ? timeoutMs : 15_000,
+      maxRetries: 0,
+    });
     return _embedClient;
   }
   _embedClient = getChatClient();

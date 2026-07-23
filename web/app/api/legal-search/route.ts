@@ -7,8 +7,11 @@ import { LEGAL_SEARCH_DISCLAIMER } from "@/lib/legal-knowledge/types";
 import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 
 export const runtime = "nodejs";
-/** Ollama via home tunnel can take 30–60s; raise limit on Pro (Hobby still caps ~10s). */
+/** Keep under Vercel Pro 60s hard kill so clients always get JSON, not a plain-text timeout page. */
 export const maxDuration = 60;
+
+/** Leave headroom before the platform kills the function. */
+const SEARCH_DEADLINE_MS = 50_000;
 
 const LegalSearchInput = z.object({
   query: z.string().trim().min(2).max(800),
@@ -16,6 +19,24 @@ const LegalSearchInput = z.object({
   jurisdiction: z.string().trim().max(64).optional(),
   includeDirectory: z.boolean().optional(),
 });
+
+function withDeadline<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => {
+      reject(new Error(`${label} timed out after ${ms}ms`));
+    }, ms);
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (err) => {
+        clearTimeout(timer);
+        reject(err);
+      },
+    );
+  });
+}
 
 /**
  * POST /api/legal-search
@@ -42,7 +63,11 @@ export async function POST(req: Request) {
 
   try {
     const t0 = Date.now();
-    const result = await runLegalKnowledgeSearch(parsed.data);
+    const result = await withDeadline(
+      runLegalKnowledgeSearch(parsed.data),
+      SEARCH_DEADLINE_MS,
+      "legal-search",
+    );
     void logLegalKnowledgeInteraction({
       query: parsed.data.query,
       issueClassification: result.issueClassification,
@@ -74,12 +99,16 @@ export async function POST(req: Request) {
     return NextResponse.json(result);
   } catch (err) {
     console.error("[api/legal-search]", err);
+    const message = err instanceof Error ? err.message : "Legal search failed";
+    const timedOut = /timed out/i.test(message);
     return NextResponse.json(
       {
-        error: "Legal search failed",
+        error: timedOut
+          ? "Search timed out. Try a shorter query, or try again in a moment."
+          : "Legal search failed",
         disclaimer: LEGAL_SEARCH_DISCLAIMER,
       },
-      { status: 500 },
+      { status: timedOut ? 504 : 500 },
     );
   }
 }

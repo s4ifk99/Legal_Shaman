@@ -84,7 +84,12 @@ Never give legal advice.`,
           content: `${ruleHint}\n\nQuery: ${query.slice(0, 800)}`,
         },
       ],
-      { jsonMode: true, temperature: 0.1, maxTokens: 450 },
+      {
+        jsonMode: true,
+        temperature: 0.1,
+        maxTokens: 450,
+        model: process.env.LLM_SMALL_MODEL?.trim() || undefined,
+      },
     );
 
     const parsed = LlmClassificationSchema.safeParse(JSON.parse(content));

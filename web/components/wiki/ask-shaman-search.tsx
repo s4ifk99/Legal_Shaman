@@ -155,7 +155,18 @@ export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: Ask
         return;
       }
       try {
-        const payload = (await guidanceRes.value.json()) as LegalSearchResponse & { error?: string };
+        const raw = await guidanceRes.value.text();
+        let payload: LegalSearchResponse & { error?: string };
+        try {
+          payload = JSON.parse(raw) as LegalSearchResponse & { error?: string };
+        } catch {
+          const hint = raw.trim().slice(0, 80);
+          throw new Error(
+            /timed out|An error o/i.test(hint)
+              ? "Search timed out on the server. Try again with a shorter query."
+              : `Guidance response was not JSON (${hint || "empty"})`,
+          );
+        }
         if (!guidanceRes.value.ok) {
           throw new Error(payload.error || "guidance_search_failed");
         }
