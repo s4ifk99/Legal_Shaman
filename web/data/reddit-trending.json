@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-07-24T08:12:16.831Z",
+    "scrapedAt": "2026-07-24T19:23:28.240Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 7,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,78 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1v5b5ys",
+          "title": "Walked away from Council Enforcement Officer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5b5ys/walked_away_from_council_enforcement_officer/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5b5ys/walked_away_from_council_enforcement_officer/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784899068,
+          "snippet": "Hi all, I was walking through the town centre today in England when I heard someone yelling behind me. It was a council enforcement officer. He accused me of spitting in the road and said he was going to issue me a FPN for spitting. The issue is, I did not spit in the road at all",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v5gkzy",
+          "title": "Secretly recorded by customer at work and posted online - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5gkzy/secretly_recorded_by_customer_at_work_and_posted/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5gkzy/secretly_recorded_by_customer_at_work_and_posted/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784911133,
+          "snippet": "Hello. I work in a small grocery shop. Me and a few of my coworkers were recently recorded secretly by a customer using meta glasses (or some other form of recording glasses). This video was posted to his social media where he has a lot of followers. Nothing bad happened in the v",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v5577j",
+          "title": "Update: Trapped in car park, now expected to pay damages",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5577j/update_trapped_in_car_park_now_expected_to_pay/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5577j/update_trapped_in_car_park_now_expected_to_pay/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784880991,
+          "snippet": "Update to this post: https://www.reddit.com/r/LegalAdviceUK/s/Uq08oiF5q2 Received conflicting advice last time, but decided to wait it out and either receive a bill for repairs (which I may have disputed based on the value) or they would claim it on insurance and absorb it. On ad",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v5e2c4",
+          "title": "Parking premier inn Cambridge now have over 300 bailiff notice",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5e2c4/parking_premier_inn_cambridge_now_have_over_300/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5e2c4/parking_premier_inn_cambridge_now_have_over_300/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784905671,
+          "snippet": "stayed two days premier in Cambridge a few months ago , paid for parking, but several weeks later got fine from park maven, I had wrongly entered my van registration number. I appealed, several weeks later maven said ok but I had to pay a £20 admin fee. I paid the fee on their on",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v5ks4c",
+          "title": "Situation at co parents is not good.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ks4c/situation_at_co_parents_is_not_good/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ks4c/situation_at_co_parents_is_not_good/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784920001,
+          "snippet": "I’m in England. Hi I have a 10 year old daughter with autism and ADHD, she disclosed to me this morning that her sister (age 18) at her dads had hit her over the head with a phone, I have had to cancel her going there tonight which he is very angry about, we don’t have court orde",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v5k5zb",
+          "title": "Using alias surnames in court - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5k5zb/using_alias_surnames_in_court_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5k5zb/using_alias_surnames_in_court_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784918711,
+          "snippet": "This is a weird one and I would have posted it in an offtopic legal subreddit if there was one for the UK. In England. I happen to know someone ex-military who claims to have legal ID's and passports for several different surnames. A quick search says this is technically ok as lo",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1v4rm00",
           "title": "I have been on a rolling temporary contracr in the NHS for 7 years. Do I have any permanent rights?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4rm00/i_have_been_on_a_rolling_temporary_contracr_in/",
@@ -50,63 +122,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v54net",
-          "title": "My mum owns a small business. How would she go about firing someone who's on \"sick leave\" for 28 weeks?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54net/my_mum_owns_a_small_business_how_would_she_go/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54net/my_mum_owns_a_small_business_how_would_she_go/",
+          "id": "1v5fcyj",
+          "title": "My deceases father in laws executor in 2018/19 claimed a bank lost a \"black box worth 1 million pound in cash\" and he only got £150 in compensation from complaining about it and other crazy stories I doubt is true.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5fcyj/my_deceases_father_in_laws_executor_in_201819/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5fcyj/my_deceases_father_in_laws_executor_in_201819/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784879127,
-          "snippet": "Hi everyone, My mother owns a flower shop. One of her employees broke her ankle and now she's off work for 28 weeks! This would not be a problem, but this is not the first time this happened and she cannot afford to pay her £500 a month + full salary for someone else to cover her",
+          "createdUtc": 1784908529,
+          "snippet": "Okaaaay so, My husbands father died in 2018 and the whole dealing with the will stunk to high heaven from start to finish. I will do a quick timeline and I would like you to confirm with me how full of shit this whole fiasco was and if there is anything now we can do about it. - ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v49yy8",
-          "title": "i’m about to be the subject of a fictitious missing persons report (england)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v49yy8/im_about_to_be_the_subject_of_a_fictitious/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v49yy8/im_about_to_be_the_subject_of_a_fictitious/",
+          "id": "1v5h6z0",
+          "title": "Disclosure Scotland investigation for accusations we knew nothing about!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5h6z0/disclosure_scotland_investigation_for_accusations/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5h6z0/disclosure_scotland_investigation_for_accusations/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784802491,
-          "snippet": "hi guys not sure if this is the right sub so long story short i’m an adult and willingly left home months ago and moved out to an undisclosed location, fam didn’t know i was leaving but they knew once i’ve left. i’ve not spoken to them for months and now they’re threatening me wi",
+          "createdUtc": 1784912426,
+          "snippet": "My partner received a letter from Disclosure Scotland today informing him they were looking at listing him from the PVG scheme secondary to accusations of sexual assault. These accusations are listed from early 2010s to early 2020s and involve three persons - there is a single PF",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v4md7d",
-          "title": "Landlord has moved new tenant into my room before the end of my tenancy (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4md7d/landlord_has_moved_new_tenant_into_my_room_before/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4md7d/landlord_has_moved_new_tenant_into_my_room_before/",
+          "id": "1v55k3y",
+          "title": "Estate management company charging for underbudgeting in 2024 / Paying in protest",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v55k3y/estate_management_company_charging_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v55k3y/estate_management_company_charging_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784831434,
-          "snippet": "Please may someone help me- I’m really sorry for how long this is. I provided written a two month notice to end my tenancy, with an end date of 31st of July. This was acknowledged by the property management company. I have paid rent of £725 for the month of July. I have been grad",
+          "createdUtc": 1784882271,
+          "snippet": "I'm in England. Last week, homeowners on my estate recieved this letter from the management company with our apportioned bills to pay for the difference of their misbudgeting for works in 2024. To me it seems like a *them* problem, but I'm not sure if there's anything we can do l",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v4mbgt",
-          "title": "No Title Deeds but my neighbour is trying to enforce restrictive covenants",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4mbgt/no_title_deeds_but_my_neighbour_is_trying_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4mbgt/no_title_deeds_but_my_neighbour_is_trying_to/",
+          "id": "1v5bo78",
+          "title": "1st Central - Voided my insurance after making a claim (England). PLEASE HELP",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5bo78/1st_central_voided_my_insurance_after_making_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5bo78/1st_central_voided_my_insurance_after_making_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784831338,
-          "snippet": "I purchased a property in England and the title deeds had been lost years ago. I purchased an indemnity insurance policy which includes restrictive covenants as part of the purchase. I have been making changes to the house internally and at the start of Summer, I started work on ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v465qz",
-          "title": "England - underage son posting explicit pictures online",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v465qz/england_underage_son_posting_explicit_pictures/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v465qz/england_underage_son_posting_explicit_pictures/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784789632,
-          "snippet": "The police knocked my door yesterday When they came in, they explained that the IP address linked to my house had uploaded indecent images of children online It turns out that last year, when my son was 14, he was uploading them to Reddit, saying in the posts that he was 14 I'd t",
+          "createdUtc": 1784900279,
+          "snippet": "1st Central voided my policy over unlisted \"modification\" (exhaust tips) after an at-fault claim - advice? Timeline: Policy started 1 July 2026. Called them straight after buying it to correct my licence date and declare my Ghost II immobiliser. Had an accident 2 weeks ago. Notif",
           "listingSource": "rss:hot"
         },
         {
@@ -122,135 +182,75 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v4l1w1",
-          "title": "Witnessed an elderly driver nearly reverse into two children at retail park (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4l1w1/witnessed_an_elderly_driver_nearly_reverse_into/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4l1w1/witnessed_an_elderly_driver_nearly_reverse_into/",
+          "id": "1v5jw6p",
+          "title": "Lease Extension help on quote UK",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5jw6p/lease_extension_help_on_quote_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5jw6p/lease_extension_help_on_quote_uk/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784828686,
-          "snippet": "Occured at a private retail park: I was a front seat passenger in a car and I witnessed an elderly lady (with an elderly female front passenger) reverse out of a parking space so she was facing the wrong direction in the left lane. To rectify this, she quickly reversed into anoth",
+          "createdUtc": 1784918109,
+          "snippet": "Anyone on the forums have experience with flat lease extensions, recently completed on a property and lease needs extending in the next 6 years before it falls under 80 years, I was aware of this before purchase and have budgeted £10k to cover premium cost and my solicitor fees a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v4nncc",
-          "title": "Parents landlord died, who do they pay? [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4nncc/parents_landlord_died_who_do_they_pay_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4nncc/parents_landlord_died_who_do_they_pay_england/",
+          "id": "1v5epro",
+          "title": "House sellers claiming for liquid gas top up on day of completion",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5epro/house_sellers_claiming_for_liquid_gas_top_up_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5epro/house_sellers_claiming_for_liquid_gas_top_up_on/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784834108,
-          "snippet": "My parents are renting a house and their landlord died unexpectedly (2 weeks ago). They found this out today from the mother who visited the property to inform them. While visiting she said his bank account was frozen and the standing order could be cancelled and sent to her inst",
+          "createdUtc": 1784907113,
+          "snippet": "Hi all, We recently purchased a house in England in mid July. The inquiries report answers from the seller noted that they would empty the septic tank before completion. This wasn't done, and I have reached out via my conveyancer to request that they honor this as it is written i",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v54q8b",
-          "title": "Job threatens to not pay me after i walked out.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54q8b/job_threatens_to_not_pay_me_after_i_walked_out/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54q8b/job_threatens_to_not_pay_me_after_i_walked_out/",
+          "id": "1v5acy6",
+          "title": "Scotland: I left goods with an electrican repair business and requested a quote. The repair man fell ill and couldn't deal with it for a while, but has now got back to me to say that the items have been repaired and has given me a price which is easily double what the items are worth. My options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5acy6/scotland_i_left_goods_with_an_electrican_repair/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5acy6/scotland_i_left_goods_with_an_electrican_repair/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784879388,
-          "snippet": "I have a 0 hour contract in a hotel as a breakfast cook, in England, worked for a year. i came in today to find the lighter needed for the gas oven and the grill did not work (it did yesterday), i couldmt get another, and there was no management (there often isnt, but my boss is ",
+          "createdUtc": 1784897095,
+          "snippet": "I have emailed the business to say that I am not happy with the price and have suggested that their appeal is undone and the items returned to me, if they are insistent on sticking to the place they are asking. No quote was ever forthcoming from them, so this has not come as a co",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v49wt3",
-          "title": "Ubisoft charged me twice for the same game, refused to refund accordingly",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v49wt3/ubisoft_charged_me_twice_for_the_same_game/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v49wt3/ubisoft_charged_me_twice_for_the_same_game/",
+          "id": "1v4md7d",
+          "title": "Landlord has moved new tenant into my room before the end of my tenancy (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4md7d/landlord_has_moved_new_tenant_into_my_room_before/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4md7d/landlord_has_moved_new_tenant_into_my_room_before/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784802307,
-          "snippet": "I had bought a game on the Ubisoft launcher, it was reduced to £10 from £25, so i purchased the game for £10 from my debit card, moments later they charged my card again for £25, the full price of the game. The games were the same edition, same copy, exact same product but it sho",
+          "createdUtc": 1784831434,
+          "snippet": "Please may someone help me- I’m really sorry for how long this is. I provided written a two month notice to end my tenancy, with an end date of 31st of July. This was acknowledged by the property management company. I have paid rent of £725 for the month of July. I have been grad",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v499xj",
-          "title": "Can I legally be refused my money back? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v499xj/can_i_legally_be_refused_my_money_back_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v499xj/can_i_legally_be_refused_my_money_back_england/",
+          "id": "1v56bu8",
+          "title": "Bought clothes from Australia with a shopping policy that states fully landed cost included but I've received a customs fee to pay note from Royal Mail - who's liable?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v56bu8/bought_clothes_from_australia_with_a_shopping/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v56bu8/bought_clothes_from_australia_with_a_shopping/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784800281,
-          "snippet": "Bought a costume from sports direct. Know they have a strict no returns for costumes due to hygiene so was careful in picking right style and size. When I went to try on at home, noticed the inside stitching was torn. Unfortunately had my swimming lesson that evening so had to bu",
+          "createdUtc": 1784884916,
+          "snippet": "England - and thanks in advance for any advice. As per the title, I bought some clothes from an Australian brand. The shipping policy is explicit that all duties and taxes are included and no extra costs will be payable. After 2 weeks I've got a customs fee payable note from Roya",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v530nq",
-          "title": "Balance refund not received 4 weeks after request - what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v530nq/balance_refund_not_received_4_weeks_after_request/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v530nq/balance_refund_not_received_4_weeks_after_request/",
+          "id": "1v56mp3",
+          "title": "Private parking charge from 2022, now chased by debt collectors in 2026 — will this actually go to court? - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v56mp3/private_parking_charge_from_2022_now_chased_by/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v56mp3/private_parking_charge_from_2022_now_chased_by/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784873726,
-          "snippet": "I had £150 balance in my account at a UK veterinary clinic I am no longer a client of, and requested a refund of the balance on 25/06 which they said they had processed and sent to my UK bank that day. They have my correct bank details. I am not sure what my rights are since it’s",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v4chqz",
-          "title": "England 2 Year old parking ticket. No previous letters. Hotel guest",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4chqz/england_2_year_old_parking_ticket_no_previous/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4chqz/england_2_year_old_parking_ticket_no_previous/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784809693,
-          "snippet": "Hey all, Looking for some advice. I stayed in a Hilton hotel over 2 years ago 27-28/03/2024 and put my vehicle details into the system. However, i’ve suddenly had a letter through my door saying I owe £340. I havn’t received any previous letters of the parking fine. I was a guest",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v54v1k",
-          "title": "Brought a bed, assembled bed, quality is shocking on said bed, where do I stand (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54v1k/brought_a_bed_assembled_bed_quality_is_shocking/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54v1k/brought_a_bed_assembled_bed_quality_is_shocking/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784879850,
-          "snippet": "Hello, I ordered my son a big multipurpose bed, it's a high sleeper with a chest of drawers and pull out desk from what appears d to be a reputable site. Upon installing the bed the quality appeared to not be as shown, with parts of the finish chipping away and the corner leg spl",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v54uib",
-          "title": "Issues with SAR not being fully fulfilled",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54uib/issues_with_sar_not_being_fully_fulfilled/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54uib/issues_with_sar_not_being_fully_fulfilled/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784879797,
-          "snippet": "I put in an SAR to my workplace several months ago. They extended it past the initial 30 days and stated they'd need a further 60 as I was asking for a lot of information (basically every little thing they had related to me). I finally received the information last month. However",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v54tyz",
-          "title": "England - Could I Sue? Pregnancy & Dentistry",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54tyz/england_could_i_sue_pregnancy_dentistry/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54tyz/england_could_i_sue_pregnancy_dentistry/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784879746,
-          "snippet": "Context: I fell pregnant in 2021, and was due April 2022. I had signs of preeclampsia from October/November 2021 that were dismissed by my midwife. I had a tooth removed in January 2022 (I can find the exact date) whilst pregnant - I notified my dentist that I was pregnant, he sa",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v54tfa",
-          "title": "Request from my employer UK BYOD arrangement",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54tfa/request_from_my_employer_uk_byod_arrangement/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54tfa/request_from_my_employer_uk_byod_arrangement/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784879696,
-          "snippet": "Hi all, can I get some advice please? I work from home for a customer service company in the UK and I have to use my own personal laptop for work (they do not provide a company laptop) I’m on a BYOD arrangement. On Monday, I got a teams message at 5pm advising they were selecting",
+          "createdUtc": 1784885958,
+          "snippet": "Private parking charge from 2022 (courtesy car) — now chased by debt recovery solicitors in 2026 Location: England In Nov 2022, I was a tenant with an allocated parking bay under my tenancy. My own car was in for repair, so I used a courtesy car for ~6 days, parked in my own bay.",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 11,
+      "postCount": 10,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,54 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1v5gkzy",
+          "title": "Secretly recorded by customer at work and posted online - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5gkzy/secretly_recorded_by_customer_at_work_and_posted/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5gkzy/secretly_recorded_by_customer_at_work_and_posted/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784911133,
+          "snippet": "Hello. I work in a small grocery shop. Me and a few of my coworkers were recently recorded secretly by a customer using meta glasses (or some other form of recording glasses). This video was posted to his social media where he has a lot of followers. Nothing bad happened in the v",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v5577j",
+          "title": "Update: Trapped in car park, now expected to pay damages",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5577j/update_trapped_in_car_park_now_expected_to_pay/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5577j/update_trapped_in_car_park_now_expected_to_pay/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784880991,
+          "snippet": "Update to this post: https://www.reddit.com/r/LegalAdviceUK/s/Uq08oiF5q2 Received conflicting advice last time, but decided to wait it out and either receive a bill for repairs (which I may have disputed based on the value) or they would claim it on insurance and absorb it. On ad",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v5ks4c",
+          "title": "Situation at co parents is not good.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ks4c/situation_at_co_parents_is_not_good/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ks4c/situation_at_co_parents_is_not_good/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784920001,
+          "snippet": "I’m in England. Hi I have a 10 year old daughter with autism and ADHD, she disclosed to me this morning that her sister (age 18) at her dads had hit her over the head with a phone, I have had to cancel her going there tonight which he is very angry about, we don’t have court orde",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v5k5zb",
+          "title": "Using alias surnames in court - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5k5zb/using_alias_surnames_in_court_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5k5zb/using_alias_surnames_in_court_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784918711,
+          "snippet": "This is a weird one and I would have posted it in an offtopic legal subreddit if there was one for the UK. In England. I happen to know someone ex-military who claims to have legal ID's and passports for several different surnames. A quick search says this is technically ok as lo",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1v4rm00",
           "title": "I have been on a rolling temporary contracr in the NHS for 7 years. Do I have any permanent rights?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4rm00/i_have_been_on_a_rolling_temporary_contracr_in/",
@@ -292,75 +340,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v54net",
-          "title": "My mum owns a small business. How would she go about firing someone who's on \"sick leave\" for 28 weeks?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54net/my_mum_owns_a_small_business_how_would_she_go/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54net/my_mum_owns_a_small_business_how_would_she_go/",
+          "id": "1v55k3y",
+          "title": "Estate management company charging for underbudgeting in 2024 / Paying in protest",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v55k3y/estate_management_company_charging_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v55k3y/estate_management_company_charging_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784879127,
-          "snippet": "Hi everyone, My mother owns a flower shop. One of her employees broke her ankle and now she's off work for 28 weeks! This would not be a problem, but this is not the first time this happened and she cannot afford to pay her £500 a month + full salary for someone else to cover her",
+          "createdUtc": 1784882271,
+          "snippet": "I'm in England. Last week, homeowners on my estate recieved this letter from the management company with our apportioned bills to pay for the difference of their misbudgeting for works in 2024. To me it seems like a *them* problem, but I'm not sure if there's anything we can do l",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v49yy8",
-          "title": "i’m about to be the subject of a fictitious missing persons report (england)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v49yy8/im_about_to_be_the_subject_of_a_fictitious/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v49yy8/im_about_to_be_the_subject_of_a_fictitious/",
+          "id": "1v5jw6p",
+          "title": "Lease Extension help on quote UK",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5jw6p/lease_extension_help_on_quote_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5jw6p/lease_extension_help_on_quote_uk/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784802491,
-          "snippet": "hi guys not sure if this is the right sub so long story short i’m an adult and willingly left home months ago and moved out to an undisclosed location, fam didn’t know i was leaving but they knew once i’ve left. i’ve not spoken to them for months and now they’re threatening me wi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v4mbgt",
-          "title": "No Title Deeds but my neighbour is trying to enforce restrictive covenants",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4mbgt/no_title_deeds_but_my_neighbour_is_trying_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4mbgt/no_title_deeds_but_my_neighbour_is_trying_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784831338,
-          "snippet": "I purchased a property in England and the title deeds had been lost years ago. I purchased an indemnity insurance policy which includes restrictive covenants as part of the purchase. I have been making changes to the house internally and at the start of Summer, I started work on ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v465qz",
-          "title": "England - underage son posting explicit pictures online",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v465qz/england_underage_son_posting_explicit_pictures/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v465qz/england_underage_son_posting_explicit_pictures/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784789632,
-          "snippet": "The police knocked my door yesterday When they came in, they explained that the IP address linked to my house had uploaded indecent images of children online It turns out that last year, when my son was 14, he was uploading them to Reddit, saying in the posts that he was 14 I'd t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v54q8b",
-          "title": "Job threatens to not pay me after i walked out.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54q8b/job_threatens_to_not_pay_me_after_i_walked_out/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54q8b/job_threatens_to_not_pay_me_after_i_walked_out/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784879388,
-          "snippet": "I have a 0 hour contract in a hotel as a breakfast cook, in England, worked for a year. i came in today to find the lighter needed for the gas oven and the grill did not work (it did yesterday), i couldmt get another, and there was no management (there often isnt, but my boss is ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v499xj",
-          "title": "Can I legally be refused my money back? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v499xj/can_i_legally_be_refused_my_money_back_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v499xj/can_i_legally_be_refused_my_money_back_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784800281,
-          "snippet": "Bought a costume from sports direct. Know they have a strict no returns for costumes due to hygiene so was careful in picking right style and size. When I went to try on at home, noticed the inside stitching was torn. Unfortunately had my swimming lesson that evening so had to bu",
+          "createdUtc": 1784918109,
+          "snippet": "Anyone on the forums have experience with flat lease extensions, recently completed on a property and lease needs extending in the next 6 years before it falls under 80 years, I was aware of this before purchase and have budgeted £10k to cover premium cost and my solicitor fees a",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 3,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -398,17 +398,77 @@
           "createdUtc": 1784831434,
           "snippet": "Please may someone help me- I’m really sorry for how long this is. I provided written a two month notice to end my tenancy, with an end date of 31st of July. This was acknowledged by the property management company. I have paid rent of £725 for the month of July. I have been grad",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "planning-law",
+      "label": "Planning Law",
+      "legalAreaSlug": "planning_law",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1v4nncc",
-          "title": "Parents landlord died, who do they pay? [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4nncc/parents_landlord_died_who_do_they_pay_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4nncc/parents_landlord_died_who_do_they_pay_england/",
+          "id": "1v5b5ys",
+          "title": "Walked away from Council Enforcement Officer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5b5ys/walked_away_from_council_enforcement_officer/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5b5ys/walked_away_from_council_enforcement_officer/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784834108,
-          "snippet": "My parents are renting a house and their landlord died unexpectedly (2 weeks ago). They found this out today from the mother who visited the property to inform them. While visiting she said his bank account was frozen and the standing order could be cancelled and sent to her inst",
+          "createdUtc": 1784899068,
+          "snippet": "Hi all, I was walking through the town centre today in England when I heard someone yelling behind me. It was a council enforcement officer. He accused me of spitting in the road and said he was going to issue me a FPN for spitting. The issue is, I did not spit in the road at all",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1v5e2c4",
+          "title": "Parking premier inn Cambridge now have over 300 bailiff notice",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5e2c4/parking_premier_inn_cambridge_now_have_over_300/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5e2c4/parking_premier_inn_cambridge_now_have_over_300/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784905671,
+          "snippet": "stayed two days premier in Cambridge a few months ago , paid for parking, but several weeks later got fine from park maven, I had wrongly entered my van registration number. I appealed, several weeks later maven said ok but I had to pay a £20 admin fee. I paid the fee on their on",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "wills-and-probate",
+      "label": "Wills and Probate",
+      "legalAreaSlug": "wills_probate",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1v5fcyj",
+          "title": "My deceases father in laws executor in 2018/19 claimed a bank lost a \"black box worth 1 million pound in cash\" and he only got £150 in compensation from complaining about it and other crazy stories I doubt is true.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5fcyj/my_deceases_father_in_laws_executor_in_201819/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5fcyj/my_deceases_father_in_laws_executor_in_201819/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784908529,
+          "snippet": "Okaaaay so, My husbands father died in 2018 and the whole dealing with the will stunk to high heaven from start to finish. I will do a quick timeline and I would like you to confirm with me how full of shit this whole fiasco was and if there is anything now we can do about it. - ",
           "listingSource": "rss:hot"
         }
       ]
@@ -424,6 +484,18 @@
       ],
       "posts": [
         {
+          "id": "1v5h6z0",
+          "title": "Disclosure Scotland investigation for accusations we knew nothing about!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5h6z0/disclosure_scotland_investigation_for_accusations/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5h6z0/disclosure_scotland_investigation_for_accusations/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784912426,
+          "snippet": "My partner received a letter from Disclosure Scotland today informing him they were looking at listing him from the PVG scheme secondary to accusations of sexual assault. These accusations are listed from early 2010s to early 2020s and involve three persons - there is a single PF",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1v4xzkr",
           "title": "If someone put up flags without permission on a private estate road and the management company removed them and charged residents, what legal options do we have in England?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4xzkr/if_someone_put_up_flags_without_permission_on_a/",
@@ -434,65 +506,41 @@
           "createdUtc": 1784858900,
           "snippet": "So someone put cheap flags up a few weeks ago, which are sort of fraying and dropping debris now. The management company for the estate said they would remove them but this would likely incur fees because safely removing them from lamposts requires extra labour and equipment. We ",
           "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1v5bo78",
+          "title": "1st Central - Voided my insurance after making a claim (England). PLEASE HELP",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5bo78/1st_central_voided_my_insurance_after_making_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5bo78/1st_central_voided_my_insurance_after_making_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784900279,
+          "snippet": "1st Central voided my policy over unlisted \"modification\" (exhaust tips) after an at-fault claim - advice? Timeline: Policy started 1 July 2026. Called them straight after buying it to correct my licence date and declare my Ghost II immobiliser. Had an accident 2 weeks ago. Notif",
+          "listingSource": "rss:hot"
         },
         {
-          "id": "1v49wt3",
-          "title": "Ubisoft charged me twice for the same game, refused to refund accordingly",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v49wt3/ubisoft_charged_me_twice_for_the_same_game/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v49wt3/ubisoft_charged_me_twice_for_the_same_game/",
+          "id": "1v56bu8",
+          "title": "Bought clothes from Australia with a shopping policy that states fully landed cost included but I've received a customs fee to pay note from Royal Mail - who's liable?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v56bu8/bought_clothes_from_australia_with_a_shopping/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v56bu8/bought_clothes_from_australia_with_a_shopping/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784802307,
-          "snippet": "I had bought a game on the Ubisoft launcher, it was reduced to £10 from £25, so i purchased the game for £10 from my debit card, moments later they charged my card again for £25, the full price of the game. The games were the same edition, same copy, exact same product but it sho",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v4l1w1",
-          "title": "Witnessed an elderly driver nearly reverse into two children at retail park (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4l1w1/witnessed_an_elderly_driver_nearly_reverse_into/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4l1w1/witnessed_an_elderly_driver_nearly_reverse_into/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784828686,
-          "snippet": "Occured at a private retail park: I was a front seat passenger in a car and I witnessed an elderly lady (with an elderly female front passenger) reverse out of a parking space so she was facing the wrong direction in the left lane. To rectify this, she quickly reversed into anoth",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v530nq",
-          "title": "Balance refund not received 4 weeks after request - what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v530nq/balance_refund_not_received_4_weeks_after_request/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v530nq/balance_refund_not_received_4_weeks_after_request/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784873726,
-          "snippet": "I had £150 balance in my account at a UK veterinary clinic I am no longer a client of, and requested a refund of the balance on 25/06 which they said they had processed and sent to my UK bank that day. They have my correct bank details. I am not sure what my rights are since it’s",
+          "createdUtc": 1784884916,
+          "snippet": "England - and thanks in advance for any advice. As per the title, I bought some clothes from an Australian brand. The shipping policy is explicit that all duties and taxes are included and no extra costs will be payable. After 2 weeks I've got a customs fee payable note from Roya",
           "listingSource": "rss:hot"
         }
       ]
@@ -508,39 +556,15 @@
       ],
       "posts": [
         {
-          "id": "1v4chqz",
-          "title": "England 2 Year old parking ticket. No previous letters. Hotel guest",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4chqz/england_2_year_old_parking_ticket_no_previous/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4chqz/england_2_year_old_parking_ticket_no_previous/",
+          "id": "1v56mp3",
+          "title": "Private parking charge from 2022, now chased by debt collectors in 2026 — will this actually go to court? - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v56mp3/private_parking_charge_from_2022_now_chased_by/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v56mp3/private_parking_charge_from_2022_now_chased_by/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784809693,
-          "snippet": "Hey all, Looking for some advice. I stayed in a Hilton hotel over 2 years ago 27-28/03/2024 and put my vehicle details into the system. However, i’ve suddenly had a letter through my door saying I owe £340. I havn’t received any previous letters of the parking fine. I was a guest",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v54tfa",
-          "title": "Request from my employer UK BYOD arrangement",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54tfa/request_from_my_employer_uk_byod_arrangement/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v54tfa/request_from_my_employer_uk_byod_arrangement/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784879696,
-          "snippet": "Hi all, can I get some advice please? I work from home for a customer service company in the UK and I have to use my own personal laptop for work (they do not provide a company laptop) I’m on a BYOD arrangement. On Monday, I got a teams message at 5pm advising they were selecting",
+          "createdUtc": 1784885958,
+          "snippet": "Private parking charge from 2022 (courtesy car) — now chased by debt recovery solicitors in 2026 Location: England In Nov 2022, I was a tenant with an allocated parking bay under my tenancy. My own car was in for repair, so I used a courtesy car for ~6 days, parked in my own bay.",
           "listingSource": "rss:hot"
         }
       ]
