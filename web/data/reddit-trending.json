@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-07-25T07:54:22.449Z",
+    "scrapedAt": "2026-07-25T19:05:30.232Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 11,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,102 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1v67mk5",
+          "title": "Father here seeking some help. Daughter (17) has been impregnated by a boyfriend in his mid 30s.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v67mk5/father_here_seeking_some_help_daughter_17_has/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v67mk5/father_here_seeking_some_help_daughter_17_has/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784984007,
+          "snippet": "My duaghter lived with mother and her mother didnt do anything to prevent this relationship. I only found out about it a few days ago. When she found out she was pregnant her boyfriend cut all contact. My ex then called me crying and telling me everyrhing that happened. I came ba",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v63r4m",
+          "title": "Employer calling a signed pay-rise a \"typo\" after I've resigned - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v63r4m/employer_calling_a_signed_payrise_a_typo_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v63r4m/employer_calling_a_signed_payrise_a_typo_after/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784972066,
+          "snippet": "Started with my employer in October 2024. Promoted a few months ago and issued a new signed contract with an increased salary. Paid at that rate for several payslips. I then resigned to take another job, with a start date already agreed. After resigning, my employer said the sala",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v64bhm",
+          "title": "PCN at hospital car park with what I believe is poor signage and no way to pay other than mobile phone which I didn't have?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v64bhm/pcn_at_hospital_car_park_with_what_i_believe_is/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v64bhm/pcn_at_hospital_car_park_with_what_i_believe_is/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784973985,
+          "snippet": "Strange one here, but basically, I drive the wifes car (motability car - im named driver) and parked at the hospital at a new wing (wife not with me so not using blue badge) Parked in a normal space and the only signage was a qr code for parking which is no good without a mobile ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v6elyb",
+          "title": "​(UK Redundancy) Company mapped me to a role I did 8 years ago. How do I fight their \"75% match\"?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6elyb/uk_redundancy_company_mapped_me_to_a_role_i_did_8/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6elyb/uk_redundancy_company_mapped_me_to_a_role_i_did_8/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785001036,
+          "snippet": "Hi everyone, hoping for a bit of advice on how to handle a consultation situation. Keeping details slightly generic so I don't screw myself (never know who is reading), but I’ve been with a UK-based hotel chain in the IT department for 15 years. I started off back in support and ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v6atuc",
+          "title": "Threats of sexual violence at work",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6atuc/threats_of_sexual_violence_at_work/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6atuc/threats_of_sexual_violence_at_work/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784992050,
+          "snippet": "Someone at my work said to me “my week is going really well and it’ll be even better when I go over there and rape your Mrs” it was taken to HR and they said it was just banter. He was working opposite my house. My girlfriend was scared to go home. We don’t have a union so I don’",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v65poa",
+          "title": "Tradesman wants me to transfer £100 for discussing the job ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v65poa/tradesman_wants_me_to_transfer_100_for_discussing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v65poa/tradesman_wants_me_to_transfer_100_for_discussing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784978445,
+          "snippet": "I contacted a tradesman to change tiles and we agreed on a certain date in advance (we agreed on the 30th of June to do the work on the 24th of July) then as the time approached, I reminded him but then he had other booked work during that day, so we rescheduled for Sunday. Howev",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v6a913",
+          "title": "Refused refund on Xbox digital game with missing features",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6a913/refused_refund_on_xbox_digital_game_with_missing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6a913/refused_refund_on_xbox_digital_game_with_missing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784990624,
+          "snippet": "England resident. I recently paid for and downloaded a digital game on Xbox One. I have opened and technically played the game, but have been unable to properly play and enjoy it due to an option missing from the menu. After being unable to find any advice online from people expe",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v644vu",
+          "title": "My grandmother is trying to take my car from me.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v644vu/my_grandmother_is_trying_to_take_my_car_from_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v644vu/my_grandmother_is_trying_to_take_my_car_from_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784973391,
+          "snippet": "Location: England Hi so my grandparents bought me a car as a gift. I am the main driver on the insurance that I have paid for and neither of them are on the policy. I have text messages that say that it is my car but obviously because they bought it they are the owners of it. My ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1v5b5ys",
           "title": "Walked away from Council Enforcement Officer",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5b5ys/walked_away_from_council_enforcement_officer/",
@@ -47,6 +143,18 @@
           "numComments": 0,
           "createdUtc": 1784899068,
           "snippet": "Hi all, I was walking through the town centre today in England when I heard someone yelling behind me. It was a council enforcement officer. He accused me of spitting in the road and said he was going to issue me a FPN for spitting. The issue is, I did not spit in the road at all",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v5nta9",
+          "title": "Workplace insisting I move heavy furniture as I’m “young and healthy”",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5nta9/workplace_insisting_i_move_heavy_furniture_as_im/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5nta9/workplace_insisting_i_move_heavy_furniture_as_im/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784926630,
+          "snippet": "England This isn’t the first time this has happened, I foolishly caved and hurt myself the last time I was volun-told to pitch in. A few departments are a having a move about around the office. My main bug bear is there’s 5 or 6 cabinets that need moving downstairs. It took 5 peo",
           "listingSource": "rss:hot"
         },
         {
@@ -62,15 +170,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v5nta9",
-          "title": "Workplace insisting I move heavy furniture as I’m “young and healthy”",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5nta9/workplace_insisting_i_move_heavy_furniture_as_im/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5nta9/workplace_insisting_i_move_heavy_furniture_as_im/",
+          "id": "1v6f31n",
+          "title": "Partner on bail for domestic abuse",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6f31n/partner_on_bail_for_domestic_abuse/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6f31n/partner_on_bail_for_domestic_abuse/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784926630,
-          "snippet": "England This isn’t the first time this has happened, I foolishly caved and hurt myself the last time I was volun-told to pitch in. A few departments are a having a move about around the office. My main bug bear is there’s 5 or 6 cabinets that need moving downstairs. It took 5 peo",
+          "createdUtc": 1785002112,
+          "snippet": "My partner is on bail for domestic abuse after strangling me. The police said he can’t have direct or indirect contact with me and it’s up to me if I choose to let him see the baby. He appointed his mum as the third party contact whilst he was inside. His mum has caused lots of p",
           "listingSource": "rss:hot"
         },
         {
@@ -98,159 +206,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v5ltz9",
-          "title": "England - neighbour throwing dirty water out of the window and into my flat, flooding my bathroom through negligence",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ltz9/england_neighbour_throwing_dirty_water_out_of_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ltz9/england_neighbour_throwing_dirty_water_out_of_the/",
+          "id": "1v6aulu",
+          "title": "Landlord not responding on returning deposit - Wales",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6aulu/landlord_not_responding_on_returning_deposit_wales/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6aulu/landlord_not_responding_on_returning_deposit_wales/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784922300,
-          "snippet": "I'd be grateful for advice about options to deal with my problem. My neighbour persistently floods her bathroom and consequently mine, and throws dirty water out of her window. I started out assuming it was a leak and got the council to come and repair her bathroom. But on the la",
+          "createdUtc": 1784992112,
+          "snippet": "Hi All Prior context, the flat i rented was managed by an agency on behalf of a landlord, the agency is based in Manchester so they worked with a different local Welsh agency to assist with viewings/handing keys over etc. I've never had contact with the actual landlord, don't eve",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v5k5zb",
-          "title": "Using alias surnames in court - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5k5zb/using_alias_surnames_in_court_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5k5zb/using_alias_surnames_in_court_england/",
+          "id": "1v6g9b9",
+          "title": "Landlord's king-size bed is hurting my back – can I replace it myself?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6g9b9/landlords_kingsize_bed_is_hurting_my_back_can_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6g9b9/landlords_kingsize_bed_is_hurting_my_back_can_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784918711,
-          "snippet": "This is a weird one and I would have posted it in an offtopic legal subreddit if there was one for the UK. In England. I happen to know someone ex-military who claims to have legal ID's and passports for several different surnames. A quick search says this is technically ok as lo",
+          "createdUtc": 1785004798,
+          "snippet": "Hi everyone, I dont know if this is correct sub but here we go When I moved into my rented house, it came furnished with a king-size bed and mattress provided by the landlord. Unfortunately, it's become very uncomfortable and it's causing me back pain. I'm happy to buy my own bed",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v5u2aw",
-          "title": "Dealer wont accept car return under distance selling",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5u2aw/dealer_wont_accept_car_return_under_distance/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5u2aw/dealer_wont_accept_car_return_under_distance/",
+          "id": "1v6c2hz",
+          "title": "Serious road traffic accident claim – what should I realistically expect from the legal process?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6c2hz/serious_road_traffic_accident_claim_what_should_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6c2hz/serious_road_traffic_accident_claim_what_should_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784942112,
-          "snippet": "Hi All, I Purchased a BMW 8 series yesterday, I had a petrol a couple years ago and this one was a diesel but I didn't think it would be an issue. I enquired about 6 weeks ago, asked multiple times to arrange a viewing and test drive but the dealership kept saying the car was not",
+          "createdUtc": 1784995096,
+          "snippet": "Hi everyone, I’m looking for some general advice about a personal injury claim in England and Wales. A couple of months ago I was involved in a very serious road traffic accident as a passenger. I suffered multiple serious injuries, including a basal skull fracture, several broke",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v5577j",
-          "title": "Update: Trapped in car park, now expected to pay damages",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5577j/update_trapped_in_car_park_now_expected_to_pay/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5577j/update_trapped_in_car_park_now_expected_to_pay/",
+          "id": "1v67puo",
+          "title": "England - would a breach of restraining order result in broken licence conditions?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v67puo/england_would_a_breach_of_restraining_order/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v67puo/england_would_a_breach_of_restraining_order/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784880991,
-          "snippet": "Update to this post: https://www.reddit.com/r/LegalAdviceUK/s/Uq08oiF5q2 Received conflicting advice last time, but decided to wait it out and either receive a bill for repairs (which I may have disputed based on the value) or they would claim it on insurance and absorb it. On ad",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v5ks4c",
-          "title": "Situation at co parents is not good.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ks4c/situation_at_co_parents_is_not_good/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ks4c/situation_at_co_parents_is_not_good/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784920001,
-          "snippet": "I’m in England. Hi I have a 10 year old daughter with autism and ADHD, she disclosed to me this morning that her sister (age 18) at her dads had hit her over the head with a phone, I have had to cancel her going there tonight which he is very angry about, we don’t have court orde",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v5e2c4",
-          "title": "Parking premier inn Cambridge now have over 300 bailiff notice",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5e2c4/parking_premier_inn_cambridge_now_have_over_300/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5e2c4/parking_premier_inn_cambridge_now_have_over_300/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784905671,
-          "snippet": "stayed two days premier in Cambridge a few months ago , paid for parking, but several weeks later got fine from park maven, I had wrongly entered my van registration number. I appealed, several weeks later maven said ok but I had to pay a £20 admin fee. I paid the fee on their on",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v5nnfz",
-          "title": "Son asked to attend an interview under caution at a police station for an allegation of sexual assault",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5nnfz/son_asked_to_attend_an_interview_under_caution_at/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5nnfz/son_asked_to_attend_an_interview_under_caution_at/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784926267,
-          "snippet": "My son has been asked to attend an interview under caution at a police station (England) as he's been accused by an ex girlfriend of sexual assault. The alleged offence took place 15 months ago. They were in a short relationship that only lasted a few weeks which ended when she c",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v5oqt2",
-          "title": "FTB bought a converted flat 3 weeks ago but noise from upstairs leasehold flat is unbearable (England).",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5oqt2/ftb_bought_a_converted_flat_3_weeks_ago_but_noise/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5oqt2/ftb_bought_a_converted_flat_3_weeks_ago_but_noise/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784928697,
-          "snippet": "Husband and I bought our first home 3 weeks ago, a converted maisonette flat, under freehold after a year of looking and 10 years saving. We absolutely love this flat, the location is good, the neighbourhood is super quiet, is exactly what we wanted and needed but we didn't know ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v61vjg",
-          "title": "Cat coming into house at night - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v61vjg/cat_coming_into_house_at_night_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v61vjg/cat_coming_into_house_at_night_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784965662,
-          "snippet": "We have new neighbours, who to be fair so far seem nice. They have a cat that has decided it was wants to be in our house, and has come into the house repeatedly in the last week, including twice during the night. Last night it came in at 2am and jumped on me while I was asleep i",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v61lrl",
-          "title": "Car dealership going back on their word",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v61lrl/car_dealership_going_back_on_their_word/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v61lrl/car_dealership_going_back_on_their_word/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784964724,
-          "snippet": "Hi, I purchased a vehicle from a nationwide car dealership chain on the 13th of June. When I viewed and test drove the car, it had a flat tyre. It was unclear if this was a puncture or if it just needed some air putting in, and the salesman said they would repair/replace the tyre",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v5iz8s",
-          "title": "Advice Needed, Dismissed from Work with No Warning and I Believe Procedure Not Followed",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5iz8s/advice_needed_dismissed_from_work_with_no_warning/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5iz8s/advice_needed_dismissed_from_work_with_no_warning/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784916165,
-          "snippet": "Hi need some advice on this. Performance review was announced with no notice, 12:45ish that the paperwork was being printed. At 3pm suddenly invited to performance review, nothing negative talked about in the review. 4:55pm asked to go to meeting room, was told contract being ter",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v5fcyj",
-          "title": "My deceases father in laws executor in 2018/19 claimed a bank lost a \"black box worth 1 million pound in cash\" and he only got £150 in compensation from complaining about it and other crazy stories I doubt is true.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5fcyj/my_deceases_father_in_laws_executor_in_201819/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5fcyj/my_deceases_father_in_laws_executor_in_201819/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784908529,
-          "snippet": "Okaaaay so, My husbands father died in 2018 and the whole dealing with the will stunk to high heaven from start to finish. I will do a quick timeline and I would like you to confirm with me how full of shit this whole fiasco was and if there is anything now we can do about it. - ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v4rm00",
-          "title": "I have been on a rolling temporary contracr in the NHS for 7 years. Do I have any permanent rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4rm00/i_have_been_on_a_rolling_temporary_contracr_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v4rm00/i_have_been_on_a_rolling_temporary_contracr_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784842711,
-          "snippet": "Band 5 nurse in England. In 2019 I was brought in to cover a temporary vacancy in a specialised ward to cover a maternity leave for Nurse X. Nurse X returned from maternity leave in 2020 and I was let go. 3 weeks later I was asked to return because she was pregnant again and had ",
+          "createdUtc": 1784984263,
+          "snippet": "My (soon-to-be) ex husband was sentenced to 20 months in prison in November for intentionally strangling me. He was released on Thursday - he had spent around a month on remand prior to the sentence. 2 weeks after he went to prison, he breached a restraining order by asking his s",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 10,
+      "postCount": 9,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,15 +280,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v58mzp",
-          "title": "Relationship has broken down yesterday after I asked wife to return to work.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v58mzp/relationship_has_broken_down_yesterday_after_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v58mzp/relationship_has_broken_down_yesterday_after_i/",
+          "id": "1v67mk5",
+          "title": "Father here seeking some help. Daughter (17) has been impregnated by a boyfriend in his mid 30s.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v67mk5/father_here_seeking_some_help_daughter_17_has/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v67mk5/father_here_seeking_some_help_daughter_17_has/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784892354,
-          "snippet": "Wife took 14 years off work to raise our children. They're now aged 12 and 14. I suggested that she could now return to work in September. I did raise this a couple of years ago when our oldest turned 12. However, she wanted to wait until our youngest left primary school. I agree",
+          "createdUtc": 1784984007,
+          "snippet": "My duaghter lived with mother and her mother didnt do anything to prevent this relationship. I only found out about it a few days ago. When she found out she was pregnant her boyfriend cut all contact. My ex then called me crying and telling me everyrhing that happened. I came ba",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v6atuc",
+          "title": "Threats of sexual violence at work",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6atuc/threats_of_sexual_violence_at_work/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6atuc/threats_of_sexual_violence_at_work/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784992050,
+          "snippet": "Someone at my work said to me “my week is going really well and it’ll be even better when I go over there and rape your Mrs” it was taken to HR and they said it was just banter. He was working opposite my house. My girlfriend was scared to go home. We don’t have a union so I don’",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v65poa",
+          "title": "Tradesman wants me to transfer £100 for discussing the job ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v65poa/tradesman_wants_me_to_transfer_100_for_discussing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v65poa/tradesman_wants_me_to_transfer_100_for_discussing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784978445,
+          "snippet": "I contacted a tradesman to change tiles and we agreed on a certain date in advance (we agreed on the 30th of June to do the work on the 24th of July) then as the time approached, I reminded him but then he had other booked work during that day, so we rescheduled for Sunday. Howev",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v644vu",
+          "title": "My grandmother is trying to take my car from me.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v644vu/my_grandmother_is_trying_to_take_my_car_from_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v644vu/my_grandmother_is_trying_to_take_my_car_from_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784973391,
+          "snippet": "Location: England Hi so my grandparents bought me a car as a gift. I am the main driver on the insurance that I have paid for and neither of them are on the policy. I have text messages that say that it is my car but obviously because they bought it they are the owners of it. My ",
           "listingSource": "rss:hot"
         },
         {
@@ -304,6 +340,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1v58mzp",
+          "title": "Relationship has broken down yesterday after I asked wife to return to work.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v58mzp/relationship_has_broken_down_yesterday_after_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v58mzp/relationship_has_broken_down_yesterday_after_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784892354,
+          "snippet": "Wife took 14 years off work to raise our children. They're now aged 12 and 14. I suggested that she could now return to work in September. I did raise this a couple of years ago when our oldest turned 12. However, she wanted to wait until our youngest left primary school. I agree",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1v5gkzy",
           "title": "Secretly recorded by customer at work and posted online - England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5gkzy/secretly_recorded_by_customer_at_work_and_posted/",
@@ -314,54 +362,6 @@
           "createdUtc": 1784911133,
           "snippet": "Hello. I work in a small grocery shop. Me and a few of my coworkers were recently recorded secretly by a customer using meta glasses (or some other form of recording glasses). This video was posted to his social media where he has a lot of followers. Nothing bad happened in the v",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v5ltz9",
-          "title": "England - neighbour throwing dirty water out of the window and into my flat, flooding my bathroom through negligence",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ltz9/england_neighbour_throwing_dirty_water_out_of_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ltz9/england_neighbour_throwing_dirty_water_out_of_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784922300,
-          "snippet": "I'd be grateful for advice about options to deal with my problem. My neighbour persistently floods her bathroom and consequently mine, and throws dirty water out of her window. I started out assuming it was a leak and got the council to come and repair her bathroom. But on the la",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v5k5zb",
-          "title": "Using alias surnames in court - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5k5zb/using_alias_surnames_in_court_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5k5zb/using_alias_surnames_in_court_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784918711,
-          "snippet": "This is a weird one and I would have posted it in an offtopic legal subreddit if there was one for the UK. In England. I happen to know someone ex-military who claims to have legal ID's and passports for several different surnames. A quick search says this is technically ok as lo",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v5577j",
-          "title": "Update: Trapped in car park, now expected to pay damages",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5577j/update_trapped_in_car_park_now_expected_to_pay/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5577j/update_trapped_in_car_park_now_expected_to_pay/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784880991,
-          "snippet": "Update to this post: https://www.reddit.com/r/LegalAdviceUK/s/Uq08oiF5q2 Received conflicting advice last time, but decided to wait it out and either receive a bill for repairs (which I may have disputed based on the value) or they would claim it on insurance and absorb it. On ad",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v5ks4c",
-          "title": "Situation at co parents is not good.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ks4c/situation_at_co_parents_is_not_good/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5ks4c/situation_at_co_parents_is_not_good/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784920001,
-          "snippet": "I’m in England. Hi I have a 10 year old daughter with autism and ADHD, she disclosed to me this morning that her sister (age 18) at her dads had hit her over the head with a phone, I have had to cancel her going there tonight which he is very angry about, we don’t have court orde",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -385,6 +385,114 @@
           "numComments": 0,
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v6aulu",
+          "title": "Landlord not responding on returning deposit - Wales",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6aulu/landlord_not_responding_on_returning_deposit_wales/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6aulu/landlord_not_responding_on_returning_deposit_wales/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784992112,
+          "snippet": "Hi All Prior context, the flat i rented was managed by an agency on behalf of a landlord, the agency is based in Manchester so they worked with a different local Welsh agency to assist with viewings/handing keys over etc. I've never had contact with the actual landlord, don't eve",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v6g9b9",
+          "title": "Landlord's king-size bed is hurting my back – can I replace it myself?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6g9b9/landlords_kingsize_bed_is_hurting_my_back_can_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6g9b9/landlords_kingsize_bed_is_hurting_my_back_can_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785004798,
+          "snippet": "Hi everyone, I dont know if this is correct sub but here we go When I moved into my rented house, it came furnished with a king-size bed and mattress provided by the landlord. Unfortunately, it's become very uncomfortable and it's causing me back pain. I'm happy to buy my own bed",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1v63r4m",
+          "title": "Employer calling a signed pay-rise a \"typo\" after I've resigned - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v63r4m/employer_calling_a_signed_payrise_a_typo_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v63r4m/employer_calling_a_signed_payrise_a_typo_after/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784972066,
+          "snippet": "Started with my employer in October 2024. Promoted a few months ago and issued a new signed contract with an increased salary. Paid at that rate for several payslips. I then resigned to take another job, with a start date already agreed. After resigning, my employer said the sala",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v6elyb",
+          "title": "​(UK Redundancy) Company mapped me to a role I did 8 years ago. How do I fight their \"75% match\"?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6elyb/uk_redundancy_company_mapped_me_to_a_role_i_did_8/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6elyb/uk_redundancy_company_mapped_me_to_a_role_i_did_8/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785001036,
+          "snippet": "Hi everyone, hoping for a bit of advice on how to handle a consultation situation. Keeping details slightly generic so I don't screw myself (never know who is reading), but I’ve been with a UK-based hotel chain in the IT department for 15 years. I started off back in support and ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1v64bhm",
+          "title": "PCN at hospital car park with what I believe is poor signage and no way to pay other than mobile phone which I didn't have?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v64bhm/pcn_at_hospital_car_park_with_what_i_believe_is/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v64bhm/pcn_at_hospital_car_park_with_what_i_believe_is/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784973985,
+          "snippet": "Strange one here, but basically, I drive the wifes car (motability car - im named driver) and parked at the hospital at a new wing (wife not with me so not using blue badge) Parked in a normal space and the only signage was a qr code for parking which is no good without a mobile ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "faulty-goods-and-refunds",
+      "label": "Faulty Goods and Refunds",
+      "legalAreaSlug": "consumer_goods",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1v6a913",
+          "title": "Refused refund on Xbox digital game with missing features",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6a913/refused_refund_on_xbox_digital_game_with_missing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6a913/refused_refund_on_xbox_digital_game_with_missing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1784990624,
+          "snippet": "England resident. I recently paid for and downloaded a digital game on Xbox One. I have opened and technically played the game, but have been unable to properly play and enjoy it due to an option missing from the menu. After being unable to find any advice online from people expe",
           "listingSource": "rss:hot"
         }
       ]
@@ -414,6 +522,30 @@
       ]
     },
     {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1v6f31n",
+          "title": "Partner on bail for domestic abuse",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6f31n/partner_on_bail_for_domestic_abuse/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6f31n/partner_on_bail_for_domestic_abuse/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785002112,
+          "snippet": "My partner is on bail for domestic abuse after strangling me. The police said he can’t have direct or indirect contact with me and it’s up to me if I choose to let him see the baby. He appointed his mum as the third party contact whilst he was inside. His mum has caused lots of p",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "motoring-offences",
       "label": "Motoring Offences",
       "legalAreaSlug": "motoring_offences",
@@ -438,9 +570,9 @@
       ]
     },
     {
-      "slug": "online-shopping-and-distance-selling",
-      "label": "Online Shopping and Distance Selling",
-      "legalAreaSlug": "consumer_online_shopping",
+      "slug": "personal-injury",
+      "label": "Personal Injury",
+      "legalAreaSlug": "personal_injury",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -448,159 +580,15 @@
       ],
       "posts": [
         {
-          "id": "1v5u2aw",
-          "title": "Dealer wont accept car return under distance selling",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5u2aw/dealer_wont_accept_car_return_under_distance/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5u2aw/dealer_wont_accept_car_return_under_distance/",
+          "id": "1v6c2hz",
+          "title": "Serious road traffic accident claim – what should I realistically expect from the legal process?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6c2hz/serious_road_traffic_accident_claim_what_should_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v6c2hz/serious_road_traffic_accident_claim_what_should_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1784942112,
-          "snippet": "Hi All, I Purchased a BMW 8 series yesterday, I had a petrol a couple years ago and this one was a diesel but I didn't think it would be an issue. I enquired about 6 weeks ago, asked multiple times to arrange a viewing and test drive but the dealership kept saying the car was not",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "debt",
-      "label": "Debt",
-      "legalAreaSlug": "debt",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v5e2c4",
-          "title": "Parking premier inn Cambridge now have over 300 bailiff notice",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5e2c4/parking_premier_inn_cambridge_now_have_over_300/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5e2c4/parking_premier_inn_cambridge_now_have_over_300/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784905671,
-          "snippet": "stayed two days premier in Cambridge a few months ago , paid for parking, but several weeks later got fine from park maven, I had wrongly entered my van registration number. I appealed, several weeks later maven said ok but I had to pay a £20 admin fee. I paid the fee on their on",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v5nnfz",
-          "title": "Son asked to attend an interview under caution at a police station for an allegation of sexual assault",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5nnfz/son_asked_to_attend_an_interview_under_caution_at/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5nnfz/son_asked_to_attend_an_interview_under_caution_at/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784926267,
-          "snippet": "My son has been asked to attend an interview under caution at a police station (England) as he's been accused by an ex girlfriend of sexual assault. The alleged offence took place 15 months ago. They were in a short relationship that only lasted a few weeks which ended when she c",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v5oqt2",
-          "title": "FTB bought a converted flat 3 weeks ago but noise from upstairs leasehold flat is unbearable (England).",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5oqt2/ftb_bought_a_converted_flat_3_weeks_ago_but_noise/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5oqt2/ftb_bought_a_converted_flat_3_weeks_ago_but_noise/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784928697,
-          "snippet": "Husband and I bought our first home 3 weeks ago, a converted maisonette flat, under freehold after a year of looking and 10 years saving. We absolutely love this flat, the location is good, the neighbourhood is super quiet, is exactly what we wanted and needed but we didn't know ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "car-purchase-and-dealer-disputes",
-      "label": "Car Purchase and Dealer Disputes",
-      "legalAreaSlug": "consumer_motor_purchase",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v61lrl",
-          "title": "Car dealership going back on their word",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v61lrl/car_dealership_going_back_on_their_word/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v61lrl/car_dealership_going_back_on_their_word/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784964724,
-          "snippet": "Hi, I purchased a vehicle from a nationwide car dealership chain on the 13th of June. When I viewed and test drove the car, it had a flat tyre. It was unclear if this was a puncture or if it just needed some air putting in, and the salesman said they would repair/replace the tyre",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v5iz8s",
-          "title": "Advice Needed, Dismissed from Work with No Warning and I Believe Procedure Not Followed",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5iz8s/advice_needed_dismissed_from_work_with_no_warning/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5iz8s/advice_needed_dismissed_from_work_with_no_warning/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784916165,
-          "snippet": "Hi need some advice on this. Performance review was announced with no notice, 12:45ish that the paperwork was being printed. At 3pm suddenly invited to performance review, nothing negative talked about in the review. 4:55pm asked to go to meeting room, was told contract being ter",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "wills-and-probate",
-      "label": "Wills and Probate",
-      "legalAreaSlug": "wills_probate",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v5fcyj",
-          "title": "My deceases father in laws executor in 2018/19 claimed a bank lost a \"black box worth 1 million pound in cash\" and he only got £150 in compensation from complaining about it and other crazy stories I doubt is true.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5fcyj/my_deceases_father_in_laws_executor_in_201819/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v5fcyj/my_deceases_father_in_laws_executor_in_201819/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1784908529,
-          "snippet": "Okaaaay so, My husbands father died in 2018 and the whole dealing with the will stunk to high heaven from start to finish. I will do a quick timeline and I would like you to confirm with me how full of shit this whole fiasco was and if there is anything now we can do about it. - ",
+          "createdUtc": 1784995096,
+          "snippet": "Hi everyone, I’m looking for some general advice about a personal injury claim in England and Wales. A couple of months ago I was involved in a very serious road traffic accident as a passenger. I suffered multiple serious injuries, including a basal skull fracture, several broke",
           "listingSource": "rss:hot"
         }
       ]
