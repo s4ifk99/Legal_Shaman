@@ -130,16 +130,18 @@ function buildSemanticQuery(
   specificIssue?: string,
   parsedSemantic?: string,
 ): string {
+  // Keep Typesense / directory queries short — long Reddit posts time out multi_search.
+  const shortQuery = query.replace(/\s+/g, " ").trim().slice(0, 120);
   if (canonicalName && specificIssue) {
-    return `${canonicalName} — ${specificIssue}`.slice(0, 400);
+    return `${canonicalName} — ${specificIssue}`.slice(0, 160);
   }
   if (canonicalName) {
-    return `${canonicalName} issue: ${query}`.slice(0, 400);
+    return `${canonicalName}: ${shortQuery}`.slice(0, 160);
   }
   if (parsedSemantic?.trim() && parsedSemantic.trim() !== query) {
-    return parsedSemantic.trim().slice(0, 400);
+    return parsedSemantic.trim().slice(0, 160);
   }
-  return query.slice(0, 400);
+  return shortQuery;
 }
 
 function buildRetrievalQueries(
@@ -148,14 +150,16 @@ function buildRetrievalQueries(
   boostTerms: string[],
   specificIssue?: string,
 ): string[] {
+  const short = query.replace(/\s+/g, " ").trim().slice(0, 160);
+  const shortExpanded = expanded.replace(/\s+/g, " ").trim().slice(0, 160);
   const queries = new Set<string>();
-  queries.add(expanded.trim() || query);
+  queries.add(shortExpanded || short);
   if (specificIssue) {
-    queries.add(`${query} ${specificIssue}`.trim());
+    queries.add(`${specificIssue} ${short}`.trim().slice(0, 160));
     queries.add(specificIssue);
   }
   const boost = boostTerms.slice(0, 8).join(" ");
-  if (boost) queries.add(`${query} ${boost}`.trim().slice(0, 400));
+  if (boost) queries.add(`${short} ${boost}`.trim().slice(0, 160));
   return [...queries].filter((q) => q.length >= 2).slice(0, 4);
 }
 

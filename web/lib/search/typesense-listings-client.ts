@@ -41,13 +41,18 @@ export function typesenseListingsConfigured(): boolean {
 
 export function buildTypesenseListingsClientFromEnv(options?: {
   connectionTimeoutSeconds?: number;
+  numRetries?: number;
 }): TsClient | null {
   const node = resolveTypesenseNodeConfig();
   if (!node) return null;
+  const timeout =
+    options?.connectionTimeoutSeconds ??
+    Number(process.env.TYPESENSE_SEARCH_TIMEOUT_SECONDS ?? (process.env.VERCEL === "1" ? 5 : 15));
   return new Typesense.Client({
     nodes: [{ host: node.host, port: node.port, protocol: node.protocol }],
     apiKey: process.env.TYPESENSE_API_KEY!.trim(),
-    connectionTimeoutSeconds: options?.connectionTimeoutSeconds ?? 15,
+    connectionTimeoutSeconds: Number.isFinite(timeout) ? timeout : 5,
+    numRetries: options?.numRetries ?? (process.env.VERCEL === "1" ? 0 : 1),
   });
 }
 

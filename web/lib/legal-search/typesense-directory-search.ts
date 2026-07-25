@@ -142,11 +142,14 @@ export async function runTypesenseDirectorySearch(
     return { ...legacy, degradedModes: [...degradedModes, ...legacy.degradedModes] };
   }
 
-  const health = await typesenseServerHealth(client);
-  if (!health.ok) {
-    degradedModes.push("typesense_unreachable");
-    const legacy = await runDirectorySearchLegacy(params);
-    return { ...legacy, degradedModes: [...degradedModes, ...legacy.degradedModes] };
+  // Vercel Ask-the-Shaman path: skip per-request health probes (they burn the budget).
+  if (process.env.VERCEL !== "1") {
+    const health = await typesenseServerHealth(client);
+    if (!health.ok) {
+      degradedModes.push("typesense_unreachable");
+      const legacy = await runDirectorySearchLegacy(params);
+      return { ...legacy, degradedModes: [...degradedModes, ...legacy.degradedModes] };
+    }
   }
 
   try {
@@ -157,8 +160,8 @@ export async function runTypesenseDirectorySearch(
     return { ...legacy, degradedModes: [...degradedModes, ...legacy.degradedModes] };
   }
 
-  const q = params.query.trim();
-  const expandedQ = parsed.expandedSearchText?.trim() || q;
+  const q = params.query.trim().slice(0, 120);
+  const expandedQ = (parsed.expandedSearchText?.trim() || q).slice(0, 120);
   const filterParts: Parameters<typeof buildFilterBy>[0] = {
     legalAidOnly: params.legalAidOnly,
     verifiedOnly: params.verifiedOnly,

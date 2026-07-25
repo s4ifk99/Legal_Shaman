@@ -96,6 +96,7 @@
     "admin:api": "tsx scripts/admin-api.ts",
     "prod:health": "tsx scripts/prod-health.ts",
     "guidance:self-audit": "tsx scripts/guidance-self-audit.ts",
+    "legal-search:smoke:long": "tsx scripts/legal-search-smoke-long.ts --local",
     "ops:serper-ping": "tsx scripts/ops-serper-ping.ts",
     "jobs:daily": "tsx scripts/jobs-daily.ts",
     "jobs:weekly": "tsx scripts/jobs-weekly.ts",

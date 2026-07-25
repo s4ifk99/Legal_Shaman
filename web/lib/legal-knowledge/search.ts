@@ -50,24 +50,35 @@ function knowledgeGraphMode(): GraphMode {
   return "primary";
 }
 
+type DirectorySlice = {
+  directoryResults: LegalSearchResponse["directoryResults"];
+  directoryRows: LegacyGetRow[];
+};
+
+const EMPTY_DIRECTORY: DirectorySlice = { directoryResults: [], directoryRows: [] };
+
 async function runDirectorySlice(
   input: LegalSearchRequest,
   context: Awaited<ReturnType<typeof buildLegalSearchContext>>,
   intent: ReturnType<typeof deriveLegalSearchIntent>,
-): Promise<{
-  directoryResults: LegalSearchResponse["directoryResults"];
-  directoryRows: LegacyGetRow[];
-}> {
-  let directoryResults: LegalSearchResponse["directoryResults"] = [];
-  let directoryRows: LegacyGetRow[] = [];
-  if (context.includeDirectory === false) {
-    return { directoryResults, directoryRows };
-  }
-  try {
+): Promise<DirectorySlice> {
+  if (context.includeDirectory === false) return EMPTY_DIRECTORY;
+
+  const directoryTimeoutMs = Number(
+    process.env.LEGAL_DIRECTORY_TIMEOUT_MS ?? (process.env.VERCEL === "1" ? 3_500 : 15_000),
+  );
+
+  const run = async (): Promise<DirectorySlice> => {
+    const shortQ =
+      intent.canonicalName && intent.specificIssue
+        ? `${intent.canonicalName} ${intent.specificIssue}`.slice(0, 80)
+        : intent.canonicalName
+          ? `${intent.canonicalName} solicitor`.slice(0, 80)
+          : intent.semanticQuery.slice(0, 80);
     const directory = await runDirectorySearch({
-      query: intent.semanticQuery,
+      query: shortQ,
       limit: 8,
-      semantic: true,
+      semantic: false,
       location: input.location,
       practiceArea: directoryPracticeAreaForIntent(intent),
       parsed: context.parsedQuery,
@@ -78,9 +89,8 @@ async function runDirectorySlice(
 
     const filtered = filterDirectoryResultsByIntent(directory.results, intent);
     const slice = filtered.slice(0, 6);
-    directoryRows = toLegacyGetResponse(slice).slice(0, 6) as LegacyGetRow[];
-
-    directoryResults = slice.map((r) => ({
+    const directoryRows = toLegacyGetResponse(slice).slice(0, 6) as LegacyGetRow[];
+    const directoryResults = slice.map((r) => ({
       id: r.id,
       title: r.displayName ?? r.title,
       source: r.sourceLabel ?? r.source,
@@ -89,10 +99,23 @@ async function runDirectorySlice(
       explanation: r.explanation,
       score: Number(r.scores.final.toFixed(4)),
     }));
+    return { directoryResults, directoryRows };
+  };
+
+  try {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    return await Promise.race([
+      run(),
+      new Promise<DirectorySlice>((resolve) => {
+        timer = setTimeout(() => resolve(EMPTY_DIRECTORY), directoryTimeoutMs);
+      }),
+    ]).finally(() => {
+      if (timer) clearTimeout(timer);
+    });
   } catch (err) {
     console.warn("[legal-knowledge.search] directory search failed:", err);
+    return EMPTY_DIRECTORY;
   }
-  return { directoryResults, directoryRows };
 }
 
 export async function runLegalKnowledgeSearch(
@@ -104,17 +127,18 @@ export async function runLegalKnowledgeSearch(
   const initialIntent = deriveLegalSearchIntent(context);
   const graphMode = knowledgeGraphMode();
 
+  // Start directory once — never await it twice (was doubling Typesense timeouts).
+  const directoryPromise = runDirectorySlice(input, context, initialIntent);
+
   if (graphMode !== "off" && isConsumerIntent(initialIntent)) {
-    const graphPromise = assembleFromKnowledgeGraph(context, initialIntent);
-    const directoryPromise = runDirectorySlice(input, context, initialIntent);
-    const [graphResult, directorySlice] = await Promise.all([graphPromise, directoryPromise]);
+    const graphResult = await assembleFromKnowledgeGraph(context, initialIntent);
 
     if (
       graphResult &&
       graphMode === "primary" &&
       graphResult.confidence >= GRAPH_MIN_CONFIDENCE
     ) {
-      const { directoryResults, directoryRows } = directorySlice;
+      const { directoryResults, directoryRows } = await directoryPromise;
       const searchCriteria = decomposeLegalSearchQuery({
         query,
         location: input.location,
@@ -194,10 +218,9 @@ export async function runLegalKnowledgeSearch(
     intent,
   });
 
-  // Answer + directory in parallel — directory was sequential after LLM before.
   const [answerResult, directorySlice] = await Promise.all([
     generateCitationFirstAnswer(query, answerPool, confidenceResult.score, intent),
-    runDirectorySlice(input, context, intent),
+    directoryPromise,
   ]);
   const { directoryResults, directoryRows } = directorySlice;
 

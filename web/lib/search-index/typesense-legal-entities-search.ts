@@ -164,27 +164,31 @@ export async function searchLegalEntitiesMulti(
     filter_by: params.filterBy,
   };
 
+  // Long natural-language posts make typo-tolerant multi_search extremely slow.
+  const q = params.q.replace(/\s+/g, " ").trim().slice(0, 120);
+  const expandedQ = (params.expandedQ || q).replace(/\s+/g, " ").trim().slice(0, 120);
+
   const searches: Record<string, unknown>[] = [
     {
       ...common,
-      q: params.q,
+      q,
       query_by: LEGAL_ENTITIES_QUERY_BY,
       query_by_weights: LEGAL_ENTITIES_QUERY_BY_WEIGHTS,
-      typo_tolerance: true,
+      typo_tolerance: q.length < 80,
     },
     {
       ...common,
-      q: params.expandedQ,
+      q: expandedQ,
       query_by: LEGAL_ENTITIES_QUERY_BY_EXPANDED,
       query_by_weights: LEGAL_ENTITIES_QUERY_BY_EXPANDED_WEIGHTS,
-      typo_tolerance: true,
+      typo_tolerance: expandedQ.length < 80,
     },
   ];
 
-  if (isExactMatchStyleQuery(params.q)) {
+  if (isExactMatchStyleQuery(q)) {
     searches.push({
       ...common,
-      q: normaliseExactQuery(params.q),
+      q: normaliseExactQuery(q),
       query_by: LEGAL_ENTITIES_QUERY_BY_EXACT,
       query_by_weights: LEGAL_ENTITIES_QUERY_BY_EXACT_WEIGHTS,
       typo_tolerance: false,
@@ -199,7 +203,7 @@ export async function searchLegalEntitiesMulti(
   ) {
     searches.push({
       ...common,
-      q: params.q || "*",
+      q: q || "*",
       query_by: LEGAL_ENTITIES_QUERY_BY,
       query_by_weights: LEGAL_ENTITIES_QUERY_BY_WEIGHTS,
       sort_by: `locationPoint(${params.geoSortLat}, ${params.geoSortLng}):asc`,
