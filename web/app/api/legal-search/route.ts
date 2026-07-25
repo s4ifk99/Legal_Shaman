@@ -15,8 +15,10 @@ export const runtime = "nodejs";
 /** Keep under Vercel Pro 60s hard kill so clients always get JSON, not a plain-text timeout page. */
 export const maxDuration = 60;
 
-/** Leave headroom before the platform kills the function. */
-const SEARCH_DEADLINE_MS = 50_000;
+/** Leave headroom before the platform kills the function (Hobby ~10s, Pro 60s). */
+const SEARCH_DEADLINE_MS = Number(
+  process.env.LEGAL_SEARCH_DEADLINE_MS ?? (process.env.VERCEL === "1" ? 25_000 : 50_000),
+);
 
 const LegalSearchInput = z.object({
   query: z.string().trim().min(2).max(MAX_SEARCH_QUERY_CHARS),

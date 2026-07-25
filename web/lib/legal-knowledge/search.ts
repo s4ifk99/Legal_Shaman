@@ -169,7 +169,8 @@ export async function runLegalKnowledgeSearch(
 
   if (
     intent.taxonomySlug !== initialIntent.taxonomySlug &&
-    intent.retrievalQueries[0] !== initialIntent.retrievalQueries[0]
+    intent.retrievalQueries[0] !== initialIntent.retrievalQueries[0] &&
+    process.env.VERCEL !== "1"
   ) {
     const retry = await hybridLegalRetrieval(query, { limit: 50, intent });
     if (retry.chunks.length) {
@@ -193,14 +194,12 @@ export async function runLegalKnowledgeSearch(
     intent,
   });
 
-  const answerResult = await generateCitationFirstAnswer(
-    query,
-    answerPool,
-    confidenceResult.score,
-    intent,
-  );
-
-  const { directoryResults, directoryRows } = await runDirectorySlice(input, context, intent);
+  // Answer + directory in parallel — directory was sequential after LLM before.
+  const [answerResult, directorySlice] = await Promise.all([
+    generateCitationFirstAnswer(query, answerPool, confidenceResult.score, intent),
+    runDirectorySlice(input, context, intent),
+  ]);
+  const { directoryResults, directoryRows } = directorySlice;
 
   const suggestedNextSteps = suggestedNextStepsForClassification(context.classification);
   if (
@@ -220,7 +219,7 @@ export async function runLegalKnowledgeSearch(
   });
 
   let graphShadow: LegalSearchResponse["debug"] extends { graphShadow?: infer G } ? G : undefined;
-  if (graphMode === "shadow" && isConsumerIntent(intent)) {
+  if (graphMode === "shadow" && isConsumerIntent(intent) && process.env.VERCEL !== "1") {
     const graphResult = await assembleFromKnowledgeGraph(context, intent);
     if (graphResult) {
       graphShadow = {

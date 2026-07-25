@@ -69,6 +69,12 @@ export async function parseQuery(raw: string): Promise<ParsedQuery> {
     return rules;
   }
 
+  // Long Reddit-style posts: rules + taxonomy only — LLM parse often burns the
+  // whole Vercel budget before retrieval/synthesis starts.
+  if (rawText.length > 400 || process.env.VERCEL === "1") {
+    return rules;
+  }
+
   if (enableLlmSearch() && llmConfigured()) {
     try {
       const content = await chat(

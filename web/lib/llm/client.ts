@@ -55,11 +55,12 @@ function getChatClient(): OpenAI {
     );
   }
   const defaultHeaders = openRouterDefaultHeaders();
-  const timeoutMs = Number(process.env.LLM_TIMEOUT_MS ?? 12_000);
+  const defaultTimeout = process.env.VERCEL === "1" ? 8_000 : 12_000;
+  const timeoutMs = Number(process.env.LLM_TIMEOUT_MS ?? defaultTimeout);
   _chatClient = new OpenAI({
     apiKey,
     baseURL,
-    timeout: Number.isFinite(timeoutMs) ? timeoutMs : 12_000,
+    timeout: Number.isFinite(timeoutMs) ? timeoutMs : defaultTimeout,
     maxRetries: 0,
     ...(defaultHeaders ? { defaultHeaders } : {}),
   });

@@ -17,7 +17,10 @@ export const TAXONOMY_TO_WIKI_AREA: Record<string, string> = {
 
 export function wikiAreaForTaxonomy(slug: string | undefined): string | null {
   if (!slug) return null;
-  return TAXONOMY_TO_WIKI_AREA[slug] ?? null;
+  if (TAXONOMY_TO_WIKI_AREA[slug]) return TAXONOMY_TO_WIKI_AREA[slug]!;
+  // consumer_services → Consumer Rights, etc.
+  if (slug.startsWith("consumer")) return "Consumer Rights";
+  return null;
 }
 
 export function isConsumerWikiPageId(wikiPageId: string): boolean {

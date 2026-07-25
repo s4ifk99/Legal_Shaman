@@ -147,12 +147,57 @@ function scoreRow(
 
 function buildLexicalQuery(raw: string, intent?: LegalSearchIntent): string {
   if (intent?.retrievalQueries[0]?.trim()) {
-    return intent.retrievalQueries[0]!.trim().slice(0, 300);
+    return intent.retrievalQueries[0]!.trim().slice(0, 180);
   }
-  return raw.replace(/\s+/g, " ").trim().slice(0, 300);
+  // Prefer distinctive tokens so long Reddit-style posts don't break FTS.
+  const tokens = raw
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s£]/gu, " ")
+    .split(/\s+/)
+    .filter((t) => t.length >= 4)
+    .slice(0, 24);
+  if (tokens.length >= 3) return tokens.join(" ").slice(0, 180);
+  return raw.replace(/\s+/g, " ").trim().slice(0, 180);
+}
+
+async function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    return await Promise.race([
+      promise,
+      new Promise<T>((_, reject) => {
+        timer = setTimeout(() => reject(new Error(`${label} timed out after ${ms}ms`)), ms);
+      }),
+    ]);
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
 }
 
 export async function hybridLegalRetrieval(
+  query: string,
+  options: RetrievalOptions = {},
+): Promise<{ chunks: RetrievedChunk[]; mode: "hybrid" | "lexical_only" | "empty" }> {
+  const trimmed = query.trim();
+  if (trimmed.length < 2) return { chunks: [], mode: "empty" };
+
+  const retrievalTimeoutMs = Number(
+    process.env.LEGAL_RETRIEVAL_TIMEOUT_MS ?? (process.env.VERCEL === "1" ? 8_000 : 20_000),
+  );
+
+  try {
+    return await withTimeout(
+      hybridLegalRetrievalInner(query, options),
+      retrievalTimeoutMs,
+      "legal_retrieval",
+    );
+  } catch (err) {
+    console.warn("[legal-knowledge.retrieval] timed out or failed:", err);
+    return { chunks: [], mode: "empty" };
+  }
+}
+
+async function hybridLegalRetrievalInner(
   query: string,
   options: RetrievalOptions = {},
 ): Promise<{ chunks: RetrievedChunk[]; mode: "hybrid" | "lexical_only" | "empty" }> {

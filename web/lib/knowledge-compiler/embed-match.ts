@@ -11,6 +11,8 @@ export async function embeddingScoresForQuery(
   opts?: { taxonomySlug?: string; limit?: number },
 ): Promise<Map<string, number>> {
   const scores = new Map<string, number>();
+  // Vercel: skip remote embeddings (latency / home-DB vector lookups).
+  if (process.env.VERCEL === "1") return scores;
   if (!(await isKnowledgeGraphDbReady()) || !embedConfigured()) return scores;
 
   const embedding = await embedOne(query.slice(0, 2000));

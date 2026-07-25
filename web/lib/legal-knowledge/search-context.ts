@@ -56,8 +56,20 @@ export async function buildLegalSearchContext(
   const baseClassification = classifyLegalIssue(query);
 
   let llmClassification: LlmLegalClassification | null = null;
-  if (shouldTriggerLlmClassification(resolution)) {
-    llmClassification = await classifyLegalIssueWithLlm(query, resolution);
+  // Long posts / Vercel: skip LLM classify — rules fusion is enough and much faster.
+  const allowLlmClassify =
+    shouldTriggerLlmClassification(resolution) &&
+    query.length <= 400 &&
+    process.env.VERCEL !== "1";
+  if (allowLlmClassify) {
+    try {
+      llmClassification = await Promise.race([
+        classifyLegalIssueWithLlm(query, resolution),
+        new Promise<null>((resolve) => setTimeout(() => resolve(null), 6_000)),
+      ]);
+    } catch {
+      llmClassification = null;
+    }
   }
 
   const fusion = fuseRuleAndLlmClassification({

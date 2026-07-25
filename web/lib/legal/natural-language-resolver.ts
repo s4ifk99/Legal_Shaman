@@ -258,6 +258,16 @@ export function resolveLegalIssueFromNaturalLanguage(
     if (consumer) candidates.push({ entry: consumer, score: 54 });
   }
 
+  // Tradesman / builder cancel & payment disputes → consumer services.
+  const tradesmanSignals =
+    /\b(tradesman|tradesmen|tiler|tiling|builder|plumber|electrician|roofer|handyman|decorator|cancelled with (him|her|them)|owe (him|her|them)|cancel(led)? (the )?(work|job|booking))\b/i;
+  if (tradesmanSignals.test(lower) || tradesmanSignals.test(trimmed)) {
+    const consumer = byTaxonomySlug.get("consumer");
+    const services = byTaxonomySlug.get("consumer_services");
+    if (services) candidates.push({ entry: services, score: 56 });
+    else if (consumer) candidates.push({ entry: consumer, score: 56 });
+  }
+
   const privatePcnSignals = /\b(private parking|parking charge notice|parkingeye|euro car parks|private pcn)\b/i;
   if (privatePcnSignals.test(lower)) {
     const parking = byTaxonomySlug.get("parking_pcn");
