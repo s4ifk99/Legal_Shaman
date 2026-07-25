@@ -3,11 +3,16 @@ import { z } from "zod";
 
 import { decomposeLegalSearchQuery } from "@/lib/legal-knowledge/decompose-query";
 import { LEGAL_SEARCH_DISCLAIMER } from "@/lib/legal-knowledge/types";
+import {
+  MAX_SEARCH_QUERY_CHARS,
+  processSearchQuery,
+  searchQueryTooLongMessage,
+} from "@/lib/legal-search/query-limits";
 
 export const runtime = "nodejs";
 
 const DecomposeInput = z.object({
-  query: z.string().trim().min(2).max(800),
+  query: z.string().trim().min(2).max(MAX_SEARCH_QUERY_CHARS),
   location: z.string().trim().max(120).optional(),
   jurisdiction: z.string().trim().max(64).optional(),
   includeDirectory: z.boolean().optional(),
@@ -24,15 +29,21 @@ export async function POST(req: Request) {
 
   const parsed = DecomposeInput.safeParse(body);
   if (!parsed.success) {
+    const queryIssue = parsed.error.flatten().fieldErrors.query?.[0];
+    const tooLong = /at most|too (big|long)|maximum/i.test(queryIssue ?? "");
     return NextResponse.json(
-      { error: "Invalid input", details: parsed.error.flatten() },
+      {
+        error: tooLong ? searchQueryTooLongMessage() : "Invalid input",
+        details: parsed.error.flatten(),
+      },
       { status: 400 },
     );
   }
 
-  const searchCriteria = decomposeLegalSearchQuery(parsed.data);
+  const query = processSearchQuery(parsed.data.query);
+  const searchCriteria = decomposeLegalSearchQuery({ ...parsed.data, query });
   return NextResponse.json({
-    query: parsed.data.query,
+    query,
     searchCriteria,
     disclaimer: LEGAL_SEARCH_DISCLAIMER,
   });

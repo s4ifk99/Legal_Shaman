@@ -244,8 +244,43 @@ export function resolveLegalIssueFromNaturalLanguage(
     if (employment) candidates.push({ entry: employment, score: 44 });
   }
 
-  const best = mergeCandidates(candidates);
+  const familySignals =
+    /\b(co-?parent|domestic abuse|domestic violence|abusive ex|abusive partner|non-?molestation|child arrangements|threats to (kill|harm)|cafcass)\b/i;
+  if (familySignals.test(lower)) {
+    const family = byTaxonomySlug.get("family");
+    if (family) candidates.push({ entry: family, score: 52 });
+  }
+
+  const customsSignals =
+    /\b(customs|import duty|import tax|excise|border force|hmrc|bringing .{0,48} into (the )?(uk|england|scotland|wales)|fly(ing)? from .{0,40} with|importing from abroad)\b/i;
+  if (customsSignals.test(lower) || customsSignals.test(trimmed)) {
+    const consumer = byTaxonomySlug.get("consumer");
+    if (consumer) candidates.push({ entry: consumer, score: 54 });
+  }
+
+  const privatePcnSignals = /\b(private parking|parking charge notice|parkingeye|euro car parks|private pcn)\b/i;
+  if (privatePcnSignals.test(lower)) {
+    const parking = byTaxonomySlug.get("parking_pcn");
+    if (parking) candidates.push({ entry: parking, score: 48 });
+  }
+
+  let best = mergeCandidates(candidates);
   if (!best) return null;
+
+  // Customs / bringing goods must not resolve as immigration.
+  if (
+    (customsSignals.test(lower) || customsSignals.test(trimmed)) &&
+    best.entry.slug === "immigration"
+  ) {
+    const consumer = byTaxonomySlug.get("consumer");
+    if (consumer) best = { entry: consumer, score: Math.max(best.score, 54) };
+  }
+
+  // Co-parenting / abuse must not resolve as housing.
+  if (familySignals.test(lower) && best.entry.slug === "housing") {
+    const family = byTaxonomySlug.get("family");
+    if (family) best = { entry: family, score: Math.max(best.score, 52) };
+  }
 
   if (
     (lower.includes("judicial review") || /\bjr\b/.test(lower)) &&

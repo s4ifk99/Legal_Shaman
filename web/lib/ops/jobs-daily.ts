@@ -1,4 +1,5 @@
 import { runProdHealth } from "@/lib/ops/prod-health";
+import { runGuidanceSelfAudit } from "@/lib/ops/guidance-self-audit";
 import { logJobEvent, runJobStep, runNpmStep, summarizeSteps } from "@/lib/ops/job-runner";
 import { writeOpsJobRun } from "@/lib/ops/job-state";
 import { runRefreshApprovedJobs } from "@/lib/ops/jobs-refresh-approved";
@@ -21,6 +22,21 @@ export async function runDailyJobs(): Promise<DailyJobResult> {
     await runJobStep("prod:health", async () => {
       const health = await runProdHealth();
       return { ok: health.ok, detail: health.ok ? undefined : health.checks.filter((c) => !c.ok).map((c) => c.name).join(", ") };
+    }),
+  );
+
+  steps.push(
+    await runJobStep("guidance:self-audit", async () => {
+      const audit = await runGuidanceSelfAudit();
+      return {
+        ok: audit.criticalOk,
+        detail: audit.criticalOk
+          ? `checks=${audit.checks.filter((c) => c.ok).length}/${audit.checks.length}`
+          : audit.checks
+              .filter((c) => !c.ok && c.critical)
+              .map((c) => c.name)
+              .join(", "),
+      };
     }),
   );
 

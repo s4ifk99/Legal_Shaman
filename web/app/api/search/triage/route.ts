@@ -5,6 +5,7 @@ import type { AppliedFilters } from "@/lib/agent/types";
 import { AppliedFiltersSchema } from "@/lib/agent/types";
 import type { LatLng } from "@/lib/search/location";
 import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
+import { MAX_SEARCH_QUERY_CHARS } from "@/lib/legal-search/query-limits";
 
 export const runtime = "nodejs";
 
@@ -35,7 +36,7 @@ const SearchOriginSchema = z
 const BodySchema = z.discriminatedUnion("action", [
   z.object({
     action: z.literal("start"),
-    query: z.string().trim().min(2).max(800),
+    query: z.string().trim().min(2).max(MAX_SEARCH_QUERY_CHARS),
     sessionId: z.string().trim().min(1).max(128).optional(),
     appliedFilters: AppliedFiltersBody,
     searchOrigin: SearchOriginSchema,
@@ -67,7 +68,7 @@ const BodySchema = z.discriminatedUnion("action", [
   z.object({
     action: z.literal("restart"),
     sessionId: z.string().trim().min(1).max(128),
-    query: z.string().trim().min(0).max(800).optional(),
+    query: z.string().trim().min(0).max(MAX_SEARCH_QUERY_CHARS).optional(),
     appliedFilters: AppliedFiltersBody,
     searchOrigin: SearchOriginSchema,
   }),

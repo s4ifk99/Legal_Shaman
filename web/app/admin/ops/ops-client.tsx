@@ -29,6 +29,22 @@ type OpsPayload = {
   }[];
   lastDailyJob: { status: string; completedAt: string; errors?: string[] } | null;
   lastWeeklyJob: { status: string; completedAt: string; errors?: string[] } | null;
+  lastGuidanceSelfAudit: {
+    status: string;
+    completedAt: string;
+    steps?: { name: string; ok: boolean; detail?: string }[];
+    errors?: string[];
+  } | null;
+  answerModeMix24h: {
+    total: number;
+    synthesis: number;
+    graph_assembly: number;
+    fallback: number;
+    other: number;
+    fallbackRate: number | null;
+  };
+  llmConfigured: boolean;
+  llmAnswerEnabled: boolean;
   lastIndexBuild: {
     source: string;
     status: string;
@@ -94,6 +110,9 @@ export default function OpsClient() {
           <Button type="button" variant="outline" size="sm" onClick={() => void load()}>
             Refresh
           </Button>
+          <Link href="/admin/crm" className="text-sm text-primary hover:underline">
+            Sales CRM
+          </Link>
           <Link href="/admin/users" className="text-sm text-primary hover:underline">
             Users
           </Link>
@@ -121,6 +140,45 @@ export default function OpsClient() {
           <p className="text-xs text-muted-foreground">
             DB {data.databaseHostMasked ?? "—"} · Typesense {data.typesenseHostMasked ?? "—"}
           </p>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">Ask the Shaman guidance</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2 text-sm">
+          <p>
+            LLM configured: {data.llmConfigured ? "yes" : "no"} · answer enabled:{" "}
+            {data.llmAnswerEnabled ? "yes" : "no"}
+          </p>
+          <p>
+            answerMode (24h): synth {data.answerModeMix24h?.synthesis ?? 0} · graph{" "}
+            {data.answerModeMix24h?.graph_assembly ?? 0} · fallback{" "}
+            {data.answerModeMix24h?.fallback ?? 0}
+            {data.answerModeMix24h?.fallbackRate != null
+              ? ` (${(data.answerModeMix24h.fallbackRate * 100).toFixed(0)}% fallback)`
+              : ""}
+          </p>
+          {data.lastGuidanceSelfAudit ? (
+            <>
+              <Badge
+                variant={data.lastGuidanceSelfAudit.status === "completed" ? "default" : "destructive"}
+              >
+                Last audit: {data.lastGuidanceSelfAudit.status}
+              </Badge>
+              <p className="text-xs text-muted-foreground">{data.lastGuidanceSelfAudit.completedAt}</p>
+              {data.lastGuidanceSelfAudit.errors?.length ? (
+                <ul className="text-destructive">
+                  {data.lastGuidanceSelfAudit.errors.map((e) => (
+                    <li key={e}>{e}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </>
+          ) : (
+            <p className="text-muted-foreground">No guidance self-audit recorded yet.</p>
+          )}
         </CardContent>
       </Card>
 

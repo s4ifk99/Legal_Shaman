@@ -13,6 +13,7 @@ export type OpsJobStateFile = {
   daily: OpsJobRunRecord | null;
   weekly: OpsJobRunRecord | null;
   refreshApproved: OpsJobRunRecord | null;
+  guidanceSelfAudit: OpsJobRunRecord | null;
 };
 
 const STATE_PATH = path.join(process.cwd(), ".ops-job-state.json");
@@ -20,9 +21,15 @@ const STATE_PATH = path.join(process.cwd(), ".ops-job-state.json");
 export async function readOpsJobState(): Promise<OpsJobStateFile> {
   try {
     const raw = await readFile(STATE_PATH, "utf8");
-    return JSON.parse(raw) as OpsJobStateFile;
+    const parsed = JSON.parse(raw) as Partial<OpsJobStateFile>;
+    return {
+      daily: parsed.daily ?? null,
+      weekly: parsed.weekly ?? null,
+      refreshApproved: parsed.refreshApproved ?? null,
+      guidanceSelfAudit: parsed.guidanceSelfAudit ?? null,
+    };
   } catch {
-    return { daily: null, weekly: null, refreshApproved: null };
+    return { daily: null, weekly: null, refreshApproved: null, guidanceSelfAudit: null };
   }
 }
 

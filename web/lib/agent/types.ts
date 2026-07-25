@@ -5,6 +5,7 @@ import type {
   ResultDebugDiagnostics,
   SearchResponseDebug,
 } from "@/lib/legal-search/search-diagnostics-types";
+import { MAX_SEARCH_QUERY_CHARS } from "@/lib/legal-search/query-limits";
 
 export const PRACTICE_AREA_SLUGS = [
   "employment",
@@ -61,7 +62,7 @@ export const AppliedFiltersSchema = z.object({
 export type AppliedFilters = z.infer<typeof AppliedFiltersSchema>;
 
 export const AgentInputSchema = z.object({
-  query: z.string().trim().min(2).max(800),
+  query: z.string().trim().min(2).max(MAX_SEARCH_QUERY_CHARS),
   sessionId: z.string().trim().min(1).max(128).optional(),
   appliedFilters: AppliedFiltersSchema.optional(),
 });

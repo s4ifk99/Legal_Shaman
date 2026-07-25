@@ -41,6 +41,19 @@ function scorePage(page: WikiPageIndex, terms: string[]): number {
     score *= 0.2;
   }
 
+  // Knowledge-first: prefer Areas / Reference / Getting Help over firm Directory
+  const path = page.relativePath.replace(/\\/g, "/");
+  if (path.startsWith("Areas/")) score *= 1.35;
+  else if (path.startsWith("Reference/Concepts/")) score *= 1.4;
+  else if (path.startsWith("Reference/")) score *= 1.2;
+  else if (path.startsWith("Getting Help/")) score *= 1.15;
+  else if (path.startsWith("Directory/Firms/")) score *= 0.45;
+  else if (path.startsWith("Directory/")) score *= 0.7;
+
+  if (/this page moved/i.test(page.summary)) {
+    score *= 0.05;
+  }
+
   return score;
 }
 

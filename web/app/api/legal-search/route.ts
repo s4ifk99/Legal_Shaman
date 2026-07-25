@@ -5,6 +5,11 @@ import { logLegalKnowledgeInteraction } from "@/lib/legal-knowledge/observabilit
 import { runLegalKnowledgeSearch } from "@/lib/legal-knowledge/search";
 import { LEGAL_SEARCH_DISCLAIMER } from "@/lib/legal-knowledge/types";
 import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
+import {
+  MAX_SEARCH_QUERY_CHARS,
+  processSearchQuery,
+  searchQueryTooLongMessage,
+} from "@/lib/legal-search/query-limits";
 
 export const runtime = "nodejs";
 /** Keep under Vercel Pro 60s hard kill so clients always get JSON, not a plain-text timeout page. */
@@ -14,7 +19,7 @@ export const maxDuration = 60;
 const SEARCH_DEADLINE_MS = 50_000;
 
 const LegalSearchInput = z.object({
-  query: z.string().trim().min(2).max(800),
+  query: z.string().trim().min(2).max(MAX_SEARCH_QUERY_CHARS),
   location: z.string().trim().max(120).optional(),
   jurisdiction: z.string().trim().max(64).optional(),
   includeDirectory: z.boolean().optional(),
@@ -55,8 +60,14 @@ export async function POST(req: Request) {
 
   const parsed = LegalSearchInput.safeParse(body);
   if (!parsed.success) {
+    const queryIssue = parsed.error.flatten().fieldErrors.query?.[0];
+    const tooLong = /at most|too (big|long)|maximum/i.test(queryIssue ?? "");
     return NextResponse.json(
-      { error: "Invalid input", details: parsed.error.flatten(), disclaimer: LEGAL_SEARCH_DISCLAIMER },
+      {
+        error: tooLong ? searchQueryTooLongMessage() : "Invalid input",
+        details: parsed.error.flatten(),
+        disclaimer: LEGAL_SEARCH_DISCLAIMER,
+      },
       { status: 400 },
     );
   }
@@ -64,7 +75,10 @@ export async function POST(req: Request) {
   try {
     const t0 = Date.now();
     const result = await withDeadline(
-      runLegalKnowledgeSearch(parsed.data),
+      runLegalKnowledgeSearch({
+        ...parsed.data,
+        query: processSearchQuery(parsed.data.query),
+      }),
       SEARCH_DEADLINE_MS,
       "legal-search",
     );

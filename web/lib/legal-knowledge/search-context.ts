@@ -16,6 +16,7 @@ import {
   type LlmLegalClassification,
 } from "./classify-llm";
 import type { IssueClassification, LegalSearchRequest } from "./types";
+import { processSearchQuery } from "@/lib/legal-search/query-limits";
 
 export type LegalSearchContext = {
   query: string;
@@ -49,7 +50,7 @@ function classificationFromFusion(
 export async function buildLegalSearchContext(
   input: LegalSearchRequest,
 ): Promise<LegalSearchContext> {
-  const query = input.query.trim();
+  const query = processSearchQuery(input.query);
   const parsedQuery = await parseQuery(query);
   const resolution = resolveLegalIssueFromQuery(query);
   const baseClassification = classifyLegalIssue(query);
@@ -82,7 +83,7 @@ export async function buildLegalSearchContext(
 
 /** Deterministic context for offline eval (no LLM classification). */
 export function buildEvalSearchContext(query: string): LegalSearchContext {
-  const trimmed = query.trim();
+  const trimmed = processSearchQuery(query);
   const parsedQuery = ruleBasedParse(trimmed);
   const resolution = resolveLegalIssueFromQuery(trimmed);
   const baseClassification = classifyLegalIssue(trimmed);

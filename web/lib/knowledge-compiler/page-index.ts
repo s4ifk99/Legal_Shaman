@@ -142,6 +142,65 @@ export function queryPageTokenOverlap(query: string, page: WikiPageIndex): numbe
   return hits / tokens.length;
 }
 
+/**
+ * Area/category hub pages (e.g. "Family Law") — too broad when the user named a
+ * specific issue like prenup or conveyancing.
+ */
+export function isCategoryHubPage(page: WikiPageIndex): boolean {
+  const parts = page.id.split("/").filter(Boolean);
+  // Areas/<Category> or Areas/<Category>/_index style hubs
+  if (parts.length <= 2) return true;
+  if (page.id.endsWith("/_index")) return true;
+  const titleNorm = page.title.trim().toLowerCase();
+  const catNorm = page.category.trim().toLowerCase();
+  if (titleNorm && catNorm && (titleNorm === catNorm || titleNorm === `${catNorm} law`)) {
+    return true;
+  }
+  // Titles that are just the area name without a specific topic
+  if (
+    /^(family( and relationships)?|home and housing|employment|immigration( and citizenship)?|consumer rights|debt|welfare)(\s+law)?$/i.test(
+      page.title.trim(),
+    )
+  ) {
+    return true;
+  }
+  return false;
+}
+
+/** Extra topical tokens from specificIssue / boost terms for related-page filtering. */
+export function intentTopicTokens(intent: LegalSearchIntent, query: string): string[] {
+  const tokens = new Set<string>();
+  for (const t of queryContentTokens(query)) tokens.add(t);
+  if (intent.specificIssue) {
+    for (const t of queryContentTokens(intent.specificIssue)) tokens.add(t);
+  }
+  for (const t of intent.searchBoostTerms.slice(0, 8)) {
+    const n = t.toLowerCase().trim();
+    if (n.length >= 4) tokens.add(n);
+  }
+  return [...tokens];
+}
+
+/** Reject related pages that share the area but not the user's topical terms. */
+export function pageMatchesQueryTopic(
+  page: WikiPageIndex,
+  intent: LegalSearchIntent,
+  query: string,
+  minOverlap = 0.15,
+): boolean {
+  if (!pageMatchesIntent(page, intent)) return false;
+  if (isCategoryHubPage(page) && intent.specificIssue) return false;
+
+  const overlap = queryPageTokenOverlap(query, page);
+  if (overlap >= minOverlap) return true;
+
+  const blob = pageHaystack(page);
+  const topicTokens = intentTopicTokens(intent, query);
+  if (!topicTokens.length) return overlap >= 0.1;
+  const hits = topicTokens.filter((t) => blob.includes(t)).length;
+  return hits / topicTokens.length >= minOverlap;
+}
+
 function pageHaystack(page: WikiPageIndex): string {
   return [
     page.title,
@@ -223,17 +282,29 @@ function scorePageForIntent(
 
   const overlap = queryPageTokenOverlap(query, page);
   // Require real query↔page token overlap — taxonomy alone is not enough.
-  if (overlap < 0.12) return -1;
+  const minOverlap = intent.specificIssue ? 0.18 : 0.12;
+  if (overlap < minOverlap) return -1;
+
+  // Prefer specific issue pages over category hubs when the user named an issue.
+  if (intent.specificIssue && isCategoryHubPage(page)) return -1;
 
   const blob = pageHaystack(page);
   let score = 0;
   const qLower = query.toLowerCase();
+
+  // Prenup / marriage agreement queries must not land on child/visa hubs.
+  if (/\b(prenup|prenuptial|pre-nup)\b/i.test(qLower + " " + (intent.specificIssue ?? ""))) {
+    if (/\b(sponsor|skilled worker|visa|child arrangements|custody|cafcass)\b/i.test(blob)) {
+      if (!/\b(prenup|prenuptial|pre-nup|marriage contract|nuptial)\b/i.test(blob)) return -1;
+    }
+  }
 
   if (intent.specificIssue && blob.includes(intent.specificIssue.toLowerCase())) score += 4;
   if (intent.taxonomySlug && blob.includes(intent.taxonomySlug.replace(/_/g, " "))) score += 2;
 
   const area = wikiAreaForTaxonomy(intent.taxonomySlug ?? "");
   if (area && page.category === area) score += 3;
+  if (isCategoryHubPage(page)) score -= 2;
 
   for (const term of intent.searchBoostTerms.slice(0, 6)) {
     if (blob.includes(term.toLowerCase())) score += 0.5;

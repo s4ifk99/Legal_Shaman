@@ -17,6 +17,8 @@ const SEARCH_ENV_SPECS: EnvSpec[] = [
   { name: "DATABASE_URL", required: "critical", purpose: "Neon Postgres — chunks, concept graph, SRA directory FTS fallback" },
   { name: "LLM_API_KEY", required: "critical", purpose: "OpenRouter/API key — LLM classification + answer synthesis fallback" },
   { name: "LLM_BASE_URL", required: "recommended", purpose: "LLM endpoint (e.g. https://openrouter.ai/api/v1)" },
+  { name: "LLM_SMALL_MODEL", required: "recommended", purpose: "Fast synthesis model on Vercel (default openai/gpt-4o-mini)" },
+  { name: "ENABLE_LLM_ANSWER", required: "recommended", purpose: "Must be true on Vercel for OpenRouter answer synthesis" },
   { name: "ENABLE_LLM_LEGAL_CLASSIFICATION", required: "recommended", purpose: "Hybrid classifier when rule match is weak" },
   { name: "KNOWLEDGE_GRAPH_MODE", required: "recommended", purpose: "primary | shadow | off — wiki graph answers" },
   { name: "TYPESENSE_HOST", required: "recommended", purpose: "Typesense host — aligns prod directory with local dev" },
@@ -80,7 +82,7 @@ function main() {
         missingLocalCritical: missingLocalCritical.map((r) => r.name),
         missingVercelCritical: missingVercelCritical?.map((r) => r.name) ?? "vercel_cli_unavailable",
         vercelSetup:
-          "Set TYPESENSE_HOST, TYPESENSE_API_KEY, ENABLE_TYPESENSE_UNIFIED=true, LLM_API_KEY, LLM_BASE_URL, ENABLE_LLM_LEGAL_CLASSIFICATION=true, KNOWLEDGE_GRAPH_MODE=primary on Vercel production.",
+          "Set TYPESENSE_HOST, TYPESENSE_API_KEY, ENABLE_TYPESENSE_UNIFIED=true, LLM_API_KEY, LLM_BASE_URL=https://openrouter.ai/api/v1, ENABLE_LLM_ANSWER=true, LLM_SMALL_MODEL=openai/gpt-4o-mini, ENABLE_LLM_LEGAL_CLASSIFICATION=true, KNOWLEDGE_GRAPH_MODE=primary on Vercel production.",
       },
       null,
       2,

@@ -95,6 +95,7 @@
     "providers:coverage-report": "tsx scripts/providers-coverage-report.ts",
     "admin:api": "tsx scripts/admin-api.ts",
     "prod:health": "tsx scripts/prod-health.ts",
+    "guidance:self-audit": "tsx scripts/guidance-self-audit.ts",
     "ops:serper-ping": "tsx scripts/ops-serper-ping.ts",
     "jobs:daily": "tsx scripts/jobs-daily.ts",
     "jobs:weekly": "tsx scripts/jobs-weekly.ts",

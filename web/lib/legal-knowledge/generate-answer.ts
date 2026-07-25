@@ -1,5 +1,6 @@
 import "server-only";
 
+import { enableLlmAnswer, resolveSynthesisModel } from "@/lib/llm/answer-config";
 import { chat, llmConfigured } from "@/lib/llm/client";
 import { isHomeOllamaBaseUrl, resolveLlmBaseUrl } from "@/lib/llm/openrouter";
 import { sanitizeAdviceText } from "@/lib/guardrails/validator";
@@ -284,9 +285,8 @@ export async function generateCitationFirstAnswer(
     };
   }
 
-  // Vercel serverless: skip slow LLM synthesis unless explicitly enabled.
-  // Prevents 60s platform kills that return non-JSON error pages to the client.
-  if (process.env.VERCEL === "1" && process.env.ENABLE_LLM_ANSWER !== "true") {
+  // Vercel serverless: skip slow LLM synthesis unless ENABLE_LLM_ANSWER=true.
+  if (!enableLlmAnswer()) {
     const sourceChunks = resolveFallbackSources(query, effectiveChunks, intent);
     const base = fallbackAnswer(query, effectiveChunks, intent);
     return {
@@ -320,6 +320,7 @@ export async function generateCitationFirstAnswer(
         jsonMode: true,
         maxTokens: isHomeOllamaBaseUrl(resolveLlmBaseUrl()) ? 350 : 700,
         temperature: 0.15,
+        model: resolveSynthesisModel(),
       },
     );
 

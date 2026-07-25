@@ -4,6 +4,7 @@ import { z } from "zod";
 import { getCurrentUser } from "@/lib/auth/get-current-user";
 import { sendTriageFeedbackSummary } from "@/lib/triage-feedback/send-summary";
 import type { TriageResultSection } from "@/lib/legal-search/triage/types";
+import { MAX_SEARCH_QUERY_CHARS } from "@/lib/legal-search/query-limits";
 
 export const runtime = "nodejs";
 
@@ -17,7 +18,7 @@ const BodySchema = z.object({
   sessionId: z.string().trim().min(1).max(128),
   email: z.string().trim().email().max(255),
   reviewConsent: z.literal(true),
-  mergedQuery: z.string().trim().min(1).max(800),
+  mergedQuery: z.string().trim().min(1).max(MAX_SEARCH_QUERY_CHARS),
   sections: z.array(SectionSchema).min(1),
 });
 

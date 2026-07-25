@@ -6,6 +6,9 @@ import { readOpsJobState } from "@/lib/ops/job-state";
 import { countIndexingJobsByStatus, listIndexingJobs } from "@/lib/ops/indexing-jobs";
 import { getLatestIndexBuildForStatus } from "@/lib/ops/search-index-builds";
 import { getEnvironmentSnapshot } from "@/lib/ops/environment-guard";
+import { answerModeMixLast24h } from "@/lib/ops/guidance-self-audit";
+import { enableLlmAnswer } from "@/lib/llm/answer-config";
+import { llmConfigured } from "@/lib/llm/client";
 
 function maskHost(url: string | null | undefined): string | null {
   if (!url) return null;
@@ -18,12 +21,20 @@ function maskHost(url: string | null | undefined): string | null {
 }
 
 export async function getOpsDashboard() {
-  const [health, catalog, jobState, indexBuild, indexingCounts] = await Promise.all([
+  const [health, catalog, jobState, indexBuild, indexingCounts, answerModeMix] = await Promise.all([
     runProdHealth(),
     getCatalogStats(),
     readOpsJobState(),
     getLatestIndexBuildForStatus(),
     countIndexingJobsByStatus().catch(() => ({})),
+    answerModeMixLast24h().catch(() => ({
+      total: 0,
+      synthesis: 0,
+      graph_assembly: 0,
+      fallback: 0,
+      other: 0,
+      fallbackRate: null as number | null,
+    })),
   ]);
 
   const pendingEnrichment = await safeOptionalPrisma(
@@ -63,6 +74,10 @@ export async function getOpsDashboard() {
     lastDailyJob: jobState.daily,
     lastWeeklyJob: jobState.weekly,
     lastRefreshApproved: jobState.refreshApproved,
+    lastGuidanceSelfAudit: jobState.guidanceSelfAudit,
+    answerModeMix24h: answerModeMix,
+    llmConfigured: llmConfigured(),
+    llmAnswerEnabled: enableLlmAnswer(),
     lastIndexBuild: indexBuild
       ? {
           id: indexBuild.id,
@@ -80,6 +95,7 @@ export async function getOpsDashboard() {
       : null,
     cliCommands: [
       "npm run prod:health",
+      "npm run guidance:self-audit",
       "npm run jobs:daily -- --allow-local --yes",
       "npm run jobs:weekly -- --allow-local --yes",
       "npm run jobs:refresh-approved -- --allow-local --yes",

@@ -95,10 +95,18 @@ export function fuseRuleAndLlmClassification(args: {
     confidence =
       llm.confidence >= 0.75 ? "high" : llm.confidence >= 0.55 ? "medium" : "low";
     clarifyingQuestion = llm.clarifyingQuestion;
+  } else if (!ruleStrong && llmSlug && (llm?.confidence ?? 0) >= 0.4) {
+    // Prefer a specific LLM label over a weak/empty rule path that becomes "general".
+    fusionSource = "llm";
+    taxonomySlug = llmSlug;
+    specificIssue = llm?.specificIssue ?? specificIssue;
+    confidence =
+      (llm?.confidence ?? 0) >= 0.75 ? "high" : (llm?.confidence ?? 0) >= 0.55 ? "medium" : "low";
+    clarifyingQuestion = llm?.clarifyingQuestion;
   } else if (ruleSlug && llmSlug && ruleSlug !== llmSlug) {
     const ruleScore = ruleResolution?.matchStrength ?? 0;
     const llmScore = llm?.confidence ?? 0;
-    if (llmScore > ruleScore && llmStrong) {
+    if (llmScore > ruleScore && llmScore >= 0.4) {
       fusionSource = "llm";
       taxonomySlug = llmSlug;
       specificIssue = llm?.specificIssue;

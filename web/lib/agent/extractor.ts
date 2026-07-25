@@ -7,6 +7,7 @@ import {
   PRACTICE_AREA_SLUGS,
   type ExtractedFilters,
 } from "@/lib/agent/types";
+import { SEARCH_QUERY_PROCESS_CHARS } from "@/lib/legal-search/query-limits";
 
 const SYSTEM_PROMPT = `You are a structured-data extractor for a UK legal-services directory.
 
@@ -30,7 +31,7 @@ Output ONLY valid JSON, no prose.`;
  * Falls back to a low-confidence keyword-only object if the LLM is unavailable.
  */
 export async function extractFilters(query: string): Promise<ExtractedFilters> {
-  const trimmed = query.trim().slice(0, 800);
+  const trimmed = query.trim().slice(0, SEARCH_QUERY_PROCESS_CHARS);
 
   try {
     const content = await chat(

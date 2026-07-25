@@ -3,6 +3,9 @@ import { buildTypesenseListingsClientFromEnv } from "@/lib/search/typesense-list
 import { LEGAL_ENTITIES_COLLECTION } from "@/lib/search-index/config";
 import { getEnvironmentSnapshot } from "@/lib/ops/environment-guard";
 import { shouldRunTypesenseOps, typesenseOptionalForOps } from "@/lib/ops/typesense-host";
+import { enableLlmAnswer, llmAnswerEnvIssues } from "@/lib/llm/answer-config";
+import { llmConfigured } from "@/lib/llm/client";
+import { pingOpenRouter } from "@/lib/ops/guidance-self-audit";
 
 export type ProdHealthCheck = {
   name: string;
@@ -169,7 +172,28 @@ function checkRequiredEnv(): ProdHealthCheck[] {
     name: "env_typesense",
     ok: Boolean(process.env.TYPESENSE_HOST?.trim() && process.env.TYPESENSE_API_KEY?.trim()),
   });
+  const llmIssues = llmAnswerEnvIssues();
+  const isVercel = process.env.VERCEL === "1" || env.vercelEnv === "production";
   const isProd = env.nodeEnv === "production" || env.vercelEnv === "production";
+  checks.push({
+    name: "env_llm_api_key",
+    ok: llmConfigured() || !isProd,
+    detail: llmConfigured()
+      ? undefined
+      : isProd
+        ? "LLM_API_KEY / OPENROUTER_API_KEY missing"
+        : "LLM_API_KEY missing (optional locally)",
+  });
+  checks.push({
+    name: "env_enable_llm_answer",
+    ok: !isVercel || enableLlmAnswer(),
+    detail:
+      isVercel && !enableLlmAnswer()
+        ? "ENABLE_LLM_ANSWER must be true on Vercel for OpenRouter synthesis"
+        : llmIssues.filter((i) => !i.includes("ENABLE_LLM_ANSWER")).length
+          ? llmIssues.join("; ")
+          : undefined,
+  });
   if (isProd) {
     checks.push({
       name: "env_admin_secret",
@@ -185,6 +209,24 @@ function checkRequiredEnv(): ProdHealthCheck[] {
   return checks;
 }
 
+async function checkLlmPing(): Promise<ProdHealthCheck> {
+  const env = getEnvironmentSnapshot();
+  const isProd = env.nodeEnv === "production" || env.vercelEnv === "production";
+  if (!llmConfigured()) {
+    return {
+      name: "llm_ping",
+      ok: !isProd,
+      detail: "LLM not configured",
+    };
+  }
+  const ping = await pingOpenRouter();
+  return {
+    name: "llm_ping",
+    ok: ping.ok,
+    detail: ping.detail,
+  };
+}
+
 export async function runProdHealth(): Promise<ProdHealthReport> {
   const environment = getEnvironmentSnapshot();
   const dbHealth = await checkDatabase();
@@ -192,6 +234,7 @@ export async function runProdHealth(): Promise<ProdHealthReport> {
     ...checkRequiredEnv(),
     dbHealth.check,
     await checkTypesense(),
+    await checkLlmPing(),
   ];
   const ok = checks.every((c) => c.ok);
   return { ok, checks, environment, database: dbHealth.database };

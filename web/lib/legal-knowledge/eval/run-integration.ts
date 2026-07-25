@@ -15,7 +15,7 @@ export async function runIntegrationCase(
   const failures: string[] = [];
   const result = await runLegalKnowledgeSearch({
     query: testCase.query,
-    includeDirectory: true,
+    includeDirectory: process.env.LEGAL_EVAL_SKIP_DIRECTORY !== "1",
   });
 
   const taxonomySlug = result.issueClassification.subArea ?? null;
@@ -123,7 +123,11 @@ export async function runIntegrationCase(
     }
   }
 
-  if (testCase.requireDirectory && result.directoryResults.length === 0) {
+  if (
+    testCase.requireDirectory &&
+    process.env.LEGAL_EVAL_SKIP_DIRECTORY !== "1" &&
+    result.directoryResults.length === 0
+  ) {
     failures.push("expected directory results");
   }
 

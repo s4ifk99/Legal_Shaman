@@ -12,6 +12,7 @@ import { logSearchInteraction } from "@/lib/legal-search/observability";
 import { ensureSearchStartupLogged } from "@/lib/legal-search/search-startup";
 import { AgentInputSchema, DISCLAIMER } from "@/lib/agent/types";
 import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
+import { searchQueryTooLongMessage } from "@/lib/legal-search/query-limits";
 
 export const runtime = "nodejs";
 
@@ -35,9 +36,11 @@ export async function POST(req: Request) {
 
   const parsed = AgentInputSchema.safeParse(body);
   if (!parsed.success) {
+    const queryIssue = parsed.error.flatten().fieldErrors.query?.[0];
+    const tooLong = /at most|too (big|long)|maximum/i.test(queryIssue ?? "");
     return NextResponse.json(
       {
-        error: "Invalid input",
+        error: tooLong ? searchQueryTooLongMessage() : "Invalid input",
         details: parsed.error.flatten(),
         disclaimer: DISCLAIMER,
       },

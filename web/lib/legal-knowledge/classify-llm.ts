@@ -6,6 +6,7 @@ import { LEGAL_ISSUE_TAXONOMY } from "@/lib/legal/legal-issue-taxonomy-data";
 import { allTaxonomySlugs } from "@/lib/legal/natural-language-resolver";
 import type { LegalIssueResolution } from "@/lib/legal/taxonomy";
 import { chat, llmConfigured } from "@/lib/llm/client";
+import { SEARCH_QUERY_PROCESS_CHARS } from "@/lib/legal-search/query-limits";
 
 export type LlmLegalClassification = {
   taxonomySlug: string;
@@ -81,7 +82,7 @@ Never give legal advice.`,
         },
         {
           role: "user",
-          content: `${ruleHint}\n\nQuery: ${query.slice(0, 800)}`,
+          content: `${ruleHint}\n\nQuery: ${query.slice(0, SEARCH_QUERY_PROCESS_CHARS)}`,
         },
       ],
       {

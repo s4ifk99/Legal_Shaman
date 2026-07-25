@@ -10,8 +10,10 @@ import { bfsConceptCluster, loadConceptByWikiPageId } from "./concept-graph";
 import { isKnowledgeGraphDbReady } from "./db-ready";
 import {
   conceptNodeFromPage,
+  isCategoryHubPage,
   isConsumerIntent,
   pageMatchesIntent,
+  pageMatchesQueryTopic,
   queryPageTokenOverlap,
   resolvePrimaryPageFromIndex,
 } from "./page-index";
@@ -132,6 +134,11 @@ function scoreGraphConfidence(
   if (page?.summary && page.summary.length > 80) score += 0.08;
   if (intent.confidence === "high") score += 0.04;
 
+  // Reject hub pages when the user named a specific issue.
+  if (page && isCategoryHubPage(page) && intent.specificIssue) {
+    score = Math.min(score, 0.4);
+  }
+
   // High-band scores require both taxonomy match and real query overlap.
   if (score >= 0.6 && !(taxonomyMatch && overlap >= 0.2)) {
     score = Math.min(score, 0.55);
@@ -168,7 +175,7 @@ export async function resolveConceptCluster(
       const bfs = await bfsConceptCluster(dbConcept.id, 2, 6);
       related = bfs
         .filter((n) => n.wikiPageId !== primaryPage.id)
-        .filter((n) => n.page && pageMatchesIntent(n.page, intent));
+        .filter((n) => n.page && pageMatchesQueryTopic(n.page, intent, query, 0.15));
     } catch {
       related = [];
     }
@@ -184,7 +191,7 @@ export async function resolveConceptCluster(
           p.title.trim().toLowerCase() === norm ||
           p.title.trim().toLowerCase().includes(norm),
       );
-      if (page && pageMatchesIntent(page, intent)) {
+      if (page && pageMatchesQueryTopic(page, intent, query, 0.15)) {
         related.push(conceptNodeFromPage(page));
       }
     }
@@ -203,13 +210,30 @@ export async function assembleFromKnowledgeGraph(
   if (!cluster?.primary.page) return null;
 
   const primary = cluster.primary.page;
-  if (queryPageTokenOverlap(context.query, primary) < 0.12) return null;
+  const minOverlap = intent.specificIssue ? 0.2 : 0.15;
+  const overlap = queryPageTokenOverlap(context.query, primary);
+  if (overlap < minOverlap) return null;
+  if (intent.specificIssue && isCategoryHubPage(primary)) return null;
+
   const relatedPages = cluster.related
     .map((n) => n.page)
-    .filter((p): p is WikiPageIndex => Boolean(p));
+    .filter((p): p is WikiPageIndex => Boolean(p))
+    .filter((p) => pageMatchesQueryTopic(p, intent, context.query, 0.15));
 
   const clusterPages = [primary, ...relatedPages];
   const answer = assembleProse(primary, clusterPages, intent);
+
+  // Off-topic mashup guard (e.g. prenup answer citing visa/child pages).
+  const answerLower = answer.toLowerCase();
+  const qLower = context.query.toLowerCase();
+  if (/\b(prenup|prenuptial|pre-nup)\b/i.test(qLower + " " + (intent.specificIssue ?? ""))) {
+    if (
+      /\b(sponsor licence|skilled worker|visa application|child arrangements)\b/i.test(answerLower) &&
+      !/\b(prenup|prenuptial|nuptial)\b/i.test(answerLower)
+    ) {
+      return null;
+    }
+  }
 
   const sources = clusterPages.slice(0, 6).map((p, i) => pageToSourceHit(p, i + 1));
 
@@ -217,6 +241,9 @@ export async function assembleFromKnowledgeGraph(
 
   let confidence = scoreGraphConfidence(cluster, intent, context.query);
   if (pendingConflicts) confidence = Math.min(confidence, 0.35);
+
+  // High confidence with weak topical overlap → fall through to OpenRouter synthesis.
+  if (confidence >= 0.58 && overlap < 0.2) return null;
 
   const clarifyingQuestion =
     confidence < 0.58 && intent.canonicalName

@@ -1,4 +1,6 @@
+import { wikiAreaForTaxonomy } from "@/lib/knowledge-compiler/taxonomy-map";
 import { isMarketingContent } from "./authority";
+import type { LegalSearchIntent } from "./search-intent";
 import type { RetrievedChunk } from "./types";
 
 const UK_SIGNALS =
@@ -13,6 +15,7 @@ const OUTDATED_SIGNALS =
 export type RerankOptions = {
   topK?: number;
   poolSize?: number;
+  intent?: LegalSearchIntent;
 };
 
 function ukRelevanceScore(text: string): number {
@@ -41,6 +44,35 @@ function directAnswerScore(query: string, chunk: RetrievedChunk): number {
   return Math.min(1, hits / Math.max(qTokens.size * 0.45, 1));
 }
 
+function topicAgreementScore(chunk: RetrievedChunk, intent?: LegalSearchIntent): number {
+  const terms = intent?.requiredTopicTerms ?? [];
+  if (!terms.length) return 0.5;
+  const blob = `${chunk.title} ${chunk.heading ?? ""} ${chunk.chunkText} ${chunk.sourceUrl}`.toLowerCase();
+  return terms.some((t) => blob.includes(t.toLowerCase())) ? 1 : 0.15;
+}
+
+function areaPathBoost(chunk: RetrievedChunk, intent?: LegalSearchIntent): number {
+  const area = wikiAreaForTaxonomy(intent?.taxonomySlug);
+  if (!area) return 0;
+  const blob = `${chunk.sourceUrl} ${chunk.title}`.toLowerCase();
+  const areaSlug = area.toLowerCase();
+  if (blob.includes(`areas/${areaSlug}`) || blob.includes(areaSlug)) return 0.28;
+  if (blob.includes("/concepts/") || blob.includes("reference/concepts")) return 0.12;
+  return 0;
+}
+
+function firmDirectoryPenalty(chunk: RetrievedChunk): number {
+  const blob = `${chunk.sourceUrl} ${chunk.title}`.toLowerCase();
+  if (
+    blob.includes("directory/firms") ||
+    blob.includes("/firms/") ||
+    (blob.includes("directory/") && blob.includes("firm"))
+  ) {
+    return 0.32;
+  }
+  return 0;
+}
+
 /** Heuristic reranker — prefers official UK guidance over marketing pages. */
 export function rerankLegalChunks(
   query: string,
@@ -49,6 +81,7 @@ export function rerankLegalChunks(
 ): RetrievedChunk[] {
   const poolSize = options.poolSize ?? 40;
   const topK = options.topK ?? 8;
+  const intent = options.intent;
   const pool = chunks.slice(0, poolSize);
 
   const reranked = pool
@@ -62,10 +95,17 @@ export function rerankLegalChunks(
       bonus += ukRelevanceScore(text) * 0.18;
       bonus += practicalGuidanceScore(text) * 0.12;
       bonus += directAnswerScore(query, chunk) * 0.2;
+      bonus += topicAgreementScore(chunk, intent) * 0.18;
+      bonus += areaPathBoost(chunk, intent);
 
       if (isMarketingContent(text)) penalty += 0.35;
       if (OUTDATED_SIGNALS.test(text)) penalty += 0.15;
       if (chunk.lexicalScore < 0.05 && chunk.vectorScore < 0.35) penalty += 0.12;
+      penalty += firmDirectoryPenalty(chunk);
+
+      if (intent?.requiredTopicTerms.length && topicAgreementScore(chunk, intent) < 0.5) {
+        penalty += 0.18;
+      }
 
       const finalScore = Math.max(0, chunk.finalScore + bonus - penalty);
       return { ...chunk, finalScore };

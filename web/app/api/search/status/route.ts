@@ -12,6 +12,9 @@ import {
 import { getSearchStackStatus } from "@/lib/legal-search/search-startup";
 import { getCatalogStats } from "@/lib/search-index/catalog-stats";
 import { getIndexBuildStatusForPublicApi } from "@/lib/ops/ops-dashboard";
+import { enableLlmAnswer } from "@/lib/llm/answer-config";
+import { llmConfigured } from "@/lib/llm/client";
+import { getCachedLlmReachable } from "@/lib/ops/guidance-self-audit";
 
 export const runtime = "nodejs";
 
@@ -19,9 +22,10 @@ export const runtime = "nodejs";
 export async function GET() {
   const bundle = loadEmbeddingsBundle();
   const stack = await getSearchStackStatus();
-  const [catalog, indexMeta] = await Promise.all([
+  const [catalog, indexMeta, llmReachable] = await Promise.all([
     getCatalogStats(),
     getIndexBuildStatusForPublicApi(),
+    getCachedLlmReachable().catch(() => null),
   ]);
 
   return NextResponse.json({
@@ -57,5 +61,8 @@ export async function GET() {
     sraLastSyncAt: catalog.sraSync.lastSuccessAt,
     sraSyncErrors: catalog.sraSync.errors,
     sraApiConfigured: catalog.sraSync.apiConfigured,
+    llmConfigured: llmConfigured(),
+    llmAnswerEnabled: enableLlmAnswer(),
+    llmReachable,
   });
 }
