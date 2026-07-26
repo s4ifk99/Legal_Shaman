@@ -96,6 +96,8 @@
     "admin:api": "tsx scripts/admin-api.ts",
     "prod:health": "tsx scripts/prod-health.ts",
     "guidance:self-audit": "tsx scripts/guidance-self-audit.ts",
+    "parity:wiki-web": "tsx scripts/wiki-web-parity-eval.ts",
+    "parity:wiki-web:strict": "tsx scripts/wiki-web-parity-eval.ts --min=0.9 --rounds=2",
     "legal-search:smoke:long": "tsx scripts/legal-search-smoke-long.ts --local",
     "ops:serper-ping": "tsx scripts/ops-serper-ping.ts",
     "jobs:daily": "tsx scripts/jobs-daily.ts",

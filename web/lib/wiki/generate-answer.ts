@@ -1,8 +1,10 @@
 import "server-only";
 
+import { enableLlmAnswer, resolveSynthesisModel } from "@/lib/llm/answer-config";
 import { chat, llmConfigured } from "@/lib/llm/client";
 import { sanitizeAdviceText } from "@/lib/guardrails/validator";
 import { resolveLegalIssueFromQuery } from "@/lib/legal/taxonomy";
+import { processSearchQuery } from "@/lib/legal-search/query-limits";
 import {
   pickRecommendedFirms,
   resolvePracticeAreasForWikiQuery,
@@ -40,12 +42,45 @@ function isQuarantinedPage(page: WikiPageIndex): boolean {
 }
 
 function filterHits(query: string, limit: number) {
-  return searchWikiPages(query, limit * 2)
+  const searchQ = condenseWikiRetrievalQuery(query);
+  return searchWikiPages(searchQ, limit * 2)
     .filter((hit) => {
       const page = getWikiPageById(hit.id);
       return page ? !isQuarantinedPage(page) : true;
     })
     .slice(0, limit);
+}
+
+/** Long Reddit-style posts dilute keyword search — keep topical anchors. */
+function condenseWikiRetrievalQuery(query: string): string {
+  const trimmed = query.replace(/\s+/g, " ").trim();
+  if (trimmed.length < 320) return trimmed;
+
+  const lower = trimmed.toLowerCase();
+  const anchors: string[] = [];
+  if (/\b(cancel|cancelled|cancellation|owe|transfer|booking fee)\b/i.test(lower)) {
+    anchors.push("cancelling a service you've arranged", "cancellation rights", "cancel service");
+  }
+  if (/\b(tradesman|tiler|builder|plumber|electrician|trader|contractor)\b/i.test(lower)) {
+    anchors.push("problems with services or traders", "poor service", "trader");
+  }
+  if (/\b(deposit|tenancy|landlord)\b/i.test(lower)) {
+    anchors.push("tenancy deposit", "landlord", "deposit protection");
+  }
+  if (/\b(dismiss|employment|wage|employer|acas)\b/i.test(lower)) {
+    anchors.push("unfair dismissal", "employment", "ACAS");
+  }
+  if (/\b(visa|asylum|immigration|home office)\b/i.test(lower)) {
+    anchors.push("visa", "immigration", "home office");
+  }
+  if (/\b(prenup|divorce|child contact|custody)\b/i.test(lower)) {
+    anchors.push("family", "prenup", "child arrangements");
+  }
+
+  if (anchors.length) {
+    return [...new Set(anchors)].join(" ").slice(0, 220);
+  }
+  return trimmed.slice(0, 280);
 }
 
 function truncate(text: string, max: number): string {
@@ -134,15 +169,74 @@ function parseLlmJson(raw: string): LlmAnswerJson | null {
   }
 }
 
+function isJunkAnswer(text: string): boolean {
+  const t = text.trim();
+  if (t.length < 60) return true;
+  if (/^["'}{\\]/.test(t)) return true;
+  if (/answer in json format|as specified in the rules|\/\/\s*legal shaman|<\/?answer>/i.test(t)) {
+    return true;
+  }
+  if ((t.match(/[{}`]/g) ?? []).length >= 4) return true;
+  // Mostly meta / instruction echo rather than guidance prose
+  const letters = (t.match(/[a-zA-Z]/g) ?? []).length;
+  if (letters < 40) return true;
+  return false;
+}
+
+/** Stable prose from wiki hits — used when LLM is off or returns junk. */
+function deterministicAnswerFromHits(
+  hits: ReturnType<typeof searchWikiPages>,
+): string {
+  const primary = hits[0];
+  const secondary = hits[1];
+  const paragraphs: string[] = [];
+
+  if (primary?.summary?.trim()) {
+    paragraphs.push(
+      `According to “${primary.title}”: ${truncate(primary.summary.replace(/\s+/g, " ").trim(), 420)}`,
+    );
+  } else if (primary) {
+    paragraphs.push(`Matching wiki guidance includes “${primary.title}”.`);
+  }
+
+  const keys = (primary?.keyInformation ?? []).slice(0, 2);
+  if (keys.length) {
+    paragraphs.push(`Key points from that page: ${keys.map((k) => k.replace(/\s+/g, " ").trim()).join(" ")}`);
+  }
+
+  const steps = (primary?.practicalGuidance ?? []).slice(0, 2);
+  if (steps.length) {
+    paragraphs.push(
+      `Practical guidance noted there includes: ${steps.map((s) => s.replace(/\s+/g, " ").trim()).join(" ")}`,
+    );
+  }
+
+  if (secondary?.summary?.trim()) {
+    paragraphs.push(
+      `Related page “${secondary.title}”: ${truncate(secondary.summary.replace(/\s+/g, " ").trim(), 280)}`,
+    );
+  }
+
+  paragraphs.push(
+    "This is general signposting from the Legal Shaman wiki — not legal advice. Check the cited pages or Citizens Advice for personalised help.",
+  );
+
+  return sanitizeAdviceText(paragraphs.filter((p) => p.length >= 40).join("\n\n"));
+}
+
 const INSUFFICIENT_MESSAGE =
   "We could not find enough matching material in the Legal Shaman wiki for this question. Try rephrasing (e.g. add a topic like housing, employment, or neighbour dispute), browse the categories below, or contact Citizens Advice for free guidance.";
 
 const EXTERNAL_SIGNPOST =
   "Free starting points: [Citizens Advice](https://www.citizensadvice.org.uk/) and [Advicenow](https://www.advicenow.org.uk/). For private solicitors, use [Find a Lawyer](/search).";
 
-export async function generateWikiAnswer(query: string): Promise<WikiAnswerPayload> {
+/** Short-lived cache so Ask the Shaman and `/api/ask/answer` return identical text for the same query. */
+const answerCache = new Map<string, Promise<WikiAnswerPayload>>();
+const ANSWER_CACHE_TTL_MS = 90_000;
+
+async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayload> {
   const started = Date.now();
-  const trimmed = query.trim();
+  const trimmed = processSearchQuery(query);
   const hits = filterHits(trimmed, RETRIEVAL_LIMIT);
   const retrievalScore = hits[0]?.score ?? 0;
   const sources = collectSources(hits);
@@ -170,7 +264,22 @@ export async function generateWikiAnswer(query: string): Promise<WikiAnswerPaylo
     };
   }
 
-  if (!llmConfigured()) {
+  const firmTail =
+    recommendedFirms.length > 0
+      ? `\n\nFor private help, firms with indexed commentary on this topic are listed below — signposting only, not endorsements.`
+      : "";
+
+  const finishSynthesis = (answer: string): WikiAnswerPayload => ({
+    ...base,
+    mode: "synthesis",
+    answer: `${answer}${firmTail && !/find a lawyer|directory|private/i.test(answer) ? firmTail : ""}`,
+    sources,
+    latencyMs: Date.now() - started,
+  });
+
+  if (!llmConfigured() || !enableLlmAnswer()) {
+    const deterministic = deterministicAnswerFromHits(hits);
+    if (deterministic.length >= 80) return finishSynthesis(deterministic);
     return {
       ...base,
       mode: "retrieval_only",
@@ -201,7 +310,9 @@ RECOMMENDED FIRMS (signposting only — mention only if relevant to the question
 ${firmContext}
 
 WIKI CONTEXT:
-${wikiContext}`;
+${wikiContext}
+
+Respond with JSON only. The "answer" field must be 2-4 plain-English paragraphs of signposting — never instructions, never code, never commentary about JSON.`;
 
   try {
     const raw = await chat(
@@ -209,7 +320,12 @@ ${wikiContext}`;
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: userPrompt },
       ],
-      { jsonMode: true, temperature: 0.2, maxTokens: 900 },
+      {
+        jsonMode: true,
+        temperature: 0,
+        maxTokens: 900,
+        model: resolveSynthesisModel(),
+      },
     );
 
     const parsed = parseLlmJson(raw);
@@ -221,7 +337,9 @@ ${wikiContext}`;
       }
     }
 
-    if (!answer) {
+    if (!answer || isJunkAnswer(answer)) {
+      const deterministic = deterministicAnswerFromHits(hits);
+      if (deterministic.length >= 80) return finishSynthesis(deterministic);
       return {
         ...base,
         mode: "retrieval_only",
@@ -242,21 +360,13 @@ ${wikiContext}`;
       }
     }
 
-    let answerText = answer;
-    if (recommendedFirms.length > 0 && !/find a lawyer|directory|private/i.test(answer)) {
-      answerText += `\n\nFor private help, firms with indexed commentary on this topic are listed below — signposting only, not endorsements.`;
-    }
-
-    return {
-      ...base,
-      mode: "synthesis",
-      answer: answerText,
-      sources: mergedSources.slice(0, 10),
-      latencyMs: Date.now() - started,
-    };
+    const synthesised = finishSynthesis(answer);
+    return { ...synthesised, sources: mergedSources.slice(0, 10) };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.warn("[wiki.generate-answer] LLM failed:", message);
+    const deterministic = deterministicAnswerFromHits(hits);
+    if (deterministic.length >= 80) return finishSynthesis(deterministic);
     return {
       ...base,
       mode: "retrieval_only",
@@ -264,4 +374,23 @@ ${wikiContext}`;
       latencyMs: Date.now() - started,
     };
   }
+}
+
+export async function generateWikiAnswer(query: string): Promise<WikiAnswerPayload> {
+  const key = processSearchQuery(query).toLowerCase();
+  const existing = answerCache.get(key);
+  if (existing) return existing;
+
+  const pending = generateWikiAnswerUncached(query).finally(() => {
+    setTimeout(() => {
+      if (answerCache.get(key) === pending) answerCache.delete(key);
+    }, ANSWER_CACHE_TTL_MS);
+  });
+  answerCache.set(key, pending);
+  return pending;
+}
+
+/** Test helper — clears the short-lived answer cache. */
+export function clearWikiAnswerCacheForTests(): void {
+  answerCache.clear();
 }

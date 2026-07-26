@@ -101,7 +101,7 @@ export type LegalSearchResponse = {
   debug?: {
     retrievalCount: number;
     rerankedCount: number;
-    mode: "hybrid" | "lexical_only" | "empty" | "graph";
+    mode: "hybrid" | "lexical_only" | "empty" | "graph" | "wiki";
     intentSignals?: string[];
     conceptCluster?: string[];
     classificationFusion?: {

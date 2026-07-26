@@ -27,8 +27,10 @@ import {
 import type { LegalSearchRequest, LegalSearchResponse } from "./types";
 import { LEGAL_SEARCH_DISCLAIMER } from "./types";
 import { retrieveWikiAsChunks } from "./wiki-retrieval";
+import { tryWikiPrimaryAnswer, wikiPrimaryToResponse } from "./wiki-primary-answer";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 import { toLegacyGetResponse } from "@/lib/legal-search/legacy-get-response";
+import { processSearchQuery } from "@/lib/legal-search/query-limits";
 
 type GraphMode = "primary" | "shadow" | "off";
 
@@ -130,6 +132,31 @@ export async function runLegalKnowledgeSearch(
 
   // Start directory once — never await it twice (was doubling Typesense timeouts).
   const directoryPromise = runDirectorySlice(input, context, initialIntent);
+
+  // Preferred path: same wiki synthesis as local `/api/ask/answer`.
+  const wikiPrimaryPromise = tryWikiPrimaryAnswer(processSearchQuery(query));
+
+  const wikiPrimary = await wikiPrimaryPromise;
+  if (wikiPrimary) {
+    const { directoryResults, directoryRows } = await directoryPromise;
+    const searchCriteria = decomposeLegalSearchQuery({
+      query,
+      location: input.location,
+      jurisdiction,
+      includeDirectory,
+      context,
+      intent: initialIntent,
+    });
+    return wikiPrimaryToResponse({
+      wiki: wikiPrimary,
+      context,
+      intent: initialIntent,
+      directoryResults,
+      directoryRows,
+      suggestedNextSteps: suggestedNextStepsForClassification(context.classification),
+      searchCriteria,
+    });
+  }
 
   if (graphMode !== "off" && isConsumerIntent(initialIntent)) {
     const graphResult = await assembleFromKnowledgeGraph(context, initialIntent);
