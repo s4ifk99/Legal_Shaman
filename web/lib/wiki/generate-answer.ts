@@ -54,8 +54,6 @@ function filterHits(query: string, limit: number) {
 /** Long Reddit-style posts dilute keyword search — keep topical anchors. */
 function condenseWikiRetrievalQuery(query: string): string {
   const trimmed = query.replace(/\s+/g, " ").trim();
-  if (trimmed.length < 320) return trimmed;
-
   const lower = trimmed.toLowerCase();
   const anchors: string[] = [];
   if (/\b(cancel|cancelled|cancellation|owe|transfer|booking fee)\b/i.test(lower)) {
@@ -77,9 +75,12 @@ function condenseWikiRetrievalQuery(query: string): string {
     anchors.push("family", "prenup", "child arrangements");
   }
 
+  // Always prefer topical anchors when present — even for short queries.
   if (anchors.length) {
-    return [...new Set(anchors)].join(" ").slice(0, 220);
+    const head = trimmed.length > 180 ? trimmed.slice(0, 180) : trimmed;
+    return [...new Set([...anchors, head])].join(" ").slice(0, 280);
   }
+  if (trimmed.length < 320) return trimmed;
   return trimmed.slice(0, 280);
 }
 
