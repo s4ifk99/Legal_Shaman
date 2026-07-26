@@ -43,12 +43,22 @@ function isQuarantinedPage(page: WikiPageIndex): boolean {
 
 function filterHits(query: string, limit: number) {
   const searchQ = condenseWikiRetrievalQuery(query);
-  return searchWikiPages(searchQ, limit * 2)
+  const cancelish = /\b(cancel|cancelled|cancellation|owe|booking fee)\b/i.test(query);
+  const hits = searchWikiPages(searchQ, limit * 2)
     .filter((hit) => {
       const page = getWikiPageById(hit.id);
       return page ? !isQuarantinedPage(page) : true;
-    })
-    .slice(0, limit);
+    });
+
+  if (cancelish) {
+    hits.sort((a, b) => {
+      const aBoost = /\bcancel/i.test(a.title) ? 50 : 0;
+      const bBoost = /\bcancel/i.test(b.title) ? 50 : 0;
+      return b.score + bBoost - (a.score + aBoost);
+    });
+  }
+
+  return hits.slice(0, limit);
 }
 
 /** Long Reddit-style posts dilute keyword search — keep topical anchors. */
