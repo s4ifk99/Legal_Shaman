@@ -25,10 +25,14 @@ Do I owe him or he’s just being cheeky ?`;
 
 async function smokeRemote(baseUrl: string) {
   const url = `${baseUrl.replace(/\/$/, "")}/api/legal-search`;
+  const cookie = process.env.SMOKE_SESSION_COOKIE?.trim();
   const t0 = Date.now();
   const res = await fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...(cookie ? { Cookie: cookie } : {}),
+    },
     body: JSON.stringify({ query: QUERY, includeDirectory: true }),
   });
   const raw = await res.text();
@@ -47,6 +51,21 @@ async function smokeRemote(baseUrl: string) {
         json: false,
         preview: raw.slice(0, 200),
         ok: false,
+      }),
+    );
+    process.exit(1);
+  }
+  if (res.status === 401) {
+    console.info(
+      JSON.stringify({
+        event: "legal_search_smoke",
+        mode: "remote",
+        url,
+        http: 401,
+        ms,
+        ok: false,
+        error: "auth_required",
+        hint: "Sign in on the site, or set SMOKE_SESSION_COOKIE for API smoke.",
       }),
     );
     process.exit(1);
@@ -129,11 +148,13 @@ async function main() {
   const urlArg = process.argv.find((a) => a.startsWith("--url="));
   const local = process.argv.includes("--local");
   console.info(JSON.stringify({ event: "legal_search_smoke_start", queryLen: QUERY.length }));
-  if (local || !urlArg) {
-    await smokeLocal();
+  if (urlArg) {
+    await smokeRemote(urlArg.split("=").slice(1).join("=") || "https://www.legalshaman.com");
     return;
   }
-  await smokeRemote(urlArg.split("=").slice(1).join("=") || "https://www.legalshaman.com");
+  if (local || !urlArg) {
+    await smokeLocal();
+  }
 }
 
 main().catch((e) => {

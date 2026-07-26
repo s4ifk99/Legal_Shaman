@@ -77,12 +77,8 @@ export function LegalKnowledgeSearch({
   useEffect(() => {
     const trimmed = initialQuery.trim();
     if (trimmed.length < 2 || authLoading) return;
-    if (!user) {
-      requireAuth(() => void runSearch(trimmed, initialLocation), "search");
-      return;
-    }
     void runSearch(trimmed, initialLocation);
-  }, [initialQuery, initialLocation, user, authLoading]);
+  }, [initialQuery, initialLocation, authLoading]);
 
   useEffect(() => {
     const trimmed = query.trim();
@@ -139,7 +135,7 @@ export function LegalKnowledgeSearch({
     if (location.trim()) url.searchParams.set("location", location.trim());
     else url.searchParams.delete("location");
     window.history.replaceState({}, "", url.toString());
-    requireAuth(() => void runSearch(trimmed), "search");
+    void runSearch(trimmed);
   }
 
   return (

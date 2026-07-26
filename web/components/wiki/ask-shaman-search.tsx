@@ -95,7 +95,7 @@ function SectionHeading({
 }
 
 export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: AskShamanSearchProps) {
-  const { requireAuth, openAuthForSearch, user, loading: authLoading } = useRequireAuth();
+  const { openAuthForSearch, loading: authLoading } = useRequireAuth();
   const [query, setQuery] = useState(initialQuery);
   const [location, setLocation] = useState(initialLocation);
   const [loading, setLoading] = useState(false);
@@ -114,12 +114,8 @@ export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: Ask
   useEffect(() => {
     const trimmed = initialQuery.trim();
     if (trimmed.length < 2 || authLoading) return;
-    if (!user) {
-      requireAuth(() => void runSearch(trimmed, initialLocation), "search");
-      return;
-    }
     void runSearch(trimmed, initialLocation);
-  }, [initialQuery, initialLocation, user, authLoading]);
+  }, [initialQuery, initialLocation, authLoading]);
 
   async function runSearch(q: string, loc = location) {
     const trimmed = q.trim();
@@ -221,7 +217,7 @@ export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: Ask
     else url.searchParams.delete("location");
     url.searchParams.delete("tab");
     window.history.replaceState({}, "", url.toString());
-    requireAuth(() => void runSearch(trimmed), "search");
+    void runSearch(trimmed);
   }
 
   const guidanceSources = guidance?.sources ?? [];

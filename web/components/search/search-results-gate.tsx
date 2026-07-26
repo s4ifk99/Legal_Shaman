@@ -23,8 +23,9 @@ export function SearchResultsGate({
   children,
 }: SearchResultsGateProps) {
   const router = useRouter();
-  const { openAuthForSearch, user, loading } = useRequireAuth();
-  const gated = query.trim().length >= 2 && !isAuthenticated && !user;
+  const { openAuthForSearch, user, loading, searchAuthRequired } = useRequireAuth();
+  const gated =
+    searchAuthRequired && query.trim().length >= 2 && !isAuthenticated && !user;
 
   useEffect(() => {
     if (gated && !loading) {
