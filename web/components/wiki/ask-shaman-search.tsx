@@ -353,7 +353,7 @@ export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: Ask
                     </div>
                   ) : null}
 
-                  {guidance.answerMode === "fallback" ? (
+                  {guidance.answerMode === "fallback" && guidanceSources.length === 0 ? (
                     <p className="text-sm text-muted-foreground">
                       The AI summary could not be generated — showing cited source excerpts instead.
                       On production, check <code className="text-xs">LLM_API_KEY</code> and{" "}

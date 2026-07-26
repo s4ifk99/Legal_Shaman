@@ -16,6 +16,7 @@ import {
   pageMatchesQueryTopic,
   queryPageTokenOverlap,
   resolvePrimaryPageFromIndex,
+  topicalQueryForOverlap,
 } from "./page-index";
 import { wikiAreaForTaxonomy } from "./taxonomy-map";
 import type { ConceptCluster, GraphAssemblyResult } from "./types";
@@ -117,7 +118,9 @@ function scoreGraphConfidence(
 ): number {
   let score = 0.28;
   const page = cluster.primary.page;
-  const overlap = page ? queryPageTokenOverlap(query, page) : 0;
+  const overlap = page
+    ? queryPageTokenOverlap(topicalQueryForOverlap(intent, query), page)
+    : 0;
   const area = wikiAreaForTaxonomy(intent.taxonomySlug ?? "");
   const taxonomyMatch =
     Boolean(area && page?.category === area) ||
@@ -211,9 +214,32 @@ export async function assembleFromKnowledgeGraph(
 
   const primary = cluster.primary.page;
   const minOverlap = intent.specificIssue ? 0.2 : 0.15;
-  const overlap = queryPageTokenOverlap(context.query, primary);
+  const overlap = queryPageTokenOverlap(
+    topicalQueryForOverlap(intent, context.query),
+    primary,
+  );
   if (overlap < minOverlap) return null;
   if (intent.specificIssue && isCategoryHubPage(primary)) return null;
+
+  // Consumer cancel/trader questions must stay on Consumer Rights pages.
+  if (
+    intent.taxonomySlug?.startsWith("consumer") &&
+    primary.category !== "Consumer Rights" &&
+    !/consumer|trader|cancel|service/i.test(
+      `${primary.title} ${primary.summary}`.toLowerCase(),
+    )
+  ) {
+    return null;
+  }
+
+  // Cancellation questions must cite a cancel-related primary page — fall through to RAG otherwise.
+  if (
+    intent.specificIssue &&
+    /cancel/i.test(intent.specificIssue) &&
+    !/\bcancel/i.test(`${primary.title} ${primary.summary} ${primary.keyInformation.join(" ")}`)
+  ) {
+    return null;
+  }
 
   const relatedPages = cluster.related
     .map((n) => n.page)

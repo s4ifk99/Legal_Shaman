@@ -78,6 +78,18 @@ function intentFallbackAnswer(query: string, intent?: LegalSearchIntent): string
       "These points are general signposting only — not legal advice. The directory lists regulated housing solicitors if you need personal help.",
     ].join("\n\n");
   }
+  if (
+    intent.taxonomySlug === "consumer" ||
+    intent.taxonomySlug === "consumer_services" ||
+    intent.taxonomySlug?.startsWith("consumer_")
+  ) {
+    const issue = intent.specificIssue ?? "a consumer or trader dispute";
+    return [
+      `This looks like ${issue}. Citizens Advice publishes free guidance on cancelling services you have arranged, complaining about traders, and using the Consumer Rights Act when work is not as agreed.`,
+      "Whether money is owed often depends on whether a contract or fee was agreed in advance, what work was done, and any cancellation terms — check the cited sources rather than relying on a verbal demand alone.",
+      "These points are general signposting only — not legal advice. Use the directory below for regulated consumer solicitors if you need personal help.",
+    ].join("\n\n");
+  }
   return null;
 }
 

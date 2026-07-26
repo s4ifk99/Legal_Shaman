@@ -26,6 +26,7 @@ import {
 } from "./search-intent";
 import type { LegalSearchRequest, LegalSearchResponse } from "./types";
 import { LEGAL_SEARCH_DISCLAIMER } from "./types";
+import { retrieveWikiAsChunks } from "./wiki-retrieval";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 import { toLegacyGetResponse } from "@/lib/legal-search/legacy-get-response";
 
@@ -200,6 +201,23 @@ export async function runLegalKnowledgeSearch(
     if (retry.chunks.length) {
       retrieved = retry.chunks;
       mode = retry.mode;
+      intent = refineIntentFromChunks(intent, retrieved.slice(0, 8));
+    }
+  }
+
+  // Align with /api/ask wiki path when chunk DB is empty/sparse (common on Vercel).
+  if (retrieved.length < 3) {
+    const wikiChunks = retrieveWikiAsChunks(query, { limit: 8, intent });
+    if (wikiChunks.length) {
+      const seen = new Set(retrieved.map((c) => c.documentId));
+      const merged = [...retrieved];
+      for (const chunk of wikiChunks) {
+        if (seen.has(chunk.documentId)) continue;
+        seen.add(chunk.documentId);
+        merged.push(chunk);
+      }
+      retrieved = merged;
+      mode = retrieved.length && mode !== "empty" ? mode : "lexical_only";
       intent = refineIntentFromChunks(intent, retrieved.slice(0, 8));
     }
   }

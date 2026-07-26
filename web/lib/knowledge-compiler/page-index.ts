@@ -45,6 +45,19 @@ const TOPIC_TERMS_BY_SLUG: Record<string, string[]> = {
   debt: ["debt", "bailiff", "creditor", "bankruptcy", "ccj"],
   welfare_benefits: ["benefit", "universal credit", "pip", "esa"],
   consumer: ["consumer", "customs", "import", "excise", "hmrc", "refund", "faulty", "trader"],
+  consumer_services: [
+    "consumer",
+    "service",
+    "trader",
+    "tradesman",
+    "builder",
+    "cancel",
+    "cancellation",
+    "booking",
+    "deposit",
+    "workmanship",
+    "contractor",
+  ],
   consumer_small_claims: [
     "small claim",
     "small claims",
@@ -143,6 +156,26 @@ export function queryPageTokenOverlap(query: string, page: WikiPageIndex): numbe
 }
 
 /**
+ * Long user narratives dilute token overlap (tiles, Sunday, travel…). Prefer
+ * intent semantic/specific/boost terms when the raw query is long.
+ */
+export function topicalQueryForOverlap(intent: LegalSearchIntent, query: string): string {
+  const parts = [
+    intent.canonicalName,
+    intent.specificIssue,
+    ...intent.searchBoostTerms.slice(0, 10),
+  ].filter((p): p is string => Boolean(p?.trim()));
+
+  // Prefer short intent labels; avoid stuffing the full narrative into overlap.
+  if (query.length >= 280 || parts.length >= 2) {
+    const condensed = [...new Set(parts.map((p) => p.trim()))].join(" ").trim();
+    if (condensed.length >= 12) return condensed;
+  }
+  if (query.length < 320) return query;
+  return intent.semanticQuery?.slice(0, 160) || query.slice(0, 320);
+}
+
+/**
  * Area/category hub pages (e.g. "Family Law") — too broad when the user named a
  * specific issue like prenup or conveyancing.
  */
@@ -151,6 +184,7 @@ export function isCategoryHubPage(page: WikiPageIndex): boolean {
   // Areas/<Category> or Areas/<Category>/_index style hubs
   if (parts.length <= 2) return true;
   if (page.id.endsWith("/_index")) return true;
+  if (/^Topic hub for\b/i.test(page.summary?.trim() ?? "")) return true;
   const titleNorm = page.title.trim().toLowerCase();
   const catNorm = page.category.trim().toLowerCase();
   if (titleNorm && catNorm && (titleNorm === catNorm || titleNorm === `${catNorm} law`)) {
@@ -158,7 +192,7 @@ export function isCategoryHubPage(page: WikiPageIndex): boolean {
   }
   // Titles that are just the area name without a specific topic
   if (
-    /^(family( and relationships)?|home and housing|employment|immigration( and citizenship)?|consumer rights|debt|welfare)(\s+law)?$/i.test(
+    /^(family( and relationships)?|home and housing|employment|immigration( and citizenship)?|consumer rights|debt|welfare|home improvements|litigation)(\s+law)?$/i.test(
       page.title.trim(),
     )
   ) {
@@ -191,11 +225,11 @@ export function pageMatchesQueryTopic(
   if (!pageMatchesIntent(page, intent)) return false;
   if (isCategoryHubPage(page) && intent.specificIssue) return false;
 
-  const overlap = queryPageTokenOverlap(query, page);
+  const overlap = queryPageTokenOverlap(topicalQueryForOverlap(intent, query), page);
   if (overlap >= minOverlap) return true;
 
   const blob = pageHaystack(page);
-  const topicTokens = intentTopicTokens(intent, query);
+  const topicTokens = intentTopicTokens(intent, topicalQueryForOverlap(intent, query));
   if (!topicTokens.length) return overlap >= 0.1;
   const hits = topicTokens.filter((t) => blob.includes(t)).length;
   return hits / topicTokens.length >= minOverlap;
@@ -280,7 +314,8 @@ function scorePageForIntent(
 ): number {
   if (!pageMatchesIntent(page, intent)) return -1;
 
-  const overlap = queryPageTokenOverlap(query, page);
+  const overlapQuery = topicalQueryForOverlap(intent, query);
+  const overlap = queryPageTokenOverlap(overlapQuery, page);
   // Require real query↔page token overlap — taxonomy alone is not enough.
   const minOverlap = intent.specificIssue ? 0.18 : 0.12;
   if (overlap < minOverlap) return -1;
@@ -302,9 +337,41 @@ function scorePageForIntent(
   if (intent.specificIssue && blob.includes(intent.specificIssue.toLowerCase())) score += 4;
   if (intent.taxonomySlug && blob.includes(intent.taxonomySlug.replace(/_/g, " "))) score += 2;
 
+  // Prefer pages whose title mirrors the specific issue (e.g. Cancelling a service…).
+  if (intent.specificIssue) {
+    const issueTokens = intent.specificIssue.toLowerCase().split(/\W+/).filter((t) => t.length >= 4);
+    const titleLower = page.title.toLowerCase();
+    const titleHits = issueTokens.filter((t) => titleLower.includes(t)).length;
+    if (titleHits >= 1) score += 2 + titleHits;
+    if (
+      /cancel/i.test(intent.specificIssue) &&
+      /\bcancel/i.test(page.title)
+    ) {
+      score += 6;
+    }
+  }
+
   const area = wikiAreaForTaxonomy(intent.taxonomySlug ?? "");
   if (area && page.category === area) score += 3;
   if (isCategoryHubPage(page)) score -= 2;
+
+  // Consumer intents must not land on courts / litigation hubs or LASPO practice directions.
+  if (intent.taxonomySlug?.startsWith("consumer")) {
+    if (page.category !== "Consumer Rights" && !blob.includes("consumer")) {
+      score -= 4;
+    }
+    if (
+      /\b(litigation|practice direction|legal aid, sentencing|part 48|civil procedure)\b/i.test(
+        blob,
+      ) &&
+      !/\b(consumer|trader|cancel|service|refund)\b/i.test(blob)
+    ) {
+      return -1;
+    }
+    if (page.category === "Courts and Disputes" || page.category === "Work and Employment") {
+      score -= 3;
+    }
+  }
 
   for (const term of intent.searchBoostTerms.slice(0, 6)) {
     if (blob.includes(term.toLowerCase())) score += 0.5;
