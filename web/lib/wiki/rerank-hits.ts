@@ -173,14 +173,17 @@ export function rerankWikiHitsForQuery(query: string, hits: WikiSearchHit[]): Wi
       if (CUSTOMS_QUERY.test(query)) {
         if (/\b(customs|import|prohibited|restricted|bringing)\b/i.test(titleLower)) boost += 40;
       }
-      if (NEIGHBOUR_QUERY.test(query)) {
-        if (/\b(neighbour|boundary|extension|planning|building reg|party wall)\b/i.test(titleLower)) {
-          boost += 40;
-        }
-        if (/\bnoisy neighbour after 11\b/i.test(titleLower) && /\bextension|building reg\b/i.test(query)) {
-          boost -= 30;
-        }
-      }
+  if (NEIGHBOUR_QUERY.test(query)) {
+    if (/\b(neighbour|boundary|extension|planning|building reg|party wall)\b/i.test(titleLower)) {
+      boost += 40;
+    }
+    if (/\bparty wall\b/i.test(titleLower) && /\bextension|building reg\b/i.test(query)) {
+      boost += 55;
+    }
+    if (/\b(cannabis|noisy neighbour after 11|smoking)\b/i.test(titleLower) && /\bextension|building reg|party wall\b/i.test(query)) {
+      boost -= 80;
+    }
+  }
 
       return { hit, score: hit.score + boost };
     })

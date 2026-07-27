@@ -72,7 +72,16 @@ function filterHits(query: string, limit: number) {
     });
   }
 
-  return stableSortWikiHits(hits).slice(0, limit);
+  return orderHitsWithPrimary(stableSortWikiHits(hits).slice(0, limit), query);
+}
+
+function orderHitsWithPrimary(
+  hits: ReturnType<typeof searchWikiPages>,
+  query: string,
+): ReturnType<typeof searchWikiPages> {
+  const primary = pickPrimaryHit(hits, query);
+  if (!primary) return hits;
+  return [primary, ...hits.filter((h) => h.id !== primary.id)];
 }
 
 /** Long Reddit-style posts dilute keyword search — keep topical anchors. */
@@ -212,7 +221,8 @@ function pickPrimaryHit(
   }
   if (/\b(neighbour|extension|building reg)\b/i.test(q)) {
     return (
-      titleMatches(/\b(extension|building reg|party wall|planning permission)\b/i) ??
+      titleMatches(/\bparty wall\b/i) ??
+      titleMatches(/\b(extension|building reg|planning permission)\b/i) ??
       titleMatches(/\bneighbour\b/i) ??
       hits[0]
     );
