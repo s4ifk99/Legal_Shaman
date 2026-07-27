@@ -16,8 +16,16 @@ import {
   type WikiAnswerSource,
 } from "./answer-types";
 import { getWikiPageById, searchWikiPages } from "./search";
-import { housingRepairAnchors, isHousingRepairQuery, rerankWikiHitsForQuery } from "./rerank-hits";
+import {
+  housingRepairAnchors,
+  isHousingRepairQuery,
+  rerankWikiHitsForQuery,
+  shouldRerankWikiHits,
+  stableSortWikiHits,
+  wikiAnchorsForQuery,
+} from "./rerank-hits";
 import type { WikiPageIndex } from "./types";
+import { resolveLegalIssueFromQuery } from "@/lib/legal/taxonomy";
 
 const MIN_RETRIEVAL_SCORE = 4;
 const RETRIEVAL_LIMIT = 8;
@@ -52,6 +60,8 @@ function filterHits(query: string, limit: number) {
 
   if (isHousingRepairQuery(query)) {
     hits = rerankWikiHitsForQuery(query, hits);
+  } else if (shouldRerankWikiHits(query)) {
+    hits = rerankWikiHitsForQuery(query, hits);
   }
 
   if (cancelish) {
@@ -62,46 +72,20 @@ function filterHits(query: string, limit: number) {
     });
   }
 
-  return hits.slice(0, limit);
+  return stableSortWikiHits(hits).slice(0, limit);
 }
 
 /** Long Reddit-style posts dilute keyword search — keep topical anchors. */
 function condenseWikiRetrievalQuery(query: string): string {
   const trimmed = query.replace(/\s+/g, " ").trim();
-  const lower = trimmed.toLowerCase();
-  const anchors: string[] = [];
-  if (/\b(cancel|cancelled|cancellation|owe|transfer|booking fee)\b/i.test(lower)) {
-    anchors.push("cancelling a service you've arranged", "cancellation rights", "cancel service");
-  }
-  if (/\b(tradesman|tiler|builder|plumber|electrician|trader|contractor)\b/i.test(lower)) {
-    anchors.push("problems with services or traders", "poor service", "trader");
-  }
-  anchors.push(...housingRepairAnchors(trimmed));
-  if (
-    /\b(deposit|tenancy deposit)\b/i.test(lower) &&
-    !/\b(repair|disrepair|leak|damp|mould|mold)\b/i.test(lower)
-  ) {
-    anchors.push("tenancy deposit", "deposit protection");
-  } else if (/\blandlord\b/i.test(lower) && /\b(repair|disrepair|damp|mould|evict|leak)\b/i.test(lower)) {
-    anchors.push("check if your landlord has to do repairs", "housing disrepair");
-  }
-  if (/\b(dismiss|employment|wage|employer|acas)\b/i.test(lower)) {
-    anchors.push("unfair dismissal", "employment", "ACAS");
-  }
-  if (/\b(visa|asylum|immigration|home office)\b/i.test(lower)) {
-    anchors.push("visa", "immigration", "home office");
-  }
-  if (/\b(prenup|divorce|child contact|custody)\b/i.test(lower)) {
-    anchors.push("family", "prenup", "child arrangements");
-  }
+  const anchors = wikiAnchorsForQuery(trimmed);
 
-  // Always prefer topical anchors when present — even for short queries.
   if (anchors.length) {
     const head = trimmed.length > 180 ? trimmed.slice(0, 180) : trimmed;
-    return [...new Set([...anchors, head])].join(" ").slice(0, 280);
+    return [...new Set([...anchors, head])].join(" ").slice(0, 320);
   }
   if (trimmed.length < 320) return trimmed;
-  return trimmed.slice(0, 280);
+  return trimmed.slice(0, 320);
 }
 
 function truncate(text: string, max: number): string {
@@ -204,12 +188,64 @@ function isJunkAnswer(text: string): boolean {
   return false;
 }
 
+/** Pick the most topical primary page after reranking (stable across environments). */
+function pickPrimaryHit(
+  hits: ReturnType<typeof searchWikiPages>,
+  query: string,
+): (typeof hits)[number] | undefined {
+  if (!hits.length) return undefined;
+
+  const q = query.toLowerCase();
+  const resolution = resolveLegalIssueFromQuery(query);
+  const titleMatches = (pattern: RegExp) =>
+    hits.find((h) => pattern.test(h.title.toLowerCase()));
+
+  if (/\b(film|filming|record)\b/i.test(q)) {
+    return (
+      titleMatches(/\brecord.*consent\b/i) ??
+      titleMatches(/\bfilming\b/i) ??
+      hits[0]
+    );
+  }
+  if (/\b(customs|import|bringing .{0,30} into (the )?uk)\b/i.test(q)) {
+    return titleMatches(/\b(customs|import|prohibited)\b/i) ?? hits[0];
+  }
+  if (/\b(neighbour|extension|building reg)\b/i.test(q)) {
+    return (
+      titleMatches(/\b(extension|building reg|party wall|planning permission)\b/i) ??
+      titleMatches(/\bneighbour\b/i) ??
+      hits[0]
+    );
+  }
+  if (/\b(pension|auto enrolment)\b/i.test(q)) {
+    return titleMatches(/\bpension\b/i) ?? hits[0];
+  }
+  if (/\b(stop and search|police)\b/i.test(q)) {
+    return titleMatches(/\b(stop and search|police)\b/i) ?? hits[0];
+  }
+
+  if (resolution) {
+    for (const term of [
+      resolution.canonicalName,
+      ...resolution.searchBoostTerms.slice(0, 8),
+    ]) {
+      const t = term.toLowerCase();
+      if (t.length < 4) continue;
+      const match = hits.find((h) => h.title.toLowerCase().includes(t));
+      if (match) return match;
+    }
+  }
+
+  return hits[0];
+}
+
 /** Stable prose from wiki hits — used when LLM is off or returns junk. */
 function deterministicAnswerFromHits(
   hits: ReturnType<typeof searchWikiPages>,
+  query: string,
 ): string {
-  const primary = hits[0];
-  const secondary = hits[1];
+  const primary = pickPrimaryHit(hits, query);
+  const secondary = hits.find((h) => h.id !== primary?.id);
   const paragraphs: string[] = [];
 
   if (primary?.summary?.trim()) {
@@ -299,7 +335,7 @@ async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayl
   });
 
   if (!llmConfigured() || !enableLlmAnswer()) {
-    const deterministic = deterministicAnswerFromHits(hits);
+    const deterministic = deterministicAnswerFromHits(hits, trimmed);
     if (deterministic.length >= 80) return finishSynthesis(deterministic);
     return {
       ...base,
@@ -344,7 +380,7 @@ Respond with JSON only. The "answer" field must be 2-4 plain-English paragraphs 
       {
         jsonMode: true,
         temperature: 0,
-        maxTokens: 900,
+        maxTokens: process.env.VERCEL === "1" ? 650 : 900,
         model: resolveSynthesisModel(),
       },
     );
@@ -359,7 +395,7 @@ Respond with JSON only. The "answer" field must be 2-4 plain-English paragraphs 
     }
 
     if (!answer || isJunkAnswer(answer)) {
-      const deterministic = deterministicAnswerFromHits(hits);
+      const deterministic = deterministicAnswerFromHits(hits, trimmed);
       if (deterministic.length >= 80) return finishSynthesis(deterministic);
       return {
         ...base,
@@ -386,7 +422,7 @@ Respond with JSON only. The "answer" field must be 2-4 plain-English paragraphs 
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.warn("[wiki.generate-answer] LLM failed:", message);
-    const deterministic = deterministicAnswerFromHits(hits);
+    const deterministic = deterministicAnswerFromHits(hits, trimmed);
     if (deterministic.length >= 80) return finishSynthesis(deterministic);
     return {
       ...base,

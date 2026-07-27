@@ -2,7 +2,7 @@ import "server-only";
 
 import { wikiPagePublicUrl } from "@/lib/wiki/public-url";
 import { getWikiPageById, searchWikiPages } from "@/lib/wiki/search";
-import { housingRepairAnchors, isHousingRepairQuery, rerankWikiHitsForQuery } from "@/lib/wiki/rerank-hits";
+import { housingRepairAnchors, isHousingRepairQuery, rerankWikiHitsForQuery, shouldRerankWikiHits, stableSortWikiHits, wikiAnchorsForQuery } from "@/lib/wiki/rerank-hits";
 import type { WikiPageIndex } from "@/lib/wiki/types";
 
 import { buildSnippet, estimateTokens } from "./chunker";
@@ -52,7 +52,7 @@ export function wikiSearchQueryForIntent(
   if (traderish || intent.taxonomySlug?.startsWith("consumer")) {
     parts.push("problems with services or traders", "trader", "consumer rights");
   }
-  parts.push(...housingRepairAnchors(query));
+  parts.push(...wikiAnchorsForQuery(query));
 
   const condensed = [...new Set(parts.map((p) => p.trim()).filter(Boolean))]
     .join(" ")
@@ -134,7 +134,7 @@ export function retrieveWikiAsChunks(
       return true;
     });
 
-  if (isHousingRepairQuery(query)) {
+  if (isHousingRepairQuery(query) || shouldRerankWikiHits(query)) {
     hits = rerankWikiHitsForQuery(query, hits);
   } else {
     hits.sort((a, b) => {
@@ -147,6 +147,7 @@ export function retrieveWikiAsChunks(
   }
 
   hits = hits.slice(0, limit);
+  hits = stableSortWikiHits(hits);
 
   const chunks: RetrievedChunk[] = [];
   for (let i = 0; i < hits.length; i++) {
