@@ -344,8 +344,15 @@ async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayl
     latencyMs: Date.now() - started,
   });
 
+  const forceLlm = process.env.WIKI_FORCE_LLM === "1" || process.env.WIKI_FORCE_LLM === "true";
+  const deterministic = deterministicAnswerFromHits(hits, trimmed);
+
+  // Strong wiki match → stable excerpt synthesis (matches local/dev and production).
+  if (!forceLlm && retrievalScore >= 18 && deterministic.length >= 80) {
+    return finishSynthesis(deterministic);
+  }
+
   if (!llmConfigured() || !enableLlmAnswer()) {
-    const deterministic = deterministicAnswerFromHits(hits, trimmed);
     if (deterministic.length >= 80) return finishSynthesis(deterministic);
     return {
       ...base,
