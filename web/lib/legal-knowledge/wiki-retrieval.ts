@@ -2,6 +2,7 @@ import "server-only";
 
 import { wikiPagePublicUrl } from "@/lib/wiki/public-url";
 import { getWikiPageById, searchWikiPages } from "@/lib/wiki/search";
+import { housingRepairAnchors, isHousingRepairQuery, rerankWikiHitsForQuery } from "@/lib/wiki/rerank-hits";
 import type { WikiPageIndex } from "@/lib/wiki/types";
 
 import { buildSnippet, estimateTokens } from "./chunker";
@@ -51,6 +52,7 @@ export function wikiSearchQueryForIntent(
   if (traderish || intent.taxonomySlug?.startsWith("consumer")) {
     parts.push("problems with services or traders", "trader", "consumer rights");
   }
+  parts.push(...housingRepairAnchors(query));
 
   const condensed = [...new Set(parts.map((p) => p.trim()).filter(Boolean))]
     .join(" ")
@@ -112,7 +114,7 @@ export function retrieveWikiAsChunks(
 ): RetrievedChunk[] {
   const limit = options?.limit ?? 8;
   const searchQ = options?.searchQuery?.trim() || wikiSearchQueryForIntent(query, options?.intent);
-  const hits = searchWikiPages(searchQ, limit * 3)
+  let hits = searchWikiPages(searchQ, limit * 3)
     .filter((hit) => hit.score >= MIN_WIKI_SCORE)
     .filter((hit) => {
       const page = getWikiPageById(hit.id);
@@ -130,16 +132,21 @@ export function retrieveWikiAsChunks(
         }
       }
       return true;
-    })
-    .sort((a, b) => {
-      // Prefer cancel-service pages when the user is asking about cancelling / fees.
+    });
+
+  if (isHousingRepairQuery(query)) {
+    hits = rerankWikiHitsForQuery(query, hits);
+  } else {
+    hits.sort((a, b) => {
       const cancelish = /\bcancel/i.test(searchQ);
       if (!cancelish) return b.score - a.score;
       const aCancel = /\bcancel/i.test(a.title) ? 40 : 0;
       const bCancel = /\bcancel/i.test(b.title) ? 40 : 0;
       return b.score + bCancel - (a.score + aCancel);
-    })
-    .slice(0, limit);
+    });
+  }
+
+  hits = hits.slice(0, limit);
 
   const chunks: RetrievedChunk[] = [];
   for (let i = 0; i < hits.length; i++) {

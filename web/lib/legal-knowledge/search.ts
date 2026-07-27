@@ -130,15 +130,13 @@ export async function runLegalKnowledgeSearch(
   const initialIntent = deriveLegalSearchIntent(context);
   const graphMode = knowledgeGraphMode();
 
-  // Start directory once — never await it twice (was doubling Typesense timeouts).
-  const directoryPromise = runDirectorySlice(input, context, initialIntent);
+  // Start directory in parallel for graph/RAG paths only — wiki synthesis can exceed the
+  // directory timeout if both race from t=0 (was returning 0 lawyers on production).
+  let directoryPromise: Promise<DirectorySlice> | undefined;
 
-  // Preferred path: same wiki synthesis as local `/api/ask/answer`.
-  const wikiPrimaryPromise = tryWikiPrimaryAnswer(processSearchQuery(query));
-
-  const wikiPrimary = await wikiPrimaryPromise;
+  const wikiPrimary = await tryWikiPrimaryAnswer(processSearchQuery(query));
   if (wikiPrimary) {
-    const { directoryResults, directoryRows } = await directoryPromise;
+    const directorySlice = await runDirectorySlice(input, context, initialIntent);
     const searchCriteria = decomposeLegalSearchQuery({
       query,
       location: input.location,
@@ -151,12 +149,14 @@ export async function runLegalKnowledgeSearch(
       wiki: wikiPrimary,
       context,
       intent: initialIntent,
-      directoryResults,
-      directoryRows,
+      directoryResults: directorySlice.directoryResults,
+      directoryRows: directorySlice.directoryRows,
       suggestedNextSteps: suggestedNextStepsForClassification(context.classification),
       searchCriteria,
     });
   }
+
+  directoryPromise = runDirectorySlice(input, context, initialIntent);
 
   if (graphMode !== "off" && isConsumerIntent(initialIntent)) {
     const graphResult = await assembleFromKnowledgeGraph(context, initialIntent);

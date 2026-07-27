@@ -16,6 +16,7 @@ import {
   type WikiAnswerSource,
 } from "./answer-types";
 import { getWikiPageById, searchWikiPages } from "./search";
+import { housingRepairAnchors, isHousingRepairQuery, rerankWikiHitsForQuery } from "./rerank-hits";
 import type { WikiPageIndex } from "./types";
 
 const MIN_RETRIEVAL_SCORE = 4;
@@ -44,11 +45,14 @@ function isQuarantinedPage(page: WikiPageIndex): boolean {
 function filterHits(query: string, limit: number) {
   const searchQ = condenseWikiRetrievalQuery(query);
   const cancelish = /\b(cancel|cancelled|cancellation|owe|booking fee)\b/i.test(query);
-  const hits = searchWikiPages(searchQ, limit * 2)
-    .filter((hit) => {
-      const page = getWikiPageById(hit.id);
-      return page ? !isQuarantinedPage(page) : true;
-    });
+  let hits = searchWikiPages(searchQ, limit * 2).filter((hit) => {
+    const page = getWikiPageById(hit.id);
+    return page ? !isQuarantinedPage(page) : true;
+  });
+
+  if (isHousingRepairQuery(query)) {
+    hits = rerankWikiHitsForQuery(query, hits);
+  }
 
   if (cancelish) {
     hits.sort((a, b) => {
@@ -72,8 +76,14 @@ function condenseWikiRetrievalQuery(query: string): string {
   if (/\b(tradesman|tiler|builder|plumber|electrician|trader|contractor)\b/i.test(lower)) {
     anchors.push("problems with services or traders", "poor service", "trader");
   }
-  if (/\b(deposit|tenancy|landlord)\b/i.test(lower)) {
-    anchors.push("tenancy deposit", "landlord", "deposit protection");
+  anchors.push(...housingRepairAnchors(trimmed));
+  if (
+    /\b(deposit|tenancy deposit)\b/i.test(lower) &&
+    !/\b(repair|disrepair|leak|damp|mould|mold)\b/i.test(lower)
+  ) {
+    anchors.push("tenancy deposit", "deposit protection");
+  } else if (/\blandlord\b/i.test(lower) && /\b(repair|disrepair|damp|mould|evict|leak)\b/i.test(lower)) {
+    anchors.push("check if your landlord has to do repairs", "housing disrepair");
   }
   if (/\b(dismiss|employment|wage|employer|acas)\b/i.test(lower)) {
     anchors.push("unfair dismissal", "employment", "ACAS");

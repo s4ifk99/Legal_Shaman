@@ -40,6 +40,11 @@ const CASES: Array<{ id: string; query: string }> = [
   { id: "small_claims", query: "how do I take a trader to small claims court for poor work" },
   { id: "parking_pcn", query: "I got a private parking charge notice from ParkingEye" },
   { id: "prenup", query: "I need a prenup before we get married in England" },
+  {
+    id: "housing_association_repairs",
+    query:
+      "I live with my aunt in a housing association flat. Bathroom leaks, co-tenant refuses access for repairs. Do I have to wait until they die for the HA to fix things?",
+  },
 ];
 
 function tokenize(text: string): string[] {
