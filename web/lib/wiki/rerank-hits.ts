@@ -106,6 +106,49 @@ export function wikiAnchorsForQuery(query: string): string[] {
   return [...new Set(anchors.map((a) => a.trim()).filter((a) => a.length >= 3))];
 }
 
+function patternBoostForHit(query: string, hit: WikiSearchHit): number {
+  const titleLower = hit.title.toLowerCase();
+  let boost = 0;
+
+  if (RECORDING_QUERY.test(query)) {
+    if (/\b(record|filming|consent|cctv|privacy)\b/i.test(titleLower)) boost += 45;
+    if (/\b(power of attorney|dementia|deport)\b/i.test(titleLower)) boost -= 70;
+  }
+  if (CUSTOMS_QUERY.test(query)) {
+    if (/\b(customs|import|prohibited|restricted|bringing)\b/i.test(titleLower)) boost += 40;
+    if (/\b(lending money|power of attorney)\b/i.test(titleLower)) boost -= 50;
+  }
+  if (NEIGHBOUR_QUERY.test(query)) {
+    if (/\b(neighbour|boundary|extension|planning|building reg|party wall)\b/i.test(titleLower)) {
+      boost += 40;
+    }
+    if (/\bparty wall\b/i.test(titleLower) && /\bextension|building regs?\b/i.test(query)) {
+      boost += 55;
+    }
+    if (
+      /\b(cannabis|noisy neighbour after 11|smoking)\b/i.test(titleLower) &&
+      /\bextension|building regs?|party wall\b/i.test(query)
+    ) {
+      boost -= 80;
+    }
+  }
+  if (/\b(cancel|cancelled|cancellation|tradesman|trader)\b/i.test(query)) {
+    if (/\bcancel/i.test(titleLower)) boost += 45;
+    if (/\b(trader|consumer|service)\b/i.test(titleLower)) boost += 20;
+  }
+
+  return boost;
+}
+
+function hasPatternRerank(query: string): boolean {
+  return (
+    RECORDING_QUERY.test(query) ||
+    CUSTOMS_QUERY.test(query) ||
+    NEIGHBOUR_QUERY.test(query) ||
+    /\b(cancel|cancelled|cancellation|tradesman|trader)\b/i.test(query)
+  );
+}
+
 /** Prefer repair/HA pages and demote cohabitation hits when the query is about housing disrepair. */
 export function rerankWikiHitsForQuery(query: string, hits: WikiSearchHit[]): WikiSearchHit[] {
   if (HOUSING_REPAIR_QUERY.test(query)) {
@@ -132,7 +175,16 @@ export function rerankWikiHitsForQuery(query: string, hits: WikiSearchHit[]): Wi
   }
 
   const resolution = resolveLegalIssueFromQuery(query);
-  if (!resolution) return hits;
+  if (!resolution) {
+    if (!hasPatternRerank(query)) return hits;
+    return [...hits]
+      .map((hit) => ({
+        hit,
+        score: hit.score + patternBoostForHit(query, hit) + (hit.id.startsWith("Directory/Firms/") ? -35 : 0),
+      }))
+      .sort((a, b) => b.score - a.score)
+      .map((row) => ({ ...row.hit, score: row.score }));
+  }
 
   const preferredCategory =
     CATEGORY_BY_SLUG[resolution.taxonomySlug] ??
@@ -166,24 +218,7 @@ export function rerankWikiHitsForQuery(query: string, hits: WikiSearchHit[]): Wi
       if (hit.id.startsWith("Directory/Firms/")) boost -= 35;
       if (/\b(practice direction|part 48)\b/i.test(hit.title)) boost -= 50;
 
-      if (RECORDING_QUERY.test(query)) {
-        if (/\b(record|filming|consent|cctv|privacy)\b/i.test(titleLower)) boost += 45;
-        if (/\b(power of attorney|dementia|deport)\b/i.test(titleLower)) boost -= 70;
-      }
-      if (CUSTOMS_QUERY.test(query)) {
-        if (/\b(customs|import|prohibited|restricted|bringing)\b/i.test(titleLower)) boost += 40;
-      }
-  if (NEIGHBOUR_QUERY.test(query)) {
-    if (/\b(neighbour|boundary|extension|planning|building reg|party wall)\b/i.test(titleLower)) {
-      boost += 40;
-    }
-    if (/\bparty wall\b/i.test(titleLower) && /\bextension|building reg\b/i.test(query)) {
-      boost += 55;
-    }
-    if (/\b(cannabis|noisy neighbour after 11|smoking)\b/i.test(titleLower) && /\bextension|building reg|party wall\b/i.test(query)) {
-      boost -= 80;
-    }
-  }
+      boost += patternBoostForHit(query, hit);
 
       return { hit, score: hit.score + boost };
     })
@@ -207,5 +242,9 @@ export function isHousingRepairQuery(query: string): boolean {
 }
 
 export function shouldRerankWikiHits(query: string): boolean {
-  return Boolean(resolveLegalIssueFromQuery(query)) || HOUSING_REPAIR_QUERY.test(query);
+  return (
+    Boolean(resolveLegalIssueFromQuery(query)) ||
+    HOUSING_REPAIR_QUERY.test(query) ||
+    hasPatternRerank(query)
+  );
 }

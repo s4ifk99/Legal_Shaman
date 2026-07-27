@@ -17,7 +17,6 @@ import {
 } from "./answer-types";
 import { getWikiPageById, searchWikiPages } from "./search";
 import {
-  housingRepairAnchors,
   isHousingRepairQuery,
   rerankWikiHitsForQuery,
   shouldRerankWikiHits,
@@ -25,7 +24,6 @@ import {
   wikiAnchorsForQuery,
 } from "./rerank-hits";
 import type { WikiPageIndex } from "./types";
-import { resolveLegalIssueFromQuery } from "@/lib/legal/taxonomy";
 
 const MIN_RETRIEVAL_SCORE = 4;
 const RETRIEVAL_LIMIT = 8;
@@ -50,6 +48,39 @@ function isQuarantinedPage(page: WikiPageIndex): boolean {
   return path.includes("_quarantine") || path.includes("/firms/_quarantine/");
 }
 
+/** Pull in topical pages that long Reddit posts can miss in a single keyword pass. */
+function mergeSupplementalWikiHits(
+  query: string,
+  hits: ReturnType<typeof searchWikiPages>,
+): ReturnType<typeof searchWikiPages> {
+  const byId = new Map(hits.map((h) => [h.id, h]));
+  const phrases: string[] = [];
+
+  if (/\b(neighbour|extension|building regs?)\b/i.test(query)) {
+    phrases.push("party wall extension building regulations neighbour dispute");
+  }
+  if (/\b(film|filming|record)\b/i.test(query)) {
+    phrases.push("record someone without consent filming privacy");
+  }
+  if (/\b(customs|import|bringing .{0,40} into (the )?uk)\b/i.test(query)) {
+    phrases.push("customs import prohibited restricted items UK");
+  }
+  if (/\b(cancel|cancelled|cancellation|tradesman|trader)\b/i.test(query)) {
+    phrases.push("cancelling a service trader cancellation rights");
+  }
+
+  for (const phrase of phrases) {
+    for (const hit of searchWikiPages(phrase, 6)) {
+      const page = getWikiPageById(hit.id);
+      if (!page || isQuarantinedPage(page)) continue;
+      const existing = byId.get(hit.id);
+      if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+    }
+  }
+
+  return stableSortWikiHits([...byId.values()]);
+}
+
 function filterHits(query: string, limit: number) {
   const searchQ = condenseWikiRetrievalQuery(query);
   const cancelish = /\b(cancel|cancelled|cancellation|owe|booking fee)\b/i.test(query);
@@ -58,9 +89,9 @@ function filterHits(query: string, limit: number) {
     return page ? !isQuarantinedPage(page) : true;
   });
 
-  if (isHousingRepairQuery(query)) {
-    hits = rerankWikiHitsForQuery(query, hits);
-  } else if (shouldRerankWikiHits(query)) {
+  hits = mergeSupplementalWikiHits(query, hits);
+
+  if (isHousingRepairQuery(query) || shouldRerankWikiHits(query)) {
     hits = rerankWikiHitsForQuery(query, hits);
   }
 
@@ -219,11 +250,12 @@ function pickPrimaryHit(
   if (/\b(customs|import|bringing .{0,30} into (the )?uk)\b/i.test(q)) {
     return titleMatches(/\b(customs|import|prohibited)\b/i) ?? hits[0];
   }
-  if (/\b(neighbour|extension|building reg)\b/i.test(q)) {
+  if (/\b(neighbour|extension|building regs?)\b/i.test(q)) {
     return (
       titleMatches(/\bparty wall\b/i) ??
-      titleMatches(/\b(extension|building reg|planning permission)\b/i) ??
-      titleMatches(/\bneighbour\b/i) ??
+      titleMatches(/\b(extension|building regs?|planning permission)\b/i) ??
+      titleMatches(/\bneighbour dispute\b/i) ??
+      titleMatches(/\bboundary\b/i) ??
       hits[0]
     );
   }
@@ -347,8 +379,8 @@ async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayl
   const forceLlm = process.env.WIKI_FORCE_LLM === "1" || process.env.WIKI_FORCE_LLM === "true";
   const deterministic = deterministicAnswerFromHits(hits, trimmed);
 
-  // Strong wiki match → stable excerpt synthesis (matches local/dev and production).
-  if (!forceLlm && retrievalScore >= 18 && deterministic.length >= 80) {
+  // Prefer stable excerpt synthesis so local and production stay aligned.
+  if (!forceLlm && deterministic.length >= 80) {
     return finishSynthesis(deterministic);
   }
 
