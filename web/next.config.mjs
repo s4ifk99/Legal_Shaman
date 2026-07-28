@@ -13,7 +13,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: "/find-a-lawyer", destination: "/ask-the-shaman", permanent: false },
+      { source: "/find-a-lawyer", destination: "/ask-the-shaman?guided=1", permanent: false },
       { source: "/oslaw", destination: "/ask-the-shaman", permanent: false },
       { source: "/oslr", destination: "/ask-the-shaman", permanent: true },
       { source: "/oslr/:path*", destination: "/oslaw/:path*", permanent: true },

@@ -67,9 +67,9 @@ async function runDirectorySlice(
 ): Promise<DirectorySlice> {
   if (context.includeDirectory === false) return EMPTY_DIRECTORY;
 
-  const directoryTimeoutMs = Number(
-    process.env.LEGAL_DIRECTORY_TIMEOUT_MS ?? (process.env.VERCEL === "1" ? 3_500 : 15_000),
-  );
+  // Do not use a short wall-clock cap here — wiki/RAG work runs in parallel with directory,
+  // and Postgres directory on Vercel often needs 5–12s. The API route deadline is the backstop.
+  const directoryTimeoutMs = Number(process.env.LEGAL_DIRECTORY_TIMEOUT_MS ?? 0);
 
   const run = async (): Promise<DirectorySlice> => {
     const shortQ =
@@ -106,15 +106,18 @@ async function runDirectorySlice(
   };
 
   try {
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    return await Promise.race([
-      run(),
-      new Promise<DirectorySlice>((resolve) => {
-        timer = setTimeout(() => resolve(EMPTY_DIRECTORY), directoryTimeoutMs);
-      }),
-    ]).finally(() => {
-      if (timer) clearTimeout(timer);
-    });
+    if (directoryTimeoutMs > 0) {
+      let timer: ReturnType<typeof setTimeout> | undefined;
+      return await Promise.race([
+        run(),
+        new Promise<DirectorySlice>((resolve) => {
+          timer = setTimeout(() => resolve(EMPTY_DIRECTORY), directoryTimeoutMs);
+        }),
+      ]).finally(() => {
+        if (timer) clearTimeout(timer);
+      });
+    }
+    return await run();
   } catch (err) {
     console.warn("[legal-knowledge.search] directory search failed:", err);
     return EMPTY_DIRECTORY;
@@ -130,13 +133,12 @@ export async function runLegalKnowledgeSearch(
   const initialIntent = deriveLegalSearchIntent(context);
   const graphMode = knowledgeGraphMode();
 
-  // Start directory in parallel for graph/RAG paths only — wiki synthesis can exceed the
-  // directory timeout if both race from t=0 (was returning 0 lawyers on production).
-  let directoryPromise: Promise<DirectorySlice> | undefined;
+  // Start directory alongside wiki/RAG so Postgres retrieval can finish while guidance runs.
+  const directoryPromise = runDirectorySlice(input, context, initialIntent);
 
   const wikiPrimary = await tryWikiPrimaryAnswer(processSearchQuery(query));
   if (wikiPrimary) {
-    const directorySlice = await runDirectorySlice(input, context, initialIntent);
+    const directorySlice = await directoryPromise;
     const searchCriteria = decomposeLegalSearchQuery({
       query,
       location: input.location,
@@ -155,8 +157,6 @@ export async function runLegalKnowledgeSearch(
       searchCriteria,
     });
   }
-
-  directoryPromise = runDirectorySlice(input, context, initialIntent);
 
   if (graphMode !== "off" && isConsumerIntent(initialIntent)) {
     const graphResult = await assembleFromKnowledgeGraph(context, initialIntent);
