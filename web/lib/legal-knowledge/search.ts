@@ -21,6 +21,7 @@ import { buildLegalSearchContext } from "./search-context";
 import {
   deriveLegalSearchIntent,
   directoryPracticeAreaForIntent,
+  directorySearchQueryForIntent,
   filterDirectoryResultsByIntent,
   refineIntentFromChunks,
 } from "./search-intent";
@@ -72,25 +73,24 @@ async function runDirectorySlice(
   const directoryTimeoutMs = Number(process.env.LEGAL_DIRECTORY_TIMEOUT_MS ?? 0);
 
   const run = async (): Promise<DirectorySlice> => {
-    const shortQ =
-      intent.canonicalName && intent.specificIssue
-        ? `${intent.canonicalName} ${intent.specificIssue}`.slice(0, 80)
-        : intent.canonicalName
-          ? `${intent.canonicalName} solicitor`.slice(0, 80)
-          : intent.semanticQuery.slice(0, 80);
+    const shortQ = directorySearchQueryForIntent(input.query, intent);
+    const practiceArea = directoryPracticeAreaForIntent(intent, input.query);
+    // Prefer the short directory query — intent.semanticQuery is often a long citizen
+    // narrative that returns noisy alphabetical SRA hits on Postgres FTS.
+    const directoryIntent = { ...intent, semanticQuery: shortQ };
     const directory = await runDirectorySearch({
       query: shortQ,
       limit: 8,
       semantic: false,
       location: input.location,
-      practiceArea: directoryPracticeAreaForIntent(intent),
+      practiceArea,
       parsed: context.parsedQuery,
-      searchIntent: intent,
+      searchIntent: directoryIntent,
       legalAidOnly: context.resolution?.legalAidLikely || undefined,
       freeOnly: context.classification.urgency === "emergency" ? true : undefined,
     });
 
-    const filtered = filterDirectoryResultsByIntent(directory.results, intent);
+    const filtered = filterDirectoryResultsByIntent(directory.results, directoryIntent);
     const slice = filtered.slice(0, 6);
     const directoryRows = toLegacyGetResponse(slice).slice(0, 6) as LegacyGetRow[];
     const directoryResults = slice.map((r) => ({

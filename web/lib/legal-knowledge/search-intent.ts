@@ -201,10 +201,40 @@ function slugFromChunk(chunk: RetrievedChunk): string | null {
 /** Slugs accepted when filtering directory results for a citizen issue area. */
 const DIRECTORY_SLUG_OVERLAP: Record<string, string[]> = {
   conveyancing: ["conveyancing", "housing"],
+  consumer: ["consumer", "consumer_online_shopping", "consumer_small_claims"],
+  consumer_services: ["consumer", "consumer_services", "consumer_small_claims"],
+  consumer_online_shopping: ["consumer", "consumer_online_shopping"],
 };
 
+export const UNSAFE_PRODUCT_QUERY =
+  /\b(temu|amazon|ebay|aliexpress|marketplace|seller|bought online|purchased online|unsafe product|dangerous product|faulty goods|trading standards|consumer service|product recall|report this|report them|who do i report|lead test|lead contamination|tap[s]?\b|water fitting|drinking water contamination)\b/i;
+
+export function isUnsafeProductQuery(query: string): boolean {
+  return UNSAFE_PRODUCT_QUERY.test(query);
+}
+
+/** Directory search query — keep short for Postgres/Typesense latency. */
+export function directorySearchQueryForIntent(query: string, intent: LegalSearchIntent): string {
+  if (isUnsafeProductQuery(query)) {
+    return "consumer rights solicitor";
+  }
+  if (intent.canonicalName && intent.specificIssue) {
+    return `${intent.canonicalName} ${intent.specificIssue}`.slice(0, 80);
+  }
+  if (intent.canonicalName) {
+    return `${intent.canonicalName} solicitor`.slice(0, 80);
+  }
+  return intent.semanticQuery.slice(0, 80);
+}
+
 /** Practice area slug sent to directory search — prefer citizen issue over matcher bucket. */
-export function directoryPracticeAreaForIntent(intent: LegalSearchIntent): string | undefined {
+export function directoryPracticeAreaForIntent(
+  intent: LegalSearchIntent,
+  query?: string,
+): string | undefined {
+  // Unsafe product / Trading Standards cases: do not hard-filter by practice area.
+  // SRA firms rarely tag "consumer", and keyword matching on "service" is too noisy.
+  if (query && isUnsafeProductQuery(query)) return undefined;
   return intent.taxonomySlug ?? intent.matcherSlug;
 }
 
@@ -223,10 +253,10 @@ export function directoryRowMatchesPracticeArea(
   const raw = result.raw as { practiceAreaSlugs?: string[] } | null;
   if (raw?.practiceAreaSlugs?.some((s) => slugs.includes(s.toLowerCase()))) return true;
 
-  const hay = `${result.title} ${result.description ?? ""} ${result.practiceAreas.join(" ")} ${result.categories.join(" ")}`;
+  const practiceHay = `${result.description ?? ""} ${result.practiceAreas.join(" ")} ${result.categories.join(" ")}`;
   return slugs.some(
     (slug) =>
-      rowMatchesPracticeTaxonomySlug(slug, hay) ||
+      rowMatchesPracticeTaxonomySlug(slug, practiceHay) ||
       result.practiceAreas.some((x) => x.toLowerCase().includes(slug.replace(/_/g, " "))) ||
       result.categories.some((c) => c.toLowerCase().includes(slug.replace(/_/g, " "))),
   );

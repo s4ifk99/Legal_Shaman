@@ -260,12 +260,17 @@ export function resolveLegalIssueFromNaturalLanguage(
 
   const unsafeProductSignals =
     /\b(temu|amazon|ebay|aliexpress|marketplace|seller|bought online|purchased online|unsafe product|dangerous product|faulty goods|trading standards|consumer service|product recall|lead test|lead contamination|water fitting|tap[s]?\b)\b/i;
+  const productSafetySignals =
+    /\b(lead|contaminat|unsafe|dangerous|recall|faulty|defective|unfit for use)\b/i;
   const reportSignals = /\b(report(ing)?|who do i report|how do i report|where do i report)\b/i;
-  if ((unsafeProductSignals.test(lower) && reportSignals.test(lower)) || /\btrading standards\b/i.test(lower)) {
+  if (
+    unsafeProductSignals.test(lower) &&
+    (reportSignals.test(lower) || productSafetySignals.test(lower))
+  ) {
     const consumer = byTaxonomySlug.get("consumer");
     const onlineShopping = byTaxonomySlug.get("consumer_online_shopping");
-    if (consumer) candidates.push({ entry: consumer, score: 60 });
-    if (onlineShopping) candidates.push({ entry: onlineShopping, score: 57 });
+    if (consumer) candidates.push({ entry: consumer, score: 62 });
+    if (onlineShopping) candidates.push({ entry: onlineShopping, score: 58 });
   }
 
   // Tradesman / builder cancel & payment disputes → consumer services.

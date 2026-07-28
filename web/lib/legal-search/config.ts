@@ -52,21 +52,21 @@ function typesenseDirectoryConfigured(): boolean {
 /**
  * Directory backend selection:
  * - Explicit `DIRECTORY_SEARCH_BACKEND` wins.
- * - When Typesense is configured (host + API key), use it on all environments
- *   so production matches local dev ranking.
- * - Otherwise production/preview falls back to Postgres FTS; local dev to Typesense.
+ * - Production / Vercel preview → Postgres FTS (Neon) — Typesense is often unreachable
+ *   there and caused empty Find-a-Lawyer results when the unified path hung.
+ * - Local / other → Typesense when host + API key are set.
  */
 export function directorySearchBackend(): DirectorySearchBackend {
   const explicit = process.env.DIRECTORY_SEARCH_BACKEND?.trim().toLowerCase();
   if (explicit === "postgres" || explicit === "typesense") {
     return explicit;
   }
+  const vercelEnv = process.env.VERCEL_ENV?.trim();
+  if (vercelEnv === "production" || vercelEnv === "preview" || process.env.VERCEL === "1") {
+    return "postgres";
+  }
   if (typesenseDirectoryConfigured()) {
     return "typesense";
-  }
-  const vercelEnv = process.env.VERCEL_ENV?.trim();
-  if (vercelEnv === "production" || vercelEnv === "preview") {
-    return "postgres";
   }
   return "typesense";
 }
