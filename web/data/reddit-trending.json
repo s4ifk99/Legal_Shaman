@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-07-27T19:25:35.582Z",
+    "scrapedAt": "2026-07-28T08:20:34.934Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 9,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,18 +38,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v7xk4k",
-          "title": "I'm a plumber and was suspicious of cheap taps on Temu. I've tested them and they're all containing lead.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7xk4k/im_a_plumber_and_was_suspicious_of_cheap_taps_on/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7xk4k/im_a_plumber_and_was_suspicious_of_cheap_taps_on/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785151407,
-          "snippet": "My mother purchased a new set of taps for her house on Temu. She asked me to fit them for her. I was suspicious about where she got the set and she said Temu and showed me. I brought my lead test it in and sure enough, every single one lit up like a fireworks show. The seller has",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1v85ekp",
           "title": "England: Are we liable for unknown damage caused to car on neighbours driveway?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v85ekp/england_are_we_liable_for_unknown_damage_caused/",
@@ -62,6 +50,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1v7xk4k",
+          "title": "I'm a plumber and was suspicious of cheap taps on Temu. I've tested them and they're all containing lead.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7xk4k/im_a_plumber_and_was_suspicious_of_cheap_taps_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7xk4k/im_a_plumber_and_was_suspicious_of_cheap_taps_on/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785151407,
+          "snippet": "My mother purchased a new set of taps for her house on Temu. She asked me to fit them for her. I was suspicious about where she got the set and she said Temu and showed me. I brought my lead test it in and sure enough, every single one lit up like a fireworks show. The seller has",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1v898j6",
           "title": "Threatening anonymous text message following raising concerns to NHS",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v898j6/threatening_anonymous_text_message_following/",
@@ -71,6 +71,66 @@
           "numComments": 0,
           "createdUtc": 1785177785,
           "snippet": "I had a telephone call with an NHS professional (a nurse) which I anticipated might be difficult, so I recorded the conversation for my own records. At the time of the call, I was no longer under the care of the NHS Trust, having already been discharged by this nurse. During the ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v8fpev",
+          "title": "I have lent £11500 to my personal trainer. (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8fpev/i_have_lent_11500_to_my_personal_trainer_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8fpev/i_have_lent_11500_to_my_personal_trainer_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785191957,
+          "snippet": "I (F23) have loaned a total of £11,500, on two separate occasions, to the owner of my local gym (M32), where I receive private personal training. For backstory, I developed a friendship with him over the months of training, and we became quite close. I had £11,500 in my savings a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v8de70",
+          "title": "Construction work outside after 10pm. Will police on 101 do anything? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8de70/construction_work_outside_after_10pm_will_police/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8de70/construction_work_outside_after_10pm_will_police/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785186676,
+          "snippet": "As per the title. They won't stop despite complaints made directly to them. This is a private business park and the works are not highways related. submitted by /u/NorthernMonkey71 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v8q28x",
+          "title": "Cohabiting in England with uneven equity split",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8q28x/cohabiting_in_england_with_uneven_equity_split/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8q28x/cohabiting_in_england_with_uneven_equity_split/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785220247,
+          "snippet": "Hey guys, 28yo female looking for some advice on taking the next step with my partner of two years. Long story short he wants to move in with me and have a share of the mortgage &amp; deeds, which I can understand as currently he’s renting and it’s getting annoying having to go b",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v8rafm",
+          "title": "What is my duty in English law to preserve evidence?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rafm/what_is_my_duty_in_english_law_to_preserve/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rafm/what_is_my_duty_in_english_law_to_preserve/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785224284,
+          "snippet": "There is a criminal case in the US where a man is being prosecuted after providing border officials a \"duress code\" which caused a seized mobile device to securely wipe itself when officials input it on the lock screen. I have written such a code on the back of my device hoping a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v8fdhg",
+          "title": "**England** Told to pay for fire doors that were apparently never fire doors — can the management company put the communal ones on our service charge?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8fdhg/england_told_to_pay_for_fire_doors_that_were/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8fdhg/england_told_to_pay_for_fire_doors_that_were/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785191161,
+          "snippet": "Bought a new build flat in a small block about four years ago. Earlier this year the managing agent had a fire door survey done and every flat failed. We then got a letter giving 28 days to remediate our own doors at our own cost. Problem is, the failures look like they were buil",
           "listingSource": "rss:hot"
         },
         {
@@ -98,27 +158,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v7voco",
-          "title": "I'm worried that my council appears to be quietly scrubbing all LGBTQ+ and Pride resources on its website.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7voco/im_worried_that_my_council_appears_to_be_quietly/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7voco/im_worried_that_my_council_appears_to_be_quietly/",
+          "id": "1v8c56d",
+          "title": "Been scammed by a property on Booking.com and they are not being helpful",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8c56d/been_scammed_by_a_property_on_bookingcom_and_they/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8c56d/been_scammed_by_a_property_on_bookingcom_and_they/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785145421,
-          "snippet": "Listen, I get there's no legal obligation for a council to have a pride parade or to promote Pride/LGBTQ+ in any specific way. However my local council appears to be quietly dismantling and taking down LGBTQ+ resources from its website. I've seen multiple pages disappear over the",
+          "createdUtc": 1785183937,
+          "snippet": "Hi there, I recently went to Edinburgh for a short trip. I booked this property via Booking.com and they charged me £240. Anyways I got very basic instructions on how to check in to the property. I reached the property at 1am as I told the property. The property said the keys wer",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v80o37",
-          "title": "Lastminute.com ruined my trip and is not refunding.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v80o37/lastminutecom_ruined_my_trip_and_is_not_refunding/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v80o37/lastminutecom_ruined_my_trip_and_is_not_refunding/",
+          "id": "1v85p63",
+          "title": "Former landlord keeps telling companies we still live at his property. Is there anything we can do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v85p63/former_landlord_keeps_telling_companies_we_still/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v85p63/former_landlord_keeps_telling_companies_we_still/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785159456,
-          "snippet": "Using lastminute.com , I booked a package trip from Newcastle to Antalya for six people from 10 July to 13 July 2026. The booking was made on 30 May 2026 and included both flights and hotel accommodation. On 24 June 2026, I was contacted directly by SunExpress regarding a flight ",
+          "createdUtc": 1785170477,
+          "snippet": "Two years ago we moved out of a rented property because the landlord wanted to move back in, we liked the home, we were sad to leave it but we got most of our deposit back and it all seemed amicable. Around six months later we received a letter from the council saying we owed cou",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v8rnpv",
+          "title": "Still waiting on nearly £400 refund from well-known shoe company; it's been more than a month. What now? - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rnpv/still_waiting_on_nearly_400_refund_from_wellknown/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rnpv/still_waiting_on_nearly_400_refund_from_wellknown/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785225570,
+          "snippet": "I returned the items in perfect, unworn condition and got confirmation the company had received my return on 24 June. Their refund policy is 10 working days. It has now been 24 working days, and more than a calendar month. Have emailed several times, only to get a generic \"sorry,",
           "listingSource": "rss:hot"
         },
         {
@@ -134,15 +206,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v7inh0",
-          "title": "A 16 year old leaving home in England to live with us?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7inh0/a_16_year_old_leaving_home_in_england_to_live/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7inh0/a_16_year_old_leaving_home_in_england_to_live/",
+          "id": "1v8rbm7",
+          "title": "Possession granted to landlord, rent not paid for over 12 months",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rbm7/possession_granted_to_landlord_rent_not_paid_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rbm7/possession_granted_to_landlord_rent_not_paid_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785105982,
-          "snippet": "My daughter's friend is being pressured to leave home and get a job now that she's 16. The child's older siblings were similarly pressured, but have a different father and went to live with him. This child's father is out of the picture, and she seems to have a very rocky relatio",
+          "createdUtc": 1785224405,
+          "snippet": "Possession of uk property has been granted to me from maybe 2 months ago, iam waiting for transfer to high court to get bailiff in quicker. Rent not paid for over 12 months now. Any advice how to chase this up? submitted by /u/RepresentativeCan578 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1v7voco",
+          "title": "I'm worried that my council appears to be quietly scrubbing all LGBTQ+ and Pride resources on its website.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7voco/im_worried_that_my_council_appears_to_be_quietly/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7voco/im_worried_that_my_council_appears_to_be_quietly/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785145421,
+          "snippet": "Listen, I get there's no legal obligation for a council to have a pride parade or to promote Pride/LGBTQ+ in any specific way. However my local council appears to be quietly dismantling and taking down LGBTQ+ resources from its website. I've seen multiple pages disappear over the",
           "listingSource": "rss:hot"
         },
         {
@@ -158,99 +242,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v7x7bj",
-          "title": "[England] Is there anything that can be done about a neighbor screaming obscenities throughout the day?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7x7bj/england_is_there_anything_that_can_be_done_about/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7x7bj/england_is_there_anything_that_can_be_done_about/",
+          "id": "1v80o37",
+          "title": "Lastminute.com ruined my trip and is not refunding.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v80o37/lastminutecom_ruined_my_trip_and_is_not_refunding/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v80o37/lastminutecom_ruined_my_trip_and_is_not_refunding/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785150337,
-          "snippet": "I notice they spend 99% of their life in the back-room by the garden, the window is always open when they're home, and quite often throughout the day you can hear them arguing/moaning loudly, every 2nd word is f***. I've just had shoulder surgery and have to WFH for the next mont",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v7978s",
-          "title": "(England) Landlord claiming entire deposit due to my \"excess weight\" damaging the floor",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7978s/england_landlord_claiming_entire_deposit_due_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7978s/england_landlord_claiming_entire_deposit_due_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785084597,
-          "snippet": "I rented a flat in a very old building a year ago, the owners had bought it and remodelled and re-furbished it to sell but ended up having to rent it for a year due to some family issues. The estate agent went on and on about it having new carpets. I moved in and noticed that the",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v84ax6",
-          "title": "Ex-employer refusing to pay £1,275 in accrued holiday pay. Claims sick days cancel it out. Advice? Uk",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v84ax6/exemployer_refusing_to_pay_1275_in_accrued/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v84ax6/exemployer_refusing_to_pay_1275_in_accrued/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785167533,
-          "snippet": "Hi everyone, looking for advice on a wage dispute. I resigned from my job at a bar/grill in England on 25th June because my hours were cut heavily. My final June payslip, generated by my employer's own payroll system, explicitly states under my employee details that I have 16.72 ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v7u451",
-          "title": "Carrying a knife and axe for cutting wood in England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7u451/carrying_a_knife_and_axe_for_cutting_wood_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7u451/carrying_a_knife_and_axe_for_cutting_wood_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785139934,
-          "snippet": "Hello, I've been trying to find information on the legality of this but I'm struggling to find the information for this specific situation. I've gotten into wood carving and there is a wooded area right next to where I live, literally across a road. Would it be legal for me to A)",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v7zz96",
-          "title": "Parking fine 3 and 5 years later?! England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7zz96/parking_fine_3_and_5_years_later_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7zz96/parking_fine_3_and_5_years_later_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785157803,
-          "snippet": "Got this in the post last week, parking charges from 2021 and 2023. First I have EVER heard of either of them. I have moved house twice, never heard anything but somehow they have my new address. Any advice?! So ridiculous, I don't know how they can justify only making contact ju",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v718la",
-          "title": "Ex wants to take our child abroad. I am not comfortable with the location they have chosen.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v718la/ex_wants_to_take_our_child_abroad_i_am_not/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v718la/ex_wants_to_take_our_child_abroad_i_am_not/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785065151,
-          "snippet": "Ex wants to take our child abroad with their new partner. Child is 11. I have never objected to any holidays preciously, but the locations involved in this holiday are making me extremely concerned as a parent. Am I able to block our child from leaving? I currently have her passp",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v7fwlr",
-          "title": "(England) Universal Credit - Mum rarely has our child and claims universal credit. What can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7fwlr/england_universal_credit_mum_rarely_has_our_child/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7fwlr/england_universal_credit_mum_rarely_has_our_child/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785099480,
-          "snippet": "As the title says, the mother to my child barely looks after him. The unofficial agreement we have is I have him for 4/7 nights of the week, whilst she has him the remaining 3/7 nights. I'm not in the best position financially at the moment and struggling to get by. So I wanted t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v7gjau",
-          "title": "Repeat chargeback fraud at my dry cleaning business (England) – same customer, different name, £400+ loss . Police report or civil route?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7gjau/repeat_chargeback_fraud_at_my_dry_cleaning/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7gjau/repeat_chargeback_fraud_at_my_dry_cleaning/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785100893,
-          "snippet": "I run a small dry cleaning business in London. We take payment in-store and online. Today I received a chargeback notification for an order worth over £400, reason code: \"Fraud – Issuer Reported Counterfeit.\" The order was placed for pick/drop, but the customer phoned to place it",
+          "createdUtc": 1785159456,
+          "snippet": "Using lastminute.com , I booked a package trip from Newcastle to Antalya for six people from 10 July to 13 July 2026. The booking was made on 30 May 2026 and included both flights and hotel accommodation. On 24 June 2026, I was contacted directly by SunExpress regarding a flight ",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 9,
+      "postCount": 10,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -304,63 +304,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v7voco",
-          "title": "I'm worried that my council appears to be quietly scrubbing all LGBTQ+ and Pride resources on its website.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7voco/im_worried_that_my_council_appears_to_be_quietly/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7voco/im_worried_that_my_council_appears_to_be_quietly/",
+          "id": "1v8fpev",
+          "title": "I have lent £11500 to my personal trainer. (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8fpev/i_have_lent_11500_to_my_personal_trainer_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8fpev/i_have_lent_11500_to_my_personal_trainer_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785145421,
-          "snippet": "Listen, I get there's no legal obligation for a council to have a pride parade or to promote Pride/LGBTQ+ in any specific way. However my local council appears to be quietly dismantling and taking down LGBTQ+ resources from its website. I've seen multiple pages disappear over the",
+          "createdUtc": 1785191957,
+          "snippet": "I (F23) have loaned a total of £11,500, on two separate occasions, to the owner of my local gym (M32), where I receive private personal training. For backstory, I developed a friendship with him over the months of training, and we became quite close. I had £11,500 in my savings a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v7inh0",
-          "title": "A 16 year old leaving home in England to live with us?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7inh0/a_16_year_old_leaving_home_in_england_to_live/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7inh0/a_16_year_old_leaving_home_in_england_to_live/",
+          "id": "1v8de70",
+          "title": "Construction work outside after 10pm. Will police on 101 do anything? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8de70/construction_work_outside_after_10pm_will_police/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8de70/construction_work_outside_after_10pm_will_police/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785105982,
-          "snippet": "My daughter's friend is being pressured to leave home and get a job now that she's 16. The child's older siblings were similarly pressured, but have a different father and went to live with him. This child's father is out of the picture, and she seems to have a very rocky relatio",
+          "createdUtc": 1785186676,
+          "snippet": "As per the title. They won't stop despite complaints made directly to them. This is a private business park and the works are not highways related. submitted by /u/NorthernMonkey71 [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v87vnz",
-          "title": "Online Website Bug Allowing To Get Free Items",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v87vnz/online_website_bug_allowing_to_get_free_items/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v87vnz/online_website_bug_allowing_to_get_free_items/",
+          "id": "1v8q28x",
+          "title": "Cohabiting in England with uneven equity split",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8q28x/cohabiting_in_england_with_uneven_equity_split/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8q28x/cohabiting_in_england_with_uneven_equity_split/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785175061,
-          "snippet": "Hi, I purchased items from a fairly big online website in the UK. Upon placing the order, I saw there was a window on being able to edit the order. When editing the order, I realised that any item I added was getting discounted to £0 rather getting added to the total amount of th",
+          "createdUtc": 1785220247,
+          "snippet": "Hey guys, 28yo female looking for some advice on taking the next step with my partner of two years. Long story short he wants to move in with me and have a share of the mortgage &amp; deeds, which I can understand as currently he’s renting and it’s getting annoying having to go b",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v7x7bj",
-          "title": "[England] Is there anything that can be done about a neighbor screaming obscenities throughout the day?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7x7bj/england_is_there_anything_that_can_be_done_about/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7x7bj/england_is_there_anything_that_can_be_done_about/",
+          "id": "1v8rafm",
+          "title": "What is my duty in English law to preserve evidence?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rafm/what_is_my_duty_in_english_law_to_preserve/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rafm/what_is_my_duty_in_english_law_to_preserve/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785150337,
-          "snippet": "I notice they spend 99% of their life in the back-room by the garden, the window is always open when they're home, and quite often throughout the day you can hear them arguing/moaning loudly, every 2nd word is f***. I've just had shoulder surgery and have to WFH for the next mont",
+          "createdUtc": 1785224284,
+          "snippet": "There is a criminal case in the US where a man is being prosecuted after providing border officials a \"duress code\" which caused a seized mobile device to securely wipe itself when officials input it on the lock screen. I have written such a code on the back of my device hoping a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v7u451",
-          "title": "Carrying a knife and axe for cutting wood in England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7u451/carrying_a_knife_and_axe_for_cutting_wood_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7u451/carrying_a_knife_and_axe_for_cutting_wood_in/",
+          "id": "1v8c56d",
+          "title": "Been scammed by a property on Booking.com and they are not being helpful",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8c56d/been_scammed_by_a_property_on_bookingcom_and_they/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8c56d/been_scammed_by_a_property_on_bookingcom_and_they/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785139934,
-          "snippet": "Hello, I've been trying to find information on the legality of this but I'm struggling to find the information for this specific situation. I've gotten into wood carving and there is a wooded area right next to where I live, literally across a road. Would it be legal for me to A)",
+          "createdUtc": 1785183937,
+          "snippet": "Hi there, I recently went to Edinburgh for a short trip. I booked this property via Booking.com and they charged me £240. Anyways I got very basic instructions on how to check in to the property. I reached the property at 1am as I told the property. The property said the keys wer",
           "listingSource": "rss:hot"
         }
       ]
@@ -388,6 +388,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1v85p63",
+          "title": "Former landlord keeps telling companies we still live at his property. Is there anything we can do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v85p63/former_landlord_keeps_telling_companies_we_still/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v85p63/former_landlord_keeps_telling_companies_we_still/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785170477,
+          "snippet": "Two years ago we moved out of a rented property because the landlord wanted to move back in, we liked the home, we were sad to leave it but we got most of our deposit back and it all seemed amicable. Around six months later we received a letter from the council saying we owed cou",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1v8181h",
           "title": "UPDATE- My landlord wants £1000 out of my £1500 deposit",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8181h/update_my_landlord_wants_1000_out_of_my_1500/",
@@ -397,18 +409,6 @@
           "numComments": 0,
           "createdUtc": 1785160763,
           "snippet": "Hello thank you for everyone who commented useful information about our housing situation it was very helpful, even though a few Redditor’s blamed the deposit withdrawals on my housemates and I. We just got an update around 5 minutes ago and the landlord has agreed to pay back th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v7978s",
-          "title": "(England) Landlord claiming entire deposit due to my \"excess weight\" damaging the floor",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7978s/england_landlord_claiming_entire_deposit_due_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7978s/england_landlord_claiming_entire_deposit_due_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785084597,
-          "snippet": "I rented a flat in a very old building a year ago, the owners had bought it and remodelled and re-furbished it to sell but ended up having to rent it for a year due to some family issues. The estate agent went on and on about it having new carpets. I moved in and noticed that the",
           "listingSource": "rss:hot"
         }
       ]
@@ -433,6 +433,30 @@
           "numComments": 0,
           "createdUtc": 1785151407,
           "snippet": "My mother purchased a new set of taps for her house on Temu. She asked me to fit them for her. I was suspicious about where she got the set and she said Temu and showed me. I brought my lead test it in and sure enough, every single one lit up like a fireworks show. The seller has",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1v8fdhg",
+          "title": "**England** Told to pay for fire doors that were apparently never fire doors — can the management company put the communal ones on our service charge?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8fdhg/england_told_to_pay_for_fire_doors_that_were/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8fdhg/england_told_to_pay_for_fire_doors_that_were/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785191161,
+          "snippet": "Bought a new build flat in a small block about four years ago. Earlier this year the managing agent had a fire door survey done and every flat failed. We then got a letter giving 28 days to remediate our own doors at our own cost. Problem is, the failures look like they were buil",
           "listingSource": "rss:hot"
         }
       ]
@@ -484,15 +508,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1v84ax6",
-          "title": "Ex-employer refusing to pay £1,275 in accrued holiday pay. Claims sick days cancel it out. Advice? Uk",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v84ax6/exemployer_refusing_to_pay_1275_in_accrued/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v84ax6/exemployer_refusing_to_pay_1275_in_accrued/",
+          "id": "1v8rbm7",
+          "title": "Possession granted to landlord, rent not paid for over 12 months",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rbm7/possession_granted_to_landlord_rent_not_paid_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rbm7/possession_granted_to_landlord_rent_not_paid_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785167533,
-          "snippet": "Hi everyone, looking for advice on a wage dispute. I resigned from my job at a bar/grill in England on 25th June because my hours were cut heavily. My final June payslip, generated by my employer's own payroll system, explicitly states under my employee details that I have 16.72 ",
+          "createdUtc": 1785224405,
+          "snippet": "Possession of uk property has been granted to me from maybe 2 months ago, iam waiting for transfer to high court to get bailiff in quicker. Rent not paid for over 12 months now. Any advice how to chase this up? submitted by /u/RepresentativeCan578 [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
@@ -501,12 +525,24 @@
       "slug": "faulty-goods-and-refunds",
       "label": "Faulty Goods and Refunds",
       "legalAreaSlug": "consumer_goods",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
+        {
+          "id": "1v8rnpv",
+          "title": "Still waiting on nearly £400 refund from well-known shoe company; it's been more than a month. What now? - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rnpv/still_waiting_on_nearly_400_refund_from_wellknown/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v8rnpv/still_waiting_on_nearly_400_refund_from_wellknown/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785225570,
+          "snippet": "I returned the items in perfect, unworn condition and got confirmation the company had received my return on 24 June. Their refund policy is 10 working days. It has now been 24 working days, and more than a calendar month. Have emailed several times, only to get a generic \"sorry,",
+          "listingSource": "rss:hot"
+        },
         {
           "id": "1v80o37",
           "title": "Lastminute.com ruined my trip and is not refunding.",
@@ -517,78 +553,6 @@
           "numComments": 0,
           "createdUtc": 1785159456,
           "snippet": "Using lastminute.com , I booked a package trip from Newcastle to Antalya for six people from 10 July to 13 July 2026. The booking was made on 30 May 2026 and included both flights and hotel accommodation. On 24 June 2026, I was contacted directly by SunExpress regarding a flight ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "parking-and-pcns",
-      "label": "Parking and PCNs",
-      "legalAreaSlug": "parking_pcn",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v7zz96",
-          "title": "Parking fine 3 and 5 years later?! England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7zz96/parking_fine_3_and_5_years_later_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7zz96/parking_fine_3_and_5_years_later_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785157803,
-          "snippet": "Got this in the post last week, parking charges from 2021 and 2023. First I have EVER heard of either of them. I have moved house twice, never heard anything but somehow they have my new address. Any advice?! So ridiculous, I don't know how they can justify only making contact ju",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "welfare-benefits",
-      "label": "Welfare Benefits",
-      "legalAreaSlug": "welfare_benefits",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v7fwlr",
-          "title": "(England) Universal Credit - Mum rarely has our child and claims universal credit. What can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7fwlr/england_universal_credit_mum_rarely_has_our_child/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7fwlr/england_universal_credit_mum_rarely_has_our_child/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785099480,
-          "snippet": "As the title says, the mother to my child barely looks after him. The unofficial agreement we have is I have him for 4/7 nights of the week, whilst she has him the remaining 3/7 nights. I'm not in the best position financially at the moment and struggling to get by. So I wanted t",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "scams-and-consumer-fraud",
-      "label": "Scams and Consumer Fraud",
-      "legalAreaSlug": "consumer_scams_recovery",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v7gjau",
-          "title": "Repeat chargeback fraud at my dry cleaning business (England) – same customer, different name, £400+ loss . Police report or civil route?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7gjau/repeat_chargeback_fraud_at_my_dry_cleaning/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v7gjau/repeat_chargeback_fraud_at_my_dry_cleaning/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785100893,
-          "snippet": "I run a small dry cleaning business in London. We take payment in-store and online. Today I received a chargeback notification for an order worth over £400, reason code: \"Fraud – Issuer Reported Counterfeit.\" The order was placed for pick/drop, but the customer phoned to place it",
           "listingSource": "rss:hot"
         }
       ]
