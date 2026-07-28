@@ -100,6 +100,8 @@
     "parity:wiki-web:strict": "tsx scripts/wiki-web-parity-eval.ts --min=0.9 --rounds=2",
     "parity:reddit": "tsx scripts/reddit-local-prod-parity.ts",
     "parity:reddit:strict": "tsx scripts/reddit-local-prod-parity.ts --limit=100 --min=0.9",
+    "eval:cursor-style": "tsx scripts/cursor-style-eval.ts",
+    "eval:cursor-style:strict": "tsx scripts/cursor-style-eval.ts --min=0.65",
     "legal-search:smoke:long": "tsx scripts/legal-search-smoke-long.ts --local",
     "ops:serper-ping": "tsx scripts/ops-serper-ping.ts",
     "jobs:daily": "tsx scripts/jobs-daily.ts",

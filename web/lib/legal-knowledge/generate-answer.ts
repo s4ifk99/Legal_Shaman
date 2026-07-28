@@ -1,9 +1,10 @@
 import "server-only";
 
 import { enableLlmAnswer, resolveSynthesisModel } from "@/lib/llm/answer-config";
+import { legalSystemPrompt, useCursorStyleAnswers } from "@/lib/llm/grounded-synthesis";
 import { chat, llmConfigured } from "@/lib/llm/client";
 import { isHomeOllamaBaseUrl, resolveLlmBaseUrl } from "@/lib/llm/openrouter";
-import { sanitizeAdviceText } from "@/lib/guardrails/validator";
+import { sanitizeAdviceText, sanitizeSignpostingText } from "@/lib/guardrails/validator";
 import { normalizeLegalSourceUrl } from "@/lib/wiki/public-url";
 
 import { buildSnippet } from "./chunker";
@@ -20,24 +21,11 @@ import {
 import type { LegalSearchSourceHit, RetrievedChunk } from "./types";
 import { LEGAL_SEARCH_DISCLAIMER } from "./types";
 
-const SYSTEM_PROMPT = `You are Legal Shaman — a UK legal information signposting assistant.
+const SYSTEM_PROMPT = legalSystemPrompt();
 
-Rules:
-- Use ONLY the SOURCES below. Do not invent statutes, cases, deadlines, fees, or procedures.
-- This is legal information and signposting, NOT legal advice.
-- Write exactly 2-4 short paragraphs separated by a blank line (\\n\\n). Each paragraph should be 2-4 sentences.
-- Cite sources inline as [1], [2] matching the source numbers provided — at least one citation per paragraph where possible.
-- Paragraph 1: what the retrieved guidance says about the issue. Paragraph 2: practical next steps from sources. Optional paragraphs: directory/help routes or gaps in the sources.
-- Do not use bullet lists or numbered lists in the answer — prose paragraphs only.
-- Separate legal information from suggestions to contact a lawyer or advice service.
-- If sources are thin or conflicting, say so plainly in its own sentence.
-- Mention emergency routes (999, domestic abuse helpline, Shelter) only when clearly relevant in the sources.
-- Neutral tone. Never say "you should", "I recommend", or predict outcomes.
-- Output valid JSON only:
-{
-  "answer": "Paragraph one.\\n\\nParagraph two.\\n\\nParagraph three.",
-  "usedSourceIndexes": [1, 2]
-}`;
+function sanitizeLegalAnswer(text: string): string {
+  return useCursorStyleAnswers() ? sanitizeSignpostingText(text) : sanitizeAdviceText(text);
+}
 
 type AnswerJson = {
   answer?: string;
@@ -259,7 +247,7 @@ export async function generateCitationFirstAnswer(
   if (!chunks.length || (!answerChunks.length && intent && intent.confidence !== "low")) {
     const intentFallback = intentFallbackAnswer(query, intent);
     return {
-      answer: sanitizeAdviceText(intentFallback ?? fallbackAnswer(query, chunks, intent)),
+      answer: sanitizeLegalAnswer(intentFallback ?? fallbackAnswer(query, chunks, intent)),
       sources: [],
       disclaimer,
       mode: "fallback",
@@ -275,7 +263,7 @@ export async function generateCitationFirstAnswer(
         ? "\n\nNote: confidence is limited — please check the cited sources carefully."
         : "";
     return {
-      answer: sanitizeAdviceText(`${fallbackAnswer(query, chunks, intent)}${lowNote}`),
+      answer: sanitizeLegalAnswer(`${fallbackAnswer(query, chunks, intent)}${lowNote}`),
       sources: mapSourceHits(sourceChunks),
       disclaimer,
       mode: "fallback",
@@ -290,7 +278,7 @@ export async function generateCitationFirstAnswer(
         ? "\n\nNote: confidence is limited — please check the cited sources carefully."
         : "";
     return {
-      answer: sanitizeAdviceText(`${base}${lowNote}`),
+      answer: sanitizeLegalAnswer(`${base}${lowNote}`),
       sources: mapSourceHits(sourceChunks),
       disclaimer,
       mode: "fallback",
@@ -302,7 +290,7 @@ export async function generateCitationFirstAnswer(
     const sourceChunks = resolveFallbackSources(query, effectiveChunks, intent);
     const base = fallbackAnswer(query, effectiveChunks, intent);
     return {
-      answer: sanitizeAdviceText(base),
+      answer: sanitizeLegalAnswer(base),
       sources: mapSourceHits(sourceChunks),
       disclaimer,
       mode: "fallback",
@@ -330,8 +318,8 @@ export async function generateCitationFirstAnswer(
       ],
       {
         jsonMode: true,
-        maxTokens: isHomeOllamaBaseUrl(resolveLlmBaseUrl()) ? 350 : 700,
-        temperature: 0.15,
+        maxTokens: isHomeOllamaBaseUrl(resolveLlmBaseUrl()) ? 350 : useCursorStyleAnswers() ? 900 : 700,
+        temperature: useCursorStyleAnswers() ? 0.15 : 0.15,
         model: resolveSynthesisModel(),
       },
     );
@@ -345,7 +333,7 @@ export async function generateCitationFirstAnswer(
 
     let answer = (parsed.answer ?? "").trim();
     if (!answer) answer = fallbackAnswer(query, effectiveChunks, intent);
-    answer = sanitizeAdviceText(answer);
+    answer = sanitizeLegalAnswer(answer);
 
     if (confidence < 0.38 && !/confidence|not sure|may not/i.test(answer)) {
       answer = `${answer}\n\nNote: confidence is limited — please check the cited sources carefully.`;
@@ -363,7 +351,7 @@ export async function generateCitationFirstAnswer(
     console.warn("[legal-knowledge.generate-answer] LLM failed:", err);
     const sourceChunks = resolveFallbackSources(query, effectiveChunks, intent);
     return {
-      answer: sanitizeAdviceText(fallbackAnswer(query, effectiveChunks, intent)),
+      answer: sanitizeLegalAnswer(fallbackAnswer(query, effectiveChunks, intent)),
       sources: mapSourceHits(sourceChunks),
       disclaimer,
       mode: "fallback",

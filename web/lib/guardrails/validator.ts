@@ -15,7 +15,7 @@ import type { SraOrgLite } from "@/lib/lawyers/search";
  *      London"), the caller falls back to a deterministic template.
  */
 
-/** Phrases that indicate advice or outcome prediction. Case-insensitive. */
+/** Strict patterns for directory/explanation copy — flattens direct phrasing. */
 const FORBIDDEN_PATTERNS: { pattern: RegExp; replace: string }[] = [
   { pattern: /\b(you (should|must|need to|ought to|have to|are entitled))\b/gi, replace: "consider whether" },
   { pattern: /\bi (recommend|suggest|advise)\b/gi, replace: "the directory lists" },
@@ -32,18 +32,51 @@ const FORBIDDEN_PATTERNS: { pattern: RegExp; replace: string }[] = [
   { pattern: /\$\d[\d,]*/g, replace: "" },
 ];
 
+/** Lighter pass for Ask-the-Shaman synthesis — keeps practical signposting phrasing. */
+const SIGNPOSTING_FORBIDDEN: { pattern: RegExp; replace: string }[] = [
+  { pattern: /\bi (recommend|suggest|advise)\b/gi, replace: "the guidance notes" },
+  { pattern: /\b(in my opinion|in my view|i think|i believe)\b/gi, replace: "" },
+  { pattern: /\b(your (case|chances|prospects))\b/gi, replace: "this type of matter" },
+  { pattern: /\b(you (will|won't|won not) (win|lose|get))\b/gi, replace: "outcomes can vary" },
+  { pattern: /\b(guarantee[ds]?|guaranteed|guaranty)\b/gi, replace: "" },
+  { pattern: /\b(\d+%\s*(success|win|chance|likely|probability))\b/gi, replace: "" },
+  { pattern: /\b(best|top|number one|#1|leading) (lawyer|solicitor|barrister)\b/gi, replace: "a regulated practitioner" },
+  { pattern: /£\s?\d[\d,]*\s*(compensation|payout|settlement|damages)/gi, replace: "" },
+];
+
 /**
  * Sanitize an LLM string. Returns the input with advice-shaped phrases replaced.
  * Idempotent.
  */
-export function sanitizeAdviceText(input: string): string {
+function applySanitizeRules(
+  input: string,
+  rules: { pattern: RegExp; replace: string }[],
+  preserveParagraphs: boolean,
+): string {
   if (!input) return input;
   let out = input;
-  for (const rule of FORBIDDEN_PATTERNS) {
+  for (const rule of rules) {
     out = out.replace(rule.pattern, rule.replace);
+  }
+  if (preserveParagraphs) {
+    out = out
+      .split(/\n{2,}/)
+      .map((p) => p.replace(/\s{2,}/g, " ").replace(/\s+([,.;:!?])/g, "$1").trim())
+      .filter(Boolean)
+      .join("\n\n");
+    return out.trim();
   }
   out = out.replace(/\s{2,}/g, " ").replace(/\s+([,.;:!?])/g, "$1").trim();
   return out;
+}
+
+export function sanitizeAdviceText(input: string): string {
+  return applySanitizeRules(input, FORBIDDEN_PATTERNS, false);
+}
+
+/** For wiki / legal-search synthesis — blocks unsafe claims without flattening all direct phrasing. */
+export function sanitizeSignpostingText(input: string): string {
+  return applySanitizeRules(input, SIGNPOSTING_FORBIDDEN, true);
 }
 
 /**

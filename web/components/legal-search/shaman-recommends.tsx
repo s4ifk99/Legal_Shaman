@@ -14,6 +14,10 @@ type ShamanRecommendsProps = {
 
 const CITATION_RE = /\[(\d+)\]/g;
 
+/** Section labels emitted by cursor-style grounded synthesis. */
+const SECTION_LABEL_RE =
+  /^(what the sources say|practical route|limits\s*\/\s*missing facts|who to report to|what to do now|bottom line|evidence to keep)$/i;
+
 function renderTextWithCitations(text: string, sources: LegalSearchSourceHit[]) {
   const parts = text.split(CITATION_RE);
   const nodes: ReactNode[] = [];
@@ -46,8 +50,22 @@ function renderTextWithCitations(text: string, sources: LegalSearchSourceHit[]) 
   return nodes;
 }
 
-/** Normalise answer text into paragraph strings (no source-card blocks in the recommendation). */
-function toParagraphs(answer: string): { paragraphs: string[]; lowNote: string | null } {
+type AnswerBlock =
+  | { kind: "section"; title: string; body: string }
+  | { kind: "paragraph"; text: string };
+
+function isSectionLabel(line: string): boolean {
+  const cleaned = line.replace(/^\*\*|\*\*$/g, "").replace(/^#+\s*/, "").trim();
+  if (!cleaned || cleaned.length > 80) return false;
+  if (SECTION_LABEL_RE.test(cleaned)) return true;
+  if (/^[A-Z][a-z].{0,60}$/.test(cleaned) && !/[.!?]$/.test(cleaned) && cleaned.split(/\s+/).length <= 8) {
+    return true;
+  }
+  return false;
+}
+
+/** Normalise answer text into structured blocks (sections + paragraphs). */
+function toBlocks(answer: string): { blocks: AnswerBlock[]; lowNote: string | null } {
   const lowConfidenceMatch = answer.match(/\n\nNote:\s*confidence is limited[\s\S]*$/i);
   const main = lowConfidenceMatch
     ? answer.slice(0, lowConfidenceMatch.index).trim()
@@ -59,7 +77,7 @@ function toParagraphs(answer: string): { paragraphs: string[]; lowNote: string |
     .map((b) => b.trim())
     .filter(Boolean);
 
-  const paragraphs: string[] = [];
+  const blocks: AnswerBlock[] = [];
 
   for (const block of rawBlocks) {
     if (/^\[\d+\]/.test(block)) {
@@ -70,26 +88,46 @@ function toParagraphs(answer: string): { paragraphs: string[]; lowNote: string |
         const idx = titleMatch[1];
         const title = titleMatch[2]!.replace(/\s+\([^)]+\):\s*.+$/, "").trim();
         const body = lines.slice(1).join(" ").trim();
-        paragraphs.push(
-          body
+        blocks.push({
+          kind: "paragraph",
+          text: body
             ? `The guidance on ${title} notes that ${body.charAt(0).toLowerCase()}${body.slice(1)} [${idx}].`
             : `See ${title} for relevant guidance [${idx}].`,
-        );
+        });
       }
+      continue;
+    }
+
+    const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
+    if (lines.length >= 2 && isSectionLabel(lines[0]!)) {
+      blocks.push({
+        kind: "section",
+        title: lines[0]!.replace(/^\*\*|\*\*$/g, "").replace(/^#+\s*/, "").trim(),
+        body: lines.slice(1).join(" "),
+      });
+      continue;
+    }
+
+    if (lines.length === 1 && isSectionLabel(lines[0]!)) {
+      blocks.push({
+        kind: "section",
+        title: lines[0]!.replace(/^\*\*|\*\*$/g, "").replace(/^#+\s*/, "").trim(),
+        body: "",
+      });
       continue;
     }
 
     if (block.includes("\n") && !block.includes("[1]")) {
-      for (const line of block.split("\n").map((l) => l.trim()).filter(Boolean)) {
-        paragraphs.push(line);
+      for (const line of lines) {
+        blocks.push({ kind: "paragraph", text: line });
       }
       continue;
     }
 
-    paragraphs.push(block);
+    blocks.push({ kind: "paragraph", text: block });
   }
 
-  return { paragraphs, lowNote };
+  return { blocks, lowNote };
 }
 
 export function ShamanRecommends({
@@ -98,19 +136,35 @@ export function ShamanRecommends({
   confidence,
   className,
 }: ShamanRecommendsProps) {
-  const { paragraphs, lowNote } = toParagraphs(answer);
+  const { blocks, lowNote } = toBlocks(answer);
 
   return (
     <div className={cn("space-y-4", className)}>
       <div className="space-y-4">
-        {paragraphs.map((paragraph) => (
-          <p
-            key={paragraph.slice(0, 64)}
-            className="text-[15px] leading-7 text-foreground"
-          >
-            {renderTextWithCitations(paragraph, sources)}
-          </p>
-        ))}
+        {blocks.map((block, i) => {
+          if (block.kind === "section") {
+            return (
+              <div key={`section-${i}-${block.title}`} className="space-y-2">
+                <h4 className="text-sm font-semibold tracking-tight text-foreground">
+                  {block.title}
+                </h4>
+                {block.body ? (
+                  <p className="text-[15px] leading-7 text-foreground">
+                    {renderTextWithCitations(block.body, sources)}
+                  </p>
+                ) : null}
+              </div>
+            );
+          }
+          return (
+            <p
+              key={`para-${i}-${block.text.slice(0, 48)}`}
+              className="text-[15px] leading-7 text-foreground"
+            >
+              {renderTextWithCitations(block.text, sources)}
+            </p>
+          );
+        })}
       </div>
 
       {lowNote ? (

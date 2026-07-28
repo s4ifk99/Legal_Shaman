@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-07-28T00:00:00.000Z",
+  "description": "Cursor-style gold answers for Ask the Shaman eval — tone, structure, and practical completeness.",
+  "cases": [
+    {
+      "id": "temu-lead-taps",
+      "title": "Unsafe Temu taps — reporting routes",
+      "query": "My mother purchased taps on Temu. Lead test lit up. Seller disappeared. Taps may breach Water Supply (Water Fittings) Regulations. How do I report this and who do I report to?",
+      "sections": ["What the sources say", "Practical route", "Who to report"],
+      "mustMention": [
+        "trading standards",
+        "citizens advice",
+        "consumer",
+        "water",
+        "evidence",
+        "temu"
+      ],
+      "expectedSourceFragments": [
+        "Reporting to Trading Standards",
+        "purchase",
+        "damage"
+      ],
+      "goldAnswer": "What the sources say\n\nUnsafe or non-compliant consumer products bought online can be reported as product-safety issues, not just refund disputes. Trading Standards is the main enforcement route for dangerous goods, usually via the Citizens Advice consumer service.\n\nPractical route\n\nStop using the taps for drinking water if they may contaminate supply. Keep the product, packaging, order details, listing screenshots, and your lead test results. Report through Citizens Advice consumer service so the case can be passed to Trading Standards, and also report to Temu as an unsafe product.\n\nWho to report to\n\nBecause this involves a domestic water fitting, you can also contact your local water company’s water regulations team about possible breach of the Water Supply (Water Fittings) Regulations. They may ask for photos or samples.\n\nLimits / missing facts\n\nA home lead test is useful evidence but may not be treated as final lab proof. This is general signposting only — not legal advice."
+    },
+    {
+      "id": "neighbour-extension",
+      "title": "Neighbour extension / building regs",
+      "query": "Neighbour built a shoddy extension with likely no building regs compliance. What can I do?",
+      "sections": ["What the sources say", "Practical route"],
+      "mustMention": ["neighbour", "extension", "party wall", "planning"],
+      "expectedSourceFragments": ["party wall", "neighbour"],
+      "goldAnswer": "What the sources say\n\nNeighbour extension disputes often involve party wall rules, planning or building control issues, and nuisance or boundary problems depending on the facts.\n\nPractical route\n\nCheck whether the work needed a party wall agreement, planning permission, or building regulations approval. You can gather photos, correspondence, and council records, then follow the neighbour-dispute and enforcement routes described in the matching guidance.\n\nLimits / missing facts\n\nThe right route depends on whether the issue is structural, planning, or nuisance. This is signposting only — not legal advice."
+    },
+    {
+      "id": "tradesman-cancel",
+      "title": "Tradesman cancellation fee",
+      "query": "A tiler cancelled two days before starting and wants me to pay £100. Do I owe him?",
+      "sections": ["What the sources say", "Practical route"],
+      "mustMention": ["cancel", "trader", "consumer", "contract"],
+      "expectedSourceFragments": ["cancel", "trader"],
+      "goldAnswer": "What the sources say\n\nConsumer guidance on cancelling services and trader disputes explains that whether money is owed depends on the contract, what was agreed, and whether cancellation terms were fair.\n\nPractical route\n\nCheck any written quote, booking terms, and messages about deposits or cancellation fees. If the trader cancelled the work, you may be able to challenge the charge through complaint, mediation, or small claims depending on the facts.\n\nLimits / missing facts\n\nVerbal agreements and partial work can change the outcome. This is signposting only — not legal advice."
+    },
+    {
+      "id": "housing-repairs-ha",
+      "title": "Housing association repairs",
+      "query": "My housing association won't fix damp and mould in the bathroom. I live with my aunt. What can I do?",
+      "sections": ["What the sources say", "Practical route"],
+      "mustMention": ["repair", "landlord", "housing", "complaint"],
+      "expectedSourceFragments": ["repair", "landlord"],
+      "goldAnswer": "What the sources say\n\nSocial housing tenants usually have repair rights where the landlord is responsible for keeping the home safe and habitable, including damp and mould in many cases.\n\nPractical route\n\nReport the disrepair in writing, keep photos and medical evidence if relevant, and follow the social housing repairs and complaint route before considering court or ombudsman options.\n\nLimits / missing facts\n\nLiving with a relative does not automatically make this a cohabitation law issue. This is signposting only — not legal advice."
+    },
+    {
+      "id": "filming-consent",
+      "title": "Filming in club without consent",
+      "query": "Is it legal for guys to film me in a club or outside without consent?",
+      "sections": ["What the sources say", "Practical route"],
+      "mustMention": ["record", "consent", "privacy"],
+      "expectedSourceFragments": ["record", "consent"],
+      "goldAnswer": "What the sources say\n\nUK guidance on recording someone without consent and privacy laws explains when filming may raise civil or criminal issues depending on location, purpose, and harassment.\n\nPractical route\n\nNote where and when it happened, whether you felt threatened, and whether images were shared. You can report harassment or voyeurism concerns to the police if appropriate, and seek advice on privacy and data protection routes.\n\nLimits / missing facts\n\nPublic place filming is not always unlawful by itself. This is signposting only — not legal advice."
+    }
+  ]
+}

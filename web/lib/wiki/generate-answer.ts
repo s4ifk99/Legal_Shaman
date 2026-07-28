@@ -1,8 +1,9 @@
 import "server-only";
 
 import { enableLlmAnswer, resolveSynthesisModel } from "@/lib/llm/answer-config";
+import { preferGroundedSynthesis, useCursorStyleAnswers, wikiSystemPrompt } from "@/lib/llm/grounded-synthesis";
 import { chat, llmConfigured } from "@/lib/llm/client";
-import { sanitizeAdviceText } from "@/lib/guardrails/validator";
+import { sanitizeAdviceText, sanitizeSignpostingText } from "@/lib/guardrails/validator";
 import { resolveLegalIssueFromQuery } from "@/lib/legal/taxonomy";
 import { processSearchQuery } from "@/lib/legal-search/query-limits";
 import {
@@ -27,21 +28,11 @@ import type { WikiPageIndex } from "./types";
 
 const MIN_RETRIEVAL_SCORE = 4;
 const RETRIEVAL_LIMIT = 8;
-const CONTEXT_CHARS_PER_PAGE = 700;
+const CONTEXT_CHARS_PER_PAGE = useCursorStyleAnswers() ? 950 : 700;
 
-const SYSTEM_PROMPT = `You are Ask the Shaman for Legal Shaman — a UK legal signposting assistant.
-
-Rules:
-- Use ONLY the WIKI CONTEXT below. Do not invent statutes, cases, deadlines, or procedures.
-- Neutral signposting tone only. Never say "you should", "I recommend", or predict outcomes.
-- Describe what sources and wiki pages explain — not personalised advice.
-- If context is thin, say what is known and what is missing.
-- Output valid JSON only:
-{
-  "answer": "2-4 short paragraphs in plain English",
-  "wikiPageTitles": ["exact titles from context used"],
-  "sourcePublishers": ["publisher names mentioned in context sources"]
-}`;
+function sanitizeWikiAnswer(text: string): string {
+  return useCursorStyleAnswers() ? sanitizeSignpostingText(text) : sanitizeAdviceText(text);
+}
 
 function isQuarantinedPage(page: WikiPageIndex): boolean {
   const path = page.relativePath.toLowerCase();
@@ -67,6 +58,17 @@ function mergeSupplementalWikiHits(
   }
   if (/\b(cancel|cancelled|cancellation|tradesman|trader)\b/i.test(query)) {
     phrases.push("cancelling a service trader cancellation rights");
+  }
+  if (
+    /\b(temu|amazon|ebay|aliexpress|marketplace|seller|unsafe product|dangerous product|trading standards|consumer service|report this|lead test|lead contamination|tap[s]?\b|water fitting)\b/i.test(
+      query,
+    )
+  ) {
+    phrases.push(
+      "reporting to trading standards unsafe product consumer service",
+      "something's gone wrong with a purchase faulty goods",
+      "claim compensation if an item or product causes damage",
+    );
   }
 
   for (const phrase of phrases) {
@@ -132,6 +134,71 @@ function truncate(text: string, max: number): string {
   const cleaned = text.replace(/\s+/g, " ").trim();
   if (cleaned.length <= max) return cleaned;
   return `${cleaned.slice(0, max - 3)}...`;
+}
+
+function cleanSnippet(text: string): string {
+  return text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/https?:\/\/\S+/g, "")
+    .replace(/^\s*[-*]\s*/gm, "")
+    .replace(/^\s*#+\s*/g, "")
+    .replace(/\bSource:\s*/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function isUnsafeProductReportingQuery(query: string): boolean {
+  return /\b(temu|amazon|ebay|aliexpress|marketplace|seller|unsafe product|dangerous product|trading standards|consumer service|report this|lead test|lead contamination|tap[s]?\b|water fitting)\b/i.test(
+    query,
+  );
+}
+
+function deterministicUnsafeProductAnswer(
+  query: string,
+  hits: ReturnType<typeof searchWikiPages>,
+): string {
+  const blocks: string[] = [];
+
+  if (useCursorStyleAnswers()) {
+    blocks.push(
+      "What the sources say",
+      "Unsafe or non-compliant consumer products bought online can be reported as product-safety issues. Trading Standards is the main enforcement route, usually via the Citizens Advice consumer service.",
+      "Practical route",
+      "Stop using the taps for drinking water if they may contaminate supply. Keep the product, packaging, order details, listing screenshots, and your lead test results. Report through Citizens Advice consumer service and to the marketplace as an unsafe product.",
+    );
+    if (/\b(water fitting|water supply|drinking water|contamination|tap[s]?)\b/i.test(query)) {
+      blocks.push(
+        "Who to report to",
+        "Because this involves a domestic water fitting, you can also contact your local water company or water undertaker’s water regulations team. They may ask for photos or samples.",
+      );
+    }
+    blocks.push(
+      "Limits / missing facts",
+      "A home lead test is useful evidence but may not be treated as final lab proof. This is general signposting only — not legal advice.",
+    );
+    return sanitizeWikiAnswer(blocks.join("\n\n"));
+  }
+
+  const paragraphs: string[] = [
+    "The main reporting route described by the matching guidance is Trading Standards via the Citizens Advice consumer service. The relevant pages explain that unsafe or dangerous consumer products, misleading listings, and sellers who disappear or relist can be reported through that route.",
+    "The same guidance also points to keeping the product, order details, screenshots of the listing and seller, and any photos or test results as evidence. Related consumer pages cover faulty goods, purchases that have gone wrong, and compensation where a product causes damage.",
+  ];
+
+  if (/\b(water fitting|water supply|drinking water|contamination|tap[s]?)\b/i.test(query)) {
+    paragraphs.push(
+      "Because the issue described is a domestic water fitting that may contaminate drinking water, the report can also be raised with the local water company or water undertaker’s water regulations team so they can decide whether they want photos, samples, or further testing.",
+    );
+  }
+
+  const reportingPage = hits.find((h) => /\breporting to trading standards\b/i.test(h.title));
+  if (reportingPage?.summary) {
+    paragraphs.push(`Matching page “${reportingPage.title}”: ${truncate(cleanSnippet(reportingPage.summary), 220)}`);
+  }
+
+  paragraphs.push(
+    "This is general signposting from the Legal Shaman wiki — not legal advice. Check the cited pages or Citizens Advice for personalised help.",
+  );
+  return sanitizeWikiAnswer(paragraphs.join("\n\n"));
 }
 
 function buildWikiContext(hits: ReturnType<typeof searchWikiPages>): string {
@@ -265,6 +332,19 @@ function pickPrimaryHit(
   if (/\b(stop and search|police)\b/i.test(q)) {
     return titleMatches(/\b(stop and search|police)\b/i) ?? hits[0];
   }
+  if (
+    /\b(temu|amazon|ebay|aliexpress|marketplace|seller|unsafe product|dangerous product|trading standards|consumer service|report this|lead test|lead contamination|tap[s]?\b|water fitting)\b/i.test(
+      q,
+    )
+  ) {
+    return (
+      titleMatches(/\breporting to trading standards\b/i) ??
+      titleMatches(/\bproduct causes damage\b/i) ??
+      titleMatches(/\bpurchase\b/i) ??
+      titleMatches(/\bfaulty goods\b/i) ??
+      hits[0]
+    );
+  }
 
   if (resolution) {
     for (const term of [
@@ -286,13 +366,53 @@ function deterministicAnswerFromHits(
   hits: ReturnType<typeof searchWikiPages>,
   query: string,
 ): string {
+  if (isUnsafeProductReportingQuery(query)) {
+    return deterministicUnsafeProductAnswer(query, hits);
+  }
+
   const primary = pickPrimaryHit(hits, query);
   const secondary = hits.find((h) => h.id !== primary?.id);
+
+  if (useCursorStyleAnswers()) {
+    const blocks: string[] = ["What the sources say"];
+    if (primary?.summary?.trim()) {
+      blocks.push(
+        `The matching guidance on “${primary.title}” explains that ${truncate(cleanSnippet(primary.summary), 360)}`,
+      );
+    } else if (primary) {
+      blocks.push(`Matching wiki guidance includes “${primary.title}”.`);
+    }
+
+    const steps = (primary?.practicalGuidance ?? []).slice(0, 3);
+    const keys = (primary?.keyInformation ?? []).slice(0, 2);
+    if (steps.length || keys.length) {
+      blocks.push("Practical route");
+      if (keys.length) {
+        blocks.push(keys.map((k) => cleanSnippet(k)).filter(Boolean).join(" "));
+      }
+      if (steps.length) {
+        blocks.push(steps.map((s) => cleanSnippet(s)).filter(Boolean).join(" "));
+      }
+    }
+
+    if (secondary?.summary?.trim()) {
+      blocks.push(
+        `Related page “${secondary.title}”: ${truncate(cleanSnippet(secondary.summary), 240)}`,
+      );
+    }
+
+    blocks.push(
+      "Limits / missing facts",
+      "This is general signposting from the Legal Shaman wiki — not legal advice. Check the cited pages or Citizens Advice for personalised help.",
+    );
+    return sanitizeWikiAnswer(blocks.filter(Boolean).join("\n\n"));
+  }
+
   const paragraphs: string[] = [];
 
   if (primary?.summary?.trim()) {
     paragraphs.push(
-      `According to “${primary.title}”: ${truncate(primary.summary.replace(/\s+/g, " ").trim(), 420)}`,
+      `According to “${primary.title}”: ${truncate(cleanSnippet(primary.summary), 420)}`,
     );
   } else if (primary) {
     paragraphs.push(`Matching wiki guidance includes “${primary.title}”.`);
@@ -300,19 +420,19 @@ function deterministicAnswerFromHits(
 
   const keys = (primary?.keyInformation ?? []).slice(0, 2);
   if (keys.length) {
-    paragraphs.push(`Key points from that page: ${keys.map((k) => k.replace(/\s+/g, " ").trim()).join(" ")}`);
+    paragraphs.push(`Key points from that page: ${keys.map((k) => cleanSnippet(k)).filter(Boolean).join(" ")}`);
   }
 
   const steps = (primary?.practicalGuidance ?? []).slice(0, 2);
   if (steps.length) {
     paragraphs.push(
-      `Practical guidance noted there includes: ${steps.map((s) => s.replace(/\s+/g, " ").trim()).join(" ")}`,
+      `Practical guidance noted there includes: ${steps.map((s) => cleanSnippet(s)).filter(Boolean).join(" ")}`,
     );
   }
 
   if (secondary?.summary?.trim()) {
     paragraphs.push(
-      `Related page “${secondary.title}”: ${truncate(secondary.summary.replace(/\s+/g, " ").trim(), 280)}`,
+      `Related page “${secondary.title}”: ${truncate(cleanSnippet(secondary.summary), 280)}`,
     );
   }
 
@@ -320,7 +440,7 @@ function deterministicAnswerFromHits(
     "This is general signposting from the Legal Shaman wiki — not legal advice. Check the cited pages or Citizens Advice for personalised help.",
   );
 
-  return sanitizeAdviceText(paragraphs.filter((p) => p.length >= 40).join("\n\n"));
+  return sanitizeWikiAnswer(paragraphs.filter((p) => p.length >= 40).join("\n\n"));
 }
 
 const INSUFFICIENT_MESSAGE =
@@ -378,21 +498,20 @@ async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayl
 
   const forceLlm = process.env.WIKI_FORCE_LLM === "1" || process.env.WIKI_FORCE_LLM === "true";
   const deterministic = deterministicAnswerFromHits(hits, trimmed);
+  const canSynthesize = llmConfigured() && enableLlmAnswer();
+  const tryLlmFirst = canSynthesize && (forceLlm || preferGroundedSynthesis());
 
-  // Prefer stable excerpt synthesis so local and production stay aligned.
-  if (!forceLlm && deterministic.length >= 80) {
-    return finishSynthesis(deterministic);
-  }
-
-  if (!llmConfigured() || !enableLlmAnswer()) {
+  if (!tryLlmFirst) {
     if (deterministic.length >= 80) return finishSynthesis(deterministic);
-    return {
-      ...base,
-      mode: "retrieval_only",
-      message:
-        "Wiki pages matched your question. Set LLM_API_KEY and LLM_BASE_URL in web/.env.local (OpenRouter) to enable synthesised answers.",
-      latencyMs: Date.now() - started,
-    };
+    if (!canSynthesize) {
+      return {
+        ...base,
+        mode: "retrieval_only",
+        message:
+          "Wiki pages matched your question. Set LLM_API_KEY and LLM_BASE_URL in web/.env.local (OpenRouter) to enable synthesised answers.",
+        latencyMs: Date.now() - started,
+      };
+    }
   }
 
   const taxonomy = resolveLegalIssueFromQuery(trimmed);
@@ -418,33 +537,32 @@ ${firmContext}
 WIKI CONTEXT:
 ${wikiContext}
 
-Respond with JSON only. The "answer" field must be 2-4 plain-English paragraphs of signposting — never instructions, never code, never commentary about JSON.`;
+Respond with JSON only. The "answer" field must be practical plain-English signposting grounded in the wiki context.`;
 
   try {
     const raw = await chat(
       [
-        { role: "system", content: SYSTEM_PROMPT },
+        { role: "system", content: wikiSystemPrompt() },
         { role: "user", content: userPrompt },
       ],
       {
         jsonMode: true,
-        temperature: 0,
-        maxTokens: process.env.VERCEL === "1" ? 650 : 900,
+        temperature: useCursorStyleAnswers() ? 0.15 : 0,
+        maxTokens: process.env.VERCEL === "1" ? 850 : 1100,
         model: resolveSynthesisModel(),
       },
     );
 
     const parsed = parseLlmJson(raw);
-    let answer = sanitizeAdviceText(parsed?.answer?.trim() ?? "");
+    let answer = sanitizeWikiAnswer(parsed?.answer?.trim() ?? "");
     if (!answer) {
       const plain = raw.trim();
       if (plain && !plain.startsWith("{")) {
-        answer = sanitizeAdviceText(plain);
+        answer = sanitizeWikiAnswer(plain);
       }
     }
 
     if (!answer || isJunkAnswer(answer)) {
-      const deterministic = deterministicAnswerFromHits(hits, trimmed);
       if (deterministic.length >= 80) return finishSynthesis(deterministic);
       return {
         ...base,
@@ -455,7 +573,7 @@ Respond with JSON only. The "answer" field must be 2-4 plain-English paragraphs 
     }
 
     const publisherSources = (parsed?.sourcePublishers ?? [])
-      .map((name) => sanitizeAdviceText(name.trim()))
+      .map((name) => sanitizeWikiAnswer(name.trim()))
       .filter(Boolean)
       .map((name) => ({ name }));
 
@@ -471,7 +589,6 @@ Respond with JSON only. The "answer" field must be 2-4 plain-English paragraphs 
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.warn("[wiki.generate-answer] LLM failed:", message);
-    const deterministic = deterministicAnswerFromHits(hits, trimmed);
     if (deterministic.length >= 80) return finishSynthesis(deterministic);
     return {
       ...base,

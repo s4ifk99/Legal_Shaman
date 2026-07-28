@@ -57,6 +57,12 @@ const CUSTOMS_QUERY =
   /\b(customs|import|bringing .{0,40} into (the )?uk|border|prohibited|restricted item)\b/i;
 const NEIGHBOUR_QUERY =
   /\b(neighbour|neighbor|extension|boundary|fence|building reg|planning permission)\b/i;
+const UNSAFE_PRODUCT_QUERY =
+  /\b(temu|amazon|ebay|aliexpress|marketplace|seller|bought online|purchased online|unsafe product|dangerous product|faulty goods|trading standards|consumer service|product recall|report this|report them|who do i report|lead test|lead contamination|tap[s]?\b|water fitting|drinking water contamination)\b/i;
+
+function isUnsafeMarketplaceProductQuery(query: string): boolean {
+  return UNSAFE_PRODUCT_QUERY.test(query);
+}
 
 export function stableSortWikiHits(hits: WikiSearchHit[]): WikiSearchHit[] {
   return [...hits].sort((a, b) => b.score - a.score || a.id.localeCompare(b.id));
@@ -93,7 +99,19 @@ export function wikiAnchorsForQuery(query: string): string[] {
   if (NEIGHBOUR_QUERY.test(lower)) {
     anchors.push("neighbour dispute", "boundary", "extension", "building regulations");
   }
-  anchors.push(...housingRepairAnchors(query));
+  if (UNSAFE_PRODUCT_QUERY.test(lower)) {
+    anchors.push(
+      "reporting to trading standards",
+      "unsafe product",
+      "faulty goods",
+      "something's gone wrong with a purchase",
+      "claim compensation if an item or product causes damage",
+      "consumer service",
+    );
+  }
+  if (!isUnsafeMarketplaceProductQuery(query)) {
+    anchors.push(...housingRepairAnchors(query));
+  }
 
   const resolution = resolveLegalIssueFromQuery(query);
   if (resolution) {
@@ -136,6 +154,14 @@ function patternBoostForHit(query: string, hit: WikiSearchHit): number {
     if (/\bcancel/i.test(titleLower)) boost += 45;
     if (/\b(trader|consumer|service)\b/i.test(titleLower)) boost += 20;
   }
+  if (UNSAFE_PRODUCT_QUERY.test(query)) {
+    if (/\b(trading standards|consumer service|purchase|faulty goods|product causes damage)\b/i.test(titleLower)) {
+      boost += 70;
+    }
+    if (/\b(landlord|repairs?|housing association|council tenant)\b/i.test(titleLower)) {
+      boost -= 90;
+    }
+  }
 
   return boost;
 }
@@ -145,6 +171,7 @@ function hasPatternRerank(query: string): boolean {
     RECORDING_QUERY.test(query) ||
     CUSTOMS_QUERY.test(query) ||
     NEIGHBOUR_QUERY.test(query) ||
+    UNSAFE_PRODUCT_QUERY.test(query) ||
     /\b(cancel|cancelled|cancellation|tradesman|trader)\b/i.test(query)
   );
 }
@@ -227,7 +254,7 @@ export function rerankWikiHitsForQuery(query: string, hits: WikiSearchHit[]): Wi
 }
 
 export function housingRepairAnchors(query: string): string[] {
-  if (!HOUSING_REPAIR_QUERY.test(query)) return [];
+  if (isUnsafeMarketplaceProductQuery(query) || !HOUSING_REPAIR_QUERY.test(query)) return [];
   return [
     "getting repairs done housing association",
     "check if your landlord has to do repairs",
@@ -238,7 +265,7 @@ export function housingRepairAnchors(query: string): string[] {
 }
 
 export function isHousingRepairQuery(query: string): boolean {
-  return HOUSING_REPAIR_QUERY.test(query);
+  return !isUnsafeMarketplaceProductQuery(query) && HOUSING_REPAIR_QUERY.test(query);
 }
 
 export function shouldRerankWikiHits(query: string): boolean {

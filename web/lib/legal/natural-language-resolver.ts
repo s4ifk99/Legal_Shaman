@@ -258,6 +258,16 @@ export function resolveLegalIssueFromNaturalLanguage(
     if (consumer) candidates.push({ entry: consumer, score: 54 });
   }
 
+  const unsafeProductSignals =
+    /\b(temu|amazon|ebay|aliexpress|marketplace|seller|bought online|purchased online|unsafe product|dangerous product|faulty goods|trading standards|consumer service|product recall|lead test|lead contamination|water fitting|tap[s]?\b)\b/i;
+  const reportSignals = /\b(report(ing)?|who do i report|how do i report|where do i report)\b/i;
+  if ((unsafeProductSignals.test(lower) && reportSignals.test(lower)) || /\btrading standards\b/i.test(lower)) {
+    const consumer = byTaxonomySlug.get("consumer");
+    const onlineShopping = byTaxonomySlug.get("consumer_online_shopping");
+    if (consumer) candidates.push({ entry: consumer, score: 60 });
+    if (onlineShopping) candidates.push({ entry: onlineShopping, score: 57 });
+  }
+
   // Tradesman / builder cancel & payment disputes → consumer services.
   const tradesmanSignals =
     /\b(tradesman|tradesmen|tiler|tiling|builder|plumber|electrician|roofer|handyman|decorator|cancelled with (him|her|them)|owe (him|her|them)|cancel(led)? (the )?(work|job|booking))\b/i;
@@ -290,6 +300,11 @@ export function resolveLegalIssueFromNaturalLanguage(
   if (familySignals.test(lower) && best.entry.slug === "housing") {
     const family = byTaxonomySlug.get("family");
     if (family) best = { entry: family, score: Math.max(best.score, 52) };
+  }
+
+  if (unsafeProductSignals.test(lower) && reportSignals.test(lower) && best.entry.slug === "housing") {
+    const consumer = byTaxonomySlug.get("consumer");
+    if (consumer) best = { entry: consumer, score: Math.max(best.score, 60) };
   }
 
   if (
