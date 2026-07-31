@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-07-31T08:38:34.163Z",
+    "scrapedAt": "2026-07-31T19:22:52.577Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 11,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,27 +38,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vb176g",
-          "title": "Trademarked by a national brand",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb176g/trademarked_by_a_national_brand/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb176g/trademarked_by_a_national_brand/",
+          "id": "1vbr266",
+          "title": "England - A pub I booked for a function is refusing to return the deposit despite the minimum spend being hit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbr266/england_a_pub_i_booked_for_a_function_is_refusing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbr266/england_a_pub_i_booked_for_a_function_is_refusing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785434552,
-          "snippet": "Hi guys, I’ve been placed into a super tricky situation. Four years ago I bought out a small accountancy practice turning over £80k a year or so with two staff for the sole reason of both wanting to go solo and that the practice used to have 16 staff around 30 years ago and being",
+          "createdUtc": 1785504720,
+          "snippet": "To summarise, the deposit was £600 to book a function room for a birthday, with the minimum spend being £1500. Called the pub post-party to get deposit back, they’ve said we didn’t get close to hitting it. It’s all a bit shady but I thought this might happen as it was quite unorg",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vao5qb",
-          "title": "Is there any way to overturn an HMO next door to us once people have moved in?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vao5qb/is_there_any_way_to_overturn_an_hmo_next_door_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vao5qb/is_there_any_way_to_overturn_an_hmo_next_door_to/",
+          "id": "1vbp5xn",
+          "title": "Tenant is begging me to evict them.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbp5xn/tenant_is_begging_me_to_evict_them/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbp5xn/tenant_is_begging_me_to_evict_them/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785401837,
-          "snippet": "I posted originally on HousingUK, but I got a message from a woman saying my questions were better suited for the legaladviceUK sub. We live next door to an HMO and have done for 3 years now. It's always been occupied by students from the local university and we've always been ab",
+          "createdUtc": 1785499832,
+          "snippet": "I'm extremely suspicious of what is going on and they are playing coy with me when I'm pressing for details. I'm in England. Tenant (Mr. A) was originally a single man renting out a 3 bedroom property; but the property now has 9 people living in it with the living room being conv",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbxmz8",
+          "title": "I am 21F. My abusive mother asked the police to track my location and they did and gave the details to her without my consent",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbxmz8/i_am_21f_my_abusive_mother_asked_the_police_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbxmz8/i_am_21f_my_abusive_mother_asked_the_police_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785519225,
+          "snippet": "I live with my mother in England. I went on a trip to 2 different cities to see my favourite music band. It was the first time I've ever taken a train and left town on my own. This was 5 months ago. My controlling mother wouldn't have allowed any of it so I didn't tell her I was ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbtnn2",
+          "title": "Can I paint my neighbour’s wall? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785510632,
+          "snippet": "This section of wall is technically our neighbour’s house, but is facing our garden. Are we allowed to paint it or would we have to get permission? submitted by /u/OverSeasoned_ [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vboxaj",
+          "title": "Facing gross misconduct allegations in uk. Advice please",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vboxaj/facing_gross_misconduct_allegations_in_uk_advice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vboxaj/facing_gross_misconduct_allegations_in_uk_advice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785499201,
+          "snippet": "Back story, a child threatened to rape my daughter. (Both teenagers) Sorted this out with school and stuff. No problem. I work as business support in a safeguarding team. One very busy day i was the only BS in so I was doing everything, meetings, emails etc. An email came in from",
           "listingSource": "rss:hot"
         },
         {
@@ -74,15 +110,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vb2rid",
-          "title": "Fake details used by daughters friend to pay for vets bill",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb2rid/fake_details_used_by_daughters_friend_to_pay_for/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb2rid/fake_details_used_by_daughters_friend_to_pay_for/",
+          "id": "1vbmec1",
+          "title": "Hospital parking. Recurring parking tickets in England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmec1/hospital_parking_recurring_parking_tickets_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmec1/hospital_parking_recurring_parking_tickets_in/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785437908,
-          "snippet": "Hi guys just after some advice please. One of my daughters so called friends has used a fake name and given our address to a veterinary practice after her cat needed putting down. We’ve now had a letter come through the post addressed to the fake name she used asking for £220 to ",
+          "createdUtc": 1785491364,
+          "snippet": "Hello wonderful people of Reddit, I hope you can advise me with my issue. My local hospital switched from ticketed parking (pay as you exit) to ANPR pay as you exit. This switch happened last year. My husband has a blue badge, and this was registered to my car to receive free par",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbmytw",
+          "title": "My father passed, leaving his estate to me. However, his ex is still on the deeds and has had a really bad stroke. How can I move forward? | England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmytw/my_father_passed_leaving_his_estate_to_me_however/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmytw/my_father_passed_leaving_his_estate_to_me_however/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785493240,
+          "snippet": "Tldr - My father passed away, leaving me as the sole beneficiary and an executor of his will. His ex was on the deeds of his house, but didn‘t contribute to buying, maintenance or live there (they broke up very soon after). Upon his death we were in the process of transferring th",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbuqsd",
+          "title": "Supported housing provider telling me to \"stay in locked room\" despite housemate having illegal weapons & violent threats (Harrogate / NYCC)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuqsd/supported_housing_provider_telling_me_to_stay_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuqsd/supported_housing_provider_telling_me_to_stay_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785513003,
+          "snippet": "Hey everyone, looking for some advice on where I stand legally and how to force my supported housing provider / local council to take action. I'm very sorry for the long post, I don't know what my options are and frankly I'm scared ​I’m currently in a shared supported house in Ha",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vb176g",
+          "title": "Trademarked by a national brand",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb176g/trademarked_by_a_national_brand/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb176g/trademarked_by_a_national_brand/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785434552,
+          "snippet": "Hi guys, I’ve been placed into a super tricky situation. Four years ago I bought out a small accountancy practice turning over £80k a year or so with two staff for the sole reason of both wanting to go solo and that the practice used to have 16 staff around 30 years ago and being",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbo6a7",
+          "title": "Dad died and I am the only surviving child but dads name not on birth certificate England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbo6a7/dad_died_and_i_am_the_only_surviving_child_but/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbo6a7/dad_died_and_i_am_the_only_surviving_child_but/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785496973,
+          "snippet": "England. Hi hoping someone can help. My dad died in February and we hadn’t seen each other for a couple of years. His name is not on my birth certificate. He lived in an assisted living flat but was completely independent. I was traced through a genealogy company on behalf of the",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbt1pw",
+          "title": "Contacted by a debt collection agency for a business loan I did not sign for",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbt1pw/contacted_by_a_debt_collection_agency_for_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbt1pw/contacted_by_a_debt_collection_agency_for_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785509285,
+          "snippet": "UK - Will try and keep this brief. I’ve recently received a notice from a debt collection agency for a debt of just over £25,000. It is for a business loan for a limited company I have no affiliation to. The interesting part is, the company is in my name - not officially on compa",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbv8w9",
+          "title": "Abusive household I need help urgently",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbv8w9/abusive_household_i_need_help_urgently/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbv8w9/abusive_household_i_need_help_urgently/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785514070,
+          "snippet": "I 16f live in south wales I have 3 siblings age 8,9 and 14 we’ve all been abused by our parents just now my brothers father changed in my younger brothers room I was in my room with my sister then I heard my brothers were in their room playing or watching their projector then all",
           "listingSource": "rss:hot"
         },
         {
@@ -98,159 +206,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vaujor",
-          "title": "I've asked for a refund on a defective kitchen worktop. But the provider is saying that the worktops were free, so there's nothing to refund...",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vaujor/ive_asked_for_a_refund_on_a_defective_kitchen/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vaujor/ive_asked_for_a_refund_on_a_defective_kitchen/",
+          "id": "1vbtw9q",
+          "title": "School address fraud, consequences? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtw9q/school_address_fraud_consequences_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtw9q/school_address_fraud_consequences_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785420175,
-          "snippet": "Hello, I'm based in England, and had a large kitchen supplier design and fit a kitchen in my property. This was around April 2025. After a couple of months, the worktop started to bow upwards, and after some back and forth these were replaced in September 2025. This was fine thro",
+          "createdUtc": 1785511161,
+          "snippet": "Inherited a share of a property with siblings in the UK. It seems one has been using it as their home address to enrol their child in a local school (their actual home address is outside the catchment). Our names aren’t on the land registry but we are the benefactors of the prope",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vb9brz",
-          "title": "Being paid under minimum wage - Rochdale, Manchester, England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb9brz/being_paid_under_minimum_wage_rochdale_manchester/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb9brz/being_paid_under_minimum_wage_rochdale_manchester/",
+          "id": "1vb2rid",
+          "title": "Fake details used by daughters friend to pay for vets bill",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb2rid/fake_details_used_by_daughters_friend_to_pay_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb2rid/fake_details_used_by_daughters_friend_to_pay_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785452783,
-          "snippet": "Hi, as you can guess from the title what the issue is and I need legal advice. I'm an immigrant (30 Male) and I have a Masters degree in Game Art from London. I'm trying to make a portfolio while also working a job at a fast food place in Rochdale, Manchester. I'm not a mascular ",
+          "createdUtc": 1785437908,
+          "snippet": "Hi guys just after some advice please. One of my daughters so called friends has used a fake name and given our address to a veterinary practice after her cat needed putting down. We’ve now had a letter come through the post addressed to the fake name she used asking for £220 to ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vaoueg",
-          "title": "Is an accommodation provider able to allow Hen Parties but refuse stag parties?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vaoueg/is_an_accommodation_provider_able_to_allow_hen/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vaoueg/is_an_accommodation_provider_able_to_allow_hen/",
+          "id": "1vbuxw2",
+          "title": "Do I have to pay 6 months upfront when I only need one more month? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuxw2/do_i_have_to_pay_6_months_upfront_when_i_only/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuxw2/do_i_have_to_pay_6_months_upfront_when_i_only/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785404204,
-          "snippet": "We’re looking at hiring accommodation for our friends stag party, it’s a big house in the Lake District (England) which sleeps up to 20. They have a dedicated section on their website saying how amazing it is for hen parties and showing all of the activities and extra services th",
+          "createdUtc": 1785513430,
+          "snippet": "England, £2,000 a month. Tenancy started before 1 May. The agreement let me pay six months upfront and I did, so I'm covered to 25 September. It went periodic on 1 May and the agent confirmed in writing there's no fixed term. I've given notice ending 25 October. That's one month ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vb5hod",
-          "title": "Court judgement against me, but it's not me and I'm hearing about it long after judgement",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb5hod/court_judgement_against_me_but_its_not_me_and_im/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb5hod/court_judgement_against_me_but_its_not_me_and_im/",
+          "id": "1vbru32",
+          "title": "England - Neighbour requesting money for maintaining right of way.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbru32/england_neighbour_requesting_money_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbru32/england_neighbour_requesting_money_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785443805,
-          "snippet": "Hi, This is in England. Today I received a letter from Greater Manchester Accounts and Enforcement Unit. The telephone number is the courts number (I checked incase it was a scam). Apparently I owe a fine of £450 under the Single Justice Procedure. The issue is that this is the f",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vapy5f",
-          "title": "Landlord threatening to evict me after not following his instruction to change my UC address - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vapy5f/landlord_threatening_to_evict_me_after_not/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vapy5f/landlord_threatening_to_evict_me_after_not/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785407812,
-          "snippet": "Hi, For some context, my landlord likes to diddle the system. I live in shared accommodation with the landlord (I'll call Grant) himself and a flatmate (I'll call Joe). I have recently had to make a Universal Credit claim due to prolonged ill health, and will receive my rent from",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vbkcsh",
-          "title": "Danske Bank called saying my account was flagged for bankruptcy — then admitted they had the wrong client. What should I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbkcsh/danske_bank_called_saying_my_account_was_flagged/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbkcsh/danske_bank_called_saying_my_account_was_flagged/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785484369,
-          "snippet": "JUST TO BE CLEAR THIS WAS ON A AUTHORISED NUMBER WITH DANKSE BANK, I FOLLOWED UP WITH THEIR FRAUD TEAM IMMEDIATELY AFTER AND IT WAS A LEGITIMATE PHONE CALL Hi all, looking for some advice on a stressful call I had with Danske Bank yesterday. They rang me and asked for security de",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vatz03",
-          "title": "Laptop damaged being returned to old employer. They say I am liable and want to deduct £300 from final pay - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vatz03/laptop_damaged_being_returned_to_old_employer/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vatz03/laptop_damaged_being_returned_to_old_employer/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785418817,
-          "snippet": "As the title explains. I left a company in my probation on ok terms but it was their decision to let me go. I was there for just over 2 months. In the email confirming this they made a big deal of me sending the equipment (laptop, screen, headset etc) back promptly and in good co",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vb27ym",
-          "title": "PayPal are still insistent on an \"expert opinion\" for an item I received that doesn't match the order",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb27ym/paypal_are_still_insistent_on_an_expert_opinion/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb27ym/paypal_are_still_insistent_on_an_expert_opinion/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785436713,
-          "snippet": "follow on from this. TL;DR I paid for an OLED monitor from a chinese vendor with a UK EU footprint and they sent me a non OLED display that looks nothing like what I got (the one I ordered is flat, the one I got is curved and has a label clearly showing \"LCD MONITOR\" on it) - I p",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vagk1j",
-          "title": "Crown court trial delay advice England. I was the victim of a violent crime in 2019 and every time we go to trial the defendant falls ill on the day of the trial or our case is a reserve case and the trial has never gone ahead. What can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vagk1j/crown_court_trial_delay_advice_england_i_was_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vagk1j/crown_court_trial_delay_advice_england_i_was_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785377843,
-          "snippet": "So in 2019 i was a victim of a violent crime. there was also 2 other victims. Originally the suspect got bail but the first trial in 2021, he failed to appear. He then was according to police untraceable for 2 years until he popped up committing another crime in 2023. he has been",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1v9u2j1",
-          "title": "Gym has made mens showers basically unusable. Women's showers not changed. Is this an Equality act complaint?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v9u2j1/gym_has_made_mens_showers_basically_unusable/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v9u2j1/gym_has_made_mens_showers_basically_unusable/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785326225,
-          "snippet": "So this is a bit of an odd one and I appreciate it's not really a big deal (but it is very annoying for me). Our local gym (in England) has removed all of the doors from the men's shower cubicles. This change has happened since the new female manager took over who is very friendl",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vanvc2",
-          "title": "Estate agent ghosted a buyer; a buyer has come direct.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vanvc2/estate_agent_ghosted_a_buyer_a_buyer_has_come/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vanvc2/estate_agent_ghosted_a_buyer_a_buyer_has_come/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785400803,
-          "snippet": "I am in the final couple of weeks of an agreement with my estate agent to sell our house. A couple of weeks ago, I tried to set up a call to discuss why we hadn't sold yet and what we might do next, but nothing came of it, other than the agent alluding to dropping the price (desp",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vb1gxz",
-          "title": "Sold damaged car by trader, claiming private sale and sold as seen.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb1gxz/sold_damaged_car_by_trader_claiming_private_sale/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb1gxz/sold_damaged_car_by_trader_claiming_private_sale/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785435116,
-          "snippet": "England Hi all, As the title states, I bought a car from HiQ Tyres &amp; Autocare in Dover less than a month ago, only for there to be issues with the breather hose, and now, I've discovered the rear bumper has been given a bodge job repair. When finding this earlier today, I con",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vay5s3",
-          "title": "VARS Technologies refusing my appeal because I can't prove my car left a car park...! (ENGLAND)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vay5s3/vars_technologies_refusing_my_appeal_because_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vay5s3/vars_technologies_refusing_my_appeal_because_i/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785428128,
-          "snippet": "I drive past a BP/Asda express to and from work every day. On one wild day I went in on the morning for some diet coke and in on the way home for a Greggs' sausage roll. I received a £100 fine from VARS for entering at 6:47am and not leaving until 4:10pm. Clearly I did, and I dro",
+          "createdUtc": 1785506528,
+          "snippet": "We live in a semi detached property whereby we have a right of way down the side of our neighbours property and through an adjoining gate at the rear to access our rear garden. The right of way is only on foot. When we purchased our house next door was derelict and the access was",
           "listingSource": "rss:hot"
         }
       ]
@@ -280,15 +280,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vao5qb",
-          "title": "Is there any way to overturn an HMO next door to us once people have moved in?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vao5qb/is_there_any_way_to_overturn_an_hmo_next_door_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vao5qb/is_there_any_way_to_overturn_an_hmo_next_door_to/",
+          "id": "1vbtnn2",
+          "title": "Can I paint my neighbour’s wall? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785401837,
-          "snippet": "I posted originally on HousingUK, but I got a message from a woman saying my questions were better suited for the legaladviceUK sub. We live next door to an HMO and have done for 3 years now. It's always been occupied by students from the local university and we've always been ab",
+          "createdUtc": 1785510632,
+          "snippet": "This section of wall is technically our neighbour’s house, but is facing our garden. Are we allowed to paint it or would we have to get permission? submitted by /u/OverSeasoned_ [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vboxaj",
+          "title": "Facing gross misconduct allegations in uk. Advice please",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vboxaj/facing_gross_misconduct_allegations_in_uk_advice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vboxaj/facing_gross_misconduct_allegations_in_uk_advice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785499201,
+          "snippet": "Back story, a child threatened to rape my daughter. (Both teenagers) Sorted this out with school and stuff. No problem. I work as business support in a safeguarding team. One very busy day i was the only BS in so I was doing everything, meetings, emails etc. An email came in from",
           "listingSource": "rss:hot"
         },
         {
@@ -304,6 +316,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vbmytw",
+          "title": "My father passed, leaving his estate to me. However, his ex is still on the deeds and has had a really bad stroke. How can I move forward? | England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmytw/my_father_passed_leaving_his_estate_to_me_however/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmytw/my_father_passed_leaving_his_estate_to_me_however/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785493240,
+          "snippet": "Tldr - My father passed away, leaving me as the sole beneficiary and an executor of his will. His ex was on the deeds of his house, but didn‘t contribute to buying, maintenance or live there (they broke up very soon after). Upon his death we were in the process of transferring th",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbo6a7",
+          "title": "Dad died and I am the only surviving child but dads name not on birth certificate England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbo6a7/dad_died_and_i_am_the_only_surviving_child_but/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbo6a7/dad_died_and_i_am_the_only_surviving_child_but/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785496973,
+          "snippet": "England. Hi hoping someone can help. My dad died in February and we hadn’t seen each other for a couple of years. His name is not on my birth certificate. He lived in an assisted living flat but was completely independent. I was traced through a genealogy company on behalf of the",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vb3tok",
           "title": "My neighbour is insisting I repair my driveway which is entirely within my boundary. Am I obliged to do so? (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb3tok/my_neighbour_is_insisting_i_repair_my_driveway/",
@@ -316,51 +352,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vb9brz",
-          "title": "Being paid under minimum wage - Rochdale, Manchester, England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb9brz/being_paid_under_minimum_wage_rochdale_manchester/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb9brz/being_paid_under_minimum_wage_rochdale_manchester/",
+          "id": "1vbuxw2",
+          "title": "Do I have to pay 6 months upfront when I only need one more month? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuxw2/do_i_have_to_pay_6_months_upfront_when_i_only/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuxw2/do_i_have_to_pay_6_months_upfront_when_i_only/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785452783,
-          "snippet": "Hi, as you can guess from the title what the issue is and I need legal advice. I'm an immigrant (30 Male) and I have a Masters degree in Game Art from London. I'm trying to make a portfolio while also working a job at a fast food place in Rochdale, Manchester. I'm not a mascular ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vaoueg",
-          "title": "Is an accommodation provider able to allow Hen Parties but refuse stag parties?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vaoueg/is_an_accommodation_provider_able_to_allow_hen/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vaoueg/is_an_accommodation_provider_able_to_allow_hen/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785404204,
-          "snippet": "We’re looking at hiring accommodation for our friends stag party, it’s a big house in the Lake District (England) which sleeps up to 20. They have a dedicated section on their website saying how amazing it is for hen parties and showing all of the activities and extra services th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vb5hod",
-          "title": "Court judgement against me, but it's not me and I'm hearing about it long after judgement",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb5hod/court_judgement_against_me_but_its_not_me_and_im/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb5hod/court_judgement_against_me_but_its_not_me_and_im/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785443805,
-          "snippet": "Hi, This is in England. Today I received a letter from Greater Manchester Accounts and Enforcement Unit. The telephone number is the courts number (I checked incase it was a scam). Apparently I owe a fine of £450 under the Single Justice Procedure. The issue is that this is the f",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vb27ym",
-          "title": "PayPal are still insistent on an \"expert opinion\" for an item I received that doesn't match the order",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb27ym/paypal_are_still_insistent_on_an_expert_opinion/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb27ym/paypal_are_still_insistent_on_an_expert_opinion/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785436713,
-          "snippet": "follow on from this. TL;DR I paid for an OLED monitor from a chinese vendor with a UK EU footprint and they sent me a non OLED display that looks nothing like what I got (the one I ordered is flat, the one I got is curved and has a label clearly showing \"LCD MONITOR\" on it) - I p",
+          "createdUtc": 1785513430,
+          "snippet": "England, £2,000 a month. Tenancy started before 1 May. The agreement let me pay six months upfront and I did, so I'm covered to 25 September. It went periodic on 1 May and the agent confirmed in writing there's no fixed term. I've given notice ending 25 October. That's one month ",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 2,
+      "postCount": 4,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -388,15 +388,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vapy5f",
-          "title": "Landlord threatening to evict me after not following his instruction to change my UC address - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vapy5f/landlord_threatening_to_evict_me_after_not/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vapy5f/landlord_threatening_to_evict_me_after_not/",
+          "id": "1vbr266",
+          "title": "England - A pub I booked for a function is refusing to return the deposit despite the minimum spend being hit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbr266/england_a_pub_i_booked_for_a_function_is_refusing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbr266/england_a_pub_i_booked_for_a_function_is_refusing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785407812,
-          "snippet": "Hi, For some context, my landlord likes to diddle the system. I live in shared accommodation with the landlord (I'll call Grant) himself and a flatmate (I'll call Joe). I have recently had to make a Universal Credit claim due to prolonged ill health, and will receive my rent from",
+          "createdUtc": 1785504720,
+          "snippet": "To summarise, the deposit was £600 to book a function room for a birthday, with the minimum spend being £1500. Called the pub post-party to get deposit back, they’ve said we didn’t get close to hitting it. It’s all a bit shady but I thought this might happen as it was quite unorg",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbp5xn",
+          "title": "Tenant is begging me to evict them.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbp5xn/tenant_is_begging_me_to_evict_them/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbp5xn/tenant_is_begging_me_to_evict_them/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785499832,
+          "snippet": "I'm extremely suspicious of what is going on and they are playing coy with me when I'm pressing for details. I'm in England. Tenant (Mr. A) was originally a single man renting out a 3 bedroom property; but the property now has 9 people living in it with the living room being conv",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbuqsd",
+          "title": "Supported housing provider telling me to \"stay in locked room\" despite housemate having illegal weapons & violent threats (Harrogate / NYCC)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuqsd/supported_housing_provider_telling_me_to_stay_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuqsd/supported_housing_provider_telling_me_to_stay_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785513003,
+          "snippet": "Hey everyone, looking for some advice on where I stand legally and how to force my supported housing provider / local council to take action. I'm very sorry for the long post, I don't know what my options are and frankly I'm scared ​I’m currently in a shared supported house in Ha",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "clinical-negligence",
+      "label": "Clinical Negligence",
+      "legalAreaSlug": "clinical_negligence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vbxmz8",
+          "title": "I am 21F. My abusive mother asked the police to track my location and they did and gave the details to her without my consent",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbxmz8/i_am_21f_my_abusive_mother_asked_the_police_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbxmz8/i_am_21f_my_abusive_mother_asked_the_police_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785519225,
+          "snippet": "I live with my mother in England. I went on a trip to 2 different cities to see my favourite music band. It was the first time I've ever taken a train and left town on my own. This was 5 months ago. My controlling mother wouldn't have allowed any of it so I didn't tell her I was ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vbmec1",
+          "title": "Hospital parking. Recurring parking tickets in England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmec1/hospital_parking_recurring_parking_tickets_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmec1/hospital_parking_recurring_parking_tickets_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785491364,
+          "snippet": "Hello wonderful people of Reddit, I hope you can advise me with my issue. My local hospital switched from ticketed parking (pay as you exit) to ANPR pay as you exit. This switch happened last year. My husband has a blue badge, and this was registered to my car to receive free par",
           "listingSource": "rss:hot"
         }
       ]
@@ -426,6 +498,78 @@
       ]
     },
     {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vbt1pw",
+          "title": "Contacted by a debt collection agency for a business loan I did not sign for",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbt1pw/contacted_by_a_debt_collection_agency_for_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbt1pw/contacted_by_a_debt_collection_agency_for_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785509285,
+          "snippet": "UK - Will try and keep this brief. I’ve recently received a notice from a debt collection agency for a debt of just over £25,000. It is for a business loan for a limited company I have no affiliation to. The interesting part is, the company is in my name - not officially on compa",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vbv8w9",
+          "title": "Abusive household I need help urgently",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbv8w9/abusive_household_i_need_help_urgently/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbv8w9/abusive_household_i_need_help_urgently/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785514070,
+          "snippet": "I 16f live in south wales I have 3 siblings age 8,9 and 14 we’ve all been abused by our parents just now my brothers father changed in my younger brothers room I was in my room with my sister then I heard my brothers were in their room playing or watching their projector then all",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "fraud-and-financial-crime",
+      "label": "Fraud and Financial Crime",
+      "legalAreaSlug": "fraud_financial_crime",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vbtw9q",
+          "title": "School address fraud, consequences? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtw9q/school_address_fraud_consequences_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtw9q/school_address_fraud_consequences_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785511161,
+          "snippet": "Inherited a share of a property with siblings in the UK. It seems one has been using it as their home address to enrol their child in a local school (their actual home address is outside the catchment). Our names aren’t on the land registry but we are the benefactors of the prope",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "pet-purchase-and-vet-disputes",
       "label": "Pet Purchase and Vet Disputes",
       "legalAreaSlug": "consumer_pets",
@@ -445,174 +589,6 @@
           "numComments": 0,
           "createdUtc": 1785437908,
           "snippet": "Hi guys just after some advice please. One of my daughters so called friends has used a fake name and given our address to a veterinary practice after her cat needed putting down. We’ve now had a letter come through the post addressed to the fake name she used asking for £220 to ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vaujor",
-          "title": "I've asked for a refund on a defective kitchen worktop. But the provider is saying that the worktops were free, so there's nothing to refund...",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vaujor/ive_asked_for_a_refund_on_a_defective_kitchen/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vaujor/ive_asked_for_a_refund_on_a_defective_kitchen/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785420175,
-          "snippet": "Hello, I'm based in England, and had a large kitchen supplier design and fit a kitchen in my property. This was around April 2025. After a couple of months, the worktop started to bow upwards, and after some back and forth these were replaced in September 2025. This was fine thro",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "debt",
-      "label": "Debt",
-      "legalAreaSlug": "debt",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vbkcsh",
-          "title": "Danske Bank called saying my account was flagged for bankruptcy — then admitted they had the wrong client. What should I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbkcsh/danske_bank_called_saying_my_account_was_flagged/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbkcsh/danske_bank_called_saying_my_account_was_flagged/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785484369,
-          "snippet": "JUST TO BE CLEAR THIS WAS ON A AUTHORISED NUMBER WITH DANKSE BANK, I FOLLOWED UP WITH THEIR FRAUD TEAM IMMEDIATELY AFTER AND IT WAS A LEGITIMATE PHONE CALL Hi all, looking for some advice on a stressful call I had with Danske Bank yesterday. They rang me and asked for security de",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vatz03",
-          "title": "Laptop damaged being returned to old employer. They say I am liable and want to deduct £300 from final pay - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vatz03/laptop_damaged_being_returned_to_old_employer/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vatz03/laptop_damaged_being_returned_to_old_employer/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785418817,
-          "snippet": "As the title explains. I left a company in my probation on ok terms but it was their decision to let me go. I was there for just over 2 months. In the email confirming this they made a big deal of me sending the equipment (laptop, screen, headset etc) back promptly and in good co",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vagk1j",
-          "title": "Crown court trial delay advice England. I was the victim of a violent crime in 2019 and every time we go to trial the defendant falls ill on the day of the trial or our case is a reserve case and the trial has never gone ahead. What can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vagk1j/crown_court_trial_delay_advice_england_i_was_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vagk1j/crown_court_trial_delay_advice_england_i_was_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785377843,
-          "snippet": "So in 2019 i was a victim of a violent crime. there was also 2 other victims. Originally the suspect got bail but the first trial in 2021, he failed to appear. He then was according to police untraceable for 2 years until he popped up committing another crime in 2023. he has been",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "discrimination-and-equality",
-      "label": "Discrimination and Equality",
-      "legalAreaSlug": "discrimination_equality",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1v9u2j1",
-          "title": "Gym has made mens showers basically unusable. Women's showers not changed. Is this an Equality act complaint?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1v9u2j1/gym_has_made_mens_showers_basically_unusable/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1v9u2j1/gym_has_made_mens_showers_basically_unusable/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785326225,
-          "snippet": "So this is a bit of an odd one and I appreciate it's not really a big deal (but it is very annoying for me). Our local gym (in England) has removed all of the doors from the men's shower cubicles. This change has happened since the new female manager took over who is very friendl",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "poor-services-and-traders",
-      "label": "Poor Services and Traders",
-      "legalAreaSlug": "consumer_services",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vb1gxz",
-          "title": "Sold damaged car by trader, claiming private sale and sold as seen.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb1gxz/sold_damaged_car_by_trader_claiming_private_sale/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vb1gxz/sold_damaged_car_by_trader_claiming_private_sale/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785435116,
-          "snippet": "England Hi all, As the title states, I bought a car from HiQ Tyres &amp; Autocare in Dover less than a month ago, only for there to be issues with the breather hose, and now, I've discovered the rear bumper has been given a bodge job repair. When finding this earlier today, I con",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "prison_law",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vay5s3",
-          "title": "VARS Technologies refusing my appeal because I can't prove my car left a car park...! (ENGLAND)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vay5s3/vars_technologies_refusing_my_appeal_because_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vay5s3/vars_technologies_refusing_my_appeal_because_i/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785428128,
-          "snippet": "I drive past a BP/Asda express to and from work every day. On one wild day I went in on the morning for some diet coke and in on the way home for a Greggs' sausage roll. I received a £100 fine from VARS for entering at 6:47am and not leaving until 4:10pm. Clearly I did, and I dro",
           "listingSource": "rss:hot"
         }
       ]
