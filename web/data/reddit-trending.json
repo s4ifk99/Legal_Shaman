@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-01T08:07:55.323Z",
-    "subredditCount": 1,
-    "postCount": 20,
-    "topicCount": 8,
+    "scrapedAt": "2026-08-01T19:06:10.919Z",
+    "subredditCount": 2,
+    "postCount": 40,
+    "topicCount": 11,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,15 +38,75 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbr266",
-          "title": "England - A pub I booked for a function is refusing to return the deposit despite the minimum spend being hit",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbr266/england_a_pub_i_booked_for_a_function_is_refusing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbr266/england_a_pub_i_booked_for_a_function_is_refusing/",
+          "id": "1vcn6df",
+          "title": "GDPR data request from disgruntled member of small neighbourhood WhatsApp group — do we have to comply? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcn6df/gdpr_data_request_from_disgruntled_member_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcn6df/gdpr_data_request_from_disgruntled_member_of/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785504720,
-          "snippet": "To summarise, the deposit was £600 to book a function room for a birthday, with the minimum spend being £1500. Called the pub post-party to get deposit back, they’ve said we didn’t get close to hitting it. It’s all a bit shady but I thought this might happen as it was quite unorg",
+          "createdUtc": 1785590162,
+          "snippet": "&#x200B; I help admin a small, informal neighbourhood WhatsApp group (just residents on our street organising things like bin days, lost pets, local recommendations — not a registered organisation or resident's association, just a group chat someone set up years ago). A former me",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcmr9j",
+          "title": "Charged with possession of a bladed article after forgotten camping knife found at Gatwick. What sentence is realistically likely?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcmr9j/charged_with_possession_of_a_bladed_article_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcmr9j/charged_with_possession_of_a_bladed_article_after/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785589090,
+          "snippet": "I've been charged under s.139 after airport security found a locking camping knife (3\" blade) in my rucksack at Gatwick. The knife had been left in the bag after a previous hiking/camping trip and I'd genuinely forgotten it was there. It was found during routine X-ray screening, ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vchoup",
+          "title": "New lead regulations mean me and the other woman in our business could lose our jobs simply because we're women",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vchoup/new_lead_regulations_mean_me_and_the_other_woman/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vchoup/new_lead_regulations_mean_me_and_the_other_woman/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785572861,
+          "snippet": "Me and another woman are employed as plumbers in England. We work for a company doing lead pipe replacement. This is about 90% of our job given the prevalence of lead pipes in our area. Our boss called us in on Friday and said he was worried about new government regulations comin",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcpu6p",
+          "title": "Guy I know appearing at my house at all hours, won’t take no for an answer. Any advice? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcpu6p/guy_i_know_appearing_at_my_house_at_all_hours/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcpu6p/guy_i_know_appearing_at_my_house_at_all_hours/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785596936,
+          "snippet": "Hi, I’m not sure if this is the right place for it. Someone I know, an old friend of mine, has been coming to my house in the night without prior information of his coming over. It’s really getting on my nerves, I’ve told him not to but he just gives the same old stock response t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vck3uy",
+          "title": "Police say my number plate has likely been cloned – I’ve located the vehicle displaying my registration. What should I do next?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vck3uy/police_say_my_number_plate_has_likely_been_cloned/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vck3uy/police_say_my_number_plate_has_likely_been_cloned/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785581219,
+          "snippet": "Location: England. I’m looking for some advice on where I stand legally and whether there’s anything more I should be doing. A few days ago, the police attended my registered address because my vehicle registration was allegedly involved in a fuel drive-off from a petrol station.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vciznm",
+          "title": "Mil is putting in the steps to take my child-England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vciznm/mil_is_putting_in_the_steps_to_take_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vciznm/mil_is_putting_in_the_steps_to_take_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785577411,
+          "snippet": "I recently found a letter in my mil house a confirmation of documentation of her history helping with my child such as sleep overs and when she’s bought things or supported us and now I’m anxious she’s preparing incase we cut contact due to her overstepping boundaries all the tim",
           "listingSource": "rss:hot"
         },
         {
@@ -62,54 +122,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbtnn2",
-          "title": "Can I paint my neighbour’s wall? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785510632,
-          "snippet": "This section of wall is technically our neighbour’s house, but is facing our garden. Are we allowed to paint it or would we have to get permission? submitted by /u/OverSeasoned_ [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vbp5xn",
-          "title": "Tenant is begging me to evict them.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbp5xn/tenant_is_begging_me_to_evict_them/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbp5xn/tenant_is_begging_me_to_evict_them/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785499832,
-          "snippet": "I'm extremely suspicious of what is going on and they are playing coy with me when I'm pressing for details. I'm in England. Tenant (Mr. A) was originally a single man renting out a 3 bedroom property; but the property now has 9 people living in it with the living room being conv",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vc155l",
-          "title": "Lost my inheritance court case. Now I’m facing losing my home despite there being enough equity if it’s sold properly. What can I do? I’m in the UK.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc155l/lost_my_inheritance_court_case_now_im_facing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc155l/lost_my_inheritance_court_case_now_im_facing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785527034,
-          "snippet": "Six years ago my ex-husband, who had been a City Lawyer died from alcoholism. He had one child - our son, who was a minor at the time of his death. We had separated when our son was toddler due to his drinking. But we were on fairly good terms. When a glamorous Thai ‘massage ther",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vboxaj",
-          "title": "Facing gross misconduct allegations in uk. Advice please",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vboxaj/facing_gross_misconduct_allegations_in_uk_advice/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vboxaj/facing_gross_misconduct_allegations_in_uk_advice/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785499201,
-          "snippet": "Back story, a child threatened to rape my daughter. (Both teenagers) Sorted this out with school and stuff. No problem. I work as business support in a safeguarding team. One very busy day i was the only BS in so I was doing everything, meetings, emails etc. An email came in from",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1vch6r7",
           "title": "Ex Boyfriend Demands Holiday Cost Back- England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vch6r7/ex_boyfriend_demands_holiday_cost_back_england/",
@@ -122,135 +134,371 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vcge5j",
-          "title": "NI- how to lawfully have ex-husband's car removed from property after divorce",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcge5j/ni_how_to_lawfully_have_exhusbands_car_removed/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcge5j/ni_how_to_lawfully_have_exhusbands_car_removed/",
+          "id": "1vbr266",
+          "title": "England - A pub I booked for a function is refusing to return the deposit despite the minimum spend being hit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbr266/england_a_pub_i_booked_for_a_function_is_refusing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbr266/england_a_pub_i_booked_for_a_function_is_refusing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785568359,
-          "snippet": "Ex-husband has a beaten up old car parked up on bricks in my driveway. It has been there years but now that I have sole ownership of the property I want it removed. He is not engaging with my request. I cannot tamper with it, the V5 is in his name and I'm sure if I report it to t",
+          "createdUtc": 1785504720,
+          "snippet": "To summarise, the deposit was £600 to book a function room for a birthday, with the minimum spend being £1500. Called the pub post-party to get deposit back, they’ve said we didn’t get close to hitting it. It’s all a bit shady but I thought this might happen as it was quite unorg",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbetqu",
-          "title": "My ex owes me money and won't pay it back - scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbetqu/my_ex_owes_me_money_and_wont_pay_it_back_scotland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbetqu/my_ex_owes_me_money_and_wont_pay_it_back_scotland/",
+          "id": "1vctnb1",
+          "title": "Bwlegal sending letters about debt I don't own",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vctnb1/bwlegal_sending_letters_about_debt_i_dont_own/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vctnb1/bwlegal_sending_letters_about_debt_i_dont_own/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785467398,
-          "snippet": "1 year ago me and my ex bf broke up. We lived in a flat (he was not on the lease so no proof there) together, I stayed with my mother for a month while he stayed at the flat and looked for a new place. He couldnt afford the deposit + first month rent so he asked me for a loan. It",
+          "createdUtc": 1785606170,
+          "snippet": "Hi, hoping for some advice. I rented a property until end of March 2023 and paid and closed both electricity and water utility bills. Now received a letter from BW legal on behalf of JC International Acquisition that there is an outstanding debt they bought from Scottish Power fo",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vcaiet",
-          "title": "England - broken camera over staff member dispute",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcaiet/england_broken_camera_over_staff_member_dispute/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcaiet/england_broken_camera_over_staff_member_dispute/",
+          "id": "1vbtnn2",
+          "title": "Can I paint my neighbour’s wall? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785550364,
-          "snippet": "Today I went to a branch photography store in search for a camera. An assistant asks me if I need help and begins advertising. He asks me if I'd like to see a demonstration and takes pictures, then, without asking, proceeds to take pictures of me and point the camera at my face. ",
+          "createdUtc": 1785510632,
+          "snippet": "This section of wall is technically our neighbour’s house, but is facing our garden. Are we allowed to paint it or would we have to get permission? submitted by /u/OverSeasoned_ [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vc3fao",
-          "title": "Baliff letter in England - no previous correspondence",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc3fao/baliff_letter_in_england_no_previous/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc3fao/baliff_letter_in_england_no_previous/",
+          "id": "1vcoqj1",
+          "title": "Father Recently Passed Away In Intestacy.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcoqj1/father_recently_passed_away_in_intestacy/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcoqj1/father_recently_passed_away_in_intestacy/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785532192,
-          "snippet": "Hi all, Would love some advice. Back in 2021 I applied for a job and they did a DBS check - the DBS flagged a conviction which I was shocked by. It said that I had allegedly not paid a train fare. I subsequently contacted the DBS team as the alleged conviction was on a date I was",
+          "createdUtc": 1785594178,
+          "snippet": "Hello, My father passed away on Tuesday in England after a long battle with cancer. I've travelled from Australia which is where I live to spend some time with him prior to the passing. I do however hold dual citizenship. The death certificate and registration will be organised o",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbuqsd",
-          "title": "Supported housing provider telling me to \"stay in locked room\" despite housemate having illegal weapons & violent threats (Harrogate / NYCC)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuqsd/supported_housing_provider_telling_me_to_stay_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuqsd/supported_housing_provider_telling_me_to_stay_in/",
+          "id": "1vct5in",
+          "title": "England - Could the local council be liable after signing off a structurally unsafe building?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vct5in/england_could_the_local_council_be_liable_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vct5in/england_could_the_local_council_be_liable_after/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785513003,
-          "snippet": "Hey everyone, looking for some advice on where I stand legally and how to force my supported housing provider / local council to take action. I'm very sorry for the long post, I don't know what my options are and frankly I'm scared ​I’m currently in a shared supported house in Ha",
+          "createdUtc": 1785604958,
+          "snippet": "I’d appreciate some advice as I’m not sure if we have any legal options. We bought a house with a detached outbuilding. When we viewed it, the owner pointed out that one of the walls had a problem and said they thought it would cost about £3,000 to fix. We weren’t happy to just t",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbmec1",
-          "title": "Hospital parking. Recurring parking tickets in England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmec1/hospital_parking_recurring_parking_tickets_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmec1/hospital_parking_recurring_parking_tickets_in/",
+          "id": "1vcp9zk",
+          "title": "Negotiating an insurance/legal claim over broken work equipment",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcp9zk/negotiating_an_insurancelegal_claim_over_broken/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcp9zk/negotiating_an_insurancelegal_claim_over_broken/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785491364,
-          "snippet": "Hello wonderful people of Reddit, I hope you can advise me with my issue. My local hospital switched from ticketed parking (pay as you exit) to ANPR pay as you exit. This switch happened last year. My husband has a blue badge, and this was registered to my car to receive free par",
+          "createdUtc": 1785595536,
+          "snippet": "In England. In freelance work I use highly specialised portable equipment (~£20K). For one job I asked a colleague to assist and he has similar equipment. We are independent freelancers with no other business relationship. We both have insurance for our own equipment as well as p",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbmytw",
-          "title": "My father passed, leaving his estate to me. However, his ex is still on the deeds and has had a really bad stroke. How can I move forward? | England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmytw/my_father_passed_leaving_his_estate_to_me_however/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmytw/my_father_passed_leaving_his_estate_to_me_however/",
+          "id": "1vcl4v1",
+          "title": "Bitten by dog at work place - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcl4v1/bitten_by_dog_at_work_place_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcl4v1/bitten_by_dog_at_work_place_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785493240,
-          "snippet": "Tldr - My father passed away, leaving me as the sole beneficiary and an executor of his will. His ex was on the deeds of his house, but didn‘t contribute to buying, maintenance or live there (they broke up very soon after). Upon his death we were in the process of transferring th",
+          "createdUtc": 1785584459,
+          "snippet": "Hi, My friend was bitten by dog (adult Rottweiler) at work place (Warehouse) Next steps advice needed. Facts: - Bitten at hand, ended in Hospital at emergency for a few hours. - Dog was brought by Warehouse Supervisor to work place (Canteen) for some time. This was not the first ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vc028w",
-          "title": "Final Payslip following sickness dismissal (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc028w/final_payslip_following_sickness_dismissal_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc028w/final_payslip_following_sickness_dismissal_england/",
+          "id": "1vcukq5",
+          "title": "Inheritance/ will family dispute (UK)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcukq5/inheritance_will_family_dispute_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcukq5/inheritance_will_family_dispute_uk/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785524589,
-          "snippet": "Hi, My partner had an extended period of absence for a mix of PCOS related physical symptoms and quite serious self-harm incidents. After about two months they brought her in for an occupational meeting, to cut a long story short they made the decision to dismiss, but with the pr",
+          "createdUtc": 1785608370,
+          "snippet": "my nan passed away about 3 months ago now, she was my dads mother and my dad died in 2020. My uncle is next of kin. Today we received a copy of my nans will stating that all of her estate goes to my uncle, the will was changed in 2023. My nan was extremely close to me and my sist",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbt1pw",
-          "title": "Contacted by a debt collection agency for a business loan I did not sign for",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbt1pw/contacted_by_a_debt_collection_agency_for_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbt1pw/contacted_by_a_debt_collection_agency_for_a/",
+          "id": "1vcu4b5",
+          "title": "Thames water bill too high , meter can’t be installed, any advice ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcu4b5/thames_water_bill_too_high_meter_cant_be/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcu4b5/thames_water_bill_too_high_meter_cant_be/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785509285,
-          "snippet": "UK - Will try and keep this brief. I’ve recently received a notice from a debt collection agency for a debt of just over £25,000. It is for a business loan for a limited company I have no affiliation to. The interesting part is, the company is in my name - not officially on compa",
+          "createdUtc": 1785607301,
+          "snippet": "I’ve recently moved into a flat in London , after trying to get a meter fitted I was told that they can’t install a meter due to shared supply. The reduced bill is £614 for the year. I live alone in a one bed. ( I have told them this) My water bill for the last year was £184 in a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vc9pdr",
-          "title": "England. Need details of court sentence.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc9pdr/england_need_details_of_court_sentence/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc9pdr/england_need_details_of_court_sentence/",
+          "id": "1vcnb4t",
+          "title": "England - Update: Unpleasant Landlord",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcnb4t/england_update_unpleasant_landlord/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcnb4t/england_update_unpleasant_landlord/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785548056,
-          "snippet": "I haven’t seen or spoken to my son for 12 years. He is 41. He has learning difficulties and from what I can gather has had a rough time since 16 years old. I decided to employ him but his mother talked him out of it. Since then, I know he has had a police caution for sending perv",
+          "createdUtc": 1785590510,
+          "snippet": "Thank you to everyone who helped me already! I appreciate your advice so much 🫶 . this is the link to the original post https://www.reddit.com/r/HousingUK/comments/1v7t6hx/advice\\_needed\\_unpleasant\\_landlord/ I gave my live-in landlord the two months’ notice required by my lodg",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "name": "HousingUK",
+      "displayName": "r/HousingUK",
+      "description": "Renting, landlords, deposits, eviction, and housing rights in the UK.",
+      "subscribers": null,
+      "posts": [
+        {
+          "id": "1vclq1d",
+          "title": "Block with high proportion of Social Housing",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vclq1d/block_with_high_proportion_of_social_housing/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vclq1d/block_with_high_proportion_of_social_housing/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785586194,
+          "snippet": "I have had an offer accepted on a property. This is an ex-council flat in East London in a 7 story building (although the unit in question is on the ground floor and has a garden). My initial mortgage application with First Direct was rejected on the grounds that the building has",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbtw9q",
-          "title": "School address fraud, consequences? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtw9q/school_address_fraud_consequences_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtw9q/school_address_fraud_consequences_england/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vc8h5e",
+          "title": "Council tax is based on property would have been worth on 1 April 1991",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vc8h5e/council_tax_is_based_on_property_would_have_been/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vc8h5e/council_tax_is_based_on_property_would_have_been/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785511161,
-          "snippet": "Inherited a share of a property with siblings in the UK. It seems one has been using it as their home address to enrol their child in a local school (their actual home address is outside the catchment). Our names aren’t on the land registry but we are the benefactors of the prope",
+          "createdUtc": 1785544685,
+          "snippet": "I'm looking into challenging my council tax band and was wondering if anyone has had any success. I bought a new-build home many years ago, and it seems like the council tax band may have been based on the inflated price I paid. New-builds often include a \"new-build premium,\" mea",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcrjzp",
+          "title": "Would you be worried about this wall crack?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcrjzp/would_you_be_worried_about_this_wall_crack/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcrjzp/would_you_be_worried_about_this_wall_crack/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785601098,
+          "snippet": "Hi, I’ve been living in this flat on the ground floor for around 5 years now, the building built in circa 1865, clay soil in London. There’ve always been some hairline wall cracks here and there, but recently I’ve noticed the bigger one that’s concerning. It’s on top of the doorf",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vch56r",
+          "title": "Need reassurance I’m doing the right thing",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vch56r/need_reassurance_im_doing_the_right_thing/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vch56r/need_reassurance_im_doing_the_right_thing/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785570954,
+          "snippet": "Hello. Looking for some reassurance.Hoping to complete at the end of the month and getting really anxious. Wondering if I’m doing the right thing at all! Currently renting and will be buying a house with my adult daughter. Current rent is 1350 pm which I pay by myself as daughter",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcuvfe",
+          "title": "Buying a house - extension questions",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcuvfe/buying_a_house_extension_questions/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcuvfe/buying_a_house_extension_questions/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785609061,
+          "snippet": "Hi! Looking to buy a Victorian mid terrace and its already got a small rear extension around, 5.7m2. However its being used as a utility just off of the kitchen, and the floor level is lower than the kitchen. About 30cm or so. My question would be if we were to raise the floor so",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vc8wxe",
+          "title": "Looking for flats/flatshares in London is depressing",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vc8wxe/looking_for_flatsflatshares_in_london_is/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vc8wxe/looking_for_flatsflatshares_in_london_is/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785545889,
+          "snippet": "I got a new job and I thought maybe it’s time for a fresh start. New job new part of the city. Where I stay now is affordable and familiar but I’ve definitely outgrown it. I thought I would move to a part of London that makes me feeeel like I live in London. I started looking at ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcrf8y",
+          "title": "Ideas for interiors Taylor Wimpey Trusdale",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcrf8y/ideas_for_interiors_taylor_wimpey_trusdale/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcrf8y/ideas_for_interiors_taylor_wimpey_trusdale/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785600781,
+          "snippet": "We are in a process of buying a trusdale taylor wimpey house. I would welcome suggestions as to where to find ideas of interiors of that style of house. I do not want to use Chat gpt but real examples. Thank you. submitted by /u/Healthy_Length_1541 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcjcbw",
+          "title": "Putting fence on garden access path",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcjcbw/putting_fence_on_garden_access_path/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcjcbw/putting_fence_on_garden_access_path/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785578605,
+          "snippet": "I live in a semi-detached house. Looking at my title deed I have ownership of: My garden My house My driveway The path between my neighbours house from the front of the drive until both our garden access door. Both me and my neighbour use the access path (I guess it's shared thro",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcqltr",
+          "title": "Long Distance Relationship",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcqltr/long_distance_relationship/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcqltr/long_distance_relationship/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785598831,
+          "snippet": "Hi! Me and my partner are currently looking at moving in together soon, but we both live in different cities in England. How does this work when looking at buying a house together? Would we need to rent first and find a job there? Or can I stick with my current job, get a mortgag",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcql60",
+          "title": "Buying a house in Haselbury, Enfield N9 - honest opinions from locals?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcql60/buying_a_house_in_haselbury_enfield_n9_honest/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcql60/buying_a_house_in_haselbury_enfield_n9_honest/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785598786,
+          "snippet": "Hi everyone, My wife and I are first-time buyers and are close to purchasing a three-bedroom terraced house in Haselbury ward, N9 . I want to be specific because the property is not in Edmonton Green town centre, Lower Edmonton or Upper Edmonton. It is in the more residential Has",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcpm84",
+          "title": "Cost of moving",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcpm84/cost_of_moving/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcpm84/cost_of_moving/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785596409,
+          "snippet": "Recently moved out of my 1 bed flat(kitchen, bathroom,living room included) in west central london(SoHo) to canary wharf. Cost me 580£ for everything. 260£ for the moving company 170£ for end of tenancy cleaning 150£ for waste and rubbish removal I think I got scammed but I was n",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcp6u8",
+          "title": "How much for a L2 survey? Yorkshire/Notts area",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcp6u8/how_much_for_a_l2_survey_yorkshirenotts_area/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcp6u8/how_much_for_a_l2_survey_yorkshirenotts_area/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785595319,
+          "snippet": "I've had 4 quotes from local surveyors that come highly recommended on local threads, ranging from £720 to £1068. We're a bit surprised as we were expecting a L2 to be cheaper than that, but we've been out the game a while so wanted to sense check. It's for a 4 bed detached. Does",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vbv7ss",
+          "title": "How many people have mortgages that are 50%+ of their take-home pay? Is life comfortable?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vbv7ss/how_many_people_have_mortgages_that_are_50_of/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vbv7ss/how_many_people_have_mortgages_that_are_50_of/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785514003,
+          "snippet": "I know it entirely depends on your income (e.g. 50% of £10k a month is much more affordable that 50% of £2.5k), but how many people do it? And was it worth it? Lenders in the UK now offer higher multipliers as standard, so more people must be entering that space. But I can’t deci",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcnslw",
+          "title": "Update: Unpleasant Landlord",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcnslw/update_unpleasant_landlord/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcnslw/update_unpleasant_landlord/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785591800,
+          "snippet": "submitted by /u/xFatty_Acidx [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcnb4i",
+          "title": "Title plan off by less than 0.5sqm",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcnb4i/title_plan_off_by_less_than_05sqm/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcnb4i/title_plan_off_by_less_than_05sqm/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785590509,
+          "snippet": "Would you walk away over a potential boundary encroachment of around 0.1 sqm (approximately 2m × 5cm)? We’re buying a Victorian terrace in England. Our solicitor believes the neighbour’s extension may encroach onto the property by about 2 metres long and 5 cm wide . There has nev",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcn0nm",
+          "title": "Pre exchange viewing",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcn0nm/pre_exchange_viewing/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcn0nm/pre_exchange_viewing/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785589757,
+          "snippet": "We are about to sell our house and buy our next. We are so close to exchanging contracts and there is just one last hurdle. Our buyer wants a pre exchange viewing. I don’t know why, this is giving me so much anxiety. For some reason, I can’t help but think our buyer is going to p",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcm69l",
+          "title": "Realistic Renovation Costs",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcm69l/realistic_renovation_costs/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcm69l/realistic_renovation_costs/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785587471,
+          "snippet": "My husband and I are keen on a 3-bedroom semi-detached property in Gloucestershire. It’s a typical 1960-1970’s style house. It’s been well looked after and is in good condition but is in need of modernisation throughout. It has a new boiler, new windows/doors, and upgraded electr",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcm208",
+          "title": "People who bought homes from Ashberry or Keepmoat Developer - What is your experience?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcm208/people_who_bought_homes_from_ashberry_or_keepmoat/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcm208/people_who_bought_homes_from_ashberry_or_keepmoat/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785587130,
+          "snippet": "I'm looking to buy my first home. Would like to know from people that got properties from them if the home built is of good quality or if there are concerns. thanks submitted by /u/PlantBased55 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vckxnj",
+          "title": "Suggestions for locations for 2-bed or 3-bed house rent in region of £1400",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vckxnj/suggestions_for_locations_for_2bed_or_3bed_house/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vckxnj/suggestions_for_locations_for_2bed_or_3bed_house/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785583843,
+          "snippet": "Hi everyone - currently live in London at 1700 in 2 bed house (1 double, 1 single bedroom) with both of us working from home full time. Recently found out I'm pregnant with twins so looking for places to move out of London as with 80k combined income, London is simply not afforda",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vckwhs",
+          "title": "Deposit rules?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vckwhs/deposit_rules/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vckwhs/deposit_rules/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785583747,
+          "snippet": "Hi there, I’m a uni student and I’ve just moved out of last years house. I just have a few questions that I’m struggling to figure out via google. My landlord hasn’t put our deposit in a deposit protection scheme to our knowledge. I wasn’t aware of deposit protection schemes at a",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,10 +509,11 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 9,
+      "postCount": 24,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "HousingUK"
       ],
       "posts": [
         {
@@ -280,27 +529,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbtnn2",
-          "title": "Can I paint my neighbour’s wall? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
+          "id": "1vchoup",
+          "title": "New lead regulations mean me and the other woman in our business could lose our jobs simply because we're women",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vchoup/new_lead_regulations_mean_me_and_the_other_woman/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vchoup/new_lead_regulations_mean_me_and_the_other_woman/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785510632,
-          "snippet": "This section of wall is technically our neighbour’s house, but is facing our garden. Are we allowed to paint it or would we have to get permission? submitted by /u/OverSeasoned_ [link] [comments]",
+          "createdUtc": 1785572861,
+          "snippet": "Me and another woman are employed as plumbers in England. We work for a company doing lead pipe replacement. This is about 90% of our job given the prevalence of lead pipes in our area. Our boss called us in on Friday and said he was worried about new government regulations comin",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vboxaj",
-          "title": "Facing gross misconduct allegations in uk. Advice please",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vboxaj/facing_gross_misconduct_allegations_in_uk_advice/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vboxaj/facing_gross_misconduct_allegations_in_uk_advice/",
+          "id": "1vcpu6p",
+          "title": "Guy I know appearing at my house at all hours, won’t take no for an answer. Any advice? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcpu6p/guy_i_know_appearing_at_my_house_at_all_hours/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcpu6p/guy_i_know_appearing_at_my_house_at_all_hours/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785499201,
-          "snippet": "Back story, a child threatened to rape my daughter. (Both teenagers) Sorted this out with school and stuff. No problem. I work as business support in a safeguarding team. One very busy day i was the only BS in so I was doing everything, meetings, emails etc. An email came in from",
+          "createdUtc": 1785596936,
+          "snippet": "Hi, I’m not sure if this is the right place for it. Someone I know, an old friend of mine, has been coming to my house in the night without prior information of his coming over. It’s really getting on my nerves, I’ve told him not to but he just gives the same old stock response t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vck3uy",
+          "title": "Police say my number plate has likely been cloned – I’ve located the vehicle displaying my registration. What should I do next?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vck3uy/police_say_my_number_plate_has_likely_been_cloned/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vck3uy/police_say_my_number_plate_has_likely_been_cloned/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785581219,
+          "snippet": "Location: England. I’m looking for some advice on where I stand legally and whether there’s anything more I should be doing. A few days ago, the police attended my registered address because my vehicle registration was allegedly involved in a fuel drive-off from a petrol station.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vciznm",
+          "title": "Mil is putting in the steps to take my child-England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vciznm/mil_is_putting_in_the_steps_to_take_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vciznm/mil_is_putting_in_the_steps_to_take_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785577411,
+          "snippet": "I recently found a letter in my mil house a confirmation of documentation of her history helping with my child such as sleep overs and when she’s bought things or supported us and now I’m anxious she’s preparing incase we cut contact due to her overstepping boundaries all the tim",
           "listingSource": "rss:hot"
         },
         {
@@ -316,51 +589,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbetqu",
-          "title": "My ex owes me money and won't pay it back - scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbetqu/my_ex_owes_me_money_and_wont_pay_it_back_scotland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbetqu/my_ex_owes_me_money_and_wont_pay_it_back_scotland/",
+          "id": "1vbtnn2",
+          "title": "Can I paint my neighbour’s wall? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtnn2/can_i_paint_my_neighbours_wall_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785467398,
-          "snippet": "1 year ago me and my ex bf broke up. We lived in a flat (he was not on the lease so no proof there) together, I stayed with my mother for a month while he stayed at the flat and looked for a new place. He couldnt afford the deposit + first month rent so he asked me for a loan. It",
+          "createdUtc": 1785510632,
+          "snippet": "This section of wall is technically our neighbour’s house, but is facing our garden. Are we allowed to paint it or would we have to get permission? submitted by /u/OverSeasoned_ [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vcaiet",
-          "title": "England - broken camera over staff member dispute",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcaiet/england_broken_camera_over_staff_member_dispute/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcaiet/england_broken_camera_over_staff_member_dispute/",
+          "id": "1vcoqj1",
+          "title": "Father Recently Passed Away In Intestacy.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcoqj1/father_recently_passed_away_in_intestacy/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcoqj1/father_recently_passed_away_in_intestacy/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785550364,
-          "snippet": "Today I went to a branch photography store in search for a camera. An assistant asks me if I need help and begins advertising. He asks me if I'd like to see a demonstration and takes pictures, then, without asking, proceeds to take pictures of me and point the camera at my face. ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vc3fao",
-          "title": "Baliff letter in England - no previous correspondence",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc3fao/baliff_letter_in_england_no_previous/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc3fao/baliff_letter_in_england_no_previous/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785532192,
-          "snippet": "Hi all, Would love some advice. Back in 2021 I applied for a job and they did a DBS check - the DBS flagged a conviction which I was shocked by. It said that I had allegedly not paid a train fare. I subsequently contacted the DBS team as the alleged conviction was on a date I was",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vbmytw",
-          "title": "My father passed, leaving his estate to me. However, his ex is still on the deeds and has had a really bad stroke. How can I move forward? | England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmytw/my_father_passed_leaving_his_estate_to_me_however/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmytw/my_father_passed_leaving_his_estate_to_me_however/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785493240,
-          "snippet": "Tldr - My father passed away, leaving me as the sole beneficiary and an executor of his will. His ex was on the deeds of his house, but didn‘t contribute to buying, maintenance or live there (they broke up very soon after). Upon his death we were in the process of transferring th",
+          "createdUtc": 1785594178,
+          "snippet": "Hello, My father passed away on Tuesday in England after a long battle with cancer. I've travelled from Australia which is where I live to spend some time with him prior to the passing. I do however hold dual citizenship. The death certificate and registration will be organised o",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,10 +618,11 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 4,
+      "postCount": 6,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "HousingUK"
       ],
       "posts": [
         {
@@ -400,27 +650,99 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbp5xn",
-          "title": "Tenant is begging me to evict them.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbp5xn/tenant_is_begging_me_to_evict_them/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbp5xn/tenant_is_begging_me_to_evict_them/",
+          "id": "1vcnb4t",
+          "title": "England - Update: Unpleasant Landlord",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcnb4t/england_update_unpleasant_landlord/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcnb4t/england_update_unpleasant_landlord/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785499832,
-          "snippet": "I'm extremely suspicious of what is going on and they are playing coy with me when I'm pressing for details. I'm in England. Tenant (Mr. A) was originally a single man renting out a 3 bedroom property; but the property now has 9 people living in it with the living room being conv",
+          "createdUtc": 1785590510,
+          "snippet": "Thank you to everyone who helped me already! I appreciate your advice so much 🫶 . this is the link to the original post https://www.reddit.com/r/HousingUK/comments/1v7t6hx/advice\\_needed\\_unpleasant\\_landlord/ I gave my live-in landlord the two months’ notice required by my lodg",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbuqsd",
-          "title": "Supported housing provider telling me to \"stay in locked room\" despite housemate having illegal weapons & violent threats (Harrogate / NYCC)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuqsd/supported_housing_provider_telling_me_to_stay_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbuqsd/supported_housing_provider_telling_me_to_stay_in/",
+          "id": "1vclq1d",
+          "title": "Block with high proportion of Social Housing",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vclq1d/block_with_high_proportion_of_social_housing/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vclq1d/block_with_high_proportion_of_social_housing/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785586194,
+          "snippet": "I have had an offer accepted on a property. This is an ex-council flat in East London in a 7 story building (although the unit in question is on the ground floor and has a garden). My initial mortgage application with First Direct was rejected on the grounds that the building has",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcnslw",
+          "title": "Update: Unpleasant Landlord",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcnslw/update_unpleasant_landlord/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcnslw/update_unpleasant_landlord/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785591800,
+          "snippet": "submitted by /u/xFatty_Acidx [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vckwhs",
+          "title": "Deposit rules?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vckwhs/deposit_rules/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vckwhs/deposit_rules/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785583747,
+          "snippet": "Hi there, I’m a uni student and I’ve just moved out of last years house. I just have a few questions that I’m struggling to figure out via google. My landlord hasn’t put our deposit in a deposit protection scheme to our knowledge. I wasn’t aware of deposit protection schemes at a",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "data-protection-and-privacy",
+      "label": "Data Protection and Privacy",
+      "legalAreaSlug": "data_protection",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vcn6df",
+          "title": "GDPR data request from disgruntled member of small neighbourhood WhatsApp group — do we have to comply? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcn6df/gdpr_data_request_from_disgruntled_member_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcn6df/gdpr_data_request_from_disgruntled_member_of/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785513003,
-          "snippet": "Hey everyone, looking for some advice on where I stand legally and how to force my supported housing provider / local council to take action. I'm very sorry for the long post, I don't know what my options are and frankly I'm scared ​I’m currently in a shared supported house in Ha",
+          "createdUtc": 1785590162,
+          "snippet": "&#x200B; I help admin a small, informal neighbourhood WhatsApp group (just residents on our street organising things like bin days, lost pets, local recommendations — not a registered organisation or resident's association, just a group chat someone set up years ago). A former me",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vcmr9j",
+          "title": "Charged with possession of a bladed article after forgotten camping knife found at Gatwick. What sentence is realistically likely?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcmr9j/charged_with_possession_of_a_bladed_article_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcmr9j/charged_with_possession_of_a_bladed_article_after/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785589090,
+          "snippet": "I've been charged under s.139 after airport security found a locking camping knife (3\" blade) in my rucksack at Gatwick. The knife had been left in the bag after a previous hiking/camping trip and I'd genuinely forgotten it was there. It was found during routine X-ray screening, ",
           "listingSource": "rss:hot"
         }
       ]
@@ -450,9 +772,9 @@
       ]
     },
     {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -460,15 +782,39 @@
       ],
       "posts": [
         {
-          "id": "1vc155l",
-          "title": "Lost my inheritance court case. Now I’m facing losing my home despite there being enough equity if it’s sold properly. What can I do? I’m in the UK.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc155l/lost_my_inheritance_court_case_now_im_facing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc155l/lost_my_inheritance_court_case_now_im_facing/",
+          "id": "1vctnb1",
+          "title": "Bwlegal sending letters about debt I don't own",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vctnb1/bwlegal_sending_letters_about_debt_i_dont_own/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vctnb1/bwlegal_sending_letters_about_debt_i_dont_own/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785527034,
-          "snippet": "Six years ago my ex-husband, who had been a City Lawyer died from alcoholism. He had one child - our son, who was a minor at the time of his death. We had separated when our son was toddler due to his drinking. But we were on fairly good terms. When a glamorous Thai ‘massage ther",
+          "createdUtc": 1785606170,
+          "snippet": "Hi, hoping for some advice. I rented a property until end of March 2023 and paid and closed both electricity and water utility bills. Now received a letter from BW legal on behalf of JC International Acquisition that there is an outstanding debt they bought from Scottish Power fo",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vcp9zk",
+          "title": "Negotiating an insurance/legal claim over broken work equipment",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcp9zk/negotiating_an_insurancelegal_claim_over_broken/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcp9zk/negotiating_an_insurancelegal_claim_over_broken/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785595536,
+          "snippet": "In England. In freelance work I use highly specialised portable equipment (~£20K). For one job I asked a colleague to assist and he has similar equipment. We are independent freelancers with no other business relationship. We both have insurance for our own equipment as well as p",
           "listingSource": "rss:hot"
         }
       ]
@@ -477,106 +823,106 @@
       "slug": "family-law",
       "label": "Family Law",
       "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vcukq5",
+          "title": "Inheritance/ will family dispute (UK)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcukq5/inheritance_will_family_dispute_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcukq5/inheritance_will_family_dispute_uk/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785608370,
+          "snippet": "my nan passed away about 3 months ago now, she was my dads mother and my dad died in 2020. My uncle is next of kin. Today we received a copy of my nans will stating that all of her estate goes to my uncle, the will was changed in 2023. My nan was extremely close to me and my sist",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "energy-and-utilities",
+      "label": "Energy and Utilities",
+      "legalAreaSlug": "consumer_energy_utilities",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vcu4b5",
+          "title": "Thames water bill too high , meter can’t be installed, any advice ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcu4b5/thames_water_bill_too_high_meter_cant_be/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcu4b5/thames_water_bill_too_high_meter_cant_be/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785607301,
+          "snippet": "I’ve recently moved into a flat in London , after trying to get a meter fitted I was told that they can’t install a meter due to shared supply. The reduced bill is £614 for the year. I live alone in a one bed. ( I have told them this) My water bill for the last year was £184 in a",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
       "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "HousingUK"
       ],
       "posts": [
         {
-          "id": "1vcge5j",
-          "title": "NI- how to lawfully have ex-husband's car removed from property after divorce",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcge5j/ni_how_to_lawfully_have_exhusbands_car_removed/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcge5j/ni_how_to_lawfully_have_exhusbands_car_removed/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vcuvfe",
+          "title": "Buying a house - extension questions",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcuvfe/buying_a_house_extension_questions/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcuvfe/buying_a_house_extension_questions/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785568359,
-          "snippet": "Ex-husband has a beaten up old car parked up on bricks in my driveway. It has been there years but now that I have sole ownership of the property I want it removed. He is not engaging with my request. I cannot tamper with it, the V5 is in his name and I'm sure if I report it to t",
+          "createdUtc": 1785609061,
+          "snippet": "Hi! Looking to buy a Victorian mid terrace and its already got a small rear extension around, 5.7m2. However its being used as a utility just off of the kitchen, and the floor level is lower than the kitchen. About 30cm or so. My question would be if we were to raise the floor so",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vbt1pw",
-          "title": "Contacted by a debt collection agency for a business loan I did not sign for",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbt1pw/contacted_by_a_debt_collection_agency_for_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbt1pw/contacted_by_a_debt_collection_agency_for_a/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vcql60",
+          "title": "Buying a house in Haselbury, Enfield N9 - honest opinions from locals?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcql60/buying_a_house_in_haselbury_enfield_n9_honest/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcql60/buying_a_house_in_haselbury_enfield_n9_honest/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785509285,
-          "snippet": "UK - Will try and keep this brief. I’ve recently received a notice from a debt collection agency for a debt of just over £25,000. It is for a business loan for a limited company I have no affiliation to. The interesting part is, the company is in my name - not officially on compa",
+          "createdUtc": 1785598786,
+          "snippet": "Hi everyone, My wife and I are first-time buyers and are close to purchasing a three-bedroom terraced house in Haselbury ward, N9 . I want to be specific because the property is not in Edmonton Green town centre, Lower Edmonton or Upper Edmonton. It is in the more residential Has",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "parking-and-pcns",
-      "label": "Parking and PCNs",
-      "legalAreaSlug": "parking_pcn",
+      "slug": "judicial-review",
+      "label": "Judicial Review",
+      "legalAreaSlug": "judicial_review",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "HousingUK"
       ],
       "posts": [
         {
-          "id": "1vbmec1",
-          "title": "Hospital parking. Recurring parking tickets in England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmec1/hospital_parking_recurring_parking_tickets_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbmec1/hospital_parking_recurring_parking_tickets_in/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vcm69l",
+          "title": "Realistic Renovation Costs",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1vcm69l/realistic_renovation_costs/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1vcm69l/realistic_renovation_costs/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785491364,
-          "snippet": "Hello wonderful people of Reddit, I hope you can advise me with my issue. My local hospital switched from ticketed parking (pay as you exit) to ANPR pay as you exit. This switch happened last year. My husband has a blue badge, and this was registered to my car to receive free par",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vc028w",
-          "title": "Final Payslip following sickness dismissal (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc028w/final_payslip_following_sickness_dismissal_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vc028w/final_payslip_following_sickness_dismissal_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785524589,
-          "snippet": "Hi, My partner had an extended period of absence for a mix of PCOS related physical symptoms and quite serious self-harm incidents. After about two months they brought her in for an occupational meeting, to cut a long story short they made the decision to dismiss, but with the pr",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "fraud-and-financial-crime",
-      "label": "Fraud and Financial Crime",
-      "legalAreaSlug": "fraud_financial_crime",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vbtw9q",
-          "title": "School address fraud, consequences? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtw9q/school_address_fraud_consequences_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vbtw9q/school_address_fraud_consequences_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785511161,
-          "snippet": "Inherited a share of a property with siblings in the UK. It seems one has been using it as their home address to enrol their child in a local school (their actual home address is outside the catchment). Our names aren’t on the land registry but we are the benefactors of the prope",
+          "createdUtc": 1785587471,
+          "snippet": "My husband and I are keen on a 3-bedroom semi-detached property in Gloucestershire. It’s a typical 1960-1970’s style house. It’s been well looked after and is in good condition but is in need of modernisation throughout. It has a new boiler, new windows/doors, and upgraded electr",
           "listingSource": "rss:hot"
         }
       ]
