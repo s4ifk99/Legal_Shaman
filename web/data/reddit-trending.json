@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-02T08:09:37.796Z",
+    "scrapedAt": "2026-08-02T19:08:00.220Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 7,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,27 +38,75 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vcy5sy",
-          "title": "Neighbour is selling house and has let us know that a tree in our garden needs cutting down otherwise he will struggle to sell. Do we have to comply?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcy5sy/neighbour_is_selling_house_and_has_let_us_know/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcy5sy/neighbour_is_selling_house_and_has_let_us_know/",
+          "id": "1vditau",
+          "title": "My neighbour has set their house on fire 3 times in the past 30 months. My home insurance has jumped from £608 to £11,072 on the cheapest quote.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vditau/my_neighbour_has_set_their_house_on_fire_3_times/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vditau/my_neighbour_has_set_their_house_on_fire_3_times/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785616894,
-          "snippet": "So the neighbour that our house backs onto came knocking today about a large tree at the back of our garden that is basically right at the edge of our fence and his fence. He said he is selling his house, and his solicitor / home report has come back to say the tree may cause iss",
+          "createdUtc": 1785679153,
+          "snippet": "Needless to say, I can't afford that. We bought our home in 2016. We're a semi-detached with our neighbour being a social house. An old lady lived next to us from 2016 to December 2023 when she passed away. She was lovely and we'll always miss her. In 2024 new tenants moved into ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vd8ck9",
-          "title": "Landlord informally asked me to leave two days before my tenancy renewal starts - what are my legal rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd8ck9/landlord_informally_asked_me_to_leave_two_days/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd8ck9/landlord_informally_asked_me_to_leave_two_days/",
+          "id": "1vdegna",
+          "title": "Royal Mail worker came to my home after I reported him - possible GDPR breach? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdegna/royal_mail_worker_came_to_my_home_after_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdegna/royal_mail_worker_came_to_my_home_after_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785645252,
-          "snippet": "Hi, I'm in England and live in a shared university HMO where each tenant rents their own room. I've lived here for the past 11 months, and I signed a renewal for another 51-week tenancy which is due to begin on Monday (3 August). Yesterday (1 August), my landlord's daughter, who ",
+          "createdUtc": 1785666086,
+          "snippet": "I recently witnessed a Royal Mail driver knock a neighbours parked car and drive away without stopping or leaving details. I reported what I saw to the police via 101 who advised I also make a complaint to Royal Mail, which I did. The same postman came to my home and asked for me",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vdjzzq",
+          "title": "GAILS in London, England allergic reaction due to misleading label",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdjzzq/gails_in_london_england_allergic_reaction_due_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdjzzq/gails_in_london_england_allergic_reaction_due_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785682125,
+          "snippet": "Gails in london are not highlighting allergens on their packaging - i am very meticulous about my purchasing of food products as i have had a nut allergy all my life and yet i was caught out at Gails after accidentally eating macadamia nuts in the summer vegetable salad. The labe",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vdmy8e",
+          "title": "Residential staff being told they must stay overnight - is this legal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdmy8e/residential_staff_being_told_they_must_stay/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdmy8e/residential_staff_being_told_they_must_stay/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785689197,
+          "snippet": "I am working for a residential childcare facility temporarily in England. They provide accommodation for the period I am working with contract breaks every 2 weeks where we have to move out. After having gone through the induction, they have informed us that we must be in the acc",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vdeq0r",
+          "title": "Tenant is removing the self-closing devices from the fire doors - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdeq0r/tenant_is_removing_the_selfclosing_devices_from/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdeq0r/tenant_is_removing_the_selfclosing_devices_from/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785667013,
+          "snippet": "I live in a HMO property. There is a security fire-door in the kitchen that should be closed at any time. A tenant removed the self-closing device and it's forcing the door open. The whole house smells like a fried chicken restaurant. I told the agency running the house in April.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vdi8ib",
+          "title": "Scaffolder refusing to take scaffolding down following payment / damage dispute with a roofer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdi8ib/scaffolder_refusing_to_take_scaffolding_down/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdi8ib/scaffolder_refusing_to_take_scaffolding_down/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785677620,
+          "snippet": "Hi All, Hoping anyone can help at all with this dispute we have with a scaffolder / roofer which has gotten quite messy quite quickly and escalated to the point where a scaffolder is refusing to take his scaffolding away. For context we moved in 2 weeks ago and had our first baby",
           "listingSource": "rss:hot"
         },
         {
@@ -74,6 +122,102 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vdndch",
+          "title": "My wife is panicking about this. Multiple police officer friends have told her not to pay - what's the actual story? (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdndch/my_wife_is_panicking_about_this_multiple_police/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdndch/my_wife_is_panicking_about_this_multiple_police/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785690196,
+          "snippet": "submitted by /u/McFortune-Cookie [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcy5sy",
+          "title": "Neighbour is selling house and has let us know that a tree in our garden needs cutting down otherwise he will struggle to sell. Do we have to comply?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcy5sy/neighbour_is_selling_house_and_has_let_us_know/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcy5sy/neighbour_is_selling_house_and_has_let_us_know/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785616894,
+          "snippet": "So the neighbour that our house backs onto came knocking today about a large tree at the back of our garden that is basically right at the edge of our fence and his fence. He said he is selling his house, and his solicitor / home report has come back to say the tree may cause iss",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vdjtag",
+          "title": "Going bankrupt-what are the real life consequences",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdjtag/going_bankruptwhat_are_the_real_life_consequences/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdjtag/going_bankruptwhat_are_the_real_life_consequences/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785681665,
+          "snippet": "Hi, I have a house which i brought as an investememt. Long story short it has blown up in my face. I have about a 80k mortgage (interest only so debt is going up) and a few grand for my service charge. I cannot sell or rent it out as the building is is such disrepair (please dont",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vd8ck9",
+          "title": "Landlord informally asked me to leave two days before my tenancy renewal starts - what are my legal rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd8ck9/landlord_informally_asked_me_to_leave_two_days/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd8ck9/landlord_informally_asked_me_to_leave_two_days/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785645252,
+          "snippet": "Hi, I'm in England and live in a shared university HMO where each tenant rents their own room. I've lived here for the past 11 months, and I signed a renewal for another 51-week tenancy which is due to begin on Monday (3 August). Yesterday (1 August), my landlord's daughter, who ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vdp6sv",
+          "title": "Not allowed to refuse shifts on zero hour contract?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdp6sv/not_allowed_to_refuse_shifts_on_zero_hour_contract/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdp6sv/not_allowed_to_refuse_shifts_on_zero_hour_contract/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785694453,
+          "snippet": "I have a zero hour contract job, I’ve had it for 6 years and through uni. I haven’t been able to get a better job since finishing uni, but I have started making a really decent amount monthly through self-employment (online work) that means I haven’t had to rely on the job to liv",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vdi93e",
+          "title": "England my niece (17f) not being paid by her former employer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdi93e/england_my_niece_17f_not_being_paid_by_her_former/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdi93e/england_my_niece_17f_not_being_paid_by_her_former/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785677663,
+          "snippet": "Hi so my niece a 17 year old female started her first job at a hair salon a few weeks ago. This week she was struggling and asked her boss for a £20 advance so she could get some food. He immediately texted her to say that she was fired saying she is always on her phone and now a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vcp369",
+          "title": "(England) Update: Advice on Defending a Small Claims Court Claim from my neighbour regarding cats defecating in his garden.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcp369/england_update_advice_on_defending_a_small_claims/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcp369/england_update_advice_on_defending_a_small_claims/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785595062,
+          "snippet": "I posted, about 2 years ago (see linked post), in this subreddit about my neighbour taking me to small claims court over my cats (allegedly) defecating in their garden along with a long list of rambling complaints about other items. The proceedings have now finished (around 2 mon",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vdn4me",
+          "title": "Sold car, buyer filled a court claim, was out of country, worth appealing?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdn4me/sold_car_buyer_filled_a_court_claim_was_out_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdn4me/sold_car_buyer_filled_a_court_claim_was_out_of/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785689627,
+          "snippet": "My wife sold a car through an ebay advert, new mot, advisories shared with buyer. Buyer visited and test drove, placed a deposit, and came back 2 days later to take a £1150 vehicle away. Drove home 50 miles, didn't hear anything, then 11 days later starts texting my wife saying i",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vcyoiq",
           "title": "Tree Protection Order from 1970 - tree hasn't existed since at least 1990. (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcyoiq/tree_protection_order_from_1970_tree_hasnt/",
@@ -86,171 +230,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vcmr9j",
-          "title": "Charged with possession of a bladed article after forgotten camping knife found at Gatwick. What sentence is realistically likely?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcmr9j/charged_with_possession_of_a_bladed_article_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcmr9j/charged_with_possession_of_a_bladed_article_after/",
+          "id": "1vdny6g",
+          "title": "Rogue Trader hasn’t returned deposit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdny6g/rogue_trader_hasnt_returned_deposit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdny6g/rogue_trader_hasnt_returned_deposit/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785589090,
-          "snippet": "I've been charged under s.139 after airport security found a locking camping knife (3\" blade) in my rucksack at Gatwick. The knife had been left in the bag after a previous hiking/camping trip and I'd genuinely forgotten it was there. It was found during routine X-ray screening, ",
+          "createdUtc": 1785691568,
+          "snippet": "Hello. I recently had a sole trader come to paint my office for £150.. No wall prep was done, there’s still white wall showing in multiple places, lumpsC and my carpet has multiple paint stains on it. Another job was done- cat fence proofing with netting &amp; brackets above and ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vcn6df",
-          "title": "GDPR data request from disgruntled member of small neighbourhood WhatsApp group — do we have to comply? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcn6df/gdpr_data_request_from_disgruntled_member_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcn6df/gdpr_data_request_from_disgruntled_member_of/",
+          "id": "1vdpovv",
+          "title": "Police Response Regarding Ex Partner Attempting to Contact Me Despite Non-Molestation Order - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdpovv/police_response_regarding_ex_partner_attempting/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdpovv/police_response_regarding_ex_partner_attempting/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785590162,
-          "snippet": "&#x200B; I help admin a small, informal neighbourhood WhatsApp group (just residents on our street organising things like bin days, lost pets, local recommendations — not a registered organisation or resident's association, just a group chat someone set up years ago). A former me",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vcpu6p",
-          "title": "Guy I know appearing at my house at all hours, won’t take no for an answer. Any advice? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcpu6p/guy_i_know_appearing_at_my_house_at_all_hours/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcpu6p/guy_i_know_appearing_at_my_house_at_all_hours/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785596936,
-          "snippet": "Hi, I’m not sure if this is the right place for it. Someone I know, an old friend of mine, has been coming to my house in the night without prior information of his coming over. It’s really getting on my nerves, I’ve told him not to but he just gives the same old stock response t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vchoup",
-          "title": "New lead regulations mean me and the other woman in our business could lose our jobs simply because we're women",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vchoup/new_lead_regulations_mean_me_and_the_other_woman/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vchoup/new_lead_regulations_mean_me_and_the_other_woman/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785572861,
-          "snippet": "Me and another woman are employed as plumbers in England. We work for a company doing lead pipe replacement. This is about 90% of our job given the prevalence of lead pipes in our area. Our boss called us in on Friday and said he was worried about new government regulations comin",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vck3uy",
-          "title": "Police say my number plate has likely been cloned – I’ve located the vehicle displaying my registration. What should I do next?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vck3uy/police_say_my_number_plate_has_likely_been_cloned/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vck3uy/police_say_my_number_plate_has_likely_been_cloned/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785581219,
-          "snippet": "Location: England. I’m looking for some advice on where I stand legally and whether there’s anything more I should be doing. A few days ago, the police attended my registered address because my vehicle registration was allegedly involved in a fuel drive-off from a petrol station.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vczx2l",
-          "title": "Wedding dress tailor (England) charged me £750, kept my dress for months, threw away my spare fabric and I ended up paying just to get my dress back. What would you do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vczx2l/wedding_dress_tailor_england_charged_me_750_kept/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vczx2l/wedding_dress_tailor_england_charged_me_750_kept/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785621253,
-          "snippet": "I’m in England. In April I left my wedding dress with a bridal tailor who was recommended by the bridal shop I bought the dress from. The agreed alterations were: Hemming Raising the neckline Altering the sleeves There was no written contract, but we agreed everything verbally an",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vciznm",
-          "title": "Mil is putting in the steps to take my child-England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vciznm/mil_is_putting_in_the_steps_to_take_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vciznm/mil_is_putting_in_the_steps_to_take_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785577411,
-          "snippet": "I recently found a letter in my mil house a confirmation of documentation of her history helping with my child such as sleep overs and when she’s bought things or supported us and now I’m anxious she’s preparing incase we cut contact due to her overstepping boundaries all the tim",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vcuxkb",
-          "title": "Enhanced dbs check for nhs job - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcuxkb/enhanced_dbs_check_for_nhs_job_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcuxkb/enhanced_dbs_check_for_nhs_job_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785609199,
-          "snippet": "Hiya, aged 13/14 I got arrested for shoplifting. Obviously a huge turning point in my life and since then been on the straight and narrow. I am now in a senior NHS position (non clinical) and just been offered a more senior job. This time I need a DBS. As it’s NHS I assume it’s a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vdbpn7",
-          "title": "England: Self-employed Ltd Company Director – CMS only using salary, not dividends?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdbpn7/england_selfemployed_ltd_company_director_cms/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdbpn7/england_selfemployed_ltd_company_director_cms/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785656353,
-          "snippet": "My ex has recently opened a CMS case despite me always paying the agreed child maintenance voluntarily. I’m a director of a limited company and pay myself a small salary plus dividends, this has been the case for over two years. The initial CMS letter states they’ve used my HMRC ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vdbw3d",
-          "title": "Paypoint provider refusing to investigate a missing transaction",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdbw3d/paypoint_provider_refusing_to_investigate_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdbw3d/paypoint_provider_refusing_to_investigate_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785656994,
-          "snippet": "Hi everyone, I'm wondering if some legal-advice guys and gals could give me a steer on a problem I'm trying to resolve for my mother in law. She pays her rent using a paypoint style provider in a local store in England (London), and has done for years, but this time around she th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vdbkfn",
-          "title": "Bought a house last week that needs a reroof. The issues were missed in the survey and known by the sellers last year, but neither flagged it up",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdbkfn/bought_a_house_last_week_that_needs_a_reroof_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdbkfn/bought_a_house_last_week_that_needs_a_reroof_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785655830,
-          "snippet": "So I'm looking for a bit of advice on a house sale that completed last week. (This is in England) The Level 3 survey mentioned a few bits that needed doing on the roof (a couple slipped tiles, one or two cracked ones), so we got a trusted roofer in to give everything a once-over ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vd1quz",
-          "title": "Witnessed a hit and run at work",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd1quz/witnessed_a_hit_and_run_at_work/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd1quz/witnessed_a_hit_and_run_at_work/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785626050,
-          "snippet": "I'm not sure if this is the right place for this but earlier on today(Saturday) I was in my car in my works car park and someone reversed/ rolled back into the car next to me. It was a pretty hard hit, it moved the car back in the space it was so hard. However, the reversing car ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vdaner",
-          "title": "Consumer rights for 16yr old car (owned by me for 2 months)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdaner/consumer_rights_for_16yr_old_car_owned_by_me_for/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdaner/consumer_rights_for_16yr_old_car_owned_by_me_for/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785652707,
-          "snippet": "Hi all, I'm in England. I bought a second hand 2009 Ford Mondeo in May, and over the past few weeks some issues have come to light: -One of the electric windows has failed on the rear passenger door (just completely slack, no response at all when pressing button) -Central locking",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vd3nco",
-          "title": "Removal company ripped lino flooring on move in day. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd3nco/removal_company_ripped_lino_flooring_on_move_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd3nco/removal_company_ripped_lino_flooring_on_move_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785631302,
-          "snippet": "Hey, moved into a new flat which has link flooring in the kitchen. I agreed with the landlord to remove the washing machine that was ready there and install my own. The removal men did this and then left very abruptly. When I went to check after they had gone, I noticed 3 rips in",
+          "createdUtc": 1785695621,
+          "snippet": "Edit: for context, the clauses of my non molestation order are he is not allowed to : \"Communicate with the Applicant in any way whatsoever, whether by speaking, by sending a letter, telephone, text, message or other means of electronic or digital communication Contact the Applic",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 12,
+      "postCount": 9,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,15 +280,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vcy5sy",
-          "title": "Neighbour is selling house and has let us know that a tree in our garden needs cutting down otherwise he will struggle to sell. Do we have to comply?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcy5sy/neighbour_is_selling_house_and_has_let_us_know/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcy5sy/neighbour_is_selling_house_and_has_let_us_know/",
+          "id": "1vdjzzq",
+          "title": "GAILS in London, England allergic reaction due to misleading label",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdjzzq/gails_in_london_england_allergic_reaction_due_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdjzzq/gails_in_london_england_allergic_reaction_due_to/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785616894,
-          "snippet": "So the neighbour that our house backs onto came knocking today about a large tree at the back of our garden that is basically right at the edge of our fence and his fence. He said he is selling his house, and his solicitor / home report has come back to say the tree may cause iss",
+          "createdUtc": 1785682125,
+          "snippet": "Gails in london are not highlighting allergens on their packaging - i am very meticulous about my purchasing of food products as i have had a nut allergy all my life and yet i was caught out at Gails after accidentally eating macadamia nuts in the summer vegetable salad. The labe",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vdmy8e",
+          "title": "Residential staff being told they must stay overnight - is this legal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdmy8e/residential_staff_being_told_they_must_stay/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdmy8e/residential_staff_being_told_they_must_stay/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785689197,
+          "snippet": "I am working for a residential childcare facility temporarily in England. They provide accommodation for the period I am working with contract breaks every 2 weeks where we have to move out. After having gone through the induction, they have informed us that we must be in the acc",
           "listingSource": "rss:hot"
         },
         {
@@ -304,63 +316,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vcyoiq",
-          "title": "Tree Protection Order from 1970 - tree hasn't existed since at least 1990. (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcyoiq/tree_protection_order_from_1970_tree_hasnt/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcyoiq/tree_protection_order_from_1970_tree_hasnt/",
+          "id": "1vdndch",
+          "title": "My wife is panicking about this. Multiple police officer friends have told her not to pay - what's the actual story? (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdndch/my_wife_is_panicking_about_this_multiple_police/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdndch/my_wife_is_panicking_about_this_multiple_police/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785618158,
-          "snippet": "Selling my Mother's home (care home fees) and it turns out there is/was a Tree Protection Order put in place in 1970. She bought the house in 1990 and there was no tree then, and now the buyers are raising questions. Is this something we need to be concerned about or can we just ",
+          "createdUtc": 1785690196,
+          "snippet": "submitted by /u/McFortune-Cookie [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vcpu6p",
-          "title": "Guy I know appearing at my house at all hours, won’t take no for an answer. Any advice? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcpu6p/guy_i_know_appearing_at_my_house_at_all_hours/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcpu6p/guy_i_know_appearing_at_my_house_at_all_hours/",
+          "id": "1vcy5sy",
+          "title": "Neighbour is selling house and has let us know that a tree in our garden needs cutting down otherwise he will struggle to sell. Do we have to comply?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcy5sy/neighbour_is_selling_house_and_has_let_us_know/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcy5sy/neighbour_is_selling_house_and_has_let_us_know/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785596936,
-          "snippet": "Hi, I’m not sure if this is the right place for it. Someone I know, an old friend of mine, has been coming to my house in the night without prior information of his coming over. It’s really getting on my nerves, I’ve told him not to but he just gives the same old stock response t",
+          "createdUtc": 1785616894,
+          "snippet": "So the neighbour that our house backs onto came knocking today about a large tree at the back of our garden that is basically right at the edge of our fence and his fence. He said he is selling his house, and his solicitor / home report has come back to say the tree may cause iss",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vchoup",
-          "title": "New lead regulations mean me and the other woman in our business could lose our jobs simply because we're women",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vchoup/new_lead_regulations_mean_me_and_the_other_woman/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vchoup/new_lead_regulations_mean_me_and_the_other_woman/",
+          "id": "1vdjtag",
+          "title": "Going bankrupt-what are the real life consequences",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdjtag/going_bankruptwhat_are_the_real_life_consequences/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdjtag/going_bankruptwhat_are_the_real_life_consequences/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785572861,
-          "snippet": "Me and another woman are employed as plumbers in England. We work for a company doing lead pipe replacement. This is about 90% of our job given the prevalence of lead pipes in our area. Our boss called us in on Friday and said he was worried about new government regulations comin",
+          "createdUtc": 1785681665,
+          "snippet": "Hi, I have a house which i brought as an investememt. Long story short it has blown up in my face. I have about a 80k mortgage (interest only so debt is going up) and a few grand for my service charge. I cannot sell or rent it out as the building is is such disrepair (please dont",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vck3uy",
-          "title": "Police say my number plate has likely been cloned – I’ve located the vehicle displaying my registration. What should I do next?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vck3uy/police_say_my_number_plate_has_likely_been_cloned/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vck3uy/police_say_my_number_plate_has_likely_been_cloned/",
+          "id": "1vdp6sv",
+          "title": "Not allowed to refuse shifts on zero hour contract?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdp6sv/not_allowed_to_refuse_shifts_on_zero_hour_contract/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdp6sv/not_allowed_to_refuse_shifts_on_zero_hour_contract/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785581219,
-          "snippet": "Location: England. I’m looking for some advice on where I stand legally and whether there’s anything more I should be doing. A few days ago, the police attended my registered address because my vehicle registration was allegedly involved in a fuel drive-off from a petrol station.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vciznm",
-          "title": "Mil is putting in the steps to take my child-England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vciznm/mil_is_putting_in_the_steps_to_take_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vciznm/mil_is_putting_in_the_steps_to_take_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785577411,
-          "snippet": "I recently found a letter in my mil house a confirmation of documentation of her history helping with my child such as sleep overs and when she’s bought things or supported us and now I’m anxious she’s preparing incase we cut contact due to her overstepping boundaries all the tim",
+          "createdUtc": 1785694453,
+          "snippet": "I have a zero hour contract job, I’ve had it for 6 years and through uni. I haven’t been able to get a better job since finishing uni, but I have started making a really decent amount monthly through self-employment (online work) that means I haven’t had to rely on the job to liv",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 2,
+      "postCount": 4,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -388,6 +388,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vdeq0r",
+          "title": "Tenant is removing the self-closing devices from the fire doors - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdeq0r/tenant_is_removing_the_selfclosing_devices_from/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdeq0r/tenant_is_removing_the_selfclosing_devices_from/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785667013,
+          "snippet": "I live in a HMO property. There is a security fire-door in the kitchen that should be closed at any time. A tenant removed the self-closing device and it's forcing the door open. The whole house smells like a fried chicken restaurant. I told the agency running the house in April.",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vd8ck9",
           "title": "Landlord informally asked me to leave two days before my tenancy renewal starts - what are my legal rights?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd8ck9/landlord_informally_asked_me_to_leave_two_days/",
@@ -398,89 +410,17 @@
           "createdUtc": 1785645252,
           "snippet": "Hi, I'm in England and live in a shared university HMO where each tenant rents their own room. I've lived here for the past 11 months, and I signed a renewal for another 51-week tenancy which is due to begin on Monday (3 August). Yesterday (1 August), my landlord's daughter, who ",
           "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vcmr9j",
-          "title": "Charged with possession of a bladed article after forgotten camping knife found at Gatwick. What sentence is realistically likely?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcmr9j/charged_with_possession_of_a_bladed_article_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcmr9j/charged_with_possession_of_a_bladed_article_after/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785589090,
-          "snippet": "I've been charged under s.139 after airport security found a locking camping knife (3\" blade) in my rucksack at Gatwick. The knife had been left in the bag after a previous hiking/camping trip and I'd genuinely forgotten it was there. It was found during routine X-ray screening, ",
-          "listingSource": "rss:hot"
         },
         {
-          "id": "1vczx2l",
-          "title": "Wedding dress tailor (England) charged me £750, kept my dress for months, threw away my spare fabric and I ended up paying just to get my dress back. What would you do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vczx2l/wedding_dress_tailor_england_charged_me_750_kept/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vczx2l/wedding_dress_tailor_england_charged_me_750_kept/",
+          "id": "1vdny6g",
+          "title": "Rogue Trader hasn’t returned deposit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdny6g/rogue_trader_hasnt_returned_deposit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdny6g/rogue_trader_hasnt_returned_deposit/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785621253,
-          "snippet": "I’m in England. In April I left my wedding dress with a bridal tailor who was recommended by the bridal shop I bought the dress from. The agreed alterations were: Hemming Raising the neckline Altering the sleeves There was no written contract, but we agreed everything verbally an",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "data-protection-and-privacy",
-      "label": "Data Protection and Privacy",
-      "legalAreaSlug": "data_protection",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vcn6df",
-          "title": "GDPR data request from disgruntled member of small neighbourhood WhatsApp group — do we have to comply? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcn6df/gdpr_data_request_from_disgruntled_member_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcn6df/gdpr_data_request_from_disgruntled_member_of/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785590162,
-          "snippet": "&#x200B; I help admin a small, informal neighbourhood WhatsApp group (just residents on our street organising things like bin days, lost pets, local recommendations — not a registered organisation or resident's association, just a group chat someone set up years ago). A former me",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vdbpn7",
-          "title": "England: Self-employed Ltd Company Director – CMS only using salary, not dividends?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdbpn7/england_selfemployed_ltd_company_director_cms/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdbpn7/england_selfemployed_ltd_company_director_cms/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785656353,
-          "snippet": "My ex has recently opened a CMS case despite me always paying the agreed child maintenance voluntarily. I’m a director of a limited company and pay myself a small salary plus dividends, this has been the case for over two years. The initial CMS letter states they’ve used my HMRC ",
+          "createdUtc": 1785691568,
+          "snippet": "Hello. I recently had a sole trader come to paint my office for £150.. No wall prep was done, there’s still white wall showing in multiple places, lumpsC and my carpet has multiple paint stains on it. Another job was done- cat fence proofing with netting &amp; brackets above and ",
           "listingSource": "rss:hot"
         }
       ]
@@ -496,23 +436,23 @@
       ],
       "posts": [
         {
-          "id": "1vdaner",
-          "title": "Consumer rights for 16yr old car (owned by me for 2 months)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdaner/consumer_rights_for_16yr_old_car_owned_by_me_for/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdaner/consumer_rights_for_16yr_old_car_owned_by_me_for/",
+          "id": "1vditau",
+          "title": "My neighbour has set their house on fire 3 times in the past 30 months. My home insurance has jumped from £608 to £11,072 on the cheapest quote.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vditau/my_neighbour_has_set_their_house_on_fire_3_times/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vditau/my_neighbour_has_set_their_house_on_fire_3_times/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785652707,
-          "snippet": "Hi all, I'm in England. I bought a second hand 2009 Ford Mondeo in May, and over the past few weeks some issues have come to light: -One of the electric windows has failed on the rear passenger door (just completely slack, no response at all when pressing button) -Central locking",
+          "createdUtc": 1785679153,
+          "snippet": "Needless to say, I can't afford that. We bought our home in 2016. We're a semi-detached with our neighbour being a social house. An old lady lived next to us from 2016 to December 2023 when she passed away. She was lovely and we'll always miss her. In 2024 new tenants moved into ",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "immigration-law",
-      "label": "Immigration Law",
-      "legalAreaSlug": "immigration",
+      "slug": "data-protection-and-privacy",
+      "label": "Data Protection and Privacy",
+      "legalAreaSlug": "data_protection",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -520,15 +460,135 @@
       ],
       "posts": [
         {
-          "id": "1vd3nco",
-          "title": "Removal company ripped lino flooring on move in day. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd3nco/removal_company_ripped_lino_flooring_on_move_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vd3nco/removal_company_ripped_lino_flooring_on_move_in/",
+          "id": "1vdegna",
+          "title": "Royal Mail worker came to my home after I reported him - possible GDPR breach? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdegna/royal_mail_worker_came_to_my_home_after_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdegna/royal_mail_worker_came_to_my_home_after_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785631302,
-          "snippet": "Hey, moved into a new flat which has link flooring in the kitchen. I agreed with the landlord to remove the washing machine that was ready there and install my own. The removal men did this and then left very abruptly. When I went to check after they had gone, I noticed 3 rips in",
+          "createdUtc": 1785666086,
+          "snippet": "I recently witnessed a Royal Mail driver knock a neighbours parked car and drive away without stopping or leaving details. I reported what I saw to the police via 101 who advised I also make a complaint to Royal Mail, which I did. The same postman came to my home and asked for me",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "poor-services-and-traders",
+      "label": "Poor Services and Traders",
+      "legalAreaSlug": "consumer_services",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vdi8ib",
+          "title": "Scaffolder refusing to take scaffolding down following payment / damage dispute with a roofer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdi8ib/scaffolder_refusing_to_take_scaffolding_down/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdi8ib/scaffolder_refusing_to_take_scaffolding_down/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785677620,
+          "snippet": "Hi All, Hoping anyone can help at all with this dispute we have with a scaffolder / roofer which has gotten quite messy quite quickly and escalated to the point where a scaffolder is refusing to take his scaffolding away. For context we moved in 2 weeks ago and had our first baby",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vdi93e",
+          "title": "England my niece (17f) not being paid by her former employer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdi93e/england_my_niece_17f_not_being_paid_by_her_former/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdi93e/england_my_niece_17f_not_being_paid_by_her_former/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785677663,
+          "snippet": "Hi so my niece a 17 year old female started her first job at a hair salon a few weeks ago. This week she was struggling and asked her boss for a £20 advance so she could get some food. He immediately texted her to say that she was fired saying she is always on her phone and now a",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "small-claims-and-county-court",
+      "label": "Small Claims and County Court",
+      "legalAreaSlug": "consumer_small_claims",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vcp369",
+          "title": "(England) Update: Advice on Defending a Small Claims Court Claim from my neighbour regarding cats defecating in his garden.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcp369/england_update_advice_on_defending_a_small_claims/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vcp369/england_update_advice_on_defending_a_small_claims/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785595062,
+          "snippet": "I posted, about 2 years ago (see linked post), in this subreddit about my neighbour taking me to small claims court over my cats (allegedly) defecating in their garden along with a long list of rambling complaints about other items. The proceedings have now finished (around 2 mon",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "prison_law",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vdn4me",
+          "title": "Sold car, buyer filled a court claim, was out of country, worth appealing?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdn4me/sold_car_buyer_filled_a_court_claim_was_out_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdn4me/sold_car_buyer_filled_a_court_claim_was_out_of/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785689627,
+          "snippet": "My wife sold a car through an ebay advert, new mot, advisories shared with buyer. Buyer visited and test drove, placed a deposit, and came back 2 days later to take a £1150 vehicle away. Drove home 50 miles, didn't hear anything, then 11 days later starts texting my wife saying i",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vdpovv",
+          "title": "Police Response Regarding Ex Partner Attempting to Contact Me Despite Non-Molestation Order - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdpovv/police_response_regarding_ex_partner_attempting/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vdpovv/police_response_regarding_ex_partner_attempting/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785695621,
+          "snippet": "Edit: for context, the clauses of my non molestation order are he is not allowed to : \"Communicate with the Applicant in any way whatsoever, whether by speaking, by sending a letter, telephone, text, message or other means of electronic or digital communication Contact the Applic",
           "listingSource": "rss:hot"
         }
       ]
