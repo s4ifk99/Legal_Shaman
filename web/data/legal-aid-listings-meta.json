@@ -1,8 +1,8 @@
 {
   "source_page": "https://www.gov.uk/government/publications/directory-of-legal-aid-providers",
-  "source_xlsx_url": "https://assets.publishing.service.gov.uk/media/6a2a6e7b1f6fa5c3377e5d4e/260605_Directory_of_provider_GOV.UK_v3.xlsx",
-  "pulled_at_utc": "2026-07-02T08:49:07+00:00",
-  "total_listings": 4798,
+  "source_xlsx_url": "https://assets.publishing.service.gov.uk/media/6a5a3901908b618a53703001/260709_Directory_of_provider_GOV.UK_v3.xlsx",
+  "pulled_at_utc": "2026-08-02T08:14:00+00:00",
+  "total_listings": 4807,
   "total_sheets": 9,
   "sheet_stats": [
     {
@@ -11,19 +11,19 @@
     },
     {
       "sheet": "Summary",
-      "rows": 3325
+      "rows": 3331
     },
     {
       "sheet": "2024 Civil authorisations",
-      "rows": 3511
+      "rows": 3515
     },
     {
       "sheet": "Modern Slavery",
-      "rows": 511
+      "rows": 518
     },
     {
       "sheet": "Housing Loss Prevention Advice",
-      "rows": 96
+      "rows": 108
     },
     {
       "sheet": "2024 Civil PT & O Presence",
@@ -31,34 +31,34 @@
     },
     {
       "sheet": "2024 Mediation Outreach",
-      "rows": 1264
+      "rows": 1256
     },
     {
       "sheet": "2025 Crime Providers",
-      "rows": 1597
+      "rows": 1602
     },
     {
       "sheet": "2025 Crime provider DSCC scheme",
-      "rows": 3651
+      "rows": 3652
     }
   ],
   "mapping_checks": [
     {
       "govNeedle": "Crime",
       "expectedSubcategorySlug": "criminal-defence",
-      "matchingListings": 1593,
+      "matchingListings": 1598,
       "passed": true
     },
     {
       "govNeedle": "Housing",
       "expectedSubcategorySlug": "housing-homelessness",
-      "matchingListings": 532,
+      "matchingListings": 534,
       "passed": true
     },
     {
       "govNeedle": "Debt",
       "expectedSubcategorySlug": "debt-management",
-      "matchingListings": 402,
+      "matchingListings": 404,
       "passed": true
     },
     {
@@ -70,7 +70,7 @@
     {
       "govNeedle": "Mental Health",
       "expectedSubcategorySlug": "mental-health-law",
-      "matchingListings": 167,
+      "matchingListings": 168,
       "passed": true
     }
   ]
