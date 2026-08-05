@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-04T19:30:20.639Z",
+    "scrapedAt": "2026-08-05T08:23:19.894Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 10,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,18 +38,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vf4uw5",
-          "title": "I got in a fight and restrained a mugger who was robbing me in Birmingham. Another individual thought I was the attacker, intervened, and let the man get away with my phone and wallet.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf4uw5/i_got_in_a_fight_and_restrained_a_mugger_who_was/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf4uw5/i_got_in_a_fight_and_restrained_a_mugger_who_was/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785833732,
-          "snippet": "Last week a guy tried to pickpocket me in Birmingham, I caught him mid act and we ended up fighting in the street after he swung a punch at my face to try and make me let go of my phone. We tussled for a bit and an older woman nearby called police. I had managed to get the guy pi",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1vfixos",
           "title": "A disabled person was removed from the only accessible fitting room so a staff member could use it for something else. Is this compliant with the Equality Act? [England]",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfixos/a_disabled_person_was_removed_from_the_only/",
@@ -62,39 +50,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vf5mv3",
-          "title": "Online shop did not take my card payment, shipped me the item, then 2 month later debt collector wants to charge me extra £25 fee. Do I have to pay?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf5mv3/online_shop_did_not_take_my_card_payment_shipped/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf5mv3/online_shop_did_not_take_my_card_payment_shipped/",
+          "id": "1vfz3kw",
+          "title": "Neighbour refusing Party Wall surveyor - what happens next? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfz3kw/neighbour_refusing_party_wall_surveyor_what/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfz3kw/neighbour_refusing_party_wall_surveyor_what/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785836448,
-          "snippet": "Almost two months ago I ordered an item for over £400 and paid by card. I did get a confirmation of the order, than it was processed and shipped. I did not check my bank statements afterwards, as I got an email showin MasterCard as the payment method and an confirmation of the or",
+          "createdUtc": 1785910563,
+          "snippet": "My neighbour is building a side return extension. He’s now served me with a Section 1(5) notice after us continuously asking him for one (he was originally planning on building his new wall astride the boundary but now changed his mind and will move the wall to 100mm inside his o",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vfahhn",
-          "title": "Landlord taking the whole deposit £3350 due to maintenance",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfahhn/landlord_taking_the_whole_deposit_3350_due_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfahhn/landlord_taking_the_whole_deposit_3350_due_to/",
+          "id": "1vfoq7r",
+          "title": "England! Landlord fly tipped fridge on our student property and now my boyfriend has been fined and threatened with court",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfoq7r/england_landlord_fly_tipped_fridge_on_our_student/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfoq7r/england_landlord_fly_tipped_fridge_on_our_student/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785850354,
-          "snippet": "Hi all, Hope you are doing well. My housemates and I lived in a 3 bedroom house in Cambridge, England for about 2 years, in these 2 years we have had 2 people live for about a year and another for a year a half before they left. After we moved out of the house today, the landlord",
+          "createdUtc": 1785881537,
+          "snippet": "This is in the uk. When we moved into our student house the fridge was broken and we contacted him for a replacement, when he replaced the fridge he put the old one on the back garden. Me and my boyfriend went home over Christmas and when we came back the fridge had been moved to",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vfgpl0",
-          "title": "[England] Divorce Question - when (if at all) is it OK to consider ex's new partner in financial settlement talks?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfgpl0/england_divorce_question_when_if_at_all_is_it_ok/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfgpl0/england_divorce_question_when_if_at_all_is_it_ok/",
+          "id": "1vf4uw5",
+          "title": "I got in a fight and restrained a mugger who was robbing me in Birmingham. Another individual thought I was the attacker, intervened, and let the man get away with my phone and wallet.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf4uw5/i_got_in_a_fight_and_restrained_a_mugger_who_was/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf4uw5/i_got_in_a_fight_and_restrained_a_mugger_who_was/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785863920,
-          "snippet": "Hi all, Just want some help on one point of our divorce. My wife is leaving me, and within a week she's found a new man (obviously there's some cross over that she won't admit to). When negotiating a split of assets/financial settlement when does the reality she's likely going in",
+          "createdUtc": 1785833732,
+          "snippet": "Last week a guy tried to pickpocket me in Birmingham, I caught him mid act and we ended up fighting in the street after he swung a punch at my face to try and make me let go of my phone. We tussled for a bit and an older woman nearby called police. I had managed to get the guy pi",
           "listingSource": "rss:hot"
         },
         {
@@ -110,147 +98,159 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vf4oc7",
-          "title": "Been TUPE’d during maternity leave and now being made redundant before return - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf4oc7/been_tuped_during_maternity_leave_and_now_being/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf4oc7/been_tuped_during_maternity_leave_and_now_being/",
+          "id": "1vg0rb0",
+          "title": "I received a letter saying I owe £2800 from an energy company who have sold this debt to a third party but I have nothing to do with this debt",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg0rb0/i_received_a_letter_saying_i_owe_2800_from_an/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg0rb0/i_received_a_letter_saying_i_owe_2800_from_an/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785833075,
-          "snippet": "Looking for some help please to understand my rights or position! I was working for Company A around 4 years. Whilst on my maternity leave (still ongoing) I got a call saying I had been TUPE’d to another company - Company B, I was given about a month’s notice before it happened. ",
+          "createdUtc": 1785916183,
+          "snippet": "Hi all, A bit of a backstory, I registered my business a couple years back for my online selling platform. I received a letter today from a very well known energy company that they have ‘passed my unpaid energy debt of £2800’ to a third party collections team. The letter I receiv",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vffp32",
-          "title": "Broken wheelchair wheel spokes after 3m, under warranty, England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vffp32/broken_wheelchair_wheel_spokes_after_3m_under/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vffp32/broken_wheelchair_wheel_spokes_after_3m_under/",
+          "id": "1vfzcbc",
+          "title": "Ex-wife delaying court-ordered house sale by refusing to sign documents or verify her ID — what should I apply for?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfzcbc/exwife_delaying_courtordered_house_sale_by/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfzcbc/exwife_delaying_courtordered_house_sale_by/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785861796,
-          "snippet": "Hi folks, I'm a wheelchair user in England. I bought a wheelchair totalling £2895 just a few months ago from a company. After a few months of seriously light use (I only use my chair outdoors 1-2x a week for a few hours) 3 of my spokes on my wheels have snapped completely. This i",
+          "createdUtc": 1785911362,
+          "snippet": "I am representing myself in financial remedy proceedings following a divorce in England and would appreciate some guidance on the correct next step. A consent order was approved by the Family Court in May 2026. The property is legally owned by my ex-wife, but the order states tha",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vfcpmy",
-          "title": "[England] Tenant refusing to move bicycle from communal fire escape route, disputes we can prove an FSO breach — can we remove it ourselves if they still refuse after formal notice?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfcpmy/england_tenant_refusing_to_move_bicycle_from/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfcpmy/england_tenant_refusing_to_move_bicycle_from/",
+          "id": "1vflwhm",
+          "title": "Can our “plumber” send a bailiff round to us?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vflwhm/can_our_plumber_send_a_bailiff_round_to_us/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vflwhm/can_our_plumber_send_a_bailiff_round_to_us/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785855391,
-          "snippet": "I'm one of two share-of-freeholders (converted house, 2 flats). A tenant in the other flat has been storing their bicycle in the communal stairwell/escape route for over a year. We wrote to them asserting this breaches the Fire Safety Order 2005, and asked them to remove it. They",
+          "createdUtc": 1785875028,
+          "snippet": "location: United Kingdom, England Hi Reddit. First time poster here. I’ll try to keep this brief and strictly factual My husband and I are currently renovating. This included getting a new boiler and underfloor heating. The plumber, “L”, had fit a new boiler and rads for my mothe",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vfb9ly",
-          "title": "Landlord withholding window key due to lack of restrictors - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfb9ly/landlord_withholding_window_key_due_to_lack_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfb9ly/landlord_withholding_window_key_due_to_lack_of/",
+          "id": "1vfn3zu",
+          "title": "England - Shared access driveway, neighbours constantly parking on it what can we do ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfn3zu/england_shared_access_driveway_neighbours/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfn3zu/england_shared_access_driveway_neighbours/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785852190,
-          "snippet": "My husband and I have just moved into a new 3rd floor flat that has tilt and turn windows. We noticed that the other residents on our floor are able to turn their windows- ours are currently in the tilt position and cannot be changed to turn or securely locked as we haven’t been ",
+          "createdUtc": 1785877750,
+          "snippet": "Hi folks, any assistance or advice would be greatly appreciated. I'll give you the full lowdown, complete with my badass doodle. Backstory: We moved into our home around three years ago and were instantly approached by the owner of Property X. He introduced himself and explained ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1veibql",
-          "title": "Update on Failure to Declare / speeding offence and the case law applied - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1veibql/update_on_failure_to_declare_speeding_offence_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1veibql/update_on_failure_to_declare_speeding_offence_and/",
+          "id": "1vf5mv3",
+          "title": "Online shop did not take my card payment, shipped me the item, then 2 month later debt collector wants to charge me extra £25 fee. Do I have to pay?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf5mv3/online_shop_did_not_take_my_card_payment_shipped/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf5mv3/online_shop_did_not_take_my_card_payment_shipped/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785774500,
-          "snippet": "Afternoon, I was in court this morning after the police proceeded with prosecution. Here’s the previous thread: https://www.reddit.com/r/LegalAdviceUK/s/h5gZukk7d3 Pleaded Not Guilty to both the speeding offence itself and the Failure to declare. Prosecution offered no evidence t",
+          "createdUtc": 1785836448,
+          "snippet": "Almost two months ago I ordered an item for over £400 and paid by card. I did get a confirmation of the order, than it was processed and shipped. I did not check my bank statements afterwards, as I got an email showin MasterCard as the payment method and an confirmation of the or",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vf9h0y",
-          "title": "Location UK - Found a motorcycle that had obviously been stolen, reported to police",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf9h0y/location_uk_found_a_motorcycle_that_had_obviously/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf9h0y/location_uk_found_a_motorcycle_that_had_obviously/",
+          "id": "1vfrmuz",
+          "title": "I'm genuinely struggling to understand how the company operating the supported housing I live in is not breaking the law. (England).",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfrmuz/im_genuinely_struggling_to_understand_how_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfrmuz/im_genuinely_struggling_to_understand_how_the/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785847879,
-          "snippet": "Location: England, As above, found a motorcycle that had clearly been stolen (wires stripped and panels removed), reported it to the police and told them I would store it on my drive to prevent it being removed again. Its still with me nearly 3 months later, my question is, when ",
+          "createdUtc": 1785888847,
+          "snippet": "I reported a sewage leak 9 weeks ago. (As in, there was a growing pool of faeces and urine leaking from the utility cupboard into the kitchen) 5 days ago a contractor showed up and \"fixed\" the pipe. \"Yeah all of that wall needs to come out, and the shower and toilet...\".. The ces",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vf88ck",
-          "title": "Two separate housemates have left me in c tax arrears- wtf do I do? Manchester UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf88ck/two_separate_housemates_have_left_me_in_c_tax/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf88ck/two_separate_housemates_have_left_me_in_c_tax/",
+          "id": "1vfgpl0",
+          "title": "[England] Divorce Question - when (if at all) is it OK to consider ex's new partner in financial settlement talks?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfgpl0/england_divorce_question_when_if_at_all_is_it_ok/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfgpl0/england_divorce_question_when_if_at_all_is_it_ok/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785844598,
-          "snippet": "Apologies in advance for how long and confusing this i Two of my previous housemates from the same address ( N was my original housemate who I kicked out for not paying bills, then C moved in and did the exact same thing !!! ) I left the property in November and moved into a flat",
+          "createdUtc": 1785863920,
+          "snippet": "Hi all, Just want some help on one point of our divorce. My wife is leaving me, and within a week she's found a new man (obviously there's some cross over that she won't admit to). When negotiating a split of assets/financial settlement when does the reality she's likely going in",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vf9esw",
-          "title": "Noise complaint about radon noise [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf9esw/noise_complaint_about_radon_noise_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf9esw/noise_complaint_about_radon_noise_england/",
+          "id": "1vfahhn",
+          "title": "Landlord taking the whole deposit £3350 due to maintenance",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfahhn/landlord_taking_the_whole_deposit_3350_due_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfahhn/landlord_taking_the_whole_deposit_3350_due_to/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785847721,
-          "snippet": "Hi! I'm pretty freaked out and could use some guidance. Short version : discovered my house has high radon (well above the action level). Got a specialist to install a mitigation system. This includes a pipe that vents into the air about half way up the back wall of the house. I ",
+          "createdUtc": 1785850354,
+          "snippet": "Hi all, Hope you are doing well. My housemates and I lived in a 3 bedroom house in Cambridge, England for about 2 years, in these 2 years we have had 2 people live for about a year and another for a year a half before they left. After we moved out of the house today, the landlord",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1veqgmm",
-          "title": "I recently bought a number of internal doors from a ltd company in England recommended by my builders and paid £3.5k for them in cash. The doors were delivered, but they could not be fitted that day by the fitter (3rd separate company) so he returned them to the supplier for safekeeping..",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1veqgmm/i_recently_bought_a_number_of_internal_doors_from/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1veqgmm/i_recently_bought_a_number_of_internal_doors_from/",
+          "id": "1vg19xa",
+          "title": "Cancelling a gym contract within 14 days England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg19xa/cancelling_a_gym_contract_within_14_days_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg19xa/cancelling_a_gym_contract_within_14_days_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785792242,
-          "snippet": "When the fitter later went back to collect them, the door manufacturer advised that the supplying ltd company I had purchased the doors from had gone into liquidation, and the doors could not be released. What is the legal standing regarding ownership as they were delivered to si",
+          "createdUtc": 1785918005,
+          "snippet": "I basically signed up for a gym membership and cancelled after 2 days when I found out the gym equipment wasn't upto standard or wasn't working at all, the gym is now trying to charge my £45 per day as it says in their policy but it doesn't sit right with me I paid for a monthly ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vejq1g",
-          "title": "Adjacent property bought by travellers and converted to site - best options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vejq1g/adjacent_property_bought_by_travellers_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vejq1g/adjacent_property_bought_by_travellers_and/",
+          "id": "1vft6rf",
+          "title": "Family home, financial dispute - Please advise about how a retired person can sell at least half of a property owned by various family members.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vft6rf/family_home_financial_dispute_please_advise_about/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vft6rf/family_home_financial_dispute_please_advise_about/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785777476,
-          "snippet": "The property next door to my in-laws has been purchased by travellers. The house has been stripped and the rear garden area has had several caravans parked on it - with families living in them. A “temporary traveller site” appeared a couple of roads over recently, we believe that",
+          "createdUtc": 1785893043,
+          "snippet": "England - 20 years ago, my aunt was left in charge to sell the family house. Instructions were given by my grandfather in his will. She owns 50% of the house &amp; the remaining 50% was to be shared equally amongst her 6 siblings. She did not sell. She has done absolutely nothing",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vfj511",
-          "title": "(England) I signed a tenancy agreement + paid the full amount, but the tenants will likely not be leaving on my move-in date.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfj511/england_i_signed_a_tenancy_agreement_paid_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfj511/england_i_signed_a_tenancy_agreement_paid_the/",
+          "id": "1vfq43h",
+          "title": "Brother is drunk and has gotten aggressive - England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfq43h/brother_is_drunk_and_has_gotten_aggressive_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfq43h/brother_is_drunk_and_has_gotten_aggressive_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785869037,
-          "snippet": "I was meant to be moving into a flat in Rochester by myself next Tuesday, the 11th of August. The tenancy agreement for this flat was fully signed by myself and the landlord, and I have paid the expected security deposit + first month's rent. However, I was informed today by the ",
+          "createdUtc": 1785884967,
+          "snippet": "I live with my grandparents and one of my brothers came round for what would have been a normal visit - tea/dinner, cards and light drinking between him and my granddad. This all happened about an hour ago, maybe a little more. He’s simply had too much to drink. He got loud, star",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vfhnu2",
-          "title": "Remortgage Issues - I don’t have ID. England UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfhnu2/remortgage_issues_i_dont_have_id_england_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfhnu2/remortgage_issues_i_dont_have_id_england_uk/",
+          "id": "1vfp4n3",
+          "title": "Promotion with salary increase - new T&Cs makes it worse",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfp4n3/promotion_with_salary_increase_new_tcs_makes_it/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfp4n3/promotion_with_salary_increase_new_tcs_makes_it/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785865927,
-          "snippet": "I’m not sure if this is the correct place to post this but I’m having a bit of a frazzle. UK resident. I’m currently in the process of selling and purchasing property. The ball is rolling, everything is moving, except for one thing… I don’t have photo ID. I’ve never had a passpor",
+          "createdUtc": 1785882498,
+          "snippet": "&#x200B; Hi All, I work in geotechnical industry in Scotland in a site-based role. I have been with the business for nearly 4 years, starting as a graduate and progressing into a more responsible project role. My work involves site supervision, logging, reporting, being 100-300 m",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vg0v4r",
+          "title": "Bought a product from a potential scam site [Scotland]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg0v4r/bought_a_product_from_a_potential_scam_site/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg0v4r/bought_a_product_from_a_potential_scam_site/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785916559,
+          "snippet": "A week ago I bought a new shower door from what appeared to be a legitimate online UK retailer. I received an emailed invoice and the payment was charged to my credit card. The only communication I received then came in the form of a very odd sounding text which I have copied bel",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 6,
+      "postCount": 7,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vfz3kw",
+          "title": "Neighbour refusing Party Wall surveyor - what happens next? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfz3kw/neighbour_refusing_party_wall_surveyor_what/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfz3kw/neighbour_refusing_party_wall_surveyor_what/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785910563,
+          "snippet": "My neighbour is building a side return extension. He’s now served me with a Section 1(5) notice after us continuously asking him for one (he was originally planning on building his new wall astride the boundary but now changed his mind and will move the wall to 100mm inside his o",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vf4uw5",
           "title": "I got in a fight and restrained a mugger who was robbing me in Birmingham. Another individual thought I was the attacker, intervened, and let the man get away with my phone and wallet.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf4uw5/i_got_in_a_fight_and_restrained_a_mugger_who_was/",
@@ -292,51 +304,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vf9h0y",
-          "title": "Location UK - Found a motorcycle that had obviously been stolen, reported to police",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf9h0y/location_uk_found_a_motorcycle_that_had_obviously/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf9h0y/location_uk_found_a_motorcycle_that_had_obviously/",
+          "id": "1vfn3zu",
+          "title": "England - Shared access driveway, neighbours constantly parking on it what can we do ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfn3zu/england_shared_access_driveway_neighbours/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfn3zu/england_shared_access_driveway_neighbours/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785847879,
-          "snippet": "Location: England, As above, found a motorcycle that had clearly been stolen (wires stripped and panels removed), reported it to the police and told them I would store it on my drive to prevent it being removed again. Its still with me nearly 3 months later, my question is, when ",
+          "createdUtc": 1785877750,
+          "snippet": "Hi folks, any assistance or advice would be greatly appreciated. I'll give you the full lowdown, complete with my badass doodle. Backstory: We moved into our home around three years ago and were instantly approached by the owner of Property X. He introduced himself and explained ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vf88ck",
-          "title": "Two separate housemates have left me in c tax arrears- wtf do I do? Manchester UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf88ck/two_separate_housemates_have_left_me_in_c_tax/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf88ck/two_separate_housemates_have_left_me_in_c_tax/",
+          "id": "1vg19xa",
+          "title": "Cancelling a gym contract within 14 days England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg19xa/cancelling_a_gym_contract_within_14_days_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg19xa/cancelling_a_gym_contract_within_14_days_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785844598,
-          "snippet": "Apologies in advance for how long and confusing this i Two of my previous housemates from the same address ( N was my original housemate who I kicked out for not paying bills, then C moved in and did the exact same thing !!! ) I left the property in November and moved into a flat",
+          "createdUtc": 1785918005,
+          "snippet": "I basically signed up for a gym membership and cancelled after 2 days when I found out the gym equipment wasn't upto standard or wasn't working at all, the gym is now trying to charge my £45 per day as it says in their policy but it doesn't sit right with me I paid for a monthly ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vf9esw",
-          "title": "Noise complaint about radon noise [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf9esw/noise_complaint_about_radon_noise_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf9esw/noise_complaint_about_radon_noise_england/",
+          "id": "1vfq43h",
+          "title": "Brother is drunk and has gotten aggressive - England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfq43h/brother_is_drunk_and_has_gotten_aggressive_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfq43h/brother_is_drunk_and_has_gotten_aggressive_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785847721,
-          "snippet": "Hi! I'm pretty freaked out and could use some guidance. Short version : discovered my house has high radon (well above the action level). Got a specialist to install a mitigation system. This includes a pipe that vents into the air about half way up the back wall of the house. I ",
+          "createdUtc": 1785884967,
+          "snippet": "I live with my grandparents and one of my brothers came round for what would have been a normal visit - tea/dinner, cards and light drinking between him and my granddad. This all happened about an hour ago, maybe a little more. He’s simply had too much to drink. He got loud, star",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vejq1g",
-          "title": "Adjacent property bought by travellers and converted to site - best options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vejq1g/adjacent_property_bought_by_travellers_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vejq1g/adjacent_property_bought_by_travellers_and/",
+          "id": "1vg0v4r",
+          "title": "Bought a product from a potential scam site [Scotland]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg0v4r/bought_a_product_from_a_potential_scam_site/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg0v4r/bought_a_product_from_a_potential_scam_site/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785777476,
-          "snippet": "The property next door to my in-laws has been purchased by travellers. The house has been stripped and the rear garden area has had several caravans parked on it - with families living in them. A “temporary traveller site” appeared a couple of roads over recently, we believe that",
+          "createdUtc": 1785916559,
+          "snippet": "A week ago I bought a new shower door from what appeared to be a legitimate online UK retailer. I received an emailed invoice and the payment was charged to my credit card. The only communication I received then came in the form of a very odd sounding text which I have copied bel",
           "listingSource": "rss:hot"
         }
       ]
@@ -345,7 +357,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 5,
+      "postCount": 4,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -364,6 +376,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vfoq7r",
+          "title": "England! Landlord fly tipped fridge on our student property and now my boyfriend has been fined and threatened with court",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfoq7r/england_landlord_fly_tipped_fridge_on_our_student/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfoq7r/england_landlord_fly_tipped_fridge_on_our_student/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785881537,
+          "snippet": "This is in the uk. When we moved into our student house the fridge was broken and we contacted him for a replacement, when he replaced the fridge he put the old one on the back garden. Me and my boyfriend went home over Christmas and when we came back the fridge had been moved to",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vfrmuz",
+          "title": "I'm genuinely struggling to understand how the company operating the supported housing I live in is not breaking the law. (England).",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfrmuz/im_genuinely_struggling_to_understand_how_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfrmuz/im_genuinely_struggling_to_understand_how_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785888847,
+          "snippet": "I reported a sewage leak 9 weeks ago. (As in, there was a growing pool of faeces and urine leaking from the utility cupboard into the kitchen) 5 days ago a contractor showed up and \"fixed\" the pipe. \"Yeah all of that wall needs to come out, and the shower and toilet...\".. The ces",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vfahhn",
           "title": "Landlord taking the whole deposit £3350 due to maintenance",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfahhn/landlord_taking_the_whole_deposit_3350_due_to/",
@@ -373,42 +409,6 @@
           "numComments": 0,
           "createdUtc": 1785850354,
           "snippet": "Hi all, Hope you are doing well. My housemates and I lived in a 3 bedroom house in Cambridge, England for about 2 years, in these 2 years we have had 2 people live for about a year and another for a year a half before they left. After we moved out of the house today, the landlord",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vfcpmy",
-          "title": "[England] Tenant refusing to move bicycle from communal fire escape route, disputes we can prove an FSO breach — can we remove it ourselves if they still refuse after formal notice?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfcpmy/england_tenant_refusing_to_move_bicycle_from/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfcpmy/england_tenant_refusing_to_move_bicycle_from/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785855391,
-          "snippet": "I'm one of two share-of-freeholders (converted house, 2 flats). A tenant in the other flat has been storing their bicycle in the communal stairwell/escape route for over a year. We wrote to them asserting this breaches the Fire Safety Order 2005, and asked them to remove it. They",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vfb9ly",
-          "title": "Landlord withholding window key due to lack of restrictors - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfb9ly/landlord_withholding_window_key_due_to_lack_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfb9ly/landlord_withholding_window_key_due_to_lack_of/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785852190,
-          "snippet": "My husband and I have just moved into a new 3rd floor flat that has tilt and turn windows. We noticed that the other residents on our floor are able to turn their windows- ours are currently in the tilt position and cannot be changed to turn or securely locked as we haven’t been ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vfj511",
-          "title": "(England) I signed a tenancy agreement + paid the full amount, but the tenants will likely not be leaving on my move-in date.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfj511/england_i_signed_a_tenancy_agreement_paid_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfj511/england_i_signed_a_tenancy_agreement_paid_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785869037,
-          "snippet": "I was meant to be moving into a flat in Rochester by myself next Tuesday, the 11th of August. The tenancy agreement for this flat was fully signed by myself and the landlord, and I have paid the expected security deposit + first month's rent. However, I was informed today by the ",
           "listingSource": "rss:hot"
         }
       ]
@@ -433,6 +433,114 @@
           "numComments": 0,
           "createdUtc": 1785868603,
           "snippet": "For context, I am disabled and need accessible toilets/fitting rooms/etc. I was trying some clothes on in a high street store today, and outside the only accessible cubicle, there was a sign which said that the accessible cubicle is reserved for bra fittings, so you can only use ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vfi6jm",
+          "title": "Employer asking us to work from the office 2 days a week",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfi6jm/employer_asking_us_to_work_from_the_office_2_days/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfi6jm/employer_asking_us_to_work_from_the_office_2_days/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785867008,
+          "snippet": "Employer and I are based in England, have been employed with them for 4.5 years. I have a remote, work from home, contract where my place of work is named as my home (with my home address). I've worked from home for 4.5 years with no issues. I have occasionally, maybe 6 times per",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vfp4n3",
+          "title": "Promotion with salary increase - new T&Cs makes it worse",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfp4n3/promotion_with_salary_increase_new_tcs_makes_it/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfp4n3/promotion_with_salary_increase_new_tcs_makes_it/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785882498,
+          "snippet": "&#x200B; Hi All, I work in geotechnical industry in Scotland in a site-based role. I have been with the business for nearly 4 years, starting as a graduate and progressing into a more responsible project role. My work involves site supervision, logging, reporting, being 100-300 m",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vg0rb0",
+          "title": "I received a letter saying I owe £2800 from an energy company who have sold this debt to a third party but I have nothing to do with this debt",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg0rb0/i_received_a_letter_saying_i_owe_2800_from_an/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg0rb0/i_received_a_letter_saying_i_owe_2800_from_an/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785916183,
+          "snippet": "Hi all, A bit of a backstory, I registered my business a couple years back for my online selling platform. I received a letter today from a very well known energy company that they have ‘passed my unpaid energy debt of £2800’ to a third party collections team. The letter I receiv",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vfzcbc",
+          "title": "Ex-wife delaying court-ordered house sale by refusing to sign documents or verify her ID — what should I apply for?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfzcbc/exwife_delaying_courtordered_house_sale_by/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfzcbc/exwife_delaying_courtordered_house_sale_by/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785911362,
+          "snippet": "I am representing myself in financial remedy proceedings following a divorce in England and would appreciate some guidance on the correct next step. A consent order was approved by the Family Court in May 2026. The property is legally owned by my ex-wife, but the order states tha",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "poor-services-and-traders",
+      "label": "Poor Services and Traders",
+      "legalAreaSlug": "consumer_services",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vflwhm",
+          "title": "Can our “plumber” send a bailiff round to us?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vflwhm/can_our_plumber_send_a_bailiff_round_to_us/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vflwhm/can_our_plumber_send_a_bailiff_round_to_us/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1785875028,
+          "snippet": "location: United Kingdom, England Hi Reddit. First time poster here. I’ll try to keep this brief and strictly factual My husband and I are currently renovating. This included getting a new boiler and underfloor heating. The plumber, “L”, had fit a new boiler and rads for my mothe",
           "listingSource": "rss:hot"
         }
       ]
@@ -465,7 +573,7 @@
       "slug": "family-law",
       "label": "Family Law",
       "legalAreaSlug": "family",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -482,137 +590,17 @@
           "createdUtc": 1785863920,
           "snippet": "Hi all, Just want some help on one point of our divorce. My wife is leaving me, and within a week she's found a new man (obviously there's some cross over that she won't admit to). When negotiating a split of assets/financial settlement when does the reality she's likely going in",
           "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vfi6jm",
-          "title": "Employer asking us to work from the office 2 days a week",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfi6jm/employer_asking_us_to_work_from_the_office_2_days/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfi6jm/employer_asking_us_to_work_from_the_office_2_days/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785867008,
-          "snippet": "Employer and I are based in England, have been employed with them for 4.5 years. I have a remote, work from home, contract where my place of work is named as my home (with my home address). I've worked from home for 4.5 years with no issues. I have occasionally, maybe 6 times per",
-          "listingSource": "rss:hot"
         },
         {
-          "id": "1vf4oc7",
-          "title": "Been TUPE’d during maternity leave and now being made redundant before return - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf4oc7/been_tuped_during_maternity_leave_and_now_being/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vf4oc7/been_tuped_during_maternity_leave_and_now_being/",
+          "id": "1vft6rf",
+          "title": "Family home, financial dispute - Please advise about how a retired person can sell at least half of a property owned by various family members.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vft6rf/family_home_financial_dispute_please_advise_about/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vft6rf/family_home_financial_dispute_please_advise_about/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785833075,
-          "snippet": "Looking for some help please to understand my rights or position! I was working for Company A around 4 years. Whilst on my maternity leave (still ongoing) I got a call saying I had been TUPE’d to another company - Company B, I was given about a month’s notice before it happened. ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vffp32",
-          "title": "Broken wheelchair wheel spokes after 3m, under warranty, England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vffp32/broken_wheelchair_wheel_spokes_after_3m_under/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vffp32/broken_wheelchair_wheel_spokes_after_3m_under/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785861796,
-          "snippet": "Hi folks, I'm a wheelchair user in England. I bought a wheelchair totalling £2895 just a few months ago from a company. After a few months of seriously light use (I only use my chair outdoors 1-2x a week for a few hours) 3 of my spokes on my wheels have snapped completely. This i",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "motoring-offences",
-      "label": "Motoring Offences",
-      "legalAreaSlug": "motoring_offences",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1veibql",
-          "title": "Update on Failure to Declare / speeding offence and the case law applied - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1veibql/update_on_failure_to_declare_speeding_offence_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1veibql/update_on_failure_to_declare_speeding_offence_and/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785774500,
-          "snippet": "Afternoon, I was in court this morning after the police proceeded with prosecution. Here’s the previous thread: https://www.reddit.com/r/LegalAdviceUK/s/h5gZukk7d3 Pleaded Not Guilty to both the speeding offence itself and the Failure to declare. Prosecution offered no evidence t",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "poor-services-and-traders",
-      "label": "Poor Services and Traders",
-      "legalAreaSlug": "consumer_services",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1veqgmm",
-          "title": "I recently bought a number of internal doors from a ltd company in England recommended by my builders and paid £3.5k for them in cash. The doors were delivered, but they could not be fitted that day by the fitter (3rd separate company) so he returned them to the supplier for safekeeping..",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1veqgmm/i_recently_bought_a_number_of_internal_doors_from/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1veqgmm/i_recently_bought_a_number_of_internal_doors_from/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785792242,
-          "snippet": "When the fitter later went back to collect them, the door manufacturer advised that the supplying ltd company I had purchased the doors from had gone into liquidation, and the doors could not be released. What is the legal standing regarding ownership as they were delivered to si",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vfhnu2",
-          "title": "Remortgage Issues - I don’t have ID. England UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfhnu2/remortgage_issues_i_dont_have_id_england_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vfhnu2/remortgage_issues_i_dont_have_id_england_uk/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785865927,
-          "snippet": "I’m not sure if this is the correct place to post this but I’m having a bit of a frazzle. UK resident. I’m currently in the process of selling and purchasing property. The ball is rolling, everything is moving, except for one thing… I don’t have photo ID. I’ve never had a passpor",
+          "createdUtc": 1785893043,
+          "snippet": "England - 20 years ago, my aunt was left in charge to sell the family house. Instructions were given by my grandfather in his will. She owns 50% of the house &amp; the remaining 50% was to be shared equally amongst her 6 siblings. She did not sell. She has done absolutely nothing",
           "listingSource": "rss:hot"
         }
       ]
