@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-06T08:20:31.356Z",
+    "scrapedAt": "2026-08-06T23:57:03.095Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 11,
+    "topicCount": 10,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,126 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vh9gd6",
+          "title": "England - aggressive driver got his car stranded trying to follow me home",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh9gd6/england_aggressive_driver_got_his_car_stranded/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh9gd6/england_aggressive_driver_got_his_car_stranded/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786034388,
+          "snippet": "Got approached by a man in a supermarket car park who was very abruptly accusing me of scratching his Tesla (I was nowhere near it). I told him he wasn't me so he stormed off to try and get CCTV footage from the supermarket staff. Finished my shopping and got back to the car to f",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vhf2v6",
+          "title": "My tenants listed my flat on Booking.com. Booking.com won't take it down. England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhf2v6/my_tenants_listed_my_flat_on_bookingcom/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhf2v6/my_tenants_listed_my_flat_on_bookingcom/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786046591,
+          "snippet": "I want to share a very disappointing experience with Booking.com. I own a property in Manchester that has been advertised on Booking.com without my permission by my tenants. To support my report, I provided Booking.com with: The Land Registry title showing I am the registered own",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vh6isy",
+          "title": "[Scotland] Dad died and left a relatively large estate just shy of £750,000 and solicitors have charged over £57,000 in fees",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh6isy/scotland_dad_died_and_left_a_relatively_large/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh6isy/scotland_dad_died_and_left_a_relatively_large/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786028059,
+          "snippet": "My divorced dad died over a year ago and left a relatively large estate with a fully paid off house, cash in bank, pension, etc. totalling about £750,000. Unfortunately, my sibling and I were not made executors and our relationship with the executors is very poor so there's been ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vh4xzw",
+          "title": "Accidental drive off from petrol forecourt as Shell app failed - returned within 15 mins but they wouldn't accept payment. Later that day left cash stapled to duplicate receipt - now in dispute. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh4xzw/accidental_drive_off_from_petrol_forecourt_as/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh4xzw/accidental_drive_off_from_petrol_forecourt_as/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786024519,
+          "snippet": "I'll check the app in future before driving off - I'd become complacent and the one time I didn't check it failed! After returning to pay within 15 mins I expected a friendly thank you for returning and clearing the debt. Instead they were hostile and said go to the debt recovery",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vh250w",
+          "title": "Tesco worker damaged personal property now refusing cooperation.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh250w/tesco_worker_damaged_personal_property_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh250w/tesco_worker_damaged_personal_property_now/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786017393,
+          "snippet": "Hello this is in England I went to a fuel station owned by Tesco connected to a hyper store. I ride a motorbike and wear glasses, The manager of the fuel station came to me requesting to take off my helmet before I could refuel and after offering identification which was refused ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vhacdm",
+          "title": "Neighbour building car port and blocking access to shared access driveway",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhacdm/neighbour_building_car_port_and_blocking_access/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhacdm/neighbour_building_car_port_and_blocking_access/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786036299,
+          "snippet": "Writing this on behalf of a family member in England. For background this neighbour commonly parked in front of the driveway to the family member's house making it difficult to access the driveway. However they are now constructing a car port directly in front of the driveway and",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vh2scw",
+          "title": "Someone sent money to my bank account (England). I don’t know the person.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh2scw/someone_sent_money_to_my_bank_account_england_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh2scw/someone_sent_money_to_my_bank_account_england_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786019125,
+          "snippet": "Edit: I really appreciate all the help. Thank you, everyone. I’ll be contacting Monzo and the money will be left untouched. I just received this payment into my Monzo account a few minutes ago. I don’t know the sender nor am I expecting any payments. I hardly use this account. Wh",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vhex3f",
+          "title": "I got a £300 discount code for car seats. Was it legal? (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhex3f/i_got_a_300_discount_code_for_car_seats_was_it/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhex3f/i_got_a_300_discount_code_for_car_seats_was_it/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786046244,
+          "snippet": "I ordered 3 seperate car seats on my laptop, which runs a programme itself looking for discount codes on any website that allows it. On this particular site i got £300 off with a code, meaning i paid roughly £60 for 3 brand new car seats. The items were delivered within a couple ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vh2f8c",
+          "title": "England - driving ban, to what extent can I operate vehicle on my own driveway",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh2f8c/england_driving_ban_to_what_extent_can_i_operate/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh2f8c/england_driving_ban_to_what_extent_can_i_operate/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786018127,
+          "snippet": "I received a 12 month driving ban last year. This expires next month - 23 September. During the ban I gave my daughter use of my car. She has left it on our driveway while she is on holiday in France, but has asked me to check and inflate the tyres for her whilst she's away, as a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vh9hqy",
+          "title": "Previous tenant of house I purchased is still using my address for his Company and asking me to assist...",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh9hqy/previous_tenant_of_house_i_purchased_is_still/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh9hqy/previous_tenant_of_house_i_purchased_is_still/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786034469,
+          "snippet": "Hi folks I wondered what your thoughts were on this. We moved to my current address in November 2025. The previous occupant who lived here owned a business registered at this address. Since we moved in, the previous occupant turned up at the front door and asked if any post addre",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vgbre3",
           "title": "My brother, a Person Trainer, has died and his clients are demanding refunds.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgbre3/my_brother_a_person_trainer_has_died_and_his/",
@@ -50,15 +170,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vg22c5",
-          "title": "This post I made 2 years ago changed my life (UK)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg22c5/this_post_i_made_2_years_ago_changed_my_life_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg22c5/this_post_i_made_2_years_ago_changed_my_life_uk/",
+          "id": "1vgya1z",
+          "title": "Nosy noisy neighbour in England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgya1z/nosy_noisy_neighbour_in_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgya1z/nosy_noisy_neighbour_in_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785920807,
-          "snippet": "so, alot as happened lmao. long story short, nothing good came out of calling childline, all they did was try to regulate the situation and 7 months of 'therapy' with my mum. it didnt help and ive grown up (im 16 now) to realise that my parents will esentially never change, and i",
+          "createdUtc": 1786004649,
+          "snippet": "Hi, A few years ago, shortly after we moved into our first home, our neighbour (whose property backs onto the side of our garden) introduced himself saying he’d lived there for “30 years.” About a week later, he asked if we’d cut our boundary hedge down to 4ft. We politely declin",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vhixgi",
+          "title": "Recieved a Single Justice Procedure Notice (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhixgi/recieved_a_single_justice_procedure_notice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhixgi/recieved_a_single_justice_procedure_notice_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786055662,
+          "snippet": "I received an SJPN via email today for a speeding offence committed in February (2 x offences on the same road; 4 days apart) in Bristol I immediately filled in the online form to declare myself as driver and provided my licence number I then, some time after, received a follow-u",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vgz0mr",
+          "title": "My parents are trying to send me to a religious private school.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgz0mr/my_parents_are_trying_to_send_me_to_a_religious/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgz0mr/my_parents_are_trying_to_send_me_to_a_religious/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786007290,
+          "snippet": "My friend's mum posted on here yesterday. The answers that she got was that it was up to parents how to choose to educate their child. Is there any way I can get a say in the matter? I'm my own independent human being. Is there any way that I can refuse to be put into religious e",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vhdpaj",
+          "title": "Can i report my own family member for theft?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhdpaj/can_i_report_my_own_family_member_for_theft/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhdpaj/can_i_report_my_own_family_member_for_theft/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786043508,
+          "snippet": "My drug addict brother was the only person home when my parcel arrived and now he is not giving it to me. This is not the first time he has done this. He did the same when i bought a phone. I never saw it again. He has stolen many things from house. This time, i think it's enough",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vh6m9g",
+          "title": "The car who hit me (who was at fault) had a black box on their car. But their insurance are denying fault. Is that bad news for me?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh6m9g/the_car_who_hit_me_who_was_at_fault_had_a_black/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh6m9g/the_car_who_hit_me_who_was_at_fault_had_a_black/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786028274,
+          "snippet": "So context I’m a bike and I was riding in the bus lane at 20mph (during the appropriate hours). It was stop traffic next to me and the car who hit me pulled out to go into the adjacent junction (he was coming from opposite traffic). He wasn’t using indicators and he came out in a",
           "listingSource": "rss:hot"
         },
         {
@@ -74,183 +242,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vg42l7",
-          "title": "Update on incident last year where my mum and sister attacked me",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg42l7/update_on_incident_last_year_where_my_mum_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg42l7/update_on_incident_last_year_where_my_mum_and/",
+          "id": "1vg22c5",
+          "title": "This post I made 2 years ago changed my life (UK)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg22c5/this_post_i_made_2_years_ago_changed_my_life_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg22c5/this_post_i_made_2_years_ago_changed_my_life_uk/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785927405,
-          "snippet": "When I went to court at the beginning of June this year, I was waiting to be called to the court room and my solicitor approached me saying bad news, but your case has been pushed back to 31st July because of a family emergency. Later on in June, I got an email from him basically",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vgeoil",
-          "title": "Letter from managing agent of estate opposite our property regarding parking",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgeoil/letter_from_managing_agent_of_estate_opposite_our/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgeoil/letter_from_managing_agent_of_estate_opposite_our/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785952426,
-          "snippet": "In the UK We have received a letter through our door from the managing agents of the estate opposite our property asking us to phone them regarding parking on their driveway. We have not actually moved into the property yet as we are renovating it so as we often have workmen/vans",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vg7jbi",
-          "title": "My boss wants to implement disciplinary action for not working to standard - her standard isn't physically possible to meet (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg7jbi/my_boss_wants_to_implement_disciplinary_action/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg7jbi/my_boss_wants_to_implement_disciplinary_action/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785936846,
-          "snippet": "I work at a care home which is split into four floors.. The top two are dimentia residents and the bottom two are assisted living. I have now worked there for just over a year, picking up shifts when I'm back from uni so every half term. In the time I have worked there we have ha",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vg8i4w",
-          "title": "AI clone of me being used on social media with 100k followers, no consent given",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg8i4w/ai_clone_of_me_being_used_on_social_media_with/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg8i4w/ai_clone_of_me_being_used_on_social_media_with/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785939118,
-          "snippet": "(ENGLAND) I am a creator myself on Instagram. Last week I came across an account who is almost an exact replica of me, but AI generated. The page is based out of the US. Same face, voice, hair, tattoos, personal items, pacing of talking. It’s really disturbing. They’re posting 4 ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vgvude",
-          "title": "Am I at risk of retaliation following a workplace safety incident?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgvude/am_i_at_risk_of_retaliation_following_a_workplace/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgvude/am_i_at_risk_of_retaliation_following_a_workplace/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785996223,
-          "snippet": "I work in a lab where I was exposed to concentrated ammonia. A bottle of ammonium hydroxide (original container from the manufacturer) was in a secondary container with other chemicals in a fridge, and the primary container either spilled or broke. I could smell a strong chemical",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vgjbyb",
-          "title": "I am being made to perform moderately heavy manual labour in confined and freezing conditions.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgjbyb/i_am_being_made_to_perform_moderately_heavy/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgjbyb/i_am_being_made_to_perform_moderately_heavy/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785962390,
-          "snippet": "I work in the bakery section of a grocery retail chain in England. We have a large walk-in freezer where we store our frozen products, which we keep at -23 degrees Celsius. Every few days, during the shop’s normal delivery of products at 5am, we receive up to 3 large “cages” of b",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vg23w7",
-          "title": "Bought a used car from a dealer, no V5C, unable to tax it, rejected the vehicle and sent Letter Before Action. Looking for opinions. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg23w7/bought_a_used_car_from_a_dealer_no_v5c_unable_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg23w7/bought_a_used_car_from_a_dealer_no_v5c_unable_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785920964,
-          "snippet": "I bought a 2017 Mercedes C200 AMG Line from a dealer on 20 July 2026 for £9,990. The car was advertised as HPI clear, full service history, 1 year MOT, free parts and labour warranty, 1 year AA cover, Apple CarPlay, reverse camera, etc. It was presented as a vehicle ready for nor",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vgcu8q",
-          "title": "Three Mobile have sent my Elderly Mother Debt Collectors for a Broadband Contract not in her name. (England and Wales)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgcu8q/three_mobile_have_sent_my_elderly_mother_debt/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgcu8q/three_mobile_have_sent_my_elderly_mother_debt/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785948534,
-          "snippet": "Hello, So my mother has received a call from debt collectors after she had closed a bank account with Santander due to her discovering she was making payments with Three Mobile for £26 a month (this was around Feb 2025, she switched to Sky Broadband after this point). She closed ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vgk3nx",
-          "title": "iPhone 16 now blacklisted ,purchased 12 months ago via cash converters store via eBay UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgk3nx/iphone_16_now_blacklisted_purchased_12_months_ago/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgk3nx/iphone_16_now_blacklisted_purchased_12_months_ago/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785964137,
-          "snippet": "Bought a 2nd user iphone 16 via eBay uk just under 12 months ago, today the phone has been blacklisted, I bought the phone via eBay but the seller is a Cash Generators store, they are still active on eBay. I am in England ,but the cash generators store is in Scotland ...so I am u",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vgm7r1",
-          "title": "Travel insurance not paying out England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgm7r1/travel_insurance_not_paying_out_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgm7r1/travel_insurance_not_paying_out_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785969075,
-          "snippet": "Hi, sorry for the wall of text. Wife and I had a flight to Greece cancelled due to weather (several hundred flights were affected). The airline offered us alternatives or a refund but these were over 2 days later so we took the refund and booked with another airline for the next ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vghic6",
-          "title": "Sterling Insurance cancelled my car insurance after I asked to change from NZ licence to NI licence — is this allowed?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vghic6/sterling_insurance_cancelled_my_car_insurance/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vghic6/sterling_insurance_cancelled_my_car_insurance/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785958481,
-          "snippet": "Hi everyone, I’m looking for some advice regarding a car insurance cancellation by Sterling Insurance. I recently moved to Northern Ireland and initially only had a New Zealand driving licence. I applied to exchange it for a NI licence, but the DVLA process advised it could take ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vgbj3y",
-          "title": "Update - baliff letter in England (see previous post)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgbj3y/update_baliff_letter_in_england_see_previous_post/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgbj3y/update_baliff_letter_in_england_see_previous_post/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785945759,
-          "snippet": "Hi all, Would love some advice. Back in 2021 I applied for a job and they did a DBS check - the DBS flagged a conviction which I was shocked by. It said that I had allegedly not paid a train fare. I subsequently contacted the DBS team as the alleged conviction was on a date I was",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vgnp6m",
-          "title": "Need some advice, father is in credit card and was sentenced for something unrelated today in Northern Ireland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgnp6m/need_some_advice_father_is_in_credit_card_and_was/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgnp6m/need_some_advice_father_is_in_credit_card_and_was/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785972791,
-          "snippet": "Not really a simple situation in any sort of way. Basically my father has a rip of credit card debt (idk exactly how much) and with an event happening a couple of months ago he wasn't allowed near us (me, mother and brother) or even on the same road and got 3 years probation toda",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vgxyfh",
-          "title": "Ordered an A/C Unit and received a Dehumidifier - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgxyfh/ordered_an_ac_unit_and_received_a_dehumidifier/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgxyfh/ordered_an_ac_unit_and_received_a_dehumidifier/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786003510,
-          "snippet": "Hi all, Not sure if this is the right place to post but I’m losing my mind a bit haha. My mum ordered an A/C unit from a ‘UK Seller’ and all was fine up until delivery which took around 3 weeks. First red flag. She then opened the box and found out that she didn’t actually receiv",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vgl5te",
-          "title": "Retailer saying I returned a damaged item and won't proceed with refund or replacement, or anything... what next?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgl5te/retailer_saying_i_returned_a_damaged_item_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgl5te/retailer_saying_i_returned_a_damaged_item_and/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785966584,
-          "snippet": "I purchase a ROG Ally from a retailer online, which is supposed to have a 1 year warranty cover with them. I installed Bazzite on it, which is basically a version of Linux which runs better on handhelds than windows. Within a few months the SD card reader has stopped working, thi",
+          "createdUtc": 1785920807,
+          "snippet": "so, alot as happened lmao. long story short, nothing good came out of calling childline, all they did was try to regulate the situation and 7 months of 'therapy' with my mum. it didnt help and ive grown up (im 16 now) to realise that my parents will esentially never change, and i",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 9,
+      "postCount": 10,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,87 +280,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vg22c5",
-          "title": "This post I made 2 years ago changed my life (UK)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg22c5/this_post_i_made_2_years_ago_changed_my_life_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg22c5/this_post_i_made_2_years_ago_changed_my_life_uk/",
+          "id": "1vh9gd6",
+          "title": "England - aggressive driver got his car stranded trying to follow me home",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh9gd6/england_aggressive_driver_got_his_car_stranded/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh9gd6/england_aggressive_driver_got_his_car_stranded/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785920807,
-          "snippet": "so, alot as happened lmao. long story short, nothing good came out of calling childline, all they did was try to regulate the situation and 7 months of 'therapy' with my mum. it didnt help and ive grown up (im 16 now) to realise that my parents will esentially never change, and i",
+          "createdUtc": 1786034388,
+          "snippet": "Got approached by a man in a supermarket car park who was very abruptly accusing me of scratching his Tesla (I was nowhere near it). I told him he wasn't me so he stormed off to try and get CCTV footage from the supermarket staff. Finished my shopping and got back to the car to f",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vg42l7",
-          "title": "Update on incident last year where my mum and sister attacked me",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg42l7/update_on_incident_last_year_where_my_mum_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg42l7/update_on_incident_last_year_where_my_mum_and/",
+          "id": "1vh4xzw",
+          "title": "Accidental drive off from petrol forecourt as Shell app failed - returned within 15 mins but they wouldn't accept payment. Later that day left cash stapled to duplicate receipt - now in dispute. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh4xzw/accidental_drive_off_from_petrol_forecourt_as/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh4xzw/accidental_drive_off_from_petrol_forecourt_as/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785927405,
-          "snippet": "When I went to court at the beginning of June this year, I was waiting to be called to the court room and my solicitor approached me saying bad news, but your case has been pushed back to 31st July because of a family emergency. Later on in June, I got an email from him basically",
+          "createdUtc": 1786024519,
+          "snippet": "I'll check the app in future before driving off - I'd become complacent and the one time I didn't check it failed! After returning to pay within 15 mins I expected a friendly thank you for returning and clearing the debt. Instead they were hostile and said go to the debt recovery",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vgeoil",
-          "title": "Letter from managing agent of estate opposite our property regarding parking",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgeoil/letter_from_managing_agent_of_estate_opposite_our/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgeoil/letter_from_managing_agent_of_estate_opposite_our/",
+          "id": "1vh250w",
+          "title": "Tesco worker damaged personal property now refusing cooperation.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh250w/tesco_worker_damaged_personal_property_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh250w/tesco_worker_damaged_personal_property_now/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785952426,
-          "snippet": "In the UK We have received a letter through our door from the managing agents of the estate opposite our property asking us to phone them regarding parking on their driveway. We have not actually moved into the property yet as we are renovating it so as we often have workmen/vans",
+          "createdUtc": 1786017393,
+          "snippet": "Hello this is in England I went to a fuel station owned by Tesco connected to a hyper store. I ride a motorbike and wear glasses, The manager of the fuel station came to me requesting to take off my helmet before I could refuel and after offering identification which was refused ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vgvude",
-          "title": "Am I at risk of retaliation following a workplace safety incident?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgvude/am_i_at_risk_of_retaliation_following_a_workplace/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgvude/am_i_at_risk_of_retaliation_following_a_workplace/",
+          "id": "1vhacdm",
+          "title": "Neighbour building car port and blocking access to shared access driveway",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhacdm/neighbour_building_car_port_and_blocking_access/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhacdm/neighbour_building_car_port_and_blocking_access/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785996223,
-          "snippet": "I work in a lab where I was exposed to concentrated ammonia. A bottle of ammonium hydroxide (original container from the manufacturer) was in a secondary container with other chemicals in a fridge, and the primary container either spilled or broke. I could smell a strong chemical",
+          "createdUtc": 1786036299,
+          "snippet": "Writing this on behalf of a family member in England. For background this neighbour commonly parked in front of the driveway to the family member's house making it difficult to access the driveway. However they are now constructing a car port directly in front of the driveway and",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vgjbyb",
-          "title": "I am being made to perform moderately heavy manual labour in confined and freezing conditions.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgjbyb/i_am_being_made_to_perform_moderately_heavy/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgjbyb/i_am_being_made_to_perform_moderately_heavy/",
+          "id": "1vh2scw",
+          "title": "Someone sent money to my bank account (England). I don’t know the person.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh2scw/someone_sent_money_to_my_bank_account_england_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh2scw/someone_sent_money_to_my_bank_account_england_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785962390,
-          "snippet": "I work in the bakery section of a grocery retail chain in England. We have a large walk-in freezer where we store our frozen products, which we keep at -23 degrees Celsius. Every few days, during the shop’s normal delivery of products at 5am, we receive up to 3 large “cages” of b",
+          "createdUtc": 1786019125,
+          "snippet": "Edit: I really appreciate all the help. Thank you, everyone. I’ll be contacting Monzo and the money will be left untouched. I just received this payment into my Monzo account a few minutes ago. I don’t know the sender nor am I expecting any payments. I hardly use this account. Wh",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vgbj3y",
-          "title": "Update - baliff letter in England (see previous post)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgbj3y/update_baliff_letter_in_england_see_previous_post/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgbj3y/update_baliff_letter_in_england_see_previous_post/",
+          "id": "1vhex3f",
+          "title": "I got a £300 discount code for car seats. Was it legal? (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhex3f/i_got_a_300_discount_code_for_car_seats_was_it/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhex3f/i_got_a_300_discount_code_for_car_seats_was_it/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785945759,
-          "snippet": "Hi all, Would love some advice. Back in 2021 I applied for a job and they did a DBS check - the DBS flagged a conviction which I was shocked by. It said that I had allegedly not paid a train fare. I subsequently contacted the DBS team as the alleged conviction was on a date I was",
+          "createdUtc": 1786046244,
+          "snippet": "I ordered 3 seperate car seats on my laptop, which runs a programme itself looking for discount codes on any website that allows it. On this particular site i got £300 off with a code, meaning i paid roughly £60 for 3 brand new car seats. The items were delivered within a couple ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vgnp6m",
-          "title": "Need some advice, father is in credit card and was sentenced for something unrelated today in Northern Ireland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgnp6m/need_some_advice_father_is_in_credit_card_and_was/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgnp6m/need_some_advice_father_is_in_credit_card_and_was/",
+          "id": "1vhixgi",
+          "title": "Recieved a Single Justice Procedure Notice (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhixgi/recieved_a_single_justice_procedure_notice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhixgi/recieved_a_single_justice_procedure_notice_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785972791,
-          "snippet": "Not really a simple situation in any sort of way. Basically my father has a rip of credit card debt (idk exactly how much) and with an event happening a couple of months ago he wasn't allowed near us (me, mother and brother) or even on the same road and got 3 years probation toda",
+          "createdUtc": 1786055662,
+          "snippet": "I received an SJPN via email today for a speeding offence committed in February (2 x offences on the same road; 4 days apart) in Bristol I immediately filled in the online form to declare myself as driver and provided my licence number I then, some time after, received a follow-u",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -386,6 +386,90 @@
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
           "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vhf2v6",
+          "title": "My tenants listed my flat on Booking.com. Booking.com won't take it down. England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhf2v6/my_tenants_listed_my_flat_on_bookingcom/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhf2v6/my_tenants_listed_my_flat_on_bookingcom/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786046591,
+          "snippet": "I want to share a very disappointing experience with Booking.com. I own a property in Manchester that has been advertised on Booking.com without my permission by my tenants. To support my report, I provided Booking.com with: The Land Registry title showing I am the registered own",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vh6isy",
+          "title": "[Scotland] Dad died and left a relatively large estate just shy of £750,000 and solicitors have charged over £57,000 in fees",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh6isy/scotland_dad_died_and_left_a_relatively_large/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh6isy/scotland_dad_died_and_left_a_relatively_large/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786028059,
+          "snippet": "My divorced dad died over a year ago and left a relatively large estate with a fully paid off house, cash in bank, pension, etc. totalling about £750,000. Unfortunately, my sibling and I were not made executors and our relationship with the executors is very poor so there's been ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "motoring-offences",
+      "label": "Motoring Offences",
+      "legalAreaSlug": "motoring_offences",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vh2f8c",
+          "title": "England - driving ban, to what extent can I operate vehicle on my own driveway",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh2f8c/england_driving_ban_to_what_extent_can_i_operate/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh2f8c/england_driving_ban_to_what_extent_can_i_operate/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786018127,
+          "snippet": "I received a 12 month driving ban last year. This expires next month - 23 September. During the ban I gave my daughter use of my car. She has left it on our driveway while she is on holiday in France, but has asked me to check and inflate the tyres for her whilst she's away, as a",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vh9hqy",
+          "title": "Previous tenant of house I purchased is still using my address for his Company and asking me to assist...",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh9hqy/previous_tenant_of_house_i_purchased_is_still/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh9hqy/previous_tenant_of_house_i_purchased_is_still/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786034469,
+          "snippet": "Hi folks I wondered what your thoughts were on this. We moved to my current address in November 2025. The previous occupant who lived here owned a business registered at this address. Since we moved in, the previous occupant turned up at the front door and asked if any post addre",
+          "listingSource": "rss:hot"
         }
       ]
     },
@@ -393,7 +477,7 @@
       "slug": "faulty-goods-and-refunds",
       "label": "Faulty Goods and Refunds",
       "legalAreaSlug": "consumer_goods",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -410,17 +494,77 @@
           "createdUtc": 1785946248,
           "snippet": "England. My brother (38) died yesterday (August 4th) after suffering a massive cardiac arrest around a week ago and being placed on life support. He is a PT, I’m not sure how ‘legit’ his business or self employment status is.. he had recently started seeing clients in a local gym",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "neighbour-disputes",
+      "label": "Neighbour Disputes",
+      "legalAreaSlug": "neighbour_dispute",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1vgl5te",
-          "title": "Retailer saying I returned a damaged item and won't proceed with refund or replacement, or anything... what next?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgl5te/retailer_saying_i_returned_a_damaged_item_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgl5te/retailer_saying_i_returned_a_damaged_item_and/",
+          "id": "1vgya1z",
+          "title": "Nosy noisy neighbour in England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgya1z/nosy_noisy_neighbour_in_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgya1z/nosy_noisy_neighbour_in_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1785966584,
-          "snippet": "I purchase a ROG Ally from a retailer online, which is supposed to have a 1 year warranty cover with them. I installed Bazzite on it, which is basically a version of Linux which runs better on handhelds than windows. Within a few months the SD card reader has stopped working, thi",
+          "createdUtc": 1786004649,
+          "snippet": "Hi, A few years ago, shortly after we moved into our first home, our neighbour (whose property backs onto the side of our garden) introduced himself saying he’d lived there for “30 years.” About a week later, he asked if we’d cut our boundary hedge down to 4ft. We politely declin",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vhdpaj",
+          "title": "Can i report my own family member for theft?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhdpaj/can_i_report_my_own_family_member_for_theft/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vhdpaj/can_i_report_my_own_family_member_for_theft/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786043508,
+          "snippet": "My drug addict brother was the only person home when my parcel arrived and now he is not giving it to me. This is not the first time he has done this. He did the same when i bought a phone. I never saw it again. He has stolen many things from house. This time, i think it's enough",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vh6m9g",
+          "title": "The car who hit me (who was at fault) had a black box on their car. But their insurance are denying fault. Is that bad news for me?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh6m9g/the_car_who_hit_me_who_was_at_fault_had_a_black/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vh6m9g/the_car_who_hit_me_who_was_at_fault_had_a_black/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786028274,
+          "snippet": "So context I’m a bike and I was riding in the bus lane at 20mph (during the appropriate hours). It was stop traffic next to me and the car who hit me pulled out to go into the adjacent junction (he was coming from opposite traffic). He wasn’t using indicators and he came out in a",
           "listingSource": "rss:hot"
         }
       ]
@@ -445,174 +589,6 @@
           "numComments": 0,
           "createdUtc": 1785971485,
           "snippet": "I am an escort in the UK and sell my services through a profile hosted by an online site. However, for the past 6 months there has been an occasional error when sending emails - namely, you cannot send them. This has previously been worked around by using their old site (they hav",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "sports-law",
-      "label": "Sports Law",
-      "legalAreaSlug": "sports_law",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vg7jbi",
-          "title": "My boss wants to implement disciplinary action for not working to standard - her standard isn't physically possible to meet (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg7jbi/my_boss_wants_to_implement_disciplinary_action/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg7jbi/my_boss_wants_to_implement_disciplinary_action/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785936846,
-          "snippet": "I work at a care home which is split into four floors.. The top two are dimentia residents and the bottom two are assisted living. I have now worked there for just over a year, picking up shifts when I'm back from uni so every half term. In the time I have worked there we have ha",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "clinical-negligence",
-      "label": "Clinical Negligence",
-      "legalAreaSlug": "clinical_negligence",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vg8i4w",
-          "title": "AI clone of me being used on social media with 100k followers, no consent given",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg8i4w/ai_clone_of_me_being_used_on_social_media_with/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg8i4w/ai_clone_of_me_being_used_on_social_media_with/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785939118,
-          "snippet": "(ENGLAND) I am a creator myself on Instagram. Last week I came across an account who is almost an exact replica of me, but AI generated. The page is based out of the US. Same face, voice, hair, tattoos, personal items, pacing of talking. It’s really disturbing. They’re posting 4 ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "car-purchase-and-dealer-disputes",
-      "label": "Car Purchase and Dealer Disputes",
-      "legalAreaSlug": "consumer_motor_purchase",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vg23w7",
-          "title": "Bought a used car from a dealer, no V5C, unable to tax it, rejected the vehicle and sent Letter Before Action. Looking for opinions. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg23w7/bought_a_used_car_from_a_dealer_no_v5c_unable_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vg23w7/bought_a_used_car_from_a_dealer_no_v5c_unable_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785920964,
-          "snippet": "I bought a 2017 Mercedes C200 AMG Line from a dealer on 20 July 2026 for £9,990. The car was advertised as HPI clear, full service history, 1 year MOT, free parts and labour warranty, 1 year AA cover, Apple CarPlay, reverse camera, etc. It was presented as a vehicle ready for nor",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "broadband-mobile-and-telecoms",
-      "label": "Broadband, Mobile and Telecoms",
-      "legalAreaSlug": "consumer_telecoms",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vgcu8q",
-          "title": "Three Mobile have sent my Elderly Mother Debt Collectors for a Broadband Contract not in her name. (England and Wales)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgcu8q/three_mobile_have_sent_my_elderly_mother_debt/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgcu8q/three_mobile_have_sent_my_elderly_mother_debt/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785948534,
-          "snippet": "Hello, So my mother has received a call from debt collectors after she had closed a bank account with Santander due to her discovering she was making payments with Three Mobile for £26 a month (this was around Feb 2025, she switched to Sky Broadband after this point). She closed ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vgk3nx",
-          "title": "iPhone 16 now blacklisted ,purchased 12 months ago via cash converters store via eBay UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgk3nx/iphone_16_now_blacklisted_purchased_12_months_ago/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgk3nx/iphone_16_now_blacklisted_purchased_12_months_ago/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785964137,
-          "snippet": "Bought a 2nd user iphone 16 via eBay uk just under 12 months ago, today the phone has been blacklisted, I bought the phone via eBay but the seller is a Cash Generators store, they are still active on eBay. I am in England ,but the cash generators store is in Scotland ...so I am u",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "travel-and-holiday-disputes",
-      "label": "Travel and Holiday Disputes",
-      "legalAreaSlug": "consumer_travel_holidays",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vgm7r1",
-          "title": "Travel insurance not paying out England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgm7r1/travel_insurance_not_paying_out_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vgm7r1/travel_insurance_not_paying_out_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785969075,
-          "snippet": "Hi, sorry for the wall of text. Wife and I had a flight to Greece cancelled due to weather (several hundred flights were affected). The airline offered us alternatives or a refund but these were over 2 days later so we took the refund and booked with another airline for the next ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "consumer-law",
-      "label": "Consumer Law",
-      "legalAreaSlug": "consumer",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vghic6",
-          "title": "Sterling Insurance cancelled my car insurance after I asked to change from NZ licence to NI licence — is this allowed?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vghic6/sterling_insurance_cancelled_my_car_insurance/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vghic6/sterling_insurance_cancelled_my_car_insurance/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1785958481,
-          "snippet": "Hi everyone, I’m looking for some advice regarding a car insurance cancellation by Sterling Insurance. I recently moved to Northern Ireland and initially only had a New Zealand driving licence. I applied to exchange it for a NI licence, but the DVLA process advised it could take ",
           "listingSource": "rss:hot"
         }
       ]
