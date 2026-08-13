@@ -500,7 +500,14 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         if (master.answerPackage && isFinalOverviewPackage(master.answerPackage as AnswerPackage)) {
           setAnswerPackage(master.answerPackage as AnswerPackage)
         } else {
-          setAnswerPackage(null)
+          // Master intake may skip final synthesis; build overview via answer route (proxied on Vercel).
+          const framesForOverview = proposeCoherentFrames(merged, 3)
+          const retrieved = await fetchRetrieveAnswer(merged, framesForOverview)
+          if (retrieved?.answerPackage && isFinalOverviewPackage(retrieved.answerPackage)) {
+            setAnswerPackage(retrieved.answerPackage)
+          } else {
+            setAnswerPackage(null)
+          }
         }
         setMatterInspector(master.matterInspector ?? null)
 
