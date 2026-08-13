@@ -28,6 +28,81 @@ export function isCoherenceBackendConfigured(): boolean {
   return Boolean(backendOrigin() && getCoherenceInternalSecret());
 }
 
+/** True when Vercel should forward Coherence LLM work to the home tunnel. */
+export function shouldProxyCoherenceToHomeBackend(): boolean {
+  if (process.env.VERCEL !== "1") return false;
+  const v2 = (process.env.ENABLE_COHERENCE_V2 || "").trim().toLowerCase();
+  if (!(v2 === "1" || v2 === "true" || v2 === "yes" || v2 === "on")) return false;
+  const mode = (process.env.COHERENCE_MODE || "legacy").trim().toLowerCase();
+  return mode === "v2" || mode === "shadow";
+}
+
+/**
+ * Proxy a browser-facing Coherence path to the same path on the home Next server.
+ * Used for /api/coherence/llm/answer (and similar) which still expect local wiki data.
+ */
+export async function proxyCoherenceBackendPath(opts: {
+  path: string;
+  method?: string;
+  body?: unknown;
+  requestId?: string;
+  signal?: AbortSignal;
+  timeoutMs?: number;
+}): Promise<Response> {
+  const origin = backendOrigin();
+  if (!origin || !getCoherenceInternalSecret()) {
+    return Response.json(
+      {
+        error: "backend_unavailable",
+        message:
+          "Legal Shaman analysis is temporarily unavailable. Your submission has been saved. Please try again shortly.",
+      },
+      { status: 503, headers: { "retry-after": "120" } },
+    );
+  }
+
+  const path = opts.path.startsWith("/") ? opts.path : `/${opts.path}`;
+  const headers: Record<string, string> = {
+    ...internalAuthHeaders(),
+  };
+  if (opts.requestId) {
+    headers[COHERENCE_INTERNAL_HEADERS.requestId] = opts.requestId;
+  }
+
+  let body: string | undefined;
+  if (opts.body !== undefined && opts.method !== "GET") {
+    headers["content-type"] = "application/json";
+    body = JSON.stringify(opts.body);
+  }
+
+  try {
+    const res = await fetch(`${origin}${path}`, {
+      method: opts.method || "POST",
+      headers,
+      body,
+      signal: opts.signal ?? AbortSignal.timeout(opts.timeoutMs ?? backendTimeoutMs()),
+      cache: "no-store",
+    });
+    const text = await res.text();
+    const contentType = res.headers.get("content-type") || "application/json";
+    return new Response(text, {
+      status: res.status,
+      headers: { "content-type": contentType },
+    });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : "backend_unreachable";
+    const timeout = msg.toLowerCase().includes("abort") || msg.toLowerCase().includes("timeout");
+    return Response.json(
+      {
+        error: timeout ? "backend_timeout" : "backend_unreachable",
+        message:
+          "Legal Shaman analysis is temporarily unavailable. Your submission has been saved. Please try again shortly.",
+      },
+      { status: 503, headers: { "retry-after": "120" } },
+    );
+  }
+}
+
 export async function checkCoherenceBackendHealth(): Promise<{
   ok: boolean;
   status?: number;

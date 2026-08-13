@@ -166,8 +166,16 @@ export async function requireCoherenceAccess(
 
 /** Legacy sync guard — feature flag only (non-LLM probes). */
 export function coherenceApiGuard(): NextResponse | null {
-  if (!enableCoherenceAsk()) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  if (enableCoherenceAsk()) return null;
+  // Vercel V2 cutover: allow route modules to run (they proxy home or use OpenRouter).
+  const v2 = (process.env.ENABLE_COHERENCE_V2 || "").trim().toLowerCase();
+  const mode = (process.env.COHERENCE_MODE || "legacy").trim().toLowerCase();
+  if (
+    process.env.VERCEL === "1" &&
+    (v2 === "1" || v2 === "true" || v2 === "yes" || v2 === "on") &&
+    (mode === "v2" || mode === "shadow")
+  ) {
+    return null;
   }
-  return null;
+  return NextResponse.json({ error: "Not found" }, { status: 404 });
 }

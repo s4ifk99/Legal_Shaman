@@ -79,6 +79,13 @@ export async function GET() {
  * Optional COHERENCE_LEGACY_SHADOW=1 compares against heuristic legacy (no extra LLM cost).
  */
 export async function POST(req: Request) {
+  // Production cutover: never run the orchestrator on Vercel — forward to home via gateway.
+  const { shouldProxyCoherenceToHomeBackend } = await import("@/lib/coherence/server/gateway");
+  if (shouldProxyCoherenceToHomeBackend()) {
+    const { POST: gatewayPost } = await import("@/app/api/coherence/query/route");
+    return gatewayPost(req);
+  }
+
   const blocked = coherenceApiGuard();
   if (blocked) return blocked;
 

@@ -18,7 +18,7 @@ export function CoherenceAskShell({ initialStory = '' }: Props) {
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2">
           <span>
             <span className="font-medium text-primary">Coherence intake</span>
-            <span className="text-muted-foreground"> · local only</span>
+            <span className="text-muted-foreground"> · V2 preview</span>
           </span>
           <span className="flex gap-4 text-sm">
             <Link href="/ask-the-shaman?classic=1" className="font-medium text-primary hover:underline">
