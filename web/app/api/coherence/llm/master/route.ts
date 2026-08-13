@@ -108,7 +108,7 @@ export async function POST(req: Request) {
     expectedFrontierCalls: 2,
   });
   if (access instanceof NextResponse) return access;
-  const { user, requestId: accessRequestId } = access;
+  const { user, requestId: accessRequestId, trustedGateway } = access;
 
   const latestText = String(body.latestText || "").trim();
   const budget = beginLlmBudget({
@@ -394,7 +394,7 @@ export async function POST(req: Request) {
       console.info(String(result.llmTrace.text));
     }
 
-    if (user.id !== "anonymous") {
+    if (user.id !== "anonymous" && !trustedGateway) {
       const summary = summarizeLlmTrace(closed.records);
       await recordUsageEvent({
         userId: user.id,
@@ -408,14 +408,14 @@ export async function POST(req: Request) {
     return NextResponse.json(result);
   } catch (err) {
     endLlmBudget();
-    if (user.id !== "anonymous") {
+    if (user.id !== "anonymous" && !trustedGateway) {
       await recordUsageEvent({
         userId: user.id,
         requestId: accessRequestId,
         endpoint: "/api/coherence/llm/master",
         status: "failed",
       });
-    } else {
+    } else if (!trustedGateway) {
       releaseConcurrent(user.id, accessRequestId);
     }
     return NextResponse.json(

@@ -1,6 +1,7 @@
 /**
  * Local-only gate for Coherence intake on /ask-the-shaman.
  * Never on when Vercel (or ENABLE_COHERENCE_ASK unset/false).
+ * For staged V2 on Vercel see lib/coherence/mode.ts and docs/ops/COHERENCE_CUTOVER.md.
  */
 export function enableCoherenceAsk(): boolean {
   if (process.env.VERCEL === "1") return false;

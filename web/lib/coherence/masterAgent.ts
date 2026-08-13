@@ -5,6 +5,7 @@ import type { MatterType, Mode, Party, Prompt, SessionState, TimelineEvent, Juri
 import { createInitialSession } from './sense'
 import type { AnswerPackage } from './answerPackage'
 import type { SessionMatterFrame } from './matterFrame'
+import { coherenceMasterEndpoint } from '@/lib/coherence/client-gateway'
 
 export type MasterResult = {
   runId?: string
@@ -126,10 +127,16 @@ export async function runMasterOrchestrate(
   mode: 'intake' | 'answer' = 'intake',
 ): Promise<MasterResult | null> {
   if (!latestText.trim()) return null
+  const endpoint = coherenceMasterEndpoint()
+  const requestId = `coh-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
   try {
-    const res = await fetch('/api/coherence/llm/master', {
+    const res = await fetch(endpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'x-request-id': requestId,
+        'x-idempotency-key': requestId,
+      },
       body: JSON.stringify({
         latestText,
         mode,
@@ -160,6 +167,16 @@ export async function runMasterOrchestrate(
     })
     const data = (await res.json()) as MasterResult
     if (!res.ok) {
+      if (res.status === 503 && endpoint === '/api/coherence/query') {
+        return {
+          error: String(data.error || 'backend_unavailable'),
+          message:
+            typeof (data as { message?: string }).message === 'string'
+              ? (data as { message?: string }).message
+              : 'Legal Shaman analysis is temporarily unavailable. Your submission has been saved. Please try again shortly.',
+          fallback: true,
+        }
+      }
       return {
         error: String(data.error || 'request_failed'),
         message:

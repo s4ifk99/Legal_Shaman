@@ -19,6 +19,8 @@ export type CoherenceAccessContext = {
   user: AuthenticatedUser;
   requestId: string;
   allowance: UsageAllowance;
+  /** Quota already enforced on Vercel gateway — skip local usage records. */
+  trustedGateway?: boolean;
 };
 
 export type CoherenceAccessOptions = {
@@ -26,6 +28,8 @@ export type CoherenceAccessOptions = {
   captchaToken?: string | null;
   requireTurnstile?: boolean;
   expectedFrontierCalls?: number;
+  /** Skip started usage event (gateway records after backend success). */
+  skipUsageRecord?: boolean;
 };
 
 function quotaResponse(allowance: UsageAllowance): NextResponse {
@@ -57,6 +61,24 @@ export async function requireCoherenceAccess(
   const requestId =
     req.headers.get("x-request-id")?.trim() ||
     `coh-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+
+  const trustedGateway =
+    req.headers.get("x-coherence-trusted-internal") === "1" &&
+    Boolean(req.headers.get("x-coherence-trusted-user-id")?.trim());
+  if (trustedGateway) {
+    const trustedUserId = req.headers.get("x-coherence-trusted-user-id")!.trim();
+    return {
+      user: {
+        id: trustedUserId,
+        name: "Gateway",
+        email: "",
+        emailVerified: true,
+      },
+      requestId,
+      allowance: { allowed: true },
+      trustedGateway: true,
+    };
+  }
 
   if (!requireCoherenceAuthEnabled()) {
     const user = await getCurrentUser();
@@ -130,12 +152,14 @@ export async function requireCoherenceAccess(
     }
   }
 
-  await recordUsageEvent({
-    userId: user.id,
-    requestId,
-    endpoint: opts.endpoint,
-    status: "started",
-  });
+  if (!opts.skipUsageRecord) {
+    await recordUsageEvent({
+      userId: user.id,
+      requestId,
+      endpoint: opts.endpoint,
+      status: "started",
+    });
+  }
 
   return { user, requestId, allowance };
 }
