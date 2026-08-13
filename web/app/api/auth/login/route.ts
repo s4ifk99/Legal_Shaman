@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     const email = parsed.data.email.toLowerCase();
     const user = await accountsPrisma.user.findUnique({
       where: { email },
-      select: { id: true, name: true, email: true, passwordHash: true },
+      select: { id: true, name: true, email: true, passwordHash: true, emailVerifiedAt: true },
     });
 
     if (!user) {
@@ -65,7 +65,12 @@ export async function POST(req: Request) {
 
     await setUserSessionCookie(user.id);
     return NextResponse.json({
-      user: { id: user.id, name: user.name, email: user.email },
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        emailVerified: Boolean(user.emailVerifiedAt),
+      },
     });
   } catch (err) {
     return authInfrastructureError(err) ?? authUnexpectedError(err);

@@ -1,0 +1,198 @@
+.oslaw {
+  min-height: 100vh;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 2.5rem;
+  color: var(--ink);
+}
+
+.oslaw__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.oslaw__back {
+  border: none;
+  background: none;
+  color: var(--ink-faint);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.oslaw__back:hover {
+  color: var(--ink);
+}
+
+.oslaw__title {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.oslaw__lead {
+  margin: 0.45rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--ink-faint);
+  max-width: 32rem;
+}
+
+.oslaw__status {
+  color: var(--ink-faint);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.oslaw__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.oslaw__rec {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.oslaw__rec-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--ink-muted);
+}
+
+.oslaw__rec-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.oslaw__rec-origin {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.oslaw__rec-body {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  color: var(--ink);
+}
+
+.oslaw__rec-section {
+  margin: 0;
+}
+
+.oslaw__rec-h {
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.oslaw__rec-note {
+  margin: 0 0 0.4rem;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+}
+
+.oslaw__rec-list,
+.oslaw__rec-pages {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.oslaw__rec-list--links {
+  list-style: none;
+  padding-left: 0;
+}
+
+.oslaw__rec-list--links a {
+  color: var(--action, var(--ink));
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+
+.oslaw__rec-pages {
+  list-style: disc;
+}
+
+.oslaw__rec-sources {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+.oslaw__rec-sources summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.oslaw__rec-sources ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.oslaw__rec-disclaimer {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--ink-faint);
+}
+
+.oslaw__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding-top: 0.35rem;
+}
+
+.oslaw__btn {
+  appearance: none;
+  border: 1.5px solid var(--ink-muted);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius, 0.5rem);
+  cursor: pointer;
+}
+
+.oslaw__btn--primary {
+  border-color: var(--action, var(--ink));
+  background: var(--action, var(--ink));
+  color: var(--action-fg, #fff);
+}
+
+.oslaw__btn--primary:hover {
+  background: color-mix(in oklab, var(--action, #1f5c45) 88%, black);
+}

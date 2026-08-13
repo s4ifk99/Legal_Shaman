@@ -51,4 +51,21 @@ export function resolveChatModel(explicit?: string): string {
   );
 }
 
+/** Free OpenRouter model used when paid models return 402 (no credits). */
+export function resolveFreeFallbackModel(): string | undefined {
+  const explicit = process.env.LLM_FREE_MODEL?.trim();
+  if (explicit) return explicit;
+  if (isOpenRouterBaseUrl(resolveLlmBaseUrl())) {
+    return "google/gemma-4-26b-a4b-it:free";
+  }
+  return undefined;
+}
+
+export function isInsufficientCreditsError(err: unknown): boolean {
+  const message = err instanceof Error ? err.message : String(err);
+  if (/402|insufficient credits/i.test(message)) return true;
+  const status = (err as { status?: number })?.status;
+  return status === 402;
+}
+
 export { OPENROUTER_DEFAULT_BASE };

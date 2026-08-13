@@ -1,0 +1,1331 @@
+{
+  "collection": "Housing / landlord–tenant",
+  "pattern": "llm-wiki-domain",
+  "trialDomain": "housing",
+  "domainId": "housing",
+  "wikiRoot": "wiki/domains/housing",
+  "compiledAt": "2026-08-05T08:39:34.782Z",
+  "articleCount": 350,
+  "pageCount": 18,
+  "pages": [
+    {
+      "id": "topic-buying-owning-property",
+      "kind": "topic",
+      "title": "buying-owning-property",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://www.gov.uk/affordable-home-ownership-schemes",
+      "sourceIds": [
+        "affordable-home-ownership-schemes",
+        "buying-a-home",
+        "check-house-price-trends",
+        "first-homes-scheme",
+        "help-to-buy-isa",
+        "sdlt-online",
+        "park-mobile-homes",
+        "selling-a-home"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/affordable-home-ownership-schemes",
+        "https://www.gov.uk/buying-a-home",
+        "https://www.gov.uk/check-house-price-trends",
+        "https://www.gov.uk/first-homes-scheme",
+        "https://www.gov.uk/help-to-buy-isa",
+        "https://www.gov.uk/sdlt-online",
+        "https://www.gov.uk/park-mobile-homes",
+        "https://www.gov.uk/selling-a-home"
+      ],
+      "contradictions": [],
+      "snippet": "8 sources on buying-owning-property (Housing / landlord–tenant).",
+      "path": "topics/topic-buying-owning-property.md",
+      "keywords": [
+        "buying",
+        "owning",
+        "property",
+        "affordable",
+        "home",
+        "ownership",
+        "schemes",
+        "buying",
+        "home",
+        "overview",
+        "owning",
+        "check",
+        "house",
+        "price",
+        "trends",
+        "first",
+        "homes",
+        "scheme",
+        "time",
+        "help",
+        "buy",
+        "isa",
+        "buying",
+        "sdlt",
+        "online",
+        "log",
+        "and",
+        "park",
+        "mobile",
+        "homes",
+        "your",
+        "selling",
+        "home",
+        "overview",
+        "buying"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-commercial-property",
+      "kind": "topic",
+      "title": "Commercial Property",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-possession"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/commercial-property/authorised-guarantee-agreements-agas-for-commercial-tenants",
+      "sourceIds": [
+        "commercial-property-authorised-guarantee-agreements-agas-what-you-need-to-know",
+        "commercial-property-evicting-a-commercial-tenant-process-faqs",
+        "commercial-property-forfeiture-of-a-commercial-lease-what-landlords-need-to-know"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/commercial-property/authorised-guarantee-agreements-agas-for-commercial-tenants",
+        "https://lawhive.co.uk/knowledge-hub/commercial-property/evicting-a-commercial-tenant-uk-process",
+        "https://lawhive.co.uk/knowledge-hub/commercial-property/forfeiture-of-a-commercial-lease-guide-for-landlords"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "3 sources on Commercial Property (Housing / landlord–tenant).",
+      "path": "topics/topic-commercial-property.md",
+      "keywords": [
+        "commercial",
+        "property",
+        "commercial",
+        "property",
+        "authorised",
+        "guarantee",
+        "commercial",
+        "property",
+        "evicting",
+        "tenant",
+        "commercial",
+        "property",
+        "forfeiture",
+        "lease"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-council-housing-association",
+      "kind": "topic",
+      "title": "council-housing-association",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-disrepair",
+        "hous-deposit"
+      ],
+      "primaryUrl": "https://www.gov.uk/apply-for-council-housing",
+      "sourceIds": [
+        "apply-for-council-housing",
+        "apply-for-sheltered-housing",
+        "council-housing",
+        "find-out-about-right-to-buy-from-your-council",
+        "housing-association-homes",
+        "rent-council-garage",
+        "repair-council-property",
+        "right-to-acquire-buying-housing-association-home",
+        "right-to-buy-buying-your-council-home",
+        "apply-swap-homes-council",
+        "your-rights-to-housing-if-youre-under-18"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/apply-for-council-housing",
+        "https://www.gov.uk/apply-for-sheltered-housing",
+        "https://www.gov.uk/council-housing",
+        "https://www.gov.uk/find-out-about-right-to-buy-from-your-council",
+        "https://www.gov.uk/housing-association-homes",
+        "https://www.gov.uk/rent-council-garage",
+        "https://www.gov.uk/repair-council-property",
+        "https://www.gov.uk/right-to-acquire-buying-housing-association-home",
+        "https://www.gov.uk/right-to-buy-buying-your-council-home",
+        "https://www.gov.uk/apply-swap-homes-council",
+        "https://www.gov.uk/your-rights-to-housing-if-youre-under-18"
+      ],
+      "contradictions": [],
+      "snippet": "11 sources on council-housing-association (Housing / landlord–tenant).",
+      "path": "topics/topic-council-housing-association.md",
+      "keywords": [
+        "council",
+        "housing",
+        "association",
+        "apply",
+        "for",
+        "council",
+        "housing",
+        "apply",
+        "for",
+        "sheltered",
+        "housing",
+        "council",
+        "housing",
+        "apply",
+        "for",
+        "find",
+        "out",
+        "about",
+        "right",
+        "housing",
+        "association",
+        "homes",
+        "apply",
+        "rent",
+        "council",
+        "garage",
+        "housing",
+        "repair",
+        "council",
+        "property",
+        "request",
+        "right",
+        "acquire",
+        "buying",
+        "housing"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-home-and-housing",
+      "kind": "topic",
+      "title": "Home and Housing",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-possession",
+        "hous-disrepair",
+        "hous-deposit",
+        "hous-homeless"
+      ],
+      "primaryUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/harassment",
+      "sourceIds": [
+        "10 examples of landlord harassment in the UK",
+        "Abortion",
+        "Accommodation",
+        "Adult education and training",
+        "Applying for council housing or a housing association home",
+        "Applying for Council Tax Reduction",
+        "Applying for homeless help",
+        "Armed forces",
+        "Ask the council for money or help to do repairs",
+        "Ask the council to check if your rented home needs repairs",
+        "Asking for adjustments to help with your disability",
+        "Asking the council to help you get repairs done"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/harassment",
+        "https://www.advicenow.org.uk/get-help/health-and-social-care/abortion",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/accommodation",
+        "https://www.advicenow.org.uk/get-help/education-and-training/adult-education-and-training",
+        "https://www.citizensadvice.org.uk/housing/applying-for-council-housing-or-a-housing-association-home/",
+        "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+        "https://www.citizensadvice.org.uk/housing/homeless-help/homelessness/applying-for-homeless-help/",
+        "https://www.citizensadvice.org.uk/housing/housing-armed-forces/",
+        "https://www.citizensadvice.org.uk/housing/repairs-and-housing/repairs-and-housing-conditions/getting-your-landlord-to-do-repairs/asking-the-council-to-help-you-get-repairs-done/applying-for-a-grant-or-other-assistance-with-repairs/",
+        "https://www.citizensadvice.org.uk/housing/repairs-and-housing/repairs-and-housing-conditions/getting-your-landlord-to-do-repairs/asking-the-council-to-help-you-get-repairs-done/asking-the-local-authority-for-help-with-repairs/",
+        "https://www.citizensadvice.org.uk/housing/housing-discrimination/discrimination-in-housing/taking-action/asking-for-adjustments-to-help-with-your-disability/",
+        "https://www.citizensadvice.org.uk/housing/repairs-and-housing/repairs-and-housing-conditions/getting-your-landlord-to-do-repairs/asking-the-council-to-help-you-get-repairs-done/"
+      ],
+      "contradictions": [
+        "Pathway/topic cites only wiki-guides — prefer GOV.UK / CAB / AdviceNow as primary.",
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "43 sources on Home and Housing (Housing / landlord–tenant).",
+      "path": "topics/topic-home-and-housing.md",
+      "keywords": [
+        "home",
+        "and",
+        "housing",
+        "10 examples of landlord harassment in the UK",
+        "examples",
+        "landlord",
+        "harassment",
+        "Abortion",
+        "abortion",
+        "home",
+        "and",
+        "Accommodation",
+        "accommodation",
+        "home",
+        "and",
+        "Adult education and training",
+        "adult",
+        "education",
+        "and",
+        "Applying for council housing or a housing association home",
+        "applying",
+        "for",
+        "council",
+        "Applying for Council Tax Reduction",
+        "applying",
+        "for",
+        "council",
+        "Applying for homeless help",
+        "applying",
+        "for",
+        "homeless",
+        "Armed forces",
+        "armed",
+        "forces",
+        "home"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-housing",
+      "kind": "topic",
+      "title": "housing",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-possession",
+        "hous-disrepair",
+        "hous-deposit",
+        "hous-homeless"
+      ],
+      "primaryUrl": "https://sheltercymru.org.uk/housing-advice/eviction/abandonment-procedure/",
+      "sourceIds": [
+        "housing-advice-eviction-abandonment-procedure",
+        "private-renting-landlord-selling-renters-rights-allowing-access",
+        "homeless-accessing-services",
+        "private-renting-accommodation-that-comes-with-your-job",
+        "housing-advice-advice-for-young-people",
+        "housing-advice-advice-near-you",
+        "private-renting-ending-a-periodic-tenancy-agreement-with-your-landlord",
+        "private-renting-tenancy-agreements-from-before-renters-rights-act",
+        "housing-advice-renting-agricultural-occupiers",
+        "homelessness-how-to-open-a-bank-account-apply-for-a-basic-bank-account",
+        "council-housing-association-apply-for-a-larger-home-overcrowded-housing",
+        "council-housing-association-apply-for-tenancy-succession"
+      ],
+      "sourceUrls": [
+        "https://sheltercymru.org.uk/housing-advice/eviction/abandonment-procedure/",
+        "https://england.shelter.org.uk/housing_advice/private_renting/landlord_selling_renters_rights/allowing_access",
+        "https://scotland.shelter.org.uk/housing_advice/homeless/accessing_services",
+        "https://england.shelter.org.uk/housing_advice/private_renting/accommodation_that_comes_with_your_job",
+        "https://sheltercymru.org.uk/housing-advice/advice-for-young-people/",
+        "https://sheltercymru.org.uk/housing-advice/advice-near-you/",
+        "https://england.shelter.org.uk/housing_advice/private_renting/ending_a_periodic_tenancy/agreement_with_your_landlord",
+        "https://england.shelter.org.uk/housing_advice/private_renting/tenancy_agreements/from_before_renters_rights_act",
+        "https://sheltercymru.org.uk/housing-advice/renting/agricultural-occupiers/",
+        "https://england.shelter.org.uk/housing_advice/homelessness/how_to_open_a_bank_account/apply_for_a_basic_bank_account",
+        "https://england.shelter.org.uk/housing_advice/council_housing_association/apply_for_a_larger_home_overcrowded_housing",
+        "https://england.shelter.org.uk/housing_advice/council_housing_association/apply_for_tenancy_succession"
+      ],
+      "contradictions": [
+        "Eligibility wording differs across linked sources — verify on primary official pages.",
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "185 sources on housing (Housing / landlord–tenant).",
+      "path": "topics/topic-housing.md",
+      "keywords": [
+        "housing",
+        "housing",
+        "advice",
+        "eviction",
+        "abandonment",
+        "private",
+        "renting",
+        "landlord",
+        "selling",
+        "homeless",
+        "accessing",
+        "services",
+        "without",
+        "private",
+        "renting",
+        "accommodation",
+        "that",
+        "housing",
+        "advice",
+        "for",
+        "young",
+        "housing",
+        "advice",
+        "near",
+        "you",
+        "private",
+        "renting",
+        "ending",
+        "periodic",
+        "private",
+        "renting",
+        "tenancy",
+        "agreements"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-landlord-tenant",
+      "kind": "topic",
+      "title": "Landlord & Tenant",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-possession",
+        "hous-deposit"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/landlord-tenant/10-examples-of-landlord-harassment-in-the-uk",
+      "sourceIds": [
+        "landlord-tenant-10-examples-of-landlord-harassment-in-the-uk",
+        "landlord-tenant-accelerated-possession-orders-a-guide-for-landlords-in-england",
+        "landlord-tenant-are-landlords-responsible-for-pest-control",
+        "landlord-tenant-are-there-new-rules-for-landlords-in-2025",
+        "landlord-tenant-breathing-space-a-guide-for-landlords-on-dealing-with-tenants-in-rent-arrears",
+        "landlord-tenant-buying-a-house-with-tenant-in-situ",
+        "landlord-tenant-can-a-landlord-change-the-locks-after-a-section-21",
+        "landlord-tenant-can-a-landlord-evict-you-for-no-reason",
+        "landlord-tenant-can-a-landlord-evict-you-if-you-have-nowhere-to-go",
+        "landlord-tenant-can-a-possession-order-be-stopped",
+        "landlord-tenant-can-i-be-evicted-if-i-don-t-have-a-tenancy-agreement",
+        "landlord-tenant-can-i-end-my-tenancy-early-because-of-bed-bugs"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/10-examples-of-landlord-harassment-in-the-uk",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/accelerated-possession-orders-england",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/are-landlords-responsible-for-pest-control-uk",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/new-rules-for-landlords",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/breathing-space-guide-for-landlords",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/buying-a-house-with-tenant-in-situ",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/can-a-landlord-change-the-locks-after-a-section-21",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/can-a-landlord-evict-you-for-no-reason",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/can-a-landlord-evict-you-if-you-have-nowhere-to-go",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/can-a-possession-order-be-stopped",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/can-i-be-evicted-if-i-dont-have-a-tenancy-agreement",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/end-tenancy-early-because-of-bed-bugs"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "32 sources on Landlord & Tenant (Housing / landlord–tenant).",
+      "path": "topics/topic-landlord-tenant.md",
+      "keywords": [
+        "landlord",
+        "tenant",
+        "landlord",
+        "tenant",
+        "examples",
+        "harassment",
+        "landlord",
+        "tenant",
+        "accelerated",
+        "possession",
+        "landlord",
+        "tenant",
+        "are",
+        "landlords",
+        "landlord",
+        "tenant",
+        "are",
+        "there",
+        "landlord",
+        "tenant",
+        "breathing",
+        "space",
+        "landlord",
+        "tenant",
+        "buying",
+        "house",
+        "landlord",
+        "tenant",
+        "can",
+        "change",
+        "landlord",
+        "tenant",
+        "can",
+        "evict"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-landlords",
+      "kind": "topic",
+      "title": "landlords",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-possession",
+        "hous-deposit"
+      ],
+      "primaryUrl": "https://www.gov.uk/assured-tenancy-agreements-a-guide-for-landlords",
+      "sourceIds": [
+        "assured-tenancy-agreements-a-guide-for-landlords",
+        "view-right-to-rent",
+        "check-register-rents",
+        "check-tenant-right-to-rent-documents",
+        "deposit-protection-schemes-and-landlords",
+        "evicting-tenants",
+        "check-register-notice-to-quit",
+        "penalties-illegal-renting",
+        "client-money-protection-scheme-property-agents",
+        "register-prs-energy-standard-exemption",
+        "redress-scheme-estate-agencies",
+        "rent-room-in-your-home"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/assured-tenancy-agreements-a-guide-for-landlords",
+        "https://www.gov.uk/view-right-to-rent",
+        "https://www.gov.uk/check-register-rents",
+        "https://www.gov.uk/check-tenant-right-to-rent-documents",
+        "https://www.gov.uk/deposit-protection-schemes-and-landlords",
+        "https://www.gov.uk/evicting-tenants",
+        "https://www.gov.uk/check-register-notice-to-quit",
+        "https://www.gov.uk/penalties-illegal-renting",
+        "https://www.gov.uk/client-money-protection-scheme-property-agents",
+        "https://www.gov.uk/register-prs-energy-standard-exemption",
+        "https://www.gov.uk/redress-scheme-estate-agencies",
+        "https://www.gov.uk/rent-room-in-your-home"
+      ],
+      "contradictions": [],
+      "snippet": "15 sources on landlords (Housing / landlord–tenant).",
+      "path": "topics/topic-landlords.md",
+      "keywords": [
+        "landlords",
+        "assured",
+        "tenancy",
+        "agreements",
+        "guide",
+        "view",
+        "right",
+        "rent",
+        "check",
+        "check",
+        "register",
+        "rents",
+        "the",
+        "check",
+        "tenant",
+        "right",
+        "rent",
+        "deposit",
+        "protection",
+        "schemes",
+        "and",
+        "evicting",
+        "tenants",
+        "england",
+        "overview",
+        "check",
+        "register",
+        "notice",
+        "quit",
+        "penalties",
+        "illegal",
+        "renting",
+        "for"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-property",
+      "kind": "topic",
+      "title": "property",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-deposit"
+      ],
+      "primaryUrl": "https://www.taylor-rose.co.uk/posts/Ground-Rent-and-the-Proposed-Legislation",
+      "sourceIds": [
+        "property-ground-rent-and-the-proposed-legislation",
+        "property-property-sale-process"
+      ],
+      "sourceUrls": [
+        "https://www.taylor-rose.co.uk/posts/Ground-Rent-and-the-Proposed-Legislation",
+        "https://www.taylor-rose.co.uk/posts/sellers-guide-to-conveyancing"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "2 sources on property (Housing / landlord–tenant).",
+      "path": "topics/topic-property.md",
+      "keywords": [
+        "property",
+        "property",
+        "ground",
+        "rent",
+        "and",
+        "property",
+        "sale",
+        "process",
+        "sellers"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-property",
+      "kind": "topic",
+      "title": "Property",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-possession",
+        "hous-deposit"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/property/can-leaseholders-install-cctv-at-their-flat",
+      "sourceIds": [
+        "property-can-leaseholders-install-cctv-at-their-flat",
+        "property-can-you-use-cryptocurrency-to-buy-a-house",
+        "property-deed-of-variation-for-ground-rent",
+        "property-guide-to-letting-leasehold-property",
+        "property-house-repossession-process-in-the-uk",
+        "property-how-do-leasehold-properties-work-your-ultimate-guide",
+        "property-authorised-guarantee-agreement-what-is-it-and-how-does-it-work",
+        "property-buying-a-partner-out-of-a-property",
+        "property-commercial-lease-renewal-disputes",
+        "property-dilapidation-disputes-and-claims-guide",
+        "property-evicting-a-residential-tenant",
+        "property-forfeiture-of-a-commercial-lease-key-points"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/property/can-leaseholders-install-cctv-at-their-flat",
+        "https://lawhive.co.uk/knowledge-hub/property/can-you-use-cryptocurrency-to-buy-a-house",
+        "https://lawhive.co.uk/knowledge-hub/property/deed-of-variation-for-ground-rent",
+        "https://lawhive.co.uk/knowledge-hub/property/guide-to-letting-leasehold-property",
+        "https://lawhive.co.uk/knowledge-hub/property/house-repossession-process-in-the-uk",
+        "https://lawhive.co.uk/knowledge-hub/property/how-do-leasehold-properties-work",
+        "https://www.taylor-rose.co.uk/posts/authorised-guarantee-agreement",
+        "https://www.taylor-rose.co.uk/posts/buying-a-partner-out-of-a-property",
+        "https://www.taylor-rose.co.uk/posts/commercial-lease-renewals",
+        "https://www.taylor-rose.co.uk/posts/dilapidations",
+        "https://www.taylor-rose.co.uk/posts/evicting-a-tenant",
+        "https://www.taylor-rose.co.uk/posts/forfeiture-of-a-commercial-lease-key-points"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "16 sources on Property (Housing / landlord–tenant).",
+      "path": "topics/topic-property.md",
+      "keywords": [
+        "property",
+        "property",
+        "can",
+        "leaseholders",
+        "install",
+        "property",
+        "can",
+        "you",
+        "use",
+        "property",
+        "deed",
+        "variation",
+        "for",
+        "property",
+        "guide",
+        "letting",
+        "leasehold",
+        "property",
+        "house",
+        "repossession",
+        "process",
+        "property",
+        "how",
+        "leasehold",
+        "properties",
+        "property",
+        "authorised",
+        "guarantee",
+        "agreement",
+        "property",
+        "buying",
+        "partner",
+        "out"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-renting-property",
+      "kind": "topic",
+      "title": "renting-property",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://www.gov.uk/assured-periodic-tenancies-tenants",
+      "sourceIds": [
+        "assured-periodic-tenancies-tenants",
+        "fire-safety-flats-england-residents",
+        "private-renting",
+        "rental-discrimination-tenants",
+        "renting-a-room-in-someones-home-lodgers"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/assured-periodic-tenancies-tenants",
+        "https://www.gov.uk/fire-safety-flats-england-residents",
+        "https://www.gov.uk/private-renting",
+        "https://www.gov.uk/rental-discrimination-tenants",
+        "https://www.gov.uk/renting-a-room-in-someones-home-lodgers"
+      ],
+      "contradictions": [],
+      "snippet": "5 sources on renting-property (Housing / landlord–tenant).",
+      "path": "topics/topic-renting-property.md",
+      "keywords": [
+        "renting",
+        "property",
+        "assured",
+        "periodic",
+        "tenancies",
+        "tenants",
+        "fire",
+        "safety",
+        "flats",
+        "england",
+        "private",
+        "renting",
+        "tenancy",
+        "types",
+        "rental",
+        "discrimination",
+        "tenants",
+        "guide",
+        "renting",
+        "room",
+        "someones",
+        "home"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-repossessions-evictions",
+      "kind": "topic",
+      "title": "repossessions-evictions",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-possession",
+        "hous-homeless"
+      ],
+      "primaryUrl": "https://www.gov.uk/council-housing-association-evictions",
+      "sourceIds": [
+        "council-housing-association-evictions",
+        "homelessness-help-from-council",
+        "if-youre-homeless-at-risk-of-homelessness",
+        "repossession",
+        "private-renting-evictions",
+        "squatting-law"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/council-housing-association-evictions",
+        "https://www.gov.uk/homelessness-help-from-council",
+        "https://www.gov.uk/if-youre-homeless-at-risk-of-homelessness",
+        "https://www.gov.uk/repossession",
+        "https://www.gov.uk/private-renting-evictions",
+        "https://www.gov.uk/squatting-law"
+      ],
+      "contradictions": [],
+      "snippet": "6 sources on repossessions-evictions (Housing / landlord–tenant).",
+      "path": "topics/topic-repossessions-evictions.md",
+      "keywords": [
+        "repossessions",
+        "evictions",
+        "council",
+        "housing",
+        "association",
+        "evictions",
+        "homelessness",
+        "help",
+        "from",
+        "council",
+        "youre",
+        "homeless",
+        "risk",
+        "homelessness",
+        "repossession",
+        "home",
+        "get",
+        "advice",
+        "private",
+        "renting",
+        "evictions",
+        "for",
+        "squatting",
+        "law",
+        "and",
+        "the"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "pathway-possession-eviction",
+      "kind": "pathway",
+      "title": "Possession / eviction",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-possession"
+      ],
+      "primaryUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55",
+      "sourceIds": [
+        "part-55-part-55-possession-claims",
+        "pd-55a-practice-direction-55a-possession-claims",
+        "pd-55b-practice-direction-55b-possession-claims-online",
+        "pd-55c-practice-direction-55c-coronavirus-temporary-provision-in-relation-to-possession",
+        "housing-and-homelessness-eviction-emergency-and-temporary-accommodation",
+        "housing-and-homelessness-eviction",
+        "housing-and-homelessness-eviction-eviction-and-repossession",
+        "housing-and-homelessness-eviction-how-deal-section-21-eviction-notice",
+        "housing-and-homelessness-eviction-how-deal-section-8-eviction-notice",
+        "housing-housing-discrimination-discrimination-in-housing-taking-action-challenging-an-eviction-with-discrimination-law-step-2-write-down-why-youre-challenging-the-eviction-addition"
+      ],
+      "sourceUrls": [
+        "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55",
+        "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55/pd_part55a",
+        "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55/pd_part55b",
+        "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/practice-direction-55c-coronavirus-temporary-provision-in-relation-to-possession-proceedings",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/eviction/emergency-and-temporary-accommodation",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/eviction",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/eviction/eviction-and-repossession",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/eviction/how-deal-section-21-eviction-notice",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/eviction/how-deal-section-8-eviction-notice",
+        "https://www.citizensadvice.org.uk/housing/housing-discrimination/discrimination-in-housing/taking-action/challenging-an-eviction-with-discrimination-law/step-2-write-down-why-youre-challenging-the-eviction/additional-defencecounterclaim-form/"
+      ],
+      "contradictions": [],
+      "snippet": "Notice, possession claims, and lock-out / illegal eviction pathways.",
+      "path": "pathways/pathway-possession-eviction.md",
+      "keywords": [
+        "possession",
+        "eviction",
+        "hous-possession",
+        "part",
+        "possession",
+        "claims",
+        "55a",
+        "practice",
+        "direction",
+        "55b",
+        "practice",
+        "direction",
+        "55c",
+        "practice",
+        "direction",
+        "housing",
+        "and",
+        "homelessness",
+        "housing",
+        "and",
+        "homelessness"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-commercial-property",
+        "topic-home-and-housing",
+        "topic-housing",
+        "topic-landlord-tenant",
+        "topic-landlords",
+        "topic-property",
+        "topic-repossessions-evictions"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55",
+          "sourceTitle": "PART 55 – POSSESSION CLAIMS – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55",
+          "sourceTitle": "PART 55 – POSSESSION CLAIMS – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55",
+          "sourceTitle": "PART 55 – POSSESSION CLAIMS – Civil Procedure Rules – Justice UK"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55",
+          "sourceTitle": "PART 55 – POSSESSION CLAIMS – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55",
+          "sourceTitle": "PART 55 – POSSESSION CLAIMS – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55",
+          "sourceTitle": "PART 55 – POSSESSION CLAIMS – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part55",
+          "sourceTitle": "PART 55 – POSSESSION CLAIMS – Civil Procedure Rules – Justice UK"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:34.801Z"
+    },
+    {
+      "id": "pathway-disrepair",
+      "kind": "pathway",
+      "title": "Disrepair / conditions",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-disrepair"
+      ],
+      "primaryUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/housing-conditions-and-disrepair",
+      "sourceIds": [
+        "housing-and-homelessness-repairs-housing-conditions-and-disrepair",
+        "housing-and-homelessness-renting-and-tenancies-housing-repairs-letter-tool",
+        "housing-and-homelessness-repairs-how-get-repairs-fixed-your-privately-rented-home",
+        "housing-and-homelessness-repairs",
+        "housing-ask-the-council-for-money-or-help-to-do-repairs",
+        "housing-ask-the-council-to-check-if-your-rented-home-needs-repairs",
+        "housing-asking-the-council-to-help-you-get-repairs-done",
+        "housing-check-if-your-landlord-has-to-do-repairs",
+        "housing-complaining-about-the-condition-of-your-shared-house",
+        "housing-complaining-about-your-landlord-s-failure-to-make-repairs-if-you-are-a-social-ho"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/housing-conditions-and-disrepair",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/renting-and-tenancies/housing-repairs-letter-tool",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/how-get-repairs-fixed-your-privately-rented-home",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs",
+        "https://www.citizensadvice.org.uk/housing/repairs-and-housing/repairs-and-housing-conditions/getting-your-landlord-to-do-repairs/asking-the-council-to-help-you-get-repairs-done/applying-for-a-grant-or-other-assistance-with-repairs/",
+        "https://www.citizensadvice.org.uk/housing/repairs-and-housing/repairs-and-housing-conditions/getting-your-landlord-to-do-repairs/asking-the-council-to-help-you-get-repairs-done/asking-the-local-authority-for-help-with-repairs/",
+        "https://www.citizensadvice.org.uk/housing/repairs-and-housing/repairs-and-housing-conditions/getting-your-landlord-to-do-repairs/asking-the-council-to-help-you-get-repairs-done/",
+        "https://www.citizensadvice.org.uk/housing/repairs-and-housing/repairs-and-housing-conditions/whos-responsible-for-repairs/check-if-your-landlord-has-to-do-repairs/",
+        "https://www.citizensadvice.org.uk/housing/repairs-and-housing/repairs-and-housing-conditions/getting-your-landlord-to-do-repairs/getting-repairs-done-if-youre-renting-privately-ew/complaining-about-the-condition-of-your-shared-house/",
+        "https://www.citizensadvice.org.uk/housing/repairs-and-housing/repairs-and-housing-conditions/getting-your-landlord-to-do-repairs/renting-from-the-council-or-a-housing-association/complaining-about-your-landlords-failure-to-make-repairs-if-you-are-a-social-housing-tenant/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Repairs, damp/mould, and landlord duties.",
+      "path": "pathways/pathway-disrepair.md",
+      "keywords": [
+        "disrepair",
+        "conditions",
+        "hous-disrepair",
+        "housing",
+        "and",
+        "homelessness",
+        "housing",
+        "and",
+        "homelessness",
+        "housing",
+        "and",
+        "homelessness",
+        "housing",
+        "and",
+        "homelessness",
+        "housing",
+        "ask",
+        "the",
+        "housing",
+        "ask",
+        "the"
+      ],
+      "authority": "secondary",
+      "linkedTopicIds": [
+        "topic-council-housing-association",
+        "topic-home-and-housing",
+        "topic-housing"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/housing-conditions-and-disrepair",
+          "sourceTitle": "Housing conditions and disrepair | Advicenow"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/housing-conditions-and-disrepair",
+          "sourceTitle": "Housing conditions and disrepair | Advicenow"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/housing-conditions-and-disrepair",
+          "sourceTitle": "Housing conditions and disrepair | Advicenow"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/housing-conditions-and-disrepair",
+          "sourceTitle": "Housing conditions and disrepair | Advicenow"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/housing-conditions-and-disrepair",
+          "sourceTitle": "Housing conditions and disrepair | Advicenow"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/housing-conditions-and-disrepair",
+          "sourceTitle": "Housing conditions and disrepair | Advicenow"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/housing-conditions-and-disrepair",
+          "sourceTitle": "Housing conditions and disrepair | Advicenow"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:34.806Z"
+    },
+    {
+      "id": "pathway-deposit-rent",
+      "kind": "pathway",
+      "title": "Deposit / rent money",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-deposit"
+      ],
+      "primaryUrl": "https://www.gov.uk/deposit-protection-schemes-and-landlords",
+      "sourceIds": [
+        "debt-and-money-dealing-with-rent-arrears-2",
+        "debt-and-money-dealing-with-rent-arrears",
+        "housing-dealing-with-rent-arrears",
+        "Breathing Space A Guide for Landlords on Dealing with Tenants in Rent Arrears",
+        "deposit-protection-schemes-and-landlords",
+        "tenancy-deposits-what-can-your-landlord-deduct-from-your-deposit-cleaning-gardening-decorating",
+        "eviction-how-to-stop-eviction-by-bailiffs",
+        "tenancy-deposits-how-to-get-your-deposit-back-check-out-inspections",
+        "tenancy-deposits-check-your-tenancy-deposit-is-protected",
+        "tenancy-deposits-what-can-your-landlord-deduct-from-your-deposit-damage-and-missing-items"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/debt-and-money/rent-arrears/dealing-with-rent-arrears/",
+        "https://www.citizensadvice.org.uk/debt-and-money/help-with-debt/dealing-with-urgent-debts/dealing-with-urgent-rent-arrears/",
+        "https://www.citizensadvice.org.uk/housing/paying-rent/dealing-with-rent-arrears-housing/",
+        "https://www.citizensadvice.org.uk/housing/paying-rent/dealing-with-rent-arrears-housing/",
+        "https://www.gov.uk/deposit-protection-schemes-and-landlords",
+        "https://england.shelter.org.uk/housing_advice/tenancy_deposits/what_can_your_landlord_deduct_from_your_deposit/cleaning_gardening_decorating",
+        "https://england.shelter.org.uk/housing_advice/eviction/how_to_stop_eviction_by_bailiffs",
+        "https://england.shelter.org.uk/housing_advice/tenancy_deposits/how_to_get_your_deposit_back/check_out_inspections",
+        "https://england.shelter.org.uk/housing_advice/tenancy_deposits/check_your_tenancy_deposit_is_protected",
+        "https://england.shelter.org.uk/housing_advice/tenancy_deposits/what_can_your_landlord_deduct_from_your_deposit/damage_and_missing_items"
+      ],
+      "contradictions": [],
+      "snippet": "Tenancy deposits, rent arrears, and related money issues.",
+      "path": "pathways/pathway-deposit-rent.md",
+      "keywords": [
+        "deposit",
+        "rent",
+        "money",
+        "hous-deposit",
+        "debt",
+        "and",
+        "money",
+        "debt",
+        "and",
+        "money",
+        "housing",
+        "dealing",
+        "with",
+        "Breathing Space A Guide for Landlords on Dealing with Tenants in Rent Arrears",
+        "breathing",
+        "space",
+        "deposit",
+        "protection",
+        "schemes",
+        "tenancy",
+        "deposits",
+        "what"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-council-housing-association",
+        "topic-home-and-housing",
+        "topic-housing",
+        "topic-landlord-tenant",
+        "topic-landlords",
+        "topic-property",
+        "topic-property"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/rent-arrears/dealing-with-rent-arrears/",
+          "sourceTitle": "Dealing with rent arrears - Citizens Advice"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/rent-arrears/dealing-with-rent-arrears/",
+          "sourceTitle": "Dealing with rent arrears - Citizens Advice"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/rent-arrears/dealing-with-rent-arrears/",
+          "sourceTitle": "Dealing with rent arrears - Citizens Advice"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/rent-arrears/dealing-with-rent-arrears/",
+          "sourceTitle": "Dealing with rent arrears - Citizens Advice"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/rent-arrears/dealing-with-rent-arrears/",
+          "sourceTitle": "Dealing with rent arrears - Citizens Advice"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/rent-arrears/dealing-with-rent-arrears/",
+          "sourceTitle": "Dealing with rent arrears - Citizens Advice"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/rent-arrears/dealing-with-rent-arrears/",
+          "sourceTitle": "Dealing with rent arrears - Citizens Advice"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:34.815Z"
+    },
+    {
+      "id": "pathway-homelessness",
+      "kind": "pathway",
+      "title": "Homelessness",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-homeless"
+      ],
+      "primaryUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/accommodation",
+      "sourceIds": [
+        "housing-and-homelessness-accommodation",
+        "housing-and-homelessness-homelessness-emergency-accommodation",
+        "housing-and-homelessness-eviction-emergency-and-temporary-accommodation",
+        "housing-and-homelessness-eviction",
+        "housing-and-homelessness-eviction-eviction-and-repossession",
+        "housing-and-homelessness-renting-and-tenancies-guarantors-who-they-are-and-what-they-do",
+        "housing-and-homelessness-harassment",
+        "housing-and-homelessness-homelessness",
+        "housing-and-homelessness",
+        "housing-and-homelessness-repairs-housing-conditions-and-disrepair"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/accommodation",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/homelessness/emergency-accommodation",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/eviction/emergency-and-temporary-accommodation",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/eviction",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/eviction/eviction-and-repossession",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/renting-and-tenancies/guarantors-who-they-are-and-what-they-do",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/harassment",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/homelessness",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness",
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/repairs/housing-conditions-and-disrepair"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Local authority homelessness duties and emergency housing.",
+      "path": "pathways/pathway-homelessness.md",
+      "keywords": [
+        "homelessness",
+        "hous-homeless",
+        "housing",
+        "and",
+        "homelessness",
+        "housing",
+        "and",
+        "homelessness",
+        "housing",
+        "and",
+        "homelessness",
+        "housing",
+        "and",
+        "homelessness",
+        "housing",
+        "and",
+        "homelessness",
+        "housing",
+        "and",
+        "homelessness"
+      ],
+      "authority": "secondary",
+      "linkedTopicIds": [
+        "topic-home-and-housing",
+        "topic-housing",
+        "topic-repossessions-evictions"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/accommodation",
+          "sourceTitle": "Accommodation | Advicenow"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/accommodation",
+          "sourceTitle": "Accommodation | Advicenow"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/accommodation",
+          "sourceTitle": "Accommodation | Advicenow"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/accommodation",
+          "sourceTitle": "Accommodation | Advicenow"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/accommodation",
+          "sourceTitle": "Accommodation | Advicenow"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/accommodation",
+          "sourceTitle": "Accommodation | Advicenow"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/accommodation",
+          "sourceTitle": "Accommodation | Advicenow"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:34.819Z"
+    },
+    {
+      "id": "entity-section-21",
+      "kind": "entity",
+      "title": "Section 21 notice",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-possession"
+      ],
+      "primaryUrl": "https://www.advicenow.org.uk/get-help/housing-and-homelessness/eviction/how-deal-section-21-eviction-notice",
+      "sourceIds": [
+        "housing-and-homelessness-eviction-how-deal-section-21-eviction-notice",
+        "landlord-tenant-can-a-landlord-change-the-locks-after-a-section-21",
+        "eviction-challenging-a-section-21-notice-in-court",
+        "eviction-section-21-eviction-how-to-check-a-section-21-notice-is-valid",
+        "eviction-section-21-eviction-help-from-your-council"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/housing-and-homelessness/eviction/how-deal-section-21-eviction-notice",
+        "https://lawhive.co.uk/knowledge-hub/landlord-tenant/can-a-landlord-change-the-locks-after-a-section-21",
+        "https://england.shelter.org.uk/housing_advice/eviction/challenging_a_section_21_notice_in_court",
+        "https://england.shelter.org.uk/housing_advice/eviction/section_21_eviction/how_to_check_a_section_21_notice_is_valid",
+        "https://england.shelter.org.uk/housing_advice/eviction/section_21_eviction/help_from_your_council"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Section 21 notice — 5 linked sources.",
+      "path": "entities/entity-section-21.md",
+      "keywords": [
+        "section",
+        "fault",
+        "eviction",
+        "hous-possession"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "entity-tenancy-deposit",
+      "kind": "entity",
+      "title": "Tenancy deposit protection",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-deposit"
+      ],
+      "primaryUrl": "https://www.gov.uk/deposit-protection-schemes-and-landlords",
+      "sourceIds": [
+        "deposit-protection-schemes-and-landlords",
+        "tenancy-deposits-what-can-your-landlord-deduct-from-your-deposit-cleaning-gardening-decorating",
+        "housing-check-if-your-landlord-has-to-protect-your-deposit",
+        "Check if your landlord has to protect your deposit",
+        "tenancy-deposits-how-to-get-your-deposit-back-check-out-inspections",
+        "tenancy-deposits-check-your-tenancy-deposit-is-protected",
+        "tenancy-deposits-what-can-your-landlord-deduct-from-your-deposit-damage-and-missing-items",
+        "housing-deposits"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/deposit-protection-schemes-and-landlords",
+        "https://england.shelter.org.uk/housing_advice/tenancy_deposits/what_can_your_landlord_deduct_from_your_deposit/cleaning_gardening_decorating",
+        "https://www.citizensadvice.org.uk/housing/deposits/check-your-landlord-has-protected-your-deposit/",
+        "https://www.citizensadvice.org.uk/housing/deposits/check-your-landlord-has-protected-your-deposit/",
+        "https://england.shelter.org.uk/housing_advice/tenancy_deposits/how_to_get_your_deposit_back/check_out_inspections",
+        "https://england.shelter.org.uk/housing_advice/tenancy_deposits/check_your_tenancy_deposit_is_protected",
+        "https://england.shelter.org.uk/housing_advice/tenancy_deposits/what_can_your_landlord_deduct_from_your_deposit/damage_and_missing_items",
+        "https://www.citizensadvice.org.uk/housing/deposits/"
+      ],
+      "contradictions": [],
+      "snippet": "Tenancy deposit protection — 8 linked sources.",
+      "path": "entities/entity-tenancy-deposit.md",
+      "keywords": [
+        "deposit",
+        "protection",
+        "tdp",
+        "hous-deposit"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "index-housing",
+      "kind": "index",
+      "title": "Housing / landlord–tenant wiki index",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "hous-possession",
+        "hous-disrepair",
+        "hous-deposit",
+        "hous-homeless"
+      ],
+      "primaryUrl": "",
+      "sourceIds": [],
+      "sourceUrls": [],
+      "contradictions": [],
+      "snippet": "Compiled Housing / landlord–tenant wiki from Legal Knowledge catalogues.",
+      "path": "_index.md",
+      "keywords": [
+        "housing",
+        "housing"
+      ],
+      "authority": "primary"
+    }
+  ]
+}

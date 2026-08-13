@@ -15,6 +15,7 @@ import { TriageResultsSections } from "@/components/triage/triage-results-sectio
 import { ExternalFallbackSection } from "@/components/triage/external-fallback-section";
 import { TriageResultsEmailCard } from "@/components/triage/triage-results-email-card";
 import { TriageUrgentBanner } from "@/components/triage/triage-urgent-banner";
+import { SraAttribution } from "@/components/sra-attribution";
 import type { AppliedFilters } from "@/lib/agent/types";
 import type { MapMarker } from "@/lib/search/map-results";
 import type {
@@ -326,6 +327,7 @@ export function TriageGuidedSearch({
           parsedPracticeArea={status.payload.parsedQuery.practiceAreaSlug ?? undefined}
           parsedLocation={status.payload.parsedQuery.location ?? locationCity.trim() ?? undefined}
         />
+        {allResults.length > 0 ? <SraAttribution /> : null}
         <TriageResultsEmailCard
           sessionId={status.payload.triageState.sessionId}
           mergedQuery={status.payload.triageState.mergedQuery}

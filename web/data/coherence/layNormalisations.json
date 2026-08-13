@@ -1,0 +1,25 @@
+{
+  "replacements": [
+    ["\\bdeoted\\b", "deported"],
+    ["\\bdeort(?:ed|ation)?\\b", "deported"],
+    ["\\bchracter\\b", "character"],
+    ["\\bgor\\b", "got"],
+    ["\\blandord\\b", "landlord"],
+    ["\\bbailifs?\\b", "bailiffs"],
+    ["\\bgaurantee\\b", "guarantee"],
+    ["\\bnotise\\b", "notice"],
+    ["\\byesturday\\b", "yesterday"],
+    ["\\bthreating\\b", "threatening"],
+    ["\\bthreated\\b", "threatened"],
+    ["\\benforcment\\b", "enforcement"],
+    ["\\beverywere\\b", "everywhere"],
+    ["\\btryed\\b", "tried"],
+    ["\\bdidnt\\b", "didn't"],
+    ["\\bdont\\b", "don't"],
+    ["\\bwont\\b", "won't"],
+    ["\\bhasnt\\b", "hasn't"],
+    ["\\bim\\b", "I'm"],
+    ["\\bsacked\\b", "sacked"]
+  ],
+  "notes": "Shared lay-person spelling fixes. Keep patterns lowercase for matching; applied case-insensitively. Grow from eval:lay failures."
+}

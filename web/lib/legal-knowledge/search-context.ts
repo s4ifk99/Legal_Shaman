@@ -15,6 +15,8 @@ import {
   shouldTriggerLlmClassification,
   type LlmLegalClassification,
 } from "./classify-llm";
+import { satnavLlmEachStageEnabled } from "./route-llm-config";
+import { searchRouteMode } from "./route-types";
 import type { IssueClassification, LegalSearchRequest } from "./types";
 import { processSearchQuery } from "@/lib/legal-search/query-limits";
 
@@ -56,11 +58,14 @@ export async function buildLegalSearchContext(
   const baseClassification = classifyLegalIssue(query);
 
   let llmClassification: LlmLegalClassification | null = null;
-  // Long posts / Vercel: skip LLM classify — rules fusion is enough and much faster.
+  const satnavLlmPipeline =
+    searchRouteMode() === "satnav" && satnavLlmEachStageEnabled();
+  // Long posts / Vercel: skip LLM classify — unless satnav LLM-each-stage is on.
   const allowLlmClassify =
-    shouldTriggerLlmClassification(resolution) &&
-    query.length <= 400 &&
-    process.env.VERCEL !== "1";
+    satnavLlmPipeline ||
+    (shouldTriggerLlmClassification(resolution) &&
+      query.length <= 400 &&
+      process.env.VERCEL !== "1");
   if (allowLlmClassify) {
     try {
       llmClassification = await Promise.race([

@@ -8,7 +8,6 @@ import {
 import { isConsumerIntent } from "@/lib/knowledge-compiler/page-index";
 
 import {
-  classifyLegalIssue,
   suggestedNextStepsForClassification,
 } from "./classify";
 import { decomposeLegalSearchQuery } from "./decompose-query";
@@ -32,6 +31,19 @@ import { tryWikiPrimaryAnswer, wikiPrimaryToResponse } from "./wiki-primary-answ
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 import { toLegacyGetResponse } from "@/lib/legal-search/legacy-get-response";
 import { processSearchQuery } from "@/lib/legal-search/query-limits";
+import { planSearchRoutes, routeCap } from "./route-planner";
+import { retrieveSearchRoutes } from "./route-retrieve";
+import { applyLlmRouteAdvice, arbitrateSearchRoutes } from "./route-arbiter";
+import { adviseRoutesWithLlm } from "./route-llm-advisor";
+import { satnavLlmEachStageEnabled } from "./route-llm-config";
+import { applyLlmRoutePlan, planRoutesWithLlm } from "./route-llm-planner";
+import { rerankRouteHitsWithLlm } from "./route-llm-rerank";
+import { synthesizeFromRouteArbitration } from "./route-synthesize";
+import {
+  buildSatnavTrainingRecord,
+  logSatnavTrainingRecord,
+} from "./route-training-log";
+import { searchRouteMode } from "./route-types";
 
 type GraphMode = "primary" | "shadow" | "off";
 
@@ -68,15 +80,11 @@ async function runDirectorySlice(
 ): Promise<DirectorySlice> {
   if (context.includeDirectory === false) return EMPTY_DIRECTORY;
 
-  // Do not use a short wall-clock cap here — wiki/RAG work runs in parallel with directory,
-  // and Postgres directory on Vercel often needs 5–12s. The API route deadline is the backstop.
   const directoryTimeoutMs = Number(process.env.LEGAL_DIRECTORY_TIMEOUT_MS ?? 0);
 
   const run = async (): Promise<DirectorySlice> => {
     const shortQ = directorySearchQueryForIntent(input.query, intent);
     const practiceArea = directoryPracticeAreaForIntent(intent, input.query);
-    // Prefer the short directory query — intent.semanticQuery is often a long citizen
-    // narrative that returns noisy alphabetical SRA hits on Postgres FTS.
     const directoryIntent = { ...intent, semanticQuery: shortQ };
     const directory = await runDirectorySearch({
       query: shortQ,
@@ -124,17 +132,209 @@ async function runDirectorySlice(
   }
 }
 
-export async function runLegalKnowledgeSearch(
+async function runSatnavSearch(
   input: LegalSearchRequest,
+  context: Awaited<ReturnType<typeof buildLegalSearchContext>>,
+  intent: ReturnType<typeof deriveLegalSearchIntent>,
+  directoryPromise: Promise<DirectorySlice>,
 ): Promise<LegalSearchResponse> {
-  const context = await buildLegalSearchContext(input);
   const { query, includeDirectory, jurisdiction } = context;
-
-  const initialIntent = deriveLegalSearchIntent(context);
   const graphMode = knowledgeGraphMode();
 
-  // Start directory alongside wiki/RAG so Postgres retrieval can finish while guidance runs.
-  const directoryPromise = runDirectorySlice(input, context, initialIntent);
+  const routes = planSearchRoutes({
+    query,
+    intent,
+    fusion: context.fusion,
+  });
+
+  let plannedRoutes = routes;
+  let llmPlanner = null as Awaited<ReturnType<typeof planRoutesWithLlm>>;
+  if (satnavLlmEachStageEnabled()) {
+    llmPlanner = await planRoutesWithLlm({ query, intent, baseRoutes: routes });
+    plannedRoutes = applyLlmRoutePlan(routes, llmPlanner, routeCap());
+  }
+
+  // Optional cheap graph assemble — prefer only when wiki routes are weak.
+  const [hitSetsRaw, graphResult] = await Promise.all([
+    retrieveSearchRoutes({ routes: plannedRoutes, query, intent }),
+    graphMode !== "off" && isConsumerIntent(intent)
+      ? assembleFromKnowledgeGraph(context, intent).catch(() => null)
+      : Promise.resolve(null),
+  ]);
+
+  if (
+    graphResult &&
+    graphMode === "primary" &&
+    graphResult.confidence >= GRAPH_MIN_CONFIDENCE
+  ) {
+    const bestWiki = Math.max(0, ...hitSetsRaw.map((h) => h.topScore));
+    if (bestWiki < 8 && graphResult.confidence >= 0.7) {
+      const directorySlice = await directoryPromise;
+      const searchCriteria = decomposeLegalSearchQuery({
+        query,
+        location: input.location,
+        jurisdiction,
+        includeDirectory,
+        context,
+        intent,
+        routesConsidered: routes.map((r) => ({
+          id: r.id,
+          label: r.label,
+          query: r.query,
+        })),
+        chosenRouteIds: ["graph"],
+        routeDecision: "pick",
+      });
+      return {
+        answerType: "legal_information",
+        confidence: Number(graphResult.confidence.toFixed(3)),
+        issueClassification: {
+          ...context.classification,
+          subArea: intent.taxonomySlug ?? context.classification.subArea,
+          specificIssue: intent.specificIssue ?? context.classification.specificIssue,
+        },
+        sources: graphResult.sources,
+        directoryResults: directorySlice.directoryResults,
+        directoryRows: directorySlice.directoryRows.length
+          ? directorySlice.directoryRows
+          : undefined,
+        suggestedNextSteps: suggestedNextStepsForClassification(context.classification),
+        clarifyingQuestion:
+          graphResult.clarifyingQuestion ?? context.fusion.clarifyingQuestion ?? null,
+        answer: graphAssemblySourcesWithCitations(graphResult.answer, graphResult.sources),
+        answerMode: "graph_assembly",
+        disclaimer: LEGAL_SEARCH_DISCLAIMER,
+        searchCriteria,
+        debug: {
+          retrievalCount: graphResult.sources.length,
+          rerankedCount: graphResult.sources.length,
+          mode: "graph",
+          intentSignals: intent.signals,
+          conceptCluster: [
+            graphResult.conceptCluster.primary.wikiPageId,
+            ...graphResult.conceptCluster.related.map((r) => r.wikiPageId),
+          ],
+          classificationFusion: fusionDebug(context),
+          searchRouteMode: "satnav",
+          routeDecision: "pick",
+          chosenRouteIds: ["graph"],
+          routeRationale: `Graph assembly won (confidence ${graphResult.confidence.toFixed(2)}; wiki topScore ${bestWiki.toFixed(1)}).`,
+          routesConsidered: routes.map((r) => ({
+            id: r.id,
+            label: r.label,
+            query: r.query,
+            taxonomySlug: r.taxonomySlug,
+            score: 0,
+          })),
+        },
+      };
+    }
+  }
+
+  let hitSets = hitSetsRaw;
+  let llmReranks: Awaited<ReturnType<typeof rerankRouteHitsWithLlm>>["reranks"] = [];
+  if (satnavLlmEachStageEnabled()) {
+    const reranked = await rerankRouteHitsWithLlm(query, hitSets);
+    hitSets = reranked.hitSets;
+    llmReranks = reranked.reranks;
+  }
+
+  const satnavT0 = Date.now();
+  const ruleArbiter = arbitrateSearchRoutes({ query, hitSets });
+  const llmAdvice = await adviseRoutesWithLlm(query, hitSets);
+  const { arbitration, decidedBy } = applyLlmRouteAdvice({
+    arbiter: ruleArbiter,
+    hitSets,
+    llmAdvice,
+  });
+  const directorySlice = await directoryPromise;
+
+  const searchCriteria = decomposeLegalSearchQuery({
+    query,
+    location: input.location,
+    jurisdiction,
+    includeDirectory,
+    context,
+    intent,
+    routesConsidered: ruleArbiter.routesConsidered.map((r) => ({
+      id: r.id,
+      label: r.label,
+      query: r.query,
+    })),
+    chosenRouteIds: arbitration.chosenRouteIds,
+    routeDecision: arbitration.decision,
+  });
+
+  const { response, wikiPayload } = await synthesizeFromRouteArbitration({
+    query,
+    arbitration,
+    intent,
+    context,
+    directoryResults: directorySlice.directoryResults,
+    directoryRows: directorySlice.directoryRows,
+    suggestedNextSteps: suggestedNextStepsForClassification(context.classification),
+    searchCriteria,
+    forceLlm: satnavLlmEachStageEnabled(),
+  });
+
+  logSatnavTrainingRecord(
+    buildSatnavTrainingRecord({
+      query,
+      hitSets,
+      arbiter: ruleArbiter,
+      llmAdvisor: llmAdvice,
+      llmPlanner,
+      llmReranks,
+      finalDecision: {
+        decision: arbitration.decision,
+        chosenRouteIds: arbitration.chosenRouteIds,
+        rationale: arbitration.rationale,
+        decidedBy,
+      },
+      wikiPayload,
+      sourceTitles: response.sources.map((s) => s.title),
+      latencyMs: Date.now() - satnavT0,
+    }),
+  );
+
+  return {
+    ...response,
+    debug: {
+      ...response.debug,
+      routeRationale: arbitration.rationale,
+      satnavLlmEachStage: satnavLlmEachStageEnabled(),
+      llmStages: satnavLlmEachStageEnabled()
+        ? {
+            planner: llmPlanner,
+            rerank: llmReranks,
+            advisor: llmAdvice,
+            decidedBy,
+            synthesis: wikiPayload?.synthesisMeta?.used ?? (response.answer ? "deterministic" : "none"),
+          }
+        : undefined,
+      ...(llmAdvice
+        ? {
+            llmRouteAdvice: {
+              chosenRouteIds: llmAdvice.chosenRouteIds,
+              decision: llmAdvice.decision,
+              confidence: llmAdvice.confidence,
+              error: llmAdvice.error,
+            },
+          }
+        : {}),
+    },
+  };
+}
+
+/** Legacy sequential cascade: wiki → graph → RAG. */
+async function runLegacySearch(
+  input: LegalSearchRequest,
+  context: Awaited<ReturnType<typeof buildLegalSearchContext>>,
+  initialIntent: ReturnType<typeof deriveLegalSearchIntent>,
+  directoryPromise: Promise<DirectorySlice>,
+): Promise<LegalSearchResponse> {
+  const { query, includeDirectory, jurisdiction } = context;
+  const graphMode = knowledgeGraphMode();
 
   const wikiPrimary = await tryWikiPrimaryAnswer(processSearchQuery(query));
   if (wikiPrimary) {
@@ -147,7 +347,7 @@ export async function runLegalKnowledgeSearch(
       context,
       intent: initialIntent,
     });
-    return wikiPrimaryToResponse({
+    const response = wikiPrimaryToResponse({
       wiki: wikiPrimary,
       context,
       intent: initialIntent,
@@ -156,6 +356,10 @@ export async function runLegalKnowledgeSearch(
       suggestedNextSteps: suggestedNextStepsForClassification(context.classification),
       searchCriteria,
     });
+    return {
+      ...response,
+      debug: { ...response.debug!, searchRouteMode: "legacy" },
+    };
   }
 
   if (graphMode !== "off" && isConsumerIntent(initialIntent)) {
@@ -207,6 +411,7 @@ export async function runLegalKnowledgeSearch(
             ...graphResult.conceptCluster.related.map((r) => r.wikiPageId),
           ],
           classificationFusion: fusionDebug(context),
+          searchRouteMode: "legacy",
         },
       };
     }
@@ -232,7 +437,6 @@ export async function runLegalKnowledgeSearch(
     }
   }
 
-  // Align with /api/ask wiki path when chunk DB is empty/sparse (common on Vercel).
   if (retrieved.length < 3) {
     const wikiChunks = retrieveWikiAsChunks(query, { limit: 8, intent });
     if (wikiChunks.length) {
@@ -326,6 +530,21 @@ export async function runLegalKnowledgeSearch(
       intentSignals: intent.signals,
       graphShadow,
       classificationFusion: fusionDebug(context),
+      searchRouteMode: "legacy",
     },
   };
+}
+
+export async function runLegalKnowledgeSearch(
+  input: LegalSearchRequest,
+): Promise<LegalSearchResponse> {
+  const context = await buildLegalSearchContext(input);
+  const initialIntent = deriveLegalSearchIntent(context);
+  const directoryPromise = runDirectorySlice(input, context, initialIntent);
+
+  if (searchRouteMode() === "legacy") {
+    return runLegacySearch(input, context, initialIntent, directoryPromise);
+  }
+
+  return runSatnavSearch(input, context, initialIntent, directoryPromise);
 }

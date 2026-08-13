@@ -16,7 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TurnstileField, type TurnstileHandle } from "@/components/auth/turnstile-field";
 import { resolveApiUrl } from "@/lib/site/api-url";
 
-export type AuthDialogReason = "bookmark" | "search" | "login";
+export type AuthDialogReason = "bookmark" | "search" | "login" | "coherence";
 
 type AuthDialogProps = {
   open: boolean;
@@ -33,6 +33,13 @@ function defaultTabForReason(reason: AuthDialogReason): "register" | "login" {
 }
 
 function copyForReason(reason: AuthDialogReason, pendingFirmName?: string) {
+  if (reason === "coherence") {
+    return {
+      title: "Create a free account to analyse your matter",
+      description:
+        "Sign up to save your story securely, continue your legal timeline, and receive matching help and guidance.",
+    };
+  }
   if (reason === "search") {
     return {
       title: "Create a free account to view results",

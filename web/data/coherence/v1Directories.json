@@ -1,0 +1,124 @@
+{
+  "importedAt": "2026-08-01T21:30:05.821Z",
+  "note": "Full SRA organisation register lives in V1 Postgres/Meilisearch via live API sync and is not shipped in Git. Use these official directories; refresh legal-aid + signposting via npm run import:v1.",
+  "entries": [
+    {
+      "id": "oisc-find",
+      "title": "Find an immigration adviser (OISC / GOV.UK)",
+      "type": "regulated adviser directory",
+      "blurb": "Official directory of regulated immigration advisers — free and paid-for.",
+      "url": "https://www.gov.uk/find-an-immigration-adviser",
+      "matterTypes": [
+        "immigration"
+      ]
+    },
+    {
+      "id": "sra-register",
+      "title": "SRA Solicitors Register",
+      "type": "SRA directory",
+      "blurb": "Check whether a firm or solicitor is regulated by the Solicitors Regulation Authority.",
+      "url": "https://www.sra.org.uk/consumers/register/",
+      "searchUrlTemplate": "https://www.sra.org.uk/consumers/register/search/?searchText={q}",
+      "matterTypes": [
+        "immigration",
+        "housing",
+        "employment",
+        "family",
+        "consumer",
+        "debt",
+        "personal_injury",
+        "other",
+        "unknown",
+        "conveyancing"
+      ]
+    },
+    {
+      "id": "law-society-find",
+      "title": "Law Society — Find a Solicitor",
+      "type": "SRA directory",
+      "blurb": "Official Law Society directory of solicitors in England and Wales.",
+      "url": "https://solicitors.lawsociety.org.uk/",
+      "searchUrlTemplate": "https://solicitors.lawsociety.org.uk/search/results?LegalIssue={issue}&Location={location}",
+      "matterTypes": [
+        "immigration",
+        "housing",
+        "employment",
+        "family",
+        "consumer",
+        "debt",
+        "personal_injury",
+        "other",
+        "unknown",
+        "conveyancing"
+      ]
+    },
+    {
+      "id": "govuk-legal-aid",
+      "title": "GOV.UK — Find a legal aid adviser",
+      "type": "legal aid directory",
+      "blurb": "Official tool to find legal aid advisers by problem and location. Check eligibility on GOV.UK.",
+      "url": "https://www.gov.uk/legal-aid/search-for-legal-advice",
+      "matterTypes": [
+        "immigration",
+        "housing",
+        "family",
+        "employment",
+        "consumer",
+        "debt",
+        "other",
+        "unknown"
+      ]
+    },
+    {
+      "id": "citizens-advice",
+      "title": "Citizens Advice",
+      "type": "info / clinic",
+      "blurb": "Free, confidential guidance and local referral pathways.",
+      "url": "https://www.citizensadvice.org.uk/get-advice/",
+      "matterTypes": [
+        "immigration",
+        "housing",
+        "employment",
+        "family",
+        "consumer",
+        "debt",
+        "crime",
+        "personal_injury",
+        "other",
+        "unknown"
+      ]
+    },
+    {
+      "id": "lawworks",
+      "title": "LawWorks — Free legal help",
+      "type": "pro bono",
+      "blurb": "Charity connecting people with free legal advice clinics. Availability varies by area.",
+      "url": "https://www.lawworks.org.uk/our-services/",
+      "matterTypes": [
+        "immigration",
+        "housing",
+        "employment",
+        "family",
+        "consumer",
+        "debt",
+        "other",
+        "unknown"
+      ]
+    },
+    {
+      "id": "advocate",
+      "title": "Advocate — Pro bono barristers",
+      "type": "pro bono",
+      "blurb": "Charity helping find pro bono barrister representation, subject to eligibility and capacity.",
+      "url": "https://www.weareadvocate.org.uk/get-legal-help",
+      "matterTypes": [
+        "immigration",
+        "housing",
+        "family",
+        "consumer",
+        "other",
+        "unknown"
+      ]
+    }
+  ]
+}

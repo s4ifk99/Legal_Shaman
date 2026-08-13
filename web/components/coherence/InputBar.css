@@ -1,0 +1,133 @@
+.inputbar-wrap {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 1.5rem;
+}
+
+.inputbar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.inputbar__field {
+  flex: 1;
+  resize: vertical;
+  min-height: 3.25rem;
+  max-height: 9rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.4;
+  border-radius: 0;
+}
+
+.inputbar__field:focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.inputbar__field::placeholder {
+  color: var(--ink-faint);
+}
+
+.inputbar__mic,
+.inputbar__send {
+  padding: 0 1rem;
+  border: 1.5px solid var(--ink);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.inputbar__mic {
+  background: var(--paper);
+  color: var(--ink);
+  min-width: 4.5rem;
+}
+
+.inputbar__mic:hover:not(:disabled),
+.inputbar__mic:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  outline: none;
+}
+
+.inputbar__mic--live {
+  background: var(--ink);
+  color: var(--paper);
+  animation: pulse-border 1.2s ease infinite;
+}
+
+.inputbar__mic:disabled,
+.inputbar__send:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.inputbar__send {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.inputbar__send:not(:disabled):hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.inputbar__mic-label {
+  font-size: 0.75rem;
+}
+
+.inputbar__status {
+  margin: 0.55rem 0 0;
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+}
+
+.inputbar__status--error {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+@keyframes pulse-border {
+  0%,
+  100% {
+    outline: 2px solid var(--ink);
+    outline-offset: 0;
+  }
+  50% {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+}
+
+@media (max-width: 640px) {
+  .inputbar {
+    flex-wrap: wrap;
+  }
+
+  .inputbar__field {
+    flex: 1 1 100%;
+  }
+
+  .inputbar__mic,
+  .inputbar__send {
+    flex: 1;
+    min-height: 2.75rem;
+  }
+}

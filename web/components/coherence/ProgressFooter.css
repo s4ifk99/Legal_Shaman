@@ -1,0 +1,126 @@
+.footer {
+  border-top: 1px solid var(--ink-muted);
+  padding: 1rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer__progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.footer__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.footer__pct {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.footer__track {
+  height: 0.45rem;
+  background: var(--track);
+  border: 1px solid var(--ink);
+}
+
+.footer__fill {
+  height: 100%;
+  background: var(--ink);
+  transition: width 280ms ease;
+}
+
+.footer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.footer__notes,
+.footer__services {
+  align-self: flex-start;
+  padding: 0.7rem 1.35rem;
+  border: 1.5px solid var(--ink);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.footer__notes {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.footer__notes--draft {
+  opacity: 0.38;
+  border-style: dashed;
+}
+
+.footer__notes--draft:hover,
+.footer__notes--draft:focus-visible {
+  opacity: 0.72;
+  outline: none;
+}
+
+.footer__notes--ready {
+  opacity: 1;
+  background: var(--ink);
+  color: var(--paper);
+  animation: rise 220ms ease;
+}
+
+.footer__notes--ready:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.footer__notes-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  border: 1px solid currentColor;
+  padding: 0.1rem 0.35rem;
+  opacity: 0.9;
+}
+
+.footer__services {
+  background: var(--paper);
+  color: var(--ink);
+  animation: rise 220ms ease;
+}
+
+.footer__services:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.footer__disclaimer {
+  margin: 0;
+  font-size: 0.7rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

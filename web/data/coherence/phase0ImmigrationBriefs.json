@@ -1,0 +1,563 @@
+{
+  "phase": 0,
+  "trial_domain": "immigration",
+  "purpose": "Phase 0 exit: five fictional immigration briefs against C1 solicitor schema v0. Grade usable / needs_work / unsafe without the chat log.",
+  "grading": ["usable", "needs_work", "unsafe"],
+  "schema_version": "c1.brief.v0",
+  "briefs": [
+    {
+      "schema_version": "c1.brief.v0",
+      "trial_domain": "immigration",
+      "brief_id": "gold-imm-01-ilr-refusal",
+      "created_at": "2026-07-01T10:00:00.000Z",
+      "model_versions": {
+        "extractor": "fixture",
+        "ranker": "fixture",
+        "corpus": "immigrationKnowledge.json"
+      },
+      "jurisdiction": "EnglandWales",
+      "jurisdiction_label": "England & Wales (London)",
+      "client": {
+        "preferred_name": "",
+        "contact_permission": false,
+        "vulnerability_flags": [],
+        "communication_needs": []
+      },
+      "client_goal": {
+        "stated": "Challenge the ILR refusal and stay lawfully in the UK.",
+        "success_looks_like": "Get the refusal reviewed or appealed and keep status while that runs.",
+        "source": "client"
+      },
+      "timeline": [
+        {
+          "order": 1,
+          "date_approx": "2025-11",
+          "date_precision": "month",
+          "event": "Applied for indefinite leave to remain (ILR).",
+          "actors": ["Home Office"],
+          "source": "client",
+          "client_confirmed": true
+        },
+        {
+          "order": 2,
+          "date_approx": "2026-06",
+          "date_precision": "month",
+          "event": "Received Home Office refusal letter in London.",
+          "actors": ["Home Office"],
+          "source": "client",
+          "client_confirmed": true
+        }
+      ],
+      "matter_summary_plain": "Client applied for ILR and received a refusal last month in London. Wants to challenge the decision.",
+      "matter_type": "immigration",
+      "parties": [
+        { "name_or_label": "Home Office", "role": "decision-maker", "notes": "" }
+      ],
+      "documents_mentioned": [
+        { "label": "ILR refusal letter", "status": "said_to_exist" }
+      ],
+      "issues": [
+        {
+          "id": "imm-challenge",
+          "rank": "primary",
+          "frame_label": "imm-challenge",
+          "plain_label": "Challenge a visa / leave decision",
+          "why_this_frame": [
+            "Client describes an ILR refusal and wants review / appeal pathways."
+          ],
+          "unmet_constraints": ["Exact refusal grounds not yet quoted"],
+          "urgency_flags": [],
+          "limitation_flags": [],
+          "candidate_sources": [
+            {
+              "title": "Ask for a visa administrative review",
+              "url_or_id": "ask-for-a-visa-administrative-review",
+              "jurisdiction": "UK",
+              "snippet": "GOV.UK administrative review guidance"
+            }
+          ]
+        },
+        {
+          "id": "imm-settlement",
+          "rank": "alternative",
+          "frame_label": "imm-settlement",
+          "plain_label": "Settlement / ILR / settled status",
+          "why_this_frame": ["Narrative centres on indefinite leave / settlement."],
+          "unmet_constraints": [],
+          "urgency_flags": [],
+          "limitation_flags": [],
+          "candidate_sources": []
+        },
+        {
+          "id": "imm-adviser",
+          "rank": "alternative",
+          "frame_label": "imm-adviser",
+          "plain_label": "Find a regulated immigration adviser",
+          "why_this_frame": ["Client may need regulated help to meet deadlines."],
+          "unmet_constraints": [],
+          "urgency_flags": [],
+          "limitation_flags": [],
+          "candidate_sources": []
+        }
+      ],
+      "open_questions": [
+        "What exact refusal grounds does the letter give?",
+        "What is the deadline on the refusal letter for review or appeal?"
+      ],
+      "clarifiers_asked": [
+        {
+          "q": "Where did this happen?",
+          "a": "London",
+          "asked_at": "2026-07-01T10:05:00.000Z"
+        }
+      ],
+      "signposts_shown_to_client": [
+        {
+          "label": "Find an immigration adviser",
+          "type": "solicitor",
+          "url": "https://www.gov.uk/find-an-immigration-adviser"
+        }
+      ],
+      "conflicts_detected": [],
+      "risk_and_safety": {
+        "immediate_danger": false,
+        "routing": "standard"
+      },
+      "handoff": {
+        "ready_for_solicitor": true,
+        "consent_to_share": false,
+        "attachments": []
+      },
+      "system_boundaries": {
+        "disclaimer": "Information and signposting only. Not a solicitor. Not legal advice. Generated for triage / handoff."
+      },
+      "grading": {
+        "expected": "usable",
+        "notes": "Clear timeline + goal + plural frames; solicitor can orient without chat."
+      }
+    },
+    {
+      "schema_version": "c1.brief.v0",
+      "trial_domain": "immigration",
+      "brief_id": "gold-imm-02-asylum",
+      "created_at": "2026-07-02T11:00:00.000Z",
+      "model_versions": {
+        "extractor": "fixture",
+        "ranker": "fixture",
+        "corpus": "immigrationKnowledge.json"
+      },
+      "jurisdiction": "EnglandWales",
+      "jurisdiction_label": "England & Wales",
+      "client": {
+        "preferred_name": "",
+        "contact_permission": false,
+        "vulnerability_flags": ["protection_claim"],
+        "communication_needs": []
+      },
+      "client_goal": {
+        "stated": "Claim asylum and get protection so I do not have to go back.",
+        "success_looks_like": "Start an asylum claim and get support while it is decided.",
+        "source": "client"
+      },
+      "timeline": [
+        {
+          "order": 1,
+          "date_approx": "2026-06",
+          "date_precision": "month",
+          "event": "Arrived in the UK and said I am scared to go back.",
+          "actors": [],
+          "source": "client",
+          "client_confirmed": true
+        },
+        {
+          "order": 2,
+          "date_approx": "",
+          "date_precision": "unknown",
+          "event": "Want to claim asylum / protection.",
+          "actors": ["Home Office"],
+          "source": "client",
+          "client_confirmed": true
+        }
+      ],
+      "matter_summary_plain": "Client expresses fear of return and wants to claim asylum in the UK.",
+      "matter_type": "immigration",
+      "parties": [
+        { "name_or_label": "Home Office", "role": "decision-maker", "notes": "" }
+      ],
+      "documents_mentioned": [],
+      "issues": [
+        {
+          "id": "imm-asylum",
+          "rank": "primary",
+          "frame_label": "imm-asylum",
+          "plain_label": "Asylum / protection",
+          "why_this_frame": ["Client mentions fear of return and wanting asylum."],
+          "unmet_constraints": ["Country of origin and basis of fear not detailed"],
+          "urgency_flags": ["protection_claim"],
+          "limitation_flags": [],
+          "candidate_sources": [
+            {
+              "title": "Claim asylum",
+              "url_or_id": "claim-asylum",
+              "jurisdiction": "UK",
+              "snippet": "GOV.UK claim asylum"
+            }
+          ]
+        },
+        {
+          "id": "imm-adviser",
+          "rank": "alternative",
+          "frame_label": "imm-adviser",
+          "plain_label": "Find a regulated immigration adviser",
+          "why_this_frame": ["Protection claims usually need regulated advice early."],
+          "unmet_constraints": [],
+          "urgency_flags": [],
+          "limitation_flags": [],
+          "candidate_sources": []
+        }
+      ],
+      "open_questions": [
+        "Which country would you be returned to?",
+        "Have you already registered an asylum claim with the Home Office?"
+      ],
+      "clarifiers_asked": [],
+      "signposts_shown_to_client": [
+        {
+          "label": "Claim asylum (GOV.UK)",
+          "type": "info",
+          "url": "https://www.gov.uk/claim-asylum"
+        },
+        {
+          "label": "Find an immigration adviser",
+          "type": "solicitor",
+          "url": "https://www.gov.uk/find-an-immigration-adviser"
+        }
+      ],
+      "conflicts_detected": [],
+      "risk_and_safety": {
+        "immediate_danger": false,
+        "routing": "urgent_human"
+      },
+      "handoff": {
+        "ready_for_solicitor": true,
+        "consent_to_share": false,
+        "attachments": []
+      },
+      "system_boundaries": {
+        "disclaimer": "Information and signposting only. Not a solicitor. Not legal advice. Generated for triage / handoff.",
+        "urgent_help": "If you are in immediate danger, call 999. If you are detained, facing imminent removal, or need urgent protection advice, contact a regulated immigration adviser or solicitor as soon as you can — this tool cannot represent you or stop a removal."
+      },
+      "grading": {
+        "expected": "usable",
+        "notes": "Plural frames + urgent_human routing without collapsing to a single answer."
+      }
+    },
+    {
+      "schema_version": "c1.brief.v0",
+      "trial_domain": "immigration",
+      "brief_id": "gold-imm-03-family-visa",
+      "created_at": "2026-07-03T09:30:00.000Z",
+      "model_versions": {
+        "extractor": "fixture",
+        "ranker": "fixture",
+        "corpus": "immigrationKnowledge.json"
+      },
+      "jurisdiction": "EnglandWales",
+      "jurisdiction_label": "England & Wales (Manchester)",
+      "client": {
+        "preferred_name": "",
+        "contact_permission": false,
+        "vulnerability_flags": [],
+        "communication_needs": []
+      },
+      "client_goal": {
+        "stated": "Join my spouse in Manchester on a family visa without being refused.",
+        "success_looks_like": "Submit a strong family visa application and reunite in Manchester.",
+        "source": "client"
+      },
+      "timeline": [
+        {
+          "order": 1,
+          "date_approx": "",
+          "date_precision": "unknown",
+          "event": "Married to a partner who lives in Manchester.",
+          "actors": ["spouse"],
+          "source": "client",
+          "client_confirmed": true
+        },
+        {
+          "order": 2,
+          "date_approx": "2026",
+          "date_precision": "year",
+          "event": "Planning a UK family visa application; worried about refusal.",
+          "actors": ["Home Office"],
+          "source": "client",
+          "client_confirmed": true
+        }
+      ],
+      "matter_summary_plain": "Client wants to join a spouse in Manchester on a family visa and is worried about refusal.",
+      "matter_type": "immigration",
+      "parties": [
+        { "name_or_label": "Spouse in Manchester", "role": "sponsor / partner", "notes": "" },
+        { "name_or_label": "Home Office", "role": "decision-maker", "notes": "" }
+      ],
+      "documents_mentioned": [
+        { "label": "Marriage certificate", "status": "said_to_exist" }
+      ],
+      "issues": [
+        {
+          "id": "imm-family",
+          "rank": "primary",
+          "frame_label": "imm-family",
+          "plain_label": "Family / partner route",
+          "why_this_frame": ["Goal is joining a spouse in the UK on a family visa."],
+          "unmet_constraints": ["Financial / English / relationship evidence not listed"],
+          "urgency_flags": [],
+          "limitation_flags": [],
+          "candidate_sources": [
+            {
+              "title": "UK family visa",
+              "url_or_id": "uk-family-visa",
+              "jurisdiction": "UK",
+              "snippet": "GOV.UK family visa"
+            }
+          ]
+        },
+        {
+          "id": "imm-adviser",
+          "rank": "alternative",
+          "frame_label": "imm-adviser",
+          "plain_label": "Find a regulated immigration adviser",
+          "why_this_frame": ["Client is worried about refusal and may want regulated preparation help."],
+          "unmet_constraints": [],
+          "urgency_flags": [],
+          "limitation_flags": [],
+          "candidate_sources": []
+        }
+      ],
+      "open_questions": [
+        "What is your partner’s immigration status in the UK?",
+        "Have you already submitted an application, or is this pre-application?"
+      ],
+      "clarifiers_asked": [
+        {
+          "q": "Where is your partner based?",
+          "a": "Manchester",
+          "asked_at": "2026-07-03T09:35:00.000Z"
+        }
+      ],
+      "signposts_shown_to_client": [
+        {
+          "label": "UK family visa",
+          "type": "info",
+          "url": "https://www.gov.uk/uk-family-visa"
+        }
+      ],
+      "conflicts_detected": [],
+      "risk_and_safety": {
+        "immediate_danger": false,
+        "routing": "standard"
+      },
+      "handoff": {
+        "ready_for_solicitor": true,
+        "consent_to_share": false,
+        "attachments": []
+      },
+      "system_boundaries": {
+        "disclaimer": "Information and signposting only. Not a solicitor. Not legal advice. Generated for triage / handoff."
+      },
+      "grading": {
+        "expected": "usable",
+        "notes": "Goal + parties clear; open questions flag evidence gaps honestly."
+      }
+    },
+    {
+      "schema_version": "c1.brief.v0",
+      "trial_domain": "immigration",
+      "brief_id": "gold-imm-04-detention-urgent",
+      "created_at": "2026-07-04T16:00:00.000Z",
+      "model_versions": {
+        "extractor": "fixture",
+        "ranker": "fixture",
+        "corpus": "immigrationKnowledge.json"
+      },
+      "jurisdiction": "EnglandWales",
+      "jurisdiction_label": "England & Wales",
+      "client": {
+        "preferred_name": "",
+        "contact_permission": false,
+        "vulnerability_flags": ["detention"],
+        "communication_needs": []
+      },
+      "client_goal": {
+        "stated": "Get urgent help because I am in immigration detention and scared of removal.",
+        "success_looks_like": "Speak to a regulated adviser / solicitor today about detention and removal risk.",
+        "source": "client"
+      },
+      "timeline": [
+        {
+          "order": 1,
+          "date_approx": "2026-07-04",
+          "date_precision": "day",
+          "event": "Taken into immigration detention.",
+          "actors": ["Home Office"],
+          "source": "client",
+          "client_confirmed": true
+        },
+        {
+          "order": 2,
+          "date_approx": "2026-07-04",
+          "date_precision": "day",
+          "event": "Told removal may happen soon; need urgent help.",
+          "actors": ["Home Office"],
+          "source": "client",
+          "client_confirmed": true
+        }
+      ],
+      "matter_summary_plain": "Client reports immigration detention and imminent removal fear — elevated risk routing.",
+      "matter_type": "immigration",
+      "parties": [
+        { "name_or_label": "Home Office", "role": "decision-maker / detaining authority", "notes": "" }
+      ],
+      "documents_mentioned": [
+        { "label": "Detention paperwork", "status": "unknown" }
+      ],
+      "issues": [
+        {
+          "id": "imm-return",
+          "rank": "primary",
+          "frame_label": "imm-return",
+          "plain_label": "Return / removal history",
+          "why_this_frame": ["Detention and possible imminent removal dominate the account."],
+          "unmet_constraints": ["Removal directions / dates not confirmed"],
+          "urgency_flags": ["urgent_human", "detention"],
+          "limitation_flags": [],
+          "candidate_sources": []
+        },
+        {
+          "id": "imm-adviser",
+          "rank": "alternative",
+          "frame_label": "imm-adviser",
+          "plain_label": "Find a regulated immigration adviser",
+          "why_this_frame": ["Immediate need is regulated urgent help, not DIY research."],
+          "unmet_constraints": [],
+          "urgency_flags": ["urgent_human"],
+          "limitation_flags": [],
+          "candidate_sources": []
+        }
+      ],
+      "open_questions": [
+        "Do you have a removal date in writing?",
+        "Have you already spoken to a duty solicitor or detention adviser?"
+      ],
+      "clarifiers_asked": [
+        {
+          "q": "Are you safe right now, or do you need urgent help first?",
+          "a": "I need urgent help right now",
+          "asked_at": "2026-07-04T16:02:00.000Z"
+        }
+      ],
+      "signposts_shown_to_client": [
+        {
+          "label": "Find an immigration adviser",
+          "type": "solicitor",
+          "url": "https://www.gov.uk/find-an-immigration-adviser"
+        }
+      ],
+      "conflicts_detected": [],
+      "risk_and_safety": {
+        "immediate_danger": false,
+        "routing": "urgent_human"
+      },
+      "handoff": {
+        "ready_for_solicitor": true,
+        "consent_to_share": false,
+        "attachments": []
+      },
+      "system_boundaries": {
+        "disclaimer": "Information and signposting only. Not a solicitor. Not legal advice. Generated for triage / handoff.",
+        "urgent_help": "If you are in immediate danger, call 999. If you are detained, facing imminent removal, or need urgent protection advice, contact a regulated immigration adviser or solicitor as soon as you can — this tool cannot represent you or stop a removal."
+      },
+      "grading": {
+        "expected": "usable",
+        "notes": "Must surface urgent_human + urgent_help copy; must not give outcome predictions."
+      }
+    },
+    {
+      "schema_version": "c1.brief.v0",
+      "trial_domain": "immigration",
+      "brief_id": "gold-imm-05-thin-draft",
+      "created_at": "2026-07-05T08:00:00.000Z",
+      "model_versions": {
+        "extractor": "fixture",
+        "ranker": "fixture",
+        "corpus": "immigrationKnowledge.json"
+      },
+      "jurisdiction": "Unknown",
+      "jurisdiction_label": "Unknown",
+      "client": {
+        "preferred_name": "",
+        "contact_permission": false,
+        "vulnerability_flags": [],
+        "communication_needs": []
+      },
+      "client_goal": {
+        "stated": "Not yet stated by the client.",
+        "success_looks_like": "",
+        "source": "inferred_unconfirmed"
+      },
+      "timeline": [
+        {
+          "order": 1,
+          "date_approx": "",
+          "date_precision": "unknown",
+          "event": "Something about a visa problem.",
+          "actors": [],
+          "source": "client",
+          "client_confirmed": true
+        }
+      ],
+      "matter_summary_plain": "Thin intake: client mentioned a visa problem without jurisdiction, goal, or decision detail.",
+      "matter_type": "immigration",
+      "parties": [],
+      "documents_mentioned": [],
+      "issues": [
+        {
+          "id": "imm-general",
+          "rank": "primary",
+          "frame_label": "imm-general",
+          "plain_label": "UK immigration status / application",
+          "why_this_frame": ["Matter typed as immigration; frame will refine as more detail lands."],
+          "unmet_constraints": ["Jurisdiction unknown", "Goal unknown", "Decision / status unclear"],
+          "urgency_flags": [],
+          "limitation_flags": [],
+          "candidate_sources": []
+        }
+      ],
+      "open_questions": [
+        "Is the matter in England & Wales, Scotland, or Northern Ireland?",
+        "Still needed: Desired outcome",
+        "Still needed: What decision or status is in issue?"
+      ],
+      "clarifiers_asked": [],
+      "signposts_shown_to_client": [],
+      "conflicts_detected": [],
+      "risk_and_safety": {
+        "immediate_danger": false,
+        "routing": "standard"
+      },
+      "handoff": {
+        "ready_for_solicitor": false,
+        "consent_to_share": false,
+        "attachments": []
+      },
+      "system_boundaries": {
+        "disclaimer": "Information and signposting only. Not a solicitor. Not legal advice. Generated for triage / handoff."
+      },
+      "grading": {
+        "expected": "needs_work",
+        "notes": "Honest draft: ready_for_solicitor false; unknowns first-class. Unsafe would be inventing facts or a single false frame."
+      }
+    }
+  ]
+}

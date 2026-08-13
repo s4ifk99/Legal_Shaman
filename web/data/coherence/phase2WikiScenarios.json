@@ -1,0 +1,216 @@
+{
+  "trialDomain": "immigration",
+  "phase": 2,
+  "purpose": "Phase 2 wiki quality + integration with Phase 1 frames, Services, and solicitor brief citations.",
+  "grading": ["pass", "soft_fail", "fail"],
+  "scenarios": [
+    {
+      "id": "p2-01",
+      "title": "ILR refusal → challenge + settlement frames",
+      "opener": "I applied for ILR but got rejected last month in London",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["imm-challenge", "imm-settlement"],
+      "expectKnowledgeHints": ["indefinite-leave-to-remain", "ask-for-a-visa-administrative-review"],
+      "expectPathwayIds": ["pathway-challenge-decision", "pathway-settlement-ilr"],
+      "minSourcesPerFrame": 1,
+      "minWikiHits": 3
+    },
+    {
+      "id": "p2-02",
+      "title": "Asylum claim",
+      "opener": "I need to claim asylum in the UK I am scared to go back",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["imm-asylum"],
+      "expectKnowledgeHints": ["claim-asylum"],
+      "expectPathwayIds": ["pathway-asylum-protection"],
+      "minSourcesPerFrame": 1,
+      "minWikiHits": 2
+    },
+    {
+      "id": "p2-03",
+      "title": "Family visa worry",
+      "opener": "I want to join my spouse in Manchester on a family visa but I am worried about refusal",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["imm-family", "imm-challenge"],
+      "expectKnowledgeHints": ["uk-family-visa"],
+      "expectPathwayIds": ["pathway-family-partner"],
+      "minSourcesPerFrame": 1,
+      "minWikiHits": 2
+    },
+    {
+      "id": "p2-04",
+      "title": "Deportation return",
+      "opener": "I was deported in 2010 and now I want to come back to the UK",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["imm-return"],
+      "expectKnowledgeHints": ["return-home-voluntarily"],
+      "expectPathwayIds": ["pathway-return-removal"],
+      "minSourcesPerFrame": 1,
+      "minWikiHits": 2
+    },
+    {
+      "id": "p2-05",
+      "title": "Browse adviser only",
+      "opener": "I just need a regulated immigration adviser in England",
+      "mode": "browse",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["imm-adviser"],
+      "expectKnowledgeHints": ["find-an-immigration-adviser"],
+      "expectPathwayIds": ["pathway-find-adviser"],
+      "minSourcesPerFrame": 1,
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-06",
+      "title": "Student refusal",
+      "opener": "My student visa was refused and I have the refusal letter",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["imm-challenge"],
+      "expectKnowledgeHints": ["ask-for-a-visa-administrative-review", "student-visa"],
+      "expectPathwayIds": ["pathway-challenge-decision"],
+      "minSourcesPerFrame": 1,
+      "minWikiHits": 2
+    },
+    {
+      "id": "p2-07",
+      "title": "Character + refusal",
+      "opener": "Home Office refused my visa and said I have bad character",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["imm-challenge", "imm-suitability"],
+      "expectKnowledgeHints": ["ask-for-a-visa-administrative-review", "find-an-immigration-adviser"],
+      "minSourcesPerFrame": 1,
+      "minWikiHits": 2
+    },
+    {
+      "id": "p2-08",
+      "title": "EU settled status",
+      "opener": "I am an EU citizen and need help with settled status for my family",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["imm-settlement", "imm-family"],
+      "expectKnowledgeHints": ["settled-status-eu-citizens-families"],
+      "expectPathwayIds": ["pathway-settlement-ilr"],
+      "minSourcesPerFrame": 1,
+      "minWikiHits": 2
+    },
+    {
+      "id": "p2-j1",
+      "title": "E&W must not see Scotland sentinel",
+      "opener": "ILR refused in London need appeal help",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["imm-challenge", "imm-settlement"],
+      "forbidJurisdictions": ["Scotland"],
+      "forbidPageIds": ["entity-scotland-only-sentinel"],
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-j2",
+      "title": "Scotland session may see Scotland pages",
+      "opener": "ILR refused in Glasgow need appeal help",
+      "jurisdiction": "Scotland",
+      "expectFrames": ["imm-challenge", "imm-settlement"],
+      "allowScotlandSentinel": true,
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-j3",
+      "title": "NI session still gets UK-wide pathways",
+      "opener": "I need to claim asylum I am scared to go back",
+      "jurisdiction": "NorthernIreland",
+      "expectFrames": ["imm-asylum"],
+      "expectKnowledgeHints": ["claim-asylum"],
+      "expectPathwayIds": ["pathway-asylum-protection"],
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-h1",
+      "title": "Section 21 eviction risk",
+      "opener": "My landlord served a section 21 notice and wants me out of my flat in Leeds",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["hous-possession"],
+      "expectPathwayIds": ["pathway-possession-eviction"],
+      "minWikiHits": 1,
+      "minSourcesPerFrame": 1
+    },
+    {
+      "id": "p2-h2",
+      "title": "Damp and mould disrepair",
+      "opener": "There is black mould in my rented house and the landlord will not repair it",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["hous-disrepair"],
+      "expectPathwayIds": ["pathway-disrepair"],
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-e1",
+      "title": "Unfair dismissal",
+      "opener": "I was fired from my job without a fair process and want to know about unfair dismissal",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["emp-unfair"],
+      "expectPathwayIds": ["pathway-dismissal"],
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-e2",
+      "title": "Unpaid wages",
+      "opener": "My employer has not paid my wages for two months",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["emp-wages"],
+      "expectPathwayIds": ["pathway-pay-contract"],
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-d1",
+      "title": "Bailiff enforcement",
+      "opener": "Bailiffs are coming to my door about a debt I owe",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["debt-enforcement"],
+      "expectPathwayIds": ["pathway-enforcement"],
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-d2",
+      "title": "CCJ worry",
+      "opener": "I got a county court judgment CCJ for a credit card debt",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["debt-ccj"],
+      "expectPathwayIds": ["pathway-ccj"],
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-f1",
+      "title": "Child arrangements",
+      "opener": "I need help with child arrangements after separating from my partner",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["fam-children"],
+      "expectPathwayIds": ["pathway-children"],
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-f2",
+      "title": "Domestic abuse protection",
+      "opener": "I need a non-molestation order because of domestic abuse",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["fam-domestic"],
+      "expectPathwayIds": ["pathway-domestic-abuse"],
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-c1",
+      "title": "Refund for faulty goods",
+      "opener": "I bought a faulty laptop online and the trader refuses a refund",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["cons-refund", "cons-faulty"],
+      "expectPathwayIds": ["pathway-refund-cancel", "pathway-faulty-goods"],
+      "minWikiHits": 1
+    },
+    {
+      "id": "p2-c2",
+      "title": "Cancellation rights",
+      "opener": "I want to cancel a gym membership I signed up for last week and get a refund",
+      "jurisdiction": "EnglandWales",
+      "expectFrames": ["cons-refund"],
+      "expectPathwayIds": ["pathway-refund-cancel"],
+      "minWikiHits": 1
+    }
+  ]
+}

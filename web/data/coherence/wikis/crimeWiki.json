@@ -1,0 +1,901 @@
+{
+  "collection": "Crime / police / sentencing",
+  "pattern": "llm-wiki-domain",
+  "trialDomain": "crime",
+  "domainId": "crime",
+  "wikiRoot": "wiki/domains/crime",
+  "compiledAt": "2026-08-05T08:39:36.433Z",
+  "articleCount": 400,
+  "pageCount": 12,
+  "pages": [
+    {
+      "id": "topic-buying-owning-property",
+      "kind": "topic",
+      "title": "buying-owning-property",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://www.gov.uk/buying-a-home",
+      "sourceIds": [
+        "buying-a-home",
+        "selling-a-home"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/buying-a-home",
+        "https://www.gov.uk/selling-a-home"
+      ],
+      "contradictions": [],
+      "snippet": "2 sources on buying-owning-property (Crime / police / sentencing).",
+      "path": "topics/topic-buying-owning-property.md",
+      "keywords": [
+        "buying",
+        "owning",
+        "property",
+        "buying",
+        "home",
+        "overview",
+        "owning",
+        "selling",
+        "home",
+        "overview",
+        "buying"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-crime-and-police",
+      "kind": "topic",
+      "title": "Crime and Police",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "crime-sentence",
+        "crime-accused",
+        "crime-victim"
+      ],
+      "primaryUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+      "sourceIds": [
+        "Arrest",
+        "Check what tips and service charges you're entitled to",
+        "Crimes",
+        "Get advice about health costs and services",
+        "Get help and support being a witness",
+        "Get help and support being a witness",
+        "Going to court as a witness",
+        "Going to court as a witness if you're under 18",
+        "How to deal with a Single Justice Procedure Notice (SJPN)",
+        "If you get a witness summons",
+        "If you report child abuse to the police",
+        "Is protest still legal"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+        "https://www.citizensadvice.org.uk/work/pay/check-what-tips-and-service-charges-youre-entitled-to/",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/crimes",
+        "https://www.citizensadvice.org.uk/health/get-advice-about-health-services/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/get-help-and-support-being-a-witness/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/get-help-and-support-being-a-witness/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/get-help-and-support-being-a-witness/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/get-help-and-support-being-a-witness/going-to-court-as-a-witness-if-youre-under-18/",
+        "https://www.advicenow.org.uk/get-help/going-court/how-deal-single-justice-procedure-notice-sjpn",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/you-might-have-to-go-to-court-as-a-witness/if-you-get-a-witness-summons/",
+        "https://www.citizensadvice.org.uk/family/children-and-young-people/protecting-children/if-you-report-child-abuse-to-the-police/",
+        "https://www.advicenow.org.uk/get-help/civil-rights/protest-still-legal"
+      ],
+      "contradictions": [
+        "Pathway/topic cites only wiki-guides — prefer GOV.UK / CAB / AdviceNow as primary.",
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "28 sources on Crime and Police (Crime / police / sentencing).",
+      "path": "topics/topic-crime-and-police.md",
+      "keywords": [
+        "crime",
+        "and",
+        "police",
+        "Arrest",
+        "arrest",
+        "crime",
+        "and",
+        "Check what tips and service charges you're entitled to",
+        "check",
+        "what",
+        "tips",
+        "Crimes",
+        "crimes",
+        "crime",
+        "and",
+        "Get advice about health costs and services",
+        "get",
+        "advice",
+        "about",
+        "Get help and support being a witness",
+        "get",
+        "help",
+        "and",
+        "Get help and support being a witness",
+        "get",
+        "help",
+        "and",
+        "Going to court as a witness",
+        "going",
+        "court",
+        "witness",
+        "Going to court as a witness if you're under 18",
+        "going",
+        "court",
+        "witness"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-criminal-procedure-rules-2025",
+      "kind": "topic",
+      "title": "criminal-procedure-rules-2025",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://www.legislation.gov.uk/uksi/2025/909/note/2025-10-06/data.html",
+      "sourceIds": [
+        "note-2025-10-06-data-html",
+        "note-data-html",
+        "note-made-data-html",
+        "rule-1-1-2025-10-06-data-html",
+        "rule-1-1-2026-02-23-data-html",
+        "rule-1-1-data-html",
+        "rule-1-1-made-data-html",
+        "rule-1-2-2025-10-06-data-html",
+        "rule-1-2-2026-02-23-data-html",
+        "rule-1-2-data-html",
+        "rule-1-2-made-data-html",
+        "rule-1-3-2025-10-06-data-html"
+      ],
+      "sourceUrls": [
+        "https://www.legislation.gov.uk/uksi/2025/909/note/2025-10-06/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/note/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/note/made/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/rule/1.1/2025-10-06/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/rule/1.1/2026-02-23/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/rule/1.1/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/rule/1.1/made/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/rule/1.2/2025-10-06/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/rule/1.2/2026-02-23/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/rule/1.2/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/rule/1.2/made/data.html",
+        "https://www.legislation.gov.uk/uksi/2025/909/rule/1.3/2025-10-06/data.html"
+      ],
+      "contradictions": [],
+      "snippet": "148 sources on criminal-procedure-rules-2025 (Crime / police / sentencing).",
+      "path": "topics/topic-criminal-procedure-rules-2025.md",
+      "keywords": [
+        "criminal",
+        "procedure",
+        "rules",
+        "2025",
+        "note",
+        "2025",
+        "data",
+        "html",
+        "note",
+        "data",
+        "html",
+        "http",
+        "note",
+        "made",
+        "data",
+        "html",
+        "rule",
+        "2025",
+        "data",
+        "html",
+        "rule",
+        "2026",
+        "data",
+        "html",
+        "rule",
+        "data",
+        "html",
+        "http",
+        "rule",
+        "made",
+        "data",
+        "html",
+        "rule",
+        "2025",
+        "data",
+        "html"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-magistrates",
+      "kind": "topic",
+      "title": "magistrates",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "crime-sentence",
+        "crime-accused",
+        "crime-victim",
+        "crime-fraud"
+      ],
+      "primaryUrl": "https://sentencingcouncil.org.uk/guidelines/brakes-defective/",
+      "sourceIds": [
+        "brakes-defective",
+        "condition-of-vehicleaccessoriesequipment-involving-danger-of-injury",
+        "exhaust-defective",
+        "fail-to-notify-change-of-ownership-to-dvla",
+        "lights-defective",
+        "no-excise-licence",
+        "no-test-certificate",
+        "steering-defective",
+        "tyres-defective",
+        "dangerous-parking",
+        "fail-to-comply-with-police-constable-directing-traffic",
+        "fail-to-comply-with-traffic-sign-eg-give-way-sign-keep-left-sign-temporary-signs"
+      ],
+      "sourceUrls": [
+        "https://sentencingcouncil.org.uk/guidelines/brakes-defective/",
+        "https://sentencingcouncil.org.uk/guidelines/condition-of-vehicleaccessoriesequipment-involving-danger-of-injury/",
+        "https://sentencingcouncil.org.uk/guidelines/exhaust-defective/",
+        "https://sentencingcouncil.org.uk/guidelines/fail-to-notify-change-of-ownership-to-dvla/",
+        "https://sentencingcouncil.org.uk/guidelines/lights-defective/",
+        "https://sentencingcouncil.org.uk/guidelines/no-excise-licence/",
+        "https://sentencingcouncil.org.uk/guidelines/no-test-certificate/",
+        "https://sentencingcouncil.org.uk/guidelines/steering-defective/",
+        "https://sentencingcouncil.org.uk/guidelines/tyres-defective/",
+        "https://sentencingcouncil.org.uk/guidelines/dangerous-parking/",
+        "https://sentencingcouncil.org.uk/guidelines/fail-to-comply-with-police-constable-directing-traffic/",
+        "https://sentencingcouncil.org.uk/guidelines/fail-to-comply-with-traffic-sign-eg-give-way-sign-keep-left-sign-temporary-signs/"
+      ],
+      "contradictions": [],
+      "snippet": "152 sources on magistrates (Crime / police / sentencing).",
+      "path": "topics/topic-magistrates.md",
+      "keywords": [
+        "magistrates",
+        "brakes",
+        "defective",
+        "motoring",
+        "offences",
+        "condition",
+        "vehicleaccessoriesequipment",
+        "involving",
+        "danger",
+        "exhaust",
+        "defective",
+        "motoring",
+        "offences",
+        "fail",
+        "notify",
+        "change",
+        "ownership",
+        "lights",
+        "defective",
+        "motoring",
+        "offences",
+        "excise",
+        "licence",
+        "motoring",
+        "offences",
+        "test",
+        "certificate",
+        "motoring",
+        "offences",
+        "steering",
+        "defective",
+        "motoring",
+        "offences"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-police-and-crime",
+      "kind": "topic",
+      "title": "Police and crime",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "crime-sentence",
+        "crime-accused"
+      ],
+      "primaryUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+      "sourceIds": [
+        "police-and-crime-arrest",
+        "police-and-crime-crimes",
+        "police-and-crime-motoring-offences",
+        "police-and-crime-police-complaints",
+        "police-and-crime-police-powers",
+        "police-and-crime-sentencing"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/crimes",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/motoring-offences",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/police-complaints",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/police-powers",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/sentencing"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "6 sources on Police and crime (Crime / police / sentencing).",
+      "path": "topics/topic-police-and-crime.md",
+      "keywords": [
+        "police",
+        "and",
+        "crime",
+        "police",
+        "and",
+        "crime",
+        "arrest",
+        "police",
+        "and",
+        "crime",
+        "crimes",
+        "police",
+        "and",
+        "crime",
+        "motoring",
+        "police",
+        "and",
+        "crime",
+        "complaints",
+        "police",
+        "and",
+        "crime",
+        "powers",
+        "police",
+        "and",
+        "crime",
+        "sentencing"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "pathway-sentencing-guidelines",
+      "kind": "pathway",
+      "title": "Sentencing guidelines",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "crime-sentence"
+      ],
+      "primaryUrl": "https://sentencingcouncil.org.uk/guidelines/general-guideline-overarching-principles",
+      "sourceIds": [
+        "general-guideline-overarching-principles",
+        "police-and-crime-sentencing",
+        "brakes-defective",
+        "condition-of-vehicleaccessoriesequipment-involving-danger-of-injury",
+        "exhaust-defective",
+        "fail-to-notify-change-of-ownership-to-dvla",
+        "lights-defective",
+        "no-excise-licence",
+        "no-test-certificate",
+        "steering-defective"
+      ],
+      "sourceUrls": [
+        "https://sentencingcouncil.org.uk/guidelines/general-guideline-overarching-principles",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/sentencing",
+        "https://sentencingcouncil.org.uk/guidelines/brakes-defective/",
+        "https://sentencingcouncil.org.uk/guidelines/condition-of-vehicleaccessoriesequipment-involving-danger-of-injury/",
+        "https://sentencingcouncil.org.uk/guidelines/exhaust-defective/",
+        "https://sentencingcouncil.org.uk/guidelines/fail-to-notify-change-of-ownership-to-dvla/",
+        "https://sentencingcouncil.org.uk/guidelines/lights-defective/",
+        "https://sentencingcouncil.org.uk/guidelines/no-excise-licence/",
+        "https://sentencingcouncil.org.uk/guidelines/no-test-certificate/",
+        "https://sentencingcouncil.org.uk/guidelines/steering-defective/"
+      ],
+      "contradictions": [],
+      "snippet": "Magistrates' and offence-specific Sentencing Council guidelines.",
+      "path": "pathways/pathway-sentencing-guidelines.md",
+      "keywords": [
+        "sentencing",
+        "guidelines",
+        "crime-sentence",
+        "general",
+        "guideline",
+        "overarching",
+        "police",
+        "and",
+        "crime",
+        "brakes",
+        "defective",
+        "motoring",
+        "condition",
+        "vehicleaccessoriesequipment",
+        "involving",
+        "exhaust",
+        "defective",
+        "motoring",
+        "fail",
+        "notify",
+        "change"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-crime-and-police",
+        "topic-magistrates",
+        "topic-police-and-crime"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://sentencingcouncil.org.uk/guidelines/general-guideline-overarching-principles",
+          "sourceTitle": "General guideline: overarching principles"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://sentencingcouncil.org.uk/guidelines/general-guideline-overarching-principles",
+          "sourceTitle": "General guideline: overarching principles"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://sentencingcouncil.org.uk/guidelines/general-guideline-overarching-principles",
+          "sourceTitle": "General guideline: overarching principles"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://sentencingcouncil.org.uk/guidelines/general-guideline-overarching-principles",
+          "sourceTitle": "General guideline: overarching principles"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://sentencingcouncil.org.uk/guidelines/general-guideline-overarching-principles",
+          "sourceTitle": "General guideline: overarching principles"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://sentencingcouncil.org.uk/guidelines/general-guideline-overarching-principles",
+          "sourceTitle": "General guideline: overarching principles"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://sentencingcouncil.org.uk/guidelines/general-guideline-overarching-principles",
+          "sourceTitle": "General guideline: overarching principles"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:36.447Z"
+    },
+    {
+      "id": "pathway-if-accused",
+      "kind": "pathway",
+      "title": "If you are accused",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "crime-accused"
+      ],
+      "primaryUrl": "https://sentencingcouncil.org.uk/guidelines/assault-with-intent-to-resist-arrest/",
+      "sourceIds": [
+        "police-and-crime-arrest",
+        "police-and-crime-police-powers",
+        "assault-with-intent-to-resist-arrest",
+        "failure-to-surrender-to-bail",
+        "family-if-you-ve-been-accused-of-child-abuse",
+        "Arrest",
+        "Police and crime",
+        "Police powers"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/police-powers",
+        "https://sentencingcouncil.org.uk/guidelines/assault-with-intent-to-resist-arrest/",
+        "https://sentencingcouncil.org.uk/guidelines/failure-to-surrender-to-bail/",
+        "https://www.citizensadvice.org.uk/family/children-and-young-people/protecting-children/if-youve-been-accused-of-child-abuse/",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/police-powers"
+      ],
+      "contradictions": [],
+      "snippet": "Arrest, charge, bail, and police station rights.",
+      "path": "pathways/pathway-if-accused.md",
+      "keywords": [
+        "you",
+        "are",
+        "accused",
+        "crime-accused",
+        "police",
+        "and",
+        "crime",
+        "police",
+        "and",
+        "crime",
+        "assault",
+        "with",
+        "intent",
+        "failure",
+        "surrender",
+        "bail",
+        "family",
+        "you",
+        "been",
+        "Arrest",
+        "arrest",
+        "crime"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-crime-and-police",
+        "topic-magistrates",
+        "topic-police-and-crime"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+          "sourceTitle": "Arrest"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+          "sourceTitle": "Arrest"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+          "sourceTitle": "Arrest"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+          "sourceTitle": "Arrest"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+          "sourceTitle": "Arrest"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+          "sourceTitle": "Arrest"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+          "sourceTitle": "Arrest"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:36.450Z"
+    },
+    {
+      "id": "pathway-victim-witness",
+      "kind": "pathway",
+      "title": "Victim / witness support",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "crime-victim"
+      ],
+      "primaryUrl": "https://sentencingcouncil.org.uk/supplementary-information/hate-crime/",
+      "sourceIds": [
+        "law-and-courts-going-to-court-as-a-witness",
+        "law-and-courts-get-help-and-support-being-a-witness",
+        "supplementary-hate-crime",
+        "law-and-courts-check-if-you-can-get-special-measures-in-court",
+        "law-and-courts-legal-system-going-to-court-as-a-witness1-get-help-and-support-being-a-witness-get-help-from-the-witness-service",
+        "law-and-courts-going-to-court-as-a-witness-if-you-re-under-18",
+        "law-and-courts-if-you-get-a-witness-summons",
+        "law-and-courts-legal-system-going-to-court-as-a-witness1-preparing-to-go-to-court-as-a-witness",
+        "law-and-courts-preparing-to-go-to-court-as-a-witness",
+        "law-and-courts-legal-system-going-to-court-as-a-witness1-what-happens-after-the-trial"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/get-help-and-support-being-a-witness/",
+        "https://sentencingcouncil.org.uk/supplementary-information/hate-crime/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/get-help-and-support-being-a-witness/check-if-you-can-get-special-measures-in-court/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/get-help-and-support-being-a-witness/get-help-from-the-witness-service/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/get-help-and-support-being-a-witness/going-to-court-as-a-witness-if-youre-under-18/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/you-might-have-to-go-to-court-as-a-witness/if-you-get-a-witness-summons/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/preparing-to-go-to-court-as-a-witness/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/preparing-to-go-to-court-as-a-witness/preparing-to-go-to-court-as-witness/",
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/what-happens-after-the-trial/"
+      ],
+      "contradictions": [],
+      "snippet": "Reporting crime, witness statements, and court as a victim or witness.",
+      "path": "pathways/pathway-victim-witness.md",
+      "keywords": [
+        "victim",
+        "witness",
+        "support",
+        "crime-victim",
+        "law",
+        "and",
+        "courts",
+        "law",
+        "and",
+        "courts",
+        "supplementary",
+        "hate",
+        "crime",
+        "law",
+        "and",
+        "courts",
+        "law",
+        "and",
+        "courts",
+        "law",
+        "and",
+        "courts"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-crime-and-police",
+        "topic-magistrates"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/",
+          "sourceTitle": "Going to court as a witness - Citizens Advice"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/",
+          "sourceTitle": "Going to court as a witness - Citizens Advice"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/",
+          "sourceTitle": "Going to court as a witness - Citizens Advice"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/",
+          "sourceTitle": "Going to court as a witness - Citizens Advice"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/",
+          "sourceTitle": "Going to court as a witness - Citizens Advice"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/",
+          "sourceTitle": "Going to court as a witness - Citizens Advice"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/going-to-court-as-a-witness1/",
+          "sourceTitle": "Going to court as a witness - Citizens Advice"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:36.454Z"
+    },
+    {
+      "id": "pathway-fraud-financial",
+      "kind": "pathway",
+      "title": "Fraud / financial crime",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "crime-fraud"
+      ],
+      "primaryUrl": "https://sentencingcouncil.org.uk/guidelines/benefit-fraud/",
+      "sourceIds": [
+        "police-and-crime-crimes",
+        "benefit-fraud",
+        "corporate-offenders-fraud-bribery-and-money-laundering",
+        "domestic-burglary",
+        "fraud",
+        "fraudulent-evasion-of-a-prohibition-by-bringing-into-or-taking-out-of-the-uk-a-controlled-drug",
+        "going-equipped-for-theft-or-burglary",
+        "handling-stolen-goods",
+        "benefits-benefit-fraud"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/police-and-crime/crimes",
+        "https://sentencingcouncil.org.uk/guidelines/benefit-fraud/",
+        "https://sentencingcouncil.org.uk/guidelines/corporate-offenders-fraud-bribery-and-money-laundering/",
+        "https://sentencingcouncil.org.uk/guidelines/domestic-burglary/",
+        "https://sentencingcouncil.org.uk/guidelines/fraud/",
+        "https://sentencingcouncil.org.uk/guidelines/fraudulent-evasion-of-a-prohibition-by-bringing-into-or-taking-out-of-the-uk-a-controlled-drug/",
+        "https://sentencingcouncil.org.uk/guidelines/going-equipped-for-theft-or-burglary/",
+        "https://sentencingcouncil.org.uk/guidelines/handling-stolen-goods/",
+        "https://www.advicenow.org.uk/get-help/benefits/benefit-fraud"
+      ],
+      "contradictions": [],
+      "snippet": "Fraud, theft, and related criminal offences (not civil debt).",
+      "path": "pathways/pathway-fraud-financial.md",
+      "keywords": [
+        "fraud",
+        "financial",
+        "crime",
+        "crime-fraud",
+        "police",
+        "and",
+        "crime",
+        "benefit",
+        "fraud",
+        "magistrates",
+        "corporate",
+        "offenders",
+        "fraud",
+        "domestic",
+        "burglary",
+        "magistrates",
+        "fraud",
+        "magistrates",
+        "structure",
+        "fraudulent",
+        "evasion",
+        "prohibition"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-magistrates"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/crimes",
+          "sourceTitle": "Crimes"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/crimes",
+          "sourceTitle": "Crimes"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/crimes",
+          "sourceTitle": "Crimes"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/crimes",
+          "sourceTitle": "Crimes"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/crimes",
+          "sourceTitle": "Crimes"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/crimes",
+          "sourceTitle": "Crimes"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.advicenow.org.uk/get-help/police-and-crime/crimes",
+          "sourceTitle": "Crimes"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:36.457Z"
+    },
+    {
+      "id": "entity-sentencing-council",
+      "kind": "entity",
+      "title": "Sentencing Council guidelines",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "crime-sentence"
+      ],
+      "primaryUrl": "https://sentencingcouncil.org.uk/guidelines/domestic-abuse-overarching-principles",
+      "sourceIds": [
+        "domestic-abuse-overarching-principles",
+        "general-guideline-overarching-principles"
+      ],
+      "sourceUrls": [
+        "https://sentencingcouncil.org.uk/guidelines/domestic-abuse-overarching-principles",
+        "https://sentencingcouncil.org.uk/guidelines/general-guideline-overarching-principles"
+      ],
+      "contradictions": [],
+      "snippet": "Sentencing Council guidelines — 2 linked sources.",
+      "path": "entities/entity-sentencing-council.md",
+      "keywords": [
+        "sentencing",
+        "guidelines",
+        "magistrates",
+        "guidelines",
+        "crime-sentence"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "entity-police-powers",
+      "kind": "entity",
+      "title": "Police powers",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "crime-accused"
+      ],
+      "primaryUrl": "https://sentencingcouncil.org.uk/guidelines/assault-with-intent-to-resist-arrest/",
+      "sourceIds": [
+        "police-and-crime-arrest",
+        "police-and-crime-police-powers",
+        "Arrest",
+        "Police powers",
+        "Police Powers of Entry Can They Enter and Search Your Property Without Permission",
+        "assault-with-intent-to-resist-arrest"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/police-powers",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/arrest",
+        "https://www.advicenow.org.uk/get-help/police-and-crime/police-powers",
+        "https://lawhive.co.uk/knowledge-hub/litigation/police-powers-of-entry",
+        "https://sentencingcouncil.org.uk/guidelines/assault-with-intent-to-resist-arrest/"
+      ],
+      "contradictions": [],
+      "snippet": "Police powers — 6 linked sources.",
+      "path": "entities/entity-police-powers.md",
+      "keywords": [
+        "pace",
+        "stop",
+        "and",
+        "search",
+        "arrest",
+        "crime-accused"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "index-crime",
+      "kind": "index",
+      "title": "Crime / police / sentencing wiki index",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "crime-sentence",
+        "crime-accused",
+        "crime-victim",
+        "crime-fraud"
+      ],
+      "primaryUrl": "",
+      "sourceIds": [],
+      "sourceUrls": [],
+      "contradictions": [],
+      "snippet": "Compiled Crime / police / sentencing wiki from Legal Knowledge catalogues.",
+      "path": "_index.md",
+      "keywords": [
+        "crime",
+        "crime"
+      ],
+      "authority": "primary"
+    }
+  ]
+}

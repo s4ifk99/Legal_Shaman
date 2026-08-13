@@ -1,0 +1,106 @@
+{
+  "backdropCues": [
+    "at my work",
+    "someone at my work",
+    "someone at work",
+    "a colleague",
+    "asking for a friend",
+    "this happened to someone",
+    "night worker",
+    "day shifts"
+  ],
+  "employmentDisputeCues": [
+    "employer",
+    "unfair dismiss",
+    "sacked",
+    "fired",
+    "redundan",
+    "acas",
+    "grievance",
+    "unpaid wages",
+    "holiday pay",
+    "settlement agreement",
+    "employment tribunal"
+  ],
+  "excludes": {
+    "employment": [
+      "\\bpcns?\\b",
+      "penalty charge",
+      "london tribunal",
+      "works?\\s+van",
+      "\\bgarage\\b.{0,48}(repair|charged|fix|part)",
+      "section 21",
+      "flatmate",
+      "housemate"
+    ],
+    "housing": [
+      "\\bpcns?\\b",
+      "penalty charge",
+      "works?\\s+van",
+      "\\bgarage\\b.{0,24}(repair|charged|mechanic)"
+    ],
+    "consumer_vehicle_repair": [
+      "\\bpcns?\\b",
+      "unfair dismiss",
+      "section 21"
+    ],
+    "parking_pcn": [
+      "unfair dismiss",
+      "section 21",
+      "flatmate"
+    ]
+  },
+  "conflicts": [
+    {
+      "when": "pcn",
+      "prefer": "parking_pcn",
+      "over": ["employment", "consumer", "housing", "consumer_vehicle_repair"]
+    },
+    {
+      "when": "vehicle_repair",
+      "prefer": "consumer_vehicle_repair",
+      "over": ["employment", "housing", "parking_pcn"]
+    },
+    {
+      "when": "shared_housing",
+      "prefer": "housing",
+      "over": ["employment", "consumer", "parking_pcn"]
+    },
+    {
+      "when": "housing_repair",
+      "prefer": "housing",
+      "over": ["consumer", "employment", "consumer_vehicle_repair"]
+    },
+    {
+      "when": "neighbour_access",
+      "prefer": "neighbour_dispute",
+      "over": ["consumer", "employment", "consumer_vehicle_repair"]
+    },
+    {
+      "when": "motoring_ban",
+      "prefer": "criminal_defence",
+      "over": ["consumer", "housing", "employment"]
+    },
+    {
+      "when": "property_purchase",
+      "prefer": "conveyancing",
+      "over": ["consumer", "consumer_services", "employment"]
+    }
+  ],
+  "slugMap": {
+    "parking_pcn": { "matterType": "consumer", "topicId": "consumer-parking" },
+    "consumer_vehicle_repair": { "matterType": "consumer", "topicId": "consumer-car" },
+    "conveyancing": { "matterType": "conveyancing", "topicId": "conveyancing-purchase" },
+    "consumer": { "matterType": "consumer", "topicId": "consumer-general" },
+    "consumer_services": { "matterType": "consumer", "topicId": "consumer-general" },
+    "employment": { "matterType": "employment", "topicId": "employment-rights" },
+    "housing": { "matterType": "housing", "topicId": "housing-tenancy" },
+    "neighbour_dispute": { "matterType": "housing", "topicId": "housing-access" },
+    "criminal_defence": { "matterType": "crime", "topicId": "crime-motoring" },
+    "family": { "matterType": "family", "topicId": "family-general" },
+    "immigration": { "matterType": "immigration", "topicId": "immigration-general" },
+    "debt": { "matterType": "debt", "topicId": "debt-general" },
+    "welfare_benefits": { "matterType": "benefits", "topicId": "benefits-general" },
+    "discrimination_equality": { "matterType": "discrimination", "topicId": "discrimination-general" }
+  }
+}

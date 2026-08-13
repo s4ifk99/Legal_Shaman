@@ -1,0 +1,157 @@
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in oklab, var(--background) 92%, var(--primary) 8%);
+  backdrop-filter: blur(3px);
+  animation: loading-screen-in 180ms ease-out;
+  font-family: var(--font-sans), "Libre Baskerville", Georgia, serif;
+}
+
+@keyframes loading-screen-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loading-screen__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1;
+  justify-content: center;
+  padding: 2rem 1.5rem 6rem;
+}
+
+.loading-screen__bitmap {
+  width: 7.5rem;
+  height: 7.5rem;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.loading-screen__status {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.loading-screen__progress {
+  width: min(18rem, 78vw);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.loading-screen__track {
+  height: 0.45rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--primary, #1f5c45) 14%, transparent);
+  border: 1px solid color-mix(in oklab, var(--primary, #1f5c45) 28%, transparent);
+  overflow: hidden;
+}
+
+.loading-screen__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--primary, #1f5c45) 0%,
+    color-mix(in oklab, var(--primary, #1f5c45) 70%, var(--accent, #c9a227)) 55%,
+    var(--accent, #c9a227) 100%
+  );
+  box-shadow: 0 0 12px color-mix(in oklab, var(--accent, #c9a227) 35%, transparent);
+  transition: width 120ms linear;
+}
+
+.loading-screen__progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.loading-screen__steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.loading-screen__step {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  opacity: 0.55;
+}
+
+.loading-screen__step.is-done {
+  opacity: 0.85;
+  color: var(--primary, #1f5c45);
+}
+
+.loading-screen__step.is-active {
+  opacity: 1;
+  color: var(--primary, #1f5c45);
+  font-weight: 700;
+}
+
+.loading-screen__pct {
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--primary, #1f5c45);
+  font-weight: 600;
+}
+
+.loading-screen__hint {
+  margin: 0;
+  max-width: 22rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--muted-foreground);
+  text-align: center;
+  opacity: 0.9;
+}
+
+.loading-screen__motto {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-serif), "Playfair Display", Georgia, serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen {
+    animation: none;
+  }
+
+  .loading-screen__bitmap {
+    animation: none;
+  }
+
+  .loading-screen__fill {
+    transition: none;
+  }
+}

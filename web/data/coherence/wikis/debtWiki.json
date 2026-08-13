@@ -1,0 +1,1174 @@
+{
+  "collection": "Debt / money problems",
+  "pattern": "llm-wiki-domain",
+  "trialDomain": "debt",
+  "domainId": "debt",
+  "wikiRoot": "wiki/domains/debt",
+  "compiledAt": "2026-08-05T08:39:35.277Z",
+  "articleCount": 300,
+  "pageCount": 20,
+  "pages": [
+    {
+      "id": "topic-corporate",
+      "kind": "topic",
+      "title": "Corporate",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-solution"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/corporate/12-drawbacks-of-mergers-and-acquisitions",
+      "sourceIds": [
+        "corporate-12-drawbacks-of-mergers-and-acquisitions",
+        "corporate-a-guide-to-pre-emption-rights-in-private-limited-companies",
+        "corporate-derivative-claims-guide-for-shareholders",
+        "corporate-do-i-need-a-privacy-policy-on-my-website",
+        "corporate-how-to-create-a-uk-company-as-a-non-resident",
+        "corporate-legal-implications-of-digital-transformation-in-corporate-governance",
+        "corporate-private-vs-public-companies-key-differences-in-the-uk",
+        "corporate-understanding-your-privacy-rights-under-gdpr-and-beyond",
+        "corporate-what-are-company-share-buy-backs",
+        "corporate-what-are-shareholder-rights-in-a-private-uk-company",
+        "corporate-what-are-the-legal-steps-for-closing-a-company-with-outstanding-debt",
+        "corporate-what-are-the-penalties-for-late-filing-of-company-accounts"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/corporate/12-drawbacks-of-mergers-and-acquisitions",
+        "https://lawhive.co.uk/knowledge-hub/corporate/a-guide-to-pre-emption-rights-in-private-limited-companies",
+        "https://lawhive.co.uk/knowledge-hub/corporate/derivative-claims-guide",
+        "https://lawhive.co.uk/knowledge-hub/corporate/do-i-need-a-privacy-policy-on-my-website-uk",
+        "https://lawhive.co.uk/knowledge-hub/corporate/how-to-create-a-uk-company-as-a-non-resident",
+        "https://lawhive.co.uk/knowledge-hub/corporate/legal-implications-of-digital-transformation-in-corporate-governance",
+        "https://lawhive.co.uk/knowledge-hub/corporate/private-vs-public-companies-key-differences-in-the-uk",
+        "https://lawhive.co.uk/knowledge-hub/corporate/understanding-your-privacy-rights-under-gdpr-and-beyond",
+        "https://lawhive.co.uk/knowledge-hub/corporate/what-are-company-share-buy-backs",
+        "https://lawhive.co.uk/knowledge-hub/corporate/what-are-shareholder-rights-in-a-private-uk-company",
+        "https://lawhive.co.uk/knowledge-hub/corporate/legal-steps-for-closing-a-company-with-outstanding-debt",
+        "https://lawhive.co.uk/knowledge-hub/corporate/what-are-the-penalties-for-late-filing-of-company-accounts"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "12 sources on Corporate (Debt / money problems).",
+      "path": "topics/topic-corporate.md",
+      "keywords": [
+        "corporate",
+        "corporate",
+        "drawbacks",
+        "mergers",
+        "and",
+        "corporate",
+        "guide",
+        "pre",
+        "emption",
+        "corporate",
+        "derivative",
+        "claims",
+        "guide",
+        "corporate",
+        "need",
+        "privacy",
+        "policy",
+        "corporate",
+        "how",
+        "create",
+        "company",
+        "corporate",
+        "legal",
+        "implications",
+        "digital",
+        "corporate",
+        "private",
+        "public",
+        "companies",
+        "corporate",
+        "understanding",
+        "your",
+        "privacy"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-credit",
+      "kind": "topic",
+      "title": "credit",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://www.advicenow.org.uk/get-help/credit-loans-and-debts/credit-and-loans",
+      "sourceIds": [
+        "credit-loans-and-debts-credit-and-loans",
+        "credit-loans-and-debts",
+        "credit-loans-and-debts-debt",
+        "credit-loans-and-debts-debt-collection",
+        "credit-loans-and-debts-how-get-debt-advice",
+        "credit-loans-and-debts-increasing-your-income"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/credit-loans-and-debts/credit-and-loans",
+        "https://www.advicenow.org.uk/get-help/credit-loans-and-debts",
+        "https://www.advicenow.org.uk/get-help/credit-loans-and-debts/debt",
+        "https://www.advicenow.org.uk/get-help/credit-loans-and-debts/debt-collection",
+        "https://www.advicenow.org.uk/get-help/credit-loans-and-debts/how-get-debt-advice",
+        "https://www.advicenow.org.uk/get-help/credit-loans-and-debts/increasing-your-income"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "6 sources on credit (Debt / money problems).",
+      "path": "topics/topic-credit.md",
+      "keywords": [
+        "credit",
+        "credit",
+        "loans",
+        "and",
+        "debts",
+        "credit",
+        "loans",
+        "and",
+        "debts",
+        "credit",
+        "loans",
+        "and",
+        "debts",
+        "credit",
+        "loans",
+        "and",
+        "debts",
+        "credit",
+        "loans",
+        "and",
+        "debts",
+        "credit",
+        "loans",
+        "and",
+        "debts"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-debt",
+      "kind": "topic",
+      "title": "debt",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-enforcement",
+        "debt-ccj",
+        "debt-solution"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/",
+      "sourceIds": [
+        "debt-and-money-action-your-creditor-can-take",
+        "debt-and-money-adding-a-debt-to-your-administration-order",
+        "debt-and-money-administration-order-court-hearing",
+        "debt-and-money-administration-orders",
+        "debt-and-money-administration-orders-explained",
+        "debt-and-money-after-you-go-bankrupt",
+        "debt-and-money-after-your-possession-hearing",
+        "debt-and-money-apply-to-have-a-statutory-demand-cancelled",
+        "debt-and-money-applying-for-an-administration-order",
+        "debt-and-money-ask-creditors-to-hold-off",
+        "debt-and-money-ask-creditors-to-write-off-a-debt",
+        "debt-and-money-ask-non-priority-creditors-to-write-off-a-debt-joint-letter"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/administration-orders/problems-with-an-administration-order/adding-a-debt-to-your-administration-order/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/administration-orders/setting-up-an-administration-order/administration-order-court-hearing/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/administration-orders/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/administration-orders/administration-orders-explained/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+        "https://www.citizensadvice.org.uk/debt-and-money/mortgage-problems/after-your-possession-hearing/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/creditors-making-you-bankrupt/apply-to-have-a-statutory-demand-cancelled/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/administration-orders/setting-up-an-administration-order/applying-for-an-administration-order/",
+        "https://www.citizensadvice.org.uk/debt-and-money/template-letters-to-creditors/ask-creditors-to-hold-off/",
+        "https://www.citizensadvice.org.uk/debt-and-money/template-letters-to-creditors/ask-creditors-to-write-off-a-debt/",
+        "https://www.citizensadvice.org.uk/debt-and-money/template-letters-to-creditors/ask-creditors-to-write-off-a-debt/request-to-write-off-a-joint-debt-letter/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "143 sources on debt (Debt / money problems).",
+      "path": "topics/topic-debt.md",
+      "keywords": [
+        "debt",
+        "debt",
+        "and",
+        "money",
+        "action",
+        "debt",
+        "and",
+        "money",
+        "adding",
+        "debt",
+        "and",
+        "money",
+        "administration",
+        "debt",
+        "and",
+        "money",
+        "administration",
+        "debt",
+        "and",
+        "money",
+        "administration",
+        "debt",
+        "and",
+        "money",
+        "after",
+        "debt",
+        "and",
+        "money",
+        "after",
+        "debt",
+        "and",
+        "money",
+        "apply"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-going",
+      "kind": "topic",
+      "title": "going",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-ccj"
+      ],
+      "primaryUrl": "https://www.advicenow.org.uk/get-help/going-court/small-claims-and-civil-court/appealing-against-county-court-decision",
+      "sourceIds": [
+        "going-court-small-claims-and-civil-court-appealing-against-county-court-decision",
+        "going-court-small-claims-and-civil-court-how-enforce-county-court-judgment-ccj",
+        "going-court-representing-myself-court-how-print-your-phone"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/going-court/small-claims-and-civil-court/appealing-against-county-court-decision",
+        "https://www.advicenow.org.uk/get-help/going-court/small-claims-and-civil-court/how-enforce-county-court-judgment-ccj",
+        "https://www.advicenow.org.uk/get-help/going-court/representing-myself-court/how-print-your-phone"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "3 sources on going (Debt / money problems).",
+      "path": "topics/topic-going.md",
+      "keywords": [
+        "going",
+        "going",
+        "court",
+        "small",
+        "claims",
+        "going",
+        "court",
+        "small",
+        "claims",
+        "going",
+        "court",
+        "representing",
+        "myself"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-health",
+      "kind": "topic",
+      "title": "health",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-solution"
+      ],
+      "primaryUrl": "https://www.advicenow.org.uk/get-help/health-and-social-care/private-health-care",
+      "sourceIds": [
+        "health-and-social-care-private-health-care"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/health-and-social-care/private-health-care"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "1 sources on health (Debt / money problems).",
+      "path": "topics/topic-health.md",
+      "keywords": [
+        "health",
+        "health",
+        "and",
+        "social",
+        "care"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-landlords",
+      "kind": "topic",
+      "title": "landlords",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-solution"
+      ],
+      "primaryUrl": "https://www.gov.uk/register-prs-energy-standard-exemption",
+      "sourceIds": [
+        "register-prs-energy-standard-exemption"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/register-prs-energy-standard-exemption"
+      ],
+      "contradictions": [],
+      "snippet": "1 sources on landlords (Debt / money problems).",
+      "path": "topics/topic-landlords.md",
+      "keywords": [
+        "landlords",
+        "register",
+        "prs",
+        "energy",
+        "standard"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-litigation",
+      "kind": "topic",
+      "title": "Litigation",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/litigation/no-response-to-letter-before-action",
+      "sourceIds": [
+        "litigation-no-response-to-letter-before-action-what-s-next",
+        "litigation-police-powers-of-entry-can-they-enter-and-search-your-property-without-permissio",
+        "litigation-what-are-my-legal-rights-when-buying-a-used-car",
+        "litigation-what-are-pre-action-protocols",
+        "litigation-what-is-a-letter-before-action-in-the-uk"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/litigation/no-response-to-letter-before-action",
+        "https://lawhive.co.uk/knowledge-hub/litigation/police-powers-of-entry",
+        "https://lawhive.co.uk/knowledge-hub/litigation/legal-rights-when-buying-a-used-car",
+        "https://lawhive.co.uk/knowledge-hub/litigation/what-are-pre-action-protocols",
+        "https://lawhive.co.uk/knowledge-hub/litigation/what-is-a-letter-before-action"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "5 sources on Litigation (Debt / money problems).",
+      "path": "topics/topic-litigation.md",
+      "keywords": [
+        "litigation",
+        "litigation",
+        "response",
+        "letter",
+        "before",
+        "litigation",
+        "police",
+        "powers",
+        "entry",
+        "litigation",
+        "what",
+        "are",
+        "legal",
+        "litigation",
+        "what",
+        "are",
+        "pre",
+        "litigation",
+        "what",
+        "letter",
+        "before"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-money-benefits-and-debt",
+      "kind": "topic",
+      "title": "Money, Benefits and Debt",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-enforcement",
+        "debt-solution"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/a-business-takes-legal-action-against-you-to-recover-losses-for-theft/",
+      "sourceIds": [
+        "A business takes legal action against you to recover losses for theft",
+        "A Guide to Pension and Compensation Schemes for Armed Forces, Veterans, and Their Families",
+        "Action your creditor can take",
+        "Adding a debt to your admin order",
+        "Adding a debt to your administration order",
+        "Administration order court hearing",
+        "Administration orders",
+        "Administration orders explained",
+        "After you go bankrupt",
+        "Appeal a work capability assessment decision",
+        "Apply for DLA",
+        "Apply for Universal Credit"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/law-and-courts/legal-system/a-business-takes-legal-action-against-you-to-recover-losses-for-theft/",
+        "https://www.citizensadvice.org.uk/debt-and-money/pensions/types-of-pension/pension-and-compensation-schemes-for-the-armed-forces-veterans-and-their-families/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/administration-orders/problems-with-an-administration-order/adding-a-debt-to-your-administration-order/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/administration-orders/problems-with-an-administration-order/adding-a-debt-to-your-administration-order/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/administration-orders/setting-up-an-administration-order/administration-order-court-hearing/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/administration-orders/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/administration-orders/administration-orders-explained/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+        "https://www.advicenow.org.uk/get-help/benefits/universal-credit-uc/appeal-work-capability-assessment-decision",
+        "https://www.advicenow.org.uk/get-help/benefits/disability-living-allowance-dla/apply-dla",
+        "https://www.advicenow.org.uk/get-help/benefits/universal-credit-uc/apply-universal-credit"
+      ],
+      "contradictions": [
+        "Pathway/topic cites only wiki-guides — prefer GOV.UK / CAB / AdviceNow as primary.",
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "50 sources on Money, Benefits and Debt (Debt / money problems).",
+      "path": "topics/topic-money-benefits-and-debt.md",
+      "keywords": [
+        "money",
+        "benefits",
+        "and",
+        "debt",
+        "A business takes legal action against you to recover losses for theft",
+        "business",
+        "takes",
+        "legal",
+        "A Guide to Pension and Compensation Schemes for Armed Forces, Veterans, and Their Families",
+        "guide",
+        "pension",
+        "and",
+        "Action your creditor can take",
+        "action",
+        "your",
+        "creditor",
+        "Adding a debt to your admin order",
+        "adding",
+        "debt",
+        "your",
+        "Adding a debt to your administration order",
+        "adding",
+        "debt",
+        "your",
+        "Administration order court hearing",
+        "administration",
+        "order",
+        "court",
+        "Administration orders",
+        "administration",
+        "orders",
+        "money",
+        "Administration orders explained",
+        "administration",
+        "orders",
+        "explained"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-money-tax-and-debt",
+      "kind": "topic",
+      "title": "Money, Tax and Debt",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-enforcement",
+        "debt-solution"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/money-tax-debt/pension-and-compensation-schemes-for-armed-forces-veterans",
+      "sourceIds": [
+        "money-tax-and-debt-a-guide-to-pension-and-compensation-schemes-for-armed-forces-veterans-and-their",
+        "money-tax-and-debt-asset-management-vs-wealth-management",
+        "money-tax-and-debt-can-grandparents-pay-school-fees-tax-free",
+        "money-tax-and-debt-cashing-in-premium-bonds-how-does-it-work-when-can-you-do-it",
+        "money-tax-and-debt-charging-orders-myths-benefits-drawbacks-challenges",
+        "money-tax-and-debt-company-voluntary-arrangements-guide",
+        "money-tax-and-debt-crypto-scams-how-to-spot-them-what-to-do-if-you-get-caught-out",
+        "money-tax-and-debt-debt-settlement-options-how-to-settle-debt-disputes-in-the-uk",
+        "money-tax-and-debt-deprivation-of-assets-paying-for-care-what-you-need-to-know",
+        "money-tax-and-debt-full-and-final-settlement-offers-a-complete-guide",
+        "money-tax-and-debt-gift-with-reservation-of-benefit-guide",
+        "money-tax-and-debt-how-much-can-i-gift-my-children"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/pension-and-compensation-schemes-for-armed-forces-veterans",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/asset-management-vs-wealth-management",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/can-grandparents-pay-school-fees-tax-free",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/cashing-in-premium-bonds",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/charging-orders-myths-benefits-drawbacks-and-challenges",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/company-voluntary-arrangements-guide",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/crypto-scams-how-to-spot-them-and-what-to-do-if-you-get-caught-out",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/debt-settlement-options",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/deprivation-of-assets-and-paying-for-care",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/full-and-final-settlement-offers",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/gift-with-reservation-of-benefit-guide",
+        "https://lawhive.co.uk/knowledge-hub/money-tax-debt/how-much-can-i-gift-my-children"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "21 sources on Money, Tax and Debt (Debt / money problems).",
+      "path": "topics/topic-money-tax-and-debt.md",
+      "keywords": [
+        "money",
+        "tax",
+        "and",
+        "debt",
+        "money",
+        "tax",
+        "and",
+        "debt",
+        "money",
+        "tax",
+        "and",
+        "debt",
+        "money",
+        "tax",
+        "and",
+        "debt",
+        "money",
+        "tax",
+        "and",
+        "debt",
+        "money",
+        "tax",
+        "and",
+        "debt",
+        "money",
+        "tax",
+        "and",
+        "debt",
+        "money",
+        "tax",
+        "and",
+        "debt",
+        "money",
+        "tax",
+        "and",
+        "debt"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-neighbour-disputes",
+      "kind": "topic",
+      "title": "Neighbour Disputes",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-solution"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/neighbour-disputes/can-i-object-to-my-neighbours-dropped-kerb",
+      "sourceIds": [
+        "neighbour-disputes-can-i-object-to-my-neighbour-s-dropped-kerb",
+        "neighbour-disputes-how-to-stop-someone-from-parking-in-front-of-your-house-parking-law-explained"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/neighbour-disputes/can-i-object-to-my-neighbours-dropped-kerb",
+        "https://lawhive.co.uk/knowledge-hub/neighbour-disputes/how-to-stop-someone-parking-in-front-of-your-house"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "2 sources on Neighbour Disputes (Debt / money problems).",
+      "path": "topics/topic-neighbour-disputes.md",
+      "keywords": [
+        "neighbour",
+        "disputes",
+        "neighbour",
+        "disputes",
+        "can",
+        "object",
+        "neighbour",
+        "disputes",
+        "how",
+        "stop"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-renting-property",
+      "kind": "topic",
+      "title": "renting-property",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-solution"
+      ],
+      "primaryUrl": "https://www.gov.uk/private-renting",
+      "sourceIds": [
+        "private-renting"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/private-renting"
+      ],
+      "contradictions": [],
+      "snippet": "1 sources on renting-property (Debt / money problems).",
+      "path": "topics/topic-renting-property.md",
+      "keywords": [
+        "renting",
+        "property",
+        "private",
+        "renting",
+        "tenancy",
+        "types"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-repossessions-evictions",
+      "kind": "topic",
+      "title": "repossessions-evictions",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-solution"
+      ],
+      "primaryUrl": "https://www.gov.uk/private-renting-evictions",
+      "sourceIds": [
+        "private-renting-evictions"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/private-renting-evictions"
+      ],
+      "contradictions": [],
+      "snippet": "1 sources on repossessions-evictions (Debt / money problems).",
+      "path": "topics/topic-repossessions-evictions.md",
+      "keywords": [
+        "repossessions",
+        "evictions",
+        "private",
+        "renting",
+        "evictions",
+        "for"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-small-business",
+      "kind": "topic",
+      "title": "Small Business",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-solution"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/small-business/different-types-of-companies-in-the-uk",
+      "sourceIds": [
+        "small-business-different-types-of-companies-in-the-uk",
+        "small-business-private-limited-company-advantages-and-disadvantages",
+        "small-business-what-is-a-limited-company-in-the-uk",
+        "small-business-what-is-a-limited-liability-company-llc"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/small-business/different-types-of-companies-in-the-uk",
+        "https://lawhive.co.uk/knowledge-hub/small-business/private-limited-company-advantages-and-disadvantages",
+        "https://lawhive.co.uk/knowledge-hub/small-business/what-is-a-limited-company-in-the-uk",
+        "https://lawhive.co.uk/knowledge-hub/small-business/what-is-a-limited-liability-company"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "4 sources on Small Business (Debt / money problems).",
+      "path": "topics/topic-small-business.md",
+      "keywords": [
+        "small",
+        "business",
+        "small",
+        "business",
+        "different",
+        "types",
+        "small",
+        "business",
+        "private",
+        "limited",
+        "small",
+        "business",
+        "what",
+        "limited",
+        "small",
+        "business",
+        "what",
+        "limited"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-wills-trust-probate",
+      "kind": "topic",
+      "title": "Wills, Trust & Probate",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/wills-trust-probate/can-executor-of-will-withhold-money-from-beneficiary-uk",
+      "sourceIds": [
+        "wills-trust-probate-can-an-executor-of-a-will-withhold-money-from-a-beneficiary",
+        "wills-trust-probate-probate-valuation-of-estate-guide",
+        "wills-trust-probate-trusts-inheritance-tax-and-the-10-year-charge",
+        "wills-trust-probate-what-are-the-legal-responsibilities-of-an-executor-of-a-will"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/wills-trust-probate/can-executor-of-will-withhold-money-from-beneficiary-uk",
+        "https://lawhive.co.uk/knowledge-hub/wills-trust-probate/probate-valuation-of-estate",
+        "https://lawhive.co.uk/knowledge-hub/wills-trust-probate/trusts-inheritance-tax-and-the-10-year-charge",
+        "https://lawhive.co.uk/knowledge-hub/wills-trust-probate/what-are-the-legal-responsibilities-of-an-executor-of-a-will"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "4 sources on Wills, Trust & Probate (Debt / money problems).",
+      "path": "topics/topic-wills-trust-probate.md",
+      "keywords": [
+        "wills",
+        "trust",
+        "probate",
+        "wills",
+        "trust",
+        "probate",
+        "can",
+        "wills",
+        "trust",
+        "probate",
+        "valuation",
+        "wills",
+        "trust",
+        "probate",
+        "trusts",
+        "wills",
+        "trust",
+        "probate",
+        "what"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "pathway-enforcement",
+      "kind": "pathway",
+      "title": "Enforcement / bailiffs",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-enforcement"
+      ],
+      "primaryUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70",
+      "sourceIds": [
+        "part-70-part-70-general-rules-about-enforcement-of-judgments-and-orders",
+        "pd-70-practice-direction-70a-enforcement-of-judgments-and-orders",
+        "debt-and-money-bailiffs",
+        "debt-and-money-charging-orders",
+        "debt-and-money-check-what-bailiffs-can-take",
+        "debt-and-money-check-what-fees-bailiffs-can-charge",
+        "debt-and-money-complaining-about-bailiffs",
+        "debt-and-money-dealing-with-a-letter-saying-bailiffs-will-visit",
+        "debt-and-money-how-bailiffs-should-treat-you",
+        "debt-and-money-how-bailiffs-should-treat-you-if-you-re-vulnerable"
+      ],
+      "sourceUrls": [
+        "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70",
+        "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70/pd_part70",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/charging-orders/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/what-bailiffs-can-take/check-what-bailiffs-can-take/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/how-bailiffs-should-treat-you/check-bailiffs-fees/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/how-bailiffs-should-treat-you/complaining-about-bailiffs/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/stopping-bailiffs/dealing-with-a-letter-saying-bailiffs-will-visit/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/how-bailiffs-should-treat-you/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/how-bailiffs-should-treat-you/how-bailiffs-should-treat-you-if-youre-vulnerable/"
+      ],
+      "contradictions": [],
+      "snippet": "Bailiffs, warrants, and enforcement action.",
+      "path": "pathways/pathway-enforcement.md",
+      "keywords": [
+        "enforcement",
+        "bailiffs",
+        "debt-enforcement",
+        "part",
+        "general",
+        "rules",
+        "practice",
+        "direction",
+        "70a",
+        "debt",
+        "and",
+        "money",
+        "debt",
+        "and",
+        "money",
+        "debt",
+        "and",
+        "money",
+        "debt",
+        "and",
+        "money"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-debt",
+        "topic-money-benefits-and-debt",
+        "topic-money-tax-and-debt"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70",
+          "sourceTitle": "PART 70 – GENERAL RULES ABOUT ENFORCEMENT OF JUDGMENTS AND ORDERS – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70",
+          "sourceTitle": "PART 70 – GENERAL RULES ABOUT ENFORCEMENT OF JUDGMENTS AND ORDERS – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70",
+          "sourceTitle": "PART 70 – GENERAL RULES ABOUT ENFORCEMENT OF JUDGMENTS AND ORDERS – Civil Procedure Rules – Justice UK"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70",
+          "sourceTitle": "PART 70 – GENERAL RULES ABOUT ENFORCEMENT OF JUDGMENTS AND ORDERS – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70",
+          "sourceTitle": "PART 70 – GENERAL RULES ABOUT ENFORCEMENT OF JUDGMENTS AND ORDERS – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70",
+          "sourceTitle": "PART 70 – GENERAL RULES ABOUT ENFORCEMENT OF JUDGMENTS AND ORDERS – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70",
+          "sourceTitle": "PART 70 – GENERAL RULES ABOUT ENFORCEMENT OF JUDGMENTS AND ORDERS – Civil Procedure Rules – Justice UK"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:35.302Z"
+    },
+    {
+      "id": "pathway-ccj",
+      "kind": "pathway",
+      "title": "County court judgment",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-ccj"
+      ],
+      "primaryUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part12",
+      "sourceIds": [
+        "part-12-part-12-default-judgment",
+        "part-70-part-70-general-rules-about-enforcement-of-judgments-and-orders",
+        "pd-70-practice-direction-70a-enforcement-of-judgments-and-orders",
+        "going-court-small-claims-and-civil-court-appealing-against-county-court-decision",
+        "going-court-small-claims-and-civil-court-how-enforce-county-court-judgment-ccj",
+        "debt-and-money-county-court-judgments-and-your-credit-rating-overview"
+      ],
+      "sourceUrls": [
+        "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part12",
+        "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70",
+        "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part70/pd_part70",
+        "https://www.advicenow.org.uk/get-help/going-court/small-claims-and-civil-court/appealing-against-county-court-decision",
+        "https://www.advicenow.org.uk/get-help/going-court/small-claims-and-civil-court/how-enforce-county-court-judgment-ccj",
+        "https://www.citizensadvice.org.uk/debt-and-money/borrowing-money/county-court-judgments-and-your-credit-rating/"
+      ],
+      "contradictions": [],
+      "snippet": "CCJs and court money claims.",
+      "path": "pathways/pathway-ccj.md",
+      "keywords": [
+        "county",
+        "court",
+        "judgment",
+        "debt-ccj",
+        "part",
+        "default",
+        "judgment",
+        "part",
+        "general",
+        "rules",
+        "practice",
+        "direction",
+        "70a",
+        "going",
+        "court",
+        "small",
+        "going",
+        "court",
+        "small",
+        "debt",
+        "and",
+        "money"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-debt",
+        "topic-going"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part12",
+          "sourceTitle": "PART 12 – DEFAULT JUDGMENT – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part12",
+          "sourceTitle": "PART 12 – DEFAULT JUDGMENT – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part12",
+          "sourceTitle": "PART 12 – DEFAULT JUDGMENT – Civil Procedure Rules – Justice UK"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part12",
+          "sourceTitle": "PART 12 – DEFAULT JUDGMENT – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part12",
+          "sourceTitle": "PART 12 – DEFAULT JUDGMENT – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part12",
+          "sourceTitle": "PART 12 – DEFAULT JUDGMENT – Civil Procedure Rules – Justice UK"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part12",
+          "sourceTitle": "PART 12 – DEFAULT JUDGMENT – Civil Procedure Rules – Justice UK"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:35.306Z"
+    },
+    {
+      "id": "pathway-solutions",
+      "kind": "pathway",
+      "title": "Debt solutions",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-solution"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+      "sourceIds": [
+        "debt-and-money-after-you-go-bankrupt",
+        "family-agreeing-maintenance-between-you",
+        "debt-and-money-apply-to-have-a-statutory-demand-cancelled",
+        "debt-and-money-avoiding-creditors-making-you-bankrupt",
+        "debt-and-money-bankruptcy",
+        "debt-and-money-before-you-go-bankrupt",
+        "debt-and-money-before-you-start-an-iva",
+        "debt-and-money-check-if-you-can-get-more-time-to-deal-with-your-debts-breathing-space",
+        "debt-and-money-budgeting",
+        "debt-and-money-can-you-get-bankruptcy-cancelled"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+        "https://www.citizensadvice.org.uk/family/children-and-young-people/child-maintenance1/making-a-private-child-maintenance-arrangement/agreeing-maintenance-between-you/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/creditors-making-you-bankrupt/apply-to-have-a-statutory-demand-cancelled/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/creditors-making-you-bankrupt/avoiding-creditors-making-you-bankrupt/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/before-you-go-bankrupt/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/individual-voluntary-arrangements-ivas/before-you-start-an-iva/",
+        "https://www.citizensadvice.org.uk/debt-and-money/help-with-debt/dealing-with-your-debts/breathing-space/",
+        "https://www.citizensadvice.org.uk/debt-and-money/budgeting1/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/can-you-get-bankruptcy-cancelled/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Breathing space, IVA, DRO, bankruptcy options.",
+      "path": "pathways/pathway-solutions.md",
+      "keywords": [
+        "debt",
+        "solutions",
+        "debt-solution",
+        "debt",
+        "and",
+        "money",
+        "family",
+        "agreeing",
+        "maintenance",
+        "debt",
+        "and",
+        "money",
+        "debt",
+        "and",
+        "money",
+        "debt",
+        "and",
+        "money",
+        "debt",
+        "and",
+        "money"
+      ],
+      "authority": "secondary",
+      "linkedTopicIds": [
+        "topic-corporate",
+        "topic-debt",
+        "topic-health",
+        "topic-landlords",
+        "topic-money-benefits-and-debt",
+        "topic-money-tax-and-debt",
+        "topic-neighbour-disputes",
+        "topic-renting-property",
+        "topic-repossessions-evictions",
+        "topic-small-business"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+          "sourceTitle": "After you go bankrupt - Citizens Advice"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+          "sourceTitle": "After you go bankrupt - Citizens Advice"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+          "sourceTitle": "After you go bankrupt - Citizens Advice"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+          "sourceTitle": "After you go bankrupt - Citizens Advice"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+          "sourceTitle": "After you go bankrupt - Citizens Advice"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+          "sourceTitle": "After you go bankrupt - Citizens Advice"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/bankruptcy/after-you-go-bankrupt/",
+          "sourceTitle": "After you go bankrupt - Citizens Advice"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:35.312Z"
+    },
+    {
+      "id": "entity-bailiffs",
+      "kind": "entity",
+      "title": "Bailiffs / enforcement agents",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-enforcement"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/",
+      "sourceIds": [
+        "debt-and-money-bailiffs",
+        "debt-and-money-check-what-bailiffs-can-take",
+        "Bailiffs",
+        "debt-and-money-check-what-fees-bailiffs-can-charge",
+        "debt-and-money-complaining-about-bailiffs",
+        "debt-and-money-dealing-with-a-letter-saying-bailiffs-will-visit",
+        "debt-and-money-how-bailiffs-should-treat-you",
+        "debt-and-money-how-bailiffs-should-treat-you-if-you-re-vulnerable"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/what-bailiffs-can-take/check-what-bailiffs-can-take/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/how-bailiffs-should-treat-you/check-bailiffs-fees/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/how-bailiffs-should-treat-you/complaining-about-bailiffs/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/stopping-bailiffs/dealing-with-a-letter-saying-bailiffs-will-visit/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/how-bailiffs-should-treat-you/",
+        "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/how-bailiffs-should-treat-you/how-bailiffs-should-treat-you-if-youre-vulnerable/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Bailiffs / enforcement agents — 8 linked sources.",
+      "path": "entities/entity-bailiffs.md",
+      "keywords": [
+        "bailiff",
+        "debt-enforcement"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "entity-breathing-space",
+      "kind": "entity",
+      "title": "Breathing space",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-solution"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/debt-and-money/help-with-debt/dealing-with-your-debts/breathing-space/",
+      "sourceIds": [
+        "debt-and-money-check-if-you-can-get-more-time-to-deal-with-your-debts-breathing-space",
+        "Breathing Space"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/debt-and-money/help-with-debt/dealing-with-your-debts/breathing-space/",
+        "https://www.citizensadvice.org.uk/debt-and-money/help-with-debt/dealing-with-your-debts/breathing-space/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Breathing space — 2 linked sources.",
+      "path": "entities/entity-breathing-space.md",
+      "keywords": [
+        "debt",
+        "respite",
+        "debt-solution"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "index-debt",
+      "kind": "index",
+      "title": "Debt / money problems wiki index",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "debt-enforcement",
+        "debt-ccj",
+        "debt-solution"
+      ],
+      "primaryUrl": "",
+      "sourceIds": [],
+      "sourceUrls": [],
+      "contradictions": [],
+      "snippet": "Compiled Debt / money problems wiki from Legal Knowledge catalogues.",
+      "path": "_index.md",
+      "keywords": [
+        "debt",
+        "debt"
+      ],
+      "authority": "primary"
+    }
+  ]
+}

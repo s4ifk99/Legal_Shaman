@@ -1,0 +1,137 @@
+.lawyer-login {
+  min-height: 100dvh;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 3rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.lawyer-login__chrome {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ink-muted);
+}
+
+.lawyer-login__back {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lawyer-login__brand {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.lawyer-login__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.lawyer-login__lead {
+  margin: 0 0 1.75rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+.lawyer-login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lawyer-login__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.lawyer-login__field input {
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  letter-spacing: normal;
+  text-transform: none;
+  padding: 0.65rem 0.75rem;
+}
+
+.lawyer-login__error {
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border: 1.5px solid var(--ink);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.lawyer-login__submit {
+  appearance: none;
+  border: 1.5px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  margin-top: 0.35rem;
+}
+
+.lawyer-login__submit:hover:not(:disabled) {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.lawyer-login__submit:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.lawyer-login__switch {
+  margin: 1.5rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.lawyer-login__switch button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.lawyer-login__trial-note {
+  margin: 2rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--ink-faint);
+}

@@ -1,0 +1,1180 @@
+{
+  "meta": {
+    "importedAt": "2026-08-01T21:30:07.796Z",
+    "sectionCount": 16,
+    "resourceCount": 149
+  },
+  "sections": [
+    {
+      "title": "Getting Help",
+      "matterTypes": [
+        "immigration",
+        "housing",
+        "employment",
+        "family",
+        "consumer",
+        "debt",
+        "crime",
+        "other",
+        "unknown",
+        "personal_injury"
+      ],
+      "resources": [
+        {
+          "name": "Advicenow",
+          "description": "provides step-by-step specialist guides, tools, and films to help people deal with their legal problems, including step-by-step help for people who have to represent themselves in court:",
+          "url": "https://www.advicenow.org.uk/",
+          "links": [
+            {
+              "text": "Where to start - browse Advice Now's Help Directory",
+              "url": "https://www.advicenow.org.uk/help-directory"
+            },
+            {
+              "text": "Signposting clients to other help",
+              "url": "https://www.advicenow.org.uk/signposting"
+            },
+            {
+              "text": "How to settle a civil claim",
+              "url": "https://www.advicenow.org.uk/guides/how-settle-civil-claim"
+            },
+            {
+              "text": "Time limits for suing someone",
+              "url": "https://www.advicenow.org.uk/guides/time-limits-suing-someone"
+            },
+            {
+              "text": "Going to court when the other side has a lawyer and you don't",
+              "url": "https://www.advicenow.org.uk/guides/going-court-when-other-side-has-lawyer-and-you-dont"
+            },
+            {
+              "text": "Going to court or tribunal without a lawyer",
+              "url": "https://www.advicenow.org.uk/guides/going-court-or-tribunal-without-lawyer"
+            },
+            {
+              "text": "How to sort out your legal problem before or instead of going to court",
+              "url": "https://www.advicenow.org.uk/guides/how-sort-out-your-legal-problem-or-instead-going-court"
+            },
+            {
+              "text": "How to access free legal help",
+              "url": "https://www.advicenow.org.uk/guides/how-access-free-legal-help"
+            }
+          ]
+        },
+        {
+          "name": "BPP Pro Bono Centre",
+          "description": "Services delivered by volunteer BPP University students, with guidance from qualified lawyers, on areas including: Environmental law, Welfare, Housing, Family or divorce, Employment, Debt problems, Consumer, Business",
+          "url": "https://www.bpp.com/about-bpp/pro-bono"
+        },
+        {
+          "name": "Guide to Pro Bono & Other Free Advice in England & Wales",
+          "description": "a directory for MPs, MSs and others looking to signpost individuals to free legal and other advice. Endorsed by the Attorney General's Pro Bono Committee.",
+          "url": "https://www.lawworks.org.uk/solicitors-and-volunteers/resources/guide-pro-bono-other-free-advice-england-wales"
+        },
+        {
+          "name": "Check if you are eligible for legal aid",
+          "description": "",
+          "url": "https://www.gov.uk/check-legal-aid"
+        },
+        {
+          "name": "Directory of legal aid providers",
+          "description": "",
+          "url": "https://www.gov.uk/find-legal-advice"
+        },
+        {
+          "name": "Civil Legal Advice",
+          "description": "(if eligible for legal aid)",
+          "url": "https://www.gov.uk/civil-legal-advice"
+        },
+        {
+          "name": "Guide to family law legal aid",
+          "description": "",
+          "url": "https://www.advicenow.org.uk/guides/guide-family-law-legal-aid"
+        },
+        {
+          "name": "Legal Aid Agency",
+          "description": "Civil enquiries | 01158 526 000 – Crime enquiries",
+          "phone": "0300 200 2020"
+        },
+        {
+          "name": "Public Law Project",
+          "description": "provides guidance on applying for exceptional case funding",
+          "url": "https://publiclawproject.org.uk/"
+        },
+        {
+          "name": "How to Apply for Legal Aid Funding for Judicial Review",
+          "description": "",
+          "url": "https://publiclawproject.org.uk/resources/how-to-apply-for-legal-aid-funding-for-judicial-review/"
+        },
+        {
+          "name": "Advice Local",
+          "description": "finds tailored information for your area, including details of independent advice organisations who can help you get the advice and support that you need",
+          "url": "https://advicelocal.uk/"
+        },
+        {
+          "name": "Citizens Advice",
+          "description": "provides legal advice",
+          "url": "https://www.citizensadvice.org.uk/"
+        },
+        {
+          "name": "Law Centres Network",
+          "description": "offers face-to-face legal advice to local residents, and some run a telephone advice line.",
+          "url": "https://www.lawcentres.org.uk/"
+        },
+        {
+          "name": "LawWorks Clinics",
+          "description": "nationwide network of free legal advice sessions, including free legal advice for small charities and not-for-profit organisations.",
+          "url": "https://www.lawworks.org.uk/"
+        },
+        {
+          "name": "The University of Law",
+          "description": "provides free legal advice to members of the public",
+          "url": "https://www.law.ac.uk/"
+        }
+      ]
+    },
+    {
+      "title": "Courts and Disputes",
+      "matterTypes": [
+        "other",
+        "unknown"
+      ],
+      "resources": [
+        {
+          "name": "Advicenow guides",
+          "description": "detailed information and step-by-step guidance:",
+          "url": "https://www.advicenow.org.uk/",
+          "links": [
+            {
+              "text": "How to make a small claim about injuries caused by a car accident",
+              "url": "https://www.advicenow.org.uk/guides/how-make-small-claim-about-injuries-caused-car-accident"
+            },
+            {
+              "text": "How to prepare a trial bundle and index",
+              "url": "https://www.advicenow.org.uk/guides/how-prepare-trial-bundle-and-index"
+            },
+            {
+              "text": "Sending documents to the court and the other side",
+              "url": "https://www.advicenow.org.uk/guides/sending-documents-court-and-other-side"
+            },
+            {
+              "text": "Going to court when the other side has a lawyer and you don't",
+              "url": "https://www.advicenow.org.uk/guides/going-court-when-other-side-has-lawyer-and-you-dont"
+            },
+            {
+              "text": "Guide to going to the Civil Court",
+              "url": "https://www.advicenow.org.uk/guides/guide-going-civil-court"
+            },
+            {
+              "text": "Going to court or tribunal without a lawyer",
+              "url": "https://www.advicenow.org.uk/guides/going-court-or-tribunal-without-lawyer"
+            },
+            {
+              "text": "How to sort out your legal problem before or instead of going to court",
+              "url": "https://www.advicenow.org.uk/guides/how-sort-out-your-legal-problem-or-instead-going-court"
+            }
+          ]
+        },
+        {
+          "name": "A Guide to Representing Yourself in Court (Bar Council Guide)",
+          "description": "",
+          "url": "https://www.barcouncil.org.uk/resource/guide-to-representing-yourself-in-court.html"
+        },
+        {
+          "name": "ONRECORD",
+          "description": "Web and mobile app that helps you to gather evidence for court cases",
+          "url": "https://onrecord.tech/"
+        },
+        {
+          "name": "How to prepare pdf bundles for court hearings",
+          "description": "",
+          "url": "https://www.advicenow.org.uk/guides/how-prepare-pdf-bundles-court-hearings"
+        },
+        {
+          "name": "Citizen's Advice sample letters",
+          "description": "",
+          "url": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/taking-legal-action/letter-templates/"
+        },
+        {
+          "name": "How to write a skeleton argument",
+          "description": "",
+          "url": "https://www.advicenow.org.uk/guides/how-write-skeleton-argument"
+        },
+        {
+          "name": "Apply for help with court transcript costs",
+          "description": "",
+          "url": "https://www.gov.uk/apply-for-help-with-court-transcript-costs"
+        },
+        {
+          "name": "Everything you need to know about remote hearings",
+          "description": "(Advicenow Guide)",
+          "url": "https://www.advicenow.org.uk/guides/everything-you-need-know-about-remote-hearings"
+        },
+        {
+          "name": "The Transparency Project Guide to Remote Hearings",
+          "description": "",
+          "url": "https://www.transparencyproject.org.uk/remote-hearings/"
+        },
+        {
+          "name": "How to join a remote hearing by telephone or video (GOV.UK)",
+          "description": "",
+          "url": "https://www.gov.uk/guidance/how-to-join-a-court-or-tribunal-hearing-by-video"
+        },
+        {
+          "name": "Guidance for litigants in person on remote hearings in the family court",
+          "description": "(The Resolution Foundation)",
+          "url": "https://resolution.org.uk/"
+        },
+        {
+          "name": "Support Through Court",
+          "description": "Supports people going through court proceedings without legal representation (non-legal advice).",
+          "url": "https://www.supportthroughcourt.org/"
+        },
+        {
+          "name": "Litigation funding options",
+          "description": "Third-party funding for higher-value civil claims — mainly for businesses and complex disputes.",
+          "links": [
+            {
+              "text": "Asertis",
+              "url": "https://asertis.co.uk/"
+            },
+            {
+              "text": "Augusta",
+              "url": "https://augustaventures.com/"
+            },
+            {
+              "text": "Bench Walk Advisors",
+              "url": "https://benchwalk.com/"
+            },
+            {
+              "text": "Balance Legal Capital",
+              "url": "https://www.balancelegalcapital.com/"
+            },
+            {
+              "text": "Burford Capital",
+              "url": "https://www.burfordcapital.com/"
+            },
+            {
+              "text": "Calunius Capital",
+              "url": "https://www.calunius.com/"
+            },
+            {
+              "text": "Deminor Litigation Funding",
+              "url": "https://www.deminor.com/en/"
+            },
+            {
+              "text": "Erso Capital",
+              "url": "https://www.ersocap.com/"
+            },
+            {
+              "text": "Harbour",
+              "url": "https://www.harbourlitigationfunding.com/"
+            },
+            {
+              "text": "Innsworth",
+              "url": "https://www.innsworth.com/"
+            },
+            {
+              "text": "Omni Bridgeway",
+              "url": "https://omnibridgeway.com/"
+            },
+            {
+              "text": "Redress Solutions",
+              "url": "https://redresssolutions.co.uk/"
+            },
+            {
+              "text": "Therium",
+              "url": "https://www.therium.com/"
+            },
+            {
+              "text": "Winward Litigation Finance",
+              "url": "https://www.winward.uk/"
+            },
+            {
+              "text": "Woodsford",
+              "url": "https://woodsford.com/"
+            },
+            {
+              "text": "AxiaFunder",
+              "url": "https://www.axiafunder.com/"
+            },
+            {
+              "text": "ClaimTrading",
+              "url": "https://www.claimtrading.com/"
+            },
+            {
+              "text": "Factor Risk Management",
+              "url": "https://www.factor-risk.com/"
+            },
+            {
+              "text": "Mourant Ozannes",
+              "url": "https://www.mourant.com/"
+            },
+            {
+              "text": "QLP",
+              "url": "https://www.qlp.ltd.uk/"
+            },
+            {
+              "text": "Sentry Funding",
+              "url": "https://sentryfunding.co.uk/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Home and Housing",
+      "matterTypes": [
+        "housing"
+      ],
+      "resources": [
+        {
+          "name": "Advicenow housing guides",
+          "description": "",
+          "url": "https://www.advicenow.org.uk/",
+          "links": [
+            {
+              "text": "Right to Rent",
+              "url": "https://www.advicenow.org.uk/guides/right-rent"
+            },
+            {
+              "text": "Guide to rent guarantors",
+              "url": "https://www.advicenow.org.uk/guides/guide-rent-guarantors"
+            },
+            {
+              "text": "Showing you are a good tenant",
+              "url": "https://www.advicenow.org.uk/guides/showing-you-are-good-tenant"
+            },
+            {
+              "text": "Challenge your homelessness application",
+              "url": "https://www.advicenow.org.uk/guides/challenge-your-homelessness-application"
+            },
+            {
+              "text": "What to do if you are homeless",
+              "url": "https://www.advicenow.org.uk/guides/what-do-if-you-are-homeless"
+            },
+            {
+              "text": "What to do if threatened with homelessness",
+              "url": "https://www.advicenow.org.uk/guides/what-do-if-threatened-homelessness"
+            },
+            {
+              "text": "Dealing with a Section 21 eviction notice",
+              "url": "https://www.advicenow.org.uk/guides/dealing-section-21-eviction-notice"
+            },
+            {
+              "text": "Fixing problems in a privately rented home",
+              "url": "https://www.advicenow.org.uk/guides/fixing-problems-privately-rented-home"
+            }
+          ]
+        },
+        {
+          "name": "Gov.uk – What is housing benefit and how to claim it",
+          "description": "",
+          "url": "https://www.gov.uk/housing-benefit"
+        },
+        {
+          "name": "Shelter",
+          "description": "free national helpline for urgent housing advice (risk of homelessness). They also provide face-to-face and online services and court attendance",
+          "url": "https://www.shelter.org.uk/",
+          "phone": "0808 800 4444"
+        },
+        {
+          "name": "Leasehold Advisory Service",
+          "description": "independent advice on residential leasehold, park homes and fire safety",
+          "url": "https://www.lease-advice.org/",
+          "phone": "0207 832 2500"
+        },
+        {
+          "name": "Justice for Tenants",
+          "description": "free Advice, Support and Representation for tenants with all kinds of issues",
+          "url": "https://www.justicefortenants.org/",
+          "phone": "020 3476 5548"
+        },
+        {
+          "name": "Mary Ward Legal Centre",
+          "description": "provides free legal advice to those based in London on debt, housing and welfare",
+          "url": "https://marywardlegal.org.uk/",
+          "phone": "020 7831 7079"
+        },
+        {
+          "name": "South West London Law Centres",
+          "description": "provides a 30 minute free session of legal advice on housing issues",
+          "url": "https://www.swllc.org/",
+          "phone": "0208 767 2777"
+        },
+        {
+          "name": "Toynbee Hall",
+          "description": "frontline advice agency based in East London",
+          "url": "https://www.toynbeehall.org.uk/",
+          "phone": "020 7392 2937"
+        },
+        {
+          "name": "Housing Loss Prevention Advice Service (HLPAS)",
+          "description": "The Legal Aid Agency funds HLPAS throughout England and Wales to provide on-the-day emergency advice and advocacy to anyone facing possession proceedings.",
+          "url": "https://www.gov.uk/guidance/housing-loss-prevention-advice-service"
+        },
+        {
+          "name": "Bloomsbury Legal Clinic",
+          "description": "London-based advice clinic offering specialist housing advice.",
+          "url": "https://www.bloomsburylegalclinic.org.uk/"
+        }
+      ]
+    },
+    {
+      "title": "Family and Relationships",
+      "matterTypes": [
+        "family"
+      ],
+      "resources": [
+        {
+          "name": "Coram Children's Legal Centre's Child Law Advice Service",
+          "description": "provides advice on parental disputes about child arrangements, child protection and attending court.",
+          "url": "https://www.childlawadvice.org.uk/",
+          "phone": "020 7520 0300"
+        },
+        {
+          "name": "Dad's House",
+          "description": "Runs a Pro Bono Family Law Clinic on Wednesdays and Fridays each week led by Simon Bruce (Dawson Cornwall), a well renowned family law solicitor.",
+          "url": "https://www.dadshouse.org.uk/",
+          "phone": "07765 183504"
+        },
+        {
+          "name": "Globalarrk",
+          "description": "Charity specialising in helping stuck parents who want to move with their child but are being prevented by Hague Convention proceedings.",
+          "url": "https://www.globalarrk.org/"
+        },
+        {
+          "name": "Grandparents Legal Centre",
+          "description": "specialists in advising about the steps grandparents need to take to try and resolve certain difficult issues",
+          "url": "https://www.grandparentslegalcentre.com/",
+          "phone": "0843 289 7130"
+        },
+        {
+          "name": "Grandparents Plus",
+          "description": "a national charity dedicated to supporting kinship carers - grandparents and other relatives raising children who aren't able to live with their parents",
+          "url": "https://kinship.org.uk/"
+        },
+        {
+          "name": "Families Need Fathers",
+          "description": "Info advice and support to both parents to help them maintain their relationship with their children",
+          "url": "https://fnf.org.uk/",
+          "phone": "0300 0300 363"
+        },
+        {
+          "name": "Family Rights Group",
+          "description": "advises families whose children are involved with or needs children's services because of welfare needs or concerns.",
+          "url": "https://frg.org.uk/",
+          "phone": "0808 801 0366"
+        },
+        {
+          "name": "On Record free family advice hub",
+          "description": "",
+          "url": "https://onrecord.tech/"
+        },
+        {
+          "name": "Only Dads",
+          "description": "A national on-line support & signposting service for parents going through separation/divorce",
+          "url": "https://www.onlydads.org/",
+          "phone": "07786 877718"
+        },
+        {
+          "name": "Only Mums",
+          "description": "A national on-line support & signposting service for parents going through separation/divorce",
+          "url": "https://www.onlymums.org/",
+          "phone": "07786 877718"
+        },
+        {
+          "name": "OurFamilyWizard",
+          "description": "A co-parenting app and website. Parents and other family members can use OurFamilyWizard as a central platform to share their most important family information.",
+          "url": "https://www.ourfamilywizard.co.uk/",
+          "phone": "0203 514 0008"
+        },
+        {
+          "name": "Resolution",
+          "description": "Resolution is a community of family justice professionals who work with families and individuals to resolve issues in a constructive way",
+          "url": "https://resolution.org.uk/",
+          "phone": "020 3841 0300"
+        },
+        {
+          "name": "Rights of Women",
+          "description": "Rights of Women is a women's charity working in a number of ways to help women through the law",
+          "url": "https://rightsofwomen.org.uk/",
+          "phone": "020 7251 6577"
+        },
+        {
+          "name": "Working Families",
+          "description": "for parents and carers needing advice on maternity and paternity leave and discrimination. They also provide basic benefits advice",
+          "url": "https://workingfamilies.org.uk/",
+          "phone": "0300 012 0312"
+        },
+        {
+          "name": "CourtNav",
+          "description": "filling in Form FL401 and receiving legal advice before it can be submitted",
+          "url": "https://www.courtnav.org.uk/"
+        },
+        {
+          "name": "Domestic Violence Assist",
+          "description": "charity offering help with non-molestation, occupation and prohibited steps orders",
+          "url": "https://www.dvassist.org.uk/",
+          "phone": "0800 195 8699"
+        },
+        {
+          "name": "Finding Legal Options for Women Survivors (FLOWS)",
+          "description": "legal support service",
+          "url": "https://www.flows.org.uk/",
+          "phone": "0203 745 7707"
+        },
+        {
+          "name": "Hestia Bright Sky website and app",
+          "description": "Bright Sky is a free app providing support and information to anyone who may be in an abusive relationship. It has a secure journal tool to record behaviour via text, audio, video or photo, without the content being stored on your phone/tablet.",
+          "url": "https://www.hestia.org/brightsky"
+        },
+        {
+          "name": "National Domestic Violence Helpline",
+          "description": "24 hour National Domestic Violence Helpline",
+          "url": "https://www.nationaldahelpline.org.uk/",
+          "phone": "0808 2000 247"
+        },
+        {
+          "name": "National Centre for Domestic Violence",
+          "description": "can assist with urgent injunctions",
+          "url": "https://www.ncdv.org.uk/",
+          "phone": "0800 970 2070"
+        },
+        {
+          "name": "Rights of Women",
+          "description": "offer women free, confidential legal advice from specialist women solicitors and barristers",
+          "url": "https://rightsofwomen.org.uk/",
+          "phone": "020 7251 6575"
+        },
+        {
+          "name": "Rape Crisis",
+          "description": "offer services by women, for women and girls",
+          "url": "https://rapecrisis.org.uk/",
+          "phone": "0142 526 770"
+        },
+        {
+          "name": "Southall Black Sisters",
+          "description": "provides support and advice for BAME women and girls experiencing domestic violence.",
+          "url": "https://southallblacksisters.org.uk/"
+        },
+        {
+          "name": "Survivors UK",
+          "description": "offers support to male victims of sexual abuse",
+          "url": "https://www.survivorsuk.org/",
+          "phone": "0203 598 3898"
+        },
+        {
+          "name": "Women's Aid",
+          "description": "Live Chat is available via their website on Monday to Friday 10:00am - 4:00pm, Saturday and Sunday 10:00am-12:00pm",
+          "url": "https://www.womensaid.org.uk/"
+        },
+        {
+          "name": "UK Deed Poll Office",
+          "description": "Support for you or your child's name-change process.",
+          "url": "https://www.ukdpo.com/"
+        }
+      ]
+    },
+    {
+      "title": "Wills and Planning Ahead",
+      "matterTypes": [
+        "other"
+      ],
+      "resources": [
+        {
+          "name": "Citizens Advice — making a will",
+          "description": "Who needs a will, what to include, and how to get it signed correctly.",
+          "url": "https://www.citizensadvice.org.uk/family/death-and-wills/making-a-will/"
+        },
+        {
+          "name": "GOV.UK — make a will",
+          "description": "Official overview of making and updating a will in England and Wales.",
+          "url": "https://www.gov.uk/make-will"
+        },
+        {
+          "name": "Age UK — making a will",
+          "description": "Practical guidance for older people planning a will.",
+          "url": "https://www.ageuk.org.uk/information-advice/money-legal/legal-issues/making-a-will/"
+        },
+        {
+          "name": "GOV.UK — lasting power of attorney",
+          "description": "How to appoint someone to make decisions for you if you lose capacity.",
+          "url": "https://www.gov.uk/power-of-attorney"
+        }
+      ]
+    },
+    {
+      "title": "Work and Employment",
+      "matterTypes": [
+        "employment"
+      ],
+      "resources": [
+        {
+          "name": "Advicenow Employment Guides",
+          "description": "",
+          "url": "https://www.advicenow.org.uk/",
+          "links": [
+            {
+              "text": "Dealing with discrimination and other problems at work",
+              "url": "https://www.advicenow.org.uk/guides/dealing-discrimination-and-other-problems-work"
+            },
+            {
+              "text": "Step-by-step guide to raising a grievance at work",
+              "url": "https://www.advicenow.org.uk/guides/step-step-guide-raising-grievance-work"
+            },
+            {
+              "text": "Preparing an Employment Tribunal case",
+              "url": "https://www.advicenow.org.uk/guides/preparing-employment-tribunal-case"
+            },
+            {
+              "text": "Who can accompany you to a disciplinary hearing",
+              "url": "https://www.advicenow.org.uk/guides/who-can-accompany-you-disciplinary-hearing"
+            },
+            {
+              "text": "Gathering evidence about discrimination at work",
+              "url": "https://www.advicenow.org.uk/guides/gathering-evidence-about-discrimination-work"
+            },
+            {
+              "text": "Preliminary Hearings at the Employment Tribunal",
+              "url": "https://www.advicenow.org.uk/guides/preliminary-hearings-employment-tribunal"
+            },
+            {
+              "text": "Representing yourself at an Employment Tribunal",
+              "url": "https://www.advicenow.org.uk/guides/representing-yourself-employment-tribunal"
+            }
+          ]
+        },
+        {
+          "name": "London Employment Rights Hub",
+          "description": "The Mayor of London's Employment Rights Hub helps Londoners to understand their rights at work.",
+          "url": "https://www.london.gov.uk/programmes-strategies/communities-and-social-justice/employment-rights-hub"
+        },
+        {
+          "name": "Advisory, Conciliation and Arbitration Service (ACAS)",
+          "description": "provides information, advice, training, conciliation and other services for employers and employees to help prevent or resolve workplace problems",
+          "url": "https://www.acas.org.uk/",
+          "phone": "0300 123 1100"
+        },
+        {
+          "name": "BPP Law School Employment Law Telephone Advice Line (ELTAL)",
+          "description": "an advice line offering initial advice to callers. Leave a message and a student volunteer will call back.",
+          "url": "https://www.bpp.com/",
+          "phone": "0207 633 4534"
+        },
+        {
+          "name": "Free Representation Unit",
+          "description": "provides legal advice, case preparation and advocacy in employment, social security, and some criminal injury compensation tribunal cases",
+          "url": "https://www.thefru.org.uk/",
+          "phone": "020 7611 9555"
+        },
+        {
+          "name": "Protect",
+          "description": "Free legal advice service on whistleblowing at work.",
+          "url": "https://protect-advice.org.uk/",
+          "phone": "020 3117 2520"
+        },
+        {
+          "name": "Rights of women",
+          "description": "Mondays, Tuesdays and Wednesdays: 3pm – 5pm and 6 – 8pm. Offers free employment legal advice to women in England and Wales experiencing sexual harassment at work",
+          "url": "https://rightsofwomen.org.uk/",
+          "phone": "020 7490 0152"
+        },
+        {
+          "name": "South West London Law Centres",
+          "description": "provides a 30 minute free session of legal advice on employment rights and obligations",
+          "url": "https://www.swllc.org/",
+          "phone": "0208 767 2777"
+        },
+        {
+          "name": "Toynbee Hall",
+          "description": "frontline advice agency based in East London.",
+          "url": "https://www.toynbeehall.org.uk/",
+          "phone": "020 7292 2953"
+        },
+        {
+          "name": "YESS Law",
+          "description": "offers affordable advice to employees and employers who want to resolve problems at work",
+          "url": "https://yesslaw.org.uk/",
+          "phone": "020 3701 7530"
+        },
+        {
+          "name": "Zero Hours Justice",
+          "description": "free confidential legal information and advice if you believe you have been unfairly treated under a Zero Hours Contract.",
+          "url": "https://zerohoursjustice.org.uk/",
+          "phone": "01904 900 151"
+        }
+      ]
+    },
+    {
+      "title": "Your Business",
+      "matterTypes": [
+        "other",
+        "employment"
+      ],
+      "resources": [
+        {
+          "name": "LawWorks Not for Profit programme",
+          "description": "Brokers legal advice to small not-for-profit organisations on a wide range of legal issues.",
+          "url": "https://www.lawworks.org.uk/legal-advice-not-profits"
+        },
+        {
+          "name": "Federation of Small Businesses (FSB)",
+          "description": "Membership body with legal protection and business advice for small firms.",
+          "url": "https://www.fsb.org.uk/"
+        },
+        {
+          "name": "GOV.UK — set up a business",
+          "description": "Official steps for sole traders, partnerships, and limited companies.",
+          "url": "https://www.gov.uk/set-up-business"
+        }
+      ]
+    },
+    {
+      "title": "Money, Benefits and Debt",
+      "matterTypes": [
+        "other",
+        "housing"
+      ],
+      "resources": [
+        {
+          "name": "Advicenow Guides",
+          "description": "PIP appeals, Benefits and living together, DLA appeals, Benefit sanctions, Tax credit overpayments, Work capability assessments",
+          "url": "https://www.advicenow.org.uk/"
+        },
+        {
+          "name": "Birmingham Fraud Clinic",
+          "description": "delivered by Birmingham University law students working under qualified lawyers, offering free legal advice for victims of fraud or anyone who is concerned they may be a victim of fraud. The clinic offers advice nationally.",
+          "url": "https://www.birmingham.ac.uk/"
+        },
+        {
+          "name": "Debt Advice Foundation",
+          "description": "A specialist debt charity offering free, confidential advice on any aspect of debt",
+          "url": "https://www.debtadvicefoundation.org/",
+          "phone": "0800 043 40 50"
+        },
+        {
+          "name": "Financial Ombudsman Service",
+          "description": "consumer helpline",
+          "url": "https://www.financial-ombudsman.org.uk/",
+          "phone": "0800 023 4567"
+        },
+        {
+          "name": "Free Representation Unit",
+          "description": "provides representation in social security and PIP hearings",
+          "url": "https://www.thefru.org.uk/"
+        },
+        {
+          "name": "HMRC Tax and Benefits Confidential Helpline",
+          "description": "helps families and individuals with targeted financial support",
+          "phone": "0845 608 6000"
+        },
+        {
+          "name": "Mary Ward Legal Centre",
+          "description": "provides free legal advice to those based in London",
+          "url": "https://marywardlegal.org.uk/",
+          "phone": "020 7831 7079"
+        },
+        {
+          "name": "Money Advice Service",
+          "description": "provides free and impartial money advice",
+          "url": "https://www.moneyhelper.org.uk/",
+          "phone": "0800 138 7777"
+        },
+        {
+          "name": "Money Advice Trust",
+          "description": "oversees the National Debt line to help people across the UK to tackle their debts and manage their money.",
+          "url": "https://www.moneyadvicetrust.org/"
+        },
+        {
+          "name": "National Debt Line",
+          "description": "provides free debt advice",
+          "url": "https://www.nationaldebtline.org/",
+          "phone": "0808 808 4000"
+        },
+        {
+          "name": "South West London Law Centres",
+          "description": "provides a 30 minute free session of legal advice on money and debt management",
+          "url": "https://www.swllc.org/",
+          "phone": "0208 767 2777"
+        },
+        {
+          "name": "Step Change",
+          "description": "Expert advice on dealing with debt online or over the phone",
+          "url": "https://www.stepchange.org/",
+          "phone": "0800 138 1111"
+        },
+        {
+          "name": "TaxAid",
+          "description": "offers free, confidential advice on tax to those on low incomes",
+          "url": "https://taxaid.org.uk/",
+          "phone": "0345 120 3779"
+        },
+        {
+          "name": "Toynbee Hall",
+          "description": "frontline advice agency based in East London",
+          "url": "https://www.toynbeehall.org.uk/",
+          "phone": "020 7392 2953"
+        },
+        {
+          "name": "Turn2Us",
+          "description": "Charity helping people in financial need. Written advice on Benefits overpayment.",
+          "url": "https://www.turn2us.org.uk/",
+          "phone": "0808 802 2000"
+        },
+        {
+          "name": "Zacchaeus 2000 Trust (Z2K)",
+          "description": "provides advice and support on income, housing and social welfare matters",
+          "url": "https://z2k.org/",
+          "phone": "020 7259 0801"
+        }
+      ]
+    },
+    {
+      "title": "Consumer Rights",
+      "matterTypes": [
+        "consumer",
+        "other"
+      ],
+      "resources": [
+        {
+          "name": "Citizens Advice — consumer service",
+          "description": "Buying, refunds, faulty goods, and problems with services.",
+          "url": "https://www.citizensadvice.org.uk/consumer/"
+        },
+        {
+          "name": "Which? Consumer Rights",
+          "description": "Templates and guidance on returns, guarantees, and trader disputes.",
+          "url": "https://www.which.co.uk/consumer-rights"
+        },
+        {
+          "name": "Resolver",
+          "description": "Free tool to escalate complaints with many retailers and service providers.",
+          "url": "https://www.resolver.co.uk/"
+        }
+      ]
+    },
+    {
+      "title": "Neighbours and Property",
+      "matterTypes": [
+        "housing",
+        "other"
+      ],
+      "resources": [
+        {
+          "name": "GOV.UK — resolving neighbour disputes",
+          "description": "Mediation, noise, boundaries, and when to involve the council.",
+          "url": "https://www.gov.uk/how-to-resolve-neighbour-disputes"
+        },
+        {
+          "name": "RICS — party wall matters",
+          "description": "Find surveyors for party wall agreements and boundary issues.",
+          "url": "https://www.ricsfirms.com/home/party-wall/"
+        }
+      ]
+    },
+    {
+      "title": "Immigration and Citizenship",
+      "matterTypes": [
+        "immigration"
+      ],
+      "resources": [
+        {
+          "name": "Anti Trafficking and Labour Exploitation Unit (ATLEU)",
+          "description": "provide free, specialist, holistic legal advice and representation to adults, young people and children who are asylum seekers and have experienced trafficking, slavery and labour exploitation.",
+          "url": "https://atleu.org.uk/",
+          "phone": "020 7700 7311"
+        },
+        {
+          "name": "Asylum Support Appeals Project (ASAP)",
+          "description": "represents people who have appeals about their Home Office housing and financial support (asylum support).",
+          "url": "https://www.asaproject.org/",
+          "phone": "0203 716 0283"
+        },
+        {
+          "name": "BID",
+          "description": "provides legal advice and representation to migrants detained in removal centres and prisons",
+          "url": "https://www.biduk.org/",
+          "phone": "020 7456 9750"
+        },
+        {
+          "name": "Coram Children's Legal Centre's Migrant Children's Project",
+          "description": "provides one-to-one legal advice on issues affecting children subject to immigration control",
+          "url": "https://www.childlawadvice.org.uk/",
+          "phone": "020 7520 0300"
+        },
+        {
+          "name": "Joint Council for the Welfare of Immigrants",
+          "description": "represents clients at all stages of the legal process including applications to the Home Office, entry clearance, appeals and judicial review.",
+          "url": "https://www.jcwi.org.uk/",
+          "phone": "0207 553 7470"
+        },
+        {
+          "name": "Kalayaan",
+          "description": "provides advice, advocacy and support in the UK for migrant domestic workers",
+          "url": "https://www.kalayaan.org.uk/",
+          "phone": "0207 243 2942"
+        },
+        {
+          "name": "Migrant Legal Support",
+          "description": "specifically for Wales and the South West and West of the UK",
+          "url": "https://migrantlegalsupport.org/",
+          "phone": "0117 911 3393"
+        }
+      ]
+    },
+    {
+      "title": "Health and Injury",
+      "matterTypes": [
+        "personal_injury"
+      ],
+      "resources": [
+        {
+          "name": "Action against Medical Accidents (AvMA)",
+          "description": "Independent charity helping people affected by medical accidents.",
+          "url": "https://www.avma.org.uk/",
+          "phone": "0845 123 2352"
+        },
+        {
+          "name": "Citizens Advice — personal injury",
+          "description": "Overview of making a personal injury claim.",
+          "url": "https://www.citizensadvice.org.uk/law-and-courts/personal-injuries/"
+        }
+      ]
+    },
+    {
+      "title": "Driving and Parking",
+      "matterTypes": [
+        "other"
+      ],
+      "resources": [
+        {
+          "name": "Yellow Box Guru — yellow box junction PCNs",
+          "description": "Guide to UK yellow box junction law, enforcement and appeals, including a PCN checklist — for motorists challenging tickets and for understanding when a box or ticket may not comply with the law.",
+          "url": "https://www.yellowboxes.co.uk/"
+        },
+        {
+          "name": "Citizens Advice — parking tickets and PCNs",
+          "description": "Challenge a council or private parking ticket.",
+          "url": "https://www.citizensadvice.org.uk/consumer/parking-travel-leisure/parking-tickets/"
+        }
+      ]
+    },
+    {
+      "title": "Rights and Discrimination",
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "resources": [
+        {
+          "name": "The AIRE Centre",
+          "description": "promote awareness of European law rights and assist marginalised individuals and those in vulnerable circumstances to assert those rights",
+          "url": "https://www.airecentre.org/",
+          "phone": "020 7831 4276"
+        },
+        {
+          "name": "Equality Advisory Support Service",
+          "description": "advises and assists individuals on issues relating to equality and human rights by informal dispute resolutions",
+          "url": "https://www.equalityadvisoryservice.com/",
+          "phone": "0808 800 0082"
+        },
+        {
+          "name": "Public Law Project",
+          "description": "have produced various useful resources. They are also able to help individuals who have been referred by an MP, lawyers, advisors or voluntary groups",
+          "url": "https://publiclawproject.org.uk/",
+          "phone": "020 7843 1260"
+        },
+        {
+          "name": "Disability Law Service",
+          "description": "provides free legal advice to people with disabilities and their carers",
+          "url": "https://dls.org.uk/",
+          "phone": "020 7791 9800"
+        },
+        {
+          "name": "Disability Rights UK",
+          "description": "Guide to benefits and how to claim them",
+          "url": "https://www.disabilityrightsuk.org/"
+        },
+        {
+          "name": "MIND",
+          "description": "offers advice and support to those experiencing mental health problems",
+          "url": "https://www.mind.org.uk/",
+          "phone": "020 8519 2122"
+        },
+        {
+          "name": "Nafsiyat",
+          "description": "a charity that provides intercultural therapy and counselling services to London's diverse religious, cultural and ethnic population",
+          "url": "https://www.nafsiyat.org.uk/",
+          "phone": "020 7263 6947"
+        },
+        {
+          "name": "Rachel's Voice",
+          "description": "offers advice to families who have suffered a bereavement after the death of a person with a learning disability. Advice is offered to clients free of charge by lawyers who are working pro bono.",
+          "url": "https://rachelsvoice.co.uk/",
+          "phone": "0808 808 1111"
+        },
+        {
+          "name": "Samaritans",
+          "description": "a charity dedicated to reducing feelings of isolation and disconnection that could lead to suicide",
+          "url": "https://www.samaritans.org/",
+          "phone": "116 123"
+        },
+        {
+          "name": "SANE",
+          "description": "leading mental health charity",
+          "url": "https://www.sane.org.uk/",
+          "phone": "0300 304 7000"
+        },
+        {
+          "name": "Shout",
+          "description": "Text 'Shout' to 85258 – 24/7 confidential text support service for those struggling with mental health",
+          "url": "https://giveusashout.org/"
+        },
+        {
+          "name": "Supportive Parents (SEND and You)",
+          "description": "a charity providing information, advice & support to parents, children & young people about any type of special educational need or disability from 0-25 years who live in Bristol, N. Somerset or S. Gloucestershire",
+          "url": "https://www.sendandyou.org.uk/",
+          "phone": "0117 9897725"
+        }
+      ]
+    },
+    {
+      "title": "Crime and Police",
+      "matterTypes": [
+        "other"
+      ],
+      "resources": [
+        {
+          "name": "Victim Support",
+          "description": "offers support to those that have been affected by crime or traumatic events",
+          "url": "https://www.victimsupport.org.uk/",
+          "phone": "0808 1689 111"
+        },
+        {
+          "name": "Independent Office for Police Conduct",
+          "description": "investigate the most serious and sensitive incidents and allegations involving the police",
+          "url": "https://www.policeconduct.gov.uk/",
+          "phone": "0300 020 0096"
+        },
+        {
+          "name": "NACRO",
+          "description": "a national social justice charity which aims to educate, support and advise disadvantaged young people and adults",
+          "url": "https://www.nacro.org.uk/",
+          "phone": "0300 123 1889"
+        },
+        {
+          "name": "APPEAL (Centre for Criminal Appeals)",
+          "description": "a charity that fights miscarriages of justice and demands reform",
+          "url": "https://www.appeal.org.uk/",
+          "phone": "020 7040 0019"
+        },
+        {
+          "name": "Sentencing Council",
+          "description": "issue guidelines on sentencing for courts to follow",
+          "url": "https://www.sentencingcouncil.org.uk/"
+        },
+        {
+          "name": "A Band of Brothers",
+          "description": "Supporting men in the criminal justice system or at risk of entering the system through mentoring support and rites of passage.",
+          "url": "https://abandofbrothers.org.uk/"
+        },
+        {
+          "name": "ASB Help",
+          "description": "assisting victims of anti-social behavior",
+          "url": "https://asbhelp.co.uk/"
+        },
+        {
+          "name": "StopWatch resources hub",
+          "description": "All StopWatch guides and factsheets in one place.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/"
+        },
+        {
+          "name": "StopWatch complaints guide",
+          "description": "Easy-to-use guide for making complaints against the police.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/stop-and-search-a-complaints-guide/"
+        },
+        {
+          "name": "StopWatch search card",
+          "description": "Pocket-sized card with your most important rights during a stop and search.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/stop-and-search-card/"
+        },
+        {
+          "name": "StopWatch bystanders guide",
+          "description": "How to safely be an active bystander during a stop and search.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/stop-and-search-bystanders-guide/"
+        },
+        {
+          "name": "Stop and search: A guide for parents and children, plus short film",
+          "description": "Keeping children as safe as possible during interactions with the police.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/stop-and-search-a-guide-for-parents-and-children-plus-short-film/"
+        },
+        {
+          "name": "Section 1 PACE (suspicion-based search) factsheet",
+          "description": "The law, history, and statistics behind the original and most commonly used search power.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/section-1-factsheet/"
+        },
+        {
+          "name": "Section 60 CJPOA (suspicionless search) factsheet",
+          "description": "The law, history, and statistics behind section 60 of the Criminal Justice and Public Order Act 1994.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/section-60-factsheet/"
+        },
+        {
+          "name": "Stop and account factsheet",
+          "description": "The law, history, and statistics behind the power to stop and account.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/stop-and-account-factsheet/"
+        },
+        {
+          "name": "Strip and intimate searches factsheet",
+          "description": "The law and statistics behind strip and intimate searches.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/strip-and-intimate-searches-factsheet/"
+        },
+        {
+          "name": "Use of force factsheet",
+          "description": "The law, history, and data behind handcuffing, baton strikes, taser use, and more.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/use-of-force-factsheet/"
+        },
+        {
+          "name": "Vehicle stops factsheet",
+          "description": "The law, history, and statistics behind section 163 of the Road Traffic Act 1988.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/traffic-stops-factsheet/"
+        },
+        {
+          "name": "Terrorism powers factsheet",
+          "description": "The law, history, and statistics behind search powers for extreme circumstances.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/terrorism-act-2000-search-powers-factsheet/"
+        },
+        {
+          "name": "Protests stop and search factsheet",
+          "description": "The law, the history, and the statistics behind protest-related searches.",
+          "url": "https://www.stop-watch.org/what-we-do/resources/protests-stop-and-search-factsheet/"
+        }
+      ]
+    },
+    {
+      "title": "Education",
+      "matterTypes": [
+        "other",
+        "family"
+      ],
+      "resources": [
+        {
+          "name": "Coram Children's Legal Centre",
+          "description": "provides free legal information on exclusions, bullying, special educational needs, admissions and attendance at school",
+          "url": "https://www.childlawadvice.org.uk/",
+          "phone": "01206 714 650"
+        },
+        {
+          "name": "Refugee Support Network 'Access to Higher Education' advice line",
+          "description": "offers refugee and asylum-seeking children and young people support with higher education",
+          "url": "https://www.refugeesupportnetwork.org/",
+          "phone": "0800 331 7292"
+        },
+        {
+          "name": "IPSEA Advice line",
+          "description": "provides legally based information and next step advice on any educational issue that is the result of a child's special educational needs or disability.",
+          "url": "https://www.ipsea.org.uk/"
+        }
+      ]
+    }
+  ]
+}

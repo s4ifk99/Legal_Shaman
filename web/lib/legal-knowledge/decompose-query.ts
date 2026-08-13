@@ -13,6 +13,10 @@ export type DecomposeQueryInput = Pick<
 > & {
   context?: LegalSearchContext;
   intent?: LegalSearchIntent;
+  /** Satnav routes considered (labels + short queries). */
+  routesConsidered?: Array<{ id: string; label: string; query: string }>;
+  chosenRouteIds?: string[];
+  routeDecision?: "pick" | "mix";
 };
 
 function matchedUserPhrases(query: string, taxonomySlug: string | undefined): string[] {
@@ -205,6 +209,36 @@ export function decomposeLegalSearchQuery(input: DecomposeQueryInput): SearchCri
   criteria.push(criterion("sources", "Sources", sourcePreferenceText()));
 
   criteria.push(criterion("retrieval", "Retrieval", retrievalText(expanded, includeDirectory, intent)));
+
+  if (input.routesConsidered?.length) {
+    const routeLines = input.routesConsidered
+      .slice(0, 4)
+      .map((r) => `${r.label}: “${r.query.slice(0, 72)}${r.query.length > 72 ? "…" : ""}”`)
+      .join("; ");
+    criteria.push(
+      criterion(
+        "routes",
+        "Search routes",
+        `Compared ${input.routesConsidered.length} routes in parallel — ${routeLines}.`,
+      ),
+    );
+    if (input.chosenRouteIds?.length) {
+      const chosen = input.routesConsidered
+        .filter((r) => input.chosenRouteIds!.includes(r.id))
+        .map((r) => r.label);
+      const decision = input.routeDecision === "mix" ? "mixed" : "selected";
+      criteria.push(
+        criterion(
+          "routes",
+          "Chosen route",
+          chosen.length
+            ? `${decision === "mixed" ? "Mixed" : "Selected"}: ${chosen.join(" + ")}.`
+            : `Route decision: ${input.routeDecision ?? "pick"}.`,
+          "high",
+        ),
+      );
+    }
+  }
 
   return criteria;
 }

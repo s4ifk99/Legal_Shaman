@@ -7,6 +7,8 @@ import { Footer } from "@/components/footer";
 import { AskShamanSearch } from "@/components/wiki/ask-shaman-search";
 import { LawyerSearchClient } from "@/app/find-a-lawyer/lawyer-search-client";
 import { Card, CardContent } from "@/components/ui/card";
+import { CoherenceAskShell } from "@/components/coherence/CoherenceAskShell";
+import { enableCoherenceAsk } from "@/lib/coherence/config";
 import { getWikiIndex } from "@/lib/wiki/load-index";
 import { listFeaturedWikiPages, listWikiCategories } from "@/lib/wiki/search";
 import { enableMapSearch, enableSearchDebug } from "@/lib/legal-search/config";
@@ -18,7 +20,12 @@ export const metadata: Metadata = {
 };
 
 type PageProps = {
-  searchParams: Promise<{ q?: string; guided?: string; location?: string }>;
+  searchParams: Promise<{
+    q?: string;
+    guided?: string;
+    location?: string;
+    classic?: string;
+  }>;
 };
 
 function WikiBrowseSections() {
@@ -89,6 +96,19 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
   const initialQuery = (sp.q || "").trim();
   const initialLocation = (sp.location || "").trim();
   const showGuided = sp.guided === "1";
+  const forceClassic = sp.classic === "1";
+
+  // Local Coherence intake — same Header/Footer as classic Ask.
+  // Keep classic Ask for ?classic=1 and solicitor matching for ?guided=1.
+  if (enableCoherenceAsk() && !forceClassic && !showGuided) {
+    return (
+      <div className="flex min-h-screen flex-col bg-background">
+        <Header />
+        <CoherenceAskShell initialStory={initialQuery} />
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -102,6 +122,14 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
             One search for wiki guidance, lawyer matching, and live legal discussions — signposting
             only, not legal advice.
           </p>
+          {enableCoherenceAsk() && forceClassic ? (
+            <p className="text-sm text-muted-foreground">
+              Classic Ask (local escape hatch).{" "}
+              <Link href="/ask-the-shaman" className="font-medium text-primary hover:underline">
+                Back to Coherence intake
+              </Link>
+            </p>
+          ) : null}
         </header>
 
         <Suspense fallback={<div className="text-sm text-muted-foreground">Loading…</div>}>

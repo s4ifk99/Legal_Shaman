@@ -1,0 +1,61 @@
+{
+  "fixtures": [
+    {
+      "id": "driveway-carport-vs-stale-car",
+      "mode": "answer",
+      "query": "Writing this on behalf of a family member in England. Neighbour commonly parked in front of the driveway. They are now constructing a car port directly in front of the driveway and blocking access completely. No planning permission notices. Neighbour hostile. Family owned house circa 50 years; neighbour bought February 2024. What is the likely route to legally challenge this and how successful would this be?",
+      "priorSession": {
+        "matterType": "consumer",
+        "whatHappened": "bought used car from dealer faults refund refused",
+        "rawInputs": ["bought used car dealer refuse refund"],
+        "events": [{ "label": "Bought used car", "rawSpan": "bought used car from dealer" }]
+      },
+      "expect": {
+        "topicId": "housing-access",
+        "matterType": "housing",
+        "packId": "neighbour-driveway-access",
+        "forbiddenPackIds": ["car-reject-failed-repair"],
+        "forbiddenOverview": ["used car bought from a trader", "Consumer Rights Act 2015 remedies ladder"],
+        "freshBrief": true
+      }
+    },
+    {
+      "id": "car-reject-golden",
+      "mode": "answer",
+      "query": "I bought a used car from a dealer. After months faults appeared. Dealer charged for a battery repair but the board computer still fails. They refuse a refund and say they get another repair. Can I reject under the Consumer Rights Act?",
+      "priorSession": {},
+      "expect": {
+        "topicId": "consumer-car",
+        "matterType": "consumer",
+        "packId": "car-reject-failed-repair",
+        "mustOverviewOrSources": ["legislation.gov.uk/ukpga/2015/15"],
+        "forbiddenPackIds": ["neighbour-driveway-access"]
+      }
+    },
+    {
+      "id": "driving-ban-tyres",
+      "mode": "answer",
+      "query": "I am banned from driving. Can I inflate the tyres on my driveway with a portable compressor without breaking the law about being in charge of a vehicle?",
+      "priorSession": {},
+      "expect": {
+        "topicId": "crime-motoring",
+        "matterType": "crime",
+        "packId": "driving-ban-tyres",
+        "forbiddenPackIds": ["car-reject-failed-repair"]
+      }
+    },
+    {
+      "id": "driveway-intake-ask",
+      "mode": "intake",
+      "query": "Neighbour building a car port blocking our shared driveway in England. No planning notices. What can we do?",
+      "priorSession": {},
+      "expect": {
+        "topicId": "housing-access",
+        "matterType": "housing",
+        "packId": "neighbour-driveway-access",
+        "forbiddenPackIds": ["car-reject-failed-repair"],
+        "askNotWalkthrough": true
+      }
+    }
+  ]
+}

@@ -1,5 +1,8 @@
 import { accountsPrisma } from "@/lib/db/accounts";
+import { skipEmailVerificationInDev } from "@/lib/auth/coherence-auth-config";
 import { getUserIdFromSessionCookie, type PublicUser } from "@/lib/auth/user-session";
+
+export type { PublicUser, AuthenticatedUser } from "@/lib/auth/user-session";
 
 export async function getCurrentUser(): Promise<PublicUser | null> {
   const userId = await getUserIdFromSessionCookie();
@@ -7,9 +10,15 @@ export async function getCurrentUser(): Promise<PublicUser | null> {
 
   const user = await accountsPrisma.user.findUnique({
     where: { id: userId },
-    select: { id: true, name: true, email: true },
+    select: { id: true, name: true, email: true, emailVerifiedAt: true },
   });
-  return user;
+  if (!user) return null;
+  return {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    emailVerified: skipEmailVerificationInDev() || Boolean(user.emailVerifiedAt),
+  };
 }
 
 export async function requireCurrentUser(): Promise<PublicUser> {

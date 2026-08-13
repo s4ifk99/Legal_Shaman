@@ -1,0 +1,7 @@
+[Unit]
+Description=Stop idle Signpost next dev server (2h inactivity)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/pravda/Projects/Legal Shaman/Signpost/web
+ExecStart=/bin/bash "/home/pravda/Projects/Legal Shaman/Signpost/web/scripts/next-dev-idle-watchdog.sh"

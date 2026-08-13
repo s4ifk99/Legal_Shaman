@@ -25,6 +25,13 @@ export type WikiAnswerPayload = {
   retrievalScore: number;
   message?: string;
   latencyMs?: number;
+  /** How the final answer was produced — for satnav training logs. */
+  synthesisMeta?: {
+    used: "llm" | "deterministic" | "none";
+    deterministicAnswer?: string;
+    llmAnswer?: string;
+    llmError?: string;
+  };
 };
 
 export const WIKI_ANSWER_DISCLAIMER =

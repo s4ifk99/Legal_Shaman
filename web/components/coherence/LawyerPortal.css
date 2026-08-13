@@ -1,0 +1,198 @@
+.lawyer-portal {
+  min-height: 100dvh;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 3rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.lawyer-portal__chrome {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.lawyer-portal__brand {
+  margin: 0 0 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.lawyer-portal__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.lawyer-portal__who {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+.lawyer-portal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: flex-start;
+}
+
+.lawyer-portal__lead {
+  margin: 0 0 1.5rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+.lawyer-portal__section {
+  margin-bottom: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink-muted);
+}
+
+.lawyer-portal__section h2 {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lawyer-portal__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.lawyer-portal__btn {
+  appearance: none;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+
+.lawyer-portal__btn:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.lawyer-portal__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.lawyer-portal__btn--solid {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.lawyer-portal__btn--solid:hover:not(:disabled) {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.lawyer-portal__file {
+  display: none;
+}
+
+.lawyer-portal__error {
+  margin: 0.75rem 0 0;
+  padding: 0.65rem 0.75rem;
+  border: 1.5px solid var(--ink);
+  font-size: 0.85rem;
+}
+
+.lawyer-portal__hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  line-height: 1.4;
+}
+
+.lawyer-portal__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.lawyer-portal__list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  align-items: stretch;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--ink-muted);
+}
+
+.lawyer-portal__item {
+  appearance: none;
+  border: none;
+  background: none;
+  text-align: left;
+  padding: 0.25rem 0;
+  font: inherit;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.lawyer-portal__item:hover .lawyer-portal__item-label {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lawyer-portal__item-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+}
+
+.lawyer-portal__item-meta {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.lawyer-portal__remove {
+  appearance: none;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  color: var(--ink-faint);
+  align-self: center;
+}
+
+.lawyer-portal__import-bar {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 0;
+  display: flex;
+  gap: 0.45rem;
+}

@@ -735,6 +735,9 @@ export const LEGAL_ISSUE_TAXONOMY_CONSUMER: LegalIssueTaxonomyEntry[] = [
       "car repair dispute",
       "MOT dispute",
       "mechanic problem",
+      "works van",
+      "company van",
+      "problem with a car repair",
     ],
     userPhrases: [
       "garage ripped me off",
@@ -745,6 +748,10 @@ export const LEGAL_ISSUE_TAXONOMY_CONSUMER: LegalIssueTaxonomyEntry[] = [
       "main dealer overcharging",
       "warranty repair refused",
       "parts not fitted",
+      "garage charged",
+      "garage failed to fix",
+      "expansion tank",
+      "works van repair",
     ],
     subIssues: [
       "Overcharging",

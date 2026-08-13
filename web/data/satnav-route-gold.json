@@ -1,0 +1,66 @@
+{
+  "cases": [
+    {
+      "id": "temu-lead-taps",
+      "title": "Temu lead taps → Trading Standards route",
+      "query": "My mother purchased a new set of taps for her house on Temu. She asked me to fit them for her. I am a plumber and was suspicious of cheap taps on Temu. I tested them and they are all containing lead.",
+      "mustChooseRouteIdIncludes": ["unsafe_product", "faulty_purchase", "consumer"],
+      "mustNotChooseRouteIdIncludes": ["housing"],
+      "primarySourceTitleIncludesAny": [
+        "Trading Standards",
+        "purchase",
+        "product causes damage",
+        "faulty"
+      ],
+      "mustNotPrimarySourceTitleIncludesAny": ["dry cleaner", "landlord repair", "disrepair"]
+    },
+    {
+      "id": "employment-unfair-dismissal",
+      "title": "Unfair dismissal → employment route",
+      "query": "I was unfairly dismissed from my job after raising a grievance. What are my rights and should I contact ACAS?",
+      "mustChooseRouteIdIncludes": ["employment", "primary"],
+      "primarySourceTitleIncludesAny": [
+        "employment",
+        "dismiss",
+        "ACAS",
+        "tribunal",
+        "workplace",
+        "work",
+        "grievance"
+      ]
+    },
+    {
+      "id": "neighbour-extension-mix",
+      "title": "Neighbour extension can mix party-wall routes",
+      "query": "Neighbour extension issues, likely no building regs compliance (England). A friend of mine is in a semi detached house where her neighbour has built a shoddy extension.",
+      "mustChooseRouteIdIncludes": ["party_wall", "primary", "neighbour"],
+      "primarySourceTitleIncludesAny": [
+        "party wall",
+        "neighbour",
+        "extension",
+        "building",
+        "planning"
+      ],
+      "allowMix": true
+    },
+    {
+      "id": "gym-equality-services",
+      "title": "Gym shower doors → Equality Act goods & services (not employment)",
+      "query": "Our local gym in England removed the doors from the men's shower cubicles. The cubicles face the changing room door so people in the corridor can see into the showers. Men have stopped using the showers. Could this be an Equality Act complaint for sex discrimination against men as gym customers?",
+      "mustChooseRouteIdIncludes": ["equality", "discrimination", "primary"],
+      "mustNotChooseRouteIdIncludes": ["employment"],
+      "primarySourceTitleIncludesAny": [
+        "Equality Act",
+        "goods and services",
+        "Protected Characteristics",
+        "discrimination",
+        "Taking action"
+      ],
+      "mustNotPrimarySourceTitleIncludesAny": [
+        "Consultant Solicitor",
+        "at work",
+        "unfair dismissal"
+      ]
+    }
+  ]
+}

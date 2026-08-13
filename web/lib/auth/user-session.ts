@@ -8,7 +8,10 @@ export type PublicUser = {
   id: string;
   name: string;
   email: string;
+  emailVerified?: boolean;
 };
+
+export type AuthenticatedUser = PublicUser;
 
 function getUserSessionSecret(): string {
   const secret =

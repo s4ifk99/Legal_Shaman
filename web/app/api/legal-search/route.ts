@@ -111,6 +111,13 @@ export async function POST(req: Request) {
             phraseCandidates: result.debug.classificationFusion.phraseCandidates ?? [],
           }
         : undefined,
+      satnav: result.debug?.searchRouteMode
+        ? {
+            routeDecision: result.debug.routeDecision,
+            chosenRouteIds: result.debug.chosenRouteIds,
+            llmRouteConfidence: result.debug.llmRouteAdvice?.confidence,
+          }
+        : undefined,
     });
     return NextResponse.json(result);
   } catch (err) {

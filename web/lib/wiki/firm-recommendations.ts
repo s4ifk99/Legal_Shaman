@@ -42,6 +42,9 @@ const TAXONOMY_TO_FIRM_AREA: Record<string, string> = {
   "Public Law and Judicial Review": "Public Law and Judicial Review",
   "Neighbour Disputes": "Neighbour Disputes",
   "Parking and PCNs": "Motoring Law",
+  "Garage and Vehicle Repair Disputes": "Consumer Law",
+  "Consumer services": "Consumer Law",
+  "Motor purchase": "Consumer Law",
   "Mental Health Law": "General Legal Updates",
   "Community Care": "General Legal Updates",
 };

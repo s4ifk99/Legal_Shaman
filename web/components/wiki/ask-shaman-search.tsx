@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 import { collapsedDirectorySummary } from "@/lib/search/directory-row-display";
+import { SraAttribution } from "@/components/sra-attribution";
 import type { LegalSearchResponse, SearchCriterion } from "@/lib/legal-knowledge/types";
 import type { OslawPost } from "@/lib/oslaw/types";
 import { useRequireAuth } from "@/lib/auth/use-require-auth";
@@ -420,7 +421,10 @@ export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: Ask
             ) : null}
 
             {directoryItems.length > 0 ? (
-              <ExpandableDirectoryList query={submittedQuery} items={directoryItems} />
+              <>
+                <ExpandableDirectoryList query={submittedQuery} items={directoryItems} />
+                <SraAttribution />
+              </>
             ) : !guidanceError ? (
               <p className="text-sm text-muted-foreground">
                 No directory listings matched. Try adding a city or postcode, or use more specific

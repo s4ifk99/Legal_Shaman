@@ -1,0 +1,71 @@
+.shell {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 56rem;
+  width: 100%;
+  margin: 0 auto;
+  background: transparent;
+  color: var(--ink);
+}
+
+.shell__brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 1.25rem 0;
+  font-size: 0.78rem;
+}
+
+.shell__mark {
+  font-weight: 700;
+}
+
+.shell__product {
+  color: var(--ink-faint);
+}
+
+.shell__restart {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.shell__restart:hover {
+  color: var(--ink);
+}
+
+.shell__solicitor {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--ink-faint);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  opacity: 0.85;
+}
+
+.shell__solicitor:hover {
+  color: var(--ink);
+  opacity: 1;
+}
+
+.shell__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

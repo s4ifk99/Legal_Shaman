@@ -77,6 +77,14 @@ const TOPIC_TERMS_BY_SLUG: Record<string, string[]> = {
   ],
   debt: ["debt", "bailiff", "creditor", "bankruptcy", "ccj"],
   welfare_benefits: ["benefit", "universal credit", "pip", "esa"],
+  discrimination_equality: [
+    "discrimination",
+    "equality",
+    "equality act",
+    "protected characteristic",
+    "harassment",
+    "services",
+  ],
   consumer: ["consumer", "customs", "import", "excise", "hmrc", "refund", "faulty", "trader"],
   consumer_services: [
     "consumer",
@@ -129,6 +137,7 @@ const TOPIC_TERMS_BY_SLUG: Record<string, string[]> = {
 
 const SUPPRESS_BY_SLUG: Record<string, string[]> = {
   employment: ["company", "llp", "limited liability"],
+  discrimination_equality: ["consultant solicitor", "llp", "becoming a"],
 };
 
 function intentConfidenceFromMatchStrength(strength: number): IntentConfidence {
@@ -157,15 +166,51 @@ function buildSemanticQuery(
   return shortQuery;
 }
 
+/** Prefer compact legal phrases over long Reddit-style narrative for wiki retrieval. */
+export function compactRetrievalSeed(query: string, maxLen = 160): string {
+  const collapsed = query.replace(/\s+/g, " ").trim();
+  if (collapsed.length <= maxLen) return collapsed;
+
+  const sentences = collapsed
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const scored = sentences
+    .map((s) => {
+      let score = 0;
+      if (/\b(equality act|discriminat|trading standards|unfair dismissal|party wall|consumer rights)\b/i.test(s)) {
+        score += 5;
+      }
+      if (/\b(could this|what (are|is|can)|should i|how (do|can)|complain|rights)\b/i.test(s)) {
+        score += 3;
+      }
+      if (s.length < 40) score -= 1;
+      return { s, score };
+    })
+    .sort((a, b) => b.score - a.score || a.s.length - b.s.length);
+
+  const pick = scored[0]?.s;
+  if (pick && pick.length >= 24) return pick.slice(0, maxLen);
+  return collapsed.slice(0, maxLen);
+}
+
 function buildRetrievalQueries(
   query: string,
   expanded: string,
   boostTerms: string[],
   specificIssue?: string,
+  options?: { preferCompact?: boolean; forcedQueries?: string[] },
 ): string[] {
-  const short = query.replace(/\s+/g, " ").trim().slice(0, 160);
-  const shortExpanded = expanded.replace(/\s+/g, " ").trim().slice(0, 160);
+  const short = options?.preferCompact
+    ? compactRetrievalSeed(query, 160)
+    : query.replace(/\s+/g, " ").trim().slice(0, 160);
+  const shortExpanded = options?.preferCompact
+    ? compactRetrievalSeed(expanded, 160)
+    : expanded.replace(/\s+/g, " ").trim().slice(0, 160);
   const queries = new Set<string>();
+  for (const fq of options?.forcedQueries ?? []) {
+    if (fq.trim().length >= 8) queries.add(fq.trim().slice(0, 160));
+  }
   queries.add(shortExpanded || short);
   if (specificIssue) {
     queries.add(`${specificIssue} ${short}`.trim().slice(0, 160));
@@ -209,8 +254,32 @@ const DIRECTORY_SLUG_OVERLAP: Record<string, string[]> = {
 export const UNSAFE_PRODUCT_QUERY =
   /\b(temu|amazon|ebay|aliexpress|marketplace|seller|bought online|purchased online|unsafe product|dangerous product|faulty goods|trading standards|consumer service|product recall|report this|report them|who do i report|lead test|lead contamination|tap[s]?\b|water fitting|drinking water contamination)\b/i;
 
+/** Employment-context signals — used to avoid mistaking services discrimination for workplace claims. */
+export const EMPLOYMENT_CONTEXT_QUERY =
+  /\b(employer|employee|at work|workplace|unfair dismissal|redundan|acas|employment tribunal|grievance|colleague|line manager|HR department|hr\b|job|contract of employment|payroll|wages|maternity leave|paternity leave)\b/i;
+
+/**
+ * Equality Act / discrimination in goods, facilities or services (gyms, shops, leisure)
+ * rather than workplace discrimination.
+ */
+export const EQUALITY_SERVICES_QUERY =
+  /\b(equality act|discriminat|protected characteristic|sex discrimination|indirect discrimination|direct discrimination)\b/i;
+
+export const SERVICES_PROVIDER_CONTEXT_QUERY =
+  /\b(gym|leisure|sauna|steam room|shower|changing room|cubicle|customer|clientele|member|membership|service provider|goods and services|shop|restaurant|hotel|club|facility|facilities)\b/i;
+
 export function isUnsafeProductQuery(query: string): boolean {
   return UNSAFE_PRODUCT_QUERY.test(query);
+}
+
+export function isEqualityServicesQuery(query: string): boolean {
+  if (EMPLOYMENT_CONTEXT_QUERY.test(query) && !SERVICES_PROVIDER_CONTEXT_QUERY.test(query)) {
+    return false;
+  }
+  const hasEquality = EQUALITY_SERVICES_QUERY.test(query);
+  const hasServices = SERVICES_PROVIDER_CONTEXT_QUERY.test(query);
+  // Explicit Equality Act + services context, or discrimination language + gym/customer framing.
+  return (hasEquality && hasServices) || (hasEquality && /\bgym|leisure|sauna|shower|changing room\b/i.test(query));
 }
 
 /** Directory search query — keep short for Postgres/Typesense latency. */
@@ -300,49 +369,97 @@ export function deriveLegalSearchIntent(context: LegalSearchContext): LegalSearc
     ...(entry?.searchBoostTerms ?? []),
     ...(specificIssue ? [specificIssue] : []),
   ];
+  let resolvedTaxonomySlug = taxonomySlug;
+  let resolvedMatcherSlug = matcherSlug ?? undefined;
+  let resolvedCanonicalName = canonicalName;
+  let resolvedSpecificIssue = specificIssue;
+  let resolvedBoostTerms = [...boostTerms];
+
+  // Services discrimination (gym/customer) must not fall through employment retrieval.
+  if (isEqualityServicesQuery(query)) {
+    resolvedTaxonomySlug = "discrimination_equality";
+    resolvedMatcherSlug = "discrimination_equality";
+    resolvedCanonicalName = "Discrimination and Equality";
+    resolvedSpecificIssue =
+      resolvedSpecificIssue && !/at work|workplace|employment/i.test(resolvedSpecificIssue)
+        ? resolvedSpecificIssue
+        : "discrimination in goods and services";
+    resolvedBoostTerms = [
+      "equality act",
+      "discrimination in goods and services",
+      "sex discrimination",
+      "protected characteristic",
+      "service provider",
+      ...resolvedBoostTerms,
+    ];
+    signals.push("pattern:equality_services");
+  }
+
   const expanded =
     parsedQuery.expandedSearchText?.trim() ||
-    (resolution ? `${query} ${boostTerms.slice(0, 10).join(" ")}` : query);
+    (resolution
+      ? `${query} ${resolvedBoostTerms.slice(0, 10).join(" ")}`
+      : query);
 
-  if (taxonomySlug) signals.push(`taxonomy:${taxonomySlug}`);
-  if (specificIssue) signals.push(`subIssue:${specificIssue}`);
-  if (fusion.fusionSource === "llm") signals.push(`llm:${taxonomySlug ?? "unknown"}`);
-  if (fusion.fusionSource === "rules") signals.push(`rules:${taxonomySlug ?? "unknown"}`);
-  if (fusion.fusionSource === "agreed") signals.push(`agreed:${taxonomySlug ?? "unknown"}`);
+  if (resolvedTaxonomySlug) signals.push(`taxonomy:${resolvedTaxonomySlug}`);
+  if (resolvedSpecificIssue) signals.push(`subIssue:${resolvedSpecificIssue}`);
+  if (fusion.fusionSource === "llm") signals.push(`llm:${resolvedTaxonomySlug ?? "unknown"}`);
+  if (fusion.fusionSource === "rules") signals.push(`rules:${resolvedTaxonomySlug ?? "unknown"}`);
+  if (fusion.fusionSource === "agreed") signals.push(`agreed:${resolvedTaxonomySlug ?? "unknown"}`);
 
   let confidence = fusion.confidence;
-  if (!fusion.taxonomySlug && !taxonomySlug && parsedQuery.queryConfidence === "medium") {
+  if (!fusion.taxonomySlug && !resolvedTaxonomySlug && parsedQuery.queryConfidence === "medium") {
     confidence = "medium";
   }
-  if (!fusion.taxonomySlug && !taxonomySlug) {
+  if (!fusion.taxonomySlug && !resolvedTaxonomySlug) {
     const matchStrength = resolution?.matchStrength ?? 0;
     confidence = intentConfidenceFromMatchStrength(matchStrength);
   }
+  if (isEqualityServicesQuery(query)) confidence = "high";
 
-  const requiredTopicTerms = taxonomySlug
-    ? (TOPIC_TERMS_BY_SLUG[taxonomySlug] ?? [taxonomySlug.replace(/_/g, " ")])
+  const requiredTopicTerms = resolvedTaxonomySlug
+    ? (TOPIC_TERMS_BY_SLUG[resolvedTaxonomySlug] ?? [
+        resolvedTaxonomySlug.replace(/_/g, " "),
+      ])
     : [];
 
   const suppressTerms =
-    taxonomySlug && SUPPRESS_BY_SLUG[taxonomySlug]
-      ? SUPPRESS_BY_SLUG[taxonomySlug]!.filter((t) => query.toLowerCase().includes(t))
+    resolvedTaxonomySlug && SUPPRESS_BY_SLUG[resolvedTaxonomySlug]
+      ? SUPPRESS_BY_SLUG[resolvedTaxonomySlug]!
       : [];
 
-  const semanticQuery = buildSemanticQuery(
-    query,
-    canonicalName,
-    specificIssue,
-    fusion.semanticQuery ?? parsedQuery.semanticQuery,
-  );
+  const preferCompact = query.replace(/\s+/g, " ").trim().length > 220;
+  const forcedQueries = isEqualityServicesQuery(query)
+    ? [
+        "discrimination in provision of services equality act 2010",
+        "taking action about discrimination in goods and services",
+        "protected characteristics discrimination equality act",
+      ]
+    : undefined;
+
+  const semanticQuery = isEqualityServicesQuery(query)
+    ? "Discrimination and Equality — discrimination in goods and services".slice(0, 160)
+    : buildSemanticQuery(
+        preferCompact ? compactRetrievalSeed(query, 120) : query,
+        resolvedCanonicalName,
+        resolvedSpecificIssue,
+        fusion.semanticQuery ?? parsedQuery.semanticQuery,
+      );
 
   return {
-    taxonomySlug,
-    matcherSlug: matcherSlug ?? undefined,
-    canonicalName,
-    specificIssue,
+    taxonomySlug: resolvedTaxonomySlug,
+    matcherSlug: resolvedMatcherSlug,
+    canonicalName: resolvedCanonicalName,
+    specificIssue: resolvedSpecificIssue,
     semanticQuery,
-    retrievalQueries: buildRetrievalQueries(query, expanded, boostTerms, specificIssue),
-    searchBoostTerms: [...new Set(boostTerms.map((t) => t.toLowerCase()))].slice(0, 16),
+    retrievalQueries: buildRetrievalQueries(
+      query,
+      expanded,
+      resolvedBoostTerms,
+      resolvedSpecificIssue,
+      { preferCompact, forcedQueries },
+    ),
+    searchBoostTerms: [...new Set(resolvedBoostTerms.map((t) => t.toLowerCase()))].slice(0, 16),
     suppressTerms,
     requiredTopicTerms,
     confidence,

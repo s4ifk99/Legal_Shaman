@@ -1,0 +1,49 @@
+.frames {
+  padding: 0.65rem 1.25rem 0;
+  border-bottom: 1px solid var(--ink-muted);
+}
+
+.frames__lead {
+  margin: 0 0 0.45rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.frames__list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.frames__item {
+  flex: 1 1 12rem;
+  max-width: 100%;
+  padding: 0.55rem 0.7rem;
+  border-left: 2px solid var(--ink);
+  background: color-mix(in srgb, var(--ink) 4%, transparent);
+}
+
+.frames__label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.frames__fit {
+  font-weight: 500;
+  color: var(--ink-faint);
+}
+
+.frames__why {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--ink-faint);
+}

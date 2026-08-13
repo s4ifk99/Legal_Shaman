@@ -22,6 +22,13 @@ type LogLegalKnowledgeArgs = {
   latencyMs?: number;
   degradedModes?: string[];
   fusion?: ClassificationFusion;
+  satnav?: {
+    routeDecision?: string;
+    chosenRouteIds?: string[];
+    decidedBy?: string;
+    synthesisUsed?: string;
+    llmRouteConfidence?: number;
+  };
 };
 
 /** Persists Ask the Shaman legal knowledge search telemetry for gap mining. */
@@ -40,6 +47,7 @@ export async function logLegalKnowledgeInteraction(args: LogLegalKnowledgeArgs):
           answerMode: args.answerMode,
           conceptCluster: args.conceptCluster?.slice(0, 12),
           fusionSource: args.fusion?.fusionSource,
+          satnav: args.satnav,
         } as object,
         clarifyingAsked: args.clarifyingAsked,
         resultLawyerIds: [],

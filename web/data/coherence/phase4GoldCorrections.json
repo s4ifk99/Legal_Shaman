@@ -1,0 +1,55 @@
+{
+  "phase": 4,
+  "purpose": "Sample solicitor corrections (training/eval gold) against Phase 0 briefs. Marks: accepted | edited | rejected.",
+  "schema_version": "c1.lawyer_gold.v0",
+  "updated_at": "2026-08-01T12:00:00.000Z",
+  "rows": [
+    {
+      "brief_id": "gold-imm-01-ilr-refusal",
+      "field_id": "issue:imm-challenge",
+      "kind": "issue",
+      "mark": "accepted",
+      "proposed_value": "Challenge a visa / leave decision — Client describes an ILR refusal and wants review / appeal pathways.",
+      "final_value": "Challenge a visa / leave decision — Client describes an ILR refusal and wants review / appeal pathways.",
+      "captured_at": "2026-08-01T12:00:00.000Z"
+    },
+    {
+      "brief_id": "gold-imm-01-ilr-refusal",
+      "field_id": "issue:imm-settlement",
+      "kind": "issue",
+      "mark": "edited",
+      "proposed_value": "Settlement / ILR / settled status — Client’s goal centres on remaining after an ILR decision.",
+      "final_value": "Settlement context only — Keep as secondary frame; primary is challenge of refusal.",
+      "note": "Solicitor demoted settlement as primary framing",
+      "captured_at": "2026-08-01T12:00:00.000Z"
+    },
+    {
+      "brief_id": "gold-imm-01-ilr-refusal",
+      "field_id": "client_goal",
+      "kind": "client_goal",
+      "mark": "accepted",
+      "proposed_value": "Challenge the ILR refusal and stay lawfully in the UK.",
+      "final_value": "Challenge the ILR refusal and stay lawfully in the UK.",
+      "captured_at": "2026-08-01T12:00:00.000Z"
+    },
+    {
+      "brief_id": "gold-imm-01-ilr-refusal",
+      "field_id": "timeline:1",
+      "kind": "timeline_event",
+      "mark": "accepted",
+      "proposed_value": "Applied for indefinite leave to remain (ILR).",
+      "final_value": "Applied for indefinite leave to remain (ILR).",
+      "captured_at": "2026-08-01T12:00:00.000Z"
+    },
+    {
+      "brief_id": "gold-imm-02-asylum",
+      "field_id": "issue:imm-adviser",
+      "kind": "issue",
+      "mark": "rejected",
+      "proposed_value": "Find a regulated immigration adviser — Directory framing dominated thin story.",
+      "final_value": "",
+      "note": "Not a classification of the matter — drop from issues",
+      "captured_at": "2026-08-01T12:05:00.000Z"
+    }
+  ]
+}

@@ -50,7 +50,8 @@ export type SearchCriterionKind =
   | "urgency"
   | "help_route"
   | "sources"
-  | "retrieval";
+  | "retrieval"
+  | "routes";
 
 export type SearchCriterion = {
   id: string;
@@ -111,6 +112,33 @@ export type LegalSearchResponse = {
       ruleMatchStrength?: number;
       llmConfidence?: number;
       phraseCandidates?: string[];
+    };
+    /** Satnav multi-route orchestrator debug. */
+    searchRouteMode?: "satnav" | "legacy";
+    routeDecision?: "pick" | "mix";
+    chosenRouteIds?: string[];
+    routeRationale?: string;
+    routesConsidered?: Array<{
+      id: string;
+      label: string;
+      query: string;
+      taxonomySlug?: string;
+      score: number;
+      topTitle?: string;
+    }>;
+    llmRouteAdvice?: {
+      chosenRouteIds: string[];
+      decision: "pick" | "mix";
+      confidence: number;
+      error?: string;
+    };
+    satnavLlmEachStage?: boolean;
+    llmStages?: {
+      planner?: import("./route-llm-planner").LlmRoutePlanAdvice | null;
+      rerank?: import("./route-llm-rerank").LlmRouteRerankAdvice[];
+      advisor?: import("./route-llm-advisor").LlmRouteAdvice | null;
+      decidedBy?: "arbiter" | "llm" | "llm_fallback_arbiter";
+      synthesis?: "llm" | "deterministic" | "none";
     };
     graphShadow?: {
       graphAvailable?: boolean;

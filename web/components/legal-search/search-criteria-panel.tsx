@@ -47,6 +47,11 @@ const KIND_STYLES: Record<
     bg: "bg-muted/40",
     label: "text-muted-foreground",
   },
+  routes: {
+    border: "border-l-teal-500",
+    bg: "bg-teal-500/5",
+    label: "text-teal-700 dark:text-teal-300",
+  },
 };
 
 type SearchCriteriaPanelProps = {

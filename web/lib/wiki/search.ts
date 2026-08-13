@@ -1,3 +1,4 @@
+import { isPcnAppealQuery, isVehicleRepairQuery } from "@/lib/legal/query-signals";
 import { getWikiIndex } from "./load-index";
 import type { WikiPageIndex } from "./types";
 
@@ -11,22 +12,137 @@ export type WikiSearchHit = {
   relatedConcepts: string[];
   relatedOrganisations: string[];
   score: number;
+  dworkinKind?: "rule" | "principle" | "policy";
+  dworkinSource?: "mapped" | "inferred";
 };
+
+const STOPWORDS = new Set([
+  "a",
+  "an",
+  "the",
+  "and",
+  "or",
+  "but",
+  "if",
+  "then",
+  "so",
+  "as",
+  "at",
+  "by",
+  "for",
+  "from",
+  "in",
+  "into",
+  "of",
+  "on",
+  "to",
+  "up",
+  "with",
+  "without",
+  "about",
+  "after",
+  "before",
+  "over",
+  "under",
+  "i",
+  "me",
+  "my",
+  "we",
+  "our",
+  "you",
+  "your",
+  "he",
+  "she",
+  "it",
+  "its",
+  "they",
+  "them",
+  "their",
+  "this",
+  "that",
+  "these",
+  "those",
+  "is",
+  "am",
+  "are",
+  "was",
+  "were",
+  "be",
+  "been",
+  "being",
+  "have",
+  "has",
+  "had",
+  "do",
+  "does",
+  "did",
+  "not",
+  "no",
+  "nor",
+  "too",
+  "very",
+  "just",
+  "also",
+  "than",
+  "there",
+  "here",
+  "when",
+  "where",
+  "why",
+  "how",
+  "what",
+  "which",
+  "who",
+  "can",
+  "could",
+  "should",
+  "would",
+  "may",
+  "might",
+  "must",
+  "will",
+  "out",
+  "off",
+  "all",
+  "any",
+  "both",
+  "each",
+  "few",
+  "more",
+  "most",
+  "other",
+  "some",
+  "such",
+  "only",
+  "own",
+  "same",
+  "long",
+  "short",
+  "story",
+  "having",
+]);
+
+const KEEP_SHORT = new Set(["uk", "cra", "mot", "ast", "lba", "ico", "uc", "pi", "jr"]);
 
 function queryTerms(query: string): string[] {
   return query
     .toLowerCase()
-    .split(/\s+/)
+    .split(/[^a-z0-9']+/)
     .map((t) => t.trim())
-    .filter((t) => t.length >= 2);
+    .filter((t) => {
+      if (!t || STOPWORDS.has(t)) return false;
+      if (t.length >= 3) return true;
+      return KEEP_SHORT.has(t);
+    });
 }
 
-function scorePage(page: WikiPageIndex, terms: string[]): number {
+function scorePage(page: WikiPageIndex, terms: string[], query: string): number {
   const title = page.title.toLowerCase();
   const summary = page.summary.toLowerCase();
   const keyText = page.keyInformation.join(" ").toLowerCase();
   const guidance = page.practicalGuidance.join(" ").toLowerCase();
   const concepts = page.relatedConcepts.join(" ").toLowerCase();
+  const hay = `${title} ${summary} ${page.category}`.toLowerCase();
 
   let score = 0;
   for (const term of terms) {
@@ -35,6 +151,27 @@ function scorePage(page: WikiPageIndex, terms: string[]): number {
     if (keyText.includes(term)) score += 3;
     if (guidance.includes(term)) score += 2;
     if (concepts.includes(term)) score += 2;
+  }
+
+  if (isVehicleRepairQuery(query)) {
+    if (/car repair|repairing a car|poor workmanship|poor service|faulty goods|services or traders/.test(hay)) {
+      score += 90;
+    }
+    if (/water supply|grievance|employee monitoring|record someone|discrimination|lawyer, a solicitor/.test(hay)) {
+      score -= 80;
+    }
+    if (/work and employment/.test((page.category || "").toLowerCase())) score -= 50;
+  }
+
+  if (isPcnAppealQuery(query)) {
+    if (/appealing a parking ticket|when to appeal a parking ticket|parking tickets/.test(hay)) {
+      score += 100;
+    }
+    if (/working hours|working time|employment law|rights at work|unsocial working/.test(hay)) {
+      score -= 90;
+    }
+    if (/driving and parking/.test((page.category || "").toLowerCase())) score += 40;
+    if (/work and employment/.test((page.category || "").toLowerCase())) score -= 60;
   }
 
   if (page.relativePath.endsWith("/_index.md") || page.title === "_index") {
@@ -73,7 +210,7 @@ export function searchWikiPages(query: string, limit = 12): WikiSearchHit[] {
       practicalGuidance: page.practicalGuidance.slice(0, 4),
       relatedConcepts: page.relatedConcepts.slice(0, 6),
       relatedOrganisations: page.relatedOrganisations.slice(0, 4),
-      score: scorePage(page, terms),
+      score: scorePage(page, terms, query),
     }))
     .filter((row) => row.score > 0)
     .sort((a, b) => b.score - a.score)

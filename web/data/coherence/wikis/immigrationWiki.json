@@ -1,0 +1,1816 @@
+{
+  "collection": "UK Immigration",
+  "pattern": "llm-wiki",
+  "trialDomain": "immigration",
+  "domainId": "immigration",
+  "wikiRoot": "wiki/domains/immigration",
+  "compiledAt": "2026-08-05T08:39:34.514Z",
+  "articleCount": 400,
+  "pageCount": 26,
+  "pages": [
+    {
+      "id": "topic-citizenship",
+      "kind": "topic",
+      "title": "citizenship",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-challenge",
+        "imm-suitability",
+        "imm-settlement",
+        "imm-asylum",
+        "imm-family",
+        "imm-return"
+      ],
+      "primaryUrl": "https://www.gov.uk/government/publications/windrush-generation-guidance-for-nhs-staff-and-nhs-care-providers",
+      "sourceIds": [
+        "government-publications-windrush-generation-guidance-for-nhs-staff-and-nhs-care-providers",
+        "government-publications-armed-forced-relevant-civilian-employees",
+        "government-publications-stores-that-accept-azure-cards-for-asylum-section-4-support",
+        "government-publications-supporting-uk-locally-employed-staff-in-afghanistan",
+        "government-publications-3c-and-3d-leave-3c-and-3d-leave-accessible",
+        "government-publications-3c-and-3d-leave",
+        "government-publications-abandoned-appeals-process",
+        "government-publications-offender-management-caseworker-guidance-accommodation-under-schedule-10-to-the-immigration-act-2016-accessible",
+        "government-publications-acquisition-of-british-citizenship-irish-citizens",
+        "government-publications-acrs-pathway-1-stage-2-separated-families-caseworker-guidance",
+        "government-publications-suitability-section-5-additional-grounds-for-cancellation-of-entry-clearance-immigration-staff-guidance",
+        "government-publications-family-migration-adequate-maintenance-and-accommodation"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/government/publications/windrush-generation-guidance-for-nhs-staff-and-nhs-care-providers",
+        "https://www.gov.uk/government/publications/armed-forced-relevant-civilian-employees",
+        "https://www.gov.uk/government/publications/stores-that-accept-azure-cards-for-asylum-section-4-support",
+        "https://www.gov.uk/government/publications/supporting-uk-locally-employed-staff-in-afghanistan",
+        "https://www.gov.uk/government/publications/3c-and-3d-leave/3c-and-3d-leave-accessible",
+        "https://www.gov.uk/government/publications/3c-and-3d-leave",
+        "https://www.gov.uk/government/publications/abandoned-appeals-process",
+        "https://www.gov.uk/government/publications/offender-management-caseworker-guidance/accommodation-under-schedule-10-to-the-immigration-act-2016-accessible",
+        "https://www.gov.uk/government/publications/acquisition-of-british-citizenship-irish-citizens",
+        "https://www.gov.uk/government/publications/acrs-pathway-1-stage-2-separated-families-caseworker-guidance",
+        "https://www.gov.uk/government/publications/suitability-section-5-additional-grounds-for-cancellation-of-entry-clearance-immigration-staff-guidance",
+        "https://www.gov.uk/government/publications/family-migration-adequate-maintenance-and-accommodation"
+      ],
+      "contradictions": [],
+      "snippet": "163 sources on citizenship (UK Immigration).",
+      "path": "topics/topic-citizenship.md",
+      "keywords": [
+        "citizenship",
+        "government",
+        "publications",
+        "windrush",
+        "generation",
+        "government",
+        "publications",
+        "armed",
+        "forced",
+        "government",
+        "publications",
+        "stores",
+        "that",
+        "government",
+        "publications",
+        "supporting",
+        "locally",
+        "government",
+        "publications",
+        "and",
+        "leave",
+        "government",
+        "publications",
+        "and",
+        "leave",
+        "government",
+        "publications",
+        "abandoned",
+        "appeals",
+        "government",
+        "publications",
+        "offender",
+        "management"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-commonwealth-citizens-and-british-nationals-overseas",
+      "kind": "topic",
+      "title": "Commonwealth citizens and British nationals (overseas)",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://www.gov.uk/british-national-overseas-bno-visa",
+      "sourceIds": [
+        "british-national-overseas-bno-visa",
+        "check-uk-visa"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/british-national-overseas-bno-visa",
+        "https://www.gov.uk/check-uk-visa"
+      ],
+      "contradictions": [],
+      "snippet": "2 sources on Commonwealth citizens and British nationals (overseas) (UK Immigration).",
+      "path": "topics/topic-commonwealth-citizens-and-british-nationals-overseas.md",
+      "keywords": [
+        "commonwealth",
+        "citizens",
+        "and",
+        "british",
+        "nationals",
+        "overseas",
+        "british",
+        "national",
+        "overseas",
+        "bno",
+        "check",
+        "visa",
+        "you",
+        "need"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-eu-eea-and-swiss-citizens",
+      "kind": "topic",
+      "title": "EU, EEA and Swiss citizens",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-settlement",
+        "imm-family"
+      ],
+      "primaryUrl": "https://www.gov.uk/family-permit",
+      "sourceIds": [
+        "family-permit",
+        "settled-status-eu-citizens-families",
+        "eu-eea",
+        "guidance-enter-the-uk-as-an-s2-healthcare-visitor",
+        "evisa",
+        "frontier-worker-permit"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/family-permit",
+        "https://www.gov.uk/settled-status-eu-citizens-families",
+        "https://www.gov.uk/eu-eea",
+        "https://www.gov.uk/guidance/enter-the-uk-as-an-s2-healthcare-visitor",
+        "https://www.gov.uk/evisa",
+        "https://www.gov.uk/frontier-worker-permit"
+      ],
+      "contradictions": [],
+      "snippet": "6 sources on EU, EEA and Swiss citizens (UK Immigration).",
+      "path": "topics/topic-eu-eea-and-swiss-citizens.md",
+      "keywords": [
+        "eea",
+        "and",
+        "swiss",
+        "citizens",
+        "family",
+        "permit",
+        "apply",
+        "for",
+        "settled",
+        "status",
+        "citizens",
+        "families",
+        "eea",
+        "countries",
+        "the",
+        "and",
+        "guidance",
+        "enter",
+        "the",
+        "healthcare",
+        "evisa",
+        "evisas",
+        "access",
+        "and",
+        "frontier",
+        "worker",
+        "permit",
+        "eea"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-family-in-the-uk",
+      "kind": "topic",
+      "title": "Family in the UK",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-family"
+      ],
+      "primaryUrl": "https://www.gov.uk/apply-as-child-to-join-or-stay-with-close-relative",
+      "sourceIds": [
+        "apply-as-child-to-join-or-stay-with-close-relative",
+        "come-uk-married",
+        "uk-family-visa"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/apply-as-child-to-join-or-stay-with-close-relative",
+        "https://www.gov.uk/come-uk-married",
+        "https://www.gov.uk/uk-family-visa"
+      ],
+      "contradictions": [],
+      "snippet": "3 sources on Family in the UK (UK Immigration).",
+      "path": "topics/topic-family-in-the-uk.md",
+      "keywords": [
+        "family",
+        "the",
+        "apply",
+        "child",
+        "join",
+        "stay",
+        "come",
+        "married",
+        "the",
+        "get",
+        "family",
+        "visa",
+        "visas",
+        "apply"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-going-to-court",
+      "kind": "topic",
+      "title": "Going to court",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-challenge",
+        "imm-suitability"
+      ],
+      "primaryUrl": "https://www.advicenow.org.uk/get-help/going-court/getting-help-pay-legal-advice-your-tribunal-case",
+      "sourceIds": [
+        "going-court-getting-help-pay-legal-advice-your-tribunal-case"
+      ],
+      "sourceUrls": [
+        "https://www.advicenow.org.uk/get-help/going-court/getting-help-pay-legal-advice-your-tribunal-case"
+      ],
+      "contradictions": [],
+      "snippet": "1 sources on Going to court (UK Immigration).",
+      "path": "topics/topic-going-to-court.md",
+      "keywords": [
+        "going",
+        "court",
+        "going",
+        "court",
+        "getting",
+        "help"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-immigration",
+      "kind": "topic",
+      "title": "immigration",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-settlement",
+        "imm-asylum",
+        "imm-family",
+        "imm-return"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/immigration/asylum-and-refugees/after-you-get-refugee-status/",
+      "sourceIds": [
+        "immigration-after-you-get-refugee-status",
+        "immigration-applying-for-british-citizenship",
+        "immigration-applying-for-family-visas-or-indefinite-leave",
+        "immigration-applying-for-pre-settled-and-settled-status",
+        "immigration-applying-to-the-eu-settlement-scheme",
+        "immigration-asylum-and-refugees",
+        "immigration-becoming-a-british-citizen",
+        "immigration-benefits-services-and-your-immigration-status",
+        "immigration-check-if-you-can-get-pre-settled-status-or-settled-status",
+        "immigration-check-if-your-child-can-get-a-permanent-right-to-live-in-the-uk",
+        "immigration-check-if-your-family-members-can-get-pre-settled-status-or-settled-status",
+        "immigration-check-if-your-immigration-status-lets-you-get-benefits-and-help-with-housing"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/immigration/asylum-and-refugees/after-you-get-refugee-status/",
+        "https://www.citizensadvice.org.uk/immigration/getting-british-citizenship/applying-for-british-citizenship/",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-how-to-apply-for-family-visas-or-indefinite-leave/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/applying-for-settled-status/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/",
+        "https://www.citizensadvice.org.uk/immigration/asylum-and-refugees/",
+        "https://www.citizensadvice.org.uk/immigration/getting-british-citizenship/becoming-a-british-citizen/",
+        "https://www.citizensadvice.org.uk/immigration/benefits-services-and-your-immigration-status/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/staying-in-the-uk-if-youre-from-the-eu/",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-if-your-child-can-get-a-permanent-right-to-live-in-the-uk/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/bringing-family-to-live-in-the-uk-after-brexit/",
+        "https://www.citizensadvice.org.uk/immigration/benefits-services-and-your-immigration-status/check-if-your-immigration-status-lets-you-get-benefits-and-help-with-housing/"
+      ],
+      "contradictions": [],
+      "snippet": "60 sources on immigration (UK Immigration).",
+      "path": "topics/topic-immigration.md",
+      "keywords": [
+        "immigration",
+        "immigration",
+        "after",
+        "you",
+        "get",
+        "immigration",
+        "applying",
+        "for",
+        "british",
+        "immigration",
+        "applying",
+        "for",
+        "family",
+        "immigration",
+        "applying",
+        "for",
+        "pre",
+        "immigration",
+        "applying",
+        "the",
+        "settlement",
+        "immigration",
+        "asylum",
+        "and",
+        "refugees",
+        "immigration",
+        "becoming",
+        "british",
+        "citizen",
+        "immigration",
+        "benefits",
+        "services",
+        "and"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-immigration-and-citizenship",
+      "kind": "topic",
+      "title": "Immigration and Citizenship",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-challenge",
+        "imm-suitability",
+        "imm-settlement",
+        "imm-asylum",
+        "imm-family"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-if-your-adult-family-member-can-get-a-visa-to-join-you-in-the-uk/",
+      "sourceIds": [
+        "Adult dependent relatives",
+        "Application process",
+        "Applying for British citizenship",
+        "Applying for citizenship",
+        "Applying for pre-settled and settled status",
+        "Applying for settled status",
+        "Applying to the EU Settlement Scheme",
+        "Asylum and refugees",
+        "Asylum seekers and refugees",
+        "Becoming a British citizen",
+        "British citizenship",
+        "British citizenship — Application for a certificate of entitlement to the right of abode (form ROA)"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-if-your-adult-family-member-can-get-a-visa-to-join-you-in-the-uk/",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-how-to-apply-for-family-visas-or-indefinite-leave/",
+        "https://www.citizensadvice.org.uk/immigration/getting-british-citizenship/applying-for-british-citizenship/",
+        "https://www.citizensadvice.org.uk/immigration/getting-british-citizenship/applying-for-british-citizenship/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/applying-for-settled-status/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/applying-for-settled-status/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/",
+        "https://www.citizensadvice.org.uk/immigration/asylum-and-refugees/",
+        "https://www.advicenow.org.uk/get-help/immigration-and-nationality/asylum-seekers-and-refugees",
+        "https://www.citizensadvice.org.uk/immigration/getting-british-citizenship/becoming-a-british-citizen/",
+        "https://www.gov.uk/browse/citizenship/citizenship",
+        "https://www.gov.uk/government/publications/application-for-a-certificate-of-entitlement-to-the-right-of-abode-form-roa"
+      ],
+      "contradictions": [
+        "Pathway/topic cites only wiki-guides — prefer GOV.UK / CAB / AdviceNow as primary."
+      ],
+      "snippet": "80 sources on Immigration and Citizenship (UK Immigration).",
+      "path": "topics/topic-immigration-and-citizenship.md",
+      "keywords": [
+        "immigration",
+        "and",
+        "citizenship",
+        "Adult dependent relatives",
+        "adult",
+        "dependent",
+        "relatives",
+        "Application process",
+        "application",
+        "process",
+        "immigration",
+        "Applying for British citizenship",
+        "applying",
+        "for",
+        "british",
+        "Applying for citizenship",
+        "applying",
+        "for",
+        "citizenship",
+        "Applying for pre",
+        "settled and settled status",
+        "applying",
+        "for",
+        "Applying for settled status",
+        "applying",
+        "for",
+        "settled",
+        "Applying to the EU Settlement Scheme",
+        "applying",
+        "the",
+        "settlement",
+        "Asylum and refugees",
+        "asylum",
+        "and",
+        "refugees"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-immigration-appeals-and-status-problems",
+      "kind": "topic",
+      "title": "Immigration appeals and status problems",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-challenge",
+        "imm-suitability",
+        "imm-asylum",
+        "imm-return",
+        "imm-adviser",
+        "imm-general"
+      ],
+      "primaryUrl": "https://www.gov.uk/upper-tribunal-immigration-asylum",
+      "sourceIds": [
+        "upper-tribunal-immigration-asylum",
+        "immigration-asylum-tribunal",
+        "ask-for-a-visa-administrative-review",
+        "find-an-immigration-adviser",
+        "immigration-removal-centre",
+        "return-home-voluntarily",
+        "immigration-asylum-appeal-decisions",
+        "bail-immigration-detainees",
+        "immigration-reporting-centres"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/upper-tribunal-immigration-asylum",
+        "https://www.gov.uk/immigration-asylum-tribunal",
+        "https://www.gov.uk/ask-for-a-visa-administrative-review",
+        "https://www.gov.uk/find-an-immigration-adviser",
+        "https://www.gov.uk/immigration-removal-centre",
+        "https://www.gov.uk/return-home-voluntarily",
+        "https://www.gov.uk/immigration-asylum-appeal-decisions",
+        "https://www.gov.uk/bail-immigration-detainees",
+        "https://www.gov.uk/immigration-reporting-centres"
+      ],
+      "contradictions": [],
+      "snippet": "9 sources on Immigration appeals and status problems (UK Immigration).",
+      "path": "topics/topic-immigration-appeals-and-status-problems.md",
+      "keywords": [
+        "immigration",
+        "appeals",
+        "and",
+        "status",
+        "problems",
+        "upper",
+        "tribunal",
+        "immigration",
+        "asylum",
+        "immigration",
+        "asylum",
+        "tribunal",
+        "appeal",
+        "ask",
+        "for",
+        "visa",
+        "administrative",
+        "find",
+        "immigration",
+        "adviser",
+        "appeals",
+        "immigration",
+        "removal",
+        "centre",
+        "find",
+        "return",
+        "home",
+        "voluntarily",
+        "get",
+        "immigration",
+        "asylum",
+        "appeal",
+        "decisions",
+        "bail",
+        "immigration",
+        "detainees",
+        "detention"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-live-permanently-in-the-uk",
+      "kind": "topic",
+      "title": "Live permanently in the UK",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-settlement",
+        "imm-asylum"
+      ],
+      "primaryUrl": "https://www.gov.uk/stay-in-uk-stateless",
+      "sourceIds": [
+        "stay-in-uk-stateless",
+        "british-citizenship",
+        "indefinite-leave-to-remain",
+        "apply-indefinite-leave-to-remain-armed-forces",
+        "settlement-refugee-or-humanitarian-protection"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/stay-in-uk-stateless",
+        "https://www.gov.uk/british-citizenship",
+        "https://www.gov.uk/indefinite-leave-to-remain",
+        "https://www.gov.uk/apply-indefinite-leave-to-remain-armed-forces",
+        "https://www.gov.uk/settlement-refugee-or-humanitarian-protection"
+      ],
+      "contradictions": [],
+      "snippet": "5 sources on Live permanently in the UK (UK Immigration).",
+      "path": "topics/topic-live-permanently-in-the-uk.md",
+      "keywords": [
+        "live",
+        "permanently",
+        "the",
+        "stay",
+        "stateless",
+        "apply",
+        "the",
+        "british",
+        "citizenship",
+        "check",
+        "you",
+        "indefinite",
+        "leave",
+        "remain",
+        "check",
+        "apply",
+        "indefinite",
+        "leave",
+        "remain",
+        "settlement",
+        "refugee",
+        "humanitarian",
+        "protection"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-seek-protection-or-asylum",
+      "kind": "topic",
+      "title": "Seek protection or asylum",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-challenge",
+        "imm-suitability",
+        "imm-asylum"
+      ],
+      "primaryUrl": "https://www.gov.uk/accept-refugee-integration-loan",
+      "sourceIds": [
+        "accept-refugee-integration-loan",
+        "appeal-first-tier-asylum-support-tribunal",
+        "apply-home-office-travel-document",
+        "apply-refugee-integration-loan",
+        "asylum-helplines",
+        "asylum-intake-unit",
+        "asylum-support",
+        "claim-asylum"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/accept-refugee-integration-loan",
+        "https://www.gov.uk/appeal-first-tier-asylum-support-tribunal",
+        "https://www.gov.uk/apply-home-office-travel-document",
+        "https://www.gov.uk/apply-refugee-integration-loan",
+        "https://www.gov.uk/asylum-helplines",
+        "https://www.gov.uk/asylum-intake-unit",
+        "https://www.gov.uk/asylum-support",
+        "https://www.gov.uk/claim-asylum"
+      ],
+      "contradictions": [],
+      "snippet": "8 sources on Seek protection or asylum (UK Immigration).",
+      "path": "topics/topic-seek-protection-or-asylum.md",
+      "keywords": [
+        "seek",
+        "protection",
+        "asylum",
+        "accept",
+        "refugee",
+        "integration",
+        "loan",
+        "appeal",
+        "first",
+        "tier",
+        "asylum",
+        "apply",
+        "home",
+        "office",
+        "travel",
+        "apply",
+        "refugee",
+        "integration",
+        "loan",
+        "asylum",
+        "helplines",
+        "seek",
+        "protection",
+        "asylum",
+        "intake",
+        "unit",
+        "seek",
+        "asylum",
+        "support",
+        "seek",
+        "protection",
+        "claim",
+        "asylum",
+        "the",
+        "seek"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-study-in-the-uk",
+      "kind": "topic",
+      "title": "Study in the UK",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-family"
+      ],
+      "primaryUrl": "https://www.gov.uk/child-study-visa",
+      "sourceIds": [
+        "child-study-visa",
+        "apply-student-immigration-health-surcharge-refund"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/child-study-visa",
+        "https://www.gov.uk/apply-student-immigration-health-surcharge-refund"
+      ],
+      "contradictions": [],
+      "snippet": "2 sources on Study in the UK (UK Immigration).",
+      "path": "topics/topic-study-in-the-uk.md",
+      "keywords": [
+        "study",
+        "the",
+        "child",
+        "study",
+        "visa",
+        "student",
+        "apply",
+        "student",
+        "immigration",
+        "health"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-travelling-to-the-uk",
+      "kind": "topic",
+      "title": "Travelling to the UK",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://www.gov.uk/bring-your-pet-to-great-britain",
+      "sourceIds": [
+        "bring-your-pet-to-great-britain",
+        "bringing-pet-animals-to-great-britain",
+        "bring-pet-to-great-britain",
+        "uk-border-control",
+        "importing-vehicles-into-the-uk"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/bring-your-pet-to-great-britain",
+        "https://www.gov.uk/bringing-pet-animals-to-great-britain",
+        "https://www.gov.uk/bring-pet-to-great-britain",
+        "https://www.gov.uk/uk-border-control",
+        "https://www.gov.uk/importing-vehicles-into-the-uk"
+      ],
+      "contradictions": [],
+      "snippet": "5 sources on Travelling to the UK (UK Immigration).",
+      "path": "topics/topic-travelling-to-the-uk.md",
+      "keywords": [
+        "travelling",
+        "the",
+        "bring",
+        "your",
+        "pet",
+        "great",
+        "bringing",
+        "pet",
+        "animals",
+        "great",
+        "bring",
+        "pet",
+        "great",
+        "britain",
+        "border",
+        "control",
+        "entering",
+        "the",
+        "importing",
+        "vehicles",
+        "into",
+        "the"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-ukrainians-and-their-families",
+      "kind": "topic",
+      "title": "Ukrainians and their families",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-asylum"
+      ],
+      "primaryUrl": "https://www.gov.uk/guidance/apply-for-a-visa-under-the-ukraine-sponsorship-scheme",
+      "sourceIds": [
+        "guidance-apply-for-a-visa-under-the-ukraine-sponsorship-scheme",
+        "guidance-applying-to-the-ukraine-permission-extension-scheme",
+        "guidance-bringing-personal-items-to-the-uk-as-a-ukrainian-refugee",
+        "guidance-bringing-your-pet-to-the-uk-from-ukraine",
+        "register-interest-homes-ukraine"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/guidance/apply-for-a-visa-under-the-ukraine-sponsorship-scheme",
+        "https://www.gov.uk/guidance/applying-to-the-ukraine-permission-extension-scheme",
+        "https://www.gov.uk/guidance/bringing-personal-items-to-the-uk-as-a-ukrainian-refugee",
+        "https://www.gov.uk/guidance/bringing-your-pet-to-the-uk-from-ukraine",
+        "https://www.gov.uk/register-interest-homes-ukraine"
+      ],
+      "contradictions": [],
+      "snippet": "5 sources on Ukrainians and their families (UK Immigration).",
+      "path": "topics/topic-ukrainians-and-their-families.md",
+      "keywords": [
+        "ukrainians",
+        "and",
+        "their",
+        "families",
+        "guidance",
+        "apply",
+        "for",
+        "visa",
+        "guidance",
+        "applying",
+        "the",
+        "ukraine",
+        "guidance",
+        "bringing",
+        "personal",
+        "items",
+        "guidance",
+        "bringing",
+        "your",
+        "pet",
+        "register",
+        "interest",
+        "homes",
+        "ukraine"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-visit-the-uk",
+      "kind": "topic",
+      "title": "Visit the UK",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-family"
+      ],
+      "primaryUrl": "https://www.gov.uk/apply-marriage-visitor-visa",
+      "sourceIds": [
+        "apply-marriage-visitor-visa",
+        "apply-parent-child-student-visa",
+        "apply-short-term-study-visa",
+        "check-eta",
+        "get-electronic-visa-waiver",
+        "eta"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/apply-marriage-visitor-visa",
+        "https://www.gov.uk/apply-parent-child-student-visa",
+        "https://www.gov.uk/apply-short-term-study-visa",
+        "https://www.gov.uk/check-eta",
+        "https://www.gov.uk/get-electronic-visa-waiver",
+        "https://www.gov.uk/eta"
+      ],
+      "contradictions": [],
+      "snippet": "6 sources on Visit the UK (UK Immigration).",
+      "path": "topics/topic-visit-the-uk.md",
+      "keywords": [
+        "visit",
+        "the",
+        "apply",
+        "marriage",
+        "visitor",
+        "visa",
+        "apply",
+        "parent",
+        "child",
+        "student",
+        "apply",
+        "short",
+        "term",
+        "study",
+        "check",
+        "eta",
+        "your",
+        "electronic",
+        "get",
+        "electronic",
+        "visa",
+        "waiver",
+        "eta",
+        "get",
+        "electronic",
+        "travel"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-what-you-need-to-do",
+      "kind": "topic",
+      "title": "What you need to do",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-settlement"
+      ],
+      "primaryUrl": "https://www.gov.uk/biometric-residence-permits",
+      "sourceIds": [
+        "biometric-residence-permits",
+        "cancel-visa",
+        "view-right-to-work",
+        "view-right-to-rent",
+        "check-immigration-status",
+        "check-visa-processing-time",
+        "contact-ukvi-inside-outside-uk",
+        "find-a-visa-application-centre",
+        "faster-decision-visa-settlement",
+        "visa-fee-waiver-in-uk",
+        "assisted-digital-help-online-visa-applications",
+        "visa-documents-returned"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/biometric-residence-permits",
+        "https://www.gov.uk/cancel-visa",
+        "https://www.gov.uk/view-right-to-work",
+        "https://www.gov.uk/view-right-to-rent",
+        "https://www.gov.uk/check-immigration-status",
+        "https://www.gov.uk/check-visa-processing-time",
+        "https://www.gov.uk/contact-ukvi-inside-outside-uk",
+        "https://www.gov.uk/find-a-visa-application-centre",
+        "https://www.gov.uk/faster-decision-visa-settlement",
+        "https://www.gov.uk/visa-fee-waiver-in-uk",
+        "https://www.gov.uk/assisted-digital-help-online-visa-applications",
+        "https://www.gov.uk/visa-documents-returned"
+      ],
+      "contradictions": [],
+      "snippet": "15 sources on What you need to do (UK Immigration).",
+      "path": "topics/topic-what-you-need-to-do.md",
+      "keywords": [
+        "what",
+        "you",
+        "need",
+        "biometric",
+        "residence",
+        "permits",
+        "brps",
+        "cancel",
+        "visa",
+        "your",
+        "immigration",
+        "view",
+        "right",
+        "work",
+        "check",
+        "view",
+        "right",
+        "rent",
+        "check",
+        "check",
+        "immigration",
+        "status",
+        "someone",
+        "check",
+        "visa",
+        "processing",
+        "time",
+        "contact",
+        "ukvi",
+        "inside",
+        "outside",
+        "find",
+        "visa",
+        "application",
+        "centre"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "topic-work-in-the-uk",
+      "kind": "topic",
+      "title": "Work in the UK",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://www.gov.uk/global-talent",
+      "sourceIds": [
+        "global-talent",
+        "temporary-worker-charity-worker-visa",
+        "legal-right-work-uk",
+        "check-job-applicant-right-to-work",
+        "creative-worker-visa",
+        "employee-lose-sponsor-licence",
+        "tier-1-entrepreneur",
+        "exempt-immigration-control",
+        "apply-immigration-health-surcharge-refund",
+        "government-authorised-exchange",
+        "graduate-trainee-visa",
+        "graduate-visa"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/global-talent",
+        "https://www.gov.uk/temporary-worker-charity-worker-visa",
+        "https://www.gov.uk/legal-right-work-uk",
+        "https://www.gov.uk/check-job-applicant-right-to-work",
+        "https://www.gov.uk/creative-worker-visa",
+        "https://www.gov.uk/employee-lose-sponsor-licence",
+        "https://www.gov.uk/tier-1-entrepreneur",
+        "https://www.gov.uk/exempt-immigration-control",
+        "https://www.gov.uk/apply-immigration-health-surcharge-refund",
+        "https://www.gov.uk/government-authorised-exchange",
+        "https://www.gov.uk/graduate-trainee-visa",
+        "https://www.gov.uk/graduate-visa"
+      ],
+      "contradictions": [],
+      "snippet": "14 sources on Work in the UK (UK Immigration).",
+      "path": "topics/topic-work-in-the-uk.md",
+      "keywords": [
+        "work",
+        "the",
+        "global",
+        "talent",
+        "apply",
+        "for",
+        "temporary",
+        "worker",
+        "charity",
+        "visa",
+        "legal",
+        "right",
+        "work",
+        "check",
+        "check",
+        "job",
+        "applicant",
+        "right",
+        "creative",
+        "worker",
+        "visa",
+        "temporary",
+        "employee",
+        "lose",
+        "sponsor",
+        "licence",
+        "tier",
+        "entrepreneur",
+        "visa",
+        "work",
+        "exempt",
+        "immigration",
+        "control",
+        "get"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "pathway-challenge-decision",
+      "kind": "pathway",
+      "title": "Challenge a visa or leave decision",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-challenge",
+        "imm-suitability"
+      ],
+      "primaryUrl": "https://www.gov.uk/ask-for-a-visa-administrative-review",
+      "sourceIds": [
+        "ask-for-a-visa-administrative-review",
+        "immigration-asylum-tribunal",
+        "find-an-immigration-adviser",
+        "work-making-a-settlement-agreement-with-your-employer",
+        "work-preparing-an-employment-tribunal-case",
+        "going-court-getting-help-pay-legal-advice-your-tribunal-case",
+        "employment-employment-tribunals-negotiate-out-court-settlement-avoid-employment-tribunal",
+        "government-publications-abandoned-appeals-process",
+        "government-publications-administrative-review-caseworker-guidance-administrative-review-accessible",
+        "government-publications-administrative-review-caseworker-guidance"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/ask-for-a-visa-administrative-review",
+        "https://www.gov.uk/immigration-asylum-tribunal",
+        "https://www.gov.uk/find-an-immigration-adviser",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/before-you-go-to-the-tribunal/making-a-settlement-agreement-with-your-employer/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/making-a-tribunal-claim/preparing-an-employment-tribunal-case/",
+        "https://www.advicenow.org.uk/get-help/going-court/getting-help-pay-legal-advice-your-tribunal-case",
+        "https://www.advicenow.org.uk/get-help/employment/employment-tribunals/negotiate-out-court-settlement-avoid-employment-tribunal",
+        "https://www.gov.uk/government/publications/abandoned-appeals-process",
+        "https://www.gov.uk/government/publications/administrative-review-caseworker-guidance/administrative-review-accessible",
+        "https://www.gov.uk/government/publications/administrative-review-caseworker-guidance"
+      ],
+      "contradictions": [],
+      "snippet": "Pathways when a Home Office refusal, review, appeal, or tribunal is live.",
+      "path": "pathways/pathway-challenge-decision.md",
+      "keywords": [
+        "challenge",
+        "visa",
+        "leave",
+        "decision",
+        "imm-challenge",
+        "imm-suitability",
+        "ask",
+        "for",
+        "visa",
+        "immigration",
+        "asylum",
+        "tribunal",
+        "find",
+        "immigration",
+        "adviser",
+        "work",
+        "making",
+        "settlement",
+        "work",
+        "preparing",
+        "employment",
+        "going",
+        "court",
+        "getting"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-citizenship",
+        "topic-going-to-court",
+        "topic-immigration-and-citizenship",
+        "topic-immigration-appeals-and-status-problems",
+        "topic-seek-protection-or-asylum"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.gov.uk/ask-for-a-visa-administrative-review",
+          "sourceTitle": "Ask for a visa administrative review"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.gov.uk/ask-for-a-visa-administrative-review",
+          "sourceTitle": "Ask for a visa administrative review"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.gov.uk/ask-for-a-visa-administrative-review",
+          "sourceTitle": "Ask for a visa administrative review"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.gov.uk/ask-for-a-visa-administrative-review",
+          "sourceTitle": "Ask for a visa administrative review"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.gov.uk/ask-for-a-visa-administrative-review",
+          "sourceTitle": "Ask for a visa administrative review"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.gov.uk/ask-for-a-visa-administrative-review",
+          "sourceTitle": "Ask for a visa administrative review"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.gov.uk/ask-for-a-visa-administrative-review",
+          "sourceTitle": "Ask for a visa administrative review"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:34.524Z"
+    },
+    {
+      "id": "pathway-settlement-ilr",
+      "kind": "pathway",
+      "title": "Settlement / ILR / settled status",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-settlement"
+      ],
+      "primaryUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+      "sourceIds": [
+        "indefinite-leave-to-remain",
+        "settled-status-eu-citizens-families",
+        "government-publications-application-to-extend-stay-in-uk-long-residence-form-flrlr-apply-online-form-flr-lr",
+        "settled-status-eu-citizens-families",
+        "immigration-applying-for-family-visas-or-indefinite-leave",
+        "immigration-applying-for-pre-settled-and-settled-status",
+        "immigration-applying-to-the-eu-settlement-scheme",
+        "immigration-check-if-you-can-get-pre-settled-status-or-settled-status",
+        "immigration-check-if-your-child-can-get-a-permanent-right-to-live-in-the-uk",
+        "immigration-check-if-your-family-members-can-get-pre-settled-status-or-settled-status"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/indefinite-leave-to-remain",
+        "https://www.gov.uk/settled-status-eu-citizens-families",
+        "https://www.gov.uk/government/publications/application-to-extend-stay-in-uk-long-residence-form-flrlr/apply-online-form-flr-lr",
+        "https://www.gov.uk/settled-status-eu-citizens-families",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-how-to-apply-for-family-visas-or-indefinite-leave/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/applying-for-settled-status/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/staying-in-the-uk-if-youre-from-the-eu/",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-if-your-child-can-get-a-permanent-right-to-live-in-the-uk/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/bringing-family-to-live-in-the-uk-after-brexit/"
+      ],
+      "contradictions": [],
+      "snippet": "Indefinite leave, settlement, and EU settled status signposts.",
+      "path": "pathways/pathway-settlement-ilr.md",
+      "keywords": [
+        "settlement",
+        "ilr",
+        "settled",
+        "status",
+        "imm-settlement",
+        "indefinite",
+        "leave",
+        "remain",
+        "settled",
+        "status",
+        "citizens",
+        "government",
+        "publications",
+        "application",
+        "settled",
+        "status",
+        "citizens",
+        "immigration",
+        "applying",
+        "for",
+        "immigration",
+        "applying",
+        "for"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-citizenship",
+        "topic-eu-eea-and-swiss-citizens",
+        "topic-immigration",
+        "topic-immigration-and-citizenship",
+        "topic-live-permanently-in-the-uk",
+        "topic-what-you-need-to-do"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+          "sourceTitle": "Check if you can get indefinite leave to remain"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+          "sourceTitle": "Check if you can get indefinite leave to remain"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+          "sourceTitle": "Check if you can get indefinite leave to remain"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+          "sourceTitle": "Check if you can get indefinite leave to remain"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+          "sourceTitle": "Check if you can get indefinite leave to remain"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+          "sourceTitle": "Check if you can get indefinite leave to remain"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+          "sourceTitle": "Check if you can get indefinite leave to remain"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:34.526Z"
+    },
+    {
+      "id": "pathway-asylum-protection",
+      "kind": "pathway",
+      "title": "Asylum / protection",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-asylum"
+      ],
+      "primaryUrl": "https://www.gov.uk/claim-asylum",
+      "sourceIds": [
+        "claim-asylum",
+        "asylum-support",
+        "immigration-after-you-get-refugee-status",
+        "immigration-asylum-and-refugees",
+        "immigration-offering-to-let-someone-from-ukraine-stay-with-you",
+        "immigration-prepare-for-an-asylum-interview",
+        "immigration-and-nationality-asylum-seekers-and-refugees",
+        "Asylum and refugees",
+        "Asylum seekers and refugees",
+        "government-publications-stores-that-accept-azure-cards-for-asylum-section-4-support"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/claim-asylum",
+        "https://www.gov.uk/asylum-support",
+        "https://www.citizensadvice.org.uk/immigration/asylum-and-refugees/after-you-get-refugee-status/",
+        "https://www.citizensadvice.org.uk/immigration/asylum-and-refugees/",
+        "https://www.citizensadvice.org.uk/immigration/asylum-and-refugees/offering-to-let-someone-from-ukraine-stay-with-you/",
+        "https://www.citizensadvice.org.uk/immigration/asylum-and-refugees/prepare-for-asylum-interview/",
+        "https://www.advicenow.org.uk/get-help/immigration-and-nationality/asylum-seekers-and-refugees",
+        "https://www.citizensadvice.org.uk/immigration/asylum-and-refugees/",
+        "https://www.advicenow.org.uk/get-help/immigration-and-nationality/asylum-seekers-and-refugees",
+        "https://www.gov.uk/government/publications/stores-that-accept-azure-cards-for-asylum-section-4-support"
+      ],
+      "contradictions": [],
+      "snippet": "Claiming asylum, support, and related protection guidance.",
+      "path": "pathways/pathway-asylum-protection.md",
+      "keywords": [
+        "asylum",
+        "protection",
+        "imm-asylum",
+        "claim",
+        "asylum",
+        "the",
+        "asylum",
+        "support",
+        "seek",
+        "immigration",
+        "after",
+        "you",
+        "immigration",
+        "asylum",
+        "and",
+        "immigration",
+        "offering",
+        "let",
+        "immigration",
+        "prepare",
+        "for"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-citizenship",
+        "topic-immigration",
+        "topic-immigration-and-citizenship",
+        "topic-immigration-appeals-and-status-problems",
+        "topic-live-permanently-in-the-uk",
+        "topic-seek-protection-or-asylum",
+        "topic-ukrainians-and-their-families"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.gov.uk/claim-asylum",
+          "sourceTitle": "Claim asylum in the UK"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.gov.uk/claim-asylum",
+          "sourceTitle": "Claim asylum in the UK"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.gov.uk/claim-asylum",
+          "sourceTitle": "Claim asylum in the UK"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.gov.uk/claim-asylum",
+          "sourceTitle": "Claim asylum in the UK"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.gov.uk/claim-asylum",
+          "sourceTitle": "Claim asylum in the UK"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.gov.uk/claim-asylum",
+          "sourceTitle": "Claim asylum in the UK"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.gov.uk/claim-asylum",
+          "sourceTitle": "Claim asylum in the UK"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:34.528Z"
+    },
+    {
+      "id": "pathway-family-partner",
+      "kind": "pathway",
+      "title": "Family / partner route",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-family"
+      ],
+      "primaryUrl": "https://www.gov.uk/uk-family-visa",
+      "sourceIds": [
+        "uk-family-visa",
+        "family-permit",
+        "immigration-applying-for-family-visas-or-indefinite-leave",
+        "immigration-check-if-your-child-can-get-a-permanent-right-to-live-in-the-uk",
+        "immigration-check-if-your-family-members-can-get-pre-settled-status-or-settled-status",
+        "immigration-extending-your-family-visa",
+        "family-getting-a-divorce-or-ending-your-civil-partnership",
+        "immigration-getting-a-permanent-right-to-live-in-the-uk-if-you-have-a-family-visa",
+        "immigration-getting-a-visa-for-your-adult-family-member-to-join-you-in-the-uk",
+        "immigration-getting-a-visitor-visa-for-family-and-friends"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/uk-family-visa",
+        "https://www.gov.uk/family-permit",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-how-to-apply-for-family-visas-or-indefinite-leave/",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-if-your-child-can-get-a-permanent-right-to-live-in-the-uk/",
+        "https://www.citizensadvice.org.uk/immigration/applying-to-the-eu-settlement-scheme/bringing-family-to-live-in-the-uk-after-brexit/",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-if-you-can-extend-your-visa-as-a-family-member/",
+        "https://www.citizensadvice.org.uk/family/how-to-separate1/getting-a-divorce-or-dissolution/",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-if-you-can-get-a-permanent-right-to-live-in-the-uk-if-you-have-a-family-visa/",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-if-your-adult-family-member-can-get-a-visa-to-join-you-in-the-uk/",
+        "https://www.citizensadvice.org.uk/immigration/getting-a-visitor-visa/getting-a-visa-for-family-and-friends-to-visit-the-uk/"
+      ],
+      "contradictions": [],
+      "snippet": "Joining or remaining with family in the UK.",
+      "path": "pathways/pathway-family-partner.md",
+      "keywords": [
+        "family",
+        "partner",
+        "route",
+        "imm-family",
+        "family",
+        "visa",
+        "visas",
+        "family",
+        "permit",
+        "apply",
+        "immigration",
+        "applying",
+        "for",
+        "immigration",
+        "check",
+        "your",
+        "immigration",
+        "check",
+        "your",
+        "immigration",
+        "extending",
+        "your"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-citizenship",
+        "topic-eu-eea-and-swiss-citizens",
+        "topic-family-in-the-uk",
+        "topic-immigration",
+        "topic-immigration-and-citizenship",
+        "topic-study-in-the-uk",
+        "topic-visit-the-uk"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.gov.uk/uk-family-visa",
+          "sourceTitle": "Family visas: apply, extend or switch"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.gov.uk/uk-family-visa",
+          "sourceTitle": "Family visas: apply, extend or switch"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.gov.uk/uk-family-visa",
+          "sourceTitle": "Family visas: apply, extend or switch"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.gov.uk/uk-family-visa",
+          "sourceTitle": "Family visas: apply, extend or switch"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.gov.uk/uk-family-visa",
+          "sourceTitle": "Family visas: apply, extend or switch"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.gov.uk/uk-family-visa",
+          "sourceTitle": "Family visas: apply, extend or switch"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.gov.uk/uk-family-visa",
+          "sourceTitle": "Family visas: apply, extend or switch"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:34.529Z"
+    },
+    {
+      "id": "pathway-return-removal",
+      "kind": "pathway",
+      "title": "Return / removal / detention",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-return"
+      ],
+      "primaryUrl": "https://www.gov.uk/return-home-voluntarily",
+      "sourceIds": [
+        "return-home-voluntarily",
+        "immigration-removal-centre",
+        "immigration-deportation-and-living-in-the-uk-illegally",
+        "immigration-if-you-re-going-to-be-deported-from-the-uk",
+        "immigration-if-your-child-is-living-in-the-uk-illegally",
+        "immigration-your-options-if-you-re-in-the-uk-illegally",
+        "immigration-and-nationality-detention-removals-and-deportation",
+        "Children living in the UK illegally",
+        "government-publications-application-for-secretary-of-state-immigration-bail",
+        "bail-immigration-detainees"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/return-home-voluntarily",
+        "https://www.gov.uk/immigration-removal-centre",
+        "https://www.citizensadvice.org.uk/immigration/deportation-and-living-in-the-uk-illegally/",
+        "https://www.citizensadvice.org.uk/immigration/deportation-and-living-in-the-uk-illegally/if-youre-going-to-be-deported-from-the-uk/",
+        "https://www.citizensadvice.org.uk/immigration/deportation-and-living-in-the-uk-illegally/if-your-child-is-living-in-the-uk-illegally/",
+        "https://www.citizensadvice.org.uk/immigration/deportation-and-living-in-the-uk-illegally/your-options-if-youre-in-the-uk-illegally/",
+        "https://www.advicenow.org.uk/get-help/immigration-and-nationality/detention-removals-and-deportation",
+        "https://www.citizensadvice.org.uk/immigration/deportation-and-living-in-the-uk-illegally/if-your-child-is-living-in-the-uk-illegally/",
+        "https://www.gov.uk/government/publications/application-for-secretary-of-state-immigration-bail",
+        "https://www.gov.uk/bail-immigration-detainees"
+      ],
+      "contradictions": [],
+      "snippet": "Voluntary return, removal centres, and related status problems.",
+      "path": "pathways/pathway-return-removal.md",
+      "keywords": [
+        "return",
+        "removal",
+        "detention",
+        "imm-return",
+        "return",
+        "home",
+        "voluntarily",
+        "immigration",
+        "removal",
+        "centre",
+        "immigration",
+        "deportation",
+        "and",
+        "immigration",
+        "you",
+        "going",
+        "immigration",
+        "your",
+        "child",
+        "immigration",
+        "your",
+        "options"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-citizenship",
+        "topic-immigration",
+        "topic-immigration-appeals-and-status-problems"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.gov.uk/return-home-voluntarily",
+          "sourceTitle": "Get help to return home if you’re a migrant in the UK"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.gov.uk/return-home-voluntarily",
+          "sourceTitle": "Get help to return home if you’re a migrant in the UK"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.gov.uk/return-home-voluntarily",
+          "sourceTitle": "Get help to return home if you’re a migrant in the UK"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.gov.uk/return-home-voluntarily",
+          "sourceTitle": "Get help to return home if you’re a migrant in the UK"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.gov.uk/return-home-voluntarily",
+          "sourceTitle": "Get help to return home if you’re a migrant in the UK"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.gov.uk/return-home-voluntarily",
+          "sourceTitle": "Get help to return home if you’re a migrant in the UK"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.gov.uk/return-home-voluntarily",
+          "sourceTitle": "Get help to return home if you’re a migrant in the UK"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:34.530Z"
+    },
+    {
+      "id": "pathway-find-adviser",
+      "kind": "pathway",
+      "title": "Find a regulated immigration adviser",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-adviser",
+        "imm-general"
+      ],
+      "primaryUrl": "https://www.gov.uk/find-an-immigration-adviser",
+      "sourceIds": [
+        "find-an-immigration-adviser"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/find-an-immigration-adviser"
+      ],
+      "contradictions": [],
+      "snippet": "Directory when the immediate need is regulated help.",
+      "path": "pathways/pathway-find-adviser.md",
+      "keywords": [
+        "find",
+        "regulated",
+        "immigration",
+        "adviser",
+        "imm-adviser",
+        "imm-general",
+        "find",
+        "immigration",
+        "adviser"
+      ],
+      "authority": "primary",
+      "linkedTopicIds": [
+        "topic-immigration-appeals-and-status-problems"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.gov.uk/find-an-immigration-adviser",
+          "sourceTitle": "Find an immigration adviser"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.gov.uk/find-an-immigration-adviser",
+          "sourceTitle": "Find an immigration adviser"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.gov.uk/find-an-immigration-adviser",
+          "sourceTitle": "Find an immigration adviser"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.gov.uk/find-an-immigration-adviser",
+          "sourceTitle": "Find an immigration adviser"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.gov.uk/find-an-immigration-adviser",
+          "sourceTitle": "Find an immigration adviser"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.gov.uk/find-an-immigration-adviser",
+          "sourceTitle": "Find an immigration adviser"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.gov.uk/find-an-immigration-adviser",
+          "sourceTitle": "Find an immigration adviser"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:34.531Z"
+    },
+    {
+      "id": "entity-ilr",
+      "kind": "entity",
+      "title": "Indefinite leave to remain (ILR)",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-settlement"
+      ],
+      "primaryUrl": "https://www.gov.uk/government/publications/administrative-review-caseworker-guidance/administrative-review-eu-settlement-scheme-accessible",
+      "sourceIds": [
+        "government-publications-administrative-review-caseworker-guidance-administrative-review-eu-settlement-scheme-accessible",
+        "government-publications-acrs-pathway-1-stage-2-separated-families-caseworker-guidance-afghan-citizens-resettlement-scheme-pathway-1-stage-2-separated-families-accessible",
+        "government-publications-appendix-ecaa-indefinite-leave-to-remain-ilr-and-further-leave-to-remain-flr-appendix-ecaa-indefinite-leave-to-remain-ilr-and-further-leave-to-remain-flr-gu",
+        "family-permit",
+        "settled-status-eu-citizens-families",
+        "indefinite-leave-to-remain",
+        "faster-decision-visa-settlement",
+        "apply-indefinite-leave-to-remain-armed-forces"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/government/publications/administrative-review-caseworker-guidance/administrative-review-eu-settlement-scheme-accessible",
+        "https://www.gov.uk/government/publications/acrs-pathway-1-stage-2-separated-families-caseworker-guidance/afghan-citizens-resettlement-scheme-pathway-1-stage-2-separated-families-accessible",
+        "https://www.gov.uk/government/publications/appendix-ecaa-indefinite-leave-to-remain-ilr-and-further-leave-to-remain-flr/appendix-ecaa-indefinite-leave-to-remain-ilr-and-further-leave-to-remain-flr-guidance-accessible",
+        "https://www.gov.uk/family-permit",
+        "https://www.gov.uk/settled-status-eu-citizens-families",
+        "https://www.gov.uk/indefinite-leave-to-remain",
+        "https://www.gov.uk/faster-decision-visa-settlement",
+        "https://www.gov.uk/apply-indefinite-leave-to-remain-armed-forces"
+      ],
+      "contradictions": [],
+      "snippet": "Indefinite leave to remain (ILR) — 8 linked sources.",
+      "path": "entities/entity-ilr.md",
+      "keywords": [
+        "ilr",
+        "indefinite",
+        "leave",
+        "settlement",
+        "imm-settlement"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "entity-asylum",
+      "kind": "entity",
+      "title": "Asylum / protection claim",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-asylum"
+      ],
+      "primaryUrl": "https://www.gov.uk/government/publications/stores-that-accept-azure-cards-for-asylum-section-4-support",
+      "sourceIds": [
+        "government-publications-stores-that-accept-azure-cards-for-asylum-section-4-support",
+        "government-publications-abandoned-appeals-process",
+        "government-publications-asylum-accommodation-requests-policy-allocation-of-asylum-accommodation-policy-accessible",
+        "government-publications-application-for-additional-asylum-support-form-asf2",
+        "government-publications-application-for-an-integration-loan",
+        "accept-refugee-integration-loan",
+        "upper-tribunal-immigration-asylum",
+        "immigration-asylum-tribunal"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/government/publications/stores-that-accept-azure-cards-for-asylum-section-4-support",
+        "https://www.gov.uk/government/publications/abandoned-appeals-process",
+        "https://www.gov.uk/government/publications/asylum-accommodation-requests-policy/allocation-of-asylum-accommodation-policy-accessible",
+        "https://www.gov.uk/government/publications/application-for-additional-asylum-support-form-asf2",
+        "https://www.gov.uk/government/publications/application-for-an-integration-loan",
+        "https://www.gov.uk/accept-refugee-integration-loan",
+        "https://www.gov.uk/upper-tribunal-immigration-asylum",
+        "https://www.gov.uk/immigration-asylum-tribunal"
+      ],
+      "contradictions": [],
+      "snippet": "Asylum / protection claim — 8 linked sources.",
+      "path": "entities/entity-asylum.md",
+      "keywords": [
+        "asylum",
+        "refugee",
+        "imm-asylum"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "entity-family-visa",
+      "kind": "entity",
+      "title": "Family / partner visa",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-family"
+      ],
+      "primaryUrl": "https://www.gov.uk/family-permit",
+      "sourceIds": [
+        "family-permit",
+        "uk-family-visa",
+        "immigration-applying-for-family-visas-or-indefinite-leave",
+        "immigration-extending-your-family-visa",
+        "immigration-getting-a-permanent-right-to-live-in-the-uk-if-you-have-a-family-visa"
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/family-permit",
+        "https://www.gov.uk/uk-family-visa",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-how-to-apply-for-family-visas-or-indefinite-leave/",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-if-you-can-extend-your-visa-as-a-family-member/",
+        "https://www.citizensadvice.org.uk/immigration/getting-visas-for-family-members/check-if-you-can-get-a-permanent-right-to-live-in-the-uk-if-you-have-a-family-visa/"
+      ],
+      "contradictions": [],
+      "snippet": "Family / partner visa — 5 linked sources.",
+      "path": "entities/entity-family-visa.md",
+      "keywords": [
+        "family",
+        "visa",
+        "spouse",
+        "imm-family"
+      ],
+      "authority": "primary"
+    },
+    {
+      "id": "index-immigration",
+      "kind": "index",
+      "title": "UK Immigration wiki index",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "imm-challenge",
+        "imm-suitability",
+        "imm-settlement",
+        "imm-asylum",
+        "imm-family",
+        "imm-return",
+        "imm-adviser",
+        "imm-general"
+      ],
+      "primaryUrl": "",
+      "sourceIds": [],
+      "sourceUrls": [],
+      "contradictions": [],
+      "snippet": "Compiled UK Immigration wiki from Legal Knowledge catalogues.",
+      "path": "_index.md",
+      "keywords": [
+        "immigration",
+        "immigration"
+      ],
+      "authority": "primary"
+    }
+  ]
+}

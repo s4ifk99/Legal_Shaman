@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "description": "Shared agent I/O contracts for master orchestration",
+  "agents": {
+    "brief": {
+      "input": ["latestText", "session", "critique?"],
+      "output": [
+        "freshBrief",
+        "topicId",
+        "understanding",
+        "clientQuestion",
+        "matterType",
+        "matterConfidence",
+        "frameHints",
+        "goal",
+        "mode",
+        "events",
+        "whatHappened",
+        "parties",
+        "documents",
+        "jurisdiction",
+        "locationHint",
+        "howCaused",
+        "openUncertainties",
+        "source"
+      ]
+    },
+    "classify": {
+      "input": ["latestText", "brief", "critique?"],
+      "output": ["matterType", "topicId", "frameHints", "matterConfidence"]
+    },
+    "timeline": {
+      "input": ["latestText", "brief", "critique?"],
+      "output": ["events", "whatHappened"]
+    },
+    "retrieve": {
+      "input": ["query", "matterType", "topicId", "frameIds"],
+      "output": ["snippets", "layers"]
+    },
+    "ask": {
+      "input": ["session", "timeline", "snippets", "clarifiers", "critique?"],
+      "output": ["id", "text", "kind", "reason", "options"]
+    },
+    "answer": {
+      "input": ["session", "topicId", "matterType", "understanding", "critique?"],
+      "output": [
+        "answerOverview",
+        "bullets",
+        "wikiPages",
+        "freeHelp",
+        "recommendedFirms",
+        "sources",
+        "matchedTopicId",
+        "policyNote"
+      ]
+    },
+    "cite": {
+      "input": ["answerPackage"],
+      "output": ["ok", "errors", "warnings"]
+    },
+    "helpMatch": {
+      "input": ["topicId", "matterType", "jurisdiction", "locationHint", "latestText", "critique?"],
+      "output": ["policy", "freeHelp", "signposts", "directories", "solicitors", "ranked", "sra"]
+    },
+    "critique": {
+      "output": ["ok", "score", "errors", "critique", "retryAgent"]
+    }
+  },
+  "topicPackMap": {
+    "housing-access": "neighbour-driveway-access",
+    "consumer-car": "car-reject-failed-repair",
+    "crime-motoring": "driving-ban-tyres",
+    "housing-eviction": null,
+    "employment": null,
+    "general": null
+  },
+  "forbiddenPackForTopic": {
+    "housing-access": ["car-reject-failed-repair"],
+    "crime-motoring": ["car-reject-failed-repair"],
+    "consumer-car": ["neighbour-driveway-access"]
+  }
+}

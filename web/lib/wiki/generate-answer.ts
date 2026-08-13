@@ -4,6 +4,7 @@ import { enableLlmAnswer, resolveSynthesisModel } from "@/lib/llm/answer-config"
 import { preferGroundedSynthesis, useCursorStyleAnswers, wikiSystemPrompt } from "@/lib/llm/grounded-synthesis";
 import { chat, llmConfigured } from "@/lib/llm/client";
 import { sanitizeAdviceText, sanitizeSignpostingText } from "@/lib/guardrails/validator";
+import { isPcnAppealQuery, isPropertyPurchaseMisrepresentationQuery, isRecordingLawQuery, isVehicleRepairQuery } from "@/lib/legal/query-signals";
 import { resolveLegalIssueFromQuery } from "@/lib/legal/taxonomy";
 import { processSearchQuery } from "@/lib/legal-search/query-limits";
 import {
@@ -18,12 +19,18 @@ import {
 } from "./answer-types";
 import { getWikiPageById, searchWikiPages } from "./search";
 import {
+  filterOffTopicPcnHits,
+  filterOffTopicPropertyPurchaseHits,
+  filterOffTopicVehicleHits,
   isHousingRepairQuery,
+  isSharedHousingQuery,
+  rerankSharedHousingHits,
   rerankWikiHitsForQuery,
   shouldRerankWikiHits,
   stableSortWikiHits,
   wikiAnchorsForQuery,
 } from "./rerank-hits";
+import { applyDworkinBoostToWikiHits } from "./dworkin-tags";
 import type { WikiPageIndex } from "./types";
 
 const MIN_RETRIEVAL_SCORE = 4;
@@ -50,14 +57,60 @@ function mergeSupplementalWikiHits(
   if (/\b(neighbour|extension|building regs?)\b/i.test(query)) {
     phrases.push("party wall extension building regulations neighbour dispute");
   }
-  if (/\b(film|filming|record)\b/i.test(query)) {
+  if (isRecordingLawQuery(query) && !isVehicleRepairQuery(query)) {
     phrases.push("record someone without consent filming privacy");
+  }
+  if (isPcnAppealQuery(query)) {
+    phrases.push(
+      "appealing a parking ticket",
+      "when to appeal a parking ticket",
+      "stop being chased for a parking ticket",
+      "parking tickets penalty charge notice",
+    );
+  }
+  if (isVehicleRepairQuery(query)) {
+    phrases.push(
+      "problem with a car repair",
+      "buying or repairing a car",
+      "if you're unhappy about poor service",
+      "poor workmanship rights",
+      "letter to complain about the poor standard of a service",
+      "problems with services or traders",
+      "something's gone wrong with a purchase",
+      "faulty goods consumer rights",
+    );
+  }
+  if (isPropertyPurchaseMisrepresentationQuery(query)) {
+    phrases.push(
+      "property misrepresentation claims",
+      "buying and selling a home",
+      "types of misrepresentation explained",
+      "what to do if your house sale falls through",
+      "complaining about estate agent",
+    );
   }
   if (/\b(customs|import|bringing .{0,40} into (the )?uk)\b/i.test(query)) {
     phrases.push("customs import prohibited restricted items UK");
   }
   if (/\b(cancel|cancelled|cancellation|tradesman|trader)\b/i.test(query)) {
     phrases.push("cancelling a service trader cancellation rights");
+  }
+  if (
+    /\b(flatmate|housemate|lodger|subtenant|excluded occupier|share[d]?\s+accommodation|joint tenancy|notice to quit|wifi|wi-?fi|broadband|ring camera|cctv)\b/i.test(
+      query,
+    )
+  ) {
+    phrases.push(
+      "check your rights if you share accommodation",
+      "lodgers excluded occupier renting with other people",
+      "dispute a mobile phone internet or tv bill",
+      "check if you have to pay a debt joint rent",
+      "check what you can do about harassment",
+      "if someone has harassed you in housing",
+      "home cctv systems ico",
+      "small claims court letter before action",
+      "joint tenancy rent contribution",
+    );
   }
   if (
     /\b(temu|amazon|ebay|aliexpress|marketplace|seller|unsafe product|dangerous product|trading standards|consumer service|report this|lead test|lead contamination|tap[s]?\b|water fitting)\b/i.test(
@@ -83,6 +136,10 @@ function mergeSupplementalWikiHits(
   return stableSortWikiHits([...byId.values()]);
 }
 
+export function retrieveWikiHitsForQuery(query: string, limit = RETRIEVAL_LIMIT) {
+  return filterHits(query, limit);
+}
+
 function filterHits(query: string, limit: number) {
   const searchQ = condenseWikiRetrievalQuery(query);
   const cancelish = /\b(cancel|cancelled|cancellation|owe|booking fee)\b/i.test(query);
@@ -92,8 +149,14 @@ function filterHits(query: string, limit: number) {
   });
 
   hits = mergeSupplementalWikiHits(query, hits);
+  hits = filterOffTopicVehicleHits(query, hits);
+  hits = filterOffTopicPcnHits(query, hits);
+  hits = filterOffTopicPropertyPurchaseHits(query, hits);
 
-  if (isHousingRepairQuery(query) || shouldRerankWikiHits(query)) {
+  // Flatmate / shared housing — do not let repair or neighbour rerank steal the match
+  if (isSharedHousingQuery(query)) {
+    hits = rerankSharedHousingHits(query, hits);
+  } else if (isHousingRepairQuery(query) || shouldRerankWikiHits(query)) {
     hits = rerankWikiHitsForQuery(query, hits);
   }
 
@@ -105,7 +168,9 @@ function filterHits(query: string, limit: number) {
     });
   }
 
-  return orderHitsWithPrimary(stableSortWikiHits(hits).slice(0, limit), query);
+  // Taxonomy (and detectors) have already aimed the list — Dworkin is a second sort.
+  hits = applyDworkinBoostToWikiHits(stableSortWikiHits(hits));
+  return orderHitsWithPrimary(hits.slice(0, limit), query);
 }
 
 function orderHitsWithPrimary(
@@ -208,7 +273,9 @@ function buildWikiContext(hits: ReturnType<typeof searchWikiPages>): string {
       const contentSnippet = page?.content ? truncate(page.content, CONTEXT_CHARS_PER_PAGE) : "";
       const sources = page?.sources?.slice(0, 4).join("; ") ?? "";
       return [
-        `### Page ${i + 1}: ${hit.title} (category: ${hit.category})`,
+        `### Page ${i + 1}: ${hit.title} (category: ${hit.category}${
+          hit.dworkinKind ? `; dworkin: ${hit.dworkinKind}` : ""
+        })`,
         hit.summary ? `Summary: ${hit.summary}` : "",
         hit.keyInformation.length
           ? `Key information:\n- ${hit.keyInformation.join("\n- ")}`
@@ -307,10 +374,61 @@ function pickPrimaryHit(
   const titleMatches = (pattern: RegExp) =>
     hits.find((h) => pattern.test(h.title.toLowerCase()));
 
-  if (/\b(film|filming|record)\b/i.test(q)) {
+  if (isPcnAppealQuery(query)) {
+    return (
+      titleMatches(/^appealing a parking ticket$/i) ??
+      titleMatches(/when to appeal a parking ticket/i) ??
+      titleMatches(/appealing a parking ticket/i) ??
+      titleMatches(/stop being chased for a parking ticket/i) ??
+      titleMatches(/parking tickets/i) ??
+      hits[0]
+    );
+  }
+  if (isVehicleRepairQuery(query)) {
+    return (
+      titleMatches(/problem with a car repair/i) ??
+      titleMatches(/buying or repairing a car/i) ??
+      titleMatches(/poor workmanship/i) ??
+      titleMatches(/unhappy about poor service/i) ??
+      titleMatches(/poor standard of a service/i) ??
+      titleMatches(/problems with services or traders/i) ??
+      titleMatches(/faulty goods/i) ??
+      hits[0]
+    );
+  }
+  if (isPropertyPurchaseMisrepresentationQuery(query)) {
+    return (
+      titleMatches(/property misrepresentation/i) ??
+      titleMatches(/buying and selling a home/i) ??
+      titleMatches(/types of misrepresentation/i) ??
+      titleMatches(/house sale falls through/i) ??
+      titleMatches(/misrepresentation/i) ??
+      hits.find(
+        (h) =>
+          h.category === "Home and Housing" &&
+          /buy|sell|property|misrepresent|flat|house/i.test(h.title),
+      ) ??
+      hits[0]
+    );
+  }
+  if (isRecordingLawQuery(query)) {
     return (
       titleMatches(/\brecord.*consent\b/i) ??
       titleMatches(/\bfilming\b/i) ??
+      hits[0]
+    );
+  }
+  // Shared housing / flatmate — never lead with cancel-contract or boundary pages
+  if (
+    /\b(flatmate|housemate|lodger|share[d]?\s+accommodation|joint tenancy|notice to quit)\b/i.test(q)
+  ) {
+    return (
+      titleMatches(/share accommodation/i) ??
+      titleMatches(/renting with other/i) ??
+      titleMatches(/excluded occupier/i) ??
+      titleMatches(/dispute a mobile|internet or tv bill/i) ??
+      titleMatches(/harass/i) ??
+      hits.find((h) => !/cancell|boundary|party wall|abandonment|rent-to-own/i.test(h.title)) ??
       hits[0]
     );
   }
@@ -453,20 +571,28 @@ const EXTERNAL_SIGNPOST =
 const answerCache = new Map<string, Promise<WikiAnswerPayload>>();
 const ANSWER_CACHE_TTL_MS = 90_000;
 
-async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayload> {
+/**
+ * Single synthesis from preselected wiki hits (satnav arbiter path).
+ * Skips retrieval — caller supplies the ordered hit list.
+ */
+export async function generateWikiAnswerFromHits(
+  query: string,
+  hits: ReturnType<typeof searchWikiPages>,
+  options?: { forceLlm?: boolean },
+): Promise<WikiAnswerPayload> {
   const started = Date.now();
   const trimmed = processSearchQuery(query);
-  const hits = filterHits(trimmed, RETRIEVAL_LIMIT);
-  const retrievalScore = hits[0]?.score ?? 0;
-  const sources = collectSources(hits);
-  const recommendedFirms = mapFirms(pickRecommendedFirms(trimmed, hits));
-  const practiceAreas = resolvePracticeAreasForWikiQuery(trimmed, hits);
+  const ordered = orderHitsWithPrimary(stableSortWikiHits(hits).slice(0, RETRIEVAL_LIMIT), trimmed);
+  const retrievalScore = ordered[0]?.score ?? 0;
+  const sources = collectSources(ordered);
+  const recommendedFirms = mapFirms(pickRecommendedFirms(trimmed, ordered));
+  const practiceAreas = resolvePracticeAreasForWikiQuery(trimmed, ordered);
 
   const base: WikiAnswerPayload = {
     query: trimmed,
     mode: "retrieval_only",
     answer: null,
-    wikiPages: hits,
+    wikiPages: ordered,
     sources,
     recommendedFirms,
     disclaimer: WIKI_ANSWER_DISCLAIMER,
@@ -474,7 +600,7 @@ async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayl
     latencyMs: 0,
   };
 
-  if (hits.length === 0 || retrievalScore < MIN_RETRIEVAL_SCORE) {
+  if (ordered.length === 0 || retrievalScore < MIN_RETRIEVAL_SCORE) {
     return {
       ...base,
       mode: "insufficient",
@@ -496,13 +622,24 @@ async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayl
     latencyMs: Date.now() - started,
   });
 
-  const forceLlm = process.env.WIKI_FORCE_LLM === "1" || process.env.WIKI_FORCE_LLM === "true";
-  const deterministic = deterministicAnswerFromHits(hits, trimmed);
+  const forceLlmEnv = process.env.WIKI_FORCE_LLM === "1" || process.env.WIKI_FORCE_LLM === "true";
+  const deterministic = deterministicAnswerFromHits(ordered, trimmed);
   const canSynthesize = llmConfigured() && enableLlmAnswer();
-  const tryLlmFirst = canSynthesize && (forceLlm || preferGroundedSynthesis());
+  const forceLlm = options?.forceLlm === true;
+  const tryLlmFirst = canSynthesize && (forceLlm || forceLlmEnv || preferGroundedSynthesis());
+
+  const withSynthesisMeta = (
+    payload: WikiAnswerPayload,
+    meta: NonNullable<WikiAnswerPayload["synthesisMeta"]>,
+  ): WikiAnswerPayload => ({ ...payload, synthesisMeta: meta });
 
   if (!tryLlmFirst) {
-    if (deterministic.length >= 80) return finishSynthesis(deterministic);
+    if (deterministic.length >= 80) {
+      return withSynthesisMeta(finishSynthesis(deterministic), {
+        used: "deterministic",
+        deterministicAnswer: deterministic,
+      });
+    }
     if (!canSynthesize) {
       return {
         ...base,
@@ -510,12 +647,13 @@ async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayl
         message:
           "Wiki pages matched your question. Set LLM_API_KEY and LLM_BASE_URL in web/.env.local (OpenRouter) to enable synthesised answers.",
         latencyMs: Date.now() - started,
+        synthesisMeta: { used: "none", deterministicAnswer: deterministic || undefined },
       };
     }
   }
 
   const taxonomy = resolveLegalIssueFromQuery(trimmed);
-  const wikiContext = buildWikiContext(hits);
+  const wikiContext = buildWikiContext(ordered);
   const firmContext =
     recommendedFirms.length > 0
       ? recommendedFirms
@@ -563,12 +701,25 @@ Respond with JSON only. The "answer" field must be practical plain-English signp
     }
 
     if (!answer || isJunkAnswer(answer)) {
-      if (deterministic.length >= 80) return finishSynthesis(deterministic);
+      if (deterministic.length >= 80) {
+        return withSynthesisMeta(finishSynthesis(deterministic), {
+          used: "deterministic",
+          deterministicAnswer: deterministic,
+          llmAnswer: answer || undefined,
+          llmError: "junk_or_empty_llm_output",
+        });
+      }
       return {
         ...base,
         mode: "retrieval_only",
         message: "Could not generate a summary. Browse the matching wiki pages below.",
         latencyMs: Date.now() - started,
+        synthesisMeta: {
+          used: "none",
+          deterministicAnswer: deterministic || undefined,
+          llmAnswer: answer || undefined,
+          llmError: "junk_or_empty_llm_output",
+        },
       };
     }
 
@@ -585,18 +736,42 @@ Respond with JSON only. The "answer" field must be practical plain-English signp
     }
 
     const synthesised = finishSynthesis(answer);
-    return { ...synthesised, sources: mergedSources.slice(0, 10) };
+    return withSynthesisMeta(
+      { ...synthesised, sources: mergedSources.slice(0, 10) },
+      {
+        used: "llm",
+        deterministicAnswer: deterministic,
+        llmAnswer: answer,
+      },
+    );
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.warn("[wiki.generate-answer] LLM failed:", message);
-    if (deterministic.length >= 80) return finishSynthesis(deterministic);
+    if (deterministic.length >= 80) {
+      return withSynthesisMeta(finishSynthesis(deterministic), {
+        used: "deterministic",
+        deterministicAnswer: deterministic,
+        llmError: message.slice(0, 300),
+      });
+    }
     return {
       ...base,
       mode: "retrieval_only",
       message: `Synthesised answer unavailable (${message}). Browse the wiki results below.`,
       latencyMs: Date.now() - started,
+      synthesisMeta: {
+        used: "none",
+        deterministicAnswer: deterministic || undefined,
+        llmError: message.slice(0, 300),
+      },
     };
   }
+}
+
+async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayload> {
+  const trimmed = processSearchQuery(query);
+  const hits = filterHits(trimmed, RETRIEVAL_LIMIT);
+  return generateWikiAnswerFromHits(trimmed, hits);
 }
 
 export async function generateWikiAnswer(query: string): Promise<WikiAnswerPayload> {

@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-08-04T13:23:56.916Z",
+  "collectionCount": 12,
+  "articleCount": 26993,
+  "collections": [
+    {
+      "id": "uk-visas-immigration",
+      "label": "UK Visas and Immigration",
+      "authority": "primary",
+      "bulk": false,
+      "articleCount": 160,
+      "path": "src/data/catalogues/uk-visas-immigration.json"
+    },
+    {
+      "id": "govuk",
+      "label": "GOV.UK",
+      "authority": "primary",
+      "bulk": false,
+      "articleCount": 1172,
+      "path": "src/data/catalogues/govuk.json"
+    },
+    {
+      "id": "citizens-advice",
+      "label": "Citizens Advice",
+      "authority": "secondary",
+      "bulk": false,
+      "articleCount": 1103,
+      "path": "src/data/catalogues/citizens-advice.json"
+    },
+    {
+      "id": "advicenow",
+      "label": "AdviceNow",
+      "authority": "secondary",
+      "bulk": false,
+      "articleCount": 319,
+      "path": "src/data/catalogues/advicenow.json"
+    },
+    {
+      "id": "shelter",
+      "label": "Shelter",
+      "authority": "secondary",
+      "bulk": false,
+      "articleCount": 612,
+      "path": "src/data/catalogues/shelter.json"
+    },
+    {
+      "id": "acas",
+      "label": "ACAS",
+      "authority": "secondary",
+      "bulk": false,
+      "articleCount": 196,
+      "path": "src/data/catalogues/acas.json"
+    },
+    {
+      "id": "cpr",
+      "label": "Civil Procedure Rules",
+      "authority": "primary",
+      "bulk": false,
+      "articleCount": 264,
+      "path": "src/data/catalogues/cpr.json"
+    },
+    {
+      "id": "sentencing-council",
+      "label": "Sentencing Council",
+      "authority": "primary",
+      "bulk": false,
+      "articleCount": 244,
+      "path": "src/data/catalogues/sentencing-council.json"
+    },
+    {
+      "id": "legislation-govuk",
+      "label": "legislation.gov.uk",
+      "authority": "primary",
+      "bulk": true,
+      "articleCount": 18612,
+      "path": "src/data/catalogues/legislation-govuk.json"
+    },
+    {
+      "id": "lawhive",
+      "label": "Lawhive",
+      "authority": "tertiary",
+      "bulk": false,
+      "articleCount": 825,
+      "path": "src/data/catalogues/lawhive.json"
+    },
+    {
+      "id": "taylor-rose",
+      "label": "Taylor Rose",
+      "authority": "tertiary",
+      "bulk": false,
+      "articleCount": 298,
+      "path": "src/data/catalogues/taylor-rose.json"
+    },
+    {
+      "id": "wiki-guides",
+      "label": "Wiki Guides",
+      "authority": "secondary",
+      "bulk": false,
+      "articleCount": 3188,
+      "path": "src/data/catalogues/wiki-guides.json"
+    }
+  ]
+}

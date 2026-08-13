@@ -3,8 +3,17 @@ import "server-only";
 import OpenAI from "openai";
 
 import {
+  estimateCostUsd,
+  estimateTokensFromChars,
+  gateLlmCall,
+  recordLlmCall,
+  type LlmCallReason,
+} from "@/lib/coherence/llm-budget";
+import {
+  isInsufficientCreditsError,
   openRouterDefaultHeaders,
   resolveChatModel,
+  resolveFreeFallbackModel,
   resolveLlmApiKey,
   resolveLlmBaseUrl,
   isHomeOllamaBaseUrl,
@@ -55,7 +64,7 @@ function getChatClient(): OpenAI {
     );
   }
   const defaultHeaders = openRouterDefaultHeaders();
-  const defaultTimeout = process.env.VERCEL === "1" ? 8_000 : 12_000;
+  const defaultTimeout = process.env.VERCEL === "1" ? 8_000 : 45_000;
   const timeoutMs = Number(process.env.LLM_TIMEOUT_MS ?? defaultTimeout);
   _chatClient = new OpenAI({
     apiKey,
@@ -101,14 +110,19 @@ export type ChatOptions = {
   temperature?: number;
   maxTokens?: number;
   model?: string;
+  /** Coherence cost attribution — set on master-path calls. */
+  purpose?: LlmCallReason;
+  caller?: string;
+  attempt?: number;
+  retryReason?: string;
 };
 
-export async function chat(
+async function chatWithModel(
+  client: OpenAI,
   messages: ChatMessage[],
-  options: ChatOptions = {},
+  options: ChatOptions,
+  model: string,
 ): Promise<string> {
-  const client = getChatClient();
-  const model = resolveChatModel(options.model);
   const response = await client.chat.completions.create({
     model,
     messages,
@@ -117,6 +131,97 @@ export async function chat(
     response_format: options.jsonMode ? { type: "json_object" } : undefined,
   });
   return response.choices[0]?.message?.content ?? "";
+}
+
+export async function chat(
+  messages: ChatMessage[],
+  options: ChatOptions = {},
+): Promise<string> {
+  const purpose = options.purpose || "legacy_other";
+  const caller = options.caller || "llm.client.chat";
+  const gate = gateLlmCall(purpose, caller);
+  if (gate.warn) console.warn(`[coherence-cost] ${gate.warn}`);
+  if (!gate.allowed) {
+    throw new Error(gate.warn || "LLM call rejected by hard budget");
+  }
+
+  const client = getChatClient();
+  const model = resolveChatModel(options.model);
+  const inputChars = messages.reduce((s, m) => s + (m.content?.length || 0), 0);
+  const t0 = Date.now();
+  let attempt = options.attempt || 1;
+  let usedModel = model;
+  let content = "";
+  let retryReason = options.retryReason;
+
+  try {
+    content = await chatWithModel(client, messages, options, model);
+  } catch (err) {
+    const fallback = resolveFreeFallbackModel();
+    if (fallback && fallback !== model && isInsufficientCreditsError(err)) {
+      console.warn(`[llm] ${model} insufficient credits; retrying with ${fallback}`);
+      attempt = 2;
+      retryReason = "insufficient_credits_fallback";
+      usedModel = fallback;
+      try {
+        content = await chatWithModel(client, messages, options, fallback);
+      } catch (err2) {
+        recordLlmCall({
+          purpose,
+          caller,
+          model: usedModel,
+          attempt,
+          ok: false,
+          latencyMs: Date.now() - t0,
+          inputChars,
+          outputChars: 0,
+          estimatedInputTokens: estimateTokensFromChars(inputChars),
+          estimatedOutputTokens: 0,
+          estimatedCostUsd: 0,
+          retryReason,
+          error: err2 instanceof Error ? err2.message : String(err2),
+        });
+        throw err2;
+      }
+    } else {
+      recordLlmCall({
+        purpose,
+        caller,
+        model: usedModel,
+        attempt,
+        ok: false,
+        latencyMs: Date.now() - t0,
+        inputChars,
+        outputChars: 0,
+        estimatedInputTokens: estimateTokensFromChars(inputChars),
+        estimatedOutputTokens: 0,
+        estimatedCostUsd: 0,
+        retryReason,
+        error: err instanceof Error ? err.message : String(err),
+      });
+      throw err;
+    }
+  }
+
+  const outputChars = content.length;
+  const estimatedInputTokens = estimateTokensFromChars(inputChars);
+  const estimatedOutputTokens = estimateTokensFromChars(outputChars);
+  recordLlmCall({
+    purpose,
+    caller,
+    model: usedModel,
+    attempt,
+    ok: Boolean(content),
+    latencyMs: Date.now() - t0,
+    inputChars,
+    outputChars,
+    estimatedInputTokens,
+    estimatedOutputTokens,
+    estimatedCostUsd: estimateCostUsd(estimatedInputTokens, estimatedOutputTokens),
+    retryReason,
+  });
+
+  return content;
 }
 
 export async function embed(texts: string[]): Promise<Float32Array[]> {

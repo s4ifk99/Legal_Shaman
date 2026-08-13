@@ -1,0 +1,148 @@
+{
+  "trialDomain": "immigration",
+  "knowledgeRoot": "LS R&D/05 Legal Knowledge/UK Visas and Immigration",
+  "purpose": "Phase 1 trial before adding housing/PI/other knowledge clusters. Run each opener through intake; check timeline, causation questions, Notes for Lawyer, frames, and matching GOV.UK signposts. Grade usable / needs_work / unsafe.",
+  "grading": ["usable", "needs_work", "unsafe"],
+  "scenarios": [
+    {
+      "id": "imm-01",
+      "title": "ILR refused",
+      "opener": "I applied for ILR but got rejected last month in London",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["indefinite-leave-to-remain", "immigration-asylum-tribunal", "ask-for-a-visa-administrative-review", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-02",
+      "title": "Bad character raised",
+      "opener": "Home Office refused my visa and said I have bad character",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["find-an-immigration-adviser", "immigration-asylum-tribunal", "ask-for-a-visa-administrative-review"]
+    },
+    {
+      "id": "imm-03",
+      "title": "Deportation history",
+      "opener": "I was deported in 2010 and now I want to come back to the UK",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["return-home-voluntarily", "find-an-immigration-adviser", "check-uk-visa"]
+    },
+    {
+      "id": "imm-04",
+      "title": "Family visa / partner",
+      "opener": "I want to join my spouse in Manchester on a family visa but I am worried about refusal",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["uk-family-visa", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-05",
+      "title": "Asylum claim",
+      "opener": "I need to claim asylum in the UK I am scared to go back",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["claim-asylum", "asylum-support", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-06",
+      "title": "Student visa",
+      "opener": "My student visa was refused and I have the refusal letter",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["student-visa", "ask-for-a-visa-administrative-review", "immigration-asylum-tribunal"]
+    },
+    {
+      "id": "imm-07",
+      "title": "EU settled status",
+      "opener": "I am an EU citizen and need help with settled status for my family",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["settled-status-eu-citizens-families", "family-permit"]
+    },
+    {
+      "id": "imm-08",
+      "title": "Skilled worker",
+      "opener": "My employer said they will sponsor me but I do not know about the skilled worker visa",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["skilled-worker-visa", "uk-visa-sponsorship-employers"]
+    },
+    {
+      "id": "imm-09",
+      "title": "Administrative review",
+      "opener": "I want an administrative review of my visa refusal from the Home Office",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["ask-for-a-visa-administrative-review"]
+    },
+    {
+      "id": "imm-10",
+      "title": "Find adviser only",
+      "opener": "I just need a regulated immigration adviser in England",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-11",
+      "title": "Visit visa refused",
+      "opener": "My visit visa was refused and I do not understand the reasons in the letter",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["standard-visitor", "ask-for-a-visa-administrative-review", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-12",
+      "title": "Spouse extension",
+      "opener": "I am on a spouse visa in Birmingham and need to extend before it expires",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["uk-family-visa", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-13",
+      "title": "Detention / bail",
+      "opener": "My brother is in immigration detention and we need help with bail",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["bail-immigration-detainees", "immigration-removal-centre", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-14",
+      "title": "British citizenship",
+      "opener": "I have ILR and want to apply for British citizenship next year",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["british-citizenship", "indefinite-leave-to-remain", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-15",
+      "title": "Graduate visa",
+      "opener": "I finished my degree and need to switch to a graduate visa",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["graduate-visa", "student-visa"]
+    },
+    {
+      "id": "imm-16",
+      "title": "Appeal deadline worry",
+      "opener": "Home Office refused my application and I think I have days left to appeal",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["immigration-asylum-tribunal", "ask-for-a-visa-administrative-review", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-17",
+      "title": "Child dependent",
+      "opener": "I want to bring my child to the UK to live with me on a dependent visa",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["uk-family-visa", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-18",
+      "title": "Right to work check",
+      "opener": "My new employer asked for a right to work check and my visa stamp is confusing",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["prove-right-to-work", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-19",
+      "title": "Fresh claim / further submissions",
+      "opener": "My asylum claim was refused years ago and I have new evidence now",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["claim-asylum", "submit-new-evidence-asylum-claim", "find-an-immigration-adviser"]
+    },
+    {
+      "id": "imm-20",
+      "title": "Humanitarian protection",
+      "opener": "I was granted humanitarian protection and need advice about settlement",
+      "expectMatter": "immigration",
+      "expectKnowledgeHints": ["settlement-refugee-or-humanitarian-protection", "indefinite-leave-to-remain", "find-an-immigration-adviser"]
+    }
+  ]
+}

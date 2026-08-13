@@ -1,0 +1,917 @@
+{
+  "collection": "Employment",
+  "pattern": "llm-wiki-domain",
+  "trialDomain": "employment",
+  "domainId": "employment",
+  "wikiRoot": "wiki/domains/employment",
+  "compiledAt": "2026-08-05T08:39:35.009Z",
+  "articleCount": 350,
+  "pageCount": 11,
+  "pages": [
+    {
+      "id": "topic-employment",
+      "kind": "topic",
+      "title": "employment",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-unfair",
+        "emp-wages",
+        "emp-discrim",
+        "emp-tribunal"
+      ],
+      "primaryUrl": "https://www.acas.org.uk/guide-print/360",
+      "sourceIds": [
+        "guide-print-360",
+        "guide-print-602",
+        "page-print-360",
+        "page-print-39",
+        "page-print-602",
+        "page-print-608",
+        "48-hour-opt-out-agreement-template",
+        "a-new-acas-code-of-practice-on-disciplinary-and-grievance-procedures",
+        "accessibility",
+        "acas-chair-baroness-joness-speech-on-workplace-relations",
+        "acas-code-of-practice-on-disciplinary-and-grievance-procedures",
+        "acas-code-of-practice-on-disclosure-of-information-to-trade-unions-for-collective-bargaining"
+      ],
+      "sourceUrls": [
+        "https://www.acas.org.uk/guide-print/360",
+        "https://www.acas.org.uk/guide-print/602",
+        "https://www.acas.org.uk/page-print/360",
+        "https://www.acas.org.uk/page-print/39",
+        "https://www.acas.org.uk/page-print/602",
+        "https://www.acas.org.uk/page-print/608",
+        "https://www.acas.org.uk/48-hour-opt-out-agreement-template",
+        "https://www.acas.org.uk/a-new-acas-code-of-practice-on-disciplinary-and-grievance-procedures",
+        "https://www.acas.org.uk/accessibility",
+        "https://www.acas.org.uk/acas-chair-baroness-joness-speech-on-workplace-relations",
+        "https://www.acas.org.uk/acas-code-of-practice-on-disciplinary-and-grievance-procedures",
+        "https://www.acas.org.uk/acas-code-of-practice-on-disclosure-of-information-to-trade-unions-for-collective-bargaining"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "141 sources on employment (Employment).",
+      "path": "topics/topic-employment.md",
+      "keywords": [
+        "employment",
+        "guide",
+        "print",
+        "360",
+        "acas",
+        "guide",
+        "print",
+        "602",
+        "acas",
+        "page",
+        "print",
+        "360",
+        "acas",
+        "page",
+        "print",
+        "acas",
+        "employment",
+        "page",
+        "print",
+        "602",
+        "acas",
+        "page",
+        "print",
+        "608",
+        "acas",
+        "hour",
+        "opt",
+        "out",
+        "agreement",
+        "new",
+        "acas",
+        "code",
+        "practice"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-employment-law",
+      "kind": "topic",
+      "title": "Employment Law",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-unfair",
+        "emp-wages",
+        "emp-discrim",
+        "emp-tribunal"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/employment-law/10-things-to-know-about-employment-law-and-your-rights-at-work",
+      "sourceIds": [
+        "employment-law-10-things-to-know-about-employment-law-and-your-rights-at-work",
+        "employment-law-3-signs-your-redundancy-settlement-agreement-is-favourable",
+        "employment-law-9-signs-you-might-have-a-constructive-dismissal-claim",
+        "employment-law-appealing-a-redundancy",
+        "employment-law-can-you-be-made-redundant-while-on-maternity-leave",
+        "employment-law-can-you-be-made-redundant-while-on-parental-leave",
+        "employment-law-can-you-dismiss-an-apprentice",
+        "employment-law-do-employers-have-to-pay-sick-pay",
+        "employment-law-do-you-get-paid-for-trial-shifts",
+        "employment-law-early-conciliation-process-a-guide-for-employees",
+        "employment-law-employment-contracts-what-to-look-out-for-before-signing",
+        "employment-law-employment-law-changes-2024-everything-you-need-to-know"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/employment-law/10-things-to-know-about-employment-law-and-your-rights-at-work",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/3-signs-your-redundancy-settlement-agreement-is-favourable",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/9-signs-you-might-have-a-constructive-dismissal-claim",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/appealing-a-redundancy",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/can-you-be-made-redundant-while-on-maternity-leave",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/can-you-be-made-redundant-while-on-parental-leave",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/can-you-dismiss-an-apprentice",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/do-employers-have-to-pay-sick-pay",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/do-you-get-paid-for-trial-shifts",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/early-conciliation-process",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/employment-contracts-what-to-look-out-for-before-signing",
+        "https://lawhive.co.uk/knowledge-hub/employment-law/employment-law-changes-2024-everything-you-need-to-know"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "38 sources on Employment Law (Employment).",
+      "path": "topics/topic-employment-law.md",
+      "keywords": [
+        "employment",
+        "law",
+        "employment",
+        "law",
+        "things",
+        "know",
+        "employment",
+        "law",
+        "signs",
+        "your",
+        "employment",
+        "law",
+        "signs",
+        "you",
+        "employment",
+        "law",
+        "appealing",
+        "redundancy",
+        "employment",
+        "law",
+        "can",
+        "you",
+        "employment",
+        "law",
+        "can",
+        "you",
+        "employment",
+        "law",
+        "can",
+        "you",
+        "employment",
+        "law",
+        "employers",
+        "have"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-work",
+      "kind": "topic",
+      "title": "work",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-unfair",
+        "emp-wages",
+        "emp-discrim",
+        "emp-tribunal"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/work/after-leaving-your-job/",
+      "sourceIds": [
+        "work-after-leaving-your-job",
+        "work-after-you-ve-been-dismissed",
+        "work-agency-workers",
+        "work-appealing-against-a-disciplinary-decision",
+        "work-applying-for-flexible-working",
+        "work-asking-your-employer-for-changes-to-help-you-if-you-re-disabled",
+        "work-attending-your-employment-tribunal-hearing",
+        "work-before-you-go-to-the-tribunal",
+        "work-being-laid-off-or-put-on-short-time-working",
+        "work-challenge-your-dismissal",
+        "work-challenge-your-redundancy",
+        "work-challenging-an-employment-tribunal-decision"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/work/after-leaving-your-job/",
+        "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+        "https://www.citizensadvice.org.uk/work/agency-workers/",
+        "https://www.citizensadvice.org.uk/work/disciplinary-meetings/disciplinary-meetings-appealing-against-disciplinary-action/",
+        "https://www.citizensadvice.org.uk/work/flexible-working/applying-for-flexible-working/",
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/asking-your-employer-for-changes-to-help-if-youre-disabled/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/before-you-go-to-the-tribunal/",
+        "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/if-youre-laid-off/layoffs-and-short-time-working/",
+        "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/challenge-your-dismissal/",
+        "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/check-if-you-can-challenge-your-redundancy/challenge-your-redundancy/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/challenging-an-employment-tribunal-decision/"
+      ],
+      "contradictions": [
+        "Eligibility wording differs across linked sources — verify on primary official pages.",
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "115 sources on work (Employment).",
+      "path": "topics/topic-work.md",
+      "keywords": [
+        "work",
+        "work",
+        "after",
+        "leaving",
+        "your",
+        "work",
+        "after",
+        "you",
+        "been",
+        "work",
+        "agency",
+        "workers",
+        "citizens",
+        "work",
+        "appealing",
+        "against",
+        "disciplinary",
+        "work",
+        "applying",
+        "for",
+        "flexible",
+        "work",
+        "asking",
+        "your",
+        "employer",
+        "work",
+        "attending",
+        "your",
+        "employment",
+        "work",
+        "before",
+        "you",
+        "the"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-work-and-employment",
+      "kind": "topic",
+      "title": "Work and Employment",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-unfair",
+        "emp-wages",
+        "emp-tribunal"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/work/redundancy/",
+      "sourceIds": [
+        "3 signs your redundancy settlement agreement is favourable",
+        "9 signs you might have a constructive dismissal claim",
+        "After leaving your job",
+        "After you start your employment tribunal claim",
+        "After you've been dismissed",
+        "Agency workers",
+        "Appealing A Redundancy",
+        "Appealing against a disciplinary decision",
+        "Appealing against disciplinary action",
+        "Applying for flexible working",
+        "Attending your employment tribunal hearing",
+        "Before you can start a case at employment tribunal"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/work/redundancy/",
+        "https://www.citizensadvice.org.uk/work/dismissal/",
+        "https://www.citizensadvice.org.uk/work/after-leaving-your-job/getting-a-job-reference/",
+        "https://www.advicenow.org.uk/get-help/employment/employment-tribunals/after-you-start-your-employment-tribunal-claim",
+        "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+        "https://www.citizensadvice.org.uk/work/agency-workers/",
+        "https://www.citizensadvice.org.uk/work/redundancy/",
+        "https://www.citizensadvice.org.uk/work/disciplinary-meetings/disciplinary-meetings-appealing-against-disciplinary-action/",
+        "https://www.citizensadvice.org.uk/work/disciplinary-meetings/disciplinary-meetings-appealing-against-disciplinary-action/",
+        "https://www.citizensadvice.org.uk/work/flexible-working/applying-for-flexible-working/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+        "https://www.advicenow.org.uk/get-help/employment/employment-tribunals/you-can-start-case-employment-tribunal"
+      ],
+      "contradictions": [
+        "Pathway/topic cites only wiki-guides — prefer GOV.UK / CAB / AdviceNow as primary.",
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "50 sources on Work and Employment (Employment).",
+      "path": "topics/topic-work-and-employment.md",
+      "keywords": [
+        "work",
+        "and",
+        "employment",
+        "3 signs your redundancy settlement agreement is favourable",
+        "signs",
+        "your",
+        "redundancy",
+        "9 signs you might have a constructive dismissal claim",
+        "signs",
+        "you",
+        "might",
+        "After leaving your job",
+        "after",
+        "leaving",
+        "your",
+        "After you start your employment tribunal claim",
+        "after",
+        "you",
+        "start",
+        "After you've been dismissed",
+        "after",
+        "you",
+        "been",
+        "Agency workers",
+        "agency",
+        "workers",
+        "work",
+        "Appealing A Redundancy",
+        "appealing",
+        "redundancy",
+        "work",
+        "Appealing against a disciplinary decision",
+        "appealing",
+        "against",
+        "disciplinary"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "pathway-dismissal",
+      "kind": "pathway",
+      "title": "Dismissal / unfair dismissal",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-unfair"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+      "sourceIds": [
+        "work-after-you-ve-been-dismissed",
+        "work-challenge-your-dismissal",
+        "work-check-if-your-dismissal-is-unfair",
+        "work-check-if-your-employer-s-dismissal-process-is-unfair",
+        "work-check-what-compensation-you-can-get-for-unfair-dismissal",
+        "work-check-your-rights-if-you-re-dismissed",
+        "work-claiming-constructive-dismissal",
+        "work-dealing-with-disciplinary-action-at-work",
+        "work-dismissal",
+        "work-if-your-employer-wants-to-dismiss-you-because-of-long-term-sickness"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+        "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/challenge-your-dismissal/",
+        "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/check-if-your-dismissal-is-fair/",
+        "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/check-if-your-employers-dismissal-process-is-unfair/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/before-you-go-to-the-tribunal/check-what-compensation-you-can-get-for-unfair-dismissal/",
+        "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/",
+        "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/claiming-constructive-dismissal/",
+        "https://www.citizensadvice.org.uk/work/disciplinary-meetings/dealing-with-disciplinary-action-and-dismissal-at-work/",
+        "https://www.citizensadvice.org.uk/work/dismissal/",
+        "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/if-your-employer-wants-to-dismiss-you-because-of-long-term-sickness/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Job loss, unfair or wrongful dismissal pathways.",
+      "path": "pathways/pathway-dismissal.md",
+      "keywords": [
+        "dismissal",
+        "unfair",
+        "dismissal",
+        "emp-unfair",
+        "work",
+        "after",
+        "you",
+        "work",
+        "challenge",
+        "your",
+        "work",
+        "check",
+        "your",
+        "work",
+        "check",
+        "your",
+        "work",
+        "check",
+        "what",
+        "work",
+        "check",
+        "your"
+      ],
+      "authority": "secondary",
+      "linkedTopicIds": [
+        "topic-employment",
+        "topic-employment-law",
+        "topic-work",
+        "topic-work-and-employment"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+          "sourceTitle": "After you've been dismissed - Citizens Advice"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+          "sourceTitle": "After you've been dismissed - Citizens Advice"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+          "sourceTitle": "After you've been dismissed - Citizens Advice"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+          "sourceTitle": "After you've been dismissed - Citizens Advice"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+          "sourceTitle": "After you've been dismissed - Citizens Advice"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+          "sourceTitle": "After you've been dismissed - Citizens Advice"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/dismissal/check-your-rights-if-youre-dismissed/after-youve-been-dismissed/",
+          "sourceTitle": "After you've been dismissed - Citizens Advice"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:35.027Z"
+    },
+    {
+      "id": "pathway-pay-contract",
+      "kind": "pathway",
+      "title": "Pay / contract",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-wages"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/if-youre-being-made-redundant/redundancy-pay/",
+      "sourceIds": [
+        "work-check-how-much-redundancy-pay-you-can-get",
+        "work-check-if-you-can-get-sick-pay",
+        "work-check-if-you-have-to-work-on-sundays",
+        "work-check-if-you-re-entitled-to-paid-holidays",
+        "work-check-if-you-re-working-more-than-the-48-hour-limit",
+        "work-check-if-your-agency-is-paying-you-the-right-amount",
+        "work-check-if-your-employer-can-make-changes-to-your-contract",
+        "work-check-the-terms-of-your-employment-contract",
+        "work-check-what-tips-and-service-charges-you-re-entitled-to",
+        "work-check-you-ve-got-the-right-amount-of-holiday-pay"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/if-youre-being-made-redundant/redundancy-pay/",
+        "https://www.citizensadvice.org.uk/work/sick-leave-and-sick-pay/check-if-you-can-get-sick-pay/",
+        "https://www.citizensadvice.org.uk/work/working-hours-and-rest-breaks/check-if-you-have-to-work-on-sundays/",
+        "https://www.citizensadvice.org.uk/work/holidays-and-holiday-pay/check-if-youre-entitled-to-paid-holidays/",
+        "https://www.citizensadvice.org.uk/work/working-hours-and-rest-breaks/check-how-many-hours-youre-working/",
+        "https://www.citizensadvice.org.uk/work/agency-workers/check-if-your-agency-is-paying-you-the-right-amount/",
+        "https://www.citizensadvice.org.uk/work/changes-to-employment-contracts-overview/",
+        "https://www.citizensadvice.org.uk/work/contracts-of-employment/",
+        "https://www.citizensadvice.org.uk/work/pay/check-what-tips-and-service-charges-youre-entitled-to/",
+        "https://www.citizensadvice.org.uk/work/holidays-and-holiday-pay/check-youve-got-the-right-amount-of-holiday-pay/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Wages, holiday pay, and contract problems.",
+      "path": "pathways/pathway-pay-contract.md",
+      "keywords": [
+        "pay",
+        "contract",
+        "emp-wages",
+        "work",
+        "check",
+        "how",
+        "work",
+        "check",
+        "you",
+        "work",
+        "check",
+        "you",
+        "work",
+        "check",
+        "you",
+        "work",
+        "check",
+        "you",
+        "work",
+        "check",
+        "your"
+      ],
+      "authority": "secondary",
+      "linkedTopicIds": [
+        "topic-employment",
+        "topic-employment-law",
+        "topic-work",
+        "topic-work-and-employment"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/if-youre-being-made-redundant/redundancy-pay/",
+          "sourceTitle": "Check how much redundancy pay you can get - Citizens Advice"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/if-youre-being-made-redundant/redundancy-pay/",
+          "sourceTitle": "Check how much redundancy pay you can get - Citizens Advice"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/if-youre-being-made-redundant/redundancy-pay/",
+          "sourceTitle": "Check how much redundancy pay you can get - Citizens Advice"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/if-youre-being-made-redundant/redundancy-pay/",
+          "sourceTitle": "Check how much redundancy pay you can get - Citizens Advice"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/if-youre-being-made-redundant/redundancy-pay/",
+          "sourceTitle": "Check how much redundancy pay you can get - Citizens Advice"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/if-youre-being-made-redundant/redundancy-pay/",
+          "sourceTitle": "Check how much redundancy pay you can get - Citizens Advice"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/if-youre-being-made-redundant/redundancy-pay/",
+          "sourceTitle": "Check how much redundancy pay you can get - Citizens Advice"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:35.032Z"
+    },
+    {
+      "id": "pathway-discrimination",
+      "kind": "pathway",
+      "title": "Discrimination / harassment",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-discrim"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/asking-your-employer-for-changes-to-help-if-youre-disabled/",
+      "sourceIds": [
+        "work-asking-your-employer-for-changes-to-help-you-if-you-re-disabled",
+        "work-check-if-you-re-disabled-under-the-equality-act",
+        "work-check-if-your-problem-at-work-is-discrimination",
+        "work-checking-if-it-s-discrimination",
+        "work-dealing-with-discrimination-at-work",
+        "work-deciding-what-to-do-about-discrimination-at-work",
+        "work-discrimination-at-work",
+        "work-discrimination-at-work-because-of-pregnancy-or-maternity",
+        "work-gathering-evidence-about-discrimination-at-work",
+        "work-get-help-with-discrimination-at-work"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/asking-your-employer-for-changes-to-help-if-youre-disabled/",
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/checking-if-its-discrimination/check-if-youre-disabled-under-the-equality-act-work/",
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/checking-if-its-discrimination/check-if-your-problem-at-work-is-discrimination/",
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/checking-if-its-discrimination/",
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/",
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/deciding-what-to-do-about-discrimination-at-work/",
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/",
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/checking-if-its-discrimination/discrimination-at-work-because-of-pregnancy-or-maternity/",
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/gathering-evidence-about-discrimination-at-work/",
+        "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/get-help-with-discrimination-at-work/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Equality Act workplace issues.",
+      "path": "pathways/pathway-discrimination.md",
+      "keywords": [
+        "discrimination",
+        "harassment",
+        "emp-discrim",
+        "work",
+        "asking",
+        "your",
+        "work",
+        "check",
+        "you",
+        "work",
+        "check",
+        "your",
+        "work",
+        "checking",
+        "discrimination",
+        "work",
+        "dealing",
+        "with",
+        "work",
+        "deciding",
+        "what"
+      ],
+      "authority": "secondary",
+      "linkedTopicIds": [
+        "topic-employment",
+        "topic-employment-law",
+        "topic-work"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/asking-your-employer-for-changes-to-help-if-youre-disabled/",
+          "sourceTitle": "Asking your employer for changes to help you if you’re disabled - Citizens Advice"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/asking-your-employer-for-changes-to-help-if-youre-disabled/",
+          "sourceTitle": "Asking your employer for changes to help you if you’re disabled - Citizens Advice"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/asking-your-employer-for-changes-to-help-if-youre-disabled/",
+          "sourceTitle": "Asking your employer for changes to help you if you’re disabled - Citizens Advice"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/asking-your-employer-for-changes-to-help-if-youre-disabled/",
+          "sourceTitle": "Asking your employer for changes to help you if you’re disabled - Citizens Advice"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/asking-your-employer-for-changes-to-help-if-youre-disabled/",
+          "sourceTitle": "Asking your employer for changes to help you if you’re disabled - Citizens Advice"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/asking-your-employer-for-changes-to-help-if-youre-disabled/",
+          "sourceTitle": "Asking your employer for changes to help you if you’re disabled - Citizens Advice"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/discrimination-at-work/dealing-with-discrimination-at-work/taking-action-work-discrimination/asking-your-employer-for-changes-to-help-if-youre-disabled/",
+          "sourceTitle": "Asking your employer for changes to help you if you’re disabled - Citizens Advice"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:35.035Z"
+    },
+    {
+      "id": "pathway-tribunal-acas",
+      "kind": "pathway",
+      "title": "ACAS / employment tribunal",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-tribunal"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+      "sourceIds": [
+        "work-attending-your-employment-tribunal-hearing",
+        "work-before-you-go-to-the-tribunal",
+        "work-challenging-an-employment-tribunal-decision",
+        "work-check-what-compensation-you-can-get-for-unfair-dismissal",
+        "work-check-what-happens-if-you-win-your-employment-tribunal-case",
+        "work-check-what-it-might-cost-to-make-an-employment-tribunal-claim",
+        "work-check-what-you-can-get-from-an-employment-tribunal",
+        "employment-employment-tribunals-after-you-start-your-employment-tribunal-claim",
+        "employment-employment-tribunals-you-can-start-case-employment-tribunal",
+        "employment-employment-tribunals-can-i-go-employment-tribunal"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/before-you-go-to-the-tribunal/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/challenging-an-employment-tribunal-decision/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/before-you-go-to-the-tribunal/check-what-compensation-you-can-get-for-unfair-dismissal/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/check-what-happens-if-you-win-your-employment-tribunal-case/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/before-you-go-to-the-tribunal/check-what-it-might-cost-to-make-an-employment-tribunal-claim/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/before-you-go-to-the-tribunal/check-what-you-can-get-from-an-employment-tribunal/",
+        "https://www.advicenow.org.uk/get-help/employment/employment-tribunals/after-you-start-your-employment-tribunal-claim",
+        "https://www.advicenow.org.uk/get-help/employment/employment-tribunals/you-can-start-case-employment-tribunal",
+        "https://www.advicenow.org.uk/get-help/employment/employment-tribunals/can-i-go-employment-tribunal"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Early conciliation and tribunal claim pathways.",
+      "path": "pathways/pathway-tribunal-acas.md",
+      "keywords": [
+        "acas",
+        "employment",
+        "tribunal",
+        "emp-tribunal",
+        "work",
+        "attending",
+        "your",
+        "work",
+        "before",
+        "you",
+        "work",
+        "challenging",
+        "employment",
+        "work",
+        "check",
+        "what",
+        "work",
+        "check",
+        "what",
+        "work",
+        "check",
+        "what"
+      ],
+      "authority": "secondary",
+      "linkedTopicIds": [
+        "topic-employment",
+        "topic-employment-law",
+        "topic-work",
+        "topic-work-and-employment"
+      ],
+      "oslawRightsOverview": "Open UK guidance for this area describes common rights and remedies. What applies depends on your contract, timing, and whether you dealt with a business or private individual. Use the linked official pages to check specifics.",
+      "oslawRightsBullets": [
+        {
+          "text": "Start with the primary linked open source for this pathway.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+          "sourceTitle": "Attending your employment tribunal hearing - Citizens Advice"
+        },
+        {
+          "text": "Keep evidence: contracts, receipts, photos, and messages.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+          "sourceTitle": "Attending your employment tribunal hearing - Citizens Advice"
+        },
+        {
+          "text": "Put complaints in writing with a clear deadline before escalating.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+          "sourceTitle": "Attending your employment tribunal hearing - Citizens Advice"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+          "sourceTitle": "Attending your employment tribunal hearing - Citizens Advice"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+          "sourceTitle": "Attending your employment tribunal hearing - Citizens Advice"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+          "sourceTitle": "Attending your employment tribunal hearing - Citizens Advice"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/the-tribunal-hearing/attending-your-employment-tribunal-hearing/",
+          "sourceTitle": "Attending your employment tribunal hearing - Citizens Advice"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:35.040Z"
+    },
+    {
+      "id": "entity-acas",
+      "kind": "entity",
+      "title": "ACAS early conciliation",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-tribunal"
+      ],
+      "primaryUrl": "https://www.acas.org.uk/guide-print/360",
+      "sourceIds": [
+        "guide-print-360",
+        "guide-print-602",
+        "page-print-360",
+        "page-print-39",
+        "page-print-602",
+        "page-print-608",
+        "48-hour-opt-out-agreement-template",
+        "a-new-acas-code-of-practice-on-disciplinary-and-grievance-procedures"
+      ],
+      "sourceUrls": [
+        "https://www.acas.org.uk/guide-print/360",
+        "https://www.acas.org.uk/guide-print/602",
+        "https://www.acas.org.uk/page-print/360",
+        "https://www.acas.org.uk/page-print/39",
+        "https://www.acas.org.uk/page-print/602",
+        "https://www.acas.org.uk/page-print/608",
+        "https://www.acas.org.uk/48-hour-opt-out-agreement-template",
+        "https://www.acas.org.uk/a-new-acas-code-of-practice-on-disciplinary-and-grievance-procedures"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "ACAS early conciliation — 8 linked sources.",
+      "path": "entities/entity-acas.md",
+      "keywords": [
+        "acas",
+        "emp-tribunal"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "entity-unfair-dismissal",
+      "kind": "entity",
+      "title": "Unfair dismissal",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-unfair"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/before-you-go-to-the-tribunal/check-what-compensation-you-can-get-for-unfair-dismissal/",
+      "sourceIds": [
+        "work-check-what-compensation-you-can-get-for-unfair-dismissal",
+        "Check what compensation you can get for unfair dismissal"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/before-you-go-to-the-tribunal/check-what-compensation-you-can-get-for-unfair-dismissal/",
+        "https://www.citizensadvice.org.uk/work/employment-tribunal/employment-tribunals/before-you-go-to-the-tribunal/check-what-compensation-you-can-get-for-unfair-dismissal/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Unfair dismissal — 2 linked sources.",
+      "path": "entities/entity-unfair-dismissal.md",
+      "keywords": [
+        "unfair",
+        "dismissal",
+        "emp-unfair"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "index-employment",
+      "kind": "index",
+      "title": "Employment wiki index",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "emp-unfair",
+        "emp-wages",
+        "emp-discrim",
+        "emp-tribunal"
+      ],
+      "primaryUrl": "",
+      "sourceIds": [],
+      "sourceUrls": [],
+      "contradictions": [],
+      "snippet": "Compiled Employment wiki from Legal Knowledge catalogues.",
+      "path": "_index.md",
+      "keywords": [
+        "employment",
+        "employment"
+      ],
+      "authority": "primary"
+    }
+  ]
+}

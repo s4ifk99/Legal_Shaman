@@ -5,6 +5,7 @@
   "scripts": {
     "build": "prisma generate && next build --webpack",
     "dev": "next dev",
+    "dev:idle-check": "bash scripts/next-dev-idle-watchdog.sh",
     "lint": "eslint .",
     "start": "next start",
     "postinstall": "prisma generate",
@@ -17,6 +18,7 @@
     "db:seed": "tsx prisma/seed.ts",
     "embed:dump": "tsx scripts/dump-merged-listings.ts",
     "test:search-golden": "tsx scripts/search-golden-check.ts",
+    "matter:eval": "tsx scripts/matter-eval.ts",
     "search:eval": "tsx scripts/search-eval.ts && tsx scripts/search-eval-journeys.ts",
     "search:eval:rag": "tsx scripts/search-eval-rag.ts",
     "search:eval:journeys": "tsx scripts/search-eval-journeys.ts",
@@ -102,6 +104,7 @@
     "parity:reddit:strict": "tsx scripts/reddit-local-prod-parity.ts --limit=100 --min=0.9",
     "eval:cursor-style": "tsx scripts/cursor-style-eval.ts",
     "eval:cursor-style:strict": "tsx scripts/cursor-style-eval.ts --min=0.65",
+    "eval:satnav-routes": "tsx scripts/satnav-route-eval.ts",
     "legal-search:smoke:long": "tsx scripts/legal-search-smoke-long.ts --local",
     "ops:serper-ping": "tsx scripts/ops-serper-ping.ts",
     "jobs:daily": "tsx scripts/jobs-daily.ts",

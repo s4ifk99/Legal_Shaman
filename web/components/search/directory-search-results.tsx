@@ -11,6 +11,7 @@ import { BookmarkButton } from "@/components/bookmarks/bookmark-button";
 import { bookmarkMetaFromLegacyRow } from "@/lib/bookmarks/types";
 import { ResultDebugSection } from "@/components/search/result-debug-section";
 import { ExternalFallbackSection } from "@/components/triage/external-fallback-section";
+import { SraAttribution } from "@/components/sra-attribution";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 import type { MapMarker } from "@/lib/search/map-results";
 import {
@@ -185,6 +186,7 @@ export function DirectorySearchResults({
           );
         })}
       </ul>
+      {rows.length > 0 ? <SraAttribution className="mt-6 text-xs leading-relaxed text-muted-foreground" /> : null}
       {externalFallback?.triggered ? (
         <div className="mt-8">
           <ExternalFallbackSection payload={externalFallback} />

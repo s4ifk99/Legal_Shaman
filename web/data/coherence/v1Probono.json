@@ -1,0 +1,219 @@
+{
+  "meta": {
+    "importedAt": "2026-08-01T21:30:07.798Z",
+    "count": 10
+  },
+  "sources": [
+    {
+      "id": "lc-hackney",
+      "entityType": "law_centre",
+      "title": "Hackney Community Law Centre",
+      "description": "Free legal advice on housing, employment, immigration, and welfare benefits for people living in Hackney.",
+      "practiceAreas": [
+        "Housing",
+        "Employment",
+        "Immigration",
+        "Welfare benefits"
+      ],
+      "eligibility": "Residents of Hackney; means-tested for some services",
+      "city": "London",
+      "postcode": "E8 1DY",
+      "address": "195 Mare Street, London",
+      "website": "https://www.hclc.org.uk",
+      "phone": "020 8525 4800",
+      "openingHours": "Mon–Fri 9:30–17:00",
+      "referralRequired": false,
+      "sourceUrl": "https://www.hclc.org.uk",
+      "lastVerifiedAt": "2026-05-01"
+    },
+    {
+      "id": "lc-southwark",
+      "entityType": "law_centre",
+      "title": "Southwark Law Centre",
+      "description": "Not-for-profit law centre providing free legal help on housing, employment, and immigration.",
+      "practiceAreas": [
+        "Housing",
+        "Employment",
+        "Immigration"
+      ],
+      "eligibility": "Southwark residents; priority for those on low income",
+      "city": "London",
+      "postcode": "SE1 4YB",
+      "address": "",
+      "website": "https://www.southwarklawcentre.org.uk",
+      "phone": "020 7740 8000",
+      "openingHours": "",
+      "referralRequired": false,
+      "sourceUrl": "https://www.southwarklawcentre.org.uk",
+      "lastVerifiedAt": "2026-05-01"
+    },
+    {
+      "id": "pb-advicenow",
+      "entityType": "advice_charity",
+      "title": "Advicenow",
+      "description": "Charity providing accessible guides and signposting on common legal problems including benefits, housing, and employment.",
+      "practiceAreas": [
+        "Welfare benefits",
+        "Housing",
+        "Employment",
+        "Family"
+      ],
+      "eligibility": "Open to the public online",
+      "city": "London",
+      "postcode": "",
+      "address": "",
+      "website": "https://www.advicenow.org.uk",
+      "phone": "",
+      "openingHours": "",
+      "referralRequired": false,
+      "sourceUrl": "https://www.advicenow.org.uk",
+      "lastVerifiedAt": "2026-05-01"
+    },
+    {
+      "id": "pb-prisoners-advice",
+      "entityType": "advice_charity",
+      "title": "Prisoners' Advice Service",
+      "description": "Independent charity offering free legal advice and support to prisoners on prison law matters.",
+      "practiceAreas": [
+        "Prison Law",
+        "Human Rights",
+        "Parole"
+      ],
+      "eligibility": "People in prison or affected by prison law",
+      "city": "London",
+      "postcode": "EC1V 7DD",
+      "address": "",
+      "website": "https://www.prisonersadvice.org.uk",
+      "phone": "020 7253 3323",
+      "openingHours": "",
+      "referralRequired": false,
+      "sourceUrl": "https://www.prisonersadvice.org.uk",
+      "lastVerifiedAt": "2026-05-01"
+    },
+    {
+      "id": "pb-frc",
+      "entityType": "pro_bono_organisation",
+      "title": "Family Rights Group",
+      "description": "Charity advising parents and family members involved with children's services or care proceedings.",
+      "practiceAreas": [
+        "Family",
+        "Child protection",
+        "Community care"
+      ],
+      "eligibility": "Parents and kinship carers",
+      "city": "London",
+      "postcode": "",
+      "address": "",
+      "website": "https://frg.org.uk",
+      "phone": "0808 801 0366",
+      "openingHours": "",
+      "referralRequired": false,
+      "sourceUrl": "https://frg.org.uk",
+      "lastVerifiedAt": "2026-05-01"
+    },
+    {
+      "id": "clinic-kcl",
+      "entityType": "university_law_clinic",
+      "title": "King's Legal Clinic",
+      "description": "University law clinic offering supervised free legal advice on employment, housing, and small business matters.",
+      "practiceAreas": [
+        "Employment",
+        "Housing",
+        "Commercial"
+      ],
+      "eligibility": "Means-tested; limited places",
+      "city": "London",
+      "postcode": "WC2R 2LS",
+      "address": "",
+      "website": "https://www.kcl.ac.uk/legal-clinic",
+      "phone": "",
+      "openingHours": "",
+      "referralRequired": true,
+      "sourceUrl": "https://www.kcl.ac.uk/legal-clinic",
+      "lastVerifiedAt": "2026-05-01"
+    },
+    {
+      "id": "clinic-manchester",
+      "entityType": "university_law_clinic",
+      "title": "University of Manchester Legal Advice Centre",
+      "description": "Free legal advice clinic for employment, family, and housing issues under professional supervision.",
+      "practiceAreas": [
+        "Employment",
+        "Family",
+        "Housing"
+      ],
+      "eligibility": "Greater Manchester; means-tested",
+      "city": "Manchester",
+      "postcode": "M13 9PL",
+      "address": "",
+      "website": "https://www.law.manchester.ac.uk",
+      "phone": "",
+      "openingHours": "",
+      "referralRequired": true,
+      "sourceUrl": "https://www.law.manchester.ac.uk",
+      "lastVerifiedAt": "2026-05-01"
+    },
+    {
+      "id": "pb-shelter",
+      "entityType": "advice_charity",
+      "title": "Shelter Housing Advice",
+      "description": "National housing charity providing advice on homelessness, eviction, and disrepair.",
+      "practiceAreas": [
+        "Housing",
+        "Homelessness"
+      ],
+      "eligibility": "Open to anyone with a housing problem in England",
+      "city": "London",
+      "postcode": "",
+      "address": "",
+      "website": "https://www.shelter.org.uk",
+      "phone": "0808 800 4444",
+      "openingHours": "",
+      "referralRequired": false,
+      "sourceUrl": "https://www.shelter.org.uk",
+      "lastVerifiedAt": "2026-05-01"
+    },
+    {
+      "id": "pb-mind",
+      "entityType": "advice_charity",
+      "title": "Mind Legal Line (signposting)",
+      "description": "Mental health charity signposting to legal support on detention, community care, and discrimination.",
+      "practiceAreas": [
+        "Mental Health",
+        "Community care",
+        "Discrimination"
+      ],
+      "eligibility": "Anyone affected by mental health issues",
+      "city": "",
+      "postcode": "",
+      "address": "",
+      "website": "https://www.mind.org.uk",
+      "phone": "0300 123 3393",
+      "openingHours": "",
+      "referralRequired": false,
+      "sourceUrl": "https://www.mind.org.uk",
+      "lastVerifiedAt": "2026-05-01"
+    },
+    {
+      "id": "lc-manchester",
+      "entityType": "law_centre",
+      "title": "Greater Manchester Law Centre",
+      "description": "Law centre providing free legal advice on immigration, housing, and employment.",
+      "practiceAreas": [
+        "Immigration",
+        "Housing",
+        "Employment"
+      ],
+      "eligibility": "Greater Manchester; low income",
+      "city": "Manchester",
+      "postcode": "M1 3BN",
+      "address": "",
+      "website": "https://www.gmlaw.org.uk",
+      "phone": "0161 234 9977",
+      "openingHours": "",
+      "referralRequired": false,
+      "sourceUrl": "https://www.gmlaw.org.uk",
+      "lastVerifiedAt": "2026-05-01"
+    }
+  ]
+}

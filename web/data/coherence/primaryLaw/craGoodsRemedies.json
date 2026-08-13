@@ -1,0 +1,96 @@
+{
+  "id": "cra-goods-remedies",
+  "title": "Consumer Rights Act 2015 — goods remedies spine",
+  "note": "Canonical SoR is legal_shaman/data/primary-law/cra-goods-remedies.json — this file is a fallback mirror for offline/dev.",
+  "sourceOfTruth": "/home/pravda/Projects/legal_shaman/data/primary-law/cra-goods-remedies.json",
+  "actUrl": "https://www.legislation.gov.uk/ukpga/2015/15",
+  "sections": [
+    {
+      "id": "s9",
+      "label": "CRA s.9 — satisfactory quality",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/section/9",
+      "raw": "raw/legislation-govuk/consumer-rights-act-2015/section-9.md",
+      "summary": "Goods supplied by a trader must be of satisfactory quality."
+    },
+    {
+      "id": "s10",
+      "label": "CRA s.10 — fitness for particular purpose",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/section/10",
+      "raw": "raw/legislation-govuk/consumer-rights-act-2015/section-10.md",
+      "summary": "Goods must be fit for a particular purpose made known to the trader."
+    },
+    {
+      "id": "s11",
+      "label": "CRA s.11 — as described",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/section/11",
+      "raw": "raw/legislation-govuk/consumer-rights-act-2015/section-11.md",
+      "summary": "Goods must match their description."
+    },
+    {
+      "id": "s19",
+      "label": "CRA s.19 — rights to enforce terms about goods",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/section/19",
+      "raw": "raw/legislation-govuk/consumer-rights-act-2015/section-19.md",
+      "summary": "Sets out short-term reject, repair/replacement, and price reduction / final reject. Within 6 months of delivery, a lack of conformity is generally treated as present on delivery unless the trader proves otherwise.",
+      "mustCiteSubsections": ["s.19(14)"]
+    },
+    {
+      "id": "s20",
+      "label": "CRA s.20 — right to reject",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/section/20",
+      "raw": "raw/legislation-govuk/consumer-rights-act-2015/section-20.md",
+      "summary": "Right to reject non-conforming goods and treat the contract as at an end (subject to the Act)."
+    },
+    {
+      "id": "s21",
+      "label": "CRA s.21 — partial rejection",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/section/21",
+      "raw": "raw/legislation-govuk/consumer-rights-act-2015/section-21.md",
+      "summary": "Rules on rejecting some goods while keeping others where goods were supplied together."
+    },
+    {
+      "id": "s22",
+      "label": "CRA s.22 — short-term right to reject (30 days)",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/section/22",
+      "raw": "raw/legislation-govuk/consumer-rights-act-2015/section-22.md",
+      "summary": "Short-term reject time limit is usually 30 days from delivery. Asking for repair/replacement can pause that clock while you wait."
+    },
+    {
+      "id": "s23",
+      "label": "CRA s.23 — repair or replacement",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/section/23",
+      "raw": "raw/legislation-govuk/consumer-rights-act-2015/section-23.md",
+      "summary": "Consumer may require repair or replacement within a reasonable time and without significant inconvenience; trader bears necessary costs."
+    },
+    {
+      "id": "s24",
+      "label": "CRA s.24 — price reduction or final right to reject",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/section/24",
+      "raw": "raw/legislation-govuk/consumer-rights-act-2015/section-24.md",
+      "summary": "After one failed repair/replacement (or repair not done in time), consumer may choose price reduction or final reject. Use deduction may apply on final reject; for motor vehicles the usual first-6-months bar on use deduction does not apply (s.24(10)).",
+      "mustCiteSubsections": ["s.24(5)", "s.24(6)", "s.24(7)", "s.24(10)"]
+    }
+  ],
+  "remedyPage": {
+    "title": "Rejecting a faulty used car",
+    "wikiPath": "Areas/Consumer Rights/Faulty Goods and Services/Rejecting a faulty used car.md",
+    "referencePath": "Reference/Regulations/Consumer Rights Act 2015 — repair and reject.md"
+  },
+  "trustedGuidance": [
+    {
+      "title": "Citizens Advice — Buying a used car",
+      "url": "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+      "role": "trusted-guidance"
+    },
+    {
+      "title": "Citizens Advice — problem with a used car",
+      "url": "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/problems-with-a-used-car/",
+      "role": "trusted-guidance"
+    },
+    {
+      "title": "The Motor Ombudsman — Consumer Rights Act",
+      "url": "https://www.themotorombudsman.org/knowledge/what-is-the-consumer-rights-act/",
+      "role": "trusted-guidance"
+    }
+  ]
+}

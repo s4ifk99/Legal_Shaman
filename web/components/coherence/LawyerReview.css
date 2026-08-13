@@ -1,0 +1,207 @@
+.review {
+  margin: 0 0 1.5rem;
+  padding: 1rem 0 0.25rem;
+  border-top: 1.5px solid var(--ink);
+}
+
+.review__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.review__title {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.review__lead {
+  margin: 0;
+  max-width: 28rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--ink-faint);
+}
+
+.review__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.1rem;
+  margin: 0;
+}
+
+.review__stats div {
+  min-width: 4.5rem;
+}
+
+.review__stats dt {
+  margin: 0;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.review__stats dd {
+  margin: 0.15rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.review__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.review__row {
+  padding: 0.65rem 0 0.75rem;
+  border-bottom: 1px solid var(--ink-muted);
+}
+
+.review__row--rejected {
+  opacity: 0.72;
+}
+
+.review__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.review__kind {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.review__mark {
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.review__mark--pending {
+  color: var(--ink-faint);
+}
+
+.review__mark--accepted {
+  color: var(--ink);
+}
+
+.review__mark--edited {
+  color: var(--ink);
+}
+
+.review__mark--rejected {
+  text-decoration: line-through;
+}
+
+.review__value {
+  margin: 0 0 0.55rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.review__struck {
+  display: block;
+  text-decoration: line-through;
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+  margin-bottom: 0.2rem;
+}
+
+.review__final {
+  display: block;
+}
+
+.review__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.review__btn {
+  appearance: none;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.65rem;
+  cursor: pointer;
+}
+
+.review__btn:hover,
+.review__btn--active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.review__btn--solid {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.review__btn--solid:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.review__edit {
+  margin-bottom: 0.55rem;
+}
+
+.review__textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 0.55rem 0.65rem;
+  resize: vertical;
+  margin-bottom: 0.45rem;
+}
+
+.review__edit-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.review__secondary {
+  margin-top: 1rem;
+}
+
+.review__toggle {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}

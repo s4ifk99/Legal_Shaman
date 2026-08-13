@@ -1,0 +1,21 @@
+{
+  "importedAt": "2026-08-01T21:30:07.799Z",
+  "v1Root": "/home/pravda_leno/V1Legal_Shaman",
+  "wikiSourceIndexedAt": "2026-07-20T10:19:12.398Z",
+  "counts": {
+    "immigrationWikiPages": 152,
+    "gettingHelpPages": 47,
+    "legalAidImmigration": 167,
+    "signpostSections": 16,
+    "signpostResources": 149,
+    "probono": 10,
+    "directories": 7
+  },
+  "files": [
+    "v1WikiKnowledge.json",
+    "v1LegalAidImmigration.json",
+    "v1Signposting.json",
+    "v1Probono.json",
+    "v1Directories.json"
+  ]
+}

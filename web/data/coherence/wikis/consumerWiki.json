@@ -1,0 +1,1053 @@
+{
+  "collection": "Consumer rights",
+  "pattern": "llm-wiki-domain",
+  "trialDomain": "consumer",
+  "domainId": "consumer",
+  "wikiRoot": "wiki/domains/consumer",
+  "compiledAt": "2026-08-05T08:39:35.782Z",
+  "articleCount": 300,
+  "pageCount": 15,
+  "pages": [
+    {
+      "id": "tool-cab-used-car-decision-tree",
+      "kind": "tool",
+      "title": "Citizens Advice: Problem with a used car (decision tree)",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://www.citizensadvice.org.uk/decision-trees/problem-with-a-used-car/",
+      "sourceIds": [],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/decision-trees/problem-with-a-used-car/"
+      ],
+      "contradictions": [],
+      "snippet": "Interactive open tool — starts with where you bought the car (trader or private seller) and branches to the remedies that usually apply.",
+      "path": "tools/tool-cab-used-car-decision-tree.md",
+      "keywords": [
+        "car",
+        "vehicle",
+        "dealer",
+        "used car",
+        "decision tree",
+        "decision tree",
+        "interactive",
+        "Citizens Advice"
+      ],
+      "authority": "secondary",
+      "toolMeta": {
+        "url": "https://www.citizensadvice.org.uk/decision-trees/problem-with-a-used-car/",
+        "detail": "Interactive open tool — starts with where you bought the car (trader or private seller) and branches to the remedies that usually apply.",
+        "when": "\\bcar\\b|vehicle|dealer|garage|mot\\b|battery|fault codes?|used car|motor",
+        "provider": "Citizens Advice",
+        "pathwayIds": [
+          "pathway-faulty-goods"
+        ]
+      }
+    },
+    {
+      "id": "topic-airline-refund",
+      "kind": "topic",
+      "title": "Airline Refund",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-refund"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/flight-refund/4-ways-to-escalate-your-refund-on-aer-lingus-flights-during-covid",
+      "sourceIds": [
+        "airline-refund-4-ways-to-escalate-your-refund-on-aer-lingus-flights-during-covid",
+        "airline-refund-4-ways-to-escalate-your-refund-on-easyjet-flights-during-covid",
+        "airline-refund-4-ways-to-escalate-your-refund-on-lufthansa-flights-during-covid",
+        "airline-refund-4-ways-to-escalate-your-refund-on-ryanair-flights-during-covid",
+        "airline-refund-4-ways-to-get-a-cancelled-flight-refund-from-air-india-during-covid",
+        "airline-refund-4-ways-to-get-a-cancelled-flight-refund-from-klm-during-coronavirus",
+        "airline-refund-4-ways-to-get-a-refund-on-cancelled-vueling-flights-during-covid",
+        "airline-refund-4-ways-to-get-a-refund-on-cancelled-wizz-air-flights-during-covid",
+        "airline-refund-best-way-to-get-a-cancelled-flight-refund-from-air-france-during-covid",
+        "airline-refund-best-way-to-get-a-cancelled-flight-refund-from-jet2-during-covid",
+        "airline-refund-best-way-to-get-a-cancelled-flight-refund-from-tui-during-covid",
+        "airline-refund-get-a-cancelled-flight-refund-from-american-airlines-during-covid"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/4-ways-to-escalate-your-refund-on-aer-lingus-flights-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/4-ways-to-escalate-your-refund-on-easyjet-flights-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/4-ways-to-escalate-your-refund-on-lufthansa-flights-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/4-ways-to-escalate-your-refund-on-ryanair-flights-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/4-ways-to-get-a-cancelled-flight-refund-from-air-india-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/4-ways-to-get-a-cancelled-flight-refund-from-klm-during-coronavirus",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/4-ways-to-get-a-refund-on-cancelled-vueling-flights-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/4-ways-to-get-a-refund-on-cancelled-wizz-air-flights-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/best-way-to-get-a-cancelled-flight-refund-from-air-france-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/best-way-to-get-a-cancelled-flight-refund-from-jet2-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/best-way-to-get-a-cancelled-flight-refund-from-tui-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/flight-refund/get-a-cancelled-flight-refund-from-american-airlines-during-covid"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "23 sources on Airline Refund (Consumer rights).",
+      "path": "topics/topic-airline-refund.md",
+      "keywords": [
+        "airline",
+        "refund",
+        "airline",
+        "refund",
+        "ways",
+        "escalate",
+        "airline",
+        "refund",
+        "ways",
+        "escalate",
+        "airline",
+        "refund",
+        "ways",
+        "escalate",
+        "airline",
+        "refund",
+        "ways",
+        "escalate",
+        "airline",
+        "refund",
+        "ways",
+        "get",
+        "airline",
+        "refund",
+        "ways",
+        "get",
+        "airline",
+        "refund",
+        "ways",
+        "get",
+        "airline",
+        "refund",
+        "ways",
+        "get"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-consumer",
+      "kind": "topic",
+      "title": "consumer",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-refund",
+        "cons-faulty",
+        "cons-trader"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/consumer/energy/energy-supply/get-a-better-energy-deal/compare-domestic-energy-suppliers-customer-service/100green/details",
+      "sourceIds": [
+        "consumer-energy-energy-supply-get-a-better-energy-deal-compare-domestic-energy-suppliers-customer-service-100green-details",
+        "consumer-accidents-and-illness-when-travelling-independently",
+        "consumer-an-insurer-approaches-you-to-settle-a-claim",
+        "consumer-backdated-water-bills",
+        "consumer-before-you-get-work-done-on-your-home",
+        "consumer-energy-energy-supply-get-a-better-energy-deal-compare-domestic-energy-suppliers-customer-service-british-gas-details",
+        "consumer-buildings-insurance",
+        "consumer-buying-a-more-energy-efficient-appliance",
+        "consumer-buying-a-used-car",
+        "consumer-buying-event-tickets-safely-online",
+        "consumer-buying-insurance-for-your-mobile-phone",
+        "consumer-buying-or-repairing-a-car"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/consumer/energy/energy-supply/get-a-better-energy-deal/compare-domestic-energy-suppliers-customer-service/100green/details",
+        "https://www.citizensadvice.org.uk/consumer/insurance/types-of-insurance/travel-insurance1/accidents-and-illness-when-travelling-independently/",
+        "https://www.citizensadvice.org.uk/consumer/insurance/insurance-claims/an-insurer-approaches-you-to-settle-a-claim/",
+        "https://www.citizensadvice.org.uk/consumer/water/problems-with-paying-your-water-bill/backdated-water-bills/",
+        "https://www.citizensadvice.org.uk/consumer/getting-home-improvements-done/before-you-get-building-work-done/",
+        "https://www.citizensadvice.org.uk/consumer/energy/energy-supply/get-a-better-energy-deal/compare-domestic-energy-suppliers-customer-service/british-gas/details",
+        "https://www.citizensadvice.org.uk/consumer/insurance/types-of-insurance/buildings-insurance/",
+        "https://www.citizensadvice.org.uk/consumer/energy/energy-supply/save-energy-at-home/buying-a-more-energy-efficient-appliance/",
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+        "https://www.citizensadvice.org.uk/consumer/event-tickets/buying-event-tickets-safely-online/",
+        "https://www.citizensadvice.org.uk/consumer/insurance/types-of-insurance/buying-insurance-for-your-mobile-phone/",
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/"
+      ],
+      "contradictions": [
+        "Eligibility wording differs across linked sources — verify on primary official pages.",
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "183 sources on consumer (Consumer rights).",
+      "path": "topics/topic-consumer.md",
+      "keywords": [
+        "consumer",
+        "consumer",
+        "energy",
+        "supply",
+        "get",
+        "consumer",
+        "accidents",
+        "and",
+        "illness",
+        "consumer",
+        "insurer",
+        "approaches",
+        "you",
+        "consumer",
+        "backdated",
+        "water",
+        "bills",
+        "consumer",
+        "before",
+        "you",
+        "get",
+        "consumer",
+        "energy",
+        "supply",
+        "get",
+        "consumer",
+        "buildings",
+        "insurance",
+        "citizens",
+        "consumer",
+        "buying",
+        "more",
+        "energy"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-consumer-rights",
+      "kind": "topic",
+      "title": "Consumer Rights",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-refund",
+        "cons-faulty",
+        "cons-trader"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/consumer/insurance/types-of-insurance/travel-insurance1/accidents-and-illness-when-travelling-independently/",
+      "sourceIds": [
+        "Accidents and illness when travelling independently",
+        "After leaving your job",
+        "Buying a used car",
+        "Buying event tickets safely online",
+        "Buying or repairing a car",
+        "Cancel a phone or TV contract",
+        "Cancel something you bought on hire purchase",
+        "Cancelling a package holiday",
+        "Cancelling a service you’ve arranged",
+        "Cancelling an insurance policy",
+        "Car finance claims what to do if you bought a car on finance",
+        "Check if something might be a scam"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/consumer/insurance/types-of-insurance/travel-insurance1/accidents-and-illness-when-travelling-independently/",
+        "https://www.citizensadvice.org.uk/work/after-leaving-your-job/getting-a-job-reference/",
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+        "https://www.citizensadvice.org.uk/consumer/event-tickets/buying-event-tickets-safely-online/",
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+        "https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/cancelling-a-phone-tv-internet-or-mobile-contract/",
+        "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+        "https://www.citizensadvice.org.uk/consumer/holiday-cancellations-and-compensation/cancelling-a-package-holiday/",
+        "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancelling-a-service-youve-arranged/",
+        "https://www.citizensadvice.org.uk/consumer/insurance/cancelling-an-insurance-policy/",
+        "https://www.citizensadvice.org.uk/debt-and-money/car-finance-claims-what-to-do-if-you-bought-a-car-on-finance/",
+        "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/"
+      ],
+      "contradictions": [
+        "Pathway/topic cites only wiki-guides — prefer GOV.UK / CAB / AdviceNow as primary.",
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "50 sources on Consumer Rights (Consumer rights).",
+      "path": "topics/topic-consumer-rights.md",
+      "keywords": [
+        "consumer",
+        "rights",
+        "Accidents and illness when travelling independently",
+        "accidents",
+        "and",
+        "illness",
+        "After leaving your job",
+        "after",
+        "leaving",
+        "your",
+        "Buying a used car",
+        "buying",
+        "used",
+        "car",
+        "Buying event tickets safely online",
+        "buying",
+        "event",
+        "tickets",
+        "Buying or repairing a car",
+        "buying",
+        "repairing",
+        "car",
+        "Cancel a phone or TV contract",
+        "cancel",
+        "phone",
+        "contract",
+        "Cancel something you bought on hire purchase",
+        "cancel",
+        "something",
+        "you",
+        "Cancelling a package holiday",
+        "cancelling",
+        "package",
+        "holiday"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-insights",
+      "kind": "topic",
+      "title": "Insights",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-faulty"
+      ],
+      "primaryUrl": "https://www.taylor-rose.co.uk/posts/breach-of-warranty",
+      "sourceIds": [
+        "insights-breach-of-warranty-claims-after-business-sale",
+        "insights-can-liability-for-professional-negligence-be-limited-or-excluded-contractually"
+      ],
+      "sourceUrls": [
+        "https://www.taylor-rose.co.uk/posts/breach-of-warranty",
+        "https://www.taylor-rose.co.uk/posts/can-professional-negligence-be-contractually-excluded-or-limited"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "2 sources on Insights (Consumer rights).",
+      "path": "topics/topic-insights.md",
+      "keywords": [
+        "insights",
+        "insights",
+        "breach",
+        "warranty",
+        "claims",
+        "insights",
+        "can",
+        "liability",
+        "for"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-letter-to-complain-about-faulty-goods-bought-from-a-company",
+      "kind": "topic",
+      "title": "Letter to complain about faulty goods bought from a company",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-faulty"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/consumer/template-letters/letters/consumer-template-letters/letter-to-complain-about-faulty-goods/letter-to-complain-about-faulty-goods-bought-before-1-october-2015/",
+      "sourceIds": [
+        "consumer-letter-to-complain-about-faulty-goods-bought-from-a-company-before-1-october-201"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/consumer/template-letters/letters/consumer-template-letters/letter-to-complain-about-faulty-goods/letter-to-complain-about-faulty-goods-bought-before-1-october-2015/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "1 sources on Letter to complain about faulty goods bought from a company (Consumer rights).",
+      "path": "topics/topic-letter-to-complain-about-faulty-goods-bought-from-a-company.md",
+      "keywords": [
+        "letter",
+        "complain",
+        "about",
+        "faulty",
+        "goods",
+        "bought",
+        "from",
+        "company",
+        "consumer",
+        "letter",
+        "complain",
+        "about"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-letter-to-complain-to-a-trader-about-poor-quality-work",
+      "kind": "topic",
+      "title": "Letter to complain to a trader about poor quality work",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-trader"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/consumer/template-letters/letters/problems-with-services/letter-to-complain-to-a-trader-about-poor-quality-work/letter-to-complain-to-a-trader-about-poor-quality-work-agreed-before-1-october-2015/",
+      "sourceIds": [
+        "consumer-letter-to-complain-to-a-trader-about-poor-quality-work-agreed-before-1-october-2"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/consumer/template-letters/letters/problems-with-services/letter-to-complain-to-a-trader-about-poor-quality-work/letter-to-complain-to-a-trader-about-poor-quality-work-agreed-before-1-october-2015/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "1 sources on Letter to complain to a trader about poor quality work (Consumer rights).",
+      "path": "topics/topic-letter-to-complain-to-a-trader-about-poor-quality-work.md",
+      "keywords": [
+        "letter",
+        "complain",
+        "trader",
+        "about",
+        "poor",
+        "quality",
+        "work",
+        "consumer",
+        "letter",
+        "complain",
+        "trader"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "topic-litigation",
+      "kind": "topic",
+      "title": "Litigation",
+      "jurisdiction": "UK",
+      "frameIds": [],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/litigation/police-powers-of-entry",
+      "sourceIds": [
+        "litigation-police-powers-of-entry-can-they-enter-and-search-your-property-without-permissio",
+        "litigation-poor-workmanship-what-are-your-rights"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/litigation/police-powers-of-entry",
+        "https://lawhive.co.uk/knowledge-hub/litigation/poor-workmanship-and-your-rights"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "2 sources on Litigation (Consumer rights).",
+      "path": "topics/topic-litigation.md",
+      "keywords": [
+        "litigation",
+        "litigation",
+        "police",
+        "powers",
+        "entry",
+        "litigation",
+        "poor",
+        "workmanship",
+        "what"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-small-business",
+      "kind": "topic",
+      "title": "Small Business",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-faulty",
+        "cons-trader"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/small-business/can-a-sole-trader-be-vat-registered",
+      "sourceIds": [
+        "small-business-can-a-sole-trader-be-vat-registered",
+        "small-business-can-a-sole-trader-have-a-company-name",
+        "small-business-companies-limited-by-guarantee-clg-your-ultimate-guide",
+        "small-business-different-types-of-companies-in-the-uk",
+        "small-business-do-i-need-to-register-as-a-sole-trader",
+        "small-business-how-to-close-a-business-in-the-uk",
+        "small-business-how-to-open-a-limited-company-in-the-uk",
+        "small-business-how-to-register-a-business-in-the-uk-ultimate-guide",
+        "small-business-how-to-set-up-a-not-for-profit-in-the-uk",
+        "small-business-personal-guarantee-for-business-finance-everything-you-need-to-know",
+        "small-business-seven-legal-requirements-when-starting-a-business-in-the-uk"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/small-business/can-a-sole-trader-be-vat-registered",
+        "https://lawhive.co.uk/knowledge-hub/small-business/can-a-sole-trader-have-a-company-name",
+        "https://lawhive.co.uk/knowledge-hub/small-business/companies-limited-by-guarantee-clg",
+        "https://lawhive.co.uk/knowledge-hub/small-business/different-types-of-companies-in-the-uk",
+        "https://lawhive.co.uk/knowledge-hub/small-business/do-i-need-to-register-as-a-sole-trader",
+        "https://lawhive.co.uk/knowledge-hub/small-business/how-to-close-a-business-in-the-uk",
+        "https://lawhive.co.uk/knowledge-hub/small-business/how-to-open-a-limited-company-in-the-uk",
+        "https://lawhive.co.uk/knowledge-hub/small-business/how-to-register-a-business-in-the-uk",
+        "https://lawhive.co.uk/knowledge-hub/small-business/how-to-set-up-a-not-for-profit-in-the-uk",
+        "https://lawhive.co.uk/knowledge-hub/small-business/personal-guarantee-for-business-finance",
+        "https://lawhive.co.uk/knowledge-hub/small-business/legal-requirements-when-starting-a-business-uk"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "11 sources on Small Business (Consumer rights).",
+      "path": "topics/topic-small-business.md",
+      "keywords": [
+        "small",
+        "business",
+        "small",
+        "business",
+        "can",
+        "sole",
+        "small",
+        "business",
+        "can",
+        "sole",
+        "small",
+        "business",
+        "companies",
+        "limited",
+        "small",
+        "business",
+        "different",
+        "types",
+        "small",
+        "business",
+        "need",
+        "register",
+        "small",
+        "business",
+        "how",
+        "close",
+        "small",
+        "business",
+        "how",
+        "open",
+        "small",
+        "business",
+        "how",
+        "register"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "topic-travel-agent-refund",
+      "kind": "topic",
+      "title": "Travel Agent Refund",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-refund"
+      ],
+      "primaryUrl": "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/4-ways-to-get-a-cancelled-flight-refund-from-travelup-during-covid",
+      "sourceIds": [
+        "travel-agent-refund-4-ways-to-get-a-cancelled-flight-refund-from-travelup-during-covid",
+        "travel-agent-refund-4-ways-to-get-a-refund-from-love-holidays-during-covid",
+        "travel-agent-refund-best-way-to-get-a-cancelled-flight-refund-from-opodo-during-covid",
+        "travel-agent-refund-best-way-to-get-a-refund-from-first-choice-holidays-during-covid",
+        "travel-agent-refund-best-way-to-get-a-refund-from-secret-escapes-during-covid",
+        "travel-agent-refund-get-a-cancelled-flight-refund-from-hays-travel-during-covid",
+        "travel-agent-refund-get-a-cancelled-flight-refund-from-lastminute-com-during-covid",
+        "travel-agent-refund-get-a-cancelled-flight-refund-from-sykes-cottages-during-covid",
+        "travel-agent-refund-get-a-cancelled-flight-refund-from-teletext-holidays-during-covid",
+        "travel-agent-refund-get-a-cancelled-flight-refund-from-travel-trolley-during-covid",
+        "travel-agent-refund-how-to-get-a-cancelled-flight-refund-from-barrhead-travel-during-covid",
+        "travel-agent-refund-how-to-get-a-refund-from-eurotunnel-and-eurostar-during-covid"
+      ],
+      "sourceUrls": [
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/4-ways-to-get-a-cancelled-flight-refund-from-travelup-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/4-ways-to-get-a-cancelled-flight-refund-from-love-holidays-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/best-way-to-get-a-cancelled-flight-refund-from-opodo-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/best-way-to-get-a-refund-from-first-choice-holidays-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/get-a-refund-from-secret-escapes-holidays-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/best-way-to-get-a-cancelled-flight-refund-from-hays-travel-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/get-a-cancelled-flight-refund-from-lastminute-com-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/get-a-cancelled-flight-refund-from-sykes-cottages-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/get-a-cancelled-flight-refund-from-teletext-holidays-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/get-a-cancelled-flight-refund-from-travel-trolley-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/how-to-get-a-cancelled-flight-refund-from-barrhead-travel-during-covid",
+        "https://lawhive.co.uk/knowledge-hub/travel-agent-refund/how-to-get-a-refund-from-eurotunnel-and-eurostar-during-covid"
+      ],
+      "contradictions": [
+        "Pathway currently lacks a primary or secondary official cite — prefer GOV.UK / CAB."
+      ],
+      "snippet": "12 sources on Travel Agent Refund (Consumer rights).",
+      "path": "topics/topic-travel-agent-refund.md",
+      "keywords": [
+        "travel",
+        "agent",
+        "refund",
+        "travel",
+        "agent",
+        "refund",
+        "ways",
+        "travel",
+        "agent",
+        "refund",
+        "ways",
+        "travel",
+        "agent",
+        "refund",
+        "best",
+        "travel",
+        "agent",
+        "refund",
+        "best",
+        "travel",
+        "agent",
+        "refund",
+        "best",
+        "travel",
+        "agent",
+        "refund",
+        "get",
+        "travel",
+        "agent",
+        "refund",
+        "get",
+        "travel",
+        "agent",
+        "refund",
+        "get"
+      ],
+      "authority": "tertiary"
+    },
+    {
+      "id": "pathway-refund-cancel",
+      "kind": "pathway",
+      "title": "Refund / cancellation",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-refund"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+      "sourceIds": [
+        "consumer-cancel-something-you-bought-on-hire-purchase",
+        "consumer-cancelling-a-gym-membership",
+        "debt-and-money-cancelling-a-loan-or-credit-agreement",
+        "consumer-cancelling-a-package-holiday",
+        "consumer-cancelling-a-phone-tv-internet-or-mobile-contract",
+        "consumer-cancelling-a-service-you-ve-arranged",
+        "consumer-cancelling-an-insurance-policy",
+        "consumer-cancelling-building-or-decorating-work",
+        "debt-and-money-cancelling-your-debt-management-plan",
+        "consumer-claim-compensation-for-a-holiday"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+        "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancelling-a-gym-membership/",
+        "https://www.citizensadvice.org.uk/debt-and-money/borrowing-money/cancelling-a-loan-or-credit-agreement/",
+        "https://www.citizensadvice.org.uk/consumer/holiday-cancellations-and-compensation/cancelling-a-package-holiday/",
+        "https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/cancelling-a-phone-tv-internet-or-mobile-contract/",
+        "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancelling-a-service-youve-arranged/",
+        "https://www.citizensadvice.org.uk/consumer/insurance/cancelling-an-insurance-policy/",
+        "https://www.citizensadvice.org.uk/consumer/getting-home-improvements-done/cancelling-building-or-decorating-work/",
+        "https://www.citizensadvice.org.uk/debt-and-money/debt-solutions/debt-management-plans/while-a-debt-management-plan-is-in-place/cancelling-your-debt-management-plan/",
+        "https://www.citizensadvice.org.uk/consumer/holiday-cancellations-and-compensation/claim-compensation-for-a-holiday/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Getting money back or ending a consumer contract.",
+      "path": "pathways/pathway-refund-cancel.md",
+      "keywords": [
+        "refund",
+        "cancellation",
+        "cons-refund",
+        "consumer",
+        "cancel",
+        "something",
+        "consumer",
+        "cancelling",
+        "gym",
+        "debt",
+        "and",
+        "money",
+        "consumer",
+        "cancelling",
+        "package",
+        "consumer",
+        "cancelling",
+        "phone",
+        "consumer",
+        "cancelling",
+        "service"
+      ],
+      "authority": "secondary",
+      "linkedTopicIds": [
+        "topic-airline-refund",
+        "topic-consumer",
+        "topic-consumer-rights",
+        "topic-travel-agent-refund"
+      ],
+      "oslawRightsOverview": "Consumer contracts often include cooling-off periods for distance sales, and chargeback or cancellation rights may apply depending on how you paid and what you bought. Open guidance describes when you can cancel, what refunds are due, and how to escalate if a trader refuses.",
+      "oslawRightsBullets": [
+        {
+          "text": "Distance / online purchases may have a statutory cooling-off period for many goods and services.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+          "sourceTitle": "Cancel something you bought on hire purchase - Citizens Advice"
+        },
+        {
+          "text": "If a trader refuses a refund you believe you are owed, open guidance covers written complaints and ADR routes.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+          "sourceTitle": "Cancel something you bought on hire purchase - Citizens Advice"
+        },
+        {
+          "text": "Card chargebacks and Section 75 claims may be options for certain card payments — check eligibility in open sources.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+          "sourceTitle": "Cancel something you bought on hire purchase - Citizens Advice"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "cooling-off",
+          "label": "Check if a cooling-off period applies",
+          "detail": "Distance and online sales often have cancellation windows — open guidance explains exceptions.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+          "sourceTitle": "Cancel something you bought on hire purchase - Citizens Advice"
+        },
+        {
+          "id": "written",
+          "label": "Cancel or request a refund in writing",
+          "detail": "State what you bought, when, and what refund you expect. Keep proof of sending.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+          "sourceTitle": "Cancel something you bought on hire purchase - Citizens Advice"
+        },
+        {
+          "id": "chargeback",
+          "label": "If paid by card, check chargeback or Section 75 routes",
+          "detail": "Open banking guidance covers when card schemes may help recover money.",
+          "when": "card|credit|debit|chargeback|bank",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+          "sourceTitle": "Cancel something you bought on hire purchase - Citizens Advice"
+        },
+        {
+          "id": "escalate",
+          "label": "Escalate via ADR or small claims if the trader refuses",
+          "detail": "Open sources describe alternative dispute resolution and court thresholds.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+          "sourceTitle": "Cancel something you bought on hire purchase - Citizens Advice"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:35.801Z"
+    },
+    {
+      "id": "pathway-faulty-goods",
+      "kind": "pathway",
+      "title": "Faulty goods / services",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-faulty"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+      "sourceIds": [
+        "consumer-buying-a-used-car",
+        "consumer-buying-or-repairing-a-car",
+        "consumer-check-if-your-energy-meter-isn-t-working-properly",
+        "consumer-claim-using-a-warranty-or-guarantee",
+        "consumer-faulty-goods",
+        "consumer-find-an-approved-garage",
+        "consumer-get-help-with-faulty-solid-wall-insulation",
+        "consumer-getting-help-from-a-motor-trade-association",
+        "consumer-getting-your-broken-boiler-repaired-or-replaced",
+        "consumer-if-the-car-you-bought-is-still-on-hire-purchase"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/",
+        "https://www.citizensadvice.org.uk/consumer/energy/energy-supply/your-energy-meter/find-out-if-your-energy-meter-is-faulty/",
+        "https://www.citizensadvice.org.uk/consumer/somethings-gone-wrong-with-a-purchase/claim-using-a-warranty-or-guarantee/",
+        "https://www.citizensadvice.org.uk/consumer/template-letters/letters/consumer-template-letters/",
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/find-an-approved-garage/",
+        "https://www.citizensadvice.org.uk/consumer/energy/energy-supply/save-energy-at-home/get-help-with-faulty-solid-wall-insulation/",
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/motor-industry-associations/",
+        "https://www.citizensadvice.org.uk/consumer/energy/energy-supply/save-energy-at-home/getting-your-broken-boiler-repaired-or-replaced/",
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/the-car-you-bought-is-still-on-hire-purchase/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Quality, description, and fitness problems.",
+      "path": "pathways/pathway-faulty-goods.md",
+      "keywords": [
+        "faulty",
+        "goods",
+        "services",
+        "cons-faulty",
+        "consumer",
+        "buying",
+        "used",
+        "consumer",
+        "buying",
+        "repairing",
+        "consumer",
+        "check",
+        "your",
+        "consumer",
+        "claim",
+        "using",
+        "consumer",
+        "faulty",
+        "goods",
+        "consumer",
+        "find",
+        "approved"
+      ],
+      "authority": "secondary",
+      "linkedTopicIds": [
+        "topic-consumer",
+        "topic-consumer-rights",
+        "topic-insights",
+        "topic-letter-to-complain-about-faulty-goods-bought-from-a-company",
+        "topic-small-business"
+      ],
+      "oslawRightsOverview": "When you buy goods or pay for a service in the UK, consumer law usually expects them to be of satisfactory quality, as described, and fit for purpose. For used cars, open guidance distinguishes trader vs private seller routes and describes repair, rejection, and refund options. A warranty or guarantee, if offered, usually sits alongside those rights.",
+      "oslawRightsBullets": [
+        {
+          "text": "Goods and services should match what was described and be fit for their usual purpose.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+          "sourceTitle": "Buying a used car - Citizens Advice"
+        },
+        {
+          "text": "For used cars, CAB’s decision tree starts with where you bought the car (trader or private seller) — rights differ between those routes.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+          "sourceTitle": "Buying a used car - Citizens Advice"
+        },
+        {
+          "text": "You may be able to ask for repair, replacement, price reduction, or rejection/refund depending on timing and fault.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+          "sourceTitle": "Buying a used car - Citizens Advice"
+        },
+        {
+          "text": "A warranty or guarantee claim can run in parallel with statutory consumer rights.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+          "sourceTitle": "Buying a used car - Citizens Advice"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "decision-tree",
+          "label": "Run the Citizens Advice used-car decision tree",
+          "detail": "This open interactive tool asks where you bought the car (trader vs private seller) and walks you through repair, rejection, and refund options step by step.",
+          "when": "\\bcar\\b|vehicle|dealer|garage|mot\\b|battery|fault codes?|used car",
+          "toolId": "tool-cab-used-car-decision-tree"
+        },
+        {
+          "id": "evidence",
+          "label": "Gather proof of the fault and what was promised",
+          "detail": "Keep receipts or invoices, photos/videos, fault codes, and any messages where the trader or dealer said the problem was fixed.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+          "sourceTitle": "Buying a used car - Citizens Advice"
+        },
+        {
+          "id": "rights-car",
+          "label": "Read the static “Problem with a used car” rights page",
+          "detail": "Alongside the decision tree, this page summarises when you may have a right to repair, repair costs, or money back — and common exceptions.",
+          "when": "\\bcar\\b|vehicle|dealer|garage|mot\\b|battery|fault codes?",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+          "sourceTitle": "Buying a used car - Citizens Advice"
+        },
+        {
+          "id": "rights-general",
+          "label": "Check your rights when goods or services are faulty",
+          "detail": "Open guidance covers repair, replacement, and short-term rejection rights under consumer law.",
+          "when": "^(?!.*\\b(car|vehicle|dealer|garage|battery|mot)\\b)",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/somethings-gone-wrong-with-a-purchase/claim-using-a-warranty-or-guarantee/",
+          "sourceTitle": "Claim using a warranty or guarantee - Citizens Advice"
+        },
+        {
+          "id": "warranty",
+          "label": "If a warranty or guarantee was offered, follow that route too",
+          "detail": "Warranty claims sit alongside statutory rights — check deadlines, what is covered, and how to claim.",
+          "when": "warrant|guarante|rectif|replaced|repair|dealer|garage|claim",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/somethings-gone-wrong-with-a-purchase/claim-using-a-warranty-or-guarantee/",
+          "sourceTitle": "Claim using a warranty or guarantee - Citizens Advice"
+        },
+        {
+          "id": "complain",
+          "label": "Put a written complaint to the trader or dealer",
+          "detail": "Use an open template letter: state the fault, what you want (repair, replace, or refund), and a clear deadline.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/template-letters/letters/consumer-template-letters/",
+          "sourceTitle": "Faulty goods - Citizens Advice"
+        },
+        {
+          "id": "escalate",
+          "label": "If they still refuse — refund, ADR, or court pathways",
+          "detail": "Next open options are usually: formal refund/cancellation guidance, alternative dispute resolution, then small claims if needed.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+          "sourceTitle": "Buying a used car - Citizens Advice"
+        }
+      ],
+      "oslawToolIds": [
+        "tool-cab-used-car-decision-tree"
+      ],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:35.807Z"
+    },
+    {
+      "id": "pathway-trader-practices",
+      "kind": "pathway",
+      "title": "Trader / unfair practices",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-trader"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/",
+      "sourceIds": [
+        "consumer-check-if-something-might-be-a-scam",
+        "consumer-check-if-you-can-get-your-money-back-after-a-scam",
+        "consumer-find-a-trader-and-check-you-can-trust-them",
+        "consumer-get-emotional-support-if-you-ve-been-scammed",
+        "consumer-get-help-with-scams",
+        "consumer-letter-to-complain-about-energy-mis-selling",
+        "consumer-letter-to-complain-to-a-trader-about-poor-quality-work",
+        "consumer-letter-to-complain-to-a-trader-about-poor-quality-work-agreed-before-1-october-2",
+        "Check if something might be a scam",
+        "Find a trader and check you can trust them"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/",
+        "https://www.citizensadvice.org.uk/consumer/scams/check-if-you-can-get-your-money-back-after-a-scam/",
+        "https://www.citizensadvice.org.uk/consumer/get-more-help/find-a-trader-and-check-you-can-trust-them/",
+        "https://www.citizensadvice.org.uk/consumer/scams/get-help-dealing-with-the-effects-of-scams/",
+        "https://www.citizensadvice.org.uk/consumer/scams/get-help-with-online-scams/",
+        "https://www.citizensadvice.org.uk/consumer/template-letters/letters/energy-letters/letter-to-complain-about-energy-mis-selling/",
+        "https://www.citizensadvice.org.uk/consumer/template-letters/letters/problems-with-services/letter-to-complain-to-a-trader-about-poor-quality-work/",
+        "https://www.citizensadvice.org.uk/consumer/template-letters/letters/problems-with-services/letter-to-complain-to-a-trader-about-poor-quality-work/letter-to-complain-to-a-trader-about-poor-quality-work-agreed-before-1-october-2015/",
+        "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/",
+        "https://www.citizensadvice.org.uk/consumer/get-more-help/find-a-trader-and-check-you-can-trust-them/"
+      ],
+      "contradictions": [
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Mis-selling, scams, and unfair contract terms.",
+      "path": "pathways/pathway-trader-practices.md",
+      "keywords": [
+        "trader",
+        "unfair",
+        "practices",
+        "cons-trader",
+        "consumer",
+        "check",
+        "something",
+        "consumer",
+        "check",
+        "you",
+        "consumer",
+        "find",
+        "trader",
+        "consumer",
+        "get",
+        "emotional",
+        "consumer",
+        "get",
+        "help",
+        "consumer",
+        "letter",
+        "complain"
+      ],
+      "authority": "secondary",
+      "linkedTopicIds": [
+        "topic-consumer",
+        "topic-consumer-rights",
+        "topic-letter-to-complain-to-a-trader-about-poor-quality-work",
+        "topic-small-business"
+      ],
+      "oslawRightsOverview": "Mis-selling, scams, and unfair contract terms are covered by consumer protection rules and regulator guidance. Open sources describe how to complain, report traders, and challenge unfair terms.",
+      "oslawRightsBullets": [
+        {
+          "text": "Traders must not use unfair commercial practices or misleading information.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/",
+          "sourceTitle": "Check if something might be a scam - Citizens Advice"
+        },
+        {
+          "text": "Unfair contract terms may be unenforceable — open guidance explains how to challenge them.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/",
+          "sourceTitle": "Check if something might be a scam - Citizens Advice"
+        },
+        {
+          "text": "You can report scams and persistent bad practice to trading standards via open complaint routes.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/",
+          "sourceTitle": "Check if something might be a scam - Citizens Advice"
+        }
+      ],
+      "oslawSteps": [
+        {
+          "id": "orient",
+          "label": "Read the primary open guidance for this pathway",
+          "detail": "Start with the top linked official page to understand the usual rights and process.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/",
+          "sourceTitle": "Check if something might be a scam - Citizens Advice"
+        },
+        {
+          "id": "evidence",
+          "label": "Collect documents and a short timeline",
+          "detail": "Gather contracts, receipts, photos, and messages in date order.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/",
+          "sourceTitle": "Check if something might be a scam - Citizens Advice"
+        },
+        {
+          "id": "complain",
+          "label": "Put your ask in writing with a deadline",
+          "detail": "State what happened, what you want, and when you expect a response.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/",
+          "sourceTitle": "Check if something might be a scam - Citizens Advice"
+        },
+        {
+          "id": "escalate",
+          "label": "Use open escalation routes if there is no useful reply",
+          "detail": "Official guidance covers ombudsman, ADR, and court options for this area.",
+          "sourceUrl": "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/",
+          "sourceTitle": "Check if something might be a scam - Citizens Advice"
+        }
+      ],
+      "oslawToolIds": [],
+      "oslawOrigin": "rules",
+      "oslawEnrichedAt": "2026-08-05T08:39:35.812Z"
+    },
+    {
+      "id": "entity-consumer-rights-act",
+      "kind": "entity",
+      "title": "Consumer Rights Act pathways",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-faulty",
+        "cons-refund"
+      ],
+      "primaryUrl": "https://www.citizensadvice.org.uk/consumer/insurance/types-of-insurance/travel-insurance1/accidents-and-illness-when-travelling-independently/",
+      "sourceIds": [
+        "Accidents and illness when travelling independently",
+        "After leaving your job",
+        "Buying a used car",
+        "Buying event tickets safely online",
+        "Buying or repairing a car",
+        "Cancel a phone or TV contract",
+        "Cancel something you bought on hire purchase",
+        "Cancelling a package holiday"
+      ],
+      "sourceUrls": [
+        "https://www.citizensadvice.org.uk/consumer/insurance/types-of-insurance/travel-insurance1/accidents-and-illness-when-travelling-independently/",
+        "https://www.citizensadvice.org.uk/work/after-leaving-your-job/getting-a-job-reference/",
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+        "https://www.citizensadvice.org.uk/consumer/event-tickets/buying-event-tickets-safely-online/",
+        "https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/buying-a-used-car/",
+        "https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/cancelling-a-phone-tv-internet-or-mobile-contract/",
+        "https://www.citizensadvice.org.uk/consumer/changed-your-mind/cancel-something-being-paid-for-on-hire-purchase/",
+        "https://www.citizensadvice.org.uk/consumer/holiday-cancellations-and-compensation/cancelling-a-package-holiday/"
+      ],
+      "contradictions": [
+        "Pathway/topic cites only wiki-guides — prefer GOV.UK / CAB / AdviceNow as primary.",
+        "No clean primary official cite after filtering immigration/citizenship GOV.UK noise."
+      ],
+      "snippet": "Consumer Rights Act pathways — 8 linked sources.",
+      "path": "entities/entity-consumer-rights-act.md",
+      "keywords": [
+        "cra",
+        "consumer",
+        "rights",
+        "cons-faulty",
+        "cons-refund"
+      ],
+      "authority": "secondary"
+    },
+    {
+      "id": "index-consumer",
+      "kind": "index",
+      "title": "Consumer rights wiki index",
+      "jurisdiction": "UK",
+      "frameIds": [
+        "cons-refund",
+        "cons-faulty",
+        "cons-trader"
+      ],
+      "primaryUrl": "",
+      "sourceIds": [],
+      "sourceUrls": [],
+      "contradictions": [],
+      "snippet": "Compiled Consumer rights wiki from Legal Knowledge catalogues.",
+      "path": "_index.md",
+      "keywords": [
+        "consumer",
+        "consumer"
+      ],
+      "authority": "primary"
+    }
+  ]
+}

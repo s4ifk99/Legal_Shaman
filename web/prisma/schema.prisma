@@ -641,15 +641,51 @@ model SearchIndexBuild {
 
 /// Public user account (name + email) for saved firm bookmarks.
 model User {
-  id           String     @id @default(cuid())
-  name         String     @db.VarChar(255)
-  email        String     @unique @db.VarChar(255)
-  passwordHash String?    @map("password_hash") @db.VarChar(255)
-  createdAt    DateTime   @default(now()) @map("created_at") @db.Timestamptz(3)
-  updatedAt    DateTime   @updatedAt @map("updated_at") @db.Timestamptz(3)
-  bookmarks    Bookmark[]
+  id                String                    @id @default(cuid())
+  name              String                    @db.VarChar(255)
+  email             String                    @unique @db.VarChar(255)
+  passwordHash      String?                   @map("password_hash") @db.VarChar(255)
+  emailVerifiedAt   DateTime?                 @map("email_verified_at") @db.Timestamptz(3)
+  plan              String                    @default("free") @db.VarChar(32)
+  createdAt         DateTime                  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime                  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  bookmarks         Bookmark[]
+  usageEvents       UsageEvent[]
+  verificationTokens EmailVerificationToken[]
 
   @@map("users")
+}
+
+/// Single-use email verification token (hashed at rest).
+model EmailVerificationToken {
+  tokenHash String   @id @map("token_hash") @db.VarChar(128)
+  userId    String   @map("user_id")
+  expiresAt DateTime @map("expires_at") @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("email_verification_tokens")
+}
+
+/// Per-user LLM / expensive endpoint usage for quota enforcement.
+model UsageEvent {
+  id               String   @id @default(cuid())
+  userId           String   @map("user_id")
+  requestId        String?  @map("request_id") @db.VarChar(64)
+  endpoint         String   @db.VarChar(128)
+  status           String   @default("started") @db.VarChar(32)
+  llmCalls         Int      @default(0) @map("llm_calls")
+  inputTokens      Int      @default(0) @map("input_tokens")
+  outputTokens     Int      @default(0) @map("output_tokens")
+  estimatedCostUsd Float    @default(0) @map("estimated_cost_usd")
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([userId, endpoint, createdAt])
+  @@map("usage_events")
 }
 
 /// Saved law firm / provider bookmark for a signed-in user.

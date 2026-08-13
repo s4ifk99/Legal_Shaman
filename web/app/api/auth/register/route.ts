@@ -6,6 +6,7 @@ import { hashPassword } from "@/lib/auth/password";
 import { authInfrastructureError, authUnexpectedError } from "@/lib/auth/auth-route-errors";
 import { clientIpFromRequest, verifyTurnstileToken } from "@/lib/auth/turnstile";
 import { authRateLimitKey, checkAuthRateLimit } from "@/lib/auth/rate-limit";
+import { sendVerificationEmail } from "@/lib/auth/email-verification";
 
 function defaultNameFromEmail(email: string): string {
   const local = email.split("@")[0]?.trim();
@@ -61,11 +62,25 @@ export async function POST(req: Request) {
 
     const user = await accountsPrisma.user.create({
       data: { name, email, passwordHash },
-      select: { id: true, name: true, email: true },
+      select: { id: true, name: true, email: true, emailVerifiedAt: true },
     });
 
     await setUserSessionCookie(user.id);
-    return NextResponse.json({ user });
+    const verify = await sendVerificationEmail(user);
+
+    return NextResponse.json({
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        emailVerified: Boolean(user.emailVerifiedAt),
+      },
+      verification: {
+        sent: verify.sent,
+        skipped: verify.skipped,
+        required: !verify.skipped && !user.emailVerifiedAt,
+      },
+    });
   } catch (err) {
     return authInfrastructureError(err) ?? authUnexpectedError(err);
   }
