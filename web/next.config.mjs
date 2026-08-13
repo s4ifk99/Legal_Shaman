@@ -11,6 +11,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Keep admin cron functions under Vercel's 250mb uncompressed limit.
+  // wiki-index.json (~96mb) and Coherence catalogues are not needed by /api/admin/jobs/*.
+  outputFileTracingExcludes: {
+    "/api/admin/jobs/**": [
+      "./data/wiki-index.json",
+      "./data/coherence/**",
+      "./data/legal-aid-listings.json",
+    ],
+  },
   async redirects() {
     return [
       { source: "/find-a-lawyer", destination: "/ask-the-shaman?guided=1", permanent: false },
