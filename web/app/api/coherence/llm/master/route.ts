@@ -117,6 +117,11 @@ export async function POST(req: Request) {
   if (access instanceof NextResponse) return access;
   const { user, requestId: accessRequestId, trustedGateway } = access;
 
+  // Vercel → tunnel calls: finish intake without blocking on overview LLM.
+  // Client builds the wiki recommendation via /api/coherence/llm/answer afterward.
+  const deferOverview =
+    Boolean(trustedGateway) && (body.mode || "intake") === "intake";
+
   const latestText = String(body.latestText || "").trim();
   const budget = beginLlmBudget({
     requestId: accessRequestId,
@@ -283,7 +288,11 @@ export async function POST(req: Request) {
     let overviewPack: AnswerPackage | null = null;
     let overviewRetries = 0;
 
-    if (story.length >= 8 && matterResolution?.decision?.canProceed !== false) {
+    if (
+      !deferOverview &&
+      story.length >= 8 &&
+      matterResolution?.decision?.canProceed !== false
+    ) {
       try {
         const first = await buildOverviewAnswer({
           latestText: story,
@@ -309,7 +318,9 @@ export async function POST(req: Request) {
           critique: cOverview.critique,
         });
 
-        if (!cOverview.ok && overviewRetries < 1) {
+        // Skip slow second synthesis pass on production cutover path.
+        const allowRetry = process.env.COHERENCE_OVERVIEW_RETRY !== "0" && !trustedGateway;
+        if (!cOverview.ok && overviewRetries < 1 && allowRetry) {
           overviewRetries += 1;
           const retry = await buildOverviewAnswer({
             latestText: story,
@@ -376,6 +387,16 @@ export async function POST(req: Request) {
           },
         ];
       }
+    } else if (deferOverview) {
+      result.answerPackage = null;
+      result.overview = {
+        deferred: true,
+        reason: "client_synthesises_after_intake",
+      };
+      result.agents = [
+        ...(result.agents || []),
+        { name: "overview", deferred: true },
+      ];
     } else if (matterResolution?.decision?.needsClarification) {
       result.overview = {
         skipped: true,

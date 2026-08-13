@@ -287,6 +287,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   const [llmConfigured, setLlmConfigured] = useState(false)
   const [llmStatusReady, setLlmStatusReady] = useState(false)
   const [llmBusy, setLlmBusy] = useState(false)
+  const [overviewPending, setOverviewPending] = useState(false)
   const [llmEnhancing, setLlmEnhancing] = useState(false)
   const [llmPhase, setLlmPhase] = useState<'idle' | 'compiling' | 'grounding' | 'sharpening'>('idle')
   const [skipEnhance, setSkipEnhance] = useState(false)
@@ -411,7 +412,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   const closing = prompt.id === 'complete' && !addingDetail
   const servicesReady = serviceConfidence >= 0.75
   const overviewReady = isFinalOverviewPackage(answerPackage)
-  const overviewLoading = llmBusy && llmConfigured
+  const overviewLoading = (llmBusy && llmConfigured) || overviewPending
 
   async function handleAnswer(value: string) {
     setAddingDetail(false)
@@ -497,19 +498,25 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         clarifiersForSession(merged)
         setSession(merged)
         if (master.helpMatch) setHelpMatch(master.helpMatch)
+        setMatterInspector(master.matterInspector ?? null)
+
         if (master.answerPackage && isFinalOverviewPackage(master.answerPackage as AnswerPackage)) {
           setAnswerPackage(master.answerPackage as AnswerPackage)
+          setOverviewPending(false)
         } else {
-          // Master intake may skip final synthesis; build overview via answer route (proxied on Vercel).
+          // Unlock the intake UI first — synthesise overview in the background
+          // (hourglass on the OSLAW card) instead of holding the full-screen loader.
+          setAnswerPackage(null)
+          setOverviewPending(true)
           const framesForOverview = proposeCoherentFrames(merged, 3)
-          const retrieved = await fetchRetrieveAnswer(merged, framesForOverview)
-          if (retrieved?.answerPackage && isFinalOverviewPackage(retrieved.answerPackage)) {
-            setAnswerPackage(retrieved.answerPackage)
-          } else {
-            setAnswerPackage(null)
-          }
+          void fetchRetrieveAnswer(merged, framesForOverview)
+            .then((retrieved) => {
+              if (retrieved?.answerPackage && isFinalOverviewPackage(retrieved.answerPackage)) {
+                setAnswerPackage(retrieved.answerPackage)
+              }
+            })
+            .finally(() => setOverviewPending(false))
         }
-        setMatterInspector(master.matterInspector ?? null)
 
         if (master.ask?.text) {
           setSkipEnhance(true)
@@ -526,6 +533,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         }
       } catch {
         setSkipEnhance(false)
+        setOverviewPending(false)
         setAgentError('Agent request failed or was interrupted. Please try again.')
       } finally {
         masterInFlightRef.current = false

@@ -62,9 +62,13 @@ function drawScalesBitmap(ctx: CanvasRenderingContext2D, size: number) {
 }
 
 /** Floor / soft ceiling per phase — bar approaches ceiling, never finishes early. */
-function phaseBounds(phase: Phase): { floor: number; ceiling: number } {
+function phaseBounds(phase: Phase, elapsedMs = 0): { floor: number; ceiling: number } {
   if (phase === 'grounding') return { floor: 28, ceiling: 62 }
-  if (phase === 'sharpening') return { floor: 58, ceiling: 92 }
+  if (phase === 'sharpening') {
+    // After ~20s of synthesis, keep crawling toward 99% so the bar does not look stuck at 92%.
+    const late = elapsedMs > 20_000
+    return { floor: 58, ceiling: late ? 99 : 92 }
+  }
   if (phase === 'idle') return { floor: 8, ceiling: 40 }
   return { floor: 4, ceiling: 32 }
 }
@@ -92,7 +96,7 @@ export function LoadingScreen({ phase = 'compiling' }: Props) {
 
   useEffect(() => {
     phaseStartedRef.current = performance.now()
-    const { floor } = phaseBounds(phase)
+    const { floor } = phaseBounds(phase, 0)
     if (progressRef.current < floor) {
       progressRef.current = floor
       setProgress(floor)
@@ -106,13 +110,13 @@ export function LoadingScreen({ phase = 'compiling' }: Props) {
 
     let raf = 0
     const tick = (now: number) => {
-      const { floor, ceiling } = phaseBounds(phase)
       const elapsed = Math.max(0, now - phaseStartedRef.current)
+      const { floor, ceiling } = phaseBounds(phase, elapsed)
       // Asymptotic ease toward ceiling (~45s to near-cap within phase)
       const t = 1 - Math.exp(-elapsed / 18_000)
       const target = floor + (ceiling - floor) * t
       // Slow crawl so it always feels alive even near the ceiling
-      const crawl = Math.min(ceiling - 0.4, progressRef.current + 0.035)
+      const crawl = Math.min(ceiling - 0.15, progressRef.current + (elapsed > 25_000 ? 0.06 : 0.035))
       const next = Math.max(progressRef.current, Math.min(ceiling, Math.max(target, crawl)))
       progressRef.current = next
       setProgress(next)
@@ -120,7 +124,7 @@ export function LoadingScreen({ phase = 'compiling' }: Props) {
     }
 
     if (reduced) {
-      const { floor, ceiling } = phaseBounds(phase)
+      const { floor, ceiling } = phaseBounds(phase, 0)
       const mid = (floor + ceiling) / 2
       progressRef.current = mid
       setProgress(mid)
@@ -190,7 +194,9 @@ export function LoadingScreen({ phase = 'compiling' }: Props) {
     phase === 'grounding'
       ? 'Checking results against guidance…'
       : phase === 'sharpening'
-        ? 'Synthesising your recommendation…'
+        ? progress >= 92
+          ? 'Still synthesising — almost there…'
+          : 'Synthesising your recommendation…'
         : phase === 'idle'
           ? 'Working…'
           : 'Reading your brief…'
@@ -243,7 +249,9 @@ export function LoadingScreen({ phase = 'compiling' }: Props) {
         </div>
 
         <p className="loading-screen__hint">
-          Long stories can take up to a minute — please keep this tab open.
+          {phase === 'sharpening'
+            ? 'Wiki synthesis can take 1–2 minutes on longer stories — please keep this tab open.'
+            : 'Long stories can take up to a minute — please keep this tab open.'}
         </p>
       </div>
       <p className="loading-screen__motto">Justice Through Search</p>
