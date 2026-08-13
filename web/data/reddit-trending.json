@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-12T18:59:58.030Z",
+    "scrapedAt": "2026-08-13T07:15:50.609Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 7,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vms0dp",
+          "title": "Social housing tenants in our flats are getting to use the premium shared areas without paying a penny. They're wrecking them and the homeowners with mortgages are having to pay more towards upkeep and repairs.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vms0dp/social_housing_tenants_in_our_flats_are_getting/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vms0dp/social_housing_tenants_in_our_flats_are_getting/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786571988,
+          "snippet": "Our block of flats has a small % set aside for social housing, but the rest is privately owned. We all pay £210 per month for access to a private gym, cinema, small pool and shared lounge. The social housing tenants do not pay this fee. However, they continue to use the communal ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vmb206",
           "title": "Wife took a call from work for me while I was on leave and told them not to ring again, they say this is a security breach and have scheduled a meeting with HR",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmb206/wife_took_a_call_from_work_for_me_while_i_was_on/",
@@ -47,6 +59,18 @@
           "numComments": 0,
           "createdUtc": 1786532842,
           "snippet": "Hey, I work as a platform engineer for a fairly big MSP, part of my role and contract includes out of hours work on an on call rota, and our rota scheduling has been taken over by an offshore manager who doesnt seem to understand or run things by us before scheduling things in. I",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vmphwu",
+          "title": "Neighbour's kid is having parcels delivered to our address - without asking or knowing us (Wales). Do I need to do anything?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmphwu/neighbours_kid_is_having_parcels_delivered_to_our/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmphwu/neighbours_kid_is_having_parcels_delivered_to_our/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786566136,
+          "snippet": "So a couple of weeks ago we had a parcel from Evri, with someone else's name on. Our address, a name we didn't know. They came (and I recognised them as a teenager from up the road) and said Hi, yes we got your parcel, just make sure you put the right address on. Since then there",
           "listingSource": "rss:hot"
         },
         {
@@ -71,6 +95,78 @@
           "numComments": 0,
           "createdUtc": 1786540391,
           "snippet": "Deeply frustrated so any advice would be appreciated. Ordered a laptop for my sisters birthday, received at the door using an OTP and waited 3 days to open it as it was her gift. Open it on her birthday and it’s 3 chopping boards, call Amazon who believe it has been stolen in the",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vmktll",
+          "title": "Italy traffic ticket enforcement England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmktll/italy_traffic_ticket_enforcement_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmktll/italy_traffic_ticket_enforcement_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786555913,
+          "snippet": "Hey all hope this is relevant to this group if not please let me know Almost a year later I have just received this traffic violation ticket. I'm generally careful with my driving and didn't realise I had committed any offence. Let alone one without photographic evidence. Looks l",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vmtfy7",
+          "title": "Prenup agreement before marriage and ongoing pregnancy",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmtfy7/prenup_agreement_before_marriage_and_ongoing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmtfy7/prenup_agreement_before_marriage_and_ongoing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786575481,
+          "snippet": "I’m pregnant and my partner wants to get married, but only if I sign an agreement protecting all of his assets. He owns a house in the UK with a mortgage in his sole name and is also self-employed. I am not trying to take anything he built before marriage, and I agree that what h",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vmnswm",
+          "title": "Neighbour dumping rubbish in my garden (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmnswm/neighbour_dumping_rubbish_in_my_garden_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmnswm/neighbour_dumping_rubbish_in_my_garden_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786562323,
+          "snippet": "Hi all. Last night I heard some loud metal clanging at the end of my garden. I walked down to discover that a neighbour that backs onto me had dumped some metal framing poles and a deflated paddling pool covered in dog excrement behind/to the side of my shed. The occupants of tha",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vmg3kd",
+          "title": "Neighbour's Air Con Noise - Legal Obligations for Installation Company?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmg3kd/neighbours_air_con_noise_legal_obligations_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmg3kd/neighbours_air_con_noise_legal_obligations_for/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786545782,
+          "snippet": "Neighbours had air con installed a year ago. Photo taken from our bedroom window. Two units (bigger than normal residential ones?) 2 metres from the boundary, pointed at us, and in a corner which channels the sound across the back of our house and garden. Also one of the indoor f",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vm8rdz",
+          "title": "What would you do if your best friend called you few hour before dying, and the people he was with refuse to explain what happened?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vm8rdz/what_would_you_do_if_your_best_friend_called_you/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vm8rdz/what_would_you_do_if_your_best_friend_called_you/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786525242,
+          "snippet": "I’m posting this because I don't know how to process this situation, and I’m looking for perspective on how to handle it. My best friend tragically passed away recently in Scotland. You may have seen the news coverage—there are reports across news outlets about a missing swimmer ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vmwcwo",
+          "title": "My ex is refusing to give my dog back and I don’t know what to do(Wales)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmwcwo/my_ex_is_refusing_to_give_my_dog_back_and_i_dont/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmwcwo/my_ex_is_refusing_to_give_my_dog_back_and_i_dont/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786583010,
+          "snippet": "I honestly don’t even know where to start with this because I’m completely heartbroken and just want some honest opinions from people who might have been in a similar situation. My dog is originally my family dog and she’s registered under mine and my mum’s name. When I moved up ",
           "listingSource": "rss:hot"
         },
         {
@@ -98,6 +194,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vmprdy",
+          "title": "Can contacting Trading Standards result in legal consequences?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmprdy/can_contacting_trading_standards_result_in_legal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmprdy/can_contacting_trading_standards_result_in_legal/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786566741,
+          "snippet": "England based. I wrote an honest non-emotional extremely detailed, precise and factual 1-star review after an issue with my removals company. I ended it with this was my personal experience and I know others had positive experiences as they were a recommendation to me. In advance",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vn0088",
+          "title": "Freehold vs leasehold - lease liability? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vn0088/freehold_vs_leasehold_lease_liability_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vn0088/freehold_vs_leasehold_lease_liability_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786593439,
+          "snippet": "I’m trying to help a friend make sure that they are no longer liable for a lease on a business property, where they have left the business by mutual agreement some months ago. I am finding it difficult to work out whether particular documents relate to the freehold or the leaseho",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vn3ji4",
+          "title": "Potential CIFAS marker from Three - advice on steps to resolve (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vn3ji4/potential_cifas_marker_from_three_advice_on_steps/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vn3ji4/potential_cifas_marker_from_three_advice_on_steps/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786604971,
+          "snippet": "Hi all, I’m in a bit of a pickle with my sim provider Three. Tuesday evening I received an email from them account my account security. They state that they’ve “noticed some suspicious activity on my account so they’ve temporarily suspended my services”. I should say I didn’t kno",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vlwrj4",
           "title": "Advice needed about my trees being cut by neighbours! (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vlwrj4/advice_needed_about_my_trees_being_cut_by/",
@@ -110,147 +242,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vm8rdz",
-          "title": "What would you do if your best friend called you few hour before dying, and the people he was with refuse to explain what happened?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vm8rdz/what_would_you_do_if_your_best_friend_called_you/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vm8rdz/what_would_you_do_if_your_best_friend_called_you/",
+          "id": "1vmvz23",
+          "title": "a family member has admitted to stealing something of mine (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmvz23/a_family_member_has_admitted_to_stealing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmvz23/a_family_member_has_admitted_to_stealing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786525242,
-          "snippet": "I’m posting this because I don't know how to process this situation, and I’m looking for perspective on how to handle it. My best friend tragically passed away recently in Scotland. You may have seen the news coverage—there are reports across news outlets about a missing swimmer ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vmktll",
-          "title": "Italy traffic ticket enforcement England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmktll/italy_traffic_ticket_enforcement_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmktll/italy_traffic_ticket_enforcement_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786555913,
-          "snippet": "Hey all hope this is relevant to this group if not please let me know Almost a year later I have just received this traffic violation ticket. I'm generally careful with my driving and didn't realise I had committed any offence. Let alone one without photographic evidence. Looks l",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vmcnbg",
-          "title": "Being made redundant after refusing contact change",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmcnbg/being_made_redundant_after_refusing_contact_change/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmcnbg/being_made_redundant_after_refusing_contact_change/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786537457,
-          "snippet": "My company was recently acquired by another company a few months ago. The company made it clear that this was not a Tupe transfer, but an intracompany transfer which meant our contracts could be changed and we would need to agree to the new changes or face redundancy. I’ll be hon",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vmg3kd",
-          "title": "Neighbour's Air Con Noise - Legal Obligations for Installation Company?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmg3kd/neighbours_air_con_noise_legal_obligations_for/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmg3kd/neighbours_air_con_noise_legal_obligations_for/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786545782,
-          "snippet": "Neighbours had air con installed a year ago. Photo taken from our bedroom window. Two units (bigger than normal residential ones?) 2 metres from the boundary, pointed at us, and in a corner which channels the sound across the back of our house and garden. Also one of the indoor f",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vmb2u8",
-          "title": "Adjoining neighbour’s roof causing leaks in our house",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmb2u8/adjoining_neighbours_roof_causing_leaks_in_our/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmb2u8/adjoining_neighbours_roof_causing_leaks_in_our/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786532913,
-          "snippet": "We are in England. Our roof started leaking in October 2025, we got a quote from a roofer stating the neighbour’s side was much worse and would likely need this fixed for the problem to stop. The adjoining property is owned by a landlord renting it out. We paid for land registry ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vlktq7",
-          "title": "Have a new build home and site manager has just been to see me to inform me they have gave me too much garden. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vlktq7/have_a_new_build_home_and_site_manager_has_just/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vlktq7/have_a_new_build_home_and_site_manager_has_just/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786462448,
-          "snippet": "UPDATE - We have spoken to the solicitor and they have said the builder is correct. We will be emailing the customer relations team to speak with them to discuss. Thank you for all your help! Hi all, as the title says, the site manager that I have a house on has just been round t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vmhai7",
-          "title": "ASOS closed my account after a refund they had already approved — what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmhai7/asos_closed_my_account_after_a_refund_they_had/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmhai7/asos_closed_my_account_after_a_refund_they_had/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786548388,
-          "snippet": "Location: England I’m looking for some advice because ASOS has suddenly closed my account and accused me of falsely obtaining refunds. I recently ordered a makeup palette which arrived damaged. I contacted ASOS Customer Care, explained the issue, and was told that they would issu",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vmkboi",
-          "title": "DVLA Untaxed vehicle fine - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmkboi/dvla_untaxed_vehicle_fine_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmkboi/dvla_untaxed_vehicle_fine_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786554861,
-          "snippet": "I had a vehicle which was SORN’d and kept on a lay-by in front of my house. I didn’t realise this counted as on-road but accept this was a mistake. On 4th July as soon as the vehicle was clamped and I was informed this counts as parking on a road, I taxed the vehicle and paid £10",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vmiw4y",
-          "title": "Is my architect responsible for fixing a building regulations mess up (England)?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmiw4y/is_my_architect_responsible_for_fixing_a_building/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmiw4y/is_my_architect_responsible_for_fixing_a_building/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786551860,
-          "snippet": "I employed an architect to design and manage my home extension. This included obtaining planning consent and managing a JCT Minor Works building contract. The architect submitted a full plans building control notice to the local authority before building works started. They are n",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vmml8v",
-          "title": "Ex-partner lives in my house and now says she won't leave on the agreed date (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmml8v/expartner_lives_in_my_house_and_now_says_she_wont/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmml8v/expartner_lives_in_my_house_and_now_says_she_wont/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786559710,
-          "snippet": "I own and live in a 2-bedroom leasehold flat in London. I'm the sole owner and my ex has never been on the title. She's been living with me since July 2025. She was previously a joint borrower on my Barclays JBSP mortgage, but she's now being removed from the mortgage. She also s",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vlkqgv",
-          "title": "Advice please . My mum has a guest who wants to stay months",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vlkqgv/advice_please_my_mum_has_a_guest_who_wants_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vlkqgv/advice_please_my_mum_has_a_guest_who_wants_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786462248,
-          "snippet": "84-year-old mum allowed someone to stay for two weeks rent-free – he now wants to stay for months. Can she make him leave? I’m looking for some advice about my 84-year-old mum and someone who is currently staying in her home. About a month ago, my mum told my sister and me that s",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vlftag",
-          "title": "Received 4yrs after completion on house",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vlftag/received_4yrs_after_completion_on_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vlftag/received_4yrs_after_completion_on_house/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786450631,
-          "snippet": "Please the screenshot attached. I received this email from the solicitors who helped me purchase my house 4 years ago. I didn’t reply and after 3 months they emailed to say they had transferred the £21 to charity. Is this anything to worry about with regard to ownership of my hou",
+          "createdUtc": 1786582020,
+          "snippet": "hi there! a family member of mine asked to borrow something of mine under the condition they sent it back via the post as soon as they were done with it (worth roughly £200) and I reluctantly agreed. this conversation is documented over text. cut to a few weeks later they are ref",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 11,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -277,6 +277,18 @@
           "numComments": 0,
           "createdUtc": 1781046142,
           "snippet": "If OP wanted advice from AI, they would have asked AI, rather than posted on a forum containing humans. The AI advice that we see here is more often than not one (or more) of the following: completely lacking in nuance, fails to appreciate that there is no such thing as \"UK law\",",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vmphwu",
+          "title": "Neighbour's kid is having parcels delivered to our address - without asking or knowing us (Wales). Do I need to do anything?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmphwu/neighbours_kid_is_having_parcels_delivered_to_our/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmphwu/neighbours_kid_is_having_parcels_delivered_to_our/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786566136,
+          "snippet": "So a couple of weeks ago we had a parcel from Evri, with someone else's name on. Our address, a name we didn't know. They came (and I recognised them as a teenager from up the road) and said Hi, yes we got your parcel, just make sure you put the right address on. Since then there",
           "listingSource": "rss:hot"
         },
         {
@@ -304,39 +316,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vmf9iq",
-          "title": "Can my parents remove my door/lock as an adult?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmf9iq/can_my_parents_remove_my_doorlock_as_an_adult/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmf9iq/can_my_parents_remove_my_doorlock_as_an_adult/",
+          "id": "1vmnswm",
+          "title": "Neighbour dumping rubbish in my garden (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmnswm/neighbour_dumping_rubbish_in_my_garden_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmnswm/neighbour_dumping_rubbish_in_my_garden_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786543905,
-          "snippet": "For context, I live in Wales with my parents as my landlords. I am disabled and autistic, and have had to call the police on them more than once for how they treat me. I have tried escaping them multiple times but have no way of saving money as I'm currently too sick to work (I d",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vlwrj4",
-          "title": "Advice needed about my trees being cut by neighbours! (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vlwrj4/advice_needed_about_my_trees_being_cut_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vlwrj4/advice_needed_about_my_trees_being_cut_by/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786488845,
-          "snippet": "Hi there, I have come back from work today to find my neighbour has absolutely ravaged my tree line whilst I was out.. we had agreed previously that I would sort these out as they were overhanging in his garden, considering my partner and I have just moved in a few weeks ago thin",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vm8rdz",
-          "title": "What would you do if your best friend called you few hour before dying, and the people he was with refuse to explain what happened?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vm8rdz/what_would_you_do_if_your_best_friend_called_you/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vm8rdz/what_would_you_do_if_your_best_friend_called_you/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786525242,
-          "snippet": "I’m posting this because I don't know how to process this situation, and I’m looking for perspective on how to handle it. My best friend tragically passed away recently in Scotland. You may have seen the news coverage—there are reports across news outlets about a missing swimmer ",
+          "createdUtc": 1786562323,
+          "snippet": "Hi all. Last night I heard some loud metal clanging at the end of my garden. I walked down to discover that a neighbour that backs onto me had dumped some metal framing poles and a deflated paddling pool covered in dog excrement behind/to the side of my shed. The occupants of tha",
           "listingSource": "rss:hot"
         },
         {
@@ -352,15 +340,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vmb2u8",
-          "title": "Adjoining neighbour’s roof causing leaks in our house",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmb2u8/adjoining_neighbours_roof_causing_leaks_in_our/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmb2u8/adjoining_neighbours_roof_causing_leaks_in_our/",
+          "id": "1vm8rdz",
+          "title": "What would you do if your best friend called you few hour before dying, and the people he was with refuse to explain what happened?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vm8rdz/what_would_you_do_if_your_best_friend_called_you/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vm8rdz/what_would_you_do_if_your_best_friend_called_you/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786532913,
-          "snippet": "We are in England. Our roof started leaking in October 2025, we got a quote from a roofer stating the neighbour’s side was much worse and would likely need this fixed for the problem to stop. The adjoining property is owned by a landlord renting it out. We paid for land registry ",
+          "createdUtc": 1786525242,
+          "snippet": "I’m posting this because I don't know how to process this situation, and I’m looking for perspective on how to handle it. My best friend tragically passed away recently in Scotland. You may have seen the news coverage—there are reports across news outlets about a missing swimmer ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vmwcwo",
+          "title": "My ex is refusing to give my dog back and I don’t know what to do(Wales)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmwcwo/my_ex_is_refusing_to_give_my_dog_back_and_i_dont/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmwcwo/my_ex_is_refusing_to_give_my_dog_back_and_i_dont/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786583010,
+          "snippet": "I honestly don’t even know where to start with this because I’m completely heartbroken and just want some honest opinions from people who might have been in a similar situation. My dog is originally my family dog and she’s registered under mine and my mum’s name. When I moved up ",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -385,6 +385,18 @@
           "numComments": 0,
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vms0dp",
+          "title": "Social housing tenants in our flats are getting to use the premium shared areas without paying a penny. They're wrecking them and the homeowners with mortgages are having to pay more towards upkeep and repairs.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vms0dp/social_housing_tenants_in_our_flats_are_getting/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vms0dp/social_housing_tenants_in_our_flats_are_getting/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786571988,
+          "snippet": "Our block of flats has a small % set aside for social housing, but the rest is privately owned. We all pay £210 per month for access to a private gym, cinema, small pool and shared lounge. The social housing tenants do not pay this fee. However, they continue to use the communal ",
           "listingSource": "rss:hot"
         }
       ]
@@ -414,42 +426,6 @@
       ]
     },
     {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vmkawp",
-          "title": "I've been removed from shifts since whistleblowing - do I have a case for tribunal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmkawp/ive_been_removed_from_shifts_since_whistleblowing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmkawp/ive_been_removed_from_shifts_since_whistleblowing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786554814,
-          "snippet": "Hi everyone, thank you for taking the time to read. I'm in England (East Mids) and have encountered quite a bit of trouble recently with my job. I have worked for this current company for less than a month, and I am on a zero-hour contract which I believe will prove difficult to ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vmcnbg",
-          "title": "Being made redundant after refusing contact change",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmcnbg/being_made_redundant_after_refusing_contact_change/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmcnbg/being_made_redundant_after_refusing_contact_change/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786537457,
-          "snippet": "My company was recently acquired by another company a few months ago. The company made it clear that this was not a Tupe transfer, but an intracompany transfer which meant our contracts could be changed and we would need to agree to the new changes or face redundancy. I’ll be hon",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
       "slug": "planning-law",
       "label": "Planning Law",
       "legalAreaSlug": "planning_law",
@@ -474,33 +450,45 @@
       ]
     },
     {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
-      "postCount": 1,
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
         {
-          "id": "1vmhai7",
-          "title": "ASOS closed my account after a refund they had already approved — what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmhai7/asos_closed_my_account_after_a_refund_they_had/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmhai7/asos_closed_my_account_after_a_refund_they_had/",
+          "id": "1vmtfy7",
+          "title": "Prenup agreement before marriage and ongoing pregnancy",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmtfy7/prenup_agreement_before_marriage_and_ongoing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmtfy7/prenup_agreement_before_marriage_and_ongoing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786548388,
-          "snippet": "Location: England I’m looking for some advice because ASOS has suddenly closed my account and accused me of falsely obtaining refunds. I recently ordered a makeup palette which arrived damaged. I contacted ASOS Customer Care, explained the issue, and was told that they would issu",
+          "createdUtc": 1786575481,
+          "snippet": "I’m pregnant and my partner wants to get married, but only if I sign an agreement protecting all of his assets. He owns a house in the UK with a mortgage in his sole name and is also self-employed. I am not trying to take anything he built before marriage, and I agree that what h",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vmvz23",
+          "title": "a family member has admitted to stealing something of mine (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmvz23/a_family_member_has_admitted_to_stealing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmvz23/a_family_member_has_admitted_to_stealing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786582020,
+          "snippet": "hi there! a family member of mine asked to borrow something of mine under the condition they sent it back via the post as soon as they were done with it (worth roughly £200) and I reluctantly agreed. this conversation is documented over text. cut to a few weeks later they are ref",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "motoring-offences",
-      "label": "Motoring Offences",
-      "legalAreaSlug": "motoring_offences",
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -508,15 +496,63 @@
       ],
       "posts": [
         {
-          "id": "1vmkboi",
-          "title": "DVLA Untaxed vehicle fine - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmkboi/dvla_untaxed_vehicle_fine_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmkboi/dvla_untaxed_vehicle_fine_england/",
+          "id": "1vmkawp",
+          "title": "I've been removed from shifts since whistleblowing - do I have a case for tribunal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmkawp/ive_been_removed_from_shifts_since_whistleblowing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmkawp/ive_been_removed_from_shifts_since_whistleblowing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786554861,
-          "snippet": "I had a vehicle which was SORN’d and kept on a lay-by in front of my house. I didn’t realise this counted as on-road but accept this was a mistake. On 4th July as soon as the vehicle was clamped and I was informed this counts as parking on a road, I taxed the vehicle and paid £10",
+          "createdUtc": 1786554814,
+          "snippet": "Hi everyone, thank you for taking the time to read. I'm in England (East Mids) and have encountered quite a bit of trouble recently with my job. I have worked for this current company for less than a month, and I am on a zero-hour contract which I believe will prove difficult to ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vmprdy",
+          "title": "Can contacting Trading Standards result in legal consequences?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmprdy/can_contacting_trading_standards_result_in_legal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vmprdy/can_contacting_trading_standards_result_in_legal/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786566741,
+          "snippet": "England based. I wrote an honest non-emotional extremely detailed, precise and factual 1-star review after an issue with my removals company. I ended it with this was my personal experience and I know others had positive experiences as they were a recommendation to me. In advance",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vn0088",
+          "title": "Freehold vs leasehold - lease liability? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vn0088/freehold_vs_leasehold_lease_liability_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vn0088/freehold_vs_leasehold_lease_liability_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786593439,
+          "snippet": "I’m trying to help a friend make sure that they are no longer liable for a lease on a business property, where they have left the business by mutual agreement some months ago. I am finding it difficult to work out whether particular documents relate to the freehold or the leaseho",
           "listingSource": "rss:hot"
         }
       ]
