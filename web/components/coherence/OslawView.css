@@ -52,6 +52,14 @@
   line-height: 1.45;
 }
 
+.oslaw__status--busy {
+  display: flex;
+  align-items: center;
+  min-height: 3.5rem;
+  padding: 1rem 0;
+  color: var(--ink);
+}
+
 .oslaw__body {
   display: flex;
   flex-direction: column;
