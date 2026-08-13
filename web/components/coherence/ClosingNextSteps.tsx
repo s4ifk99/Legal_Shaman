@@ -1,3 +1,4 @@
+import { SynthesisHourglass } from './SynthesisHourglass'
 import './ClosingNextSteps.css'
 
 interface Props {
@@ -33,17 +34,25 @@ export function ClosingNextSteps({
       <div className="closing__actions">
         <button
           type="button"
-          className={`closing__card${preferOslaw ? ' closing__card--primary' : ''}`}
+          className={`closing__card${preferOslaw ? ' closing__card--primary' : ''}${
+            overviewLoading ? ' closing__card--synthesising' : ''
+          }`}
           onClick={onOslaw}
           disabled={overviewLoading}
+          aria-busy={overviewLoading}
         >
           <span className="closing__card-label">OSLAW — wiki course of action</span>
           <span className="closing__card-hint">
-            {overviewLoading
-              ? 'Synthesising your recommendation from wiki sources…'
-              : overviewReady
-                ? 'Open-source research: matched pathways and practical next steps from official guidance'
-                : 'Open wiki recommendation — we will build it from your story if needed'}
+            {overviewLoading ? (
+              <SynthesisHourglass
+                size="sm"
+                label="Synthesising your recommendation from wiki sources…"
+              />
+            ) : overviewReady ? (
+              'Open-source research: matched pathways and practical next steps from official guidance'
+            ) : (
+              'Open wiki recommendation — we will build it from your story if needed'
+            )}
           </span>
         </button>
 

@@ -73,6 +73,17 @@
   cursor: not-allowed;
 }
 
+.closing__card--synthesising:disabled {
+  opacity: 1;
+  cursor: wait;
+  border-style: dashed;
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+
+.closing__card--synthesising .closing__card-hint {
+  opacity: 1;
+}
+
 .closing__card--primary {
   background: var(--ink);
   color: var(--paper);

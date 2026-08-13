@@ -6,6 +6,7 @@ import {
   fetchRetrieveAnswer,
   isFinalOverviewPackage,
 } from '@/lib/coherence/retrieveAnswer'
+import { SynthesisHourglass } from './SynthesisHourglass'
 import './OslawView.css'
 
 interface Props {
@@ -183,11 +184,15 @@ export function OslawView({
       </header>
 
       {loading && (
-        <p className="oslaw__status">
-          {overviewLoading
-            ? 'Synthesising your recommendation from wiki sources…'
-            : 'Building recommendation from wiki sources…'}
-        </p>
+        <div className="oslaw__status oslaw__status--busy">
+          <SynthesisHourglass
+            label={
+              overviewLoading
+                ? 'Synthesising your recommendation from wiki sources…'
+                : 'Building recommendation from wiki sources…'
+            }
+          />
+        </div>
       )}
 
       {!loading && ready && pack && (
