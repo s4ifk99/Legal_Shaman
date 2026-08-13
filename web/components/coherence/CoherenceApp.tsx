@@ -27,7 +27,7 @@ import {
   clarifiersForSession,
 } from '@/lib/coherence/llmOrchestrate'
 import { applyMasterToSession, runMasterOrchestrate, type HelpMatchResult, type MasterResult } from '@/lib/coherence/masterAgent'
-import { isFinalOverviewPackage } from '@/lib/coherence/retrieveAnswer'
+import { isFinalOverviewPackage, fetchRetrieveAnswer } from '@/lib/coherence/retrieveAnswer'
 import { useCoherenceAuth } from '@/lib/auth/use-coherence-auth'
 import { MatterFrameInspector } from './MatterFrameInspector'
 import type { AnswerPackage } from '@/lib/coherence/answerPackage'

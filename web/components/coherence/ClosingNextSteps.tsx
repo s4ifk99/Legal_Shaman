@@ -35,7 +35,7 @@ export function ClosingNextSteps({
           type="button"
           className={`closing__card${preferOslaw ? ' closing__card--primary' : ''}`}
           onClick={onOslaw}
-          disabled={overviewLoading || !overviewReady}
+          disabled={overviewLoading}
         >
           <span className="closing__card-label">OSLAW — wiki course of action</span>
           <span className="closing__card-hint">
@@ -43,7 +43,7 @@ export function ClosingNextSteps({
               ? 'Synthesising your recommendation from wiki sources…'
               : overviewReady
                 ? 'Open-source research: matched pathways and practical next steps from official guidance'
-                : 'Recommendation will appear once synthesis completes'}
+                : 'Open wiki recommendation — we will build it from your story if needed'}
           </span>
         </button>
 
