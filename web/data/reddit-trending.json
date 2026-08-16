@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-15T18:26:51.436Z",
+    "scrapedAt": "2026-08-16T06:26:27.048Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 6,
+    "topicCount": 5,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vpfz9o",
+          "title": "NI: Update on what I found when I got home after catsitter ditched cat - what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpfz9o/ni_update_on_what_i_found_when_i_got_home_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpfz9o/ni_update_on_what_i_found_when_i_got_home_after/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786832770,
+          "snippet": "https://www.reddit.com/r/LegalAdviceUK/s/moEitXxOb4 This is my earlier post about a catsitter who I hired to live in my apartment while I was away in America (hen party paid for by US bridesmaids to head off the earlier comments about my finances.) I got home yesterday and have t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vpa0oi",
+          "title": "[England] I sometimes walk my cat on a lead in public parks, and most dog owners are fine, but occasionally a dog owner will gleefully tell me that their unleashed dog could legally rip my cat apart. What is the actual law in this situation?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpa0oi/england_i_sometimes_walk_my_cat_on_a_lead_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpa0oi/england_i_sometimes_walk_my_cat_on_a_lead_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786817922,
+          "snippet": "I keep my cat on a lead, I try to stay in areas without other animals and will pick my cat up and move them in case a dog is spotted. Other dog owners are usually very good and friendly, even the ones with dogs off the lead, but occasionally a dog owner will get very aggressive a",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vp5uix",
           "title": "Another woman, who I do not know, brestfed my baby.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp5uix/another_woman_who_i_do_not_know_brestfed_my_baby/",
@@ -62,18 +86,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vp4139",
-          "title": "We're starting a neighbourhood patrol to tackle crime and anti social behaviour. What all can we do without police?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp4139/were_starting_a_neighbourhood_patrol_to_tackle/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp4139/were_starting_a_neighbourhood_patrol_to_tackle/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786803433,
-          "snippet": "We've been blighted by antisocial behaviour and crime for 2 years now. Police have done f all. 54 of us have gotten together and we're planning patrols of our neighbourhoods (approx 1200 houses in our area.) Some of the stuff we're planning to deal with is: Antisocial behaviour o",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1vp4plz",
           "title": "Bank is threatening to repossess my home over a mortgage it won't let me pay",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp4plz/bank_is_threatening_to_repossess_my_home_over_a/",
@@ -83,30 +95,6 @@
           "numComments": 0,
           "createdUtc": 1786805198,
           "snippet": "My father passed away last year. There was no executor appointed to manage the estate as my dad didn't leave a will, and the estate itself was very small - basically just a bank account and a couple of insurance policies, which were split equally between my brother and myself. No",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vowt7u",
-          "title": "Would my wife have a claim to my parents house",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vowt7u/would_my_wife_have_a_claim_to_my_parents_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vowt7u/would_my_wife_have_a_claim_to_my_parents_house/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786780472,
-          "snippet": "My wife and I are separating. We have two children aged 11 and 13, and we've been married for 14 years. Our assets are: House with £600k with a £300k mortage - joint tenants. Savings £150k (mixture of ISA and savings) Pension £400k (mine) and £40k (her). My salary £70k and hers i",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vozjqc",
-          "title": "How to deal with neighbour refusing to stop bonfires in garden behind woodland? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vozjqc/how_to_deal_with_neighbour_refusing_to_stop/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vozjqc/how_to_deal_with_neighbour_refusing_to_stop/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786790402,
-          "snippet": "My friend's neighbour insists that kids (5 and 7) should be playing outside. Fine. Except that their play is chopping wood then getting all the bits and then making a bonfire with it and throwing all the sawdust around. All this with the adults \"keeping an eye\" from inside, I thi",
           "listingSource": "rss:hot"
         },
         {
@@ -134,39 +122,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vp0ns8",
-          "title": "Employer requiring us to work beyond contractual hours but isn't paying it because there isn't \"any point\"",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp0ns8/employer_requiring_us_to_work_beyond_contractual/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp0ns8/employer_requiring_us_to_work_beyond_contractual/",
+          "id": "1vp4139",
+          "title": "We're starting a neighbourhood patrol to tackle crime and anti social behaviour. What all can we do without police?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp4139/were_starting_a_neighbourhood_patrol_to_tackle/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp4139/were_starting_a_neighbourhood_patrol_to_tackle/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786794062,
-          "snippet": "I'm in England and work part-time for a small hospitality business which I have done since February 2025. I'm looking for some advice about unpaid time at the end of our shifts. If we're working a closing shift, our scheduled finish time is 6pm. However, we're responsible for cle",
+          "createdUtc": 1786803433,
+          "snippet": "We've been blighted by antisocial behaviour and crime for 2 years now. Police have done f all. 54 of us have gotten together and we're planning patrols of our neighbourhoods (approx 1200 houses in our area.) Some of the stuff we're planning to deal with is: Antisocial behaviour o",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1voya3o",
-          "title": "Employer wants rights to my likeness",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1voya3o/employer_wants_rights_to_my_likeness/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1voya3o/employer_wants_rights_to_my_likeness/",
+          "id": "1vpdyyv",
+          "title": "Flatmate 29m not paying rent, causing me 23m great stress",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpdyyv/flatmate_29m_not_paying_rent_causing_me_23m_great/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpdyyv/flatmate_29m_not_paying_rent_causing_me_23m_great/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786785811,
-          "snippet": "Hello everyone, I'm a full-time filmmaker (in England, been employed for 2+ years), making content for various brands through my employer. My role is developing the creative, directing and operating the camera. The issue is a new directive came in from higher ups recently - the f",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vofy2l",
-          "title": "Girlfriend’s neighbour keeps leaving “no parking” stickers on my car?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vofy2l/girlfriends_neighbour_keeps_leaving_no_parking/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vofy2l/girlfriends_neighbour_keeps_leaving_no_parking/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786733421,
-          "snippet": "(England.) My girlfriend’s house has on street parking. Recently, whenever I visit I’ve been getting passive aggressive stickers on my car from an unknown resident warning me about parking there. I park completely legally &amp; safely. A lot of the other cars (including my girlfr",
+          "createdUtc": 1786827576,
+          "snippet": "Hi there, I’ve lived with my flatmate (29m) for 3 months now and every month he has refused to pay rent, set up bills etc, we live in a somewhat nice, middle price point flat in Manchester England, and I’ve not been told that my landlord is going to send a rent arrears letter , w",
           "listingSource": "rss:hot"
         },
         {
@@ -182,6 +158,66 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vozjqc",
+          "title": "How to deal with neighbour refusing to stop bonfires in garden behind woodland? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vozjqc/how_to_deal_with_neighbour_refusing_to_stop/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vozjqc/how_to_deal_with_neighbour_refusing_to_stop/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786790402,
+          "snippet": "My friend's neighbour insists that kids (5 and 7) should be playing outside. Fine. Except that their play is chopping wood then getting all the bits and then making a bonfire with it and throwing all the sawdust around. All this with the adults \"keeping an eye\" from inside, I thi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vowt7u",
+          "title": "Would my wife have a claim to my parents house",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vowt7u/would_my_wife_have_a_claim_to_my_parents_house/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vowt7u/would_my_wife_have_a_claim_to_my_parents_house/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786780472,
+          "snippet": "My wife and I are separating. We have two children aged 11 and 13, and we've been married for 14 years. Our assets are: House with £600k with a £300k mortage - joint tenants. Savings £150k (mixture of ISA and savings) Pension £400k (mine) and £40k (her). My salary £70k and hers i",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vp0ns8",
+          "title": "Employer requiring us to work beyond contractual hours but isn't paying it because there isn't \"any point\"",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp0ns8/employer_requiring_us_to_work_beyond_contractual/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp0ns8/employer_requiring_us_to_work_beyond_contractual/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786794062,
+          "snippet": "I'm in England and work part-time for a small hospitality business which I have done since February 2025. I'm looking for some advice about unpaid time at the end of our shifts. If we're working a closing shift, our scheduled finish time is 6pm. However, we're responsible for cle",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vofy2l",
+          "title": "Girlfriend’s neighbour keeps leaving “no parking” stickers on my car?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vofy2l/girlfriends_neighbour_keeps_leaving_no_parking/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vofy2l/girlfriends_neighbour_keeps_leaving_no_parking/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786733421,
+          "snippet": "(England.) My girlfriend’s house has on street parking. Recently, whenever I visit I’ve been getting passive aggressive stickers on my car from an unknown resident warning me about parking there. I park completely legally &amp; safely. A lot of the other cars (including my girlfr",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vpff0v",
+          "title": "[England] Store demanding £230 for laminate materials after I paid their fitter full cash total (£390) with no receipt. Advice needed on position",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpff0v/england_store_demanding_230_for_laminate/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpff0v/england_store_demanding_230_for_laminate/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786831258,
+          "snippet": "Background * I ordered laminate flooring for my small kitchen from an independent local store. * The store's agreed payment structure was split: £230 for materials (payable directly to the store) and £120 for fitting labour (payable directly to the fitter). * The job was cancelle",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1voy7xl",
           "title": "HSBC closed my premier account with no warning or reason.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1voy7xl/hsbc_closed_my_premier_account_with_no_warning_or/",
@@ -194,63 +230,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vola6c",
-          "title": "Wales - Can I get my dad sectioned for overeating?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vola6c/wales_can_i_get_my_dad_sectioned_for_overeating/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vola6c/wales_can_i_get_my_dad_sectioned_for_overeating/",
+          "id": "1vpokb3",
+          "title": "Uniacco cancellation loophole needed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpokb3/uniacco_cancellation_loophole_needed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpokb3/uniacco_cancellation_loophole_needed/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786745780,
-          "snippet": "Hello, I'm having to live with my dad (63) for the last year or so. I don't pay rent, but it's a one bed so I've been on the sofa, it's horrible. He's disabled after a stroke and I look after him. He's also a codeine addict, getting it prescribed and having me and his friend buy ",
+          "createdUtc": 1786858407,
+          "snippet": "I, blindly listening to my friend, booked 2 accomodations at the same time, in glasgow, Scotland. One is Uniacco and another is Amber I want to cancel uniacco accomodation but its past cooling off period. I didn't know they had this policy that you can't cancel it later. I don't ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1voyxdt",
-          "title": "England - What to do with the just-mortgaged house after splitting?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1voyxdt/england_what_to_do_with_the_justmortgaged_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1voyxdt/england_what_to_do_with_the_justmortgaged_house/",
+          "id": "1vpgtw1",
+          "title": "Neighbour burning commercial waste / trespassing",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpgtw1/neighbour_burning_commercial_waste_trespassing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpgtw1/neighbour_burning_commercial_waste_trespassing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786788183,
-          "snippet": "Wish I wasn’t making this post but here we are. My long term partner and I (both in 30s, England) bought a house in June and immediately split up (approximately 2 months ago). It came absolutely out of the left field for me, which is what’s got me here in this sub because I’m not",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1voybdb",
-          "title": "Local authority withdrawing travel card with no refund offered - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1voybdb/local_authority_withdrawing_travel_card_with_no/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1voybdb/local_authority_withdrawing_travel_card_with_no/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786785937,
-          "snippet": "Is this legal? My local council has offered a discounted travel card for residents for the last few years which any county resident can apply for and it entitled you to 50% discount on local bus services. You pay an annual fee of £20 for the card. They've just emailed to say from",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1voxrfd",
-          "title": "Child neglect legal advice needed Northern Ireland please advice",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1voxrfd/child_neglect_legal_advice_needed_northern/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1voxrfd/child_neglect_legal_advice_needed_northern/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786783922,
-          "snippet": "My ex’s family took my son on holiday on a long haul flight holiday, he became incredibly unwell but they hid this from me and with time difference etc it was hard to have contact, they made it sound like he just had a basic sickness bug on day one of the holiday . Then when they",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vp6lb8",
-          "title": "Bedbugs in rented property - Slough, England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp6lb8/bedbugs_in_rented_property_slough_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vp6lb8/bedbugs_in_rented_property_slough_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786809798,
-          "snippet": "Hi, I am at my wits end today. I am a mother of a 7 month old baby. Yesterday we (husband, baby, me) moved into a new apartment. Prior to move in, we had a number of concerns on the cleanliness of the property as when we viewed the property. There were marks on the walls, sofa, c",
+          "createdUtc": 1786835106,
+          "snippet": "In England A neighbour runs a commercial business and has no means of disposing of their waste - a large amount of plastic bags being the main concern. They have one domestic and one recycle bin which cannot possibly accommodate the amount of waste they are producing. We have sus",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 14,
+      "postCount": 15,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -277,6 +277,30 @@
           "numComments": 0,
           "createdUtc": 1781046142,
           "snippet": "If OP wanted advice from AI, they would have asked AI, rather than posted on a forum containing humans. The AI advice that we see here is more often than not one (or more) of the following: completely lacking in nuance, fails to appreciate that there is no such thing as \"UK law\",",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vpfz9o",
+          "title": "NI: Update on what I found when I got home after catsitter ditched cat - what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpfz9o/ni_update_on_what_i_found_when_i_got_home_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpfz9o/ni_update_on_what_i_found_when_i_got_home_after/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786832770,
+          "snippet": "https://www.reddit.com/r/LegalAdviceUK/s/moEitXxOb4 This is my earlier post about a catsitter who I hired to live in my apartment while I was away in America (hen party paid for by US bridesmaids to head off the earlier comments about my finances.) I got home yesterday and have t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vpa0oi",
+          "title": "[England] I sometimes walk my cat on a lead in public parks, and most dog owners are fine, but occasionally a dog owner will gleefully tell me that their unleashed dog could legally rip my cat apart. What is the actual law in this situation?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpa0oi/england_i_sometimes_walk_my_cat_on_a_lead_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpa0oi/england_i_sometimes_walk_my_cat_on_a_lead_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786817922,
+          "snippet": "I keep my cat on a lead, I try to stay in areas without other animals and will pick my cat up and move them in case a dog is spotted. Other dog owners are usually very good and friendly, even the ones with dogs off the lead, but occasionally a dog owner will get very aggressive a",
           "listingSource": "rss:hot"
         },
         {
@@ -313,30 +337,6 @@
           "numComments": 0,
           "createdUtc": 1786805198,
           "snippet": "My father passed away last year. There was no executor appointed to manage the estate as my dad didn't leave a will, and the estate itself was very small - basically just a bank account and a couple of insurance policies, which were split equally between my brother and myself. No",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vowt7u",
-          "title": "Would my wife have a claim to my parents house",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vowt7u/would_my_wife_have_a_claim_to_my_parents_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vowt7u/would_my_wife_have_a_claim_to_my_parents_house/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786780472,
-          "snippet": "My wife and I are separating. We have two children aged 11 and 13, and we've been married for 14 years. Our assets are: House with £600k with a £300k mortage - joint tenants. Savings £150k (mixture of ISA and savings) Pension £400k (mine) and £40k (her). My salary £70k and hers i",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vozjqc",
-          "title": "How to deal with neighbour refusing to stop bonfires in garden behind woodland? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vozjqc/how_to_deal_with_neighbour_refusing_to_stop/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vozjqc/how_to_deal_with_neighbour_refusing_to_stop/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786790402,
-          "snippet": "My friend's neighbour insists that kids (5 and 7) should be playing outside. Fine. Except that their play is chopping wood then getting all the bits and then making a bonfire with it and throwing all the sawdust around. All this with the adults \"keeping an eye\" from inside, I thi",
           "listingSource": "rss:hot"
         },
         {
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -385,6 +385,18 @@
           "numComments": 0,
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vpdyyv",
+          "title": "Flatmate 29m not paying rent, causing me 23m great stress",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpdyyv/flatmate_29m_not_paying_rent_causing_me_23m_great/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpdyyv/flatmate_29m_not_paying_rent_causing_me_23m_great/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786827576,
+          "snippet": "Hi there, I’ve lived with my flatmate (29m) for 3 months now and every month he has refused to pay rent, set up bills etc, we live in a somewhat nice, middle price point flat in Manchester England, and I’ve not been told that my landlord is going to send a rent arrears letter , w",
           "listingSource": "rss:hot"
         }
       ]
@@ -417,7 +429,7 @@
       "slug": "employment-law",
       "label": "Employment Law",
       "legalAreaSlug": "employment",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -434,25 +446,13 @@
           "createdUtc": 1786794062,
           "snippet": "I'm in England and work part-time for a small hospitality business which I have done since February 2025. I'm looking for some advice about unpaid time at the end of our shifts. If we're working a closing shift, our scheduled finish time is 6pm. However, we're responsible for cle",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1voya3o",
-          "title": "Employer wants rights to my likeness",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1voya3o/employer_wants_rights_to_my_likeness/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1voya3o/employer_wants_rights_to_my_likeness/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786785811,
-          "snippet": "Hello everyone, I'm a full-time filmmaker (in England, been employed for 2+ years), making content for various brands through my employer. My role is developing the creative, directing and operating the camera. The issue is a new directive came in from higher ups recently - the f",
-          "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "mental-health-law",
-      "label": "Mental Health Law",
-      "legalAreaSlug": "mental_health",
+      "slug": "private-healthcare-billing",
+      "label": "Private Healthcare Billing",
+      "legalAreaSlug": "consumer_private_healthcare",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -460,39 +460,15 @@
       ],
       "posts": [
         {
-          "id": "1vola6c",
-          "title": "Wales - Can I get my dad sectioned for overeating?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vola6c/wales_can_i_get_my_dad_sectioned_for_overeating/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vola6c/wales_can_i_get_my_dad_sectioned_for_overeating/",
+          "id": "1vpokb3",
+          "title": "Uniacco cancellation loophole needed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpokb3/uniacco_cancellation_loophole_needed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpokb3/uniacco_cancellation_loophole_needed/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786745780,
-          "snippet": "Hello, I'm having to live with my dad (63) for the last year or so. I don't pay rent, but it's a one bed so I've been on the sofa, it's horrible. He's disabled after a stroke and I look after him. He's also a codeine addict, getting it prescribed and having me and his friend buy ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "consumer-law",
-      "label": "Consumer Law",
-      "legalAreaSlug": "consumer",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1voybdb",
-          "title": "Local authority withdrawing travel card with no refund offered - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1voybdb/local_authority_withdrawing_travel_card_with_no/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1voybdb/local_authority_withdrawing_travel_card_with_no/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786785937,
-          "snippet": "Is this legal? My local council has offered a discounted travel card for residents for the last few years which any county resident can apply for and it entitled you to 50% discount on local bus services. You pay an annual fee of £20 for the card. They've just emailed to say from",
+          "createdUtc": 1786858407,
+          "snippet": "I, blindly listening to my friend, booked 2 accomodations at the same time, in glasgow, Scotland. One is Uniacco and another is Amber I want to cancel uniacco accomodation but its past cooling off period. I didn't know they had this policy that you can't cancel it later. I don't ",
           "listingSource": "rss:hot"
         }
       ]
