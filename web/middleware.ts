@@ -7,9 +7,64 @@ import {
   isAdminDevUnprotected,
   isAdminMisconfiguredProduction,
 } from "@/lib/admin/auth";
+import { isMaintenanceMode, MAINTENANCE_MESSAGE } from "@/lib/maintenance";
+
+function isMaintenanceExempt(pathname: string): boolean {
+  return (
+    pathname === "/maintenance" ||
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/api/admin")
+  );
+}
+
+function maintenanceResponse(request: NextRequest): NextResponse {
+  const { pathname } = request.nextUrl;
+
+  if (pathname === "/robots.txt") {
+    return new NextResponse("User-agent: *\nDisallow: /\n", {
+      status: 200,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "cache-control": "no-store, must-revalidate",
+      },
+    });
+  }
+
+  if (pathname.startsWith("/api/")) {
+    return NextResponse.json(
+      { error: "maintenance", message: MAINTENANCE_MESSAGE },
+      {
+        status: 503,
+        headers: {
+          "retry-after": "172800",
+          "cache-control": "no-store, must-revalidate",
+        },
+      },
+    );
+  }
+
+  const url = request.nextUrl.clone();
+  url.pathname = "/maintenance";
+  url.search = "";
+  const res = NextResponse.rewrite(url);
+  res.headers.set("Retry-After", "172800");
+  res.headers.set("Cache-Control", "no-store, must-revalidate");
+  return res;
+}
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  if (isMaintenanceMode() && !isMaintenanceExempt(pathname)) {
+    return maintenanceResponse(request);
+  }
+
+  if (pathname === "/maintenance") {
+    const home = request.nextUrl.clone();
+    home.pathname = "/";
+    home.search = "";
+    return NextResponse.redirect(home);
+  }
 
   if (pathname === "/embed/signpost") {
     const res = NextResponse.next();
@@ -68,5 +123,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/embed/signpost", "/admin/:path*", "/api/admin/:path*"],
+  matcher: [
+    "/((?!_next/static|_next/image|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)",
+  ],
 };
