@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-17T06:37:45.413Z",
+    "scrapedAt": "2026-08-17T18:36:58.550Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 5,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,102 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vqshbx",
+          "title": "Mum received a £900 copyright demand for images on her website",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqshbx/mum_received_a_900_copyright_demand_for_images_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqshbx/mum_received_a_900_copyright_demand_for_images_on/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786973582,
+          "snippet": "Hi, looking for some advice on behalf of my mum. Around 8 months ago she received an email from Copyright Agent claiming some photos on her website belonged to News Corp Australia and were being used without permission. As soon as she received the email, I removed the images imme",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqqccu",
+          "title": "Update: My parents are (unfortunately) eligible for pension credit.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqqccu/update_my_parents_are_unfortunately_eligible_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqqccu/update_my_parents_are_unfortunately_eligible_for/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786968051,
+          "snippet": "Thank to everyone who helped in my last thread. I spoke with Citizens Advice this morning. I've been advised that as my parents are citizens they are eligible for pension credit, despite only having worked for 6 years and never having saved anything. This means they will be (unfo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqprws",
+          "title": "Brother has crashed my motability car into a shop.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqprws/brother_has_crashed_my_motability_car_into_a_shop/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqprws/brother_has_crashed_my_motability_car_into_a_shop/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786966434,
+          "snippet": "I have a motability car for my condition. I can't drive myself, but motability lets me nominate 3 drivers to drive me around instead. I didn't want this car but my parents forced me to do it because they wanted a new family car. I either gave up a large chunk of my PIP or they wo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqogbp",
+          "title": "Pay the fine or appeal? Box junction. England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqogbp/pay_the_fine_or_appeal_box_junction_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqogbp/pay_the_fine_or_appeal_box_junction_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786962321,
+          "snippet": "Got a TfL PCN for stopping in a yellow box junction at Upper Woburn Place / Endsleigh Gardens. In one of their photos my car has already cleared the box, and in the other I’m in the box but was moving with the traffic, not stationary. You can also see the traffic ahead was moving",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqp4nk",
+          "title": "England – What could legally happen if I interred my mum’s ashes in an existing family plot without permission?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqp4nk/england_what_could_legally_happen_if_i_interred/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqp4nk/england_what_could_legally_happen_if_i_interred/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786964476,
+          "snippet": "&#x200B; My mother passed away last Christmas. She was still very young, and I miss her more than I can put into words. There is a churchyard in England where my grandmother (her mum) and my mum’s two sisters have had their ashes interred in the same family plot. It had always be",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqve2p",
+          "title": "What to do if I don't want to inherit a property from estranged father",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqve2p/what_to_do_if_i_dont_want_to_inherit_a_property/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqve2p/what_to_do_if_i_dont_want_to_inherit_a_property/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786980169,
+          "snippet": "Hi Reddit, I'm based in England and looking to get my foot on the property ladder. However, some time ago my estranged father died without a will, and I am in line to potentially inherit his home alongside my sister. I'm very eager to nip this in the bud as I don't want to inheri",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqsdms",
+          "title": "Police are refusing to return my phone after NFA",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqsdms/police_are_refusing_to_return_my_phone_after_nfa/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqsdms/police_are_refusing_to_return_my_phone_after_nfa/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786973331,
+          "snippet": "(England) A few months ago, my door was knocked by the police and my room was searched before I was arrested for alleged \"encouragement of terrorism, dissemination of terrorist publications, preparation of terrorist acts, and collection of information likely to be useful to a per",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqrbtt",
+          "title": "[Update] \"county's largest festival\" scam - organiser now making threats and speading lies about victims",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqrbtt/update_countys_largest_festival_scam_organiser/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqrbtt/update_countys_largest_festival_scam_organiser/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786970706,
+          "snippet": "SO. My previous post got a fair bit of attention, and ended up leading to an article in the Daily Mail: https://www.reddit.com/r/LegalAdviceUK/s/aClr8bhlga In the article, they interviewed some vendors who gave their names, and one lady who stayed anonymous. Since then, several o",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vq52zo",
           "title": "How to oppose my neighbouring home being transformed into a residential children’s home",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq52zo/how_to_oppose_my_neighbouring_home_being/",
@@ -47,6 +143,18 @@
           "numComments": 0,
           "createdUtc": 1786905942,
           "snippet": "We got a letter today explaining that the owners of the house adjoining ours have applied for planning permission to transform their home into a a residential children’s care home. I am unsure if this means children who are in the care system, or children who have severe learning",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqo76b",
+          "title": "England - Landlord of Property Next Door Has Requested My Doorbell Camera Footage of His Tenants - All Advice Greatly Appreciated!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqo76b/england_landlord_of_property_next_door_has/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqo76b/england_landlord_of_property_next_door_has/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786961478,
+          "snippet": "EDIT: Thank you everyone for your thoughtful (and conflicting 🤣) advice! I've played it safe and told LL that I'm not comfortable sharing the footage with a 3rd party but I've saved it and am willing to share it with the police and I'm happy to provide a written statement. For t",
           "listingSource": "rss:hot"
         },
         {
@@ -62,15 +170,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vpyq2w",
-          "title": "Parents neighbours planted a “hedge” many moons ago. (NE england) What hope do they have now?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpyq2w/parents_neighbours_planted_a_hedge_many_moons_ago/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpyq2w/parents_neighbours_planted_a_hedge_many_moons_ago/",
+          "id": "1vqdas8",
+          "title": "Is it possible to access the NHS in England without a paper trail?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqdas8/is_it_possible_to_access_the_nhs_in_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqdas8/is_it_possible_to_access_the_nhs_in_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786891098,
-          "snippet": "Parents lived in this house for 30 years + in the north east and neighbours bought from a nice old couple who we grew up around. They took out an orchard at the back of the garden and a well kept garden to plant a lawn on it. I can’t argue taste. It’s up to them but I’m just pain",
+          "createdUtc": 1786926502,
+          "snippet": "Unsure if this is the correct subreddit: feel free to take this down if it isn't, I wasn't sure where to post and AskUK doesn't allow posts about medical care. Burner account being used over concerns of this post being linked to my identity. I (16F) have been recently informed by",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqoy9y",
+          "title": "In Wales, my dad is at risk of losing his house, would it be possible for me to buy it back?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqoy9y/in_wales_my_dad_is_at_risk_of_losing_his_house/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqoy9y/in_wales_my_dad_is_at_risk_of_losing_his_house/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786963933,
+          "snippet": "Me and my dad live in Wales. To put a long story short, he's been paying into an insane amount of scams, investing in pyramid schemes, taking out loans to re-do the kitchen and he knows he'll never be able to pay it off, ext. You mention it, he's wasted his money on it to try and",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqmqjy",
+          "title": "Continuous Text Messages From Other Party Car Insurance",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqmqjy/continuous_text_messages_from_other_party_car/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqmqjy/continuous_text_messages_from_other_party_car/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786956343,
+          "snippet": "Hi there, I'm based in England and I was recently involved in a minor collision where someone reversed into my parked car. The insurance from the other party (Policy Expert) have been sending me the same text message x3 a day for over a week, including weekends. \"We would like to",
           "listingSource": "rss:hot"
         },
         {
@@ -86,171 +218,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vqdas8",
-          "title": "Is it possible to access the NHS in England without a paper trail?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqdas8/is_it_possible_to_access_the_nhs_in_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqdas8/is_it_possible_to_access_the_nhs_in_england/",
+          "id": "1vqxdhw",
+          "title": "Forgot to turn up for jury duty UK",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqxdhw/forgot_to_turn_up_for_jury_duty_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqxdhw/forgot_to_turn_up_for_jury_duty_uk/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786926502,
-          "snippet": "Unsure if this is the correct subreddit: feel free to take this down if it isn't, I wasn't sure where to post and AskUK doesn't allow posts about medical care. Burner account being used over concerns of this post being linked to my identity. I (16F) have been recently informed by",
+          "createdUtc": 1786984846,
+          "snippet": "So I was suppose to be at jury duty today but I went to work instead only just remembered and can’t get through to the landline number as it’s closed now I’m HGV driver so im a bit of distance away from the court, I can either go home tonight and be near by tomorrow or ring tomor",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vq8ic2",
-          "title": "UK legal advice needed – National Lottery Instant Win game appeared to produce enough winning symbols",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq8ic2/uk_legal_advice_needed_national_lottery_instant/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq8ic2/uk_legal_advice_needed_national_lottery_instant/",
+          "id": "1vr07up",
+          "title": "England - Public liability claim revealed on documents from management company during sale of house",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr07up/england_public_liability_claim_revealed_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr07up/england_public_liability_claim_revealed_on/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786914026,
-          "snippet": "Edit: Thanks for the advice everyone, really helpful! Is a bit gutting however is what it is. I’m looking for some advice regarding a National Lottery Instant Win game and whether I have any basis to pursue the matter further. I played Monopoly Property Payout through the Nationa",
+          "createdUtc": 1786990699,
+          "snippet": "Hi all. We are selling our home and buying another home and live on an estate with a management company (we are freehold). We have been in the process of working things out with the solicitors and get an email that according to the buyers solicitors there is a possible public lia",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vpr1z5",
-          "title": "Redundancy extended to October, employer now wants to retain me —but I’m 15 weeks pregnant and want to take the £50–60k package. Can they withdraw my redundancy? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpr1z5/redundancy_extended_to_october_employer_now_wants/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpr1z5/redundancy_extended_to_october_employer_now_wants/",
+          "id": "1vr06bi",
+          "title": "Refusal of final salary after resigning",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr06bi/refusal_of_final_salary_after_resigning/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr06bi/refusal_of_final_salary_after_resigning/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786866997,
-          "snippet": "Hello I have been employed for 9 years at my current company in England. I’ve been selected for redundancy and my current proposed termination date is 31 October 2026. Extended from 31 August 2026. I’ve been offered an enhanced redundancy package of approximately £50–60,000, alth",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vq19u1",
-          "title": "Two large families are constantly fighting publicly in the street. We're sick of living like this.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq19u1/two_large_families_are_constantly_fighting/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq19u1/two_large_families_are_constantly_fighting/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786897161,
-          "snippet": "Our street has repeatedly had two large extended families engaging in some type of long running feud. Evert few weeks it spills over into a public argument. Other family members arrive in cars and begin arguing and fighting. The road ends up blocked. There is relentless screaming",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vq8tiq",
-          "title": "Court Summons because of Council Tax",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq8tiq/court_summons_because_of_council_tax/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq8tiq/court_summons_because_of_council_tax/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786914769,
-          "snippet": "I currently live in a flatshare in southern England and in December 2025 flatmate 1 moved out without paying her part of the council tax. I had spent months messaging her, reminding her to pay it monthly so it wouldn't amount to anything crazy. I continued paying - I have screens",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vpx97q",
-          "title": "I’m looking for some impartial advice after separation.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpx97q/im_looking_for_some_impartial_advice_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpx97q/im_looking_for_some_impartial_advice_after/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786887385,
-          "snippet": "I’m looking for some impartial advice because I’m struggling to work out what is reasonable here. My wife and I have been together for around 31 years, but we separated nearly a year ago. We still have a jointly owned family home, worth roughly £300k, with a mortgage outstanding ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vqawap",
-          "title": "I asked for the job contract and was given this single page",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqawap/i_asked_for_the_job_contract_and_was_given_this/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqawap/i_asked_for_the_job_contract_and_was_given_this/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786920035,
-          "snippet": "This is in Scotland. Seems more like a payment enrolling. I have 2 questions: Should I insist on a contract or take this as the contract (seems naive)? Do they have legal obligation to provide it? They seem to not want to. Are the \"Jobseeker Allowance, Employment Support Allowanc",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vqagfw",
-          "title": "Lodger Issue: Landlord Won't Gace Notice But Says they Don't have to Partially Refund Rent (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqagfw/lodger_issue_landlord_wont_gace_notice_but_says/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqagfw/lodger_issue_landlord_wont_gace_notice_but_says/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786918897,
-          "snippet": "I'm a lodger renting in England and have a very simple written agreement with the landlord. They told me last month they were giving me 4 weeks notice, they have offered to extend that notice by 2 weeks. So this takes the move out date the the 21st of the month The issue is that ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vpufxg",
-          "title": "Can we end our tenancy early due to repeated antisocial behaviour and vandalism? [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpufxg/can_we_end_our_tenancy_early_due_to_repeated/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpufxg/can_we_end_our_tenancy_early_due_to_repeated/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786879139,
-          "snippet": "Hi all, Looking for some advice on what our options are. There are three of us living in the flat: • Male, 23, student • Male, 22, full-time worker • Male, 24, student We’ve got around 2 months left on our tenancy, but we’ve been having ongoing problems with some kids/young peopl",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vpxmse",
-          "title": "Help with tree roots on my property",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpxmse/help_with_tree_roots_on_my_property/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpxmse/help_with_tree_roots_on_my_property/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786888370,
-          "snippet": "Hi guys, I moved into my house around 3 years ago and cant say as a first time buyer that I noticed the tree coming over into my front garden. The time has come for us to try and sort out the front garden and I don't think we quite realised the extent of these tree roots! They ar",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vqb45t",
-          "title": "Claiming deposit back in full after two weeks (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqb45t/claiming_deposit_back_in_full_after_two_weeks/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqb45t/claiming_deposit_back_in_full_after_two_weeks/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786920612,
-          "snippet": "Two weeks ago, I emailed the letting agency informing that I disagreed with some of the deductions to my deposit after I moved out on the 28th June. They emailed back the next morning to say that the staff member handling my check out is on leave, and have not emailed back since.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vqhy2e",
-          "title": "Monies reclaimed with veiled threat.... England....",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqhy2e/monies_reclaimed_with_veiled_threat_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqhy2e/monies_reclaimed_with_veiled_threat_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786939982,
-          "snippet": "Ok, so a friend of ours had been treasurer at a local organisation for a number of years. Upon their original appointment an agreement that a payment of £150 was agreed to cover expenses related to the position, and payment which was made monthly and entered into the records, whi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vq9yuq",
-          "title": "Estate has a hedge as a boundary to one of the properties on the estate. The property is attempting an adverse possession of the boundary from the Estates side of the hedge (claiming when it was sold it was treats as theirs, and claiming they have continued to do so).",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq9yuq/estate_has_a_hedge_as_a_boundary_to_one_of_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq9yuq/estate_has_a_hedge_as_a_boundary_to_one_of_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786917653,
-          "snippet": "In England. Professional gardeners maintain the estates trees, bushes and hedges. The hedge was over a metre wide in places. What claim do they have? What do we (the estate) need to dispute the claim? Would legal fees be paid back to the estate if we win in court? Legal advice ha",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vq7mxz",
-          "title": "Asking for a pet - Private Renter [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq7mxz/asking_for_a_pet_private_renter_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq7mxz/asking_for_a_pet_private_renter_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786911937,
-          "snippet": "Me and my partner have been living in rented accommodation for the past 14 months. We are trying to rehome my grandmothers cat, and we are the most suitable place for her. I asked my landlord in writing whether we could get a pet as the Renters Rights Bill outlines, and he has co",
+          "createdUtc": 1786990609,
+          "snippet": "Hello, Please could I ask for some advice on next steps in obtaining my final salary. I worked in a pub until recently when I resigned to focus on family matters. I didn't have an employment contract and worked on average three nights a week, paid by bank transfer. My employer is",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 12,
+      "postCount": 11,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,78 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vqqccu",
+          "title": "Update: My parents are (unfortunately) eligible for pension credit.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqqccu/update_my_parents_are_unfortunately_eligible_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqqccu/update_my_parents_are_unfortunately_eligible_for/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786968051,
+          "snippet": "Thank to everyone who helped in my last thread. I spoke with Citizens Advice this morning. I've been advised that as my parents are citizens they are eligible for pension credit, despite only having worked for 6 years and never having saved anything. This means they will be (unfo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqprws",
+          "title": "Brother has crashed my motability car into a shop.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqprws/brother_has_crashed_my_motability_car_into_a_shop/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqprws/brother_has_crashed_my_motability_car_into_a_shop/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786966434,
+          "snippet": "I have a motability car for my condition. I can't drive myself, but motability lets me nominate 3 drivers to drive me around instead. I didn't want this car but my parents forced me to do it because they wanted a new family car. I either gave up a large chunk of my PIP or they wo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqp4nk",
+          "title": "England – What could legally happen if I interred my mum’s ashes in an existing family plot without permission?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqp4nk/england_what_could_legally_happen_if_i_interred/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqp4nk/england_what_could_legally_happen_if_i_interred/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786964476,
+          "snippet": "&#x200B; My mother passed away last Christmas. She was still very young, and I miss her more than I can put into words. There is a churchyard in England where my grandmother (her mum) and my mum’s two sisters have had their ashes interred in the same family plot. It had always be",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqve2p",
+          "title": "What to do if I don't want to inherit a property from estranged father",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqve2p/what_to_do_if_i_dont_want_to_inherit_a_property/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqve2p/what_to_do_if_i_dont_want_to_inherit_a_property/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786980169,
+          "snippet": "Hi Reddit, I'm based in England and looking to get my foot on the property ladder. However, some time ago my estranged father died without a will, and I am in line to potentially inherit his home alongside my sister. I'm very eager to nip this in the bud as I don't want to inheri",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqsdms",
+          "title": "Police are refusing to return my phone after NFA",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqsdms/police_are_refusing_to_return_my_phone_after_nfa/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqsdms/police_are_refusing_to_return_my_phone_after_nfa/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786973331,
+          "snippet": "(England) A few months ago, my door was knocked by the police and my room was searched before I was arrested for alleged \"encouragement of terrorism, dissemination of terrorist publications, preparation of terrorist acts, and collection of information likely to be useful to a per",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vqrbtt",
+          "title": "[Update] \"county's largest festival\" scam - organiser now making threats and speading lies about victims",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqrbtt/update_countys_largest_festival_scam_organiser/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqrbtt/update_countys_largest_festival_scam_organiser/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786970706,
+          "snippet": "SO. My previous post got a fair bit of attention, and ended up leading to an article in the Daily Mail: https://www.reddit.com/r/LegalAdviceUK/s/aClr8bhlga In the article, they interviewed some vendors who gave their names, and one lady who stayed anonymous. Since then, several o",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vpyuxw",
           "title": "College posted my final exam grades and university destination on social media without my permission - England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpyuxw/college_posted_my_final_exam_grades_and/",
@@ -290,78 +362,6 @@
           "createdUtc": 1786891432,
           "snippet": "A level results day was August 13th and I received my grades and university destination. On results day I went into school and collected my results and chatted to some of the teachers there. One asked if they could take a picture of me for the school Instagram and I said no. No p",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vpyq2w",
-          "title": "Parents neighbours planted a “hedge” many moons ago. (NE england) What hope do they have now?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpyq2w/parents_neighbours_planted_a_hedge_many_moons_ago/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpyq2w/parents_neighbours_planted_a_hedge_many_moons_ago/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786891098,
-          "snippet": "Parents lived in this house for 30 years + in the north east and neighbours bought from a nice old couple who we grew up around. They took out an orchard at the back of the garden and a well kept garden to plant a lawn on it. I can’t argue taste. It’s up to them but I’m just pain",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vqdas8",
-          "title": "Is it possible to access the NHS in England without a paper trail?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqdas8/is_it_possible_to_access_the_nhs_in_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqdas8/is_it_possible_to_access_the_nhs_in_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786926502,
-          "snippet": "Unsure if this is the correct subreddit: feel free to take this down if it isn't, I wasn't sure where to post and AskUK doesn't allow posts about medical care. Burner account being used over concerns of this post being linked to my identity. I (16F) have been recently informed by",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vq8ic2",
-          "title": "UK legal advice needed – National Lottery Instant Win game appeared to produce enough winning symbols",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq8ic2/uk_legal_advice_needed_national_lottery_instant/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq8ic2/uk_legal_advice_needed_national_lottery_instant/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786914026,
-          "snippet": "Edit: Thanks for the advice everyone, really helpful! Is a bit gutting however is what it is. I’m looking for some advice regarding a National Lottery Instant Win game and whether I have any basis to pursue the matter further. I played Monopoly Property Payout through the Nationa",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vq19u1",
-          "title": "Two large families are constantly fighting publicly in the street. We're sick of living like this.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq19u1/two_large_families_are_constantly_fighting/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq19u1/two_large_families_are_constantly_fighting/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786897161,
-          "snippet": "Our street has repeatedly had two large extended families engaging in some type of long running feud. Evert few weeks it spills over into a public argument. Other family members arrive in cars and begin arguing and fighting. The road ends up blocked. There is relentless screaming",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vq8tiq",
-          "title": "Court Summons because of Council Tax",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq8tiq/court_summons_because_of_council_tax/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq8tiq/court_summons_because_of_council_tax/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786914769,
-          "snippet": "I currently live in a flatshare in southern England and in December 2025 flatmate 1 moved out without paying her part of the council tax. I had spent months messaging her, reminding her to pay it monthly so it wouldn't amount to anything crazy. I continued paying - I have screens",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vpx97q",
-          "title": "I’m looking for some impartial advice after separation.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpx97q/im_looking_for_some_impartial_advice_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpx97q/im_looking_for_some_impartial_advice_after/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786887385,
-          "snippet": "I’m looking for some impartial advice because I’m struggling to work out what is reasonable here. My wife and I have been together for around 31 years, but we separated nearly a year ago. We still have a jointly owned family home, worth roughly £300k, with a mortgage outstanding ",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 5,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -388,51 +388,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vqagfw",
-          "title": "Lodger Issue: Landlord Won't Gace Notice But Says they Don't have to Partially Refund Rent (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqagfw/lodger_issue_landlord_wont_gace_notice_but_says/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqagfw/lodger_issue_landlord_wont_gace_notice_but_says/",
+          "id": "1vqo76b",
+          "title": "England - Landlord of Property Next Door Has Requested My Doorbell Camera Footage of His Tenants - All Advice Greatly Appreciated!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqo76b/england_landlord_of_property_next_door_has/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqo76b/england_landlord_of_property_next_door_has/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786918897,
-          "snippet": "I'm a lodger renting in England and have a very simple written agreement with the landlord. They told me last month they were giving me 4 weeks notice, they have offered to extend that notice by 2 weeks. So this takes the move out date the the 21st of the month The issue is that ",
+          "createdUtc": 1786961478,
+          "snippet": "EDIT: Thank you everyone for your thoughtful (and conflicting 🤣) advice! I've played it safe and told LL that I'm not comfortable sharing the footage with a 3rd party but I've saved it and am willing to share it with the police and I'm happy to provide a written statement. For t",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "intellectual-property",
+      "label": "Intellectual Property",
+      "legalAreaSlug": "intellectual_property",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1vpufxg",
-          "title": "Can we end our tenancy early due to repeated antisocial behaviour and vandalism? [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpufxg/can_we_end_our_tenancy_early_due_to_repeated/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpufxg/can_we_end_our_tenancy_early_due_to_repeated/",
+          "id": "1vqshbx",
+          "title": "Mum received a £900 copyright demand for images on her website",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqshbx/mum_received_a_900_copyright_demand_for_images_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqshbx/mum_received_a_900_copyright_demand_for_images_on/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786879139,
-          "snippet": "Hi all, Looking for some advice on what our options are. There are three of us living in the flat: • Male, 23, student • Male, 22, full-time worker • Male, 24, student We’ve got around 2 months left on our tenancy, but we’ve been having ongoing problems with some kids/young peopl",
+          "createdUtc": 1786973582,
+          "snippet": "Hi, looking for some advice on behalf of my mum. Around 8 months ago she received an email from Copyright Agent claiming some photos on her website belonged to News Corp Australia and were being used without permission. As soon as she received the email, I removed the images imme",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "prison_law",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1vqb45t",
-          "title": "Claiming deposit back in full after two weeks (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqb45t/claiming_deposit_back_in_full_after_two_weeks/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqb45t/claiming_deposit_back_in_full_after_two_weeks/",
+          "id": "1vqogbp",
+          "title": "Pay the fine or appeal? Box junction. England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqogbp/pay_the_fine_or_appeal_box_junction_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqogbp/pay_the_fine_or_appeal_box_junction_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786920612,
-          "snippet": "Two weeks ago, I emailed the letting agency informing that I disagreed with some of the deductions to my deposit after I moved out on the 28th June. They emailed back the next morning to say that the staff member handling my check out is on leave, and have not emailed back since.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vq9yuq",
-          "title": "Estate has a hedge as a boundary to one of the properties on the estate. The property is attempting an adverse possession of the boundary from the Estates side of the hedge (claiming when it was sold it was treats as theirs, and claiming they have continued to do so).",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq9yuq/estate_has_a_hedge_as_a_boundary_to_one_of_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vq9yuq/estate_has_a_hedge_as_a_boundary_to_one_of_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786917653,
-          "snippet": "In England. Professional gardeners maintain the estates trees, bushes and hedges. The hedge was over a metre wide in places. What claim do they have? What do we (the estate) need to dispute the claim? Would legal fees be paid back to the estate if we win in court? Legal advice ha",
+          "createdUtc": 1786962321,
+          "snippet": "Got a TfL PCN for stopping in a yellow box junction at Upper Woburn Place / Endsleigh Gardens. In one of their photos my car has already cleared the box, and in the other I’m in the box but was moving with the traffic, not stationary. You can also see the traffic ahead was moving",
           "listingSource": "rss:hot"
         }
       ]
@@ -462,6 +474,30 @@
       ]
     },
     {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vqmqjy",
+          "title": "Continuous Text Messages From Other Party Car Insurance",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqmqjy/continuous_text_messages_from_other_party_car/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqmqjy/continuous_text_messages_from_other_party_car/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786956343,
+          "snippet": "Hi there, I'm based in England and I was recently involved in a minor collision where someone reversed into my parked car. The insurance from the other party (Policy Expert) have been sending me the same text message x3 a day for over a week, including weekends. \"We would like to",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "garage-and-vehicle-repair-disputes",
       "label": "Garage and Vehicle Repair Disputes",
       "legalAreaSlug": "consumer_vehicle_repair",
@@ -486,6 +522,30 @@
       ]
     },
     {
+      "slug": "personal-injury",
+      "label": "Personal Injury",
+      "legalAreaSlug": "personal_injury",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vr07up",
+          "title": "England - Public liability claim revealed on documents from management company during sale of house",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr07up/england_public_liability_claim_revealed_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr07up/england_public_liability_claim_revealed_on/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1786990699,
+          "snippet": "Hi all. We are selling our home and buying another home and live on an estate with a management company (we are freehold). We have been in the process of working things out with the solicitors and get an email that according to the buyers solicitors there is a possible public lia",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "employment-law",
       "label": "Employment Law",
       "legalAreaSlug": "employment",
@@ -496,15 +556,15 @@
       ],
       "posts": [
         {
-          "id": "1vpr1z5",
-          "title": "Redundancy extended to October, employer now wants to retain me —but I’m 15 weeks pregnant and want to take the £50–60k package. Can they withdraw my redundancy? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpr1z5/redundancy_extended_to_october_employer_now_wants/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vpr1z5/redundancy_extended_to_october_employer_now_wants/",
+          "id": "1vr06bi",
+          "title": "Refusal of final salary after resigning",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr06bi/refusal_of_final_salary_after_resigning/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr06bi/refusal_of_final_salary_after_resigning/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786866997,
-          "snippet": "Hello I have been employed for 9 years at my current company in England. I’ve been selected for redundancy and my current proposed termination date is 31 October 2026. Extended from 31 August 2026. I’ve been offered an enhanced redundancy package of approximately £50–60,000, alth",
+          "createdUtc": 1786990609,
+          "snippet": "Hello, Please could I ask for some advice on next steps in obtaining my final salary. I worked in a pub until recently when I resigned to focus on family matters. I didn't have an employment contract and worked on average three nights a week, paid by bank transfer. My employer is",
           "listingSource": "rss:hot"
         }
       ]
