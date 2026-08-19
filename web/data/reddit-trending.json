@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-18T18:35:55.486Z",
-    "subredditCount": 1,
-    "postCount": 20,
-    "topicCount": 5,
+    "scrapedAt": "2026-08-19T06:30:13.548Z",
+    "subredditCount": 2,
+    "postCount": 40,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vrza2w",
+          "title": "Painter responds to negative review, comes across as a threat? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrza2w/painter_responds_to_negative_review_comes_across/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrza2w/painter_responds_to_negative_review_comes_across/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787081164,
+          "snippet": "A painter responded to my negative review with this private message. My review will be added down below as to what was said. My concern is it comes across as hostile especially knowing that they have had a past criminal conviction (not sure on what as it was overheard when they w",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vrp4qn",
           "title": "Wedding venue refused our caterers access to our wedding, 90 minutes before the ceremony (Wales)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrp4qn/wedding_venue_refused_our_caterers_access_to_our/",
@@ -50,6 +62,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vrvw50",
+          "title": "[England] Neighbour runs an Airbnb + paid airport parking business from her house in breach of estate covenants. Airbnb's map pin points at MY house. Management company ignoring me. What are my legal options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrvw50/england_neighbour_runs_an_airbnb_paid_airport/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrvw50/england_neighbour_runs_an_airbnb_paid_airport/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787074023,
+          "snippet": "Jurisdiction: England. I own a freehold house on a small private estate, a walled cul-de-sac with one gated entrance. We all pay a monthly fee to a management company that's responsible for the private road and grounds, and every house is bound by restrictive covenants in the 201",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vrmzv3",
           "title": "am I fucked bringing this back to the uk",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrmzv3/am_i_fucked_bringing_this_back_to_the_uk/",
@@ -59,6 +83,18 @@
           "numComments": 0,
           "createdUtc": 1787054044,
           "snippet": "so I bought this knife in France and realised afterwards, though it may not be illegal in the UK, I don't know if it's a problem coming through boarder control at Heathrow airport. I'd have it in my suitcase in stowage but concerned about what might happen. submitted by /u/Fit_Em",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs6b1s",
+          "title": "All my colleagues have fake exemptions to work from home full time. I'm having to pick up their slack.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vs6b1s/all_my_colleagues_have_fake_exemptions_to_work/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vs6b1s/all_my_colleagues_have_fake_exemptions_to_work/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787097602,
+          "snippet": "I work for a local council. We're expected to be in 40% of our time on site and 60% can be done from home. In 2024 one employee with anxiety was given an exemption to work from home 100% of the time. Her friend then got it too. Then the other two women in her friendship group got",
           "listingSource": "rss:hot"
         },
         {
@@ -86,15 +122,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vrvw50",
-          "title": "[England] Neighbour runs an Airbnb + paid airport parking business from her house in breach of estate covenants. Airbnb's map pin points at MY house. Management company ignoring me. What are my legal options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrvw50/england_neighbour_runs_an_airbnb_paid_airport/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrvw50/england_neighbour_runs_an_airbnb_paid_airport/",
+          "id": "1vs0woy",
+          "title": "[England] builders caught dumping rubbish in the nearby nature reserve",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vs0woy/england_builders_caught_dumping_rubbish_in_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vs0woy/england_builders_caught_dumping_rubbish_in_the/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787074023,
-          "snippet": "Jurisdiction: England. I own a freehold house on a small private estate, a walled cul-de-sac with one gated entrance. We all pay a monthly fee to a management company that's responsible for the private road and grounds, and every house is bound by restrictive covenants in the 201",
+          "createdUtc": 1787084672,
+          "snippet": "Help! My partner posted a job on the bark app for renovating our garage and picked a pair of guys who seemed very professional. They started Monday. Today after they left a neighbour came and told us she'd witnessed one of them taking unused/cutoff dry wall and other rubbish into",
           "listingSource": "rss:hot"
         },
         {
@@ -107,54 +143,6 @@
           "numComments": 0,
           "createdUtc": 1787058401,
           "snippet": "Last week I had an altercation with a neighbour who was chasing a young seagull who was dissteressed with a blanket, the parent gulls were alarmed and swooping trying to get to the young bird, I asked her to let them alone, she continued to chase and try to capture the animal. th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vrkfv2",
-          "title": "The man who attacked me was suppossd to be removed from the UK this week. My Victim Liason Officer has contacted me to say it has been delayed because he's claimed he wouldnt be safe in Iraq.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrkfv2/the_man_who_attacked_me_was_suppossd_to_be/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrkfv2/the_man_who_attacked_me_was_suppossd_to_be/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787045975,
-          "snippet": "I got a warning that there should be no questions that break rule 10. this isn't about any of that. Its about the opposite trying to get someone removed who attacked me. The VLO was sympathetic but he has said there's nothing more than can be done other than to wait for his claim",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vr4d4d",
-          "title": "I reported a worker for stealing from work, I got called racist and ended up getting a warning. She lost her job for stealing. How can I get a warning removed from my work file?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr4d4d/i_reported_a_worker_for_stealing_from_work_i_got/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr4d4d/i_reported_a_worker_for_stealing_from_work_i_got/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786999602,
-          "snippet": "I hope this is the right place: basically, I caught her stealing 5 times. Toilet paper (not one roll, 4 packs) a colleagues lunch box, petty cash, office supplies (a lot of them) and a plant from the office. we don’t have CCTV, but I saw her each time as we both work a bit later.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vrj98i",
-          "title": "What if the estate in probate runs out of money? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrj98i/what_if_the_estate_in_probate_runs_out_of_money/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrj98i/what_if_the_estate_in_probate_runs_out_of_money/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787041735,
-          "snippet": "Hi everyone, I'm one of three executors. The other 2,my brothers, won't lower the house price to make it competitive enough to get any viewers, never mind offers. We are due to inherit a third of it each. However, my main concern is that the estate is now running low on funds, pr",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vrhmdv",
-          "title": "Leaving paracetamol and ibuprofen for customers",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrhmdv/leaving_paracetamol_and_ibuprofen_for_customers/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrhmdv/leaving_paracetamol_and_ibuprofen_for_customers/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787035960,
-          "snippet": "Hi all, I wasn’t quite sure how to word the title. I run a small PT studio and have been making a period supply kit to leave in our ladies toilets for members to help themselves to if needed. I’ve put the usual sanitary products in but also included some paracetamol and ibuprofen",
           "listingSource": "rss:hot"
         },
         {
@@ -170,6 +158,66 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vsea5p",
+          "title": "Noise disturbance every morning- England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsea5p/noise_disturbance_every_morning_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsea5p/noise_disturbance_every_morning_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787120519,
+          "snippet": "Hello, I’m currently experiencing a motorbike rider that opens their engine up right down my street each morning at 6:30, it’s so loud it shakes my house. Who’s the best person to report them to? Obviously I need to try get a photo of their plates. submitted by /u/AggravatingTie6",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vrkfv2",
+          "title": "The man who attacked me was suppossd to be removed from the UK this week. My Victim Liason Officer has contacted me to say it has been delayed because he's claimed he wouldnt be safe in Iraq.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrkfv2/the_man_who_attacked_me_was_suppossd_to_be/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrkfv2/the_man_who_attacked_me_was_suppossd_to_be/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787045975,
+          "snippet": "I got a warning that there should be no questions that break rule 10. this isn't about any of that. Its about the opposite trying to get someone removed who attacked me. The VLO was sympathetic but he has said there's nothing more than can be done other than to wait for his claim",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vsa1wn",
+          "title": "Council officers added a neighbours number to my file.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsa1wn/council_officers_added_a_neighbours_number_to_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsa1wn/council_officers_added_a_neighbours_number_to_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787107634,
+          "snippet": "England, Hampshire. I received an email from Environmental Health saying they had left a voicemail for me to arrange a meeting and discuss a complaint I had made. When I stated I received no message and queried what number they have on file, I was given a number I had not seen be",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vse5e3",
+          "title": "Can my flatmate sue uk england",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vse5e3/can_my_flatmate_sue_uk_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vse5e3/can_my_flatmate_sue_uk_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787120092,
+          "snippet": "My flatmate stopped paying rent, accumulating £1300 in arrears, which we agreed to take out from our deposit. Now, the reason this happened is apparently because she decided to move out in March into another place for which she had to cover rent (we think she actually just moved ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs4cfc",
+          "title": "Am I earning less than the NMW? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vs4cfc/am_i_earning_less_than_the_nmw_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vs4cfc/am_i_earning_less_than_the_nmw_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787092634,
+          "snippet": "I currently work in financial services (I am keeping this vague to protect myself and colleagues), and I earn £25,000 per year, with my contracted hours being 37.5 hours. If I were working 37.5 hours per week, my pay would be covering the national minimum wage. However, I am typi",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vrv5dh",
           "title": "My neighbour's mental health is causing him to harass and threaten me. What are my options?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrv5dh/my_neighbours_mental_health_is_causing_him_to/",
@@ -182,75 +230,275 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vr42hh",
-          "title": "can parents take my child trust fund money? england 17M",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr42hh/can_parents_take_my_child_trust_fund_money/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr42hh/can_parents_take_my_child_trust_fund_money/",
+          "id": "1vrj98i",
+          "title": "What if the estate in probate runs out of money? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrj98i/what_if_the_estate_in_probate_runs_out_of_money/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrj98i/what_if_the_estate_in_probate_runs_out_of_money/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786998947,
-          "snippet": "so i'm 17 going into uni september 2027 and just found that i can access my gov trust fund as part of the scheme set up by the gov from 2002 to 2011 so i'm currently registering for my account and my mother is adamant that i should give her the password in order for her to take £",
+          "createdUtc": 1787041735,
+          "snippet": "Hi everyone, I'm one of three executors. The other 2,my brothers, won't lower the house price to make it competitive enough to get any viewers, never mind offers. We are due to inherit a third of it each. However, my main concern is that the estate is now running low on funds, pr",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vqxdhw",
-          "title": "Forgot to turn up for jury duty UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqxdhw/forgot_to_turn_up_for_jury_duty_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vqxdhw/forgot_to_turn_up_for_jury_duty_uk/",
+          "id": "1vr4d4d",
+          "title": "I reported a worker for stealing from work, I got called racist and ended up getting a warning. She lost her job for stealing. How can I get a warning removed from my work file?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr4d4d/i_reported_a_worker_for_stealing_from_work_i_got/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr4d4d/i_reported_a_worker_for_stealing_from_work_i_got/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1786984846,
-          "snippet": "So I was suppose to be at jury duty today but I went to work instead only just remembered and can’t get through to the landline number as it’s closed now I’m HGV driver so im a bit of distance away from the court, I can either go home tonight and be near by tomorrow or ring tomor",
+          "createdUtc": 1786999602,
+          "snippet": "I hope this is the right place: basically, I caught her stealing 5 times. Toilet paper (not one roll, 4 packs) a colleagues lunch box, petty cash, office supplies (a lot of them) and a plant from the office. we don’t have CCTV, but I saw her each time as we both work a bit later.",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "name": "uklaw",
+      "displayName": "r/uklaw",
+      "description": "UK law students and practitioners — statute, case law, and professional practice.",
+      "subscribers": null,
+      "posts": [
+        {
+          "id": "k2kvzd",
+          "title": "Help Post: List of Legal Recruitment Agencies",
+          "url": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1606555862,
+          "snippet": "Hey, since everyone is struggling to find work, here is a list of all of the legal recruitment agencies and legal job sites I have bookmarked. Across the whole list, you can find everything from temp/paralegal work to associate roles. https://www.lawsupport.co.uk/ https://lodlaw.",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vrlmh7",
-          "title": "Someone keeps putting weird stuff through my nans + aunts letterbox and banging on the door at night",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrlmh7/someone_keeps_putting_weird_stuff_through_my_nans/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrlmh7/someone_keeps_putting_weird_stuff_through_my_nans/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1l8oqj7",
+          "title": "WEEKLY general chat/support post",
+          "url": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787049921,
-          "snippet": "Hey guys someone has been banging on my nans door at night and running off and sometimes they leave printed stuff pushed through the letterbox or taped to the door We think its kids because its only recently started with the school holidays. My aunt has a learning disability woul",
+          "createdUtc": 1749636086,
+          "snippet": "General chat/support post - how are you all doing? :) submitted by /u/AutoModerator [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vrvelh",
-          "title": "Scared for next week’s hearing - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrvelh/scared_for_next_weeks_hearing_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrvelh/scared_for_next_weeks_hearing_england/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vs4xrw",
+          "title": "Am I the only one who finds this odd?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs4xrw/am_i_the_only_one_who_finds_this_odd/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs4xrw/am_i_the_only_one_who_finds_this_odd/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787073021,
-          "snippet": "I have an urgent hearing next week as my girls’ dad refused to return them last week after one of their three times a year visits. He has been weaponising the threat of court for years whenever I don’t do what he wants, so I filed. Apparently I have a very good case but I’m still",
+          "createdUtc": 1787094098,
+          "snippet": "Why have some law firms normalised collaborating with TCLA (which charges applicants £50 a month, by the way), while also claiming to be against candidates paying for application banks? Are they effectively saying they are fine with candidates paying their way in? What happened t",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vrsi53",
-          "title": "Energy Company refuses to close business account (England) and continues to invoice me",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrsi53/energy_company_refuses_to_close_business_account/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrsi53/energy_company_refuses_to_close_business_account/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vru1zd",
+          "title": "Not sure what to think about this strike-off",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vru1zd/not_sure_what_to_think_about_this_strikeoff/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vru1zd/not_sure_what_to_think_about_this_strikeoff/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787067132,
-          "snippet": "Energy Company keeps invoicing me after my tenancy ended, can't explain the balance, and closed my complaint without resolving it. I'm hoping for some views on whether I'm being unreasonable here, and any suggestions as to what my next steps should be. I rented a small commercial",
+          "createdUtc": 1787070263,
+          "snippet": "Report in the Gazette today: https://www.lawgazette.co.uk/news/junior-struck-off-over-stolen-bike-insurance-claim/5127700.article Some Redditors will know the bloke. The chap might even read this. I then read the SDT judgement. You’ll find it here: https://solicitorstribunal.org.",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vrshdb",
-          "title": "Swapped contact details with E-scooter rider at scene of collision, didn't report to police - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrshdb/swapped_contact_details_with_escooter_rider_at/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrshdb/swapped_contact_details_with_escooter_rider_at/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vs385k",
+          "title": "Starting TC soon, advice for the first few weeks/month?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs385k/starting_tc_soon_advice_for_the_first_few/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs385k/starting_tc_soon_advice_for_the_first_few/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787067081,
-          "snippet": "Hi, thank you for taking a look at this So on 11/08/26, I had a road collision with an e scooter rider in my car where he ended up falling off his e scooter We stopped, exchanged details and spent 10 minutes checking he was okay, in which he insisted he was okay and not hurt (I s",
+          "createdUtc": 1787089955,
+          "snippet": "I start my TC in the City very soon and I’m feeling a mix of excitement and nerves! For those who’ve been through it, what advice would you give someone for navigating the first few weeks/month? I really want to make a good impression and start off on the right foot. I appreciate",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs22tv",
+          "title": "Is it better to move one year into QWE or move when an NQ?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs22tv/is_it_better_to_move_one_year_into_qwe_or_move/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs22tv/is_it_better_to_move_one_year_into_qwe_or_move/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787087285,
+          "snippet": "I’m genuinely confused as to what the best option is. I’m currently at a boutique firm and personally i feel I’m stuck in a hole of not having varied work. I’m concerned about the impact it will have on me competence wise as a solicitor. I’m at a cross road. I’m applying for jobs",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vrzx7f",
+          "title": "Do law firms contact academic referees and if so what do they ask?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vrzx7f/do_law_firms_contact_academic_referees_and_if_so/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vrzx7f/do_law_firms_contact_academic_referees_and_if_so/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787082554,
+          "snippet": "Title. submitted by /u/Ecstatic-Arugula9784 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vro7v8",
+          "title": "Please roast my CV - no VS/TC",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vro7v8/please_roast_my_cv_no_vstc/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vro7v8/please_roast_my_cv_no_vstc/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787057292,
+          "snippet": "Hi, hoping for some feedback before applying for VS/TCs this cycle. Would appreciate any insights into what I may be lacking in my profile, in particular considering my niche experiences. Since coming to the UK, I have doubts about ever qualifying as a lawyer due to its competiti",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs17lm",
+          "title": "Does anyone know any know of firms that are are open to taking resi solicitor in commercial property team",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs17lm/does_anyone_know_any_know_of_firms_that_are_are/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs17lm/does_anyone_know_any_know_of_firms_that_are_are/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787085333,
+          "snippet": "In south east / London Thanks submitted by /u/Revolutionary-Fun775 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vrxwi0",
+          "title": "Training contract prep - Scotland",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vrxwi0/training_contract_prep_scotland/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vrxwi0/training_contract_prep_scotland/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787078266,
+          "snippet": "Can any Scottish lawyers recommend books or resources for learning PI litigation and QUOCS? I am looking specifically for books, learning modules etc. Google isn’t being very helpful. Thanks submitted by /u/No-Instruction9313 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs3x9v",
+          "title": "Inspiring stories",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs3x9v/inspiring_stories/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs3x9v/inspiring_stories/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787091609,
+          "snippet": "Has any trainee, NQ, or Partner on here had an inspiring journey that led to their position? I’ve seen alot of legal jobseekers on here that are hopeless and depressed about either finding a NQ or trainee or any position in the legal industry. Rightfully so, everything seems so s",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs3qnq",
+          "title": "Cardiff vs Lancaster vs City",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs3qnq/cardiff_vs_lancaster_vs_city/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs3qnq/cardiff_vs_lancaster_vs_city/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787091180,
+          "snippet": "Hi everyone, I’m a French student trying to decide between three UK universities for an LLB. I currently have offers from Cardiff University, Lancaster University and City St George’s, University of London. My long-term career interests are currently between two paths: - Human ri",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs3l1b",
+          "title": "Do I put that I am looking for QWE in my CV?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs3l1b/do_i_put_that_i_am_looking_for_qwe_in_my_cv/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs3l1b/do_i_put_that_i_am_looking_for_qwe_in_my_cv/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787090798,
+          "snippet": "Sorry if this is a silly question. I will be starting an SQE course in January. In the meantime, I’m looking for roles to obtain QWE. For training contracts I don’t bother putting down that I’m looking for QWE as it’s pretty obvious that the end goal is to become a solicitor. For",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs3cjp",
+          "title": "First seat upcoming - advice and tips",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs3cjp/first_seat_upcoming_advice_and_tips/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs3cjp/first_seat_upcoming_advice_and_tips/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787090251,
+          "snippet": "Hello all, I am starting my TC in september in a highly rated international firm widely known as a leader in the regions. My first seat is in Energy, Utilities &amp; Infrastructure dealing with both the public and private sector. Wondering if any of you have any tips on what I ca",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs35wj",
+          "title": "So how was the exam on Criminal Litigation BSB?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs35wj/so_how_was_the_exam_on_criminal_litigation_bsb/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs35wj/so_how_was_the_exam_on_criminal_litigation_bsb/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787089805,
+          "snippet": "Weirdly struggled so badly with time but I just wanted to see how everyone felt about it and if we can discuss some Q/A! submitted by /u/Leading-Cranberry957 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs1gsd",
+          "title": "Barrister training Practice course tips (uk)👩🏾‍⚖️",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs1gsd/barrister_training_practice_course_tips_uk/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs1gsd/barrister_training_practice_course_tips_uk/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787085904,
+          "snippet": "Hey everyone, I’m currently starting my bar course and I’ve been told civil litigation is one of the hardest and biggest hurdles I’m going to face, and that is the first module that I am currently starting in the next few weeks. Does anyone have any tips?, Any sites that have pas",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vrkojh",
+          "title": "Is high street experience useful if you want to pursue corporate / commercial law?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vrkojh/is_high_street_experience_useful_if_you_want_to/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vrkojh/is_high_street_experience_useful_if_you_want_to/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787046830,
+          "snippet": "For context, I’m a law student at Queen’s University Belfast, and I will be going into my final year this September. Over the summer, I was fortunate enough to secure a position as a Legal Assistant at a local high street firm here in Belfast. It’s a relatively small firm, with j",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vrq8fz",
+          "title": "What should be in a CV?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vrq8fz/what_should_be_in_a_cv/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vrq8fz/what_should_be_in_a_cv/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787062103,
+          "snippet": "Hi. I ask this as I’ve seen a substantial number of Year 1 students put a whole list of their participation in insight / open day. If it was a vacation scheme, I would understand more as you’re working on substantive work for a month, but a 1-day or few hours, sometime virtual ev",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs0bpa",
+          "title": "law degree help",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs0bpa/law_degree_help/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs0bpa/law_degree_help/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787083407,
+          "snippet": "i've accepted my offer from the university of leicester, which is business and law BA, but as it is a BA and not LLB im considering of switching to law with criminology instead. i aspire to be a coporate solicitor so it makes sense to do business and law in theory, but i do think",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vryf7o",
+          "title": "Freelancing",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vryf7o/freelancing/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vryf7o/freelancing/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787079353,
+          "snippet": "submitted by /u/winxclub_united [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,10 +509,11 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 15,
+      "postCount": 31,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "uklaw"
       ],
       "posts": [
         {
@@ -280,6 +529,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vrza2w",
+          "title": "Painter responds to negative review, comes across as a threat? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrza2w/painter_responds_to_negative_review_comes_across/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrza2w/painter_responds_to_negative_review_comes_across/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787081164,
+          "snippet": "A painter responded to my negative review with this private message. My review will be added down below as to what was said. My concern is it comes across as hostile especially knowing that they have had a past criminal conviction (not sure on what as it was overheard when they w",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vrp4qn",
           "title": "Wedding venue refused our caterers access to our wedding, 90 minutes before the ceremony (Wales)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrp4qn/wedding_venue_refused_our_caterers_access_to_our/",
@@ -289,30 +550,6 @@
           "numComments": 0,
           "createdUtc": 1787059552,
           "snippet": "My partner and I got married on Saturday (15 Aug, a civil partnership service and we are 2 women). We had arranged that the venue would be a hotel in a beautiful setting, and that our favourite Indian takeaway/restaurant would be the caterers and provide a buffet style meal. The ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vrmzv3",
-          "title": "am I fucked bringing this back to the uk",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrmzv3/am_i_fucked_bringing_this_back_to_the_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrmzv3/am_i_fucked_bringing_this_back_to_the_uk/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787054044,
-          "snippet": "so I bought this knife in France and realised afterwards, though it may not be illegal in the UK, I don't know if it's a problem coming through boarder control at Heathrow airport. I'd have it in my suitcase in stowage but concerned about what might happen. submitted by /u/Fit_Em",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vrotc6",
-          "title": "England: Village Hall controlled by a charity that obstruct its use?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrotc6/england_village_hall_controlled_by_a_charity_that/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrotc6/england_village_hall_controlled_by_a_charity_that/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787058773,
-          "snippet": "I live in a small village where the only community hall is owned and controlled by a charity of which there are 5 trustees. They have a very obstructive attitude to the hall being used, they won't permit music, dancing, films, catering to happen and charge unrealistically high pr",
           "listingSource": "rss:hot"
         },
         {
@@ -328,6 +565,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vrmzv3",
+          "title": "am I fucked bringing this back to the uk",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrmzv3/am_i_fucked_bringing_this_back_to_the_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrmzv3/am_i_fucked_bringing_this_back_to_the_uk/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787054044,
+          "snippet": "so I bought this knife in France and realised afterwards, though it may not be illegal in the UK, I don't know if it's a problem coming through boarder control at Heathrow airport. I'd have it in my suitcase in stowage but concerned about what might happen. submitted by /u/Fit_Em",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vs6b1s",
+          "title": "All my colleagues have fake exemptions to work from home full time. I'm having to pick up their slack.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vs6b1s/all_my_colleagues_have_fake_exemptions_to_work/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vs6b1s/all_my_colleagues_have_fake_exemptions_to_work/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787097602,
+          "snippet": "I work for a local council. We're expected to be in 40% of our time on site and 60% can be done from home. In 2024 one employee with anxiety was given an exemption to work from home 100% of the time. Her friend then got it too. Then the other two women in her friendship group got",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vrotc6",
+          "title": "England: Village Hall controlled by a charity that obstruct its use?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrotc6/england_village_hall_controlled_by_a_charity_that/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrotc6/england_village_hall_controlled_by_a_charity_that/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787058773,
+          "snippet": "I live in a small village where the only community hall is owned and controlled by a charity of which there are 5 trustees. They have a very obstructive attitude to the hall being used, they won't permit music, dancing, films, catering to happen and charge unrealistically high pr",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vronwt",
           "title": "dispute with neighbour resulted in her emptying a can of insecticide into our open front lounge window England hampshire.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vronwt/dispute_with_neighbour_resulted_in_her_emptying_a/",
@@ -338,30 +611,6 @@
           "createdUtc": 1787058401,
           "snippet": "Last week I had an altercation with a neighbour who was chasing a young seagull who was dissteressed with a blanket, the parent gulls were alarmed and swooping trying to get to the young bird, I asked her to let them alone, she continued to chase and try to capture the animal. th",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vr4d4d",
-          "title": "I reported a worker for stealing from work, I got called racist and ended up getting a warning. She lost her job for stealing. How can I get a warning removed from my work file?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr4d4d/i_reported_a_worker_for_stealing_from_work_i_got/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vr4d4d/i_reported_a_worker_for_stealing_from_work_i_got/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1786999602,
-          "snippet": "I hope this is the right place: basically, I caught her stealing 5 times. Toilet paper (not one roll, 4 packs) a colleagues lunch box, petty cash, office supplies (a lot of them) and a plant from the office. we don’t have CCTV, but I saw her each time as we both work a bit later.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vrhmdv",
-          "title": "Leaving paracetamol and ibuprofen for customers",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrhmdv/leaving_paracetamol_and_ibuprofen_for_customers/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrhmdv/leaving_paracetamol_and_ibuprofen_for_customers/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787035960,
-          "snippet": "Hi all, I wasn’t quite sure how to word the title. I run a small PT studio and have been making a period supply kit to leave in our ladies toilets for members to help themselves to if needed. I’ve put the usual sanitary products in but also included some paracetamol and ibuprofen",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -369,7 +618,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -385,6 +634,18 @@
           "numComments": 0,
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vse5e3",
+          "title": "Can my flatmate sue uk england",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vse5e3/can_my_flatmate_sue_uk_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vse5e3/can_my_flatmate_sue_uk_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787120092,
+          "snippet": "My flatmate stopped paying rent, accumulating £1300 in arrears, which we agreed to take out from our deposit. Now, the reason this happened is apparently because she decided to move out in March into another place for which she had to cover rent (we think she actually just moved ",
           "listingSource": "rss:hot"
         }
       ]
@@ -414,13 +675,38 @@
       ]
     },
     {
+      "slug": "poor-services-and-traders",
+      "label": "Poor Services and Traders",
+      "legalAreaSlug": "consumer_services",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vs0woy",
+          "title": "[England] builders caught dumping rubbish in the nearby nature reserve",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vs0woy/england_builders_caught_dumping_rubbish_in_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vs0woy/england_builders_caught_dumping_rubbish_in_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787084672,
+          "snippet": "Help! My partner posted a job on the bark app for renovating our garage and picked a pair of guys who seemed very professional. They started Monday. Today after they left a neighbour came and told us she'd witnessed one of them taking unused/cutoff dry wall and other rubbish into",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "family-law",
       "label": "Family Law",
       "legalAreaSlug": "family",
       "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "uklaw"
       ],
       "posts": [
         {
@@ -436,15 +722,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vrshdb",
-          "title": "Swapped contact details with E-scooter rider at scene of collision, didn't report to police - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrshdb/swapped_contact_details_with_escooter_rider_at/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vrshdb/swapped_contact_details_with_escooter_rider_at/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vrzx7f",
+          "title": "Do law firms contact academic referees and if so what do they ask?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vrzx7f/do_law_firms_contact_academic_referees_and_if_so/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vrzx7f/do_law_firms_contact_academic_referees_and_if_so/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787067081,
-          "snippet": "Hi, thank you for taking a look at this So on 11/08/26, I had a road collision with an e scooter rider in my car where he ended up falling off his e scooter We stopped, exchanged details and spent 10 minutes checking he was okay, in which he insisted he was okay and not hurt (I s",
+          "createdUtc": 1787082554,
+          "snippet": "Title. submitted by /u/Ecstatic-Arugula9784 [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
@@ -469,6 +755,54 @@
           "numComments": 0,
           "createdUtc": 1787041735,
           "snippet": "Hi everyone, I'm one of three executors. The other 2,my brothers, won't lower the house price to make it competitive enough to get any viewers, never mind offers. We are due to inherit a third of it each. However, my main concern is that the estate is now running low on funds, pr",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "commercial-property",
+      "label": "Commercial Property",
+      "legalAreaSlug": "commercial_property",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "uklaw"
+      ],
+      "posts": [
+        {
+          "id": "1vs17lm",
+          "title": "Does anyone know any know of firms that are are open to taking resi solicitor in commercial property team",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vs17lm/does_anyone_know_any_know_of_firms_that_are_are/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vs17lm/does_anyone_know_any_know_of_firms_that_are_are/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787085333,
+          "snippet": "In south east / London Thanks submitted by /u/Revolutionary-Fun775 [link] [comments]",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "commercial-law",
+      "label": "Commercial Law",
+      "legalAreaSlug": "commercial",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "uklaw"
+      ],
+      "posts": [
+        {
+          "id": "1vrkojh",
+          "title": "Is high street experience useful if you want to pursue corporate / commercial law?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1vrkojh/is_high_street_experience_useful_if_you_want_to/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1vrkojh/is_high_street_experience_useful_if_you_want_to/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787046830,
+          "snippet": "For context, I’m a law student at Queen’s University Belfast, and I will be going into my final year this September. Over the summer, I was fortunate enough to secure a position as a Legal Assistant at a local high street firm here in Belfast. It’s a relatively small firm, with j",
           "listingSource": "rss:hot"
         }
       ]
