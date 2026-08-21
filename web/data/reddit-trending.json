@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-20T18:36:39.753Z",
+    "scrapedAt": "2026-08-21T06:32:53.625Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 5,
+    "topicCount": 6,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,51 +38,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vtfvsv",
-          "title": "My 16 year old daughter has been threatened by an 18 year old guy through lyrics in a \"drill track.\"",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfvsv/my_16_year_old_daughter_has_been_threatened_by_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfvsv/my_16_year_old_daughter_has_been_threatened_by_an/",
+          "id": "1vts542",
+          "title": "I was mislead into buying on auction",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vts542/i_was_mislead_into_buying_on_auction/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vts542/i_was_mislead_into_buying_on_auction/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787222431,
-          "snippet": "The jurisdiction is England. My daughter had to turn down multiple unwanted advances from a guy two years above her in school. It ended when school confronted him and he left. He simply didn't return to sit his exams. Last week my daughter got a message from a friend at school wi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vtltze",
-          "title": "My town's Facebook page got renamed by a group admin to \"Stop the boats, save our children.\" Facebook never told me the name changed and now it's causing a load of issues for me.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtltze/my_towns_facebook_page_got_renamed_by_a_group/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtltze/my_towns_facebook_page_got_renamed_by_a_group/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787237868,
-          "snippet": "My town had a public Facebook group. Imagine something like \"What's On in Brighton? Community Group\" I joined this back in 2023 when I was doing my A levels and looking for part-time jobs. I went to uni in 2024 and completely forgot about it. I'm about to go into my 3rd year and ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vtj2mr",
-          "title": "England: Did my sister drive illegally after a bereavement?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtj2mr/england_did_my_sister_drive_illegally_after_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtj2mr/england_did_my_sister_drive_illegally_after_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787231356,
-          "snippet": "Hello, My father passed away in hospital recently and his vehicle was parked there in the car park as we had travelled in it to the hospital. After he died we came home in the vehicle over two days (he died in the late evening and we drove home the next morning) with my sister dr",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vtl2id",
-          "title": "England: Being accused of punching my child due to Chinese whispers from services. Should I accept community resolution order?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtl2id/england_being_accused_of_punching_my_child_due_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtl2id/england_being_accused_of_punching_my_child_due_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787236093,
-          "snippet": "Throwaway for anonymity. I've been struggling with my mental health since the birth of my youngest child 8 months ago. I am under the care of the perinatal mental health team and have been engaging with them, but the summer holidays with 3 kids 5 and under have been hard. Last Th",
+          "createdUtc": 1787251539,
+          "snippet": "I participated in an auction hosted by Euroauctions in Leeds England, I purchased (what I believed) was a 2020 CAT excavator with 900 hours, and it was listed as such in the title photos and description. I later found out none of that was true after calling a friend who worked fo",
           "listingSource": "rss:hot"
         },
         {
@@ -98,123 +62,99 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vtfksg",
-          "title": "Moving out, paid the whole month, but landlord is letting someone move in before the end of the month",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfksg/moving_out_paid_the_whole_month_but_landlord_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfksg/moving_out_paid_the_whole_month_but_landlord_is/",
+          "id": "1vtfvsv",
+          "title": "My 16 year old daughter has been threatened by an 18 year old guy through lyrics in a \"drill track.\"",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfvsv/my_16_year_old_daughter_has_been_threatened_by_an/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfvsv/my_16_year_old_daughter_has_been_threatened_by_an/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787221444,
-          "snippet": "Hello, hopefully someone can help me understand where my partner and I stand on this. A few weeks ago, my partner and I gave notice to our landlords that we would terminate the tenancy. We let them know we were planning to move out on the 25th of August but would pay for the whol",
+          "createdUtc": 1787222431,
+          "snippet": "The jurisdiction is England. My daughter had to turn down multiple unwanted advances from a guy two years above her in school. It ended when school confronted him and he left. He simply didn't return to sit his exams. Last week my daughter got a message from a friend at school wi",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vtdizq",
-          "title": "Can I action a 9 year old will related to the selling of grandparents house? England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtdizq/can_i_action_a_9_year_old_will_related_to_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtdizq/can_i_action_a_9_year_old_will_related_to_the/",
+          "id": "1vtzxvs",
+          "title": "English prenup — is it normal for one spouse's security to be guaranteed and the other's to be \"maybe\"?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtzxvs/english_prenup_is_it_normal_for_one_spouses/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtzxvs/english_prenup_is_it_normal_for_one_spouses/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787214320,
-          "snippet": "Hi all, Apologies if this is the wrong sub for this however I am seeking some advice on which (or any) actions I could take. For context I am one of 4 grandchildren who have discovered that a will left by my grandparents states the following regarding their home: “Once the younge",
+          "createdUtc": 1787269304,
+          "snippet": "Getting married in a few weeks (originally…). Together 8 years, lived together 6. My partner owns a flat outright (high six figures, no mortgage) bought with offshore family trust dividend money, plus ongoing trust interests in a country with foreign remittance restrictions, and ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vsz3l0",
-          "title": "[Bradford, England] A guy from my gym followed me and now I’m scared",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsz3l0/bradford_england_a_guy_from_my_gym_followed_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsz3l0/bradford_england_a_guy_from_my_gym_followed_me/",
+          "id": "1vtzo1o",
+          "title": "My dad wants to cut me out of my grandparents will (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtzo1o/my_dad_wants_to_cut_me_out_of_my_grandparents/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtzo1o/my_dad_wants_to_cut_me_out_of_my_grandparents/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787173442,
-          "snippet": "I genuinely don't know what to do and would really appreciate advice from people in Bradford or anyone who's dealt with stalking before. I've been going to the same gym for about a year. I'm visibly Muslim, I wear hijab, and at the gym I wear very oversized clothes, a hat and hea",
+          "createdUtc": 1787268595,
+          "snippet": "Hi there, I'll keep it brief. My grandparents both died in the last 12 months. I was quite close to them both. My grandparents have 3 children - two sons and a daughter (my dad being the oldest). My grandad died first which is relevant because in his will, all 3 kids would inheri",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vti6xa",
-          "title": "Nintendo refuses to refund after non-delivery",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vti6xa/nintendo_refuses_to_refund_after_nondelivery/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vti6xa/nintendo_refuses_to_refund_after_nondelivery/",
+          "id": "1vtltze",
+          "title": "My town's Facebook page got renamed by a group admin to \"Stop the boats, save our children.\" Facebook never told me the name changed and now it's causing a load of issues for me.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtltze/my_towns_facebook_page_got_renamed_by_a_group/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtltze/my_towns_facebook_page_got_renamed_by_a_group/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787229089,
-          "snippet": "(England) On the 2nd August I ordered a switch 2 + pokopia bundle (£429.99) and paid for expedited shipping (1-2 days delivery after dispatch) and haven't recived it yet (20th August). It hasn't even been dispatched. I tried to cancel the order 2 days after it was placed but they",
+          "createdUtc": 1787237868,
+          "snippet": "My town had a public Facebook group. Imagine something like \"What's On in Brighton? Community Group\" I joined this back in 2023 when I was doing my A levels and looking for part-time jobs. I went to uni in 2024 and completely forgot about it. I'm about to go into my 3rd year and ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vsw2ld",
-          "title": "Neighbour suddenly claims a historic right of way through my garden after I put up a gate — how would you approach this?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsw2ld/neighbour_suddenly_claims_a_historic_right_of_way/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsw2ld/neighbour_suddenly_claims_a_historic_right_of_way/",
+          "id": "1vu687m",
+          "title": "Partner being asked to repay training costs - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vu687m/partner_being_asked_to_repay_training_costs/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vu687m/partner_being_asked_to_repay_training_costs/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787166793,
-          "snippet": "I’m in County Durham and I’ve recently ended up in a dispute with my neighbour over a small alleged pedestrian path/access through my garden. I’ve lived in my house for around 7 years. My neighbour has a gate in the boundary which faces directly into my garden, but in all the yea",
+          "createdUtc": 1787286815,
+          "snippet": "In July, my partner was dismissed from her job. The nature of the dismissal as far as I understand it is that she 'wasn't right for the role'. She began working there in May, and had some quite serious family related events occur sometime in June that led her to taking time off f",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vtojlf",
-          "title": "Someone else potentially using my address",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtojlf/someone_else_potentially_using_my_address/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtojlf/someone_else_potentially_using_my_address/",
+          "id": "1vtj2mr",
+          "title": "England: Did my sister drive illegally after a bereavement?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtj2mr/england_did_my_sister_drive_illegally_after_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtj2mr/england_did_my_sister_drive_illegally_after_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787243802,
-          "snippet": "England This morning I had a package delivered to me at 11:20AM by royal mail. It was left halfway through my letter box, which is important for later. I immediately took it as I hadn't ordered anything and was confused, the package was addressed to someone I had never heard of y",
+          "createdUtc": 1787231356,
+          "snippet": "Hello, My father passed away in hospital recently and his vehicle was parked there in the car park as we had travelled in it to the hospital. After he died we came home in the vehicle over two days (he died in the late evening and we drove home the next morning) with my sister dr",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vteutq",
-          "title": "Adult assisted living job in the UK.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vteutq/adult_assisted_living_job_in_the_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vteutq/adult_assisted_living_job_in_the_uk/",
+          "id": "1vtw73q",
+          "title": "My sister wants to neuter (and potentially keep) a cat that is not hers",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtw73q/my_sister_wants_to_neuter_and_potentially_keep_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtw73q/my_sister_wants_to_neuter_and_potentially_keep_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787219068,
-          "snippet": "Basically, I want to know if any of this is illegal. We are being led to believe that it's completely normal for jobs in care. But I think it's exploitation. I have a family member that works in care, as a support worker for adults living in their own little supported flats, in a",
+          "createdUtc": 1787260245,
+          "snippet": "We are based in England. TLDR: My sister offered to catsit an acquaintance's cat, however she showed up with the cat and her newborn kittens which was not disclosed to us as we assumed the cat was neutered. The mother cat is skinny and weak, and the kittens have cuts/scabs all ov",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vtf6a4",
-          "title": "[England] Trees within my boundary cut down by neighbour and dumped",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtf6a4/england_trees_within_my_boundary_cut_down_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtf6a4/england_trees_within_my_boundary_cut_down_by/",
+          "id": "1vtswk8",
+          "title": "Dog walker being charged a vet bill for their 2 aggressive dogs fighting each other",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtswk8/dog_walker_being_charged_a_vet_bill_for_their_2/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtswk8/dog_walker_being_charged_a_vet_bill_for_their_2/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787220134,
-          "snippet": "I'll undoubtedly get shot down for this but I'm absolutely NAL hence the post. I work as a school site manager and the overflow carpark has/had a tall fence between it and the neighbouring house, owned by the neighbour. On the school side is thick shrubbery/trees and much has bee",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vsem3n",
-          "title": "Police confiscated my perfectly legal e-bike, how do I get it back?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsem3n/police_confiscated_my_perfectly_legal_ebike_how/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsem3n/police_confiscated_my_perfectly_legal_ebike_how/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787121664,
-          "snippet": "Last week I was riding my e-bike when I was stopped by Essex police. They stated that they suspected my bike was illegal as I was clearly going faster than 15.5mph. I was, because I was going down a rather large and long hill. My bike is a 2024 Cube Stereo, a well known legit mou",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vsss49",
-          "title": "Would i go to prison for burying a parent in the garden in england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsss49/would_i_go_to_prison_for_burying_a_parent_in_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsss49/would_i_go_to_prison_for_burying_a_parent_in_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787159877,
-          "snippet": "Hypothetically, if i found my dad dead on the kitchen floor and i immediately buried him the garden and then called the police and reported what would happen to me. I know its a crime but the argument im currently having with my alive dad is that it would be custodial sentence, w",
+          "createdUtc": 1787253024,
+          "snippet": "I’m dyslexic so please bare with if my explaining is bad. Also in England A family member of mine, we will call X, is a self employed dog walker. She has been for 10+ years. She met a new customer, who had two small dogs. They had a female dog with bad separation anxiety, then bo",
           "listingSource": "rss:hot"
         },
         {
@@ -230,27 +170,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vsmd7b",
-          "title": "Sacked for lying on job application (questions answered accurately/ honestly) relates to criminal conviction.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsmd7b/sacked_for_lying_on_job_application_questions/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsmd7b/sacked_for_lying_on_job_application_questions/",
+          "id": "1vtl2id",
+          "title": "England: Being accused of punching my child due to Chinese whispers from services. Should I accept community resolution order?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtl2id/england_being_accused_of_punching_my_child_due_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtl2id/england_being_accused_of_punching_my_child_due_to/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787145890,
-          "snippet": "Hi all, Throwaway account with some details sanitised to not be too specific but the process will be bullet pointed. I applied for a job in March, after being arrested for a low level offence. A question in the application was \"do you have any non spent criminal convictions?\" Wit",
+          "createdUtc": 1787236093,
+          "snippet": "Throwaway for anonymity. I've been struggling with my mental health since the birth of my youngest child 8 months ago. I am under the care of the perinatal mental health team and have been engaging with them, but the summer holidays with 3 kids 5 and under have been hard. Last Th",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vtljz0",
-          "title": "Elderly mother is homeless and broke after divorce from abuser (NI)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtljz0/elderly_mother_is_homeless_and_broke_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtljz0/elderly_mother_is_homeless_and_broke_after/",
+          "id": "1vtfksg",
+          "title": "Moving out, paid the whole month, but landlord is letting someone move in before the end of the month",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfksg/moving_out_paid_the_whole_month_but_landlord_is/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfksg/moving_out_paid_the_whole_month_but_landlord_is/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787237236,
-          "snippet": "Hello all! Throwaway account due to sensitive nature of post. This is a very complicated situation but I am at a loss and asking you kind folks for some help. My elderly mother recently left my abusive father and got divorced from him after a 35 year painful marriage. She has fle",
+          "createdUtc": 1787221444,
+          "snippet": "Hello, hopefully someone can help me understand where my partner and I stand on this. A few weeks ago, my partner and I gave notice to our landlords that we would terminate the tenancy. We let them know we were planning to move out on the 25th of August but would pay for the whol",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vu7p9b",
+          "title": "Cutting back a tree on our property (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vu7p9b/cutting_back_a_tree_on_our_property_scotland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vu7p9b/cutting_back_a_tree_on_our_property_scotland/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787291548,
+          "snippet": "We have a huge, healthy sycamore in our garden (about 50ft, has probably grown about 10ft in the past year alone), and it is completely on our property. It shades us nicely from snoopers from the green at the top of the garden where people walk their dogs, but in any case, we're ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vtnpca",
+          "title": "I was physically touched by a uber driver after he had a sexually charged conversation with me that made me feel uncomfortable. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtnpca/i_was_physically_touched_by_a_uber_driver_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtnpca/i_was_physically_touched_by_a_uber_driver_after/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787241967,
+          "snippet": "Last night my girlfriend ordered me a uber from my mother’s house to my girlfriend’s house to pick her up and then eventually to my house as the last drop off. She accidentally booked it to another address and had to speak to the driver on the phone about a cancellation, he first",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vtt4ry",
+          "title": "Hit and run by an ambulance on a tight road. UK",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtt4ry/hit_and_run_by_an_ambulance_on_a_tight_road_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtt4ry/hit_and_run_by_an_ambulance_on_a_tight_road_uk/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787253503,
+          "snippet": "Hi, I’m quite young, so I don’t really know what to do in this situation. I was driving up my road with my younger sibling when I noticed an ambulance driving into my road with its lights on. I then indicated and pulled over to the left, but not too close to the vehicles in front",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vtv98y",
+          "title": "Landlord refuses to do an acceptable cleaning after property had been rented for 20 years. Agency had also lied to us during the viewing. Advice on how to proceed. (Wales).",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtv98y/landlord_refuses_to_do_an_acceptable_cleaning/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtv98y/landlord_refuses_to_do_an_acceptable_cleaning/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787258132,
+          "snippet": "I believe this is appropriate for this subreddit. I would like any advice possible on how I can proceed on this matter. I will try to keep it as a streamlined version of events. My partner and I were supposed to move into a new flat earlier this week. But now it is the end of the",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vu0oqb",
+          "title": "Will my partner’s unspent convictions affect my enhanced DBS?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vu0oqb/will_my_partners_unspent_convictions_affect_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vu0oqb/will_my_partners_unspent_convictions_affect_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787271193,
+          "snippet": "I am required to get an enhanced DBS certificate as I will be starting an adult nursing degree soon. I live in England. My partner has an unspent criminal conviction for a specified offence and I am concerned that this could potentially affect my DBS. My application has been stuc",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 11,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,39 +280,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vtfvsv",
-          "title": "My 16 year old daughter has been threatened by an 18 year old guy through lyrics in a \"drill track.\"",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfvsv/my_16_year_old_daughter_has_been_threatened_by_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfvsv/my_16_year_old_daughter_has_been_threatened_by_an/",
+          "id": "1vts542",
+          "title": "I was mislead into buying on auction",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vts542/i_was_mislead_into_buying_on_auction/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vts542/i_was_mislead_into_buying_on_auction/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787222431,
-          "snippet": "The jurisdiction is England. My daughter had to turn down multiple unwanted advances from a guy two years above her in school. It ended when school confronted him and he left. He simply didn't return to sit his exams. Last week my daughter got a message from a friend at school wi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vtj2mr",
-          "title": "England: Did my sister drive illegally after a bereavement?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtj2mr/england_did_my_sister_drive_illegally_after_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtj2mr/england_did_my_sister_drive_illegally_after_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787231356,
-          "snippet": "Hello, My father passed away in hospital recently and his vehicle was parked there in the car park as we had travelled in it to the hospital. After he died we came home in the vehicle over two days (he died in the late evening and we drove home the next morning) with my sister dr",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vtl2id",
-          "title": "England: Being accused of punching my child due to Chinese whispers from services. Should I accept community resolution order?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtl2id/england_being_accused_of_punching_my_child_due_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtl2id/england_being_accused_of_punching_my_child_due_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787236093,
-          "snippet": "Throwaway for anonymity. I've been struggling with my mental health since the birth of my youngest child 8 months ago. I am under the care of the perinatal mental health team and have been engaging with them, but the summer holidays with 3 kids 5 and under have been hard. Last Th",
+          "createdUtc": 1787251539,
+          "snippet": "I participated in an auction hosted by Euroauctions in Leeds England, I purchased (what I believed) was a 2020 CAT excavator with 900 hours, and it was listed as such in the title photos and description. I later found out none of that was true after calling a friend who worked fo",
           "listingSource": "rss:hot"
         },
         {
@@ -328,39 +304,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vtdizq",
-          "title": "Can I action a 9 year old will related to the selling of grandparents house? England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtdizq/can_i_action_a_9_year_old_will_related_to_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtdizq/can_i_action_a_9_year_old_will_related_to_the/",
+          "id": "1vtfvsv",
+          "title": "My 16 year old daughter has been threatened by an 18 year old guy through lyrics in a \"drill track.\"",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfvsv/my_16_year_old_daughter_has_been_threatened_by_an/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfvsv/my_16_year_old_daughter_has_been_threatened_by_an/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787214320,
-          "snippet": "Hi all, Apologies if this is the wrong sub for this however I am seeking some advice on which (or any) actions I could take. For context I am one of 4 grandchildren who have discovered that a will left by my grandparents states the following regarding their home: “Once the younge",
+          "createdUtc": 1787222431,
+          "snippet": "The jurisdiction is England. My daughter had to turn down multiple unwanted advances from a guy two years above her in school. It ended when school confronted him and he left. He simply didn't return to sit his exams. Last week my daughter got a message from a friend at school wi",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vsz3l0",
-          "title": "[Bradford, England] A guy from my gym followed me and now I’m scared",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsz3l0/bradford_england_a_guy_from_my_gym_followed_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsz3l0/bradford_england_a_guy_from_my_gym_followed_me/",
+          "id": "1vtzo1o",
+          "title": "My dad wants to cut me out of my grandparents will (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtzo1o/my_dad_wants_to_cut_me_out_of_my_grandparents/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtzo1o/my_dad_wants_to_cut_me_out_of_my_grandparents/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787173442,
-          "snippet": "I genuinely don't know what to do and would really appreciate advice from people in Bradford or anyone who's dealt with stalking before. I've been going to the same gym for about a year. I'm visibly Muslim, I wear hijab, and at the gym I wear very oversized clothes, a hat and hea",
+          "createdUtc": 1787268595,
+          "snippet": "Hi there, I'll keep it brief. My grandparents both died in the last 12 months. I was quite close to them both. My grandparents have 3 children - two sons and a daughter (my dad being the oldest). My grandad died first which is relevant because in his will, all 3 kids would inheri",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vtojlf",
-          "title": "Someone else potentially using my address",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtojlf/someone_else_potentially_using_my_address/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtojlf/someone_else_potentially_using_my_address/",
+          "id": "1vtj2mr",
+          "title": "England: Did my sister drive illegally after a bereavement?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtj2mr/england_did_my_sister_drive_illegally_after_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtj2mr/england_did_my_sister_drive_illegally_after_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787243802,
-          "snippet": "England This morning I had a package delivered to me at 11:20AM by royal mail. It was left halfway through my letter box, which is important for later. I immediately took it as I hadn't ordered anything and was confused, the package was addressed to someone I had never heard of y",
+          "createdUtc": 1787231356,
+          "snippet": "Hello, My father passed away in hospital recently and his vehicle was parked there in the car park as we had travelled in it to the hospital. After he died we came home in the vehicle over two days (he died in the late evening and we drove home the next morning) with my sister dr",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vtw73q",
+          "title": "My sister wants to neuter (and potentially keep) a cat that is not hers",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtw73q/my_sister_wants_to_neuter_and_potentially_keep_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtw73q/my_sister_wants_to_neuter_and_potentially_keep_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787260245,
+          "snippet": "We are based in England. TLDR: My sister offered to catsit an acquaintance's cat, however she showed up with the cat and her newborn kittens which was not disclosed to us as we assumed the cat was neutered. The mother cat is skinny and weak, and the kittens have cuts/scabs all ov",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vtl2id",
+          "title": "England: Being accused of punching my child due to Chinese whispers from services. Should I accept community resolution order?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtl2id/england_being_accused_of_punching_my_child_due_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtl2id/england_being_accused_of_punching_my_child_due_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787236093,
+          "snippet": "Throwaway for anonymity. I've been struggling with my mental health since the birth of my youngest child 8 months ago. I am under the care of the perinatal mental health team and have been engaging with them, but the summer holidays with 3 kids 5 and under have been hard. Last Th",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 3,
+      "postCount": 4,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -388,6 +388,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vtq84u",
+          "title": "Eviction date was today and bailiff couldn't hand over possession - can landlord still change locks before next appointment? - england",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtq84u/eviction_date_was_today_and_bailiff_couldnt_hand/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtq84u/eviction_date_was_today_and_bailiff_couldnt_hand/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787247451,
+          "snippet": "Today was my eviction date, I wad prepared and ready, already had my belongings and my pets out of the property, awaiting for the bailiff to arrive. Two individuals I had never met from the landlords agency came around an hour beforehand to check what was going on - the only inst",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vtfksg",
           "title": "Moving out, paid the whole month, but landlord is letting someone move in before the end of the month",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtfksg/moving_out_paid_the_whole_month_but_landlord_is/",
@@ -400,15 +412,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vtq84u",
-          "title": "Eviction date was today and bailiff couldn't hand over possession - can landlord still change locks before next appointment? - england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtq84u/eviction_date_was_today_and_bailiff_couldnt_hand/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtq84u/eviction_date_was_today_and_bailiff_couldnt_hand/",
+          "id": "1vtv98y",
+          "title": "Landlord refuses to do an acceptable cleaning after property had been rented for 20 years. Agency had also lied to us during the viewing. Advice on how to proceed. (Wales).",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtv98y/landlord_refuses_to_do_an_acceptable_cleaning/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtv98y/landlord_refuses_to_do_an_acceptable_cleaning/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787247451,
-          "snippet": "Today was my eviction date, I wad prepared and ready, already had my belongings and my pets out of the property, awaiting for the bailiff to arrive. Two individuals I had never met from the landlords agency came around an hour beforehand to check what was going on - the only inst",
+          "createdUtc": 1787258132,
+          "snippet": "I believe this is appropriate for this subreddit. I would like any advice possible on how I can proceed on this matter. I will try to keep it as a streamlined version of events. My partner and I were supposed to move into a new flat earlier this week. But now it is the end of the",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "banking-and-finance",
+      "label": "Banking and Finance",
+      "legalAreaSlug": "banking_finance",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vtzxvs",
+          "title": "English prenup — is it normal for one spouse's security to be guaranteed and the other's to be \"maybe\"?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtzxvs/english_prenup_is_it_normal_for_one_spouses/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtzxvs/english_prenup_is_it_normal_for_one_spouses/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787269304,
+          "snippet": "Getting married in a few weeks (originally…). Together 8 years, lived together 6. My partner owns a flat outright (high six figures, no mortgage) bought with offshore family trust dividend money, plus ongoing trust interests in a country with foreign remittance restrictions, and ",
           "listingSource": "rss:hot"
         }
       ]
@@ -417,7 +453,7 @@
       "slug": "family-law",
       "label": "Family Law",
       "legalAreaSlug": "family",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -434,65 +470,65 @@
           "createdUtc": 1787237868,
           "snippet": "My town had a public Facebook group. Imagine something like \"What's On in Brighton? Community Group\" I joined this back in 2023 when I was doing my A levels and looking for part-time jobs. I went to uni in 2024 and completely forgot about it. I'm about to go into my 3rd year and ",
           "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "judicial-review",
+      "label": "Judicial Review",
+      "legalAreaSlug": "judicial_review",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vu687m",
+          "title": "Partner being asked to repay training costs - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vu687m/partner_being_asked_to_repay_training_costs/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vu687m/partner_being_asked_to_repay_training_costs/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787286815,
+          "snippet": "In July, my partner was dismissed from her job. The nature of the dismissal as far as I understand it is that she 'wasn't right for the role'. She began working there in May, and had some quite serious family related events occur sometime in June that led her to taking time off f",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vtswk8",
+          "title": "Dog walker being charged a vet bill for their 2 aggressive dogs fighting each other",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtswk8/dog_walker_being_charged_a_vet_bill_for_their_2/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtswk8/dog_walker_being_charged_a_vet_bill_for_their_2/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787253024,
+          "snippet": "I’m dyslexic so please bare with if my explaining is bad. Also in England A family member of mine, we will call X, is a self employed dog walker. She has been for 10+ years. She met a new customer, who had two small dogs. They had a female dog with bad separation anxiety, then bo",
+          "listingSource": "rss:hot"
         },
         {
-          "id": "1vtljz0",
-          "title": "Elderly mother is homeless and broke after divorce from abuser (NI)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtljz0/elderly_mother_is_homeless_and_broke_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtljz0/elderly_mother_is_homeless_and_broke_after/",
+          "id": "1vtnpca",
+          "title": "I was physically touched by a uber driver after he had a sexually charged conversation with me that made me feel uncomfortable. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtnpca/i_was_physically_touched_by_a_uber_driver_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vtnpca/i_was_physically_touched_by_a_uber_driver_after/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787237236,
-          "snippet": "Hello all! Throwaway account due to sensitive nature of post. This is a very complicated situation but I am at a loss and asking you kind folks for some help. My elderly mother recently left my abusive father and got divorced from him after a 35 year painful marriage. She has fle",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "online-shopping-and-distance-selling",
-      "label": "Online Shopping and Distance Selling",
-      "legalAreaSlug": "consumer_online_shopping",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vti6xa",
-          "title": "Nintendo refuses to refund after non-delivery",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vti6xa/nintendo_refuses_to_refund_after_nondelivery/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vti6xa/nintendo_refuses_to_refund_after_nondelivery/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787229089,
-          "snippet": "(England) On the 2nd August I ordered a switch 2 + pokopia bundle (£429.99) and paid for expedited shipping (1-2 days delivery after dispatch) and haven't recived it yet (20th August). It hasn't even been dispatched. I tried to cancel the order 2 days after it was placed but they",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "neighbour-disputes",
-      "label": "Neighbour Disputes",
-      "legalAreaSlug": "neighbour_dispute",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vsw2ld",
-          "title": "Neighbour suddenly claims a historic right of way through my garden after I put up a gate — how would you approach this?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsw2ld/neighbour_suddenly_claims_a_historic_right_of_way/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vsw2ld/neighbour_suddenly_claims_a_historic_right_of_way/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787166793,
-          "snippet": "I’m in County Durham and I’ve recently ended up in a dispute with my neighbour over a small alleged pedestrian path/access through my garden. I’ve lived in my house for around 7 years. My neighbour has a gate in the boundary which faces directly into my garden, but in all the yea",
+          "createdUtc": 1787241967,
+          "snippet": "Last night my girlfriend ordered me a uber from my mother’s house to my girlfriend’s house to pick her up and then eventually to my house as the last drop off. She accidentally booked it to another address and had to speak to the driver on the phone about a cancellation, he first",
           "listingSource": "rss:hot"
         }
       ]
