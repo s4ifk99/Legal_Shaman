@@ -1,11 +1,22 @@
-import { useEffect, useState } from 'react'
+'use client'
+
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { SessionState } from '@/lib/coherence/types'
 import type { LegalFrame } from '@/lib/coherence/frames'
-import type { AnswerPackage } from '@/lib/coherence/answerPackage'
+import {
+  buildAnswerPackage,
+  type AnswerPackage,
+} from '@/lib/coherence/answerPackage'
+import { matchOslawCourse } from '@/lib/coherence/wiki'
+import {
+  runOslawPreflight,
+  type PreflightIssue,
+} from '@/lib/coherence/oslawPreflight'
 import {
   fetchRetrieveAnswer,
   isFinalOverviewPackage,
 } from '@/lib/coherence/retrieveAnswer'
+import { logSearchEvent } from '@/lib/coherence/searchAnalytics'
 import { SynthesisHourglass } from './SynthesisHourglass'
 import './OslawView.css'
 
@@ -19,7 +30,15 @@ interface Props {
   onFindHelp: () => void
 }
 
-function Recommendation({ pack }: { pack: AnswerPackage }) {
+function Recommendation({
+  pack,
+  preflightNote,
+  authorityHits,
+}: {
+  pack: AnswerPackage
+  preflightNote?: string | null
+  authorityHits?: SessionState['authorityHits']
+}) {
   const takeaways = pack.bullets.filter((b) => b.text.trim().length >= 12).slice(0, 5)
   const pages = pack.wikiPages.slice(0, 6)
   const sources = pack.sources.slice(0, 6)
@@ -34,12 +53,50 @@ function Recommendation({ pack }: { pack: AnswerPackage }) {
 
       <div className="oslaw__rec-body">{pack.answerOverview}</div>
 
+      {preflightNote ? (
+        <p className="oslaw__rec-note" role="status">
+          {preflightNote}
+        </p>
+      ) : null}
+
+      {authorityHits && authorityHits.length > 0 ? (
+        <section className="oslaw__rec-section">
+          <h3 className="oslaw__rec-h">Authority pages</h3>
+          <ul className="oslaw__rec-list oslaw__rec-list--links">
+            {authorityHits.slice(0, 6).map((h) => (
+              <li key={h.id}>
+                <a href={h.url} target="_blank" rel="noreferrer">
+                  {h.title}
+                </a>
+                <span>
+                  {' '}
+                  —{' '}
+                  {h.kind === 'law_firm' || h.tier === 'firm'
+                    ? `firm · ${h.firm || 'commentary'}`
+                    : h.tier}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       {takeaways.length > 0 && (
         <section className="oslaw__rec-section">
           <h3 className="oslaw__rec-h">Key takeaways</h3>
           <ul className="oslaw__rec-list">
             {takeaways.map((b, i) => (
-              <li key={`${i}-${b.text.slice(0, 24)}`}>{b.text}</li>
+              <li key={`${i}-${b.text.slice(0, 24)}`}>
+                {b.text}
+                {b.sourceUrl ? (
+                  <>
+                    {' '}
+                    <a href={b.sourceUrl} target="_blank" rel="noreferrer">
+                      {b.sourceTitle || 'source'} →
+                    </a>
+                  </>
+                ) : null}
+              </li>
             ))}
           </ul>
         </section>
@@ -112,6 +169,18 @@ function Recommendation({ pack }: { pack: AnswerPackage }) {
   )
 }
 
+function pickBestPack(
+  local: AnswerPackage,
+  master: AnswerPackage | null,
+  retrieved: AnswerPackage | null,
+): AnswerPackage {
+  // Deterministic R&D topic packs win when they matched (parking, CRA, etc.).
+  if (local.matchedTopicId && local.bullets.length > 0) return local
+  if (master && isFinalOverviewPackage(master)) return master
+  if (retrieved && isFinalOverviewPackage(retrieved)) return retrieved
+  return local
+}
+
 export function OslawView({
   session,
   frames = [],
@@ -120,56 +189,113 @@ export function OslawView({
   onBack,
   onFindHelp,
 }: Props) {
-  const masterFinal = isFinalOverviewPackage(masterAnswerPackage)
-  const [pack, setPack] = useState<AnswerPackage | null>(masterFinal ? masterAnswerPackage : null)
-  const [loading, setLoading] = useState(overviewLoading || !masterFinal)
+  const basePack = useMemo(() => buildAnswerPackage(session, frames), [session, frames])
+  const [pack, setPack] = useState<AnswerPackage | null>(null)
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [preflightIssues, setPreflightIssues] = useState<PreflightIssue[]>([])
+  const mountedAt = useRef(Date.now())
 
   useEffect(() => {
     let cancelled = false
+    const abort = new AbortController()
+    mountedAt.current = Date.now()
 
     if (overviewLoading) {
       setPack(null)
       setLoading(true)
       setError(null)
+      setPreflightIssues([])
       return () => {
         cancelled = true
+        abort.abort()
       }
     }
 
-    if (isFinalOverviewPackage(masterAnswerPackage)) {
-      setPack(masterAnswerPackage)
-      setLoading(false)
-      setError(null)
-      return () => {
-        cancelled = true
-      }
-    }
-
-    setPack(null)
     setLoading(true)
     setError(null)
+    setPreflightIssues([])
 
     void (async () => {
-      const retrieved = await fetchRetrieveAnswer(session, frames)
+      const course = await matchOslawCourse(session, frames)
       if (cancelled) return
-      const next = retrieved?.answerPackage ?? null
-      if (isFinalOverviewPackage(next)) {
-        setPack(next)
-        setError(null)
-      } else {
-        setPack(null)
-        setError('Could not build a wiki-grounded recommendation for this story yet.')
+
+      let retrieved: AnswerPackage | null = null
+      if (!basePack.matchedTopicId) {
+        const res = await fetchRetrieveAnswer(session, frames)
+        if (cancelled) return
+        retrieved = res?.answerPackage ?? null
       }
+
+      const candidate = pickBestPack(
+        basePack,
+        isFinalOverviewPackage(masterAnswerPackage) ? masterAnswerPackage : null,
+        retrieved,
+      )
+
+      const preflight = await runOslawPreflight(
+        session,
+        frames,
+        candidate,
+        course,
+        abort.signal,
+      )
+      if (cancelled) return
+
+      setDisplayFromPreflight(preflight.pack, preflight.issues)
       setLoading(false)
+
+      logSearchEvent(session, {
+        view: 'oslaw',
+        type: 'impression',
+        resultIds: [
+          ...(preflight.course ? [preflight.course.pathwayId] : []),
+          ...preflight.pack.wikiPages.map((w) => w.path),
+          ...preflight.pack.freeHelp.map((h) => h.url),
+        ],
+        meta: {
+          primaryMetric: session.abPrimaryMetric,
+          pathway: preflight.course?.title || '',
+          preflightOk: preflight.ok,
+          preflightCodes: preflight.issues.map((i) => i.code).join(','),
+          matchedTopicId: preflight.pack.matchedTopicId || '',
+        },
+      })
     })()
 
     return () => {
       cancelled = true
+      abort.abort()
+      const dwellMs = Date.now() - mountedAt.current
+      if (dwellMs >= 800) {
+        logSearchEvent(session, {
+          view: 'oslaw',
+          type: 'dwell',
+          dwellMs,
+        })
+      }
     }
-  }, [session, frames, masterAnswerPackage, overviewLoading])
 
-  const ready = isFinalOverviewPackage(pack)
+    function setDisplayFromPreflight(next: AnswerPackage, issues: PreflightIssue[]) {
+      setPack(next)
+      setPreflightIssues(issues)
+      if (!next.answerOverview?.trim() && next.bullets.length === 0) {
+        setError('Could not build a wiki-grounded recommendation for this story yet.')
+      } else {
+        setError(null)
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session, frames, masterAnswerPackage, overviewLoading, basePack])
+
+  const blockedPathway = preflightIssues.some((i) => i.severity === 'block-pathway')
+  const preflightNote = blockedPathway
+    ? 'Some wiki pathways were withheld after a pre-display check (topic mismatch).'
+    : preflightIssues.some((i) => i.severity === 'drop-url')
+      ? 'Some links were removed after a liveness check.'
+      : null
+
+  const ready = Boolean(pack && (pack.answerOverview.trim() || pack.bullets.length > 0))
 
   return (
     <div className="oslaw">
@@ -179,7 +305,9 @@ export function OslawView({
         </button>
         <div>
           <h1 className="oslaw__title">Overview</h1>
-          <p className="oslaw__lead">Practical signposting from the Legal Shaman wiki — not legal advice.</p>
+          <p className="oslaw__lead">
+            Practical signposting from curated authority + Legal Shaman wiki — not legal advice.
+          </p>
         </div>
       </header>
 
@@ -189,7 +317,7 @@ export function OslawView({
             label={
               overviewLoading
                 ? 'Synthesising your recommendation from wiki sources…'
-                : 'Building recommendation from wiki sources…'
+                : 'Building recommendation (authority + wiki preflight)…'
             }
           />
         </div>
@@ -197,7 +325,11 @@ export function OslawView({
 
       {!loading && ready && pack && (
         <div className="oslaw__body">
-          <Recommendation pack={pack} />
+          <Recommendation
+            pack={pack}
+            preflightNote={preflightNote}
+            authorityHits={session.authorityHits}
+          />
           <div className="oslaw__actions">
             <button type="button" className="oslaw__btn oslaw__btn--primary" onClick={onFindHelp}>
               Find people to help

@@ -1,0 +1,175 @@
+.reform-gate {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 1.75rem 1.25rem 1.5rem;
+  gap: 0.55rem;
+  max-width: 34rem;
+  margin: 0 auto;
+  width: 100%;
+  animation: reform-in 280ms ease;
+}
+
+.reform-gate--refuse .reform-gate__title,
+.reform-gate--clarify .reform-gate__title {
+  color: var(--ink);
+}
+
+.reform-gate--refuse .reform-gate__eyebrow,
+.reform-gate--clarify .reform-gate__eyebrow {
+  color: var(--ink);
+}
+
+.reform-gate__eyebrow {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+.reform-gate__title {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+.reform-gate__lead,
+.reform-gate__escalate {
+  margin: 0 0 0.35rem;
+  text-align: center;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+.reform-gate__escalate {
+  color: var(--ink);
+}
+
+.reform-gate__label {
+  margin: 0.55rem 0 0.2rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.reform-gate__original {
+  margin: 0;
+  padding: 0.85rem 0.95rem;
+  border-left: 2px solid var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+.reform-gate__draft {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.85rem 0.95rem;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.reform-gate__draft:focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.reform-gate__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.reform-gate__primary,
+.reform-gate__secondary,
+.reform-gate__ghost {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.85rem 1rem;
+  text-align: center;
+  border: 1.5px solid var(--ink);
+  transition: background 160ms ease, color 160ms ease, opacity 160ms ease;
+}
+
+.reform-gate__primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.reform-gate__primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.reform-gate__secondary {
+  background: transparent;
+  color: var(--ink);
+}
+
+.reform-gate__secondary:hover,
+.reform-gate__ghost:hover {
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.reform-gate__ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink-faint);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.reform-gate__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  list-style: none;
+  margin: 0.35rem 0 0.55rem;
+  padding: 0;
+}
+
+.reform-gate__chips li {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
+  color: var(--ink-faint);
+}
+
+.reform-gate__style-preview {
+  margin: 0;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--ink-faint);
+  border-top: 1px dashed color-mix(in srgb, var(--ink) 25%, transparent);
+}
+
+.reform-gate__metric {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+.reform-gate__metric code {
+  font-size: 0.75rem;
+}

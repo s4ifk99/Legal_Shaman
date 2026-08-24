@@ -1,4 +1,5 @@
 import type { Jurisdiction, MatterType, SessionState } from './types'
+import { buildRetrievalText } from './retrievalText'
 import type { LegalFrame } from './frames'
 import type { KnowledgeHit } from './knowledgeTypes'
 import {
@@ -10,6 +11,8 @@ import type { RightsSummary } from './oslawRights'
 import {
   buildRightsFromWiki,
   featuredToolsFromWiki,
+  isPrivateParkingStory,
+  isUsedCarPurchaseStory,
   linkedTopicPages,
   synthesizeStepsFromWiki,
 } from './wikiOslaw'
@@ -190,30 +193,52 @@ export function activeDomains(session: SessionState, frames: LegalFrame[] = []):
 
   const blob = session.rawInputs.join(' ').toLowerCase()
   if (/\bilr\b|visa|asylum|home office|deport/.test(blob)) domains.add('immigration')
-  if (/landlord|tenant|evict|mould|homeless|\brents?\b|tenancy|section\s*21/.test(blob)) domains.add('housing')
-  if (/employer|dismiss|fired|redundan|wages/.test(blob)) domains.add('employment')
-  if (/debt|bailiff|ccj|creditor/.test(blob)) domains.add('debt')
-  if (/divorce|custody|child arrangement|domestic abuse/.test(blob)) domains.add('family')
-  if (/refund|faulty|trader|warranty|consumer|\bcar\b|dealer|garage|fault codes?/.test(blob)) domains.add('consumer')
-  if (/sentenc|arrest|police|criminal|offence|magistrates|cps|fraud|theft|assault/.test(blob))
+  if (/landlord|tenant|evict|mould|homeless|\brents?\b|tenancy|section\s*21|flatmate|housemate/.test(blob))
+    domains.add('housing')
+  // Employment domain: require real workplace dispute cues — not bare “employed as…” / “employer travel”
+  const employmentDomain =
+    /\b(dismiss|fired|sacked|redundan|unfair dismiss|constructive dismiss|unpaid wages|holiday (?:hours|pay)|employment tribunal|acas|pregnant|maternity)\b/i.test(
+      blob,
+    ) ||
+    (/\b(manager|supervisor|boss|line manager)\b/i.test(blob) &&
+      /\b(holiday|shift|hours|appointment|drinking water|wage|pay|grievance)\b/i.test(blob))
+  const antiEmploymentBleed =
+    /\b(insurer|insurance (?:company|claim|policy)|festival|day ticket|wheelchair|airport)\b/i.test(blob) &&
+    !/\b(dismiss|sacked|fired|redundan|holiday hours|holiday pay)\b/i.test(blob)
+  if (employmentDomain && !antiEmploymentBleed) domains.add('employment')
+  if (/debt|bailiff|ccj|creditor|mortgage|repossess/.test(blob) && !/\b(festival|day ticket|concert)\b/i.test(blob))
+    domains.add('debt')
+  if (/divorce|custody|child arrangement|domestic abuse|inherit|probate|trust fund|\bctf\b/.test(blob))
+    domains.add('family')
+  if (
+    (/refund|faulty|trader|warranty|consumer|used car|bought .{0,20}(?:car|vehicle)|dealer|garage|fault codes?|insurer|insurance|festival|day ticket|wheelchair|airport|accessibility/.test(
+      blob,
+    ) ||
+      session.matterType === 'consumer') &&
+    !(/\b(car\s*park|parking|pcn|popla)\b/.test(blob) && !/\b(used car|dealer|fault codes?)\b/.test(blob))
+  ) {
+    domains.add('consumer')
+  }
+  if (/\b(car\s*park|parking (?:fine|ticket|charge)|pcn|popla|private parking)\b/.test(blob)) {
+    domains.add('consumer')
+  }
+  if (/sentenc|arrest|police|criminal|offence|magistrates|cps|fraud|theft|assault|confiscat|seiz/.test(blob))
     domains.add('crime')
+
+  if (session.ukTaxonomyPackId) {
+    if (/mortgage/.test(session.ukTaxonomyPackId)) domains.add('debt')
+    if (/joint_tenancy|deposit|possession/.test(session.ukTaxonomyPackId)) domains.add('housing')
+    if (/police|crime/.test(session.ukTaxonomyPackId)) domains.add('crime')
+    if (/trusts|inheritance/.test(session.ukTaxonomyPackId)) domains.add('family')
+    if (/pregnancy|unfair_dismissal/.test(session.ukTaxonomyPackId)) domains.add('employment')
+  }
 
   if (domains.size === 0) return []
   return [...domains]
 }
 
 function sessionText(session: SessionState): string {
-  return [
-    ...session.rawInputs,
-    session.whatHappened,
-    session.howCaused,
-    session.goal,
-    ...session.events.map((e) => e.label),
-    ...session.documents,
-    session.matterType,
-  ]
-    .join(' ')
-    .toLowerCase()
+  return buildRetrievalText(session)
 }
 
 /** Hard filter: UK-wide pages always ok; nation-tagged pages only for matching session. */
@@ -267,43 +292,31 @@ function scorePage(page: WikiPage, text: string, frameIds: string[], domainId?: 
   if (/evict|possession|section 21|lock.?out/.test(text) && /evict|possession|section/.test(page.id + page.title.toLowerCase())) {
     score += 5
   }
-  // Shared housing must not collapse into deposit / rent-arrears / disrepair / homelessness pathways
-  if (
-    /flatmate|housemate|lodger|subtenant|excluded occupier|share[d]?\s+accommodation|joint tenancy|notice to quit/.test(
-      text,
-    )
-  ) {
-    const idTitle = `${page.id} ${page.title}`.toLowerCase()
-    if (/shared|flatmate|lodger|housemate|accommodation|occupier|joint/.test(idTitle)) score += 18
-    if (/deposit-rent|rent.?arrears|deposit.?protection/.test(idTitle)) score -= 16
-    if (/disrepair|pathway-disrepair/.test(idTitle) && !/disrepair|mould|mold|damp|\brepairs?\b|leaking/.test(text)) {
-      score -= 20
-    }
-    if (/homeless|pathway-homeless/.test(idTitle) && !/homeless|sofa|rough sleep|nowhere to stay/.test(text)) {
-      score -= 22
-    }
-  }
-  // Bare "repair" substring in pathway match caused false disrepair hits — require real conditions language
-  if (
-    /pathway-disrepair|disrepair \/ conditions/.test(`${page.id} ${page.title}`.toLowerCase()) &&
-    !/disrepair|mould|mold|damp|\brepairs?\b|heating|leaking|hazard/.test(text)
-  ) {
-    score -= 14
-  }
-  if (
-    /pathway-homelessness|homelessness/.test(`${page.id} ${page.title}`.toLowerCase()) &&
-    !/homeless|sofa|rough sleep|nowhere to stay|priority need/.test(text)
-  ) {
-    score -= 14
-  }
   if (/dismiss|fired|redundan/.test(text) && /dismiss|redundan|unfair/.test(page.id + page.title.toLowerCase())) {
     score += 5
   }
   if (/bailiff|ccj|debt/.test(text) && /bailiff|ccj|debt|enforcement/.test(page.id + page.title.toLowerCase())) {
     score += 5
   }
-  if (/refund|faulty|consumer/.test(text) && /refund|faulty|consumer|trader/.test(page.id + page.title.toLowerCase())) {
+  if (
+    /refund|faulty|consumer/.test(text) &&
+    /refund|faulty|consumer|trader/.test(page.id + page.title.toLowerCase()) &&
+    !(isPrivateParkingStory(text) && !isUsedCarPurchaseStory(text) && /used.?car|faulty.?goods|car/.test(page.id + page.title.toLowerCase()))
+  ) {
     score += 4
+  }
+  if (
+    isPrivateParkingStory(text) &&
+    /parking|pcn|popla|ticket/.test(page.id + page.title.toLowerCase() + (page.primaryUrl || ''))
+  ) {
+    score += 10
+  }
+  if (
+    isPrivateParkingStory(text) &&
+    !isUsedCarPurchaseStory(text) &&
+    /used.?car|faulty.?goods|buying.?a.?used.?car/.test(page.id + page.title.toLowerCase())
+  ) {
+    score -= 40
   }
   if (/\bilr\b|indefinite leave|settlement|settled/.test(text) && /settlement|ilr|indefinite|settled/.test(page.id)) {
     score += 6
@@ -414,8 +427,10 @@ export async function matchOslawCourse(
     : [`${domains[0] === 'immigration' ? 'imm' : domains[0].slice(0, 4)}-general`]
 
   const text = sessionText(session)
+  const parkingOnly = isPrivateParkingStory(text) && !isUsedCarPurchaseStory(text)
   const scoredArrays = await Promise.all(domains.map((d) => scoreDomain(d, session, frameIds)))
-  const scored = scoredArrays
+
+  let scored = scoredArrays
     .flat()
     .map((row) => ({
       ...row,
@@ -423,9 +438,28 @@ export async function matchOslawCourse(
     }))
     .sort((a, b) => b.score - a.score)
 
+  if (parkingOnly) {
+    const withoutUsedCar = scored.filter((x) => {
+      const blob = `${x.page.id} ${x.page.title} ${x.page.primaryUrl}`.toLowerCase()
+      return !/used.?car|buying.?a.?used.?car|problem-with-a-used-car|decision-trees\/problem-with-a-used-car|faulty.?goods/.test(
+        blob,
+      )
+    })
+    // Prefer a non-car pathway when available; otherwise skip wiki course so Answer pack owns parking.
+    if (withoutUsedCar.some((x) => x.page.kind === 'pathway' && x.page.primaryUrl)) {
+      scored = withoutUsedCar
+    } else {
+      return null
+    }
+  }
+
   const pathways = scored.filter((x) => x.page.kind === 'pathway' && x.page.primaryUrl)
   const primary = pathways[0] ?? scored.find((x) => x.page.primaryUrl)
   if (!primary) return null
+
+  if (parkingOnly && /used.?car|faulty.?goods/i.test(`${primary.page.id} ${primary.page.title}`)) {
+    return null
+  }
 
   const page = primary.page
   const domainId = primary.domainId
@@ -501,7 +535,7 @@ function rankPathwaySources(page: WikiPage, text: string): RankedSource[] {
   const urls = [...new Set([page.primaryUrl, ...(page.sourceUrls || [])].filter(Boolean))]
   const noise = /energy|boiler|insulation|meter|solid-wall|citizenship|visa|passport/i
   const storyBoosts: [RegExp, number][] = [
-    [/\bcar\b|vehicle|dealer|garage|mot\b|battery|fault codes?/i, 8],
+    [/\bcar\b(?!\s*park)|(?:used car)|(?:\bvehicle\b)|dealer|garage|mot\b|battery|fault codes?/i, 8],
     [/warrant|guarante/i, 5],
     [/refund|cancel|money back/i, 5],
     [/landlord|tenant|mould|evict|deposit|homeless/i, 5],

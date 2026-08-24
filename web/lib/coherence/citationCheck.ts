@@ -31,7 +31,10 @@ export function checkAnswerCitations(pack: AnswerPackage): { ok: boolean; issues
         bulletText: b.text.slice(0, 80),
       })
     }
-    if (DIRECTORY_AS_LAW.test(b.sourceUrl) || DIRECTORY_AS_LAW.test(b.sourceTitle)) {
+    if (
+      (DIRECTORY_AS_LAW.test(b.sourceUrl) || DIRECTORY_AS_LAW.test(b.sourceTitle)) &&
+      b.tier === 'primary-law'
+    ) {
       issues.push({
         code: 'directory-as-primary',
         message: 'Directory / firm blog cited as if it were primary law',

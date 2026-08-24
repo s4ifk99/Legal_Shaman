@@ -53,15 +53,14 @@ export function isPropertyPurchaseMisrepresentationQuery(query: string): boolean
  */
 export function isPcnAppealQuery(query: string): boolean {
   const q = query.toLowerCase();
+  if (/\bpopla\b/i.test(q) || /\bprivate (?:car\s*)?park/i.test(q)) return true;
   const pcn =
     /\bpcns?\b/i.test(q) ||
     /\bpenalty charge( notices?)?\b/i.test(q) ||
-    /\b(parking ticket|parking fine|parking charge notice)\b/i.test(q);
+    /\b(parking ticket|parking fine|parking charge(?: notice)?)\b/i.test(q);
   if (!pcn) return false;
-  // Workplace HR stories that happen to say “PCN” as something else are rare;
-  // still require a traffic / council cue when the only hit is a weak “ticket”.
   return (
-    /\b(council|hounslow|tf[l]|london tribunal|london tribunals|eta\b|adjudicat|permit|restricted (road|hours)|bus lane|moving traffic|contravention|yellow box|congestion charge|appeal)\b/i.test(
+    /\b(council|hounslow|tf[l]|london tribunal|london tribunals|eta\b|adjudicat|permit|restricted (road|hours)|bus lane|moving traffic|contravention|yellow box|congestion charge|appeal|private parking|car park)\b/i.test(
       q,
     ) || /\bpcns?\b/i.test(q)
   );

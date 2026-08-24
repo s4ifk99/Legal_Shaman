@@ -1,5 +1,7 @@
 import type { MatterType, Mode, SessionState } from './types'
 import { maximiseLocalCoherence, type WikiCandidate } from './coherence'
+import { buildRetrievalText } from './retrievalText'
+import { classifyUkTaxonomy, type UkTaxonomyHit } from './ukTaxonomy'
 
 export interface LegalFrame {
   id: string
@@ -12,22 +14,81 @@ export interface LegalFrame {
 }
 
 function textBlob(session: SessionState): string {
-  return [
-    ...session.rawInputs,
-    session.whatHappened,
-    session.howCaused,
-    session.goal,
-    ...session.events.map((e) => e.label),
-    ...session.softFlags,
-  ]
-    .join(' ')
-    .toLowerCase()
+  return buildRetrievalText(session)
+}
+
+function sessionTaxonomy(session: SessionState, t: string): UkTaxonomyHit | null {
+  if (session.ukTaxonomyPackId && session.ukTaxonomyL2) {
+    const live = classifyUkTaxonomy(t)
+    if (live && live.confidence >= (session.ukTaxonomyConfidence || 0)) return live
+  }
+  return classifyUkTaxonomy(t)
+}
+
+function applyMatterPackFrames(
+  add: (id: string, label: string, why: string, score: number) => void,
+  tax: UkTaxonomyHit,
+) {
+  switch (tax.packId) {
+    case 'mortgage_possession':
+      add(
+        'debt-mortgage-possession',
+        'Mortgage possession / repossession risk',
+        'Lender repossession or mortgage shortfall language — urgent secured-debt pathways.',
+        94,
+      )
+      break
+    case 'police_property_seizure':
+      add(
+        'crime-property-seizure',
+        'Police property seizure / return',
+        'Police confiscated or retained property; challenge / return paperwork may be needed.',
+        94,
+      )
+      add('crime-police', 'Police powers / process', 'Police involvement is central to the story.', 80)
+      break
+    case 'joint_tenancy_liability':
+      add(
+        'hous-joint-liability',
+        'Joint tenancy / shared rent liability',
+        'Flatmate or joint tenants on the same tenancy — liability for the whole rent may be the core issue.',
+        93,
+      )
+      break
+    case 'trusts_ctf':
+      add(
+        'fam-trusts-ctf',
+        'Child Trust Fund / trust money',
+        'CTF or trust fund control dispute — private-client framing, not general advice only.',
+        92,
+      )
+      break
+    case 'inheritance_succession':
+      add(
+        'fam-inheritance',
+        'Inheritance / estate claim',
+        'Parents’ estate, probate, or sibling claim over a house / share.',
+        92,
+      )
+      break
+    case 'pregnancy_redundancy':
+      add(
+        'emp-pregnancy',
+        'Pregnancy / maternity & redundancy',
+        'Pregnancy or maternity overlapping redundancy or dismissal needs dedicated framing.',
+        94,
+      )
+      break
+    default:
+      break
+  }
 }
 
 /** Propose 2–3 competing legal frames (triage hypotheses — not advice). */
 export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame[] {
   const t = textBlob(session)
   const matter: MatterType = session.matterType
+  const tax = sessionTaxonomy(session, t)
   const frames: LegalFrame[] = []
 
   const add = (id: string, label: string, why: string, score: number) => {
@@ -35,11 +96,26 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     frames.push({ id, label, why, score })
   }
 
+  // Private parking / PCN — before consumer "car" heuristics (car park ≠ used car).
+  if (
+    /\b(parking (?:fine|ticket|charge|app|company)|car\s*park|pcn|popla|private parking)\b/.test(t)
+  ) {
+    add(
+      'cons-parking',
+      'Parking charge / ticket appeal',
+      'Private car park or parking charge / PCN appeal features in the account.',
+      92,
+    )
+  }
+
+  if (tax && tax.confidence >= 0.8) {
+    applyMatterPackFrames(add, tax)
+  }
+
   const immKw =
     /\bilr\b|visa|home office|asylum|deport|immigration|indefinite leave|settled status|leave to remain/.test(
       t,
     )
-  // Immigration only when matter says so, or unknown with clear imm keywords (not bare "refused")
   const useImm = matter === 'immigration' || (matter === 'unknown' && immKw)
 
   if (useImm) {
@@ -109,31 +185,28 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     }
   } else if (
     matter === 'housing' ||
-    /landlord|tenant|evict|mould|section\s*21|disrepair|tenancy|\brents?\b/.test(t)
+    tax?.l1 === 'property' ||
+    /landlord|tenant|evict|mould|section\s*21|disrepair|tenancy|\brents?\b|flatmate|housemate/.test(t)
   ) {
+    if (
+      /flatmate|housemate|joint\s+tenant|both\s+on\s+the\s+tenancy|jointly\s+liable/.test(t) ||
+      tax?.packId === 'joint_tenancy_liability'
+    ) {
+      add(
+        'hous-joint-liability',
+        'Joint tenancy / shared rent liability',
+        'Flatmate or joint tenants — liability for the whole rent may be the core issue.',
+        93,
+      )
+    }
     if (/evict|lock(?:ed)?(?:\s+\w+){0,2}\s*out|possession|section\s*21|section\s*8|bailiff/.test(t)) {
       add('hous-possession', 'Possession / eviction risk', 'Eviction or lock-out language suggests possession urgency.', 88)
     }
-    // Word-bound repairs — bare "repair" is too broad; never match via other domains' vocabulary
-    if (/disrepair|mould|mold|damp|\brepairs?\b|heating|leaking/.test(t) && !/flatmate|housemate|lodger|lashing out|notice to quit/.test(t)) {
+    if (/disrepair|mould|mold|damp|\brepairs?\b|heating|leaking/.test(t)) {
       add('hous-disrepair', 'Disrepair / landlord duties', 'Housing conditions or landlord response feature in the account.', 84)
     }
-    // Shared housing / flatmate — before deposit/rent so "share of the rent" does not become arrears-only.
-    if (
-      /flatmate|housemate|lodger|subtenant|excluded occupier|share[d]?\s+accommodation|joint tenancy|licence to occupy|notice to quit/.test(
-        t,
-      )
-    ) {
-      add(
-        'hous-shared',
-        'Shared accommodation / flatmate',
-        'Shared housing, lodger, or flatmate dispute — status and household agreements matter more than generic rent arrears.',
-        90,
-      )
-    }
-    // Require deposit / arrears language — bare "rent" (incl. share of rent) is too broad.
-    if (/deposit|rent.?arrears|arrears|housing benefit|deposit.?protection|holding.?deposit/.test(t)) {
-      add('hous-deposit', 'Tenancy money / deposit', 'Deposit protection or rent-arrears language is present.', 72)
+    if (/deposit|\brents?\b|arrears|housing benefit/.test(t)) {
+      add('hous-deposit', 'Tenancy money / deposit', 'Rent or deposit disputes are a common parallel frame.', 72)
     }
     if (/homeless|sofa|no where to stay|rough sleep/.test(t)) {
       add('hous-homeless', 'Homelessness / housing duty', 'Client may need local authority homelessness pathways.', 86)
@@ -141,12 +214,37 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     if (frames.length === 0) {
       add('hous-general', 'Housing / landlord–tenant', 'Matter typed as housing; frame will refine with more detail.', 60)
     }
-  } else if (matter === 'employment' || /employer|dismiss|fired|redundan|wages/.test(t)) {
-    if (/dismiss|fired|sacked|constructive/.test(t)) {
+  } else if (
+    matter === 'employment' ||
+    tax?.l1 === 'employment' ||
+    ((/\b(dismiss|fired|sacked|redundan|unfair dismiss|constructive dismiss|unpaid wages|holiday (?:hours|pay)|employment tribunal|acas)\b/i.test(
+      t,
+    ) ||
+      (/\b(manager|supervisor|boss|line manager)\b/i.test(t) &&
+        /\b(holiday|shift|hours|appointment|drinking water|wage|pay)\b/i.test(t))) &&
+      !(
+        /\b(insurer|insurance (?:company|claim|policy)|festival|day ticket|wheelchair|airport)\b/i.test(t) &&
+        !/\b(dismiss|sacked|fired|redundan|holiday hours|holiday pay)\b/i.test(t)
+      ))
+  ) {
+    if (/pregnant|pregnancy|maternity/.test(t) || tax?.packId === 'pregnancy_redundancy') {
+      add(
+        'emp-pregnancy',
+        'Pregnancy / maternity & redundancy',
+        'Pregnancy or maternity overlapping job loss or redundancy.',
+        94,
+      )
+    }
+    if (/dismiss|fired|sacked|constructive|redundan/.test(t)) {
       add('emp-unfair', 'Unfair / wrongful dismissal', 'Job loss language may engage dismissal rights.', 86)
     }
-    if (/wage|pay|holiday|contract|hours/.test(t)) {
-      add('emp-wages', 'Pay / contract issues', 'Wages or contract problems can sit alongside dismissal.', 78)
+    if (/wage|pay|holiday|contract|hours|shift|appointment|drinking water/.test(t)) {
+      add(
+        'emp-wages',
+        'Pay / contract / workplace conditions',
+        'Pay, hours, leave or workplace conditions feature in the account.',
+        78,
+      )
     }
     if (/discriminat|harass|bully|whistle/.test(t)) {
       add('emp-discrim', 'Workplace discrimination / harassment', 'Equality or harassment issues may need early specialist framing.', 80)
@@ -157,7 +255,19 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     if (frames.length === 0) {
       add('emp-general', 'Employment rights', 'Matter typed as employment; frame will refine with more detail.', 60)
     }
-  } else if (matter === 'debt' || /debt|bailiff|ccj|creditor/.test(t)) {
+  } else if (
+    matter === 'debt' ||
+    tax?.l1 === 'debt_insolvency' ||
+    /debt|bailiff|ccj|creditor|mortgage|repossess/.test(t)
+  ) {
+    if (/\bmortgage\b|repossess/.test(t) || tax?.packId === 'mortgage_possession') {
+      add(
+        'debt-mortgage-possession',
+        'Mortgage possession / repossession risk',
+        'Lender repossession or mortgage shortfall language.',
+        94,
+      )
+    }
     if (/bailiff|enforcement|warrant|charging order/.test(t)) {
       add('debt-enforcement', 'Debt enforcement / bailiffs', 'Enforcement action is live or threatened.', 88)
     }
@@ -170,14 +280,40 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     if (frames.length === 0) {
       add('debt-general', 'Debt / money problems', 'Matter typed as debt; frame will refine with more detail.', 60)
     }
-  } else if (matter === 'family' || /divorce|custody|child arrangement|child contact|domestic|partner left/.test(t)) {
+  } else if (
+    matter === 'family' ||
+    tax?.l1 === 'private_client' ||
+    /divorce|custody|child arrangement|child contact|domestic|partner left|inherit|trust fund|\bctf\b|probate/.test(
+      t,
+    )
+  ) {
+    if (/child trust fund|\bctf\b|junior isa|trust fund/.test(t) || tax?.packId === 'trusts_ctf') {
+      add(
+        'fam-trusts-ctf',
+        'Child Trust Fund / trust money',
+        'CTF or trust fund control dispute.',
+        92,
+      )
+    }
+    if (
+      /inherit|probate|estate|intestat/.test(t) ||
+      tax?.packId === 'inheritance_succession' ||
+      (/parents?/.test(t) && /house|home|property/.test(t) && /share|claim|sibling|brother|sister/.test(t))
+    ) {
+      add(
+        'fam-inheritance',
+        'Inheritance / estate claim',
+        'Estate, probate, or family claim over property.',
+        92,
+      )
+    }
     if (/child|custody|contact|arrangement|care order/.test(t)) {
       add('fam-children', 'Children / arrangements', 'Child arrangements or care concerns are central.', 86)
     }
     if (/divorce|separat|finances|ancillary/.test(t)) {
       add('fam-divorce', 'Divorce / separation finances', 'Relationship breakdown and finances feature.', 80)
     }
-    if (/domestic|abuse|injunction|non-molestation|harass/.test(t)) {
+    if (/domestic\s*abuse|abuse|injunction|non-molestation|harass/.test(t)) {
       add('fam-domestic', 'Domestic abuse / protective orders', 'Safety and protective orders may be urgent.', 90)
     }
     if (frames.length === 0) {
@@ -185,48 +321,75 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     }
   } else if (
     matter === 'crime' ||
-    /driving ban|disqualif|banned from driving|motoring|highway code|in charge of (?:the )?vehicle|in control of (?:the )?vehicle|sentenc|magistrates|arrest|criminal|offence/.test(
-      t,
-    )
+    tax?.l1 === 'crime_public' ||
+    /police|arrest|criminal|offence|confiscat|seiz/.test(t)
   ) {
-    if (/driving ban|disqualif|banned from driving|in charge of|in control of|tyre|inflate|engine on|driveway/.test(t)) {
+    if (
+      /confiscat|seiz|took my|get (it|them|my \w+) back/.test(t) ||
+      tax?.packId === 'police_property_seizure'
+    ) {
       add(
-        'crime-motoring',
-        'Driving ban / in charge of a vehicle',
-        'Disqualification or “in charge” of a vehicle while banned is the live issue.',
-        92,
+        'crime-property-seizure',
+        'Police property seizure / return',
+        'Police retained or confiscated property.',
+        94,
       )
     }
-    if (/sentenc|magistrates|guilty|plea|conviction/.test(t)) {
-      add('crime-sentence', 'Sentencing / court outcome', 'Court sentence or guidelines may be relevant.', 78)
-    }
-    if (/arrest|charg(?:ed|e)|accused|police interview|bail/.test(t)) {
-      add('crime-accused', 'Accused / police investigation', 'Client may be under investigation or charged.', 80)
-    }
-    if (/victim|witness|assault|theft/.test(t)) {
-      add('crime-victim', 'Victim / witness support', 'Victim or witness pathways may apply.', 72)
-    }
+    add('crime-police', 'Police powers / process', 'Police or criminal process features in the account.', 78)
     if (frames.length === 0) {
       add('crime-general', 'Crime / police triage', 'Matter typed as crime; frame will refine with more detail.', 60)
     }
   } else if (
     matter === 'consumer' ||
-    (/refund|faulty|trader|warranty|guarantee|garage|washing machine|refuse to fix|dealer|fault codes?|\bbattery\b|broke down|not as described|bought.*\b(car|vehicle)\b/.test(
+    /refund|faulty|trader|warranty|guarantee|garage|washing machine|refuse to fix|used car|bought .{0,20}(?:car|vehicle)|\bvehicle\b|dealer|fault codes?|\bbattery\b|insurer|insurance|festival|day ticket|wheelchair|airport/.test(
       t,
-    ) &&
-      !/driving ban|disqualif|banned from driving|in charge of|in control of/.test(t))
+    )
   ) {
-    if (/refund|cancel|return|chargeback/.test(t)) {
+    const parkingOnly =
+      /\b(parking (?:fine|ticket|charge|app|company)|car\s*park|pcn|popla)\b/.test(t) &&
+      !/\b(used car|bought .{0,20}(?:car|vehicle)|dealer|fault codes?|washing machine)\b/.test(t)
+    if (
+      /\b(insurer|insurance (?:company|claim|policy)|private medical)\b/i.test(t) ||
+      (/\b(insurance|policy)\b/i.test(t) && /\b(operation|hospital|won'?t pay|approved|cover)\b/i.test(t))
+    ) {
+      add(
+        'cons-insurance',
+        'Insurance / medical funding dispute',
+        'Insurer approval, cover refusal or medical funding features in the account.',
+        90,
+      )
+    }
+    if (
+      /\b(wheelchair|disabled|disability|blue badge|accessibility|stranded)\b/i.test(t) ||
+      (/\bairport\b/i.test(t) && /\b(access|assistance|check-?in|wheelchair)\b/i.test(t))
+    ) {
+      add(
+        'cons-access',
+        'Disability / access rights',
+        'Disability access, assistance or equal treatment in services/travel.',
+        88,
+      )
+    }
+    if (/\b(festival|concert|day ticket|ticket holders?|advertised artists?|\bgig\b)\b/i.test(t)) {
+      add(
+        'cons-tickets',
+        'Event tickets / advertised services',
+        'Ticketed event or advertised service not matching what was sold.',
+        86,
+      )
+    }
+    if (/refund|cancel|return|chargeback/.test(t) && !parkingOnly) {
       add('cons-refund', 'Refund / cancellation', 'Client wants money back or to cancel a contract.', 84)
     }
     if (
+      !parkingOnly &&
       /faulty|broken|not as described|guarantee|warranty|broke down|bad service|refuse to fix|fault codes?|\bbattery\b/.test(
         t,
       )
     ) {
       add('cons-faulty', 'Faulty goods / services', 'Quality or description problems with goods or services.', 82)
     }
-    if (/trader|scam|mis-sell|unfair term|dealer|garage/.test(t)) {
+    if (!parkingOnly && /trader|scam|mis-sell|unfair term|dealer|garage/.test(t)) {
       add('cons-trader', 'Trader / unfair practices', 'Trader conduct or unfair terms may need escalation pathways.', 76)
     }
     if (frames.length === 0) {
@@ -256,7 +419,6 @@ export function proposeCoherentFrames(
   limit = 3,
   candidates: WikiCandidate[] = [],
 ): LegalFrame[] {
-  // Over-propose then let local maximiser pick plural tops
   const proposed = proposeLegalFrames(session, Math.max(limit + 2, 5))
   return maximiseLocalCoherence(session, proposed, candidates, limit).frames
 }

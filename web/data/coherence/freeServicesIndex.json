@@ -1,0 +1,2611 @@
+{
+  "meta": {
+    "note": "Dialable free charities + free parking appeal routes — seed + signpost + Exa. Product reads offline.",
+    "serviceCount": 94,
+    "updated": "2026-08-24",
+    "schema": "free-service-v1"
+  },
+  "services": [
+    {
+      "id": "fs-cab-adviceline-england",
+      "entityType": "advice_charity",
+      "title": "Citizens Advice Adviceline (England)",
+      "description": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "website": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta"
+      ],
+      "matterTypes": [
+        "consumer",
+        "debt",
+        "housing",
+        "employment",
+        "other",
+        "unknown"
+      ],
+      "keywords": [
+        "citizens advice",
+        "free advice",
+        "advice line",
+        "helpline"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-cab-consumer-helpline",
+      "entityType": "advice_charity",
+      "title": "Citizens Advice consumer helpline",
+      "description": "Help with faulty goods, refunds, traders, contracts and consumer rights.",
+      "phone": "0808 223 1133",
+      "website": "https://www.citizensadvice.org.uk/consumer/get-more-help/if-you-need-more-help-about-a-consumer-issue/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-consumer-goods-traders",
+        "area-conveyancing-property-sale",
+        "area-data-identity-privacy",
+        "area-debt-bailiffs-finance",
+        "area-energy-broadband-complaints",
+        "area-motoring-parking-rta",
+        "area-travel-flights-holidays"
+      ],
+      "matterTypes": [
+        "consumer"
+      ],
+      "keywords": [
+        "consumer",
+        "refund",
+        "faulty",
+        "trader",
+        "contract",
+        "parking"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-shelter",
+      "entityType": "advice_charity",
+      "title": "Shelter Housing Advice",
+      "description": "Free national helpline for housing, eviction, homelessness and disrepair.",
+      "phone": "0808 800 4444",
+      "website": "https://www.shelter.org.uk/get_help",
+      "topicKeys": [
+        "area-housing-landlord-tenant",
+        "area-leasehold-service-charge"
+      ],
+      "matterTypes": [
+        "housing"
+      ],
+      "keywords": [
+        "shelter",
+        "eviction",
+        "homeless",
+        "tenant",
+        "landlord",
+        "disrepair"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-lease",
+      "entityType": "advice_charity",
+      "title": "LEASE (leasehold advice)",
+      "description": "Free advice on leasehold, service charges and managing agents.",
+      "phone": "020 7832 2500",
+      "website": "https://www.lease-advice.org/",
+      "topicKeys": [
+        "area-housing-landlord-tenant",
+        "area-leasehold-service-charge"
+      ],
+      "matterTypes": [
+        "housing",
+        "other"
+      ],
+      "keywords": [
+        "leasehold",
+        "service charge",
+        "freeholder",
+        "ground rent"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-acas",
+      "entityType": "advice_charity",
+      "title": "ACAS helpline",
+      "description": "Free impartial advice on employment rights, dismissal, redundancy and workplace disputes.",
+      "phone": "0300 123 1100",
+      "website": "https://www.acas.org.uk/contact-us",
+      "topicKeys": [
+        "area-employment-workplace"
+      ],
+      "matterTypes": [
+        "employment"
+      ],
+      "keywords": [
+        "acas",
+        "employment",
+        "dismissal",
+        "redundancy",
+        "workplace",
+        "tribunal"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-stepchange",
+      "entityType": "advice_charity",
+      "title": "StepChange Debt Charity",
+      "description": "Free, confidential debt advice including bailiffs, CCJs and repayment plans.",
+      "phone": "0800 138 1111",
+      "website": "https://www.stepchange.org/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "debt",
+        "housing",
+        "other"
+      ],
+      "keywords": [
+        "debt",
+        "bailiff",
+        "ccj",
+        "iva",
+        "money"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-national-debtline",
+      "entityType": "advice_charity",
+      "title": "National Debtline",
+      "description": "Free debt advice helpline for England and Wales.",
+      "phone": "0808 808 4000",
+      "website": "https://www.nationaldebtline.org/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "debt",
+        "housing",
+        "other"
+      ],
+      "keywords": [
+        "debt",
+        "bailiff",
+        "creditor",
+        "money advice"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-moneyhelper",
+      "entityType": "advice_charity",
+      "title": "MoneyHelper (MaPS)",
+      "description": "Government-backed money and pensions guidance — debt, benefits and consumer finance.",
+      "phone": "0800 011 3797",
+      "website": "https://www.moneyhelper.org.uk/en/contact-us",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "debt",
+        "other"
+      ],
+      "keywords": [
+        "moneyhelper",
+        "debt",
+        "pension",
+        "benefits",
+        "money"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-victim-support",
+      "entityType": "advice_charity",
+      "title": "Victim Support",
+      "description": "Free 24/7 support for victims and witnesses of crime — emotional and practical help.",
+      "phone": "0808 168 9111",
+      "website": "https://www.victimsupport.org.uk/help-and-support/get-help/",
+      "topicKeys": [
+        "area-crime-police-harassment",
+        "area-criminal-procedure"
+      ],
+      "matterTypes": [
+        "crime",
+        "other"
+      ],
+      "keywords": [
+        "victim",
+        "crime",
+        "assault",
+        "harassment",
+        "stalking",
+        "witness"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-crimestoppers",
+      "entityType": "advice_charity",
+      "title": "Crimestoppers",
+      "description": "Anonymous reporting line — not for emergency use (call 999 in immediate danger).",
+      "phone": "0800 555 111",
+      "website": "https://crimestoppers-uk.org/",
+      "topicKeys": [
+        "area-crime-police-harassment"
+      ],
+      "matterTypes": [
+        "crime"
+      ],
+      "keywords": [
+        "crime",
+        "report",
+        "police",
+        "anonymous"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-cla",
+      "entityType": "advice_charity",
+      "title": "Civil Legal Advice (legal aid gateway)",
+      "description": "Check legal aid eligibility and speak to an adviser for housing, debt, family and other civil matters.",
+      "phone": "0345 345 4345",
+      "website": "https://www.gov.uk/civil-legal-advice",
+      "topicKeys": [
+        "area-debt-bailiffs-finance",
+        "area-family-children-divorce",
+        "area-housing-landlord-tenant",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "housing",
+        "debt",
+        "family",
+        "other"
+      ],
+      "keywords": [
+        "legal aid",
+        "civil legal advice",
+        "cla"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-legal-aid-agency",
+      "entityType": "government",
+      "title": "Legal Aid Agency",
+      "description": "Information on legal aid and finding a legal aid provider.",
+      "phone": "0300 200 2020",
+      "website": "https://www.gov.uk/legal-aid",
+      "topicKeys": [
+        "area-common-unclassified"
+      ],
+      "matterTypes": [
+        "consumer",
+        "crime",
+        "debt",
+        "employment",
+        "family",
+        "housing",
+        "immigration",
+        "other",
+        "personal_injury",
+        "unknown"
+      ],
+      "keywords": [
+        "legal aid",
+        "funding"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-atleu",
+      "entityType": "advice_charity",
+      "title": "ATLEU (anti-trafficking & labour exploitation)",
+      "description": "Legal advice for victims of trafficking and labour exploitation.",
+      "phone": "020 7704 2040",
+      "website": "https://www.atleu.org.uk/",
+      "topicKeys": [
+        "area-immigration-visas",
+        "area-employment-workplace"
+      ],
+      "matterTypes": [
+        "immigration",
+        "employment"
+      ],
+      "keywords": [
+        "trafficking",
+        "exploitation",
+        "immigration",
+        "labour"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-jcwi",
+      "entityType": "advice_charity",
+      "title": "JCWI (Joint Council for the Welfare of Immigrants)",
+      "description": "Immigration advice and campaigning — check site for current helpline availability.",
+      "phone": "020 7551 7700",
+      "website": "https://www.jcwi.org.uk/",
+      "topicKeys": [
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "immigration"
+      ],
+      "keywords": [
+        "immigration",
+        "visa",
+        "asylum",
+        "jcwi"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-rights-of-women",
+      "entityType": "advice_charity",
+      "title": "Rights of Women",
+      "description": "Free legal advice for women on family, criminal and immigration law.",
+      "phone": "020 7251 6577",
+      "website": "https://rightsofwomen.org.uk/",
+      "topicKeys": [
+        "area-crime-police-harassment",
+        "area-family-children-divorce",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "crime",
+        "family",
+        "immigration"
+      ],
+      "keywords": [
+        "women",
+        "domestic abuse",
+        "family",
+        "divorce"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-national-da-helpline",
+      "entityType": "advice_charity",
+      "title": "National Domestic Abuse Helpline",
+      "description": "24-hour helpline for anyone experiencing domestic abuse.",
+      "phone": "0808 2000 247",
+      "website": "https://www.nationaldahelpline.org.uk/",
+      "topicKeys": [
+        "area-crime-police-harassment",
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "crime",
+        "family"
+      ],
+      "keywords": [
+        "domestic abuse",
+        "violence",
+        "refuge"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-frg",
+      "entityType": "advice_charity",
+      "title": "Family Rights Group",
+      "description": "Advice for parents and kinship carers involved with children's services.",
+      "phone": "0808 801 0366",
+      "website": "https://frg.org.uk/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "children",
+        "social services",
+        "kinship",
+        "care proceedings"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-avma",
+      "entityType": "advice_charity",
+      "title": "AvMA (Action against Medical Accidents)",
+      "description": "Independent charity helping people affected by medical accidents.",
+      "phone": "0845 123 2352",
+      "website": "https://www.avma.org.uk/",
+      "topicKeys": [
+        "area-medical-clinical-nhs"
+      ],
+      "matterTypes": [
+        "other",
+        "personal_injury"
+      ],
+      "keywords": [
+        "medical negligence",
+        "clinical",
+        "nhs",
+        "injury"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-caa-passenger",
+      "entityType": "regulator",
+      "title": "CAA passenger advice",
+      "description": "UK aviation regulator — passenger rights on flights and holidays.",
+      "phone": "020 7453 6888",
+      "website": "https://www.caa.co.uk/passengers/",
+      "topicKeys": [
+        "area-travel-flights-holidays"
+      ],
+      "matterTypes": [
+        "consumer",
+        "other"
+      ],
+      "keywords": [
+        "flight",
+        "holiday",
+        "airline",
+        "compensation",
+        "travel"
+      ],
+      "source": "seed",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-jcwi-org-uk-our-helplines-joint-council-for-the-",
+      "entityType": "advice_charity",
+      "title": "Our helplines - Joint Council for the Welfare of Immigrants",
+      "description": "JCWI runs legal helplines offering free immigration advice in the UK:\n- IRREGULAR MIGRANTS HELPLINE: Freephone 0800 160 1004, for those in the UK without status. Open Mondays, Tuesdays, and Thursdays, 10:00–13:00. Confidential and free.\n- UNISON MEMBERS HELPLINE: For UNISON members; contact your union representative to be referred, then a lawyer will arrange a phone call.\n\nNote: The page specifies",
+      "phone": "0800 160 1004",
+      "website": "https://jcwi.org.uk/how-can-we-help/our-helplines/",
+      "topicKeys": [
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "immigration"
+      ],
+      "keywords": [
+        "immigration",
+        "asylum",
+        "visa",
+        "advice",
+        "helpline"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-gov-uk-asylum-helplines-gov-uk",
+      "entityType": "advice_charity",
+      "title": "Asylum helplines - GOV.UK",
+      "description": "Summary:\n\n- GOV.UK provides asylum helplines run by charities to help asylum seekers and refugees with advice on the asylum process and adapting to life in the UK. They do not decide on asylum applications.\n- Who can use them:\n  - Recent arrivals, those just granted a decision, or those starting a new life in the UK after asylum is granted.\n- What they can help with:\n  - Housing, financial support",
+      "phone": "0808 801 0503",
+      "website": "https://www.gov.uk/asylum-helplines",
+      "topicKeys": [
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "immigration"
+      ],
+      "keywords": [
+        "immigration",
+        "asylum",
+        "visa",
+        "advice",
+        "helpline"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "signpost-justicefortenants-org-justice-for-tenants",
+      "entityType": "advice_charity",
+      "title": "Justice for Tenants",
+      "description": "free Advice, Support and Representation for tenants with all kinds of issues",
+      "phone": "020 3476 5548",
+      "website": "https://www.justicefortenants.org/",
+      "topicKeys": [
+        "area-housing-landlord-tenant",
+        "area-leasehold-service-charge"
+      ],
+      "matterTypes": [
+        "housing"
+      ],
+      "keywords": [
+        "justice",
+        "tenants",
+        "free",
+        "advice",
+        "support",
+        "representation",
+        "with",
+        "kinds",
+        "issues",
+        "home"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Home and Housing"
+    },
+    {
+      "id": "signpost-marywardlegal-org-uk-mary-ward-legal-centre",
+      "entityType": "law_centre",
+      "title": "Mary Ward Legal Centre",
+      "description": "provides free legal advice to those based in London on debt, housing and welfare",
+      "phone": "020 7831 7079",
+      "website": "https://marywardlegal.org.uk/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-leasehold-service-charge"
+      ],
+      "matterTypes": [
+        "debt",
+        "housing",
+        "other"
+      ],
+      "keywords": [
+        "mary",
+        "ward",
+        "legal",
+        "centre",
+        "provides",
+        "free",
+        "advice",
+        "those",
+        "based",
+        "london"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Home and Housing"
+    },
+    {
+      "id": "signpost-swllc-org-south-west-london-law-centres",
+      "entityType": "law_centre",
+      "title": "South West London Law Centres",
+      "description": "provides a 30 minute free session of legal advice on housing issues",
+      "phone": "0208 767 2777",
+      "website": "https://www.swllc.org/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-employment-workplace",
+        "area-housing-landlord-tenant",
+        "area-leasehold-service-charge"
+      ],
+      "matterTypes": [
+        "debt",
+        "employment",
+        "housing",
+        "other"
+      ],
+      "keywords": [
+        "south",
+        "west",
+        "london",
+        "centres",
+        "provides",
+        "minute",
+        "free",
+        "session",
+        "legal",
+        "advice"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Home and Housing"
+    },
+    {
+      "id": "signpost-toynbeehall-org-uk-toynbee-hall",
+      "entityType": "advice_charity",
+      "title": "Toynbee Hall",
+      "description": "frontline advice agency based in East London",
+      "phone": "020 7392 2937",
+      "website": "https://www.toynbeehall.org.uk/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-employment-workplace",
+        "area-housing-landlord-tenant",
+        "area-leasehold-service-charge"
+      ],
+      "matterTypes": [
+        "housing"
+      ],
+      "keywords": [
+        "toynbee",
+        "hall",
+        "frontline",
+        "advice",
+        "agency",
+        "based",
+        "east",
+        "london",
+        "home",
+        "housing"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Home and Housing"
+    },
+    {
+      "id": "signpost-childlawadvice-org-uk-coram-children-s-legal-centre-s-c",
+      "entityType": "law_centre",
+      "title": "Coram Children's Legal Centre's Child Law Advice Service",
+      "description": "provides advice on parental disputes about child arrangements, child protection and attending court.",
+      "phone": "020 7520 0300",
+      "website": "https://www.childlawadvice.org.uk/",
+      "topicKeys": [
+        "area-family-children-divorce",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "family",
+        "immigration"
+      ],
+      "keywords": [
+        "coram",
+        "children",
+        "legal",
+        "centre",
+        "child",
+        "advice",
+        "service",
+        "provides",
+        "parental",
+        "disputes"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-dadshouse-org-uk-dad-s-house",
+      "entityType": "advice_charity",
+      "title": "Dad's House",
+      "description": "Runs a Pro Bono Family Law Clinic on Wednesdays and Fridays each week led by Simon Bruce (Dawson Cornwall), a well renowned family law solicitor.",
+      "phone": "07765 183504",
+      "website": "https://www.dadshouse.org.uk/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "house",
+        "runs",
+        "bono",
+        "family",
+        "clinic",
+        "wednesdays",
+        "fridays",
+        "each",
+        "week",
+        "simon"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-grandparentslegalcentre-com-grandparents-legal-centre",
+      "entityType": "law_centre",
+      "title": "Grandparents Legal Centre",
+      "description": "specialists in advising about the steps grandparents need to take to try and resolve certain difficult issues",
+      "phone": "0843 289 7130",
+      "website": "https://www.grandparentslegalcentre.com/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "grandparents",
+        "legal",
+        "centre",
+        "specialists",
+        "advising",
+        "about",
+        "steps",
+        "need",
+        "take",
+        "resolve"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-fnf-org-uk-families-need-fathers",
+      "entityType": "advice_charity",
+      "title": "Families Need Fathers",
+      "description": "Info advice and support to both parents to help them maintain their relationship with their children",
+      "phone": "0300 0300 363",
+      "website": "https://fnf.org.uk/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "families",
+        "need",
+        "fathers",
+        "info",
+        "advice",
+        "support",
+        "both",
+        "parents",
+        "help",
+        "them"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-onlydads-org-only-dads",
+      "entityType": "advice_charity",
+      "title": "Only Dads",
+      "description": "A national on-line support & signposting service for parents going through separation/divorce",
+      "phone": "07786 877718",
+      "website": "https://www.onlydads.org/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "only",
+        "dads",
+        "national",
+        "line",
+        "support",
+        "signposting",
+        "service",
+        "parents",
+        "going",
+        "through"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-ourfamilywizard-co-uk-ourfamilywizard",
+      "entityType": "advice_charity",
+      "title": "OurFamilyWizard",
+      "description": "A co-parenting app and website. Parents and other family members can use OurFamilyWizard as a central platform to share their most important family information.",
+      "phone": "0203 514 0008",
+      "website": "https://www.ourfamilywizard.co.uk/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "ourfamilywizard",
+        "parenting",
+        "website",
+        "parents",
+        "other",
+        "family",
+        "members",
+        "central",
+        "platform",
+        "share"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-resolution-org-uk-resolution",
+      "entityType": "advice_charity",
+      "title": "Resolution",
+      "description": "Resolution is a community of family justice professionals who work with families and individuals to resolve issues in a constructive way",
+      "phone": "020 3841 0300",
+      "website": "https://resolution.org.uk/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "resolution",
+        "community",
+        "family",
+        "justice",
+        "professionals",
+        "work",
+        "with",
+        "families",
+        "individuals",
+        "resolve"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-workingfamilies-org-uk-working-families",
+      "entityType": "advice_charity",
+      "title": "Working Families",
+      "description": "for parents and carers needing advice on maternity and paternity leave and discrimination. They also provide basic benefits advice",
+      "phone": "0300 012 0312",
+      "website": "https://workingfamilies.org.uk/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "working",
+        "families",
+        "parents",
+        "carers",
+        "needing",
+        "advice",
+        "maternity",
+        "paternity",
+        "leave",
+        "discrimination"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-dvassist-org-uk-domestic-violence-assist",
+      "entityType": "advice_charity",
+      "title": "Domestic Violence Assist",
+      "description": "charity offering help with non-molestation, occupation and prohibited steps orders",
+      "phone": "0800 195 8699",
+      "website": "https://www.dvassist.org.uk/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "domestic",
+        "violence",
+        "assist",
+        "charity",
+        "offering",
+        "help",
+        "with",
+        "molestation",
+        "occupation",
+        "prohibited"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-flows-org-uk-finding-legal-options-for-women-survivors-",
+      "entityType": "advice_charity",
+      "title": "Finding Legal Options for Women Survivors (FLOWS)",
+      "description": "legal support service",
+      "phone": "0203 745 7707",
+      "website": "https://www.flows.org.uk/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "finding",
+        "legal",
+        "options",
+        "women",
+        "survivors",
+        "flows",
+        "support",
+        "service",
+        "family",
+        "relationships"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-ncdv-org-uk-national-centre-for-domestic-violence",
+      "entityType": "advice_charity",
+      "title": "National Centre for Domestic Violence",
+      "description": "can assist with urgent injunctions",
+      "phone": "0800 970 2070",
+      "website": "https://www.ncdv.org.uk/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "national",
+        "centre",
+        "domestic",
+        "violence",
+        "assist",
+        "with",
+        "urgent",
+        "injunctions",
+        "family",
+        "relationships"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-rightsofwomen-org-uk-rights-of-women",
+      "entityType": "advice_charity",
+      "title": "Rights of Women",
+      "description": "offer women free, confidential legal advice from specialist women solicitors and barristers",
+      "phone": "020 7251 6575",
+      "website": "https://rightsofwomen.org.uk/",
+      "topicKeys": [
+        "area-employment-workplace",
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "rights",
+        "women",
+        "offer",
+        "free",
+        "confidential",
+        "legal",
+        "advice",
+        "from",
+        "specialist",
+        "solicitors"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-rapecrisis-org-uk-rape-crisis",
+      "entityType": "advice_charity",
+      "title": "Rape Crisis",
+      "description": "offer services by women, for women and girls",
+      "phone": "0142 526 770",
+      "website": "https://rapecrisis.org.uk/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "rape",
+        "crisis",
+        "offer",
+        "services",
+        "women",
+        "girls",
+        "family",
+        "relationships"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-survivorsuk-org-survivors-uk",
+      "entityType": "advice_charity",
+      "title": "Survivors UK",
+      "description": "offers support to male victims of sexual abuse",
+      "phone": "0203 598 3898",
+      "website": "https://www.survivorsuk.org/",
+      "topicKeys": [
+        "area-family-children-divorce"
+      ],
+      "matterTypes": [
+        "family"
+      ],
+      "keywords": [
+        "survivors",
+        "offers",
+        "support",
+        "male",
+        "victims",
+        "sexual",
+        "abuse",
+        "family",
+        "relationships"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Family and Relationships"
+    },
+    {
+      "id": "signpost-bpp-com-bpp-law-school-employment-law-telephone-advice-",
+      "entityType": "university_clinic",
+      "title": "BPP Law School Employment Law Telephone Advice Line (ELTAL)",
+      "description": "an advice line offering initial advice to callers. Leave a message and a student volunteer will call back.",
+      "phone": "0207 633 4534",
+      "website": "https://www.bpp.com/",
+      "topicKeys": [
+        "area-employment-workplace"
+      ],
+      "matterTypes": [
+        "employment"
+      ],
+      "keywords": [
+        "school",
+        "employment",
+        "telephone",
+        "advice",
+        "line",
+        "eltal",
+        "offering",
+        "initial",
+        "callers",
+        "leave"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Work and Employment"
+    },
+    {
+      "id": "signpost-thefru-org-uk-free-representation-unit",
+      "entityType": "advice_charity",
+      "title": "Free Representation Unit",
+      "description": "provides legal advice, case preparation and advocacy in employment, social security, and some criminal injury compensation tribunal cases",
+      "phone": "020 7611 9555",
+      "website": "https://www.thefru.org.uk/",
+      "topicKeys": [
+        "area-employment-workplace"
+      ],
+      "matterTypes": [
+        "employment"
+      ],
+      "keywords": [
+        "free",
+        "representation",
+        "unit",
+        "provides",
+        "legal",
+        "advice",
+        "case",
+        "preparation",
+        "advocacy",
+        "employment"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Work and Employment"
+    },
+    {
+      "id": "signpost-protect-advice-org-uk-protect",
+      "entityType": "advice_charity",
+      "title": "Protect",
+      "description": "Free legal advice service on whistleblowing at work.",
+      "phone": "020 3117 2520",
+      "website": "https://protect-advice.org.uk/",
+      "topicKeys": [
+        "area-employment-workplace"
+      ],
+      "matterTypes": [
+        "employment"
+      ],
+      "keywords": [
+        "protect",
+        "free",
+        "legal",
+        "advice",
+        "service",
+        "whistleblowing",
+        "work",
+        "employment"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Work and Employment"
+    },
+    {
+      "id": "signpost-yesslaw-org-uk-yess-law",
+      "entityType": "advice_charity",
+      "title": "YESS Law",
+      "description": "offers affordable advice to employees and employers who want to resolve problems at work",
+      "phone": "020 3701 7530",
+      "website": "https://yesslaw.org.uk/",
+      "topicKeys": [
+        "area-employment-workplace"
+      ],
+      "matterTypes": [
+        "employment"
+      ],
+      "keywords": [
+        "yess",
+        "offers",
+        "affordable",
+        "advice",
+        "employees",
+        "employers",
+        "want",
+        "resolve",
+        "problems",
+        "work"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Work and Employment"
+    },
+    {
+      "id": "signpost-zerohoursjustice-org-uk-zero-hours-justice",
+      "entityType": "advice_charity",
+      "title": "Zero Hours Justice",
+      "description": "free confidential legal information and advice if you believe you have been unfairly treated under a Zero Hours Contract.",
+      "phone": "01904 900 151",
+      "website": "https://zerohoursjustice.org.uk/",
+      "topicKeys": [
+        "area-employment-workplace"
+      ],
+      "matterTypes": [
+        "employment"
+      ],
+      "keywords": [
+        "zero",
+        "hours",
+        "justice",
+        "free",
+        "confidential",
+        "legal",
+        "information",
+        "advice",
+        "believe",
+        "have"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Work and Employment"
+    },
+    {
+      "id": "signpost-debtadvicefoundation-org-debt-advice-foundation",
+      "entityType": "advice_charity",
+      "title": "Debt Advice Foundation",
+      "description": "A specialist debt charity offering free, confidential advice on any aspect of debt",
+      "phone": "0800 043 40 50",
+      "website": "https://www.debtadvicefoundation.org/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "other",
+        "housing",
+        "debt"
+      ],
+      "keywords": [
+        "debt",
+        "advice",
+        "foundation",
+        "specialist",
+        "charity",
+        "offering",
+        "free",
+        "confidential",
+        "aspect",
+        "money"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Money, Benefits and Debt"
+    },
+    {
+      "id": "signpost-financial-ombudsman-org-uk-financial-ombudsman-service",
+      "entityType": "ombudsman",
+      "title": "Financial Ombudsman Service",
+      "description": "consumer helpline",
+      "phone": "0800 023 4567",
+      "website": "https://www.financial-ombudsman.org.uk/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "other",
+        "housing",
+        "debt"
+      ],
+      "keywords": [
+        "financial",
+        "ombudsman",
+        "service",
+        "consumer",
+        "helpline",
+        "money",
+        "benefits",
+        "debt"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Money, Benefits and Debt"
+    },
+    {
+      "id": "signpost-hmrc-tax-and-benefits-confidential-helpline-hmrc-tax-an",
+      "entityType": "advice_charity",
+      "title": "HMRC Tax and Benefits Confidential Helpline",
+      "description": "helps families and individuals with targeted financial support",
+      "phone": "0845 608 6000",
+      "website": null,
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "other",
+        "housing",
+        "debt"
+      ],
+      "keywords": [
+        "hmrc",
+        "benefits",
+        "confidential",
+        "helpline",
+        "helps",
+        "families",
+        "individuals",
+        "with",
+        "targeted",
+        "financial"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Money, Benefits and Debt"
+    },
+    {
+      "id": "signpost-moneyhelper-org-uk-money-advice-service",
+      "entityType": "advice_charity",
+      "title": "Money Advice Service",
+      "description": "provides free and impartial money advice",
+      "phone": "0800 138 7777",
+      "website": "https://www.moneyhelper.org.uk/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "other",
+        "housing",
+        "debt"
+      ],
+      "keywords": [
+        "money",
+        "advice",
+        "service",
+        "provides",
+        "free",
+        "impartial",
+        "benefits",
+        "debt"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Money, Benefits and Debt"
+    },
+    {
+      "id": "signpost-taxaid-org-uk-taxaid",
+      "entityType": "advice_charity",
+      "title": "TaxAid",
+      "description": "offers free, confidential advice on tax to those on low incomes",
+      "phone": "0345 120 3779",
+      "website": "https://taxaid.org.uk/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "other",
+        "housing",
+        "debt"
+      ],
+      "keywords": [
+        "taxaid",
+        "offers",
+        "free",
+        "confidential",
+        "advice",
+        "those",
+        "incomes",
+        "money",
+        "benefits",
+        "debt"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Money, Benefits and Debt"
+    },
+    {
+      "id": "signpost-turn2us-org-uk-turn2us",
+      "entityType": "advice_charity",
+      "title": "Turn2Us",
+      "description": "Charity helping people in financial need. Written advice on Benefits overpayment.",
+      "phone": "0808 802 2000",
+      "website": "https://www.turn2us.org.uk/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "other",
+        "housing",
+        "debt"
+      ],
+      "keywords": [
+        "turn",
+        "charity",
+        "helping",
+        "people",
+        "financial",
+        "need",
+        "written",
+        "advice",
+        "benefits",
+        "overpayment"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Money, Benefits and Debt"
+    },
+    {
+      "id": "signpost-z2k-org-zacchaeus-2000-trust-z2k",
+      "entityType": "advice_charity",
+      "title": "Zacchaeus 2000 Trust (Z2K)",
+      "description": "provides advice and support on income, housing and social welfare matters",
+      "phone": "020 7259 0801",
+      "website": "https://z2k.org/",
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "other",
+        "housing",
+        "debt"
+      ],
+      "keywords": [
+        "zacchaeus",
+        "trust",
+        "provides",
+        "advice",
+        "support",
+        "income",
+        "housing",
+        "social",
+        "welfare",
+        "matters"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Money, Benefits and Debt"
+    },
+    {
+      "id": "signpost-atleu-org-uk-anti-trafficking-and-labour-exploitation-u",
+      "entityType": "advice_charity",
+      "title": "Anti Trafficking and Labour Exploitation Unit (ATLEU)",
+      "description": "provide free, specialist, holistic legal advice and representation to adults, young people and children who are asylum seekers and have experienced trafficking, slavery and labour exploitation.",
+      "phone": "020 7700 7311",
+      "website": "https://atleu.org.uk/",
+      "topicKeys": [
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "immigration"
+      ],
+      "keywords": [
+        "anti",
+        "trafficking",
+        "labour",
+        "exploitation",
+        "unit",
+        "atleu",
+        "provide",
+        "free",
+        "specialist",
+        "holistic"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Immigration and Citizenship"
+    },
+    {
+      "id": "signpost-asaproject-org-asylum-support-appeals-project-asap",
+      "entityType": "advice_charity",
+      "title": "Asylum Support Appeals Project (ASAP)",
+      "description": "represents people who have appeals about their Home Office housing and financial support (asylum support).",
+      "phone": "0203 716 0283",
+      "website": "https://www.asaproject.org/",
+      "topicKeys": [
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "immigration"
+      ],
+      "keywords": [
+        "asylum",
+        "support",
+        "appeals",
+        "project",
+        "asap",
+        "represents",
+        "people",
+        "have",
+        "about",
+        "their"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Immigration and Citizenship"
+    },
+    {
+      "id": "signpost-biduk-org-bid",
+      "entityType": "advice_charity",
+      "title": "BID",
+      "description": "provides legal advice and representation to migrants detained in removal centres and prisons",
+      "phone": "020 7456 9750",
+      "website": "https://www.biduk.org/",
+      "topicKeys": [
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "immigration"
+      ],
+      "keywords": [
+        "provides",
+        "legal",
+        "advice",
+        "representation",
+        "migrants",
+        "detained",
+        "removal",
+        "centres",
+        "prisons",
+        "immigration"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Immigration and Citizenship"
+    },
+    {
+      "id": "signpost-jcwi-org-uk-joint-council-for-the-welfare-of-immigrants",
+      "entityType": "advice_charity",
+      "title": "Joint Council for the Welfare of Immigrants",
+      "description": "represents clients at all stages of the legal process including applications to the Home Office, entry clearance, appeals and judicial review.",
+      "phone": "0207 553 7470",
+      "website": "https://www.jcwi.org.uk/",
+      "topicKeys": [
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "immigration"
+      ],
+      "keywords": [
+        "joint",
+        "council",
+        "welfare",
+        "immigrants",
+        "represents",
+        "clients",
+        "stages",
+        "legal",
+        "process",
+        "including"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Immigration and Citizenship"
+    },
+    {
+      "id": "signpost-kalayaan-org-uk-kalayaan",
+      "entityType": "advice_charity",
+      "title": "Kalayaan",
+      "description": "provides advice, advocacy and support in the UK for migrant domestic workers",
+      "phone": "0207 243 2942",
+      "website": "https://www.kalayaan.org.uk/",
+      "topicKeys": [
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "immigration"
+      ],
+      "keywords": [
+        "kalayaan",
+        "provides",
+        "advice",
+        "advocacy",
+        "support",
+        "migrant",
+        "domestic",
+        "workers",
+        "immigration",
+        "citizenship"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Immigration and Citizenship"
+    },
+    {
+      "id": "signpost-migrantlegalsupport-org-migrant-legal-support",
+      "entityType": "advice_charity",
+      "title": "Migrant Legal Support",
+      "description": "specifically for Wales and the South West and West of the UK",
+      "phone": "0117 911 3393",
+      "website": "https://migrantlegalsupport.org/",
+      "topicKeys": [
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "immigration"
+      ],
+      "keywords": [
+        "migrant",
+        "legal",
+        "support",
+        "specifically",
+        "wales",
+        "south",
+        "west",
+        "immigration",
+        "citizenship"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Immigration and Citizenship"
+    },
+    {
+      "id": "signpost-airecentre-org-the-aire-centre",
+      "entityType": "advice_charity",
+      "title": "The AIRE Centre",
+      "description": "promote awareness of European law rights and assist marginalised individuals and those in vulnerable circumstances to assert those rights",
+      "phone": "020 7831 4276",
+      "website": "https://www.airecentre.org/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "keywords": [
+        "aire",
+        "centre",
+        "promote",
+        "awareness",
+        "european",
+        "rights",
+        "assist",
+        "marginalised",
+        "individuals",
+        "those"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Rights and Discrimination"
+    },
+    {
+      "id": "signpost-equalityadvisoryservice-com-equality-advisory-support-s",
+      "entityType": "advice_charity",
+      "title": "Equality Advisory Support Service",
+      "description": "advises and assists individuals on issues relating to equality and human rights by informal dispute resolutions",
+      "phone": "0808 800 0082",
+      "website": "https://www.equalityadvisoryservice.com/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "keywords": [
+        "equality",
+        "advisory",
+        "support",
+        "service",
+        "advises",
+        "assists",
+        "individuals",
+        "issues",
+        "relating",
+        "human"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Rights and Discrimination"
+    },
+    {
+      "id": "signpost-publiclawproject-org-uk-public-law-project",
+      "entityType": "advice_charity",
+      "title": "Public Law Project",
+      "description": "have produced various useful resources. They are also able to help individuals who have been referred by an MP, lawyers, advisors or voluntary groups",
+      "phone": "020 7843 1260",
+      "website": "https://publiclawproject.org.uk/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "keywords": [
+        "public",
+        "project",
+        "have",
+        "produced",
+        "various",
+        "useful",
+        "resources",
+        "they",
+        "also",
+        "able"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Rights and Discrimination"
+    },
+    {
+      "id": "signpost-dls-org-uk-disability-law-service",
+      "entityType": "advice_charity",
+      "title": "Disability Law Service",
+      "description": "provides free legal advice to people with disabilities and their carers",
+      "phone": "020 7791 9800",
+      "website": "https://dls.org.uk/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "keywords": [
+        "disability",
+        "service",
+        "provides",
+        "free",
+        "legal",
+        "advice",
+        "people",
+        "with",
+        "disabilities",
+        "their"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Rights and Discrimination"
+    },
+    {
+      "id": "signpost-mind-org-uk-mind",
+      "entityType": "advice_charity",
+      "title": "MIND",
+      "description": "offers advice and support to those experiencing mental health problems",
+      "phone": "020 8519 2122",
+      "website": "https://www.mind.org.uk/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "keywords": [
+        "mind",
+        "offers",
+        "advice",
+        "support",
+        "those",
+        "experiencing",
+        "mental",
+        "health",
+        "problems",
+        "rights"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Rights and Discrimination"
+    },
+    {
+      "id": "signpost-nafsiyat-org-uk-nafsiyat",
+      "entityType": "advice_charity",
+      "title": "Nafsiyat",
+      "description": "a charity that provides intercultural therapy and counselling services to London's diverse religious, cultural and ethnic population",
+      "phone": "020 7263 6947",
+      "website": "https://www.nafsiyat.org.uk/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "keywords": [
+        "nafsiyat",
+        "charity",
+        "that",
+        "provides",
+        "intercultural",
+        "therapy",
+        "counselling",
+        "services",
+        "london",
+        "diverse"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Rights and Discrimination"
+    },
+    {
+      "id": "signpost-rachelsvoice-co-uk-rachel-s-voice",
+      "entityType": "advice_charity",
+      "title": "Rachel's Voice",
+      "description": "offers advice to families who have suffered a bereavement after the death of a person with a learning disability. Advice is offered to clients free of charge by lawyers who are working pro bono.",
+      "phone": "0808 808 1111",
+      "website": "https://rachelsvoice.co.uk/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "keywords": [
+        "rachel",
+        "voice",
+        "offers",
+        "advice",
+        "families",
+        "have",
+        "suffered",
+        "bereavement",
+        "after",
+        "death"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Rights and Discrimination"
+    },
+    {
+      "id": "signpost-samaritans-org-samaritans",
+      "entityType": "advice_charity",
+      "title": "Samaritans",
+      "description": "a charity dedicated to reducing feelings of isolation and disconnection that could lead to suicide",
+      "phone": "116 123",
+      "website": "https://www.samaritans.org/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "keywords": [
+        "samaritans",
+        "charity",
+        "dedicated",
+        "reducing",
+        "feelings",
+        "isolation",
+        "disconnection",
+        "that",
+        "could",
+        "lead"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Rights and Discrimination"
+    },
+    {
+      "id": "signpost-sane-org-uk-sane",
+      "entityType": "advice_charity",
+      "title": "SANE",
+      "description": "leading mental health charity",
+      "phone": "0300 304 7000",
+      "website": "https://www.sane.org.uk/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "keywords": [
+        "sane",
+        "leading",
+        "mental",
+        "health",
+        "charity",
+        "rights",
+        "discrimination"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Rights and Discrimination"
+    },
+    {
+      "id": "signpost-sendandyou-org-uk-supportive-parents-send-and-you",
+      "entityType": "advice_charity",
+      "title": "Supportive Parents (SEND and You)",
+      "description": "a charity providing information, advice & support to parents, children & young people about any type of special educational need or disability from 0-25 years who live in Bristol, N. Somerset or S. Gloucestershire",
+      "phone": "0117 9897725",
+      "website": "https://www.sendandyou.org.uk/",
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ],
+      "matterTypes": [
+        "employment",
+        "other",
+        "immigration"
+      ],
+      "keywords": [
+        "supportive",
+        "parents",
+        "send",
+        "charity",
+        "providing",
+        "information",
+        "advice",
+        "support",
+        "children",
+        "young"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Rights and Discrimination"
+    },
+    {
+      "id": "signpost-policeconduct-gov-uk-independent-office-for-police-cond",
+      "entityType": "advice_charity",
+      "title": "Independent Office for Police Conduct",
+      "description": "investigate the most serious and sensitive incidents and allegations involving the police",
+      "phone": "0300 020 0096",
+      "website": "https://www.policeconduct.gov.uk/",
+      "topicKeys": [
+        "area-crime-police-harassment",
+        "area-criminal-procedure"
+      ],
+      "matterTypes": [
+        "other",
+        "crime"
+      ],
+      "keywords": [
+        "independent",
+        "office",
+        "police",
+        "conduct",
+        "investigate",
+        "most",
+        "serious",
+        "sensitive",
+        "incidents",
+        "allegations"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Crime and Police"
+    },
+    {
+      "id": "signpost-nacro-org-uk-nacro",
+      "entityType": "advice_charity",
+      "title": "NACRO",
+      "description": "a national social justice charity which aims to educate, support and advise disadvantaged young people and adults",
+      "phone": "0300 123 1889",
+      "website": "https://www.nacro.org.uk/",
+      "topicKeys": [
+        "area-crime-police-harassment",
+        "area-criminal-procedure"
+      ],
+      "matterTypes": [
+        "other",
+        "crime"
+      ],
+      "keywords": [
+        "nacro",
+        "national",
+        "social",
+        "justice",
+        "charity",
+        "which",
+        "aims",
+        "educate",
+        "support",
+        "advise"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Crime and Police"
+    },
+    {
+      "id": "signpost-appeal-org-uk-appeal-centre-for-criminal-appeals",
+      "entityType": "advice_charity",
+      "title": "APPEAL (Centre for Criminal Appeals)",
+      "description": "a charity that fights miscarriages of justice and demands reform",
+      "phone": "020 7040 0019",
+      "website": "https://www.appeal.org.uk/",
+      "topicKeys": [
+        "area-crime-police-harassment",
+        "area-criminal-procedure"
+      ],
+      "matterTypes": [
+        "other",
+        "crime"
+      ],
+      "keywords": [
+        "appeal",
+        "centre",
+        "criminal",
+        "appeals",
+        "charity",
+        "that",
+        "fights",
+        "miscarriages",
+        "justice",
+        "demands"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Crime and Police"
+    },
+    {
+      "id": "signpost-childlawadvice-org-uk-coram-children-s-legal-centre",
+      "entityType": "law_centre",
+      "title": "Coram Children's Legal Centre",
+      "description": "provides free legal information on exclusions, bullying, special educational needs, admissions and attendance at school",
+      "phone": "01206 714 650",
+      "website": "https://www.childlawadvice.org.uk/",
+      "topicKeys": [
+        "area-education-students"
+      ],
+      "matterTypes": [
+        "other",
+        "family"
+      ],
+      "keywords": [
+        "coram",
+        "children",
+        "legal",
+        "centre",
+        "provides",
+        "free",
+        "information",
+        "exclusions",
+        "bullying",
+        "special"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Education"
+    },
+    {
+      "id": "signpost-refugeesupportnetwork-org-refugee-support-network-acces",
+      "entityType": "advice_charity",
+      "title": "Refugee Support Network 'Access to Higher Education' advice line",
+      "description": "offers refugee and asylum-seeking children and young people support with higher education",
+      "phone": "0800 331 7292",
+      "website": "https://www.refugeesupportnetwork.org/",
+      "topicKeys": [
+        "area-education-students"
+      ],
+      "matterTypes": [
+        "other",
+        "family"
+      ],
+      "keywords": [
+        "refugee",
+        "support",
+        "network",
+        "access",
+        "higher",
+        "education",
+        "advice",
+        "line",
+        "offers",
+        "asylum"
+      ],
+      "source": "signpost-import",
+      "indexedAt": "2026-08-23",
+      "signpostSection": "Education"
+    },
+    {
+      "id": "exa-england-shelter-org-uk-contact-us-shelter-england",
+      "entityType": "advice_charity",
+      "title": "Contact us - Shelter England",
+      "description": "Shelter England’s contact page lists various ways to reach the organization, but it does not provide a housing advice helpline by phone or email. Key points for your query about a housing advice helpline in England:\n\n- There is no general Shelter housing advice phone number or email listed on the contact page.\n- For free housing advice, you should use Shelter’s Get help pages (not specified here, ",
+      "phone": "0300 330 1234",
+      "website": "https://england.shelter.org.uk/contact_us",
+      "topicKeys": [
+        "area-housing-landlord-tenant"
+      ],
+      "matterTypes": [
+        "housing"
+      ],
+      "keywords": [
+        "housing",
+        "eviction",
+        "shelter",
+        "tenant",
+        "helpline"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-citizensadvice-org-uk-harassment-by-creditors-citizens-adv",
+      "entityType": "advice_charity",
+      "title": "Harassment by creditors - Citizens Advice",
+      "description": "Summary tailored to your query:\n- Topic: Harassment by creditors and debt collection practices in England (UK).\n- What the page covers: How creditors are supposed to behave when recovering money, what constitutes harassment, examples (e.g., multiple daily contacts, contacting via social media, pressuring to sell home or take more credit, using multiple debt collectors), and steps you can take if y",
+      "phone": "0800 240 4420",
+      "website": "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/harassment-by-creditors/",
+      "topicKeys": [
+        "area-business-companies",
+        "area-debt-bailiffs-finance"
+      ],
+      "matterTypes": [
+        "debt"
+      ],
+      "keywords": [
+        "debt",
+        "bailiff",
+        "money advice",
+        "helpline"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-suzylamplugh-org-the-national-stalking-helpline-suzy-",
+      "entityType": "advice_charity",
+      "title": "The National Stalking Helpline | Suzy Lamplugh Trust",
+      "description": "The National Stalking Helpline (Suzy Lamplugh Trust) provides free, practical advice for UK stalking victims and those worried about someone being stalked. It offers a non-emergency support path (not a substitute for 999) and helps you feel safer by:\n\n- Listening to your experience\n- Outlining options and next steps you’re comfortable with\n- Creating a safety plan\n- Linking to relevant specialist ",
+      "phone": "0808 802 0300",
+      "website": "https://www.suzylamplugh.org/the-national-stalking-helpline-lsss",
+      "topicKeys": [
+        "area-crime-police-harassment"
+      ],
+      "matterTypes": [
+        "crime"
+      ],
+      "keywords": [
+        "victim",
+        "crime",
+        "harassment",
+        "stalking",
+        "helpline"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-ipsea-inde",
+      "entityType": "advice_charity",
+      "title": "Turn2Us - Advice Finder - IPSEA - Independent Parental Special Education Advice -",
+      "description": "IPSEA offers free, independent, legally based information and advice for parents and carers of children with SEN and disabilities in England and Wales. Key contact: IPSEA Advice Line (phone and online guidance) for issues like LA duties to assess/provide, exclusions, and discrimination.  \n- Phone: 0300 222 5899  \n- Website: ipsea.org.uk/contact (book an appointment; up to 30 minutes per session)  ",
+      "phone": "0300 222 5899",
+      "website": "https://advicefinder.turn2us.org.uk/Home/Details/3665",
+      "topicKeys": [
+        "area-education-students"
+      ],
+      "matterTypes": [
+        "other",
+        "family"
+      ],
+      "keywords": [
+        "school",
+        "university",
+        "student",
+        "education",
+        "SEN",
+        "helpline"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-ofcom-org-uk-contacting-ofcom",
+      "entityType": "advice_charity",
+      "title": "Contacting Ofcom",
+      "description": "Summary:\n- Ofcom consumer helpline numbers for complaints and advice:\n  - Advice and complaints: 0300 123 3333 or 020 7981 3040 (UK); international: +44 300 123 3333 or +44 20 7981 3040\n  - Spectrum licensing: 0300 123 1000 or 020 7981 3131; international: +44 300 123 1000 or +44 20 7981 3131\n  - Switchboard: 0300 123 3000 or 020 7981 3000; international: +44 300 123 3000 or +44 20 7981 3000\n- Mak",
+      "phone": "0300 123 3333",
+      "website": "https://www.ofcom.org.uk/about-ofcom/what-we-do/contact-us",
+      "topicKeys": [
+        "area-energy-broadband-complaints"
+      ],
+      "matterTypes": [
+        "consumer",
+        "other"
+      ],
+      "keywords": [
+        "energy",
+        "broadband",
+        "ofcom",
+        "ofgem",
+        "complaint"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-turn2us-org-uk-no-computer-no-benefits-turn2us",
+      "entityType": "advice_charity",
+      "title": "No computer? No Benefits? | Turn2us",
+      "description": "Turn2elibs? No, Turn2us. Summary:\n\n- Turn2us highlights that lacking computer or internet access makes it hard to check eligibility and apply for benefits, especially for vulnerable groups (elderly, disabled, financially struggling).\n- Main online tools (like the Turn2us Benefits Calculator) are often only accessible online, but Turn2us offers a helpline as an alternative.\n- Universal Credit is no",
+      "phone": "0345 600 0723",
+      "website": "https://www.turn2us.org.uk/about-us/news-and-media/latest-news/no-computer-no-benefits",
+      "topicKeys": [
+        "area-benefits-council-tax"
+      ],
+      "matterTypes": [
+        "debt",
+        "other",
+        "housing"
+      ],
+      "keywords": [
+        "benefits",
+        "universal credit",
+        "council tax",
+        "PIP"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-citizensadvice-org-uk-reapply-for-universal-credit-citizen",
+      "entityType": "advice_charity",
+      "title": "Reapply for Universal Credit - Citizens Advice",
+      "description": "Summary:\n\n- The Citizens Advice page explains how to reapply for Universal Credit (UC) in England and notes separate guidance for Northern Ireland, Scotland, and Wales.\n- Key point: If you claimed UC before, you may not need to do a full new application, depending on when you last claimed. Check current eligibility before reapplying.\n- If DWP has rejected your claim, you can ask them to reconsider",
+      "phone": "0800 328 5644",
+      "website": "https://www.citizensadvice.org.uk/benefits/universal-credit/claiming/reapply-for-universal-credit/",
+      "topicKeys": [
+        "area-benefits-council-tax"
+      ],
+      "matterTypes": [
+        "debt",
+        "other",
+        "housing"
+      ],
+      "keywords": [
+        "benefits",
+        "universal credit",
+        "council tax",
+        "PIP"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-avma-org-uk-avma-the-avma-helpline",
+      "entityType": "advice_charity",
+      "title": "AvMA - The AvMA helpline",
+      "description": "AvMA runs a medical accidents helpline in the UK. Key points:\n- Phone number: 0345 123 2352\n- Hours: Monday–Friday, 10:00–15:30\n- Advisers are trained volunteers with medical/legal expertise; they listen, explain options, help with next steps, and can connect you to other support.\n- Not all topics are covered (not for Mental Health Act/detention issues or Mental Health Tribunals).\n- Not a call cen",
+      "phone": "0345 123 2352",
+      "website": "https://www.avma.org.uk/help-advice/helpline/",
+      "topicKeys": [
+        "area-medical-clinical-nhs"
+      ],
+      "matterTypes": [
+        "personal_injury",
+        "other"
+      ],
+      "keywords": [
+        "NHS",
+        "clinical negligence",
+        "medical",
+        "complaint"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-livewell-cheshirewestandches-independent-nhs-complaints-advo",
+      "entityType": "advice_charity",
+      "title": "Independent NHS Complaints Advocacy Service (ICAS)\n | Live Well Cheshire West",
+      "description": "Summary:\nThe Independent NHS Complaints Advocacy Service (ICAS) offered by Healthwatch Cheshire West (Live Well Cheshire West) provides free advocacy to help people navigate the NHS complaints process for issues arising from NHS-funded care (e.g., GP, hospital, dental, optician, pharmacist, care homes). It operates across Cheshire West and Chester, Monday–Friday, 9:00 am–5:00 pm. Contact: 0300 323",
+      "phone": "0300 323 0006",
+      "website": "https://www.livewell.cheshirewestandchester.gov.uk/Services/1050",
+      "topicKeys": [
+        "area-medical-clinical-nhs"
+      ],
+      "matterTypes": [
+        "personal_injury",
+        "other"
+      ],
+      "keywords": [
+        "NHS",
+        "clinical negligence",
+        "medical",
+        "complaint"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-gov-uk-contact-defra-gov-uk",
+      "entityType": "advice_charity",
+      "title": "Contact Defra - GOV.UK",
+      "description": "Answer:\n- For reporting animal cruelty in England: contact the RSPCA directly at 0300 1234 999 (the RSPCA helpline is listed separately from Defra and is the appropriate number for cruelty reports).\n- If you need Defra’s guidance on general animal welfare inquiries in England: use the Defra contact form or call 03000 200 301.\n\nNotes:\n- This Defra page provides related animal welfare resources and ",
+      "phone": "0300 303 8268",
+      "website": "https://www.gov.uk/guidance/contact-defra",
+      "topicKeys": [
+        "area-pets-animals"
+      ],
+      "matterTypes": [
+        "other",
+        "consumer"
+      ],
+      "keywords": [
+        "pet",
+        "animal",
+        "dog",
+        "rspca"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-ageuk-org-uk-where-can-i-get-free-legal-advice-ag",
+      "entityType": "advice_charity",
+      "title": "Where can I get free legal advice? | Age UK",
+      "description": "Summary:\n- The page explains where you can get free legal advice in the UK, including free initial guidance and potential help with more complex cases or representation at tribunals.\n- Sources mentioned: Citizens Advice (free advice on benefits, housing, employment; in person or by phone), Law Centres Network (free legal advice on various issues; locations nationwide), and trade unions (free legal",
+      "phone": "0800 678 1602",
+      "website": "https://www.ageuk.org.uk/information-advice/money-legal/legal-issues/legal-advice/",
+      "topicKeys": [
+        "area-wills-probate-inheritance"
+      ],
+      "matterTypes": [
+        "other",
+        "family"
+      ],
+      "keywords": [
+        "will",
+        "probate",
+        "inheritance",
+        "executor"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-gov-uk-get-help-and-support-for-your-busine",
+      "entityType": "advice_charity",
+      "title": "Get help and support for your business - GOV.UK",
+      "description": "Summary: The page offers UK-wide and devolved-tree business support contacts and helplines. Key phone numbers you can use:\n- England: Business Support Service 0800 998 1098; WhatsApp 03330 047951; webchat\n- Scotland: Business Support Scotland 0300 303 0660\n- Wales: Business Wales Helpline 0300 060 3000\n- Northern Ireland: Invest Northern Ireland 0800 181 4422\nAlso mentions local growth hubs, onlin",
+      "phone": "0800 998 1098",
+      "website": "https://www.gov.uk/get-business-support",
+      "topicKeys": [
+        "area-business-companies"
+      ],
+      "matterTypes": [
+        "other",
+        "employment"
+      ],
+      "keywords": [
+        "small business",
+        "company",
+        "director",
+        "insolvency"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-gov-uk-defend-your-intellectual-property-ge",
+      "entityType": "advice_charity",
+      "title": "Defend your intellectual property  : Get help and advice - GOV.UK",
+      "description": "UK IPO intellectual property advice helpline contact summary:\n\n- The GOV.UK page explains how to get help and advice on IP issues.\n- The Intellectual Property Office (IPO) can provide:\n  - An opinion on whether a patent or supplementary protection certificate is being infringed (costs £200).\n  - General advice on IP and, in some cases, help to start legal proceedings over certain IP disputes (note",
+      "phone": "0300 300 2000",
+      "website": "https://www.gov.uk/defend-your-intellectual-property/get-help-and-advice",
+      "topicKeys": [
+        "area-ip-copyright"
+      ],
+      "matterTypes": [
+        "other",
+        "consumer"
+      ],
+      "keywords": [
+        "copyright",
+        "trademark",
+        "intellectual property"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-cas-org-uk-contact",
+      "entityType": "advice_charity",
+      "title": "Contact",
+      "description": "The Citizens Advice Scotland helpline is the Scottish Citizens Advice Helpline, reachable by calling 0800 028 1456 to speak with an adviser at your local Citizens Advice Bureau.",
+      "phone": "0800 028 1456",
+      "website": "https://www.cas.org.uk/about-us/contact",
+      "topicKeys": [
+        "area-devolved-scotland-ni-wales"
+      ],
+      "matterTypes": [
+        "other",
+        "unknown"
+      ],
+      "keywords": [
+        "Scotland",
+        "Wales",
+        "Northern Ireland",
+        "advice"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-adviceni-net-welcome-to-advice-ni-advice-ni",
+      "entityType": "advice_charity",
+      "title": "Welcome to Advice NI | Advice NI",
+      "description": "Advice NI offers freephone and local face-to-face advice across Northern Ireland, including help with benefits, money and debt, cost of living, and family entitlements. They provide a freephone helpline (0800 915 4604) and email support, plus a network of local Advice NI member agencies for in-person assistance. Note: EU Settlement Scheme service is closed. For legal-specific questions, they direc",
+      "phone": "0800 915 4604",
+      "website": "https://www.adviceni.net/",
+      "topicKeys": [
+        "area-devolved-scotland-ni-wales"
+      ],
+      "matterTypes": [
+        "other",
+        "unknown"
+      ],
+      "keywords": [
+        "Scotland",
+        "Wales",
+        "Northern Ireland",
+        "advice"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-gov-uk-complain-about-a-legal-adviser-gov-u",
+      "entityType": "advice_charity",
+      "title": "Complain about a legal adviser - GOV.UK",
+      "description": "Summary:\n- This GOV.UK page explains how to complain about a legal adviser and when to contact the Legal Ombudsman.\n- Steps: follow your adviser’s own complaints procedure first; ask them for a copy of it.\n- If you’re unhappy with their response or they don’t respond within 8 weeks, you can escalate to the Legal Ombudsman.\n- Legal Ombudsman contact (UK): 0300 555 0333, Monday–Friday, 9am–5pm. Addr",
+      "phone": "0300 555 0333",
+      "website": "https://www.gov.uk/complain-about-legal-adviser",
+      "topicKeys": [
+        "area-sra-legal-ombudsman"
+      ],
+      "matterTypes": [
+        "other",
+        "consumer"
+      ],
+      "keywords": [
+        "solicitor complaint",
+        "legal ombudsman",
+        "SRA"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-university",
+      "entityType": "advice_charity",
+      "title": "Turn2Us - Advice Finder - University of Law Legal Advice Centre (London) ULLAC - London",
+      "description": "Summary for user query: LawWorks pro bono legal advice contact phone UK\n\n- University of Law Legal Advice Centre (London) ULLAC offers free initial legal advice for people in need who cannot afford legal help or are not eligible for legal aid.\n- Areas covered:\n  - Family law (initial advice only; includes child contact, divorce, parental responsibility, etc.; no casework or court records)\n  - Smal",
+      "phone": "01483 216 528",
+      "website": "https://advicefinder.turn2us.org.uk/Home/Details/7573",
+      "topicKeys": [
+        "area-common-unclassified"
+      ],
+      "matterTypes": [
+        "other",
+        "unknown"
+      ],
+      "keywords": [
+        "legal aid",
+        "free advice",
+        "help"
+      ],
+      "source": "exa-free-services",
+      "indexedAt": "2026-08-23"
+    },
+    {
+      "id": "fs-popla",
+      "entityType": "ombudsman",
+      "title": "POPLA — Parking on Private Land Appeals",
+      "description": "Free independent appeal for private parking charge notices after the operator rejects your first appeal (BPA operators). Online appeal; phone support available.",
+      "phone": "0330 1596 126",
+      "website": "https://www.popla.co.uk/",
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ],
+      "matterTypes": [
+        "consumer",
+        "other"
+      ],
+      "keywords": [
+        "parking",
+        "pcn",
+        "popla",
+        "private parking",
+        "appeal",
+        "parking charge"
+      ],
+      "source": "seed-exa-2026-08-24",
+      "indexedAt": "2026-08-24"
+    },
+    {
+      "id": "fs-ias",
+      "entityType": "ombudsman",
+      "title": "Independent Appeals Service (IAS)",
+      "description": "Free standard appeal for private parking charges from International Parking Community (IPC) accredited operators. Appeals are online / in writing.",
+      "phone": "",
+      "website": "https://theias.org/appeal",
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ],
+      "matterTypes": [
+        "consumer",
+        "other"
+      ],
+      "keywords": [
+        "parking",
+        "pcn",
+        "ias",
+        "ipc",
+        "private parking",
+        "appeal",
+        "parking charge"
+      ],
+      "source": "seed-exa-2026-08-24",
+      "indexedAt": "2026-08-24"
+    },
+    {
+      "id": "fs-tpt",
+      "entityType": "ombudsman",
+      "title": "Traffic Penalty Tribunal",
+      "description": "Free independent appeal for council parking and traffic PCNs in England (outside London) and Wales — after the council rejects your representations.",
+      "phone": "",
+      "website": "https://www.trafficpenaltytribunal.gov.uk/",
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ],
+      "matterTypes": [
+        "consumer",
+        "other"
+      ],
+      "keywords": [
+        "parking",
+        "pcn",
+        "tribunal",
+        "council",
+        "penalty charge",
+        "appeal"
+      ],
+      "source": "seed-exa-2026-08-24",
+      "indexedAt": "2026-08-24"
+    },
+    {
+      "id": "fs-london-tribunals",
+      "entityType": "ombudsman",
+      "title": "London Tribunals (Environment & Traffic Adjudicators)",
+      "description": "Free independent appeal for London council / TfL parking and traffic PCNs after a Notice of Rejection. Online portal; phone for hearing queries.",
+      "phone": "020 7520 7200",
+      "website": "https://www.londontribunals.gov.uk/eat",
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ],
+      "matterTypes": [
+        "consumer",
+        "other"
+      ],
+      "keywords": [
+        "parking",
+        "pcn",
+        "london",
+        "tribunal",
+        "adjudicator",
+        "penalty charge",
+        "appeal"
+      ],
+      "source": "seed-exa-2026-08-24",
+      "indexedAt": "2026-08-24"
+    },
+    {
+      "id": "fs-resolver-private-parking",
+      "entityType": "advice_charity",
+      "title": "Resolver — private parking tickets guide",
+      "description": "Free step-by-step guide to challenging private parking tickets, including when to use POPLA or IAS.",
+      "phone": "",
+      "website": "https://www.resolver.co.uk/rights-guide/private-parking-tickets",
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ],
+      "matterTypes": [
+        "consumer",
+        "other"
+      ],
+      "keywords": [
+        "parking",
+        "pcn",
+        "private parking",
+        "resolver",
+        "popla",
+        "ias",
+        "appeal"
+      ],
+      "source": "seed-exa-2026-08-24",
+      "indexedAt": "2026-08-24"
+    }
+  ]
+}

@@ -90,6 +90,17 @@ function scorePage(page: V1WikiPage, text: string): number {
   const hay = pageHay(page)
   const pageTopics = topicFlags(hay)
   const sessionTopics = topicFlags(text)
+  const parkingStory =
+    /\b(car\s*park|parking|pcn|popla|parking (?:fine|ticket|charge)|private parking|penalty charge)\b/i.test(
+      text,
+    )
+
+  if (parkingStory) {
+    if (/parking|pcn|popla|motoring|ticket/.test(hay)) score += 14
+    if (/immig|visa|asylum|ilr|settled|citizenship|refugee/.test(hay)) score -= 20
+    if (/employment|unfair dismiss|acas|housing|evict|landlord/.test(hay)) score -= 12
+    return score
+  }
 
   const tokens = text
     .split(/[^a-z0-9+]+/)

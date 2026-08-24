@@ -4,6 +4,49 @@ import { maximiseLocalCoherence } from './coherence'
 import { proposeLegalFrames } from './frames'
 import { clipPhrase } from './timelineExtract'
 
+const MATTER_OPTIONS: Prompt['options'] = [
+  { id: 'm1', label: 'Housing / neighbour', value: 'This is mainly about housing or a neighbour dispute' },
+  { id: 'm2', label: 'Employment / job', value: 'This is mainly about employment or my job' },
+  { id: 'm3', label: 'Debt / bailiffs', value: 'This is mainly about debt, CCJs or bailiffs' },
+  { id: 'm4', label: 'Family / children', value: 'This is mainly about family, children or domestic abuse' },
+  {
+    id: 'm5',
+    label: 'Consumer / tickets / insurance',
+    value: 'This is mainly about a purchase, refund, tickets, insurance or disability access',
+  },
+  { id: 'm6', label: 'Immigration / visas', value: 'This is mainly about immigration or visas' },
+  { id: 'm7', label: 'Work injury / accident', value: 'This is mainly about a work injury or accident' },
+  { id: 'm8', label: 'Buying or selling a home', value: 'This is about buying or selling a home — conveyancing' },
+  { id: 'm9', label: 'Crime / police', value: 'This is mainly about crime or the police' },
+  { id: 'm10', label: 'Something else', value: 'This is about something else' },
+]
+
+/** Closed matter classifier — also used before Matching Help when matter is still unknown. */
+export function matterClassifierPrompt(
+  session: SessionState,
+  id: 'matter' | 'matter_for_services' = 'matter',
+): Prompt {
+  const opener = session.rawInputs[0]?.trim()
+  const hook = opener
+    ? `You wrote “${clipPhrase(opener, 64)}”.`
+    : id === 'matter_for_services'
+      ? 'From what you shared,'
+      : 'From your first message,'
+  return {
+    id,
+    kind: 'closed',
+    text:
+      id === 'matter_for_services'
+        ? `${hook} Matching Help needs a legal area first. Which is it mainly about?`
+        : `${hook} Which of these is it mainly about?`,
+    reason:
+      id === 'matter_for_services'
+        ? 'Matter unknown — one clarifying question before Matching Help so free services and solicitors can match.'
+        : 'Matter type selects the causation model — asked only when sensing cannot classify yet.',
+    options: MATTER_OPTIONS,
+  }
+}
+
 /** Higher = ask sooner. Coherence constraints outrank generic early gaps. */
 const CONSTRAINT_PRIORITY: Record<string, number> = {
   constraint_goal: 100,
@@ -171,27 +214,7 @@ export function nextPrompt(session: SessionState): Prompt {
 
   // If matter still unknown after first input, ask closed classifier once — grounded in their words
   if (session.matterType === 'unknown' && !session.answeredPromptIds.includes('matter')) {
-    const opener = session.rawInputs[0]?.trim()
-    const hook = opener
-      ? `You wrote “${clipPhrase(opener, 64)}”.`
-      : 'From your first message,'
-    return {
-      id: 'matter',
-      kind: 'closed',
-      text: `${hook} Which of these is it mainly about?`,
-      reason: 'Matter type selects the causation model — asked only when sensing cannot classify yet.',
-      options: [
-        { id: 'm1', label: 'Housing', value: 'This is mainly about housing' },
-        { id: 'm2', label: 'Employment / job', value: 'This is mainly about employment or my job' },
-        { id: 'm3', label: 'Debt / bailiffs', value: 'This is mainly about debt, CCJs or bailiffs' },
-        { id: 'm4', label: 'Family / children', value: 'This is mainly about family, children or domestic abuse' },
-        { id: 'm5', label: 'Consumer / faulty goods', value: 'This is mainly about a purchase, refund or trader' },
-        { id: 'm6', label: 'Immigration / visas', value: 'This is mainly about immigration or visas' },
-        { id: 'm7', label: 'Work injury / accident', value: 'This is mainly about a work injury or accident' },
-        { id: 'm8', label: 'Buying or selling a home', value: 'This is about buying or selling a home — conveyancing' },
-        { id: 'm9', label: 'Something else', value: 'This is about something else' },
-      ],
-    }
+    return matterClassifierPrompt(session, 'matter')
   }
 
   // Browse / info / OSLAW research: skip deep causation once matter (+ place when possible) is known

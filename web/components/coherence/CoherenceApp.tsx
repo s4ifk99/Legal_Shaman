@@ -16,9 +16,10 @@ import { ClosingNextSteps } from './ClosingNextSteps'
 import { OslawView } from './OslawView'
 import { SraOrganisationView } from './SraOrganisationView'
 import { LoadingScreen } from './LoadingScreen'
+import { ReformulationGate, type SearchDestination } from './ReformulationGate'
 import { createInitialSession, senseDetails } from '@/lib/coherence/sense'
 import { summariseToLabel } from '@/lib/coherence/timelineExtract'
-import { nextPrompt } from '@/lib/coherence/questions'
+import { matterClassifierPrompt, nextPrompt } from '@/lib/coherence/questions'
 import { predictiveOptions } from '@/lib/coherence/options'
 import { computeProgress, computeServiceConfidence } from '@/lib/coherence/slots'
 import { isBriefReady } from '@/lib/coherence/brief'
@@ -34,6 +35,8 @@ import type { AnswerPackage } from '@/lib/coherence/answerPackage'
 import { proposeCoherentFrames } from '@/lib/coherence/frames'
 import { clearPersisted, loadPersisted, savePersisted } from '@/lib/coherence/persist'
 import { loadLawyerSession, type LawyerSession } from '@/lib/coherence/lawyerAuth'
+import { buildSearchContextProfile } from '@/lib/coherence/searchContext'
+import { styleTranslateForRetrieval } from '@/lib/coherence/styleTranslation'
 import type { Mode, Party, Prompt, SessionState, TimelineEvent } from '@/lib/coherence/types'
 import './CoherenceApp.css'
 
@@ -179,12 +182,19 @@ function applyGapAnswer(promptId: string, value: string, next: SessionState): Se
         ...next,
         events: pushEvent(next.events, summariseToLabel(v), v),
       }
-    case 'matter': {
+    case 'matter':
+    case 'matter_for_services': {
       if (/immig|ilr|visa/.test(lower)) return { ...next, matterType: 'immigration' }
       if (/injur|accident|pi/.test(lower)) return { ...next, matterType: 'personal_injury' }
-      if (/hous|landlord|rent|evict/.test(lower)) return { ...next, matterType: 'housing' }
-      if (/convey|buy|sell|purchase/.test(lower)) return { ...next, matterType: 'conveyancing', mode: 'browse' }
-      if (/employ|job/.test(lower)) return { ...next, matterType: 'employment' }
+      if (/hous|landlord|rent|evict|neighbour|neighbor/.test(lower)) return { ...next, matterType: 'housing' }
+      if (/convey|buy|sell|purchase|home/.test(lower) && /convey|home|flat|house/.test(lower))
+        return { ...next, matterType: 'conveyancing', mode: 'browse' }
+      if (/employ|job|workplace|holiday|manager|shift/.test(lower)) return { ...next, matterType: 'employment' }
+      if (/debt|bailiff|ccj/.test(lower)) return { ...next, matterType: 'debt' }
+      if (/insur|medical funding|ticket|festival|refund|trader|consumer|disability|access|wheelchair/.test(lower))
+        return { ...next, matterType: 'consumer' }
+      if (/family|child|divorce|domestic/.test(lower)) return { ...next, matterType: 'family' }
+      if (/crime|police|arrest/.test(lower)) return { ...next, matterType: 'crime' }
       return { ...next, matterType: 'other' }
     }
     case 'safety':
@@ -221,6 +231,28 @@ function persistedLooksLikeStory(session: SessionState, story: string): boolean 
   return hay.includes(head) || needle.includes(hay.slice(0, 64))
 }
 
+function normalizeSession(session: SessionState): SessionState {
+  const base = createInitialSession()
+  return {
+    ...base,
+    ...session,
+    confirmedSearchQuery: session.confirmedSearchQuery ?? '',
+    reformulationOutcome: session.reformulationOutcome ?? 'none',
+    styleTranslatedQuery: session.styleTranslatedQuery ?? '',
+    searchContextTokens: session.searchContextTokens ?? [],
+    searchIntent: session.searchIntent ?? 'unknown',
+    abPrimaryMetric: session.abPrimaryMetric ?? 'unset',
+    confirmedUserRole: session.confirmedUserRole ?? 'unset',
+    ukTaxonomyL1: session.ukTaxonomyL1 ?? '',
+    ukTaxonomyL2: session.ukTaxonomyL2 ?? '',
+    ukTaxonomyPackId: session.ukTaxonomyPackId ?? '',
+    ukTaxonomyConfidence: session.ukTaxonomyConfidence ?? 0,
+    authorityAnswers: session.authorityAnswers ?? [],
+    authorityHits: session.authorityHits ?? [],
+    authorityAuditOk: session.authorityAuditOk ?? false,
+  }
+}
+
 function initialFromStorage(initialStory = ''): {
   session: SessionState
   view: View
@@ -236,7 +268,7 @@ function initialFromStorage(initialStory = ''): {
         stored.view === 'services' || stored.view === 'notes' || stored.view === 'oslaw'
           ? stored.view
           : 'intake'
-      return { session: stored.session, view, shouldAutoRun: false }
+      return { session: normalizeSession(stored.session), view, shouldAutoRun: false }
     }
     clearPersisted()
     return { session: createInitialSession(), view: 'intake', shouldAutoRun: true }
@@ -247,7 +279,7 @@ function initialFromStorage(initialStory = ''): {
       stored.view === 'services' || stored.view === 'notes' || stored.view === 'oslaw'
         ? stored.view
         : 'intake'
-    return { session: stored.session, view, shouldAutoRun: false }
+    return { session: normalizeSession(stored.session), view, shouldAutoRun: false }
   }
   return { session: createInitialSession(), view: 'intake', shouldAutoRun: false }
 }
@@ -297,6 +329,10 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   const [selectedSraId, setSelectedSraId] = useState<string | null>(null)
   const [helpMatch, setHelpMatch] = useState<HelpMatchResult | null>(null)
   const [matterInspector, setMatterInspector] = useState<MasterResult['matterInspector']>(null)
+  const [pendingSearch, setPendingSearch] = useState<SearchDestination | null>(null)
+  /** Matching Help / OSLAW deferred until matter is classified. */
+  const [resumeSearchAfterMatter, setResumeSearchAfterMatter] = useState<SearchDestination | null>(null)
+  const [enrichingSearch, setEnrichingSearch] = useState(false)
   const [answerPackage, setAnswerPackage] = useState<AnswerPackage | null>(null)
   const [agentError, setAgentError] = useState<string | null>(null)
   const masterInFlightRef = useRef(false)
@@ -333,6 +369,8 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     setMatterInspector(null)
     setAnswerPackage(null)
     setAgentError(null)
+    setPendingSearch(null)
+    setResumeSearchAfterMatter(null)
     setSelectedNode(undefined)
     setLlmBusy(false)
     setLlmEnhancing(false)
@@ -431,6 +469,24 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     }
     setSession(next)
     setPrompt(nextPrompt(next))
+
+    // After matter clarify for Matching Help / OSLAW — resume destination once classified
+    if (
+      (answeredId === 'matter' || answeredId === 'matter_for_services') &&
+      resumeSearchAfterMatter
+    ) {
+      const dest = resumeSearchAfterMatter
+      setResumeSearchAfterMatter(null)
+      if (next.matterType !== 'unknown') {
+        if (next.reformulationOutcome === 'none' && next.rawInputs.length > 0) {
+          setPendingSearch(dest)
+        } else {
+          setPendingSearch(null)
+          setView(dest)
+        }
+        return
+      }
+    }
 
     if (!llmConfigured) return
 
@@ -578,7 +634,62 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
 
   function openNotes(download = false) {
     setNotesAutoDownload(download)
+    setPendingSearch(null)
     setView('notes')
+  }
+
+  function requestSearch(destination: SearchDestination) {
+    // Empty solicitor packs are a product signal when matter is unknown — ask once first
+    if (
+      session.matterType === 'unknown' &&
+      !session.answeredPromptIds.includes('matter_for_services')
+    ) {
+      setResumeSearchAfterMatter(destination)
+      setPendingSearch(null)
+      setView('intake')
+      setSkipEnhance(true)
+      setPrompt(
+        session.answeredPromptIds.includes('matter')
+          ? matterClassifierPrompt(session, 'matter_for_services')
+          : matterClassifierPrompt(session, 'matter'),
+      )
+      return
+    }
+    if (session.reformulationOutcome === 'none' && session.rawInputs.length > 0) {
+      setPendingSearch(destination)
+      return
+    }
+    setPendingSearch(null)
+    setView(destination)
+  }
+
+  async function confirmSearchQuery(
+    query: string,
+    outcome: SessionState['reformulationOutcome'],
+  ) {
+    const destination = pendingSearch || 'services'
+    setEnrichingSearch(true)
+    try {
+      let next: SessionState = {
+        ...session,
+        confirmedSearchQuery: query,
+        reformulationOutcome: outcome,
+      }
+      const profile = buildSearchContextProfile(next)
+      const style = await styleTranslateForRetrieval(next, profile)
+      next = {
+        ...next,
+        styleTranslatedQuery: style.retrieval,
+        searchContextTokens: profile.tokens,
+        searchIntent: profile.intent,
+        abPrimaryMetric: profile.abPrimaryMetric,
+      }
+      setSession(next)
+      setPendingSearch(null)
+      setView(destination)
+    } finally {
+      setEnrichingSearch(false)
+    }
   }
 
   function chooseMode(mode: Mode) {
@@ -630,6 +741,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     setAgentError(null)
     setView('intake')
     setSelectedNode(undefined)
+    setPendingSearch(null)
     setPrompt(nextPrompt(fresh))
     setLlmBusy(false)
     setLlmEnhancing(false)
@@ -668,7 +780,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         masterAnswerPackage={answerPackage}
         overviewLoading={overviewLoading}
         onBack={() => setView('intake')}
-        onFindHelp={() => setView('services')}
+        onFindHelp={() => requestSearch('services')}
       />
     )
   }
@@ -787,14 +899,41 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       {showModeFork && <ModeFork onChoose={chooseMode} />}
 
       <main className="shell__main">
-        {closing ? (
+        {pendingSearch ? (
+          <ReformulationGate
+            session={session}
+            destination={pendingSearch}
+            llmConfigured={llmConfigured}
+            onConfirm={(query) => {
+              void confirmSearchQuery(query, 'confirmed')
+            }}
+            onUseOriginal={() => {
+              const original =
+                session.rawInputs.find((r) => r.trim().length >= 8)?.trim() ||
+                session.whatHappened.trim() ||
+                ''
+              void confirmSearchQuery(original, 'skipped')
+            }}
+            onCancel={() => setPendingSearch(null)}
+            onDownloadNotes={() => {
+              setSession((prev) => ({ ...prev, reformulationOutcome: 'refused' }))
+              openNotes(true)
+            }}
+            onConfirmRole={(role) => {
+              setSession((prev) => ({ ...prev, confirmedUserRole: role }))
+            }}
+            onAuthorityResolved={(next) => {
+              setSession(next)
+            }}
+          />
+        ) : closing ? (
           <ClosingNextSteps
             servicesReady={servicesReady}
             preferOslaw={session.mode === 'research'}
             overviewReady={overviewReady || !llmConfigured}
-            overviewLoading={overviewLoading}
-            onOslaw={() => setView('oslaw')}
-            onFindHelp={() => setView('services')}
+            overviewLoading={overviewLoading || enrichingSearch}
+            onOslaw={() => requestSearch('oslaw')}
+            onFindHelp={() => requestSearch('services')}
             onDownloadNotes={() => openNotes(true)}
             onAddDetail={() => setAddingDetail(true)}
           />
@@ -833,7 +972,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         notesVisible={notesVisible}
         notesReady={notesReady}
         closing={closing || prompt.id === 'complete'}
-        onShowServices={() => setView('services')}
+        onShowServices={() => requestSearch('services')}
         onShowNotes={() => openNotes(false)}
       />
     </div>
