@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-23T18:26:39.437Z",
+    "scrapedAt": "2026-08-24T06:40:52.894Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 6,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -50,6 +50,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vwe3ws",
+          "title": "Neighbour excavating right next to my house.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwe3ws/neighbour_excavating_right_next_to_my_house/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwe3ws/neighbour_excavating_right_next_to_my_house/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787507960,
+          "snippet": "Hi all, apologies if this doesn’t fit within this group but not sure where else to post it. Summary: - Live in Wales. - Live in a semi-detached house. - The house next to us was vacant when we moved in but has recently been sold and buyer is gutting it, including a 2 storey exten",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vw5x6f",
           "title": "The flat below me has their heating set to 30 degrees 24/7. My flat is turning into a sauna as the heat rises.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw5x6f/the_flat_below_me_has_their_heating_set_to_30/",
@@ -74,6 +86,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vwecb9",
+          "title": "Operation approved by insurer but they've told the hospital they won't pay as the policy's ended",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwecb9/operation_approved_by_insurer_but_theyve_told_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwecb9/operation_approved_by_insurer_but_theyve_told_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787508459,
+          "snippet": "Hello! My partner had a laporoscopy carried out privately through her work health insurance. The insurer sent her and the hospital pre-approval and included the consultations she has prior to the opetlration but, since the operation, she was made redundant and her cover has ended",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vw4euv",
           "title": "Been invited to a Interview for Fly tipping not sure why",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw4euv/been_invited_to_a_interview_for_fly_tipping_not/",
@@ -82,7 +106,19 @@
           "score": 0,
           "numComments": 0,
           "createdUtc": 1787483458,
-          "snippet": "England Basically been given 2 letters to attend a interview over a investigation for fly tipping I’ve just moved so only just got the letters, the interview is at the end of the month and they claim to have evidence The thing is, even if I was guilty, I’m not even sure why? I’ve",
+          "snippet": "England Basically been given 2 letters to attend a interview over a investigation for fly tipping I’ve just moved so only just got the letters, the interview is at the end of the month and they claim to have evidence with a threat of \"FAILURE TO ATTEND MAY RESULT IN THE COUNCIL S",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vwu7un",
+          "title": "Virgin Active staff member accused my 70-year-old dad of filming children - what should I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwu7un/virgin_active_staff_member_accused_my_70yearold/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwu7un/virgin_active_staff_member_accused_my_70yearold/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787550781,
+          "snippet": "&#x200B; I'd like some genuinely objective opinions on a situation that happened to my 70-year-old dad at Virgin Active. My dad was recording a video of different gym machines/equipment. The video is around 2 minutes long because he was explaining/showing the equipment he uses at",
           "listingSource": "rss:hot"
         },
         {
@@ -98,15 +134,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vwecb9",
-          "title": "Operation approved by insurer but they've told the hospital they won't pay as the policy's ended",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwecb9/operation_approved_by_insurer_but_theyve_told_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwecb9/operation_approved_by_insurer_but_theyve_told_the/",
+          "id": "1vwswlx",
+          "title": "Shall I take legal action against my family ? Need some advice (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwswlx/shall_i_take_legal_action_against_my_family_need/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwswlx/shall_i_take_legal_action_against_my_family_need/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787508459,
-          "snippet": "Hello! My partner had a laporoscopy carried out privately through her work health insurance. The insurer sent her and the hospital pre-approval and included the consultations she has prior to the opetlration but, since the operation, she was made redundant and her cover has ended",
+          "createdUtc": 1787546409,
+          "snippet": "What shall I do if I’m a legal shareholder in a family members company and they are declaring a final dividend and refusing to pay me as they feel I don’t deserve it, but will be paying other shareholders. Do I have a right to take legal action or serve a statuary demand on the c",
           "listingSource": "rss:hot"
         },
         {
@@ -122,6 +158,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vwmufq",
+          "title": "Company gave my shift the incorrect holiday hours this year and now expect us to work up or repay them (Northern Ireland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwmufq/company_gave_my_shift_the_incorrect_holiday_hours/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwmufq/company_gave_my_shift_the_incorrect_holiday_hours/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787528909,
+          "snippet": "My shift in work have been informed they have been give the wrong holiday hours (60hrs more than we should’ve got). Our holiday hours work from January to January so people have used quite a few of there holidays with some people owing between 20-60hrs back to the company. Is the",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vw8yqp",
+          "title": "Landlord / Estate Agent issue over parking",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw8yqp/landlord_estate_agent_issue_over_parking/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw8yqp/landlord_estate_agent_issue_over_parking/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787496088,
+          "snippet": "Location: London England A small edit: there is no outdoor charger where my car is parked. People seem to think there is but there’s no EV charger on the wall outside at all. I rent a “studio flat” in London which is no more than a glorified extension at the back of the property ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vw596t",
           "title": "Withdrawal of offer of employment",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw596t/withdrawal_of_offer_of_employment/",
@@ -134,51 +194,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vwbste",
-          "title": "England: Sun Life Over 50s Funeral Benefit - doesn’t know Laws of Intestacy",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwbste/england_sun_life_over_50s_funeral_benefit_doesnt/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwbste/england_sun_life_over_50s_funeral_benefit_doesnt/",
+          "id": "1vwuuo0",
+          "title": "UK Employment Tribunal - Disability Discrimination Pattern",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwuuo0/uk_employment_tribunal_disability_discrimination/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwuuo0/uk_employment_tribunal_disability_discrimination/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787502668,
-          "snippet": "Found a Sun Life Over 50s Funeral Benefit policy for my step father after his passing and funeral already arranged and paid for. I submitted an interim death certificate (accidental death) and advised at the time there was a Will. The Will left everything to my mum but was made i",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vw8yqp",
-          "title": "Landlord / Estate Agent issue over parking",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw8yqp/landlord_estate_agent_issue_over_parking/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw8yqp/landlord_estate_agent_issue_over_parking/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787496088,
-          "snippet": "Location: London England I rent a “studio flat” in London which is no more than a glorified extension at the back of the property of what is pretty much a normal family home. Anyway in my tenancy agreement it states I have use of the right hand side of the driveway and most far b",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vw9n9s",
-          "title": "Penalty fare incorrectly issued, second appeal completely ignored and now they're demanding twice the penalty fare.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw9n9s/penalty_fare_incorrectly_issued_second_appeal/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw9n9s/penalty_fare_incorrectly_issued_second_appeal/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787497693,
-          "snippet": "I'll keep this as short as possible: London, England. Was issued penalty fare on the Overground about a month ago. This was because I had tapped what I thought was a continuation reader when transitioning from national rail to underground, based on signage in the station, and whe",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vvmq50",
-          "title": "(England) located my stolen goods, how can I recover them?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vvmq50/england_located_my_stolen_goods_how_can_i_recover/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vvmq50/england_located_my_stolen_goods_how_can_i_recover/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787429759,
-          "snippet": "My home was broken into by someone who is well known to the police about a month ago. I have CCTV and he broke in during the day whilst I was at work, his face is as clear as day and when I showed the CCTV to the police initially one of them said \"XXXXXX back to his old tricks th",
+          "createdUtc": 1787552940,
+          "snippet": "England. Employment tribunal for a disability discrimination along with other stuff. Trying to see what path I should follow in CMH for disability discrimination. What I got so far is this. I started a role which I was performing well in. However, due to business needs I was sele",
           "listingSource": "rss:hot"
         },
         {
@@ -194,63 +218,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vvqcn1",
-          "title": "Protecting future inheritance from estranged son-in-law (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vvqcn1/protecting_future_inheritance_from_estranged/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vvqcn1/protecting_future_inheritance_from_estranged/",
+          "id": "1vwhz3a",
+          "title": "Being made redundant but all jobs are online?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwhz3a/being_made_redundant_but_all_jobs_are_online/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwhz3a/being_made_redundant_but_all_jobs_are_online/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787438973,
-          "snippet": "Posting on behalf of an elderly friend. He has a will leaving his estate to his two children, one of whom is estranged from his wife, but not divorced. It seems pretty likely my friend will die before his son gets divorced, and is worried that when that eventually happens, his so",
+          "createdUtc": 1787516739,
+          "snippet": "Hi there! I’m currently in a very weird situation and I don’t know how to go about it exactly or if there’s even anything I can do about this situation. So I currently work in retail and recently were told that our company is having major restructuring so essentially we’re at ris",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vw0flb",
-          "title": "Tenancy in England - keys requested long before tenancy ends",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw0flb/tenancy_in_england_keys_requested_long_before/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw0flb/tenancy_in_england_keys_requested_long_before/",
+          "id": "1vwj73z",
+          "title": "Consumer rights UK - Shark refusing replacement for a return as they \"didnt recieve it\" not sure where I stand!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwj73z/consumer_rights_uk_shark_refusing_replacement_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwj73z/consumer_rights_uk_shark_refusing_replacement_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787469661,
-          "snippet": "We have given notice on our tenancy per the new Renters Right and our tenancy is due to end 13th October 2026. We have paid in full for the current rental period, ending 13th September 2026. We move to our new property on 1st September 2026, and have told the current agent/landlo",
+          "createdUtc": 1787519619,
+          "snippet": "Looking for some advice, as I’m really not sure where I stand with this. I purchased a Shark Navigator robot hoover from Argos about a month ago. It was on offer at the time and reduced to around £240. I paid £209 using a Blue Light shopping card for an additional % off. Within a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vw793x",
-          "title": "England – £50 month pet rent, was this legal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw793x/england_50_month_pet_rent_was_this_legal/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw793x/england_50_month_pet_rent_was_this_legal/",
+          "id": "1vw9n9s",
+          "title": "Penalty fare incorrectly issued, second appeal completely ignored and now they're demanding twice the penalty fare.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw9n9s/penalty_fare_incorrectly_issued_second_appeal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw9n9s/penalty_fare_incorrectly_issued_second_appeal/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787491782,
-          "snippet": "We rent a flat in a build-to-rent development. In October 2025, we asked permission to keep a cat. They agreed, but required an extra £50 month “pet rent” which we agreed to and signed a pet addendum for. We were charged £50 every month from November 2025 to August 2026. It was a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vvs4i1",
-          "title": "My landlord is harassing me via government agencies (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vvs4i1/my_landlord_is_harassing_me_via_government/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vvs4i1/my_landlord_is_harassing_me_via_government/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787443736,
-          "snippet": "Context: I live in a property in London above a members club which is owned by a trust. One of the trustees and his wife act as our \"landlord\", but doesn't actually receive our rent - it's used as money for the club. I've lived here for over 3 years. My FiL is also on the committ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vvgrgw",
-          "title": "Gym asking me to pay for damage to wall caused by weights - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vvgrgw/gym_asking_me_to_pay_for_damage_to_wall_caused_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vvgrgw/gym_asking_me_to_pay_for_damage_to_wall_caused_by/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787415847,
-          "snippet": "Was working out in my local gym (England) and went to put one of the barbell weights back in its rack on the floor. Unfortunately it slipped out of my hands about 20cm off the rack base and rebounded backwards off the floor and made a dent in their wall, at about 30cm height. The",
+          "createdUtc": 1787497693,
+          "snippet": "I'll keep this as short as possible: London, England. Was issued penalty fare on the Overground about a month ago. This was because I had tapped what I thought was a continuation reader when transitioning from national rail to underground, based on signage in the station, and whe",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 12,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -292,6 +292,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vwe3ws",
+          "title": "Neighbour excavating right next to my house.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwe3ws/neighbour_excavating_right_next_to_my_house/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwe3ws/neighbour_excavating_right_next_to_my_house/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787507960,
+          "snippet": "Hi all, apologies if this doesn’t fit within this group but not sure where else to post it. Summary: - Live in Wales. - Live in a semi-detached house. - The house next to us was vacant when we moved in but has recently been sold and buyer is gutting it, including a 2 storey exten",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vw5x6f",
           "title": "The flat below me has their heating set to 30 degrees 24/7. My flat is turning into a sauna as the heat rises.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw5x6f/the_flat_below_me_has_their_heating_set_to_30/",
@@ -316,18 +328,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vw4euv",
-          "title": "Been invited to a Interview for Fly tipping not sure why",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw4euv/been_invited_to_a_interview_for_fly_tipping_not/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw4euv/been_invited_to_a_interview_for_fly_tipping_not/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787483458,
-          "snippet": "England Basically been given 2 letters to attend a interview over a investigation for fly tipping I’ve just moved so only just got the letters, the interview is at the end of the month and they claim to have evidence The thing is, even if I was guilty, I’m not even sure why? I’ve",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1vwecb9",
           "title": "Operation approved by insurer but they've told the hospital they won't pay as the policy's ended",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwecb9/operation_approved_by_insurer_but_theyve_told_the/",
@@ -340,27 +340,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vw596t",
-          "title": "Withdrawal of offer of employment",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw596t/withdrawal_of_offer_of_employment/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw596t/withdrawal_of_offer_of_employment/",
+          "id": "1vw4euv",
+          "title": "Been invited to a Interview for Fly tipping not sure why",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw4euv/been_invited_to_a_interview_for_fly_tipping_not/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw4euv/been_invited_to_a_interview_for_fly_tipping_not/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787486171,
-          "snippet": "Hi there, apologies for length. Looking for advice on UK employment law. I am currently living and working in London and was in the process of transitioning from my current employer to a new company. I went through a five-stage interview process with the new company and was offer",
+          "createdUtc": 1787483458,
+          "snippet": "England Basically been given 2 letters to attend a interview over a investigation for fly tipping I’ve just moved so only just got the letters, the interview is at the end of the month and they claim to have evidence with a threat of \"FAILURE TO ATTEND MAY RESULT IN THE COUNCIL S",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vwbste",
-          "title": "England: Sun Life Over 50s Funeral Benefit - doesn’t know Laws of Intestacy",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwbste/england_sun_life_over_50s_funeral_benefit_doesnt/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwbste/england_sun_life_over_50s_funeral_benefit_doesnt/",
+          "id": "1vwswlx",
+          "title": "Shall I take legal action against my family ? Need some advice (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwswlx/shall_i_take_legal_action_against_my_family_need/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwswlx/shall_i_take_legal_action_against_my_family_need/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787502668,
-          "snippet": "Found a Sun Life Over 50s Funeral Benefit policy for my step father after his passing and funeral already arranged and paid for. I submitted an interim death certificate (accidental death) and advised at the time there was a Will. The Will left everything to my mum but was made i",
+          "createdUtc": 1787546409,
+          "snippet": "What shall I do if I’m a legal shareholder in a family members company and they are declaring a final dividend and refusing to pay me as they feel I don’t deserve it, but will be paying other shareholders. Do I have a right to take legal action or serve a statuary demand on the c",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 3,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -386,29 +386,29 @@
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1vw0flb",
-          "title": "Tenancy in England - keys requested long before tenancy ends",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw0flb/tenancy_in_england_keys_requested_long_before/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw0flb/tenancy_in_england_keys_requested_long_before/",
+          "id": "1vwu7un",
+          "title": "Virgin Active staff member accused my 70-year-old dad of filming children - what should I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwu7un/virgin_active_staff_member_accused_my_70yearold/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwu7un/virgin_active_staff_member_accused_my_70yearold/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787469661,
-          "snippet": "We have given notice on our tenancy per the new Renters Right and our tenancy is due to end 13th October 2026. We have paid in full for the current rental period, ending 13th September 2026. We move to our new property on 1st September 2026, and have told the current agent/landlo",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vvs4i1",
-          "title": "My landlord is harassing me via government agencies (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vvs4i1/my_landlord_is_harassing_me_via_government/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vvs4i1/my_landlord_is_harassing_me_via_government/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787443736,
-          "snippet": "Context: I live in a property in London above a members club which is owned by a trust. One of the trustees and his wife act as our \"landlord\", but doesn't actually receive our rent - it's used as money for the club. I've lived here for over 3 years. My FiL is also on the committ",
+          "createdUtc": 1787550781,
+          "snippet": "&#x200B; I'd like some genuinely objective opinions on a situation that happened to my 70-year-old dad at Virgin Active. My dad was recording a video of different gym machines/equipment. The video is around 2 minutes long because he was explaining/showing the equipment he uses at",
           "listingSource": "rss:hot"
         }
       ]
@@ -417,7 +417,7 @@
       "slug": "consumer-law",
       "label": "Consumer Law",
       "legalAreaSlug": "consumer",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -433,6 +433,18 @@
           "numComments": 0,
           "createdUtc": 1787481224,
           "snippet": "Hello Reddit. I’m in England and I’d appreciate some guidance on a dispute with a small beauty business. TLDR: I paid in advance for a beauty appointment, I showed up but the practitioner didn’t, and now I’m being denied a refund. I also paid in advance for future appointments th",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vwj73z",
+          "title": "Consumer rights UK - Shark refusing replacement for a return as they \"didnt recieve it\" not sure where I stand!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwj73z/consumer_rights_uk_shark_refusing_replacement_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwj73z/consumer_rights_uk_shark_refusing_replacement_for/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787519619,
+          "snippet": "Looking for some advice, as I’m really not sure where I stand with this. I purchased a Shark Navigator robot hoover from Argos about a month ago. It was on offer at the time and reduced to around £240. I paid £209 using a Blue Light shopping card for an additional % off. Within a",
           "listingSource": "rss:hot"
         }
       ]
@@ -480,7 +492,31 @@
           "score": 0,
           "numComments": 0,
           "createdUtc": 1787496088,
-          "snippet": "Location: London England I rent a “studio flat” in London which is no more than a glorified extension at the back of the property of what is pretty much a normal family home. Anyway in my tenancy agreement it states I have use of the right hand side of the driveway and most far b",
+          "snippet": "Location: London England A small edit: there is no outdoor charger where my car is parked. People seem to think there is but there’s no EV charger on the wall outside at all. I rent a “studio flat” in London which is no more than a glorified extension at the back of the property ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "discrimination-and-equality",
+      "label": "Discrimination and Equality",
+      "legalAreaSlug": "discrimination_equality",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vwuuo0",
+          "title": "UK Employment Tribunal - Disability Discrimination Pattern",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwuuo0/uk_employment_tribunal_disability_discrimination/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwuuo0/uk_employment_tribunal_disability_discrimination/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787552940,
+          "snippet": "England. Employment tribunal for a disability discrimination along with other stuff. Trying to see what path I should follow in CMH for disability discrimination. What I got so far is this. I started a role which I was performing well in. However, due to business needs I was sele",
           "listingSource": "rss:hot"
         }
       ]
