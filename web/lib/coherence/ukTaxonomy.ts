@@ -268,7 +268,9 @@ const RULES: Rule[] = [
     weight: 0.84,
     reason: 'Family / children arrangements',
     test: (t) =>
-      /\b(divorce|custody|child\s+arrangement|child\s+contact|care\s+order|domestic\s+abuse)\b/.test(t),
+      /\b(divorce|custody|child\s+arrangement|child\s+contact|care\s+order|domestic\s+abuse)\b/.test(t) ||
+      (/\b(\d+\s*year\s*old|my\s+(?:son|daughter|kid|child))\b/.test(t) &&
+        /\b(my\s+ex|ex[- ]?(?:partner|wife|husband)|his\s+mum|boyfriend'?s\s+kid)\b/.test(t)),
   },
   {
     l1: 'personal_consumer',

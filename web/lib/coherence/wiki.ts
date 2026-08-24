@@ -208,8 +208,15 @@ export function activeDomains(session: SessionState, frames: LegalFrame[] = []):
   if (employmentDomain && !antiEmploymentBleed) domains.add('employment')
   if (/debt|bailiff|ccj|creditor|mortgage|repossess/.test(blob) && !/\b(festival|day ticket|concert)\b/i.test(blob))
     domains.add('debt')
-  if (/divorce|custody|child arrangement|domestic abuse|inherit|probate|trust fund|\bctf\b/.test(blob))
-    domains.add('family')
+  const familyDomain =
+    /\b(divorce|custody|child arrangement|domestic abuse|inherit|probate|trust fund|\bctf\b)\b/i.test(blob) ||
+    (/\b(\d+\s*year\s*old|my (?:son|daughter|kid|child))\b/i.test(blob) &&
+      /\b(my ex|ex[- ]?(?:partner|wife|husband)|his mum|her boyfriend|boyfriend'?s kid)\b/i.test(blob))
+  if (familyDomain) domains.add('family')
+  // Bare “her house” must not add housing when this is a parental dispute
+  if (familyDomain && !/landlord|tenant|evict|tenancy|\brents?\b|section\s*21/.test(blob)) {
+    domains.delete('housing')
+  }
   if (
     (/refund|faulty|trader|warranty|consumer|used car|bought .{0,20}(?:car|vehicle)|dealer|garage|fault codes?|insurer|insurance|festival|day ticket|wheelchair|airport|accessibility/.test(
       blob,
