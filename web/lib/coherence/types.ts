@@ -1,3 +1,5 @@
+import type { SessionMatterFrame } from './matterFrame'
+
 export type QuestionKind = 'open' | 'closed'
 
 export interface PredictiveChoice {
@@ -70,8 +72,62 @@ export interface SessionState {
   taxonomySlug?: string | null
   /** Canonical matter understanding — downstream agents must not re-classify raw prose */
   matterFrame?: SessionMatterFrame | null
+  /** User-confirmed reformulated search question (Atwell-style expert arm). */
+  confirmedSearchQuery: string
+  /** none = not yet gated; confirmed = used reformulation; refused = safety refuse; skipped = original words */
+  reformulationOutcome: 'none' | 'confirmed' | 'refused' | 'skipped'
+  /** Chen-style formal retrieval query (glossary ± LLM). */
+  styleTranslatedQuery: string
+  /** CAQI-style context tokens, e.g. jurisdiction:EnglandWales role:tenant */
+  searchContextTokens: string[]
+  /** Shao-adapted lay search intent */
+  searchIntent:
+    | 'particular_resource'
+    | 'characterization'
+    | 'remedy_outcome'
+    | 'procedure'
+    | 'interest_browse'
+    | 'unknown'
+  /** Primary online metric for AB success under this intent */
+  abPrimaryMetric:
+    | 'precision_at_k'
+    | 'frame_confirm_rate'
+    | 'task_completion'
+    | 'guidance_step_engagement'
+    | 'session_depth'
+    | 'unset'
+  /**
+   * User-confirmed CAQI role (employment clarify). unset = infer from narrative.
+   */
+  confirmedUserRole:
+    | 'tenant'
+    | 'landlord'
+    | 'employee'
+    | 'employer'
+    | 'consumer'
+    | 'immigrant_applicant'
+    | 'family_member'
+    | 'unset'
+  /** Sargeant-style UK taxonomy hit (L1/L2 + matter pack). */
+  ukTaxonomyL1: string
+  ukTaxonomyL2: string
+  ukTaxonomyPackId: string
+  ukTaxonomyConfidence: number
+  /** T5: answers from authority interrogator (topic:/goal:/…). */
+  authorityAnswers: string[]
+  /** T5: offline allowlisted authority pages (no Exa in product). */
+  authorityHits: Array<{
+    id: string
+    title: string
+    url: string
+    tier: string
+    score: number
+    firm?: string
+    kind?: 'official' | 'law_firm'
+  }>
+  /** T5: citation audit passed on authorityHits. */
+  authorityAuditOk: boolean
 }
-import type { SessionMatterFrame } from './matterFrame'
 
 export interface ServiceCard {
   id: string

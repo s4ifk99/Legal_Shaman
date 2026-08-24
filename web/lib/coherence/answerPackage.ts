@@ -1,17 +1,18 @@
 /**
  * Policy-aware answer package (AGENTS.md schema) for Overview / Recommendation.
- * Matches the *live* brief topic — never keep CRA car pack for neighbour/driveway stories.
+ * Areas/Reference + primary-law spine first; Directory never as primary law; free help before firms.
  */
 import type { SessionState } from './types'
 import type { LegalFrame } from './frames'
 import craSpine from '@/data/coherence/primaryLaw/craGoodsRemedies.json'
 import { checkAnswerCitations, type CitationIssue } from './citationCheck'
+import { buildRetrievalText } from './retrievalText'
 
 export type AnswerBullet = {
   text: string
   sourceTitle: string
   sourceUrl: string
-  tier: 'areas' | 'reference' | 'primary-law' | 'trusted-guidance' | 'getting-help'
+  tier: 'areas' | 'reference' | 'primary-law' | 'trusted-guidance' | 'getting-help' | 'law-firm-commentary'
 }
 
 export type AnswerWikiLink = {
@@ -27,6 +28,7 @@ export type AnswerFirm = {
 }
 
 export type AnswerPackage = {
+  /** AGENTS.md sections */
   answerOverview: string
   bullets: AnswerBullet[]
   wikiPages: AnswerWikiLink[]
@@ -39,41 +41,27 @@ export type AnswerPackage = {
 }
 
 function blob(session: SessionState, frames: LegalFrame[]): string {
-  return [
-    session.briefUnderstanding || '',
-    session.clientQuestion || '',
-    session.topicId || '',
-    ...session.rawInputs.slice(-3),
-    session.whatHappened,
-    session.howCaused,
-    session.goal,
-    session.matterType,
-    ...session.events.map((e) => `${e.label} ${e.rawSpan ?? ''}`),
-    ...frames.map((f) => f.id),
-  ]
-    .join(' ')
-    .toLowerCase()
+  return `${buildRetrievalText(session)} ${frames.map((f) => f.id).join(' ')}`.toLowerCase()
 }
 
-/** Strict used-car *purchase/remedy* match — not carport / parking / neighbour. */
-function isUsedCarReject(text: string, matter: string, topicId?: string): boolean {
-  if (topicId === 'housing-access' || topicId === 'housing-eviction') return false
-  if (/neighbour|neighbor|driveway|car\s*port|carport|easement|right of way|blocking access/.test(text)) {
-    return false
-  }
-  const purchase =
-    /used car|bought .{0,40}\bcar\b|\bcar\b.{0,40}(dealer|trader)|dealer|fault codes?|board computer|reject(?:ing)? (?:the )?car|warranty/.test(
+function isUsedCarReject(text: string, matter: string): boolean {
+  // "car park" / "parking" must not trigger the used-car CRA spine.
+  const parkingContext =
+    /\b(car\s*park|parking|pcn|parking (?:fine|ticket|charge|app)|popla|private parking)\b/i.test(
       text,
     )
-  const remedy = /reject|refund|repair|faulty|not fixed|still broken|consumer rights|cra\b/.test(text)
-  return purchase && remedy && (matter === 'consumer' || matter === 'unknown' || purchase)
-}
-
-function isNeighbourAccess(text: string, matter: string, topicId?: string): boolean {
-  if (topicId === 'housing-access') return true
-  if (matter === 'housing' && /driveway|car\s*port|carport|neighbour|neighbor|blocking access/.test(text))
-    return true
-  return /neighbour|neighbor/.test(text) && /driveway|car\s*port|carport|blocking access|right of way/.test(text)
+  if (parkingContext && !/\b(used car|bought .{0,20}car|dealer|garage|mot\b|fault codes?)\b/i.test(text)) {
+    return false
+  }
+  const car =
+    /\b(used car|bought .{0,24}(?:car|vehicle)|vehicle|dealer|garage|mot\b|fault codes?|motor vehicle)\b/i.test(
+      text,
+    ) || (/\bcar\b/i.test(text) && !/\bcar\s*park/i.test(text))
+  const remedy =
+    /reject|refund|repair|faulty|fault codes?|not fixed|still broken|consumer|warranty|trader/.test(
+      text,
+    )
+  return (matter === 'consumer' || car) && (car || remedy) && (car || matter === 'consumer') && car
 }
 
 function pickSections(text: string) {
@@ -92,123 +80,130 @@ function pickSections(text: string) {
     ids.add('s24')
   }
   if (wantDeduction) ids.add('s24')
+  // Always include s.24 for car reject after repair stories
   if (wantRepair) ids.add('s24')
 
   return sections.filter((s) => ids.has(s.id))
 }
 
-function housingAccessPackage(session: SessionState, text: string): AnswerPackage {
-  const overview =
-    session.briefUnderstanding?.trim() ||
-    'Neighbour access / driveway obstruction: check title (any right of way), whether the blocked strip is private/shared/highway, and planning status for the car port — then free housing advice. This is information and signposting, not a prediction of success.'
-
-  const bullets: AnswerBullet[] = [
-    {
-      text: 'Start from the facts on the ground: who owns the blocked strip, whether deeds grant a right of way or shared driveway rights, and whether the obstruction is parking vs a permanent structure (car port).',
-      sourceTitle: 'Brief understanding',
-      sourceUrl: 'https://www.citizensadvice.org.uk/housing/',
-      tier: 'trusted-guidance',
-    },
-    {
-      text: 'If no planning permission notices were seen, check the local planning portal for applications/decisions — enforcement (if any) is a council process separate from private civil claims.',
-      sourceTitle: 'Planning / local authority (signpost)',
-      sourceUrl: 'https://www.gov.uk/search-register-planning-decisions',
-      tier: 'trusted-guidance',
-    },
-    {
-      text: 'Civil options (if any) usually turn on property rights in the deeds — not on how long you have lived there alone, and not on hostility alone. Free housing advice can help read next steps; solicitors come after free help when deeds need professional review.',
-      sourceTitle: 'Citizens Advice — housing',
-      sourceUrl: 'https://www.citizensadvice.org.uk/housing/',
-      tier: 'getting-help',
-    },
-    {
-      text: 'Do not treat “likely success” estimates as something this tool can give — outcomes depend on title documents, plans, and evidence. Gather photos, title/deeds, planning searches, and a timeline before paid advice.',
-      sourceTitle: 'Signposting limit',
-      sourceUrl: 'https://www.citizensadvice.org.uk/housing/',
-      tier: 'getting-help',
-    },
-  ]
-
-  const pack: AnswerPackage = {
-    answerOverview: overview,
-    bullets,
-    wikiPages: [
-      {
-        title: 'Home and Housing',
-        path: 'Areas/Home and Housing/',
-        tier: 'areas',
-      },
-    ],
-    freeHelp: [
-      {
-        title: 'Citizens Advice — housing',
-        url: 'https://www.citizensadvice.org.uk/housing/',
-        blurb: 'Free housing guidance and local referral pathways.',
-      },
-      {
-        title: 'Find a planning decision',
-        url: 'https://www.gov.uk/search-register-planning-decisions',
-        blurb: 'Search local planning applications and decisions.',
-      },
-    ],
-    recommendedFirms: [],
-    sources: [
-      {
-        title: 'Citizens Advice — housing',
-        url: 'https://www.citizensadvice.org.uk/housing/',
-        kind: 'trusted-guidance',
-      },
-      {
-        title: 'GOV.UK — planning decisions',
-        url: 'https://www.gov.uk/search-register-planning-decisions',
-        kind: 'trusted-guidance',
-      },
-    ],
-    citation: { ok: true, issues: [] },
-    matchedTopicId: 'neighbour-driveway-access',
-    policyNote:
-      'Live brief drives this pack. Free help first. No success-rate predictions. Firms only after 5+ topic index.',
-  }
-  pack.citation = checkAnswerCitations(pack)
-  // Soften: guidance URLs count as grounding
-  if (!pack.citation.ok && /citizensadvice|gov\.uk/.test(text + overview)) {
-    pack.citation = { ok: true, issues: [] }
-  }
-  return pack
+function isPrivateParkingCharge(text: string): boolean {
+  return /\b(parking (?:fine|ticket|charge|app|company)|car\s*park|pcn|popla|private parking|parking on private)\b/i.test(
+    text,
+  )
 }
 
 /**
  * Build AGENTS-shaped overview/recommendation for the session.
+ * Firms are empty unless a 5+ firm-topic index is wired; free help always first.
  */
 export function buildAnswerPackage(
   session: SessionState,
   frames: LegalFrame[] = [],
 ): AnswerPackage {
   const text = blob(session, frames)
-  const topicId = session.topicId || ''
+  const carCase = isUsedCarReject(text, session.matterType)
+  const parkingCase = !carCase && isPrivateParkingCharge(text)
 
-  if (isNeighbourAccess(text, session.matterType, topicId)) {
-    return housingAccessPackage(session, text)
+  if (parkingCase) {
+    const officialHits = (session.authorityHits || []).filter(
+      (h) => h.kind !== 'law_firm' && h.tier !== 'firm',
+    )
+    const caAppeal =
+      'https://www.citizensadvice.org.uk/law-and-courts/parking-tickets/appealing-a-parking-ticket/'
+    const caWhen =
+      'https://www.citizensadvice.org.uk/law-and-courts/parking-tickets/when-to-appeal-a-parking-ticket/'
+    const govParking = 'https://www.gov.uk/parking-tickets'
+    const pack: AnswerPackage = {
+      answerOverview:
+        'For a charge from a private car park (not a council PCN), open guidance usually separates council Penalty Charge Notices from private parking charges. Check who issued the notice, keep evidence that machines/app failed, and use the operator’s appeal route then the independent appeal scheme (often POPLA or IAS) if you are still within time.',
+      bullets: [
+        {
+          text: 'Confirm whether the notice is a council Penalty Charge Notice (PCN) or a private parking charge from an operator — the appeal routes differ.',
+          sourceTitle: 'Citizens Advice — when to appeal a parking ticket',
+          sourceUrl: caWhen,
+          tier: 'trusted-guidance',
+        },
+        {
+          text: 'For many private operator charges, you can appeal to the company first, then (if rejected and the operator is in the BPA scheme) to POPLA — keep screenshots of broken machines or failed payment apps.',
+          sourceTitle: 'Citizens Advice — appealing a parking ticket',
+          sourceUrl: caAppeal,
+          tier: 'trusted-guidance',
+        },
+        {
+          text: 'GOV.UK covers council parking tickets / PCNs and how to challenge them — use it to cross-check whether your notice is a council PCN rather than a private charge.',
+          sourceTitle: 'GOV.UK — Parking tickets',
+          sourceUrl: govParking,
+          tier: 'trusted-guidance',
+        },
+      ],
+      wikiPages: [],
+      freeHelp: [
+        {
+          title: 'Citizens Advice — appealing a parking ticket',
+          url: caAppeal,
+          blurb: 'Council vs private parking charges and appeal pathways (incl. POPLA / IAS).',
+        },
+        {
+          title: 'Citizens Advice — when to appeal',
+          url: caWhen,
+          blurb: 'Common reasons a ticket should be cancelled, including private land terms.',
+        },
+        {
+          title: 'GOV.UK — Parking tickets',
+          url: govParking,
+          blurb: 'Official overview of council parking tickets / PCNs.',
+        },
+        ...officialHits.slice(0, 2).map((h) => ({
+          title: h.title,
+          url: h.url,
+          blurb: 'Matched UK guidance for your story.',
+        })),
+      ],
+      recommendedFirms: [],
+      sources: [
+        {
+          title: 'Citizens Advice — appealing a parking ticket',
+          url: caAppeal,
+          kind: 'trusted-guidance',
+        },
+        {
+          title: 'Citizens Advice — when to appeal a parking ticket',
+          url: caWhen,
+          kind: 'trusted-guidance',
+        },
+        {
+          title: 'GOV.UK — Parking tickets',
+          url: govParking,
+          kind: 'trusted-guidance',
+        },
+      ],
+      citation: { ok: true, issues: [] },
+      matchedTopicId: 'private-parking-charge',
+      policyNote:
+        'Signposting only. Private parking vs council PCN routes differ — verify the issuer on the notice.',
+    }
+    pack.citation = checkAnswerCitations(pack)
+    return pack
   }
 
-  const carCase = isUsedCarReject(text, session.matterType, topicId)
-
   if (!carCase) {
-    const overview =
-      session.briefUnderstanding?.trim() ||
-      'No curated primary-law remedy package matched yet for this story. Use free help and the matched wiki pathway, then verify any statute on legislation.gov.uk.'
+    const firmHits = (session.authorityHits || []).filter(
+      (h) => h.kind === 'law_firm' || h.tier === 'firm',
+    )
+    const officialHits = (session.authorityHits || []).filter(
+      (h) => h.kind !== 'law_firm' && h.tier !== 'firm',
+    )
+    const firmBullets = firmHits.slice(0, 3).map((h) => ({
+      text: `Law firm commentary (${h.firm || 'UK firm'}): ${h.title.replace(/\s*\|\s*.*$/, '')}. Firm blogs explain topics — they are not official GOV.UK guidance and not advice on your case.`,
+      sourceTitle: `${h.firm || 'Law firm'} — ${h.title}`,
+      sourceUrl: h.url,
+      tier: 'law-firm-commentary' as const,
+    }))
     const empty: AnswerPackage = {
-      answerOverview: overview,
-      bullets: session.clientQuestion
-        ? [
-            {
-              text: `Client question (from brief): ${session.clientQuestion}`,
-              sourceTitle: 'Brief Agent',
-              sourceUrl: 'https://www.citizensadvice.org.uk/get-advice/',
-              tier: 'getting-help',
-            },
-          ]
-        : [],
+      answerOverview: firmHits.length
+        ? `No curated primary-law remedy package matched yet. ${officialHits.length ? 'Official signposts are listed under free help / guidance. ' : ''}We can cite ${firmHits.length} law-firm explainer(s) below — commentary only, not a recommendation to instruct that firm.`
+        : 'No curated primary-law remedy package matched yet for this story. Use free help and the matched wiki pathway, then verify any statute on legislation.gov.uk.',
+      bullets: firmBullets,
       wikiPages: [],
       freeHelp: [
         {
@@ -216,14 +211,35 @@ export function buildAnswerPackage(
           url: 'https://www.citizensadvice.org.uk/get-advice/',
           blurb: 'Free guidance and local referral pathways.',
         },
+        ...officialHits.slice(0, 3).map((h) => ({
+          title: h.title,
+          url: h.url,
+          blurb: 'Trusted UK guidance (authority seed).',
+        })),
       ],
-      recommendedFirms: [],
-      sources: [],
+      recommendedFirms: firmHits.slice(0, 3).map((h) => ({
+        name: h.firm || 'UK law firm',
+        directoryUrl: h.url,
+        note: `Commentary article: ${h.title}. Not an endorsement — check SRA registration before instructing anyone.`,
+      })),
+      sources: [
+        ...officialHits.map((h) => ({
+          title: h.title,
+          url: h.url,
+          kind: 'trusted-guidance',
+        })),
+        ...firmHits.map((h) => ({
+          title: `${h.firm}: ${h.title}`,
+          url: h.url,
+          kind: 'law-firm-commentary',
+        })),
+      ],
       citation: { ok: true, issues: [] },
-      matchedTopicId: topicId || null,
+      matchedTopicId: null,
       policyNote:
-        'Policy: Areas → Reference → primary law → Getting Help → Directory last. Overview follows the live brief, not a prior session.',
+        'Policy: official guidance before firm blogs. Firm URLs are tertiary commentary cites — never primary law. Free help before instructing a firm.',
     }
+    empty.citation = checkAnswerCitations(empty)
     return empty
   }
 
@@ -273,6 +289,7 @@ export function buildAnswerPackage(
     },
   ]
 
+  // Filter bullets to those backed by selected sections + always keep guidance + s24 if repair
   const sectionUrls = new Set(sections.map((s) => s.url))
   const filtered = bullets.filter((b) => {
     if (b.tier === 'trusted-guidance') return true
@@ -321,12 +338,11 @@ export function buildAnswerPackage(
 
   const pack: AnswerPackage = {
     answerOverview:
-      session.briefUnderstanding?.trim() ||
       'For a faulty used car bought from a trader, start with the Consumer Rights Act 2015 remedies ladder (short-term reject → repair/replacement → final reject or price reduction), then use Citizens Advice / Motor Ombudsman for process — not firm blogs as primary law. This is information and signposting, not advice on your specific outcome.',
     bullets: filtered,
     wikiPages,
     freeHelp,
-    recommendedFirms: [],
+    recommendedFirms: [], // 5+ firm-topic gate — empty until index qualifies
     sources,
     citation: { ok: true, issues: [] },
     matchedTopicId: 'car-reject-failed-repair',

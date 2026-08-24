@@ -3,7 +3,10 @@ import { NextResponse } from "next/server";
 import { coherenceDatabaseUrl } from "@/lib/coherence/config";
 import { coherenceApiGuard } from "@/lib/coherence/server/guard";
 import { sraQuery } from "@/lib/coherence/server/sra-db";
-import { resolveSraSearchFlags } from "@/lib/coherence/sraQuery";
+import {
+  postcodePrefixesForLocation,
+  resolveSraSearchFlags,
+} from "@/lib/coherence/sraQuery";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -59,9 +62,26 @@ export async function POST(req: Request) {
     } = flags;
 
     const london = /\blondon\b/i.test(hint);
-    const cityNeedle = hint.replace(/[^a-zA-Z\s]/g, " ").trim();
-    const postcodeArea = hint.toUpperCase().match(/\b([A-Z]{1,2}\d{1,2}[A-Z]?)\b/)?.[1] || null;
-    const minScore = wantMotoring ? 16 : wantConsumer || wantCar ? 18 : wantImmigration ? 16 : 12;
+    const countyPrefixes = postcodePrefixesForLocation(hint);
+    // Counties like "Cornwall" are not SRA city names — rank by outward codes (TR/PL).
+    const cityNeedle =
+      countyPrefixes.length > 1 || (countyPrefixes.length === 1 && !/^[A-Z]{1,2}\d/i.test(hint.trim()))
+        ? ""
+        : hint.replace(/[^a-zA-Z\s]/g, " ").trim();
+    const postcodeArea =
+      countyPrefixes.length > 0
+        ? countyPrefixes.join("|")
+        : hint.toUpperCase().match(/\b([A-Z]{1,2}\d{1,2}[A-Z]?)\b/)?.[1] || null;
+    const parkingConsumer = wantConsumer && !wantMotoring;
+    const minScore = wantMotoring
+      ? 16
+      : parkingConsumer
+        ? 16
+        : wantConsumer || wantCar
+          ? 18
+          : wantImmigration
+            ? 16
+            : 12;
 
     const sql = `
       SELECT * FROM (
@@ -82,7 +102,10 @@ export async function POST(req: Request) {
             CASE WHEN $1::boolean AND work_area::text ILIKE '%Immigration%' THEN 24 ELSE 0 END
             + CASE WHEN $6::boolean AND NOT $11::boolean AND work_area::text ILIKE '%Consumer%' THEN 28 ELSE 0 END
             + CASE WHEN $9::boolean AND work_area::text ILIKE '%Consumer%' THEN 8 ELSE 0 END
-            + CASE WHEN $6::boolean AND work_area::text ILIKE '%Litigation%' THEN 8 ELSE 0 END
+            + CASE WHEN $6::boolean AND work_area::text ILIKE '%"Litigation%' THEN 8 ELSE 0 END
+            + CASE WHEN $6::boolean AND NOT $11::boolean AND $4::text IS NOT NULL AND $4::text <> ''
+                AND upper(postcode) ~ ('^(' || $4 || ')[0-9A-Z]?')
+                AND work_area::text ILIKE '%"Litigation%' THEN 22 ELSE 0 END
             + CASE WHEN $9::boolean AND (
               search_text ILIKE '%motor%' OR search_text ILIKE '%vehicle%'
               OR search_text ILIKE '%trader%' OR search_text ILIKE '%sale of goods%'
@@ -97,7 +120,8 @@ export async function POST(req: Request) {
             + CASE WHEN $8::boolean AND work_area::text ILIKE '%Employment%' THEN 24 ELSE 0 END
             + CASE WHEN $11::boolean AND (
               work_area::text ILIKE '%Motoring%'
-              OR work_area::text ILIKE '%Crime%'
+              OR work_area::text ILIKE '%"Criminal"%'
+              OR work_area::text ILIKE '%Crime -%'
               OR search_text ILIKE '%road traffic%'
               OR search_text ILIKE '%parking ticket%'
               OR search_text ILIKE '%pcn%'
@@ -106,18 +130,29 @@ export async function POST(req: Request) {
             + CASE WHEN $2::boolean AND postcode ~* '^(E|EC|N|NW|SE|SW|W|WC)[0-9]' THEN 12 ELSE 0 END
             + CASE WHEN $2::boolean AND postcode ~* '^(BR|CR|DA|EN|HA|IG|KT|RM|SM|TW|UB|WD)[0-9]' THEN 8 ELSE 0 END
             + CASE WHEN $3::text <> '' AND city ILIKE '%' || $3 || '%' THEN 12 ELSE 0 END
-            + CASE WHEN $4::text IS NOT NULL AND upper(postcode) LIKE $4 || '%' THEN 14 ELSE 0 END
+            + CASE WHEN $4::text IS NOT NULL AND $4::text <> '' AND upper(postcode) ~ ('^(' || $4 || ')[0-9A-Z]?') THEN 18 ELSE 0 END
             + CASE WHEN COALESCE(phone, '') <> '' THEN 2 ELSE 0 END
             + CASE WHEN authorisation_status IS NULL OR authorisation_status ILIKE '%authoris%' THEN 1 ELSE 0 END
             - CASE WHEN NOT $1::boolean AND work_area::text ILIKE '%Immigration%' THEN 14 ELSE 0 END
-            - CASE WHEN $6::boolean AND NOT $11::boolean AND work_area::text NOT ILIKE '%Consumer%' THEN 20 ELSE 0 END
+            - CASE WHEN $6::boolean AND NOT $11::boolean AND work_area::text NOT ILIKE '%Consumer%'
+                AND NOT (
+                  $4::text IS NOT NULL AND $4::text <> ''
+                  AND upper(postcode) ~ ('^(' || $4 || ')[0-9A-Z]?')
+                  AND work_area::text ILIKE '%"Litigation%'
+                ) THEN 20 ELSE 0 END
+            - CASE WHEN $6::boolean AND NOT $11::boolean AND work_area::text ILIKE '%Criminal%'
+                AND work_area::text NOT ILIKE '%Consumer%'
+                AND work_area::text NOT ILIKE '%"Litigation%' THEN 40 ELSE 0 END
             - CASE WHEN $11::boolean AND work_area::text ILIKE '%Employment%' THEN 30 ELSE 0 END
-            - CASE WHEN $9::boolean AND work_area::text ILIKE '%Personal Injury%' AND work_area::text NOT ILIKE '%Litigation%' THEN 14 ELSE 0 END
+            - CASE WHEN $9::boolean AND work_area::text ILIKE '%Personal Injury%' AND work_area::text NOT ILIKE '%"Litigation%' THEN 14 ELSE 0 END
           )::int AS score
         FROM sra_organisations
         WHERE
           ($1::boolean AND work_area::text ILIKE '%Immigration%')
           OR ($6::boolean AND work_area::text ILIKE '%Consumer%')
+          OR ($6::boolean AND NOT $11::boolean AND work_area::text ILIKE '%"Litigation%'
+            AND $4::text IS NOT NULL AND $4::text <> ''
+            AND upper(postcode) ~ ('^(' || $4 || ')[0-9A-Z]?'))
           OR ($7::boolean AND (
             work_area::text ILIKE '%Housing%'
             OR work_area::text ILIKE '%Landlord%'
@@ -128,13 +163,14 @@ export async function POST(req: Request) {
           OR ($8::boolean AND work_area::text ILIKE '%Employment%')
           OR ($11::boolean AND (
             work_area::text ILIKE '%Motoring%'
-            OR work_area::text ILIKE '%Crime%'
+            OR work_area::text ILIKE '%"Criminal"%'
+            OR work_area::text ILIKE '%Crime -%'
             OR work_area::text ILIKE '%Consumer%'
             OR search_text ILIKE '%road traffic%'
             OR search_text ILIKE '%parking ticket%'
           ))
           OR ($3::text <> '' AND city ILIKE '%' || $3 || '%')
-          OR ($4::text IS NOT NULL AND upper(postcode) LIKE $4 || '%')
+          OR ($4::text IS NOT NULL AND $4::text <> '' AND upper(postcode) ~ ('^(' || $4 || ')[0-9A-Z]?'))
       ) ranked
       WHERE score >= $10::int
       ORDER BY score DESC,

@@ -7,8 +7,9 @@ import {
   type HelpPack,
 } from '@/lib/coherence/services'
 import type { HelpMatchResult } from '@/lib/coherence/masterAgent'
-import { buildLawyerBrief, briefToPlainText } from '@/lib/coherence/brief'
+import { buildLawyerBrief, briefToPlainText, placeForSummary } from '@/lib/coherence/brief'
 import { computeProgress } from '@/lib/coherence/slots'
+import { isParkingStoryText } from '@/lib/coherence/signposting'
 import { SraAttribution } from '@/components/sra-attribution'
 import './ServicesView.css'
 
@@ -49,6 +50,29 @@ function telHref(phone: string): string {
   if (cleaned.startsWith('+')) return `tel:${cleaned}`
   if (cleaned.startsWith('0')) return `tel:+44${cleaned.slice(1)}`
   return `tel:${cleaned}`
+}
+
+function jurisdictionLabel(session: SessionState): string {
+  switch (session.jurisdiction) {
+    case 'EnglandWales':
+      return 'England & Wales'
+    case 'Scotland':
+      return 'Scotland'
+    case 'NorthernIreland':
+      return 'Northern Ireland'
+    case 'Unknown':
+      return 'Not yet confirmed'
+    default:
+      return session.jurisdiction || 'Not yet confirmed'
+  }
+}
+
+function legalAreaLabel(session: SessionState): string {
+  if (session.taxonomySlug === 'parking_pcn') return 'Parking / PCN'
+  if (session.ukTaxonomyL1 || session.ukTaxonomyL2) {
+    return [session.ukTaxonomyL1, session.ukTaxonomyL2].filter(Boolean).join(' · ')
+  }
+  return matterLabel(session.matterType)
 }
 
 function Item({ s, onOpenSraFirm }: { s: Row; onOpenSraFirm?: (sraId: string) => void }) {
@@ -105,12 +129,16 @@ function Section({
   lead?: string
   rows: Row[]
   onOpenSraFirm?: (sraId: string) => void
-  variant?: 'free'
+  variant?: 'free' | 'read'
 }) {
   if (!rows.length) return null
   return (
     <section
-      className={['services__section', variant === 'free' ? 'services__section--free' : '']
+      className={[
+        'services__section',
+        variant === 'free' ? 'services__section--free' : '',
+        variant === 'read' ? 'services__section--read' : '',
+      ]
         .filter(Boolean)
         .join(' ')}
     >
@@ -125,7 +153,7 @@ function Section({
   )
 }
 
-function ShareWithSolicitorPanel({
+function CaseContext({
   session,
   frames,
 }: {
@@ -157,19 +185,21 @@ function ShareWithSolicitorPanel({
         ? [{ order: 1, when: 'Account', event: session.whatHappened }]
         : []
 
+  const summaryLines = brief.situationSummary
+    .split('\n')
+    .map((line) => line.replace(/^•\s*/, '').trim())
+    .filter((line) => line && !/^Recommended by LegalShaman/i.test(line))
+
+  const area = legalAreaLabel(session)
+  const jurisdiction = jurisdictionLabel(session)
+  const location = placeForSummary(session) || (session.locationHint || '').trim()
+
   return (
-    <aside className="services__share" aria-label="Share with a solicitor">
-      <h2 className="services__share-title">Share with a solicitor</h2>
-      <p className="services__share-lead">
-        Copy this summary when you contact a firm. It opens with a note that you were recommended by
-        LegalShaman.com.
-      </p>
-
-      <div className="services__share-card">
-        <p className="services__share-badge">Recommended by LegalShaman.com</p>
-        <p className="services__share-summary">{brief.situationSummary}</p>
-
-        <h3 className="services__share-heading">Timeline</h3>
+    <div className="services__context">
+      <section className="services__context-block" aria-labelledby="services-timeline">
+        <h2 id="services-timeline" className="services__section-title">
+          Timeline
+        </h2>
         {timelineRows.length === 0 ? (
           <p className="services__share-empty">No timeline events yet — add detail on the intake screen.</p>
         ) : (
@@ -182,18 +212,70 @@ function ShareWithSolicitorPanel({
             ))}
           </ol>
         )}
+      </section>
 
-        <h3 className="services__share-heading">Desired outcome</h3>
-        <p className="services__share-outcome">{brief.desiredOutcome}</p>
+      <section className="services__context-block" aria-labelledby="services-summary">
+        <h2 id="services-summary" className="services__section-title">
+          Situation summary
+        </h2>
+        {summaryLines.length === 0 ? (
+          <p className="services__share-empty">No summary yet.</p>
+        ) : (
+          <ul className="services__share-bullets" aria-label="Situation summary">
+            {summaryLines.map((line, i) => (
+              <li key={`sum-${i}`}>{line}</li>
+            ))}
+          </ul>
+        )}
+        {brief.desiredOutcome ? (
+          <p className="services__share-outcome">
+            <span className="services__meta-label">Goal</span> {brief.desiredOutcome}
+          </p>
+        ) : null}
+      </section>
 
-        <h3 className="services__share-heading">Instructions for the solicitor</h3>
-        <p className="services__share-instructions">{brief.instructionsForLawyer}</p>
+      <section className="services__context-block" aria-labelledby="services-area">
+        <h2 id="services-area" className="services__section-title">
+          Legal area
+        </h2>
+        <p className="services__meta-value">{area}</p>
+        {session.matterType !== 'unknown' && session.taxonomySlug !== 'parking_pcn' ? (
+          <p className="services__meta-sub">{matterLabel(session.matterType)}</p>
+        ) : null}
+      </section>
 
+      <section className="services__context-block" aria-labelledby="services-jurisdiction">
+        <h2 id="services-jurisdiction" className="services__section-title">
+          Jurisdiction
+        </h2>
+        <dl className="services__meta-list">
+          <div>
+            <dt>Nation / system</dt>
+            <dd>{jurisdiction}</dd>
+          </div>
+          {location ? (
+            <div>
+              <dt>Location</dt>
+              <dd>{location}</dd>
+            </div>
+          ) : (
+            <div>
+              <dt>Location</dt>
+              <dd className="services__meta-muted">Not specified — add a town or postcode to rank nearby solicitors.</dd>
+            </div>
+          )}
+        </dl>
+      </section>
+
+      <div className="services__share-actions">
         <button type="button" className="services__share-copy" onClick={() => void copyShare()}>
           {copied ? 'Copied' : 'Copy summary for solicitor'}
         </button>
+        <p className="services__share-copy-hint">
+          Includes a “Recommended by LegalShaman.com” note for when you contact a firm.
+        </p>
       </div>
-    </aside>
+    </div>
   )
 }
 
@@ -214,22 +296,44 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
   const story = [...session.rawInputs, session.whatHappened, session.goal]
     .join(' ')
     .toLowerCase()
+  const parkingStory =
+    session.taxonomySlug === 'parking_pcn' ||
+    /\b(car\s*park|parking|pcn|popla|parking (?:fine|ticket|charge)|private parking|penalty charge)\b/i.test(
+      story,
+    )
 
   if (/therap|counsell|intercultural|wellbeing|well-being|psycholog/.test(hay) && !/trauma|mental|abuse/.test(story)) {
     return false
   }
 
-  if (/citizens advice|advicenow|legal aid|lawworks|pro bono|civil legal advice|check if you are eligible/.test(hay)) {
+  if (parkingStory || session.taxonomySlug === 'parking_pcn') {
+    if (
+      /age uk|free representation unit|\bfru\b|employment|social security|universal credit|\bavma\b|clinical|medical accident|nhs complaint/.test(
+        hay,
+      )
+    ) {
+      return false
+    }
+  }
+
+  if (/citizens advice|advicenow|legal aid|lawworks|pro bono|civil legal advice|check if you are eligible|popla|\bias\b|tribunal|gov\.uk.*parking|parking tickets|resolver/.test(hay)) {
+    if (parkingStory || session.taxonomySlug === 'parking_pcn') {
+      return /parking|pcn|popla|\bias\b|independent appeals|tribunal|adjudicator|adviceline|consumer helpline|resolver|advicenow|legal aid|pro bono/.test(
+        hay,
+      )
+    }
     return true
   }
 
+  if (parkingStory || session.taxonomySlug === 'parking_pcn') {
+    return /parking|pcn|popla|\bias\b|independent appeals|tribunal|adjudicator|penalty charge|motoring|resolver/.test(
+      hay,
+    )
+  }
   if (matter === 'housing') {
     return /hous|tenant|landlord|rent|deposit|shelter|homeless|evict|possession|flatmate|roommate|notice to quit|section 21|hlpas|leasehold/.test(
       hay,
     )
-  }
-  if (session.taxonomySlug === 'parking_pcn') {
-    return /parking|pcn|tribunal|consumer|motoring|rta|citizens advice/.test(hay)
   }
   if (matter === 'consumer') {
     return /consumer|car|vehicle|refund|trader|ombudsman|resolver|which\b|faulty|goods|parking|pcn|tribunal/.test(
@@ -237,7 +341,7 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
     )
   }
   if (matter === 'crime') {
-    return /crime|criminal|motoring|police|magistrates|disqualif|driving|duty solicitor/.test(hay)
+    return /crime|criminal|motoring|police|magistrates|disqualif|driving|duty solicitor|parking|pcn/.test(hay)
   }
   if (matter === 'employment') {
     return /employ|work|tribunal|acas|dismissal|wages/.test(hay)
@@ -256,18 +360,28 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
 }
 
 function mergeFreeHelp(
+  dialableServices: Row[],
+  authorityOfficial: Row[],
   agentFree: Row[],
   signRows: Row[],
   legalAid: Row[],
   probono: Row[],
   session: SessionState,
-  limit = 8,
+  limit = 12,
 ): Row[] {
   const out: Row[] = []
   const seen = new Set<string>()
+  const story = [...session.rawInputs, session.whatHappened, session.goal].join(' ')
+  const parkingStory =
+    session.taxonomySlug === 'parking_pcn' ||
+    /\b(car\s*park|parking|pcn|popla|parking (?:fine|ticket|charge)|private parking)\b/i.test(story)
 
-  const push = (row: Row) => {
-    if (!isRelevantFreeHelp(row, session)) return
+  const pushAllowlisted = (row: Row) => {
+    const phoneKey = (row.phone || '').replace(/\D/g, '')
+    if (phoneKey) {
+      if (seen.has(`phone:${phoneKey}`)) return
+      seen.add(`phone:${phoneKey}`)
+    }
     const key = normKey(row.title, row.url)
     if (seen.has(key)) return
     const titleKey = row.title.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
@@ -276,13 +390,21 @@ function mergeFreeHelp(
     out.push(row)
   }
 
+  const push = (row: Row) => {
+    if (!isRelevantFreeHelp(row, session)) return
+    pushAllowlisted(row)
+  }
+
+  for (const row of dialableServices) push(row)
+  for (const row of authorityOfficial) push(row)
   for (const row of agentFree) push(row)
 
-  const matterSectionsPreferred =
-    session.matterType === 'housing'
+  const matterSectionsPreferred = parkingStory
+    ? ['driving and parking', 'consumer rights']
+    : session.matterType === 'housing'
       ? ['home and housing']
       : session.matterType === 'consumer'
-        ? ['consumer rights']
+        ? ['consumer rights', 'driving and parking']
         : session.matterType === 'immigration'
           ? ['immigration and citizenship']
           : []
@@ -307,22 +429,6 @@ function mergeFreeHelp(
 export function ServicesView({ session, frames = [], helpMatch = null, onBack, onOpenSraFirm }: Props) {
   const [pack, setPack] = useState<HelpPack | null>(null)
   const [loading, setLoading] = useState(true)
-
-  const placeLine = [
-    session.taxonomySlug === 'parking_pcn' ? 'Parking / PCN' : matterLabel(session.matterType),
-    session.locationHint
-      ? session.locationHint
-      : session.jurisdiction === 'EnglandWales'
-        ? 'England & Wales'
-        : session.jurisdiction === 'Unknown'
-          ? ''
-          : session.jurisdiction === 'NorthernIreland'
-            ? 'Northern Ireland'
-            : session.jurisdiction,
-    session.goal ? `Goal: ${session.goal}` : '',
-  ]
-    .filter(Boolean)
-    .join(' · ')
 
   useEffect(() => {
     let cancelled = false
@@ -408,6 +514,42 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
       url: s.url,
     })) ?? []
 
+  const freeServiceRows: Row[] =
+    pack?.freeServices.map((s) => ({
+      id: s.id,
+      type: s.type,
+      title: s.title,
+      blurb: s.blurb,
+      url: s.url,
+      phone: s.phone,
+      score: s.score,
+    })) ?? []
+
+  const authorityOfficialRows: Row[] =
+    pack?.authorityOfficial.map((s) => ({
+      id: s.id,
+      type:
+        s.tier === 'primary'
+          ? 'Official · primary'
+          : s.tier === 'secondary'
+            ? 'Official · guidance'
+            : 'Trusted resource',
+      title: s.title,
+      blurb: s.blurb,
+      url: s.url,
+      score: s.score,
+    })) ?? []
+
+  const authorityFirmRows: Row[] =
+    pack?.authorityFirms.map((s) => ({
+      id: s.id,
+      type: s.firm ? `Firm · ${s.firm}` : 'Law firm commentary',
+      title: s.title,
+      blurb: s.blurb,
+      url: s.url,
+      score: s.score,
+    })) ?? []
+
   const agentFreeRows: Row[] =
     helpMatch?.freeHelp.map((s) => ({
       id: s.id,
@@ -438,35 +580,52 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
       sraId: s.sraId,
     })) ?? []
 
-  const freeRows = mergeFreeHelp(agentFreeRows, signRows, aidRows, proRows, session, 8)
-
-  const guidanceRows: Row[] = [...phase2Rows, ...v1Rows]
-
-  const helpMatchHasLiveSra = (helpMatch?.solicitors || []).some(
-    (s) => s.type === 'sra-live' || s.id?.startsWith('sra-live:'),
+  const freeRows = mergeFreeHelp(
+    freeServiceRows,
+    authorityOfficialRows,
+    agentFreeRows,
+    signRows,
+    aidRows,
+    proRows,
+    session,
+    12,
   )
 
-  const showSraSolicitors = agentSolRows.length > 0 || (!helpMatchHasLiveSra && sraRows.length > 0)
+  const guidanceRows: Row[] = [...phase2Rows, ...v1Rows]
+  const parkingStory =
+    session.taxonomySlug === 'parking_pcn' ||
+    isParkingStoryText(
+      [...session.rawInputs, session.whatHappened, session.goal].join(' '),
+    )
+  const readingRows: Row[] = [...guidanceRows, ...authorityFirmRows].filter((row) => {
+    if (!parkingStory) return true
+    const hay = `${row.title} ${row.blurb} ${row.type}`.toLowerCase()
+    return /parking|pcn|popla|motoring|ticket|penalty charge|citizens advice/.test(hay)
+  })
+
+  const helpMatchHasLiveSra = (helpMatch?.solicitors || []).some(
+    (s) => (s.type === 'sra-live' || s.id?.startsWith('sra-live:')) && (s.title || '').trim(),
+  )
+
+  // Prefer live SRA register hits from HelpPack. Agent solicitors only win when they
+  // actually include live SRA rows — never hide pack firms behind an empty agent list.
+  const solicitorRows: Row[] =
+    helpMatchHasLiveSra && agentSolRows.length > 0
+      ? agentSolRows
+      : sraRows.length > 0
+        ? sraRows
+        : agentSolRows
+
+  const directoryRows: Row[] = agentDirRows.length > 0 ? agentDirRows : dirRows
+
+  const showSraSolicitors = solicitorRows.some((r) => r.sraId) || sraRows.length > 0
 
   const empty =
     !loading &&
     !freeRows.length &&
-    !sraRows.length &&
-    !dirRows.length &&
-    !agentDirRows.length &&
-    !agentSolRows.length &&
-    !guidanceRows.length
-
-  const freeLead =
-    session.taxonomySlug === 'parking_pcn'
-      ? 'PCN free help first — Citizens Advice and the parking tribunal, then Motoring / RTA solicitors.'
-      : session.matterType === 'housing'
-        ? 'Housing-focused free advice first — Shelter, tenant clinics, and Citizens Advice before paid solicitors.'
-        : session.matterType === 'consumer'
-          ? 'Consumer free help first — Citizens Advice and ADR schemes before paid solicitors.'
-          : session.matterType === 'crime'
-            ? 'Free guidance first — then directories for regulated criminal / motoring solicitors.'
-            : 'Start with free advice services matched to your issue, then directories and solicitors.'
+    !solicitorRows.length &&
+    !directoryRows.length &&
+    !readingRows.length
 
   return (
     <div className="services">
@@ -475,95 +634,77 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
           ← Back to timeline
         </button>
         <h1 className="services__title">Matching help</h1>
-        <p className="services__sub">{placeLine}</p>
-        {helpMatch && (
-          <p className="services__hint">
-            Free help first ({freeRows.length} shown), then directories ({helpMatch.directories.length})
-            and SRA solicitors ({helpMatch.solicitors.length})
-            {helpMatch.sra?.reachable
-              ? ` · live register ${helpMatch.sra.total?.toLocaleString() ?? '—'} orgs`
-              : helpMatch.sra?.configured
-                ? ' · live SRA unreachable (start Podman Postgres on :5433)'
-                : ' · live SRA offline (set DATABASE_URL)'}
-            .
-          </p>
-        )}
-        {pack && !loading && pack.sraFirms.length > 0 && !session.locationHint && (
-          <p className="services__hint">
-            Add your town or postcode on the timeline to rank nearby solicitors first.
-            {session.taxonomySlug === 'parking_pcn' &&
-              ' Firms shown list Motoring / RTA or Consumer parking work — confirm they take council PCN appeals.'}
-            {session.matterType === 'consumer' &&
-              session.taxonomySlug !== 'parking_pcn' &&
-              ' Firms shown list Consumer work on the SRA register — confirm they take used-car / faulty-goods cases.'}
-            {session.matterType === 'housing' &&
-              ' Firms shown list housing / property work — confirm they take tenant or landlord disputes.'}
-          </p>
-        )}
-        {pack && (
-          <p className="services__trial">
-            {pack.meta.sra?.reachable
-              ? `Live SRA register: ${pack.meta.sra.total?.toLocaleString() ?? '—'} organisations. `
-              : pack.meta.sra?.configured
-                ? 'Live SRA register temporarily unreachable — start Podman Postgres (`./podman-postgres-data.sh` on :5433) then refresh. '
-                : 'SRA live search offline (set DATABASE_URL to 127.0.0.1:5433). '}
-            Not legal advice — verify live pages and regulation yourself.
-          </p>
-        )}
+        <p className="services__sub">
+          Your situation, who to contact (free first), then relevant reading.
+        </p>
       </header>
 
-      <div className="services__layout">
-        <ShareWithSolicitorPanel session={session} frames={frames} />
+      <CaseContext session={session} frames={frames} />
 
-        <div className="services__matches">
-          {loading ? (
-            <p className="services__blurb">Loading matching guidance…</p>
-          ) : empty ? (
-            <p className="services__blurb">No matches yet — try adding a place or more detail.</p>
-          ) : (
-            <>
+      <div className="services__matches">
+        <h2 className="services__band-title">People and services to contact</h2>
+        <p className="services__band-lead">Free help first, then regulated solicitors you can approach.</p>
+
+        {loading ? (
+          <p className="services__blurb">Loading matching guidance…</p>
+        ) : empty ? (
+          <p className="services__blurb">No matches yet — try adding a place or more detail.</p>
+        ) : (
+          <>
+            <Section
+              title="Free services"
+              lead="Charities and helplines you can call first, then official guidance pages."
+              rows={freeRows}
+              variant="free"
+              onOpenSraFirm={onOpenSraFirm}
+            />
+            <Section
+              title="Solicitors"
+              lead={
+                session.locationHint
+                  ? `Regulated firms for ${session.locationHint} and your legal area — confirm they take your matter.`
+                  : 'Regulated firms from the SRA register — add a town or postcode to rank nearby first.'
+              }
+              rows={solicitorRows}
+              onOpenSraFirm={onOpenSraFirm}
+            />
+            {directoryRows.length > 0 && (
               <Section
-                title="Free help first"
-                lead={freeLead}
-                rows={freeRows}
-                variant="free"
+                title="Find more solicitors"
+                lead="Official directories if you want a wider search."
+                rows={directoryRows}
                 onOpenSraFirm={onOpenSraFirm}
               />
-              {agentDirRows.length > 0 && (
-                <Section
-                  title="Find a regulated solicitor"
-                  rows={agentDirRows}
-                  onOpenSraFirm={onOpenSraFirm}
-                />
-              )}
-              {agentSolRows.length > 0 && (
-                <Section
-                  title="SRA solicitors (after free help)"
-                  rows={agentSolRows}
-                  onOpenSraFirm={onOpenSraFirm}
-                />
-              )}
-              {!helpMatchHasLiveSra && (
-                <Section
-                  title="SRA-regulated solicitors (live register)"
-                  rows={sraRows}
-                  onOpenSraFirm={onOpenSraFirm}
-                />
-              )}
-              {!agentDirRows.length && <Section title="Official directories" rows={dirRows} />}
-              <Section title="Guidance (UK legal wiki)" rows={guidanceRows} />
-              {showSraSolicitors ? (
-                <SraAttribution className="services__sra-attribution" />
-              ) : null}
-            </>
-          )}
-        </div>
+            )}
+            {showSraSolicitors ? (
+              <SraAttribution className="services__sra-attribution" />
+            ) : null}
+
+            <Section
+              title="Things to read"
+              lead="Relevant wiki and indexed commentary for your situation."
+              rows={readingRows}
+              variant="read"
+              onOpenSraFirm={onOpenSraFirm}
+            />
+          </>
+        )}
       </div>
+
+      {pack && (
+        <p className="services__trial">
+          {pack.meta.sra?.reachable
+            ? `Live SRA register: ${pack.meta.sra.total?.toLocaleString() ?? '—'} organisations. `
+            : pack.meta.sra?.configured
+              ? 'Live SRA register temporarily unreachable — start Podman Postgres on :5433 then refresh. '
+              : 'SRA live search offline (set DATABASE_URL). '}
+          Not legal advice — verify live pages and regulation yourself.
+        </p>
+      )}
 
       <p className="services__note">
         Signposts only — verify regulation and suitability yourself. Not a recommendation ranking. Not legal
-        advice. Free help is filtered to your matter type; SRA firm cards come from the live register when
-        available.
+        advice.
       </p>
     </div>
   )

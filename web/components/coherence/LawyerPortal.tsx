@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from 'react'
 import type { SessionState } from '@/lib/coherence/types'
+import { createInitialSession } from '@/lib/coherence/sense'
 import { buildSolicitorBrief, type SolicitorBriefV0 } from '@/lib/coherence/brief'
 import type { LegalFrame } from '@/lib/coherence/frames'
 import type { LawyerSession } from '@/lib/coherence/lawyerAuth'
@@ -268,6 +269,7 @@ function ImportedBriefReview({
 
 function briefToSession(brief: SolicitorBriefV0): SessionState {
   return {
+    ...createInitialSession(),
     rawInputs: [brief.matter_summary_plain || brief.client_goal.stated],
     events: brief.timeline.map((t, i) => ({
       id: `t-${i}`,

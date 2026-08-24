@@ -36,7 +36,7 @@ export const OSLAW_FEATURED_TOOLS: OslawFeaturedTool[] = [
     detail:
       'Interactive open tool — starts with where you bought the car (trader or private seller) and branches to the remedies that usually apply. Often clearer than reading static pages alone.',
     url: 'https://www.citizensadvice.org.uk/decision-trees/problem-with-a-used-car/',
-    when: /\bcar\b|vehicle|dealer|garage|mot\b|battery|fault codes?|used car|motor/i,
+    when: /\bcar\b(?!\s*park)|(?:used car)|(?:\bvehicle\b)|dealer|garage|mot\b|battery|fault codes?|motor\b/i,
   },
 ]
 
@@ -48,7 +48,7 @@ export const OSLAW_PLAYBOOKS: Record<string, PlaybookStepDef[]> = {
       label: 'Run the Citizens Advice used-car decision tree',
       detail:
         'This open interactive tool asks where you bought the car (trader vs private seller) and walks you through repair, rejection, and refund options step by step. Use it first for vehicle disputes.',
-      when: /\bcar\b|vehicle|dealer|garage|mot\b|battery|fault codes?|used car/i,
+      when: /\bcar\b(?!\s*park)|(?:used car)|(?:\bvehicle\b)|dealer|garage|mot\b|battery|fault codes?/i,
       fixedUrl: 'https://www.citizensadvice.org.uk/decision-trees/problem-with-a-used-car/',
       fixedTitle: 'CAB decision tree — Problem with a used car',
     },
@@ -64,7 +64,7 @@ export const OSLAW_PLAYBOOKS: Record<string, PlaybookStepDef[]> = {
       detail:
         'Alongside the decision tree, this page summarises when you may have a right to repair, repair costs, or money back — and common exceptions (told about the fault, wear and tear, you caused it).',
       prefer: /problems-with-a-used-car|problem-with-a-used-car/,
-      when: /\bcar\b|vehicle|dealer|garage|mot\b|battery|fault codes?/i,
+      when: /\bcar\b(?!\s*park)|(?:used car)|(?:\bvehicle\b)|dealer|garage|mot\b|battery|fault codes?/i,
       avoid: /energy|boiler|insulation|meter|decision-trees/,
       fixedUrl: 'https://www.citizensadvice.org.uk/consumer/buying-or-repairing-a-car/problems-with-a-used-car/',
       fixedTitle: 'Problem with a used car — Citizens Advice',
@@ -76,7 +76,7 @@ export const OSLAW_PLAYBOOKS: Record<string, PlaybookStepDef[]> = {
         'Open guidance covers repair, replacement, and short-term rejection rights under consumer law — use it to see which remedies usually apply.',
       prefer: /buying-or-repairing-a-car\/?$|\/faulty-goods|not-as-described|somethings-gone-wrong-with-a-purchase\/?$/,
       avoid: /energy|boiler|insulation|meter|warranty|guarantee|template-letters|letter-to-complain|decision-trees/,
-      when: /^(?!.*\b(car|vehicle|dealer|garage|battery|mot)\b).*/is, // non-car only — car uses pages above
+      when: /^(?![\s\S]*\b(car|vehicle|dealer|garage|battery|mot)\b)[\s\S]*/i, // non-car only — car uses pages above
     },
     {
       id: 'warranty',
@@ -92,7 +92,7 @@ export const OSLAW_PLAYBOOKS: Record<string, PlaybookStepDef[]> = {
       detail:
         'Covers used cars, failed repairs, hire purchase, approved garages, and motor-trade associations.',
       prefer: /buying-or-repairing-a-car\/?$/,
-      when: /\bcar\b|vehicle|dealer|garage|mot\b|battery|fault codes?/i,
+      when: /\bcar\b(?!\s*park)|(?:used car)|(?:\bvehicle\b)|dealer|garage|mot\b|battery|fault codes?/i,
       avoid: /energy|boiler|insulation|meter|decision-trees/,
     },
     {
@@ -109,7 +109,7 @@ export const OSLAW_PLAYBOOKS: Record<string, PlaybookStepDef[]> = {
       detail:
         'If the garage or dealer is in a trade body, open guidance explains how that complaints route works.',
       prefer: /motor-industry|motor-trade|approved-garage/,
-      when: /\bcar\b|vehicle|dealer|garage|mot\b|battery/i,
+      when: /\bcar\b(?!\s*park)|(?:used car)|(?:\bvehicle\b)|dealer|garage|mot\b|battery/i,
     },
     {
       id: 'escalate',

@@ -46,6 +46,81 @@ function looksMotoring(t: string): boolean {
   )
 }
 
+/** Private / council parking charges — not criminal “charge”, not used-car goods. */
+function looksParking(t: string): boolean {
+  return /\b(car\s*park|parking|pcn|popla|parking (?:fine|ticket|charge)|private parking|penalty charge)\b/i.test(
+    t,
+  )
+}
+
+/** Insurer / medical policy disputes — not workplace “policy” or employment. */
+function looksInsurance(t: string): boolean {
+  if (/\b(insurer|insurance (?:company|claim|policy)|private medical|bupa|axa)\b/i.test(t)) return true
+  return (
+    /\b(insurance|policy)\b/i.test(t) &&
+    /\b(operation|hospital|won'?t pay|approved|claim|cover(?:age)?|treatment)\b/i.test(t)
+  )
+}
+
+/** Event tickets / festivals — consumer, not debt. */
+function looksEventTicket(t: string): boolean {
+  return /\b(festival|concert|day ticket|ticket holders?|advertised artists?|\bgig\b|venue)\b/i.test(t)
+}
+
+/**
+ * Disability / access (travel, wheelchairs) — not employment just because “employed as…”.
+ * Workplace disability discrimination still goes through looksEmployment.
+ */
+function looksDisabilityAccess(t: string): boolean {
+  const access =
+    /\b(wheelchair|disabled|disability|blue badge|accessibility|stranded|assistance dog)\b/i.test(t) ||
+    (/\bairport\b/i.test(t) && /\b(access|assistance|check-?in|wheelchair)\b/i.test(t))
+  if (!access) return false
+  if (
+    /\b(dismiss|sacked|fired|redundan|holiday hours|holiday pay|unpaid wages|grievance|tribunal)\b/i.test(
+      t,
+    )
+  ) {
+    return false
+  }
+  return true
+}
+
+/**
+ * Workplace disputes — including manager + hours / medical / holiday without “dismiss”.
+ * Does not fire on bare “employed as…” or insurance “policy”.
+ */
+function looksEmployment(t: string): boolean {
+  if (looksInsurance(t) || looksEventTicket(t) || looksParking(t)) return false
+  if (looksDisabilityAccess(t)) return false
+
+  if (
+    /\b(employer|dismiss(?:ed|al)?|fired|sacked|redundan|employment tribunal|unfair dismiss|constructive dismiss|hasn'?t paid my (?:wage|pay)|unpaid (?:wage|overtime)|acas)\b/i.test(
+      t,
+    )
+  ) {
+    return true
+  }
+
+  const workplaceActor =
+    /\b(manager|supervisor|boss|line manager|\bhr\b|my (?:job|work|shift)|at work|at my work)\b/i.test(t)
+  const workplaceIssue =
+    /\b(holiday (?:hours|pay|entitlement)|annual leave|shift(?:s)?|overtime|drs?\.? appointment|gp appointment|medical appointment|drinking water|work(?:ing)? hours|hours this year|work up or repay|clock(?:ing)? (?:in|out))\b/i.test(
+      t,
+    )
+  if (workplaceActor && workplaceIssue) return true
+
+  // Holiday hours / repay without naming a manager (common Reddit phrasing)
+  if (
+    /\b(holiday hours|holiday pay|annual leave)\b/i.test(t) &&
+    /\b(company|shift|employer|repay|work up)\b/i.test(t)
+  ) {
+    return true
+  }
+
+  return false
+}
+
 function detectMatter(text: string): MatterType {
   const t = text.toLowerCase()
   if (/conveyanc|solicitor.*(buy|sell|purchase)|buying a (flat|house)|stamp duty/.test(t))
@@ -56,23 +131,23 @@ function detectMatter(text: string): MatterType {
   // Housing neighbour / access before consumer (carport ≠ used-car goods)
   if (looksHousing(t) && !/dealer|fault codes?|reject(?:ing)? (?:the )?car|board computer/.test(t))
     return 'housing'
+  // Parking / PCN before crime — "parking charge" must not become criminal
+  if (looksParking(t)) return 'consumer'
   // Motoring / disqualification before consumer (bare \"car\" must not flip to goods)
   if (looksMotoring(t)) return 'crime'
+  // Insurance / tickets / disability access before employment keyword bleed
+  if (looksInsurance(t) || looksEventTicket(t) || looksDisabilityAccess(t)) return 'consumer'
   // Consumer before housing: vehicle/goods purchase stories must not flip on substring \"rent\"
   if (looksConsumer(t) && !looksHousing(t)) return 'consumer'
   if (looksHousing(t)) return 'housing'
-  if (
-    /employer|dismiss|fired|sacked|redundan|tribunal|wages|unfair dismiss|constructive dismiss|hasn'?t paid my (wage|pay)/.test(
-      t,
-    )
-  )
-    return 'employment'
+  if (looksEmployment(t)) return 'employment'
   if (/divorce|custody|child arrangement|child contact|domestic|partner left|care order/.test(t))
     return 'family'
   if (/debt|bailiff|ccj|creditor|owed|owe money|county court judgment|enforcement/.test(t))
     return 'debt'
   if (looksConsumer(t)) return 'consumer'
   if (
+    !looksParking(t) &&
     /sentenc|magistrates|arrest|charg(?:ed|e)|bail|police station|criminal|offence|cps|witness statement|victim of crime|fraud|theft|assault|driving ban|disqualif|motoring/.test(
       t,
     )
@@ -100,19 +175,23 @@ function detectMode(text: string, matter: MatterType): Mode {
 
 function detectJurisdiction(text: string): { jurisdiction: Jurisdiction; locationHint: string } {
   const t = text.toLowerCase()
-  let locationHint = ''
-  const city =
+  const place =
     text.match(
-      /\b(London|Leeds|Manchester|Birmingham|Glasgow|Edinburgh|Belfast|Cardiff|Bristol|Liverpool|Sheffield|Newcastle|Oxford|Cambridge|Nottingham|Leicester|Coventry|Brighton|York)\b/i,
+      /\b(Cornwall|Devon|Dorset|Somerset|Kent|Surrey|Essex|Sussex|Hampshire|Wiltshire|Norfolk|Suffolk|Cumbria|Yorkshire|Lancashire|Cheshire|Derbyshire|Nottinghamshire|Lincolnshire|Oxfordshire|Cambridgeshire|Warwickshire|Gloucestershire|Herefordshire|Worcestershire|Shropshire|Staffordshire|Northumberland|Durham|Berkshire|Buckinghamshire|Hertfordshire|Bedfordshire|Leicestershire|Northamptonshire|Rutland|London|Leeds|Manchester|Birmingham|Glasgow|Edinburgh|Belfast|Cardiff|Bristol|Liverpool|Sheffield|Newcastle|Oxford|Cambridge|Nottingham|Leicester|Coventry|Brighton|York|Plymouth|Truro|Exeter|Bath|Swindon|Reading|Milton Keynes|Southampton|Portsmouth|Norwich|Ipswich|Hull)\b/i,
     )?.[1] ?? ''
-  if (city) locationHint = city
+  const inPlace =
+    text.match(/\bin\s+([A-Z][a-z]{2,}(?:\s+[A-Z][a-z]{2,})?),\s*(?:England|Wales|Scotland)\b/)?.[1] ?? ''
+  const locationHint = place || inPlace || ''
 
-  if (/northern ireland|\bni\b|belfast/.test(t))
+  if (/northern ireland|\bn\.?i\.?\b|belfast/.test(t))
     return { jurisdiction: 'NorthernIreland', locationHint: locationHint || 'Northern Ireland' }
   if (/scotland|glasgow|edinburgh|sheriff court/.test(t))
     return { jurisdiction: 'Scotland', locationHint: locationHint || 'Scotland' }
-  if (/england|wales|london|leeds|manchester|birmingham|cardiff/.test(t) || city)
-    return { jurisdiction: 'EnglandWales', locationHint: locationHint || city }
+  if (
+    /england|wales|london|leeds|manchester|birmingham|cardiff|cornwall|devon/.test(t) ||
+    locationHint
+  )
+    return { jurisdiction: 'EnglandWales', locationHint }
 
   return { jurisdiction: 'Unknown', locationHint }
 }
@@ -136,6 +215,20 @@ export function createInitialSession(): SessionState {
     briefUnderstanding: '',
     clientQuestion: '',
     topicId: '',
+    confirmedSearchQuery: '',
+    reformulationOutcome: 'none',
+    styleTranslatedQuery: '',
+    searchContextTokens: [],
+    searchIntent: 'unknown',
+    abPrimaryMetric: 'unset',
+    confirmedUserRole: 'unset',
+    ukTaxonomyL1: '',
+    ukTaxonomyL2: '',
+    ukTaxonomyPackId: '',
+    ukTaxonomyConfidence: 0,
+    authorityAnswers: [],
+    authorityHits: [],
+    authorityAuditOk: false,
   }
 }
 
@@ -272,6 +365,10 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
     jurisdiction,
     locationHint,
     mode: mode === 'unknown' ? prev.mode : mode,
+    taxonomySlug:
+      looksParking(`${prev.whatHappened} ${text} ${prev.rawInputs.join(' ')}`)
+        ? 'parking_pcn'
+        : prev.taxonomySlug,
     softFlags,
     safetyRisk,
   }

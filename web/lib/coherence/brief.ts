@@ -87,35 +87,91 @@ export function isReadyForSolicitor(session: SessionState, progress: number): bo
   return true
 }
 
-function buildSituationSummary(session: SessionState): string {
-  const situationParts: string[] = [
-    'This client was recommended by LegalShaman.com (signposting only — not a referral for paid work, and not legal advice).',
+export function placeForSummary(session: SessionState): string {
+  const hint = (session.locationHint || '').trim()
+  if (hint) return hint
+  const blob = [
+    ...session.rawInputs,
+    session.whatHappened,
+    session.goal,
+    session.confirmedSearchQuery,
   ]
-  if (session.matterType !== 'unknown') {
-    situationParts.push(`This appears to concern ${matterLabel(session.matterType).toLowerCase()}.`)
+    .join(' ')
+    .trim()
+  const named =
+    blob.match(
+      /\b(Cornwall|Devon|Dorset|Somerset|Kent|Surrey|Essex|Sussex|Hampshire|Wiltshire|Norfolk|Suffolk|Cumbria|Yorkshire|Lancashire|London|Manchester|Birmingham|Leeds|Bristol|Liverpool|Glasgow|Edinburgh|Belfast|Cardiff|Plymouth|Truro|Exeter)\b/i,
+    )?.[1] ?? ''
+  const inEngland =
+    blob.match(/\bin\s+([A-Z][a-z]{2,}(?:\s+[A-Z][a-z]{2,})?),\s*(?:England|Wales|Scotland)\b/)?.[1] ??
+    ''
+  return named || inEngland || ''
+}
+
+function compactGist(session: SessionState): string {
+  const text = (session.whatHappened.trim() || session.rawInputs.find((r) => r.trim().length >= 8) || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (!text) return ''
+
+  const parking =
+    session.taxonomySlug === 'parking_pcn' ||
+    /\b(car\s*park|parking|pcn|popla|parking (?:fine|ticket|charge)|private parking)\b/i.test(text)
+  if (parking) {
+    const bits: string[] = []
+    if (/ticket machines? were broken|machines were broken/i.test(text)) bits.push('ticket machines were broken')
+    if (/app/.test(text) && /(failed|circles|unable|struggled)/i.test(text)) bits.push('could not pay on the parking app')
+    if (/fine|pcn|parking charge|£\d+/i.test(text)) bits.push('a parking charge followed')
+    if (/appeal/.test(text) && /denied|refused|rejected|nope/i.test(text)) bits.push('the operator appeal was refused')
+    if (/\bpopla\b/i.test(text) && /denied|refused|rejected|shouldn|too long/i.test(text))
+      bits.push('POPLA also refused')
+    if (bits.length) {
+      const lead = bits[0].charAt(0).toUpperCase() + bits[0].slice(1)
+      return `${lead}${bits.length > 1 ? `; ${bits.slice(1).join('; ')}` : ''}.`
+    }
   }
-  if (session.whatHappened) {
-    situationParts.push(`What happened (client narrative): ${session.whatHappened}`)
-  } else if (session.events.length) {
-    situationParts.push(`Key events reported: ${session.events.map((e) => e.label).join('; ')}.`)
-  } else if (session.rawInputs[0]) {
-    situationParts.push(`Client’s opening account: “${session.rawInputs[0]}”.`)
+
+  const first = text.split(/(?<=[.!?])\s+/)[0]?.trim() || text
+  if (first.length <= 180) return first.endsWith('.') ? first : `${first}.`
+  return `${first.slice(0, 177).replace(/\s+\S*$/, '')}…`
+}
+
+function buildSituationSummary(session: SessionState): string {
+  const bullets: string[] = []
+  const place = placeForSummary(session)
+  const nation = {
+    EnglandWales: 'England & Wales',
+    Scotland: 'Scotland',
+    NorthernIreland: 'Northern Ireland',
+    Unknown: '',
+  }[session.jurisdiction]
+
+  const area =
+    session.taxonomySlug === 'parking_pcn' ? 'Parking / PCN' : matterLabel(session.matterType)
+  const where = [place, nation].filter(Boolean).join(', ')
+  if (session.matterType !== 'unknown' || session.taxonomySlug === 'parking_pcn') {
+    bullets.push(where ? `${area} in ${where}.` : `${area}.`)
+  } else if (where) {
+    bullets.push(`Location: ${where}.`)
   }
-  if (session.howCaused) {
-    situationParts.push(`How the client says it was caused: ${session.howCaused}`)
+
+  const gist = compactGist(session)
+  if (gist) bullets.push(gist)
+
+  if (session.howCaused.trim()) {
+    bullets.push(`How it was caused: ${session.howCaused.trim()}`)
   }
   if (session.parties.length) {
-    situationParts.push(`People / bodies mentioned: ${session.parties.map((p) => p.label).join(', ')}.`)
+    bullets.push(`People / bodies mentioned: ${session.parties.map((p) => p.label).join(', ')}.`)
   }
   if (session.softFlags.includes('character_concern_raised')) {
-    situationParts.push(
-      'Client raised a character / suitability concern (client-stated — not a finding).',
-    )
+    bullets.push('Client raised a character / suitability concern (client-stated — not a finding).')
   }
   if (session.safetyRisk) {
-    situationParts.push('Safety / urgency flag was raised during intake — check urgently.')
+    bullets.push('Safety / urgency flag was raised during intake — check urgently.')
   }
-  return situationParts.join(' ') || 'Insufficient detail captured yet.'
+
+  return bullets.map((b) => `• ${b}`).join('\n') || '• Insufficient detail captured yet.'
 }
 
 function buildIssues(frames: LegalFrame[]): LawyerBrief['issues'] {
@@ -188,7 +244,7 @@ export function buildLawyerBrief(
     title: 'Notes for your Lawyer',
     createdAt: new Date().toISOString(),
     situationSummary: buildSituationSummary(session),
-    instructionsForLawyer: instructions.join(' '),
+    instructionsForLawyer: instructions.map((line) => `• ${line}`).join('\n'),
     desiredOutcome: session.goal || 'Not yet stated by the client.',
     timeline,
     parties: session.parties.map((p) => (p.role ? `${p.label} (${p.role})` : p.label)),

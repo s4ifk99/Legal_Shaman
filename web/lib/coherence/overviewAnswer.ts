@@ -272,7 +272,7 @@ function toPackage(
       "Signposting from the Legal Shaman wiki — not legal advice. Free help first.",
     citation: { ok: true, issues: [] },
     ...( { origin } as object ),
-  } as AnswerPackage & { origin: string };
+  } as unknown as AnswerPackage & { origin: string };
 }
 
 /**

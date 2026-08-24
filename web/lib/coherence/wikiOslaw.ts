@@ -9,6 +9,7 @@ import { OSLAW_GENERIC_PLAYBOOK, OSLAW_PLAYBOOKS } from './oslawPlaybooks'
 import type { SourceSnippet } from './oslawSummary'
 import type { OslawCourseStep, WikiCatalogue, WikiDomainId, WikiPage } from './wiki'
 import { tidySentence } from './timelineExtract'
+import { buildRetrievalText } from './retrievalText'
 
 export type OslawRightsBullet = {
   text: string
@@ -39,23 +40,42 @@ export type WikiToolPage = WikiPage & {
 }
 
 function sessionText(session: SessionState): string {
-  return [
-    ...session.rawInputs,
-    session.whatHappened,
-    session.howCaused,
-    session.goal,
-    ...session.events.map((e) => e.label),
-    ...session.documents,
-    session.matterType,
-  ]
-    .join(' ')
-    .toLowerCase()
+  return buildRetrievalText(session)
+}
+
+/** Private parking / PCN stories — must not trigger used-car tools (\bcar\b matches "car park"). */
+export function isPrivateParkingStory(text: string): boolean {
+  return /\b(parking|car\s*park|pcn|popla|private parking|parking charge|parking fine|parking ticket|parking app|parking company)\b/i.test(
+    text,
+  )
+}
+
+export function isUsedCarPurchaseStory(text: string): boolean {
+  const purchase =
+    /\b(used car|bought .{0,24}(?:car|vehicle)|dealer|garage|mot\b|fault codes?|motor vehicle)\b/i.test(
+      text,
+    )
+  if (isPrivateParkingStory(text) && !purchase) return false
+  return purchase
+}
+
+function looksLikeUsedCarWhen(when: string): boolean {
+  return /\\bcar\\b|used car|vehicle|dealer|garage|mot\\b|fault codes?|motor/i.test(when)
 }
 
 function stepMatchesWhen(when: string | undefined, text: string): boolean {
   if (!when) return true
   try {
-    return new RegExp(when, 'is').test(text)
+    if (!new RegExp(when, 'is').test(text)) return false
+    // Guard: parking stories must not activate used-car step filters
+    if (
+      isPrivateParkingStory(text) &&
+      !isUsedCarPurchaseStory(text) &&
+      looksLikeUsedCarWhen(when)
+    ) {
+      return false
+    }
+    return true
   } catch {
     return true
   }
@@ -194,6 +214,14 @@ function synthesizeFromPlaybook(
 
   for (const def of playbook) {
     if (def.when && !def.when.test(text)) continue
+    if (
+      isPrivateParkingStory(text) &&
+      !isUsedCarPurchaseStory(text) &&
+      def.when &&
+      looksLikeUsedCarWhen(def.when.source)
+    ) {
+      continue
+    }
 
     let pick: RankedSource | undefined
     if (def.fixedUrl) {
@@ -241,7 +269,15 @@ export function featuredToolsFromWiki(
       const when = t.toolMeta?.when
       if (!when) return true
       try {
-        return new RegExp(when, 'i').test(text)
+        if (!new RegExp(when, 'i').test(text)) return false
+        if (
+          isPrivateParkingStory(text) &&
+          !isUsedCarPurchaseStory(text) &&
+          looksLikeUsedCarWhen(when)
+        ) {
+          return false
+        }
+        return true
       } catch {
         return true
       }
@@ -262,7 +298,15 @@ export function featuredToolsFromWiki(
       const when = t.toolMeta?.when
       if (!when) return true
       try {
-        return new RegExp(when, 'i').test(text)
+        if (!new RegExp(when, 'i').test(text)) return false
+        if (
+          isPrivateParkingStory(text) &&
+          !isUsedCarPurchaseStory(text) &&
+          looksLikeUsedCarWhen(when)
+        ) {
+          return false
+        }
+        return true
       } catch {
         return true
       }

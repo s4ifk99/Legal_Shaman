@@ -1,0 +1,717 @@
+{
+  "meta": {
+    "note": "Curated UK authority seeds. Matching uses word-boundary/phrase rules (authorityMatch.ts). Exa R&D refresh only via exa_authority_rd.py.",
+    "updated": "2026-08-21",
+    "papers": [
+      "EXCISE arXiv:2608.05497 — query-side exclusion / FP demotion",
+      "Rhetorical-role BM25 hybrid arXiv:2608.06828 — exact lexical keys",
+      "Lawyer LLaMA — filter weak retrieved knowledge",
+      "Quality gaps Exa 20260820 — CIS / unpaid wages / address identity seeds",
+      "GuRE / GLIER Exa 20260821 — rewrite before retrieve + empty-gap seeds"
+    ]
+  },
+  "pages": [
+    {
+      "id": "gov-parking-challenge",
+      "title": "Challenge a parking fine — GOV.UK",
+      "url": "https://www.gov.uk/parking-tickets",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["parking fine", "parking ticket", "pcn", "penalty charge", "parking eye", "challenge a parking"],
+      "requireAny": ["parking", "pcn", "penalty charge"],
+      "excludeIf": ["litter", "cigarette", "gym membership", "care home"]
+    },
+    {
+      "id": "gov-jury-service",
+      "title": "Jury service — GOV.UK",
+      "url": "https://www.gov.uk/jury-service",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["jury duty", "jury service", "jury summons", "forgot jury", "jury"],
+      "requireAny": ["jury"]
+    },
+    {
+      "id": "ca-gym-cancel",
+      "title": "Cancelling a gym membership — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/consumer/holiday-cancellations-and-compensation/cancelling-a-gym-membership/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": ["gym membership", "cancel gym", "gym", "fitness membership", "cancel membership", "cancel my membership", "membership subscription"],
+      "requireAny": ["gym", "fitness"]
+    },
+    {
+      "id": "ca-care-home-fees",
+      "title": "Paying for care — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/family/help-for-adults-in-need-of-care/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": ["care home", "care fees", "social care", "nursing home", "granny"],
+      "requireAny": ["care home", "care fees", "nursing home", "social care", "granny"]
+    },
+    {
+      "id": "gov-divorce-money",
+      "title": "Money and property when you divorce — GOV.UK",
+      "url": "https://www.gov.uk/money-property-when-relationship-ends",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["divorce", "financial remedy", "ancillary relief", "pension sharing", "separating"],
+      "requireAny": ["divorce", "financial remedy", "ancillary", "separating", "pension"]
+    },
+    {
+      "id": "gov-iva",
+      "title": "Individual Voluntary Arrangements (IVAs) — GOV.UK",
+      "url": "https://www.gov.uk/options-for-paying-off-your-debts/individual-voluntary-arrangements",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["iva", "individual voluntary arrangement", "debt advisor", "insolvency practitioner"],
+      "requireAny": ["iva", "individual voluntary", "insolvency"]
+    },
+    {
+      "id": "moneyhelper-iva",
+      "title": "IVAs explained — MoneyHelper",
+      "url": "https://www.moneyhelper.org.uk/en/money-troubles/dealing-with-debt/individual-voluntary-arrangements",
+      "domain": "moneyhelper.org.uk",
+      "tier": "tertiary",
+      "keywords": ["iva", "individual voluntary arrangement", "voluntary arrangement"],
+      "requireAny": ["iva", "voluntary arrangement"]
+    },
+    {
+      "id": "acas-pip",
+      "title": "Performance improvement plans — ACAS",
+      "url": "https://www.acas.org.uk/performance-management",
+      "domain": "acas.org.uk",
+      "tier": "secondary",
+      "keywords": ["performance improvement", "performance management", "capability procedure", "placed on pip", "on a pip"],
+      "requireAny": ["pip", "performance improvement", "capability"]
+    },
+    {
+      "id": "acas-settlement",
+      "title": "Settlement agreements — ACAS",
+      "url": "https://www.acas.org.uk/settlement-agreements",
+      "domain": "acas.org.uk",
+      "tier": "secondary",
+      "keywords": ["settlement agreement", "compromise agreement", "mutual termination"],
+      "requireAny": ["settlement agreement", "compromise agreement"]
+    },
+    {
+      "id": "gov-nfa-victims",
+      "title": "Victims: what to expect from the police — GOV.UK",
+      "url": "https://www.gov.uk/guidance/victims-code",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["no further action", "victims code", "nfa", "police complaint"],
+      "requireAny": ["nfa", "no further action", "victims code", "police complaint"],
+      "excludeIf": ["parking fine", "parking ticket", "pcn"]
+    },
+    {
+      "id": "ca-airline",
+      "title": "Flight delays and cancellations — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/consumer/holiday-cancellations-and-compensation/if-your-flight-is-delayed-or-cancelled/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": ["airline", "flight delayed", "flight cancelled", "aviation", "refund flight"],
+      "requireAny": ["airline", "flight"]
+    },
+    {
+      "id": "gov-auction-property",
+      "title": "Buying a home — GOV.UK",
+      "url": "https://www.gov.uk/buy-sell-your-home",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["property auction", "buying at auction", "buying on auction", "misled into buying", "mislead into buying", "auction", "conveyancing"],
+      "requireAny": ["auction", "conveyancing", "buying a home", "buy a house"]
+    },
+    {
+      "id": "ca-neighbour-parking",
+      "title": "Problems with neighbours — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/housing/problems-where-you-live/if-youre-having-problems-with-your-neighbours/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": ["neighbour", "neighbors", "neighbour dispute", "driveway", "blocked driveway"],
+      "requireAny": ["neighbour", "neighbors", "neighbourhood"],
+      "excludeIf": ["parking eye", "parking fine", "pcn", "penalty charge"]
+    },
+    {
+      "id": "leg-cra",
+      "title": "Consumer Rights Act 2015 — legislation.gov.uk",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/contents",
+      "domain": "legislation.gov.uk",
+      "tier": "primary",
+      "keywords": ["consumer rights", "faulty goods", "not as described", "warranty", "trader", "garage", "used car", "faulty car"],
+      "requireAny": ["consumer rights", "faulty", "warranty", "trader", "refund", "not as described", "garage", "dealer"],
+      "excludeIf": ["care home", "tenancy", "landlord", "pip", "jury", "parking fine"]
+    },
+    {
+      "id": "gov-deposit-protection",
+      "title": "Tenancy deposit protection — GOV.UK",
+      "url": "https://www.gov.uk/tenancy-deposit-protection",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["tenancy deposit", "deposit protection", "unprotected deposit", "mydeposits", "deposit scheme"],
+      "requireAny": ["deposit", "tenancy"]
+    },
+    {
+      "id": "gov-eviction",
+      "title": "Evicting tenants — GOV.UK",
+      "url": "https://www.gov.uk/evicting-tenants",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["eviction", "section 21", "section 8", "possession order", "evict"],
+      "requireAny": ["evict", "section 21", "section 8", "possession"]
+    },
+    {
+      "id": "gov-police-property",
+      "title": "Getting property back from the police — GOV.UK",
+      "url": "https://www.gov.uk/guidance/ask-for-your-property-back",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["property back from the police", "confiscated", "seized by police", "e-bike", "ask for your property"],
+      "requireAny": ["confiscated", "seized", "police", "e-bike", "e bike"]
+    },
+    {
+      "id": "gov-mortgage-help",
+      "title": "Get help if you can't pay your mortgage — GOV.UK",
+      "url": "https://www.gov.uk/mortgage-debt",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["mortgage", "repossession", "mortgage shortfall", "can't pay mortgage"],
+      "requireAny": ["mortgage", "repossession"]
+    },
+    {
+      "id": "gov-probate",
+      "title": "Wills, probate and inheritance — GOV.UK",
+      "url": "https://www.gov.uk/wills-probate-inheritance",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["probate", "inheritance", "will and testament", "parents died", "estate"],
+      "requireAny": ["probate", "inheritance", "will and testament", "parents died"]
+    },
+    {
+      "id": "acas-dismissal",
+      "title": "Dismissals — ACAS",
+      "url": "https://www.acas.org.uk/dismissals",
+      "domain": "acas.org.uk",
+      "tier": "secondary",
+      "keywords": ["unfair dismissal", "sacked", "dismissed", "redundancy"],
+      "requireAny": ["sacked", "dismiss", "redundancy", "fired"]
+    },
+    {
+      "id": "ico-data",
+      "title": "Your data protection rights — ICO",
+      "url": "https://ico.org.uk/for-the-public/",
+      "domain": "ico.org.uk",
+      "tier": "secondary",
+      "keywords": ["data protection", "gdpr", "personal data", "subject access", "privacy"],
+      "requireAny": ["data protection", "gdpr", "personal data", "subject access", "privacy"],
+      "excludeIf": ["parking fine", "pcn"]
+    },
+    {
+      "id": "sra-find",
+      "title": "Find a solicitor — SRA",
+      "url": "https://www.sra.org.uk/consumers/find-solicitor/",
+      "domain": "sra.org.uk",
+      "tier": "secondary",
+      "keywords": ["find a solicitor", "find lawyer", "regulated solicitor"],
+      "requireAny": ["solicitor", "find lawyer", "regulated adviser"]
+    },
+    {
+      "id": "gov-box-junction",
+      "title": "Parking and traffic tickets — GOV.UK",
+      "url": "https://www.gov.uk/parking-tickets",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["box junction", "traffic ticket", "pcn traffic", "yellow box"],
+      "requireAny": ["box junction", "traffic ticket", "yellow box"]
+    },
+    {
+      "id": "ca-consumer-services",
+      "title": "Faulty goods and services — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/consumer/something-youve-bought-isnt-right/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": ["faulty goods", "not as described", "therapy bill", "insurer declined", "something youve bought"],
+      "requireAny": ["faulty", "not as described", "refund", "trader", "therapy", "insurer"]
+    },
+    {
+      "id": "gov-child-arrangements",
+      "title": "Making child arrangements — GOV.UK",
+      "url": "https://www.gov.uk/looking-after-children-divorce",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["child arrangements", "custody", "contact order", "children services", "accused of punching"],
+      "requireAny": ["child arrangements", "custody", "contact order", "children services", "accused"],
+      "excludeIf": ["parking", "gym", "school won't", "pulled out of school"]
+    },
+    {
+      "id": "ca-tenancy-agreement",
+      "title": "Understanding your tenancy agreement — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/housing/tenancy-agreements/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": ["tenancy agreement", "rental contract", "tenancy clause", "unfair term", "enforceable clause"],
+      "requireAny": ["tenancy agreement", "rental contract", "tenancy", "lease"]
+    },
+    {
+      "id": "gov-tenancy-agreements",
+      "title": "What should be in a tenancy agreement — GOV.UK",
+      "url": "https://www.gov.uk/private-renting-tenancy-agreements/what-should-be-in-a-tenancy-agreement",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["tenancy agreement", "private renting", "assured shorthold"],
+      "requireAny": ["tenancy agreement", "private renting"]
+    },
+    {
+      "id": "ca-lost-parcel",
+      "title": "Lost, damaged or delayed post or parcel — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/consumer/post-and-parcels/damaged-lost-delayed-post-or-parcel/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": ["lost parcel", "wrong parcel", "yodel", "royal mail", "damaged parcel", "courier", "parcel"],
+      "requireAny": ["parcel", "yodel", "royal mail", "courier", "delivery"],
+      "excludeIf": ["using my address", "someone using", "identity theft", "identity fraud", "personal details"]
+    },
+    {
+      "id": "gov-workplace-harassment",
+      "title": "Workplace bullying and harassment — GOV.UK",
+      "url": "https://www.gov.uk/workplace-bullying-and-harassment",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["workplace bullying", "workplace harassment", "harassment at work", "bullied at work"],
+      "requireAny": ["bullying", "harassment", "stalking", "stalker"]
+    },
+    {
+      "id": "acas-harassment",
+      "title": "Harassment at work — ACAS",
+      "url": "https://www.acas.org.uk/discrimination-and-the-law/harassment",
+      "domain": "acas.org.uk",
+      "tier": "secondary",
+      "keywords": ["harassment at work", "workplace harassment", "colleague harassment", "discrimination at work"],
+      "requireAny": ["harassment", "bullying", "discrimination", "discriminated"]
+    },
+    {
+      "id": "gov-cis-subcontractor-pay",
+      "title": "CIS subcontractor: get paid — GOV.UK",
+      "url": "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/get-paid",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": [
+        "cis",
+        "construction industry scheme",
+        "cis subcontractor",
+        "cis unpaid",
+        "haven't been paid",
+        "agency contractor",
+        "working through agencies",
+        "subcontractor unpaid"
+      ],
+      "requireAny": ["cis", "construction industry", "subcontractor"],
+      "excludeIf": ["divorce", "leasehold", "parking"]
+    },
+    {
+      "id": "gov-cis-contractor-pay",
+      "title": "CIS contractor: make deductions and pay subcontractors — GOV.UK",
+      "url": "https://www.gov.uk/what-you-must-do-as-a-cis-contractor/make-deductions-and-pay-subcontractors",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": [
+        "cis contractor",
+        "pay subcontractors",
+        "cis deductions",
+        "construction industry scheme",
+        "cis"
+      ],
+      "requireAny": ["cis", "subcontractor", "construction industry"]
+    },
+    {
+      "id": "acas-wages-not-paid",
+      "title": "If wages are not paid — ACAS",
+      "url": "https://www.acas.org.uk/if-your-wages-are-not-paid",
+      "domain": "acas.org.uk",
+      "tier": "secondary",
+      "keywords": [
+        "wages not paid",
+        "haven't been paid",
+        "unpaid wages",
+        "checking your wages",
+        "employer won't pay",
+        "lost earnings",
+        "not been paid"
+      ],
+      "requireAny": ["wages", "haven't been paid", "unpaid", "not been paid", "lost earnings"],
+      "excludeIf": ["cis subcontractor", "parking", "parcel"]
+    },
+    {
+      "id": "gov-employment-tribunal-claim",
+      "title": "Make a claim to an employment tribunal — GOV.UK",
+      "url": "https://www.gov.uk/employment-tribunals/make-a-claim",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": [
+        "employment tribunal",
+        "make a claim",
+        "tribunal claim",
+        "lost earnings",
+        "employers lack of support"
+      ],
+      "requireAny": ["employment tribunal", "tribunal claim", "lost earnings"],
+      "excludeIf": ["parking", "parcel", "gym"]
+    },
+    {
+      "id": "gov-pay-work-rights",
+      "title": "Pay and work rights helpline — GOV.UK",
+      "url": "https://www.gov.uk/pay-and-work-rights",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["pay and work rights", "unpaid wages", "national minimum wage", "work rights helpline"],
+      "requireAny": ["unpaid wages", "pay and work", "minimum wage", "work rights"]
+    },
+    {
+      "id": "ca-getting-paid-leave-job",
+      "title": "Getting paid when you leave a job — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/work/after-leaving-your-job/getting-paid-when-you-leave-a-job/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": ["getting paid when you leave", "final pay", "outstanding wages", "left a job unpaid"],
+      "requireAny": ["final pay", "outstanding wages", "getting paid when", "leave a job"]
+    },
+    {
+      "id": "gov-report-company-personal-details",
+      "title": "Report a company using your personal details — GOV.UK",
+      "url": "https://www.gov.uk/guidance/report-a-company-using-your-personal-details-without-your-permission",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": [
+        "using my address",
+        "someone using my address",
+        "using your personal details",
+        "company using my address",
+        "personal details without permission",
+        "address fraud"
+      ],
+      "requireAny": ["using my address", "personal details", "using your personal", "someone using my address"],
+      "excludeIf": ["yodel collected", "damaged parcel", "lost parcel"]
+    },
+    {
+      "id": "ico-identity-theft",
+      "title": "Identity theft — ICO",
+      "url": "https://ico.org.uk/for-the-public/identity-theft/",
+      "domain": "ico.org.uk",
+      "tier": "secondary",
+      "keywords": ["identity theft", "identity fraud", "stolen identity", "someone using my identity"],
+      "requireAny": ["identity theft", "identity fraud", "stolen identity"],
+      "excludeIf": ["yodel", "damaged parcel"]
+    },
+    {
+      "id": "ca-report-scam",
+      "title": "Report a scam — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/consumer/scams/reporting-a-scam/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": ["report a scam", "scam", "fraudulent", "phishing"],
+      "requireAny": ["scam", "phishing", "fraudulent"],
+      "excludeIf": ["parking fine", "pcn", "gym"]
+    },
+    {
+      "id": "gov-highway-code-police-signals",
+      "title": "The Highway Code — Signals by authorised persons — GOV.UK",
+      "url": "https://www.gov.uk/guidance/the-highway-code/signals-by-authorised-persons",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": [
+        "police controlled intersection",
+        "police signalling",
+        "police waving traffic",
+        "officer waved",
+        "signals by authorised persons",
+        "police direction",
+        "fail to comply with police",
+        "traffic from the other direction"
+      ],
+      "requireAny": [
+        "police controlled",
+        "police waving",
+        "officer waved",
+        "police signalling",
+        "authorised persons",
+        "police direction"
+      ],
+      "excludeIf": ["parking eye", "parking fine", "pcn", "gym"]
+    },
+    {
+      "id": "gov-penalty-points",
+      "title": "Endorsement codes and penalty points — GOV.UK",
+      "url": "https://www.gov.uk/penalty-points-endorsements/endorsement-codes-and-penalty-points",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": [
+        "penalty points",
+        "fine and points",
+        "endorsement codes",
+        "points with a letter",
+        "expect a fine"
+      ],
+      "requireAny": ["penalty points", "fine and points", "endorsement", "expect a fine"],
+      "excludeIf": ["parking eye", "gym membership", "care home"]
+    },
+    {
+      "id": "gov-highway-code-penalties",
+      "title": "The Highway Code — Annex 5 Penalties — GOV.UK",
+      "url": "https://www.gov.uk/guidance/the-highway-code/annex-5-penalties",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["highway code penalties", "traffic offence", "fixed penalty", "points"],
+      "requireAny": ["highway code", "fixed penalty", "traffic offence"],
+      "excludeIf": ["parking eye", "care home"]
+    },
+    {
+      "id": "gov-student-consumer-rights",
+      "title": "Consumer rights for undergraduate students — GOV.UK",
+      "url": "https://www.gov.uk/government/publications/higher-education-a-short-guide-to-consumer-rights-for-students/consumer-rights-for-undergraduate-students",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": [
+        "university",
+        "undergraduate",
+        "student rights",
+        "university asking me",
+        "come into speak",
+        "student disciplinary"
+      ],
+      "requireAny": ["university", "undergraduate", "student disciplinary", "student rights"],
+      "excludeIf": ["parking", "tenancy", "landlord"]
+    },
+    {
+      "id": "ca-education-discrimination",
+      "title": "Taking action about discrimination in education — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/family/education/taking-action-about-discrimination-in-education/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": [
+        "discrimination in education",
+        "university discrimination",
+        "education complaint",
+        "far-right facebook",
+        "facebook group renamed",
+        "facebook page got renamed",
+        "group admin"
+      ],
+      "requireAny": [
+        "discrimination in education",
+        "university discrimination",
+        "facebook group",
+        "facebook page",
+        "group renamed"
+      ],
+      "excludeIf": ["parking", "gym", "parcel"]
+    },
+    {
+      "id": "oiahe-student-complaints",
+      "title": "Office of the Independent Adjudicator for Higher Education",
+      "url": "https://www.oiahe.org.uk/",
+      "domain": "oiahe.org.uk",
+      "tier": "tertiary",
+      "keywords": [
+        "office of the independent adjudicator",
+        "oiahe",
+        "student complaint",
+        "university complaint",
+        "higher education complaint",
+        "university disciplinary"
+      ],
+      "requireAny": ["oiahe", "independent adjudicator", "student complaint", "university complaint", "university disciplinary"],
+      "excludeIf": ["parking", "parcel", "gym"]
+    },
+    {
+      "id": "justice-defamation-protocol",
+      "title": "Pre-action Protocol for Media and Communications Claims — Justice",
+      "url": "https://www.justice.gov.uk/courts/procedure-rules/civil/protocol/prot_def",
+      "domain": "justice.gov.uk",
+      "tier": "secondary",
+      "keywords": [
+        "defamation",
+        "media and communications",
+        "reputation",
+        "false association",
+        "facebook page got renamed"
+      ],
+      "requireAny": ["defamation", "reputation", "facebook page", "group renamed", "media and communications"],
+      "excludeIf": ["parking", "tenancy"]
+    },
+    {
+      "id": "leg-rta-s170",
+      "title": "Road Traffic Act 1988 s170 — duty of driver to stop / report accident",
+      "url": "https://www.legislation.gov.uk/ukpga/1988/52/section/170",
+      "domain": "legislation.gov.uk",
+      "tier": "primary",
+      "keywords": [
+        "section 170",
+        "duty to stop",
+        "duty to report",
+        "road traffic accident",
+        "hit and run",
+        "hit a parked car",
+        "left no note",
+        "reversing"
+      ],
+      "requireAny": [
+        "section 170",
+        "duty to stop",
+        "duty to report",
+        "road traffic accident",
+        "hit and run",
+        "hit a parked",
+        "left no note"
+      ],
+      "excludeIf": ["parking ticket", "pcn", "gym"]
+    },
+    {
+      "id": "gov-highway-incidents",
+      "title": "Highway Code — breakdowns and incidents (274–287) — GOV.UK",
+      "url": "https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": [
+        "breakdowns and incidents",
+        "road traffic accident",
+        "after an accident",
+        "duty to report",
+        "hit a parked car"
+      ],
+      "requireAny": ["breakdowns and incidents", "road traffic accident", "after an accident", "hit a parked"],
+      "excludeIf": ["parking ticket", "pcn"]
+    },
+    {
+      "id": "gov-vehicle-insurance",
+      "title": "Vehicle insurance — GOV.UK",
+      "url": "https://www.gov.uk/vehicle-insurance",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["vehicle insurance", "motor insurance", "car insurance", "drive without insurance"],
+      "requireAny": ["vehicle insurance", "motor insurance", "car insurance"],
+      "excludeIf": ["gym", "parking ticket"]
+    },
+    {
+      "id": "ca-neighbour-trees",
+      "title": "If you disagree with your neighbour about a tree or hedge — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/housing/problems-with-neighbours/if-you-disagree-with-your-neighbour-about-a-tree-or-hedge/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": [
+        "tree or hedge",
+        "neighbour disputes",
+        "cut down hedge",
+        "trees within my boundary",
+        "cut down by neighbour",
+        "boundary"
+      ],
+      "requireAny": ["tree or hedge", "cut down hedge", "cut down by neighbour", "trees within", "neighbour disputes"],
+      "excludeIf": ["parking", "gym"]
+    },
+    {
+      "id": "ca-neighbours",
+      "title": "Problems with neighbours — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/housing/problems-with-neighbours/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": ["problems with neighbours", "neighbour disputes", "complaining about your neighbour"],
+      "requireAny": ["problems with neighbours", "neighbour disputes", "complaining about your neighbour"],
+      "excludeIf": ["parking ticket", "pcn", "gym"]
+    },
+    {
+      "id": "acas-working-time",
+      "title": "Working time and rest — ACAS",
+      "url": "https://www.acas.org.uk/working-time-and-rest",
+      "domain": "acas.org.uk",
+      "tier": "secondary",
+      "keywords": [
+        "working time",
+        "rest breaks",
+        "working hours",
+        "designated breaks",
+        "night working",
+        "support worker"
+      ],
+      "requireAny": ["working time", "rest breaks", "working hours", "designated breaks", "night working"],
+      "excludeIf": ["parking", "gym membership"]
+    },
+    {
+      "id": "gov-night-working",
+      "title": "Night working hours — GOV.UK",
+      "url": "https://www.gov.uk/night-working-hours",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["night working", "night work", "working hours", "sleep-in"],
+      "requireAny": ["night working", "night work", "sleep-in", "sleep in"],
+      "excludeIf": ["parking"]
+    },
+    {
+      "id": "gov-nmw",
+      "title": "National Minimum Wage rates — GOV.UK",
+      "url": "https://www.gov.uk/national-minimum-wage",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["national minimum wage", "minimum wage", "nmw"],
+      "requireAny": ["national minimum wage", "minimum wage"],
+      "excludeIf": ["parking", "gym"]
+    },
+    {
+      "id": "acas-job-reference",
+      "title": "Providing a job reference — ACAS",
+      "url": "https://www.acas.org.uk/providing-a-job-reference",
+      "domain": "acas.org.uk",
+      "tier": "secondary",
+      "keywords": [
+        "providing a job reference",
+        "job reference",
+        "references",
+        "lied about previous jobs",
+        "employment checks"
+      ],
+      "requireAny": ["job reference", "providing a job reference", "references", "lied about previous", "employment checks"],
+      "excludeIf": ["parking", "gym"]
+    },
+    {
+      "id": "ca-bailiffs",
+      "title": "Bailiffs — Citizens Advice",
+      "url": "https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/bailiffs/",
+      "domain": "citizensadvice.org.uk",
+      "tier": "secondary",
+      "keywords": [
+        "bailiffs",
+        "enforcement officer",
+        "debt collection",
+        "what bailiffs can take",
+        "bailiff visit"
+      ],
+      "requireAny": ["bailiff", "enforcement officer", "debt collection"],
+      "excludeIf": ["parking ticket", "pcn"]
+    },
+    {
+      "id": "gov-court-transcript",
+      "title": "Order a transcript of court or tribunal proceedings (EX107) — GOV.UK",
+      "url": "https://www.gov.uk/government/publications/order-a-transcript-of-court-or-tribunal-proceedings-form-ex107",
+      "domain": "gov.uk",
+      "tier": "secondary",
+      "keywords": ["court transcript", "court documents", "form ex107", "old case", "charged with"],
+      "requireAny": ["court transcript", "court documents", "ex107", "old case"],
+      "excludeIf": ["parking", "gym"]
+    },
+    {
+      "id": "leg-animal-welfare",
+      "title": "Animal Welfare Act 2006 — legislation.gov.uk",
+      "url": "https://www.legislation.gov.uk/ukpga/2006/45/contents",
+      "domain": "legislation.gov.uk",
+      "tier": "primary",
+      "keywords": [
+        "animal welfare",
+        "wild animals",
+        "wildlife",
+        "veterinary",
+        "injured animal",
+        "taking wild animals to the vet"
+      ],
+      "requireAny": ["animal welfare", "wild animals", "wildlife", "injured animal", "veterinary"],
+      "excludeIf": ["parking", "gym", "tenancy"]
+    }
+  ]
+}

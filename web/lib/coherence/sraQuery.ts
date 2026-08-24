@@ -37,6 +37,9 @@ export function resolveSraSearchFlags(opts: {
   let matter = String(opts.matterType || 'unknown').toLowerCase()
 
   if (taxonomySlug === 'parking_pcn' || isPcnAppealQuery(query)) {
+    // Private / council parking is a consumer (civil) dispute on the SRA register.
+    // Do NOT set wantMotoring — the DB has almost no "Motoring" labels, and
+    // ILIKE '%Crime%' wrongly matches "Criminal" and empties/pollutes parking matches.
     return {
       matterType: 'consumer',
       query,
@@ -46,7 +49,7 @@ export function resolveSraSearchFlags(opts: {
       wantHousing: false,
       wantEmployment: false,
       wantImmigration: false,
-      wantMotoring: true,
+      wantMotoring: false,
     }
   }
   if (taxonomySlug === 'criminal_defence' || matter === 'crime') {
@@ -203,7 +206,11 @@ export function buildSraSearchPayload(
           ? true
           : undefined,
     wantMotoring:
-      session.taxonomySlug === 'parking_pcn' || session.matterType === 'crime' ? true : undefined,
+      session.taxonomySlug === 'parking_pcn'
+        ? false
+        : session.matterType === 'crime'
+          ? true
+          : undefined,
     wantImmigration:
       session.matterType === 'immigration' || frames.some((f) => f.id.startsWith('imm-'))
         ? true
@@ -221,10 +228,41 @@ export function buildSraSearchPayload(
 const RELEVANT_AREA_HINTS: Record<string, RegExp> = {
   consumer: /consumer|sale of goods|trader|commercial(?!.*corporate)/i,
   car: /consumer|motor|vehicle|litigation|dispute/i,
-  parking: /motoring|motor|crime|road traffic|\brta\b|parking|consumer|litigation|dispute/i,
+  // Prefer civil consumer / litigation over Criminal (SRA has no reliable Motoring label).
+  parking: /consumer|litigation|dispute|parking|motoring|road traffic|\brta\b/i,
   housing: /housing|landlord|tenant|property.residential|disrepair/i,
   employment: /employment|workplace|tribunal|discriminat/i,
   immigration: /immigration|asylum|nationality/i,
+}
+
+/** County / nation names → outward postcode areas for SRA geo ranking. */
+const COUNTY_OUTWARD_CODES: Record<string, string[]> = {
+  cornwall: ['TR', 'PL'],
+  devon: ['EX', 'TQ', 'PL'],
+  dorset: ['DT', 'BH'],
+  somerset: ['TA', 'BA'],
+  hampshire: ['SO', 'PO', 'GU'],
+  kent: ['CT', 'ME', 'TN', 'DA'],
+  surrey: ['GU', 'KT', 'RH', 'SM', 'TW'],
+  essex: ['CM', 'CO', 'IG', 'RM', 'SS'],
+  sussex: ['BN', 'RH', 'TN', 'PO'],
+  'east sussex': ['BN', 'TN'],
+  'west sussex': ['BN', 'PO', 'RH'],
+  wiltshire: ['SN', 'SP', 'BA'],
+  bristol: ['BS'],
+  london: ['E', 'EC', 'N', 'NW', 'SE', 'SW', 'W', 'WC'],
+}
+
+/** Outward postcode prefixes for a free-text place (county, town, or postcode area). */
+export function postcodePrefixesForLocation(hint: string): string[] {
+  const raw = (hint || '').trim()
+  if (!raw) return []
+  const lower = raw.toLowerCase()
+  for (const [county, codes] of Object.entries(COUNTY_OUTWARD_CODES)) {
+    if (lower === county || lower.includes(county)) return codes
+  }
+  const area = raw.toUpperCase().match(/\b([A-Z]{1,2}\d{1,2}[A-Z]?)\b/)?.[1]
+  return area ? [area] : []
 }
 
 /** Pick work areas to show on a firm card for this matter. */
@@ -256,7 +294,7 @@ export function relevantWorkAreas(
   const matched = areas.filter((a) => hint.test(a))
   const pool =
     taxonomySlug === 'parking_pcn' || taxonomySlug === 'consumer_vehicle_repair'
-      ? (matched.length ? matched : areas).filter((a) => !/employment/i.test(a))
+      ? (matched.length ? matched : areas).filter((a) => !/employment|criminal/i.test(a))
       : matched
   if (pool.length) return pool.slice(0, 4)
   return areas.filter((a) => !/employment/i.test(a) || matterType === 'employment').slice(0, 3)
@@ -275,12 +313,17 @@ export function sraMatchReason(
     payload.wantCar,
     payload.taxonomySlug,
   )
-  if (payload.taxonomySlug === 'parking_pcn' || payload.wantMotoring) {
-    if (areas.some((a) => /motoring|crime|road traffic|\brta\b|parking/i.test(a))) {
-      return 'Listed for Motoring / RTA work — confirm they take council PCN appeals'
-    }
+  if (payload.taxonomySlug === 'parking_pcn') {
     if (areas.some((a) => /consumer/i.test(a))) {
-      return 'Listed for Consumer / parking work — confirm they take PCN or RTA matters'
+      return 'Listed for Consumer work — confirm they take private parking / PCN disputes'
+    }
+    if (areas.some((a) => /litigation/i.test(a))) {
+      return 'Local litigation practice — confirm they take parking charge / small-claims work'
+    }
+  }
+  if (payload.wantMotoring) {
+    if (areas.some((a) => /motoring|crime|criminal|road traffic|\brta\b|parking/i.test(a))) {
+      return 'Listed for Motoring / RTA work — confirm they take driving / PCN matters'
     }
   }
   if (payload.wantCar && areas.some((a) => /consumer/i.test(a))) {

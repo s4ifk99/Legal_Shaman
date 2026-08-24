@@ -5,6 +5,8 @@ import type { LegalFrame } from './frames'
 import { proposeLegalFrames } from './frames'
 import type { KnowledgeHit } from './knowledgeTypes'
 import { matchLegalAid, type LegalAidHit } from './legalAid'
+import { matchAuthorityHelp, type AuthorityHelpHit } from './matchAuthorityHelp'
+import { matchFreeServices, type FreeServiceHit } from './matchFreeServices'
 import { matchSignposting, type SignpostHit } from './signposting'
 import { matchSraFirms, sraStatus, type SraFirmHit, type SraSearchMeta } from './sraLive'
 import {
@@ -18,12 +20,18 @@ import { matchV1Wiki, v1WikiInfo, type V1WikiHit } from './v1Wiki'
 
 export type { KnowledgeHit, WikiHit }
 export { matchImmigrationWiki, sourcesByFrame, wikiHitsToBriefSources, wikiHitsToSignposts } from './wiki'
-export type { DirectoryHit, LegalAidHit, ProbonoHit, SignpostHit, SraFirmHit, V1WikiHit }
+export type { DirectoryHit, LegalAidHit, ProbonoHit, SignpostHit, SraFirmHit, V1WikiHit, AuthorityHelpHit, FreeServiceHit }
 
 export interface HelpPack {
   phase2Wiki: KnowledgeHit[]
   v1Wiki: V1WikiHit[]
   signposts: SignpostHit[]
+  /** Dialable charities / helplines from freeServicesIndex (offline, incl. Exa fill) */
+  freeServices: FreeServiceHit[]
+  /** Offline authority index — official / trusted free resources */
+  authorityOfficial: AuthorityHelpHit[]
+  /** Offline firm commentary pages (signposting, not SRA cards) */
+  authorityFirms: AuthorityHelpHit[]
   legalAid: LegalAidHit[]
   sraFirms: SraFirmHit[]
   probono: ProbonoHit[]
@@ -130,6 +138,8 @@ export async function buildHelpPack(
 ): Promise<HelpPack> {
   const isImm = isImmigrationSession(session)
   const useWiki = hasWikiDomainSession(session) || frames.length > 0
+  const authority = matchAuthorityHelp(session, 10)
+  const freeServices = matchFreeServices(session, 10)
 
   const [
     phase2Wiki,
@@ -161,6 +171,9 @@ export async function buildHelpPack(
     phase2Wiki,
     v1Wiki,
     signposts,
+    freeServices,
+    authorityOfficial: authority.official,
+    authorityFirms: authority.firms,
     legalAid,
     sraFirms,
     probono,
