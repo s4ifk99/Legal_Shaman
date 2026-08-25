@@ -242,7 +242,12 @@ function narrativeSupportReasons(frameId: string, text: string): string[] {
     'hous-disrepair': [[/mould|mold|damp|\brepairs?\b|disrepair/, 'Disrepair / conditions language']],
     'hous-deposit': [[/deposit|\brents?\b|arrears/, 'Rent / deposit language']],
     'hous-homeless': [[/homeless|sofa|nowhere to stay/, 'Homelessness language']],
-    'hous-general': [[/landlord|tenant|housing|\brents?\b/, 'Housing language present']],
+    'hous-neighbour': [
+      [/neighbour|neighbor|driveway|parking|park(?:ed|ing)|boundary|noise|access/, 'Neighbour / access language'],
+    ],
+    'hous-general': [
+      [/\b(landlord|tenant|tenancy|section\s*21|\brents?\b)\b/, 'Landlord–tenant language present'],
+    ],
     'emp-unfair': [[/dismiss|fired|sacked|constructive/, 'Dismissal language']],
     'emp-wages': [[/wage|pay|holiday|contract|hours/, 'Pay / contract language']],
     'emp-discrim': [[/discriminat|harass|whistle/, 'Discrimination / harassment language']],
@@ -315,7 +320,7 @@ function buildGraph(
         (frame.id === 'imm-family' && /join|family|spouse|partner|child/.test(g)) ||
         (frame.id === 'imm-adviser' && /solicitor|adviser|help|lawyer/.test(g)) ||
         (frame.id === 'imm-return' && /return|come back|re-?enter/.test(g)) ||
-        (frame.id.startsWith('hous-') && /stay|home|evict|\brepairs?\b|deposit|landlord/.test(g)) ||
+        (frame.id.startsWith('hous-') && /stay|home|evict|\brepairs?\b|deposit|landlord|neighbour|neighbor|driveway|parking|stop/.test(g)) ||
         (frame.id.startsWith('emp-') && /job|pay|wage|tribunal|dismiss|reinstate/.test(g)) ||
         (frame.id.startsWith('debt-') && /stop|pay|afford|bailiff|ccj/.test(g)) ||
         (frame.id.startsWith('fam-') && /child|contact|safe|divorce|see the kids/.test(g)) ||

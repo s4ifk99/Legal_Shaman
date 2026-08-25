@@ -24,6 +24,39 @@ function looksImmigration(t: string): boolean {
   )
 }
 
+/**
+ * Neighbour / access disputes (driveway parking, boundary, noise) — still matter=housing
+ * for routing, but must not be framed as landlord–tenant.
+ */
+export function looksNeighbourDispute(text: string): boolean {
+  // Matter fork text contains "neighbour" — strip it so the fork alone cannot flip framing.
+  const t = text
+    .toLowerCase()
+    .replace(/this is mainly about housing or a neighbour dispute/gi, ' ')
+    .replace(/housing \/ neighbour/gi, ' ')
+
+  const tenancyCues =
+    /\b(landlord|tenant|tenancy|section\s*21|section\s*8|disrepair|mould|mold|\brents?\b|evict|flatmate|housemate)\b/.test(
+      t,
+    )
+  const neighbour = /\b(neighbour|neighbor)\b/.test(t)
+  const accessCue =
+    /\b(driveway|car\s*port|carport|parking|park(?:ed|ing)|boundary|fence|hedge|noise|nuisance|access|right of way|easement|blocking|party wall|extension|tree)\b/.test(
+      t,
+    )
+
+  if (neighbour && accessCue) return true
+  if (
+    /\b(driveway|shared (?:drive|access)|right of way|easement|blocking access)\b/.test(t) &&
+    !tenancyCues
+  ) {
+    return true
+  }
+  // User named a neighbour without tenancy language (not just the matter fork).
+  if (neighbour && !tenancyCues) return true
+  return false
+}
+
 /** Strong housing signals — never bare "rent" or "her house" (family disputes often say that). */
 function looksHousing(t: string): boolean {
   return /landlord|tenant|evict|lock(?:ed)?(?:\s+\w+){0,2}\s*out|mould|mold|\brents?\b|section\s*21|section\s*8|homeless|disrepair|tenancy|neighbour|neighbor|driveway|car\s*port|carport|easement|right of way|blocking access|planning permission|shared (?:drive|access)/.test(
@@ -318,6 +351,12 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
   }
 
   // Parties from narrative
+  if (
+    looksNeighbourDispute(`${prev.rawInputs.join(' ')} ${text}`) &&
+    !parties.some((p) => p.role === 'neighbour' || /neighbour|neighbor/i.test(p.label))
+  ) {
+    parties.push({ label: 'Neighbour', role: 'neighbour' })
+  }
   if (/landlord/i.test(text) && !parties.some((p) => p.role === 'landlord'))
     parties.push({ label: 'Landlord', role: 'landlord' })
   if (/tenant/i.test(text) && !parties.some((p) => p.role === 'tenant'))

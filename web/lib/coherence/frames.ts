@@ -1,6 +1,7 @@
 import type { MatterType, Mode, SessionState } from './types'
 import { maximiseLocalCoherence, type WikiCandidate } from './coherence'
 import { buildRetrievalText } from './retrievalText'
+import { looksNeighbourDispute } from './sense'
 import { classifyUkTaxonomy, type UkTaxonomyHit } from './ukTaxonomy'
 
 export interface LegalFrame {
@@ -46,6 +47,14 @@ function applyMatterPackFrames(
         94,
       )
       add('crime-police', 'Police powers / process', 'Police involvement is central to the story.', 80)
+      break
+    case 'neighbour_dispute':
+      add(
+        'hous-neighbour',
+        'Neighbour dispute / access',
+        'Neighbour parking, access, boundary, or nuisance — not a landlord–tenant dispute.',
+        92,
+      )
       break
     case 'joint_tenancy_liability':
       add(
@@ -214,6 +223,14 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     }
     if (/homeless|sofa|no where to stay|rough sleep/.test(t)) {
       add('hous-homeless', 'Homelessness / housing duty', 'Client may need local authority homelessness pathways.', 86)
+    }
+    if (looksNeighbourDispute(t) || tax?.l2 === 'neighbour_dispute' || tax?.packId === 'neighbour_dispute') {
+      add(
+        'hous-neighbour',
+        'Neighbour dispute / access',
+        'Neighbour parking, driveway, boundary, noise, or access — not landlord–tenant.',
+        92,
+      )
     }
     if (frames.length === 0) {
       add('hous-general', 'Housing / landlord–tenant', 'Matter typed as housing; frame will refine with more detail.', 60)

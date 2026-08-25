@@ -5,6 +5,7 @@
  */
 
 import type { MatterType } from './types'
+import { looksNeighbourDispute } from './sense'
 
 /** Coarse L1 areas adapted from Sargeant UK taxonomy for lay A2J routing. */
 export type UkTaxonomyL1 =
@@ -21,6 +22,7 @@ export type UkTaxonomyL1 =
 
 export type UkTaxonomyL2 =
   | 'landlord_tenant'
+  | 'neighbour_dispute'
   | 'joint_tenancy'
   | 'deposit_protection'
   | 'possession_eviction'
@@ -41,6 +43,7 @@ export type UkTaxonomyL2 =
 
 export type MatterPackId =
   | 'joint_tenancy_liability'
+  | 'neighbour_dispute'
   | 'deposit_protection'
   | 'possession_eviction'
   | 'mortgage_possession'
@@ -194,6 +197,17 @@ const RULES: Rule[] = [
   },
   {
     l1: 'property',
+    l2: 'neighbour_dispute',
+    packId: 'neighbour_dispute',
+    matterType: 'housing',
+    frameIds: ['hous-neighbour', 'hous-general'],
+    wikiDomains: ['housing'],
+    weight: 0.91,
+    reason: 'Neighbour / access / driveway',
+    test: (t) => looksNeighbourDispute(t),
+  },
+  {
+    l1: 'property',
     l2: 'landlord_tenant',
     packId: 'general',
     matterType: 'housing',
@@ -202,8 +216,9 @@ const RULES: Rule[] = [
     weight: 0.8,
     reason: 'Landlord–tenant',
     test: (t) =>
-      /\b(landlord|tenant|tenancy|disrepair|mould|mold|homeless)\b/.test(t) ||
-      (/\brents?\b/.test(t) && !/\bmortgage\b/.test(t)),
+      !looksNeighbourDispute(t) &&
+      (/\b(landlord|tenant|tenancy|disrepair|mould|mold|homeless)\b/.test(t) ||
+        (/\brents?\b/.test(t) && !/\bmortgage\b/.test(t))),
   },
   {
     l1: 'employment',
