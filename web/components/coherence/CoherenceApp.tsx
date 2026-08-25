@@ -33,6 +33,7 @@ import { useCoherenceAuth } from '@/lib/auth/use-coherence-auth'
 import { MatterFrameInspector } from './MatterFrameInspector'
 import type { AnswerPackage } from '@/lib/coherence/answerPackage'
 import { proposeCoherentFrames } from '@/lib/coherence/frames'
+import { applyTopicLockToSession } from '@/lib/coherence/topicLock'
 import { clearPersisted, loadPersisted, savePersisted } from '@/lib/coherence/persist'
 import { loadLawyerSession, type LawyerSession } from '@/lib/coherence/lawyerAuth'
 import { buildSearchContextProfile } from '@/lib/coherence/searchContext'
@@ -447,6 +448,19 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     // Phase 3 local fit (story-only here; wiki enrich happens in notes/services)
     return proposeCoherentFrames(session, 3)
   }, [session])
+
+  // Persist topic lock once frames resolve (stops Overview re-inferring used-car etc.)
+  const frameKey = frames.map((f) => f.id).join('|')
+  useEffect(() => {
+    if (!frames.length) return
+    const locked = applyTopicLockToSession(session, frames)
+    if (locked.topicId && locked.topicId !== session.topicId) {
+      setSession(locked)
+    }
+    // frameKey / topicId / story length — avoid looping on every session field
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional narrow deps
+  }, [frameKey, session.topicId, session.rawInputs.length])
+
   const notesVisible = session.rawInputs.length > 0 || session.mode === 'dispute'
   const notesReady = isBriefReady(session, progress)
   const showModeFork = !session.answeredPromptIds.includes('mode_fork') && session.rawInputs.length === 0
@@ -466,6 +480,8 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     if (answeredId === 'goal' || answeredId === 'gap_goal' || answeredId === 'constraint_goal') {
       next = { ...next, goal: next.goal || value.trim() }
     }
+    const earlyFrames = proposeCoherentFrames(next, 3)
+    next = applyTopicLockToSession(next, earlyFrames)
     next = {
       ...next,
       answeredPromptIds: Array.from(new Set([...next.answeredPromptIds, answeredId])),

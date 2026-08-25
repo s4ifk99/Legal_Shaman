@@ -3,11 +3,13 @@
  * Fail closed on topic conflicts; drop dead free-help / bullet URLs when checkable.
  */
 import type { AnswerPackage } from './answerPackage'
+import { buildAnswerPackage } from './answerPackage'
 import type { OslawCourse } from './wiki'
 import { isPrivateParkingStory, isUsedCarPurchaseStory } from './wikiOslaw'
 import { buildRetrievalText } from './retrievalText'
 import type { SessionState } from './types'
 import type { LegalFrame } from './frames'
+import { packConflictsWithLock, resolveTopicLock } from './topicLock'
 
 export type PreflightIssue = {
   code: string
@@ -88,6 +90,23 @@ export function detectPathwayConflicts(
         })
       }
     }
+  }
+
+  const lock = resolveTopicLock(session, frames)
+  if (lock && packConflictsWithLock(lock, pack.matchedTopicId)) {
+    issues.push({
+      code: 'topic-lock-pack-conflict',
+      message: `Answer pack “${pack.matchedTopicId}” conflicts with topic lock “${lock.packId}” (${lock.reason}).`,
+      severity: 'block-pathway',
+    })
+  }
+
+  if (lock?.packId === 'neighbour-access-dispute' && USED_CAR_BLOB.test(blob)) {
+    issues.push({
+      code: 'pathway-used-car-on-neighbour',
+      message: 'Wiki pathway looks like used-car CRA, but the story is a neighbour / driveway dispute.',
+      severity: 'block-pathway',
+    })
   }
 
   return issues
@@ -175,14 +194,35 @@ export async function runOslawPreflight(
   course: OslawCourse | null,
   signal?: AbortSignal,
 ): Promise<OslawPreflightResult> {
-  const conflictIssues = detectPathwayConflicts(session, frames, pack, course)
+  const lock = resolveTopicLock(session, frames)
+  let workingPack = pack
+  const lockIssues: PreflightIssue[] = []
+  if (lock && packConflictsWithLock(lock, pack.matchedTopicId)) {
+    workingPack = buildAnswerPackage(session, frames)
+    lockIssues.push({
+      code: 'topic-lock-override',
+      message: `Replaced conflicting pack “${pack.matchedTopicId}” with locked “${lock.packId}”.`,
+      severity: 'warn',
+    })
+  }
+
+  const conflictIssues = detectPathwayConflicts(session, frames, workingPack, course)
   const blockPathway = conflictIssues.some((i) => i.severity === 'block-pathway')
-  const { pack: filteredPack, issues: urlIssues } = await filterDeadUrls(pack, signal)
-  const issues = [...conflictIssues, ...urlIssues]
+  const { pack: filteredPack, issues: urlIssues } = await filterDeadUrls(workingPack, signal)
+  const issues = [...lockIssues, ...conflictIssues, ...urlIssues]
 
   let safeCourse = blockPathway ? null : course
-  if (safeCourse && (isPrivateParkingStory(storyText(session, frames)) && !isUsedCarPurchaseStory(storyText(session, frames)))) {
-    // Strip any residual used-car featured tools even if pathway kept
+  const story = storyText(session, frames)
+  if (safeCourse && isPrivateParkingStory(story) && !isUsedCarPurchaseStory(story)) {
+    const tools = safeCourse.featuredTools.filter(
+      (t) => !USED_CAR_BLOB.test(`${t.id} ${t.title} ${t.url}`),
+    )
+    const steps = safeCourse.steps.filter(
+      (s) => !USED_CAR_BLOB.test(`${s.id} ${s.label} ${s.url || ''}`),
+    )
+    safeCourse = { ...safeCourse, featuredTools: tools, steps }
+  }
+  if (safeCourse && lock?.packId === 'neighbour-access-dispute') {
     const tools = safeCourse.featuredTools.filter(
       (t) => !USED_CAR_BLOB.test(`${t.id} ${t.title} ${t.url}`),
     )
