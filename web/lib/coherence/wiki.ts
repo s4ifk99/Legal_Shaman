@@ -229,7 +229,8 @@ export function activeDomains(session: SessionState, frames: LegalFrame[] = []):
       blob,
     ) ||
       session.matterType === 'consumer') &&
-    !(/\b(car\s*park|parking|pcn|popla)\b/.test(blob) && !/\b(used car|dealer|fault codes?)\b/.test(blob))
+    !(/\b(car\s*park|parking|pcn|popla|neighbour|neighbor|driveway|car\s*port|carport)\b/.test(blob) &&
+      !/\b(used car|dealer|fault codes?)\b/.test(blob))
   ) {
     domains.add('consumer')
   }

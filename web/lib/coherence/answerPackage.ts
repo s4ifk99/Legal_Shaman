@@ -45,6 +45,14 @@ function blob(session: SessionState, frames: LegalFrame[]): string {
 }
 
 function isUsedCarReject(text: string, matter: string): boolean {
+  // Neighbour / driveway / carport access is not a used-car consumer dispute
+  if (
+    /\b(neighbour|neighbor|driveway|car\s*port|carport|right of way|easement|blocking access|party wall)\b/i.test(
+      text,
+    )
+  ) {
+    return false
+  }
   // "car park" / "parking" must not trigger the used-car CRA spine.
   const parkingContext =
     /\b(car\s*park|parking|pcn|parking (?:fine|ticket|charge|app)|popla|private parking)\b/i.test(
@@ -53,15 +61,19 @@ function isUsedCarReject(text: string, matter: string): boolean {
   if (parkingContext && !/\b(used car|bought .{0,20}car|dealer|garage|mot\b|fault codes?)\b/i.test(text)) {
     return false
   }
+  // Require real vehicle-purchase / trader signals — bare "car" (e.g. "car port") is not enough
   const car =
-    /\b(used car|bought .{0,24}(?:car|vehicle)|vehicle|dealer|garage|mot\b|fault codes?|motor vehicle)\b/i.test(
+    /\b(used car|bought .{0,24}(?:car|vehicle)|faulty (?:car|vehicle)|dealer|mot\b|fault codes?|motor (?:vehicle|ombudsman))\b/i.test(
       text,
-    ) || (/\bcar\b/i.test(text) && !/\bcar\s*park/i.test(text))
-  const remedy =
-    /reject|refund|repair|faulty|fault codes?|not fixed|still broken|consumer|warranty|trader/.test(
-      text,
-    )
-  return (matter === 'consumer' || car) && (car || remedy) && (car || matter === 'consumer') && car
+    ) ||
+    (/\b(garage|trader|warranty)\b/i.test(text) &&
+      /\b(car|vehicle)\b/i.test(text) &&
+      /\b(bought|purchase|refund|reject|repair|faulty)\b/i.test(text))
+  if (!car) return false
+  if (matter === 'consumer') return true
+  return /\b(reject|refund|repair|faulty|fault codes?|not fixed|still broken|warranty|trader)\b/i.test(
+    text,
+  )
 }
 
 function pickSections(text: string) {
@@ -87,8 +99,20 @@ function pickSections(text: string) {
 }
 
 function isPrivateParkingCharge(text: string): boolean {
+  if (/\b(neighbour|neighbor|driveway|car\s*port|carport|right of way|easement)\b/i.test(text)) {
+    return false
+  }
   return /\b(parking (?:fine|ticket|charge|app|company)|car\s*park|pcn|popla|private parking|parking on private)\b/i.test(
     text,
+  )
+}
+
+function isNeighbourAccessDispute(text: string): boolean {
+  return (
+    /\b(neighbour|neighbor)\b/i.test(text) &&
+    /\b(driveway|car\s*port|carport|parking|park(?:ed|ing)|blocking|access|right of way|easement|boundary)\b/i.test(
+      text,
+    )
   )
 }
 
@@ -102,7 +126,61 @@ export function buildAnswerPackage(
 ): AnswerPackage {
   const text = blob(session, frames)
   const carCase = isUsedCarReject(text, session.matterType)
-  const parkingCase = !carCase && isPrivateParkingCharge(text)
+  const neighbourCase = !carCase && isNeighbourAccessDispute(text)
+  const parkingCase = !carCase && !neighbourCase && isPrivateParkingCharge(text)
+
+  if (neighbourCase) {
+    const caNeighbours = 'https://www.citizensadvice.org.uk/housing/problems-where-you-live/problems-with-neighbours/'
+    const govDisputes = 'https://www.gov.uk/how-to-resolve-neighbour-disputes'
+    const pack: AnswerPackage = {
+      answerOverview:
+        'For a neighbour blocking a driveway or building a car port that cuts off access, open guidance usually starts with what rights you have over the land (ownership, shared access, or a right of way), gathering evidence (photos, dates, messages), then informal contact or mediation before court. Planning enforcement may matter if the structure needs permission — that is separate from any civil access claim. This is information and signposting, not advice on your specific outcome.',
+      bullets: [
+        {
+          text: 'Check whether the blocked area is solely yours, shared, or subject to a right of way / easement — that usually shapes what civil options exist.',
+          sourceTitle: 'Citizens Advice — problems with neighbours',
+          sourceUrl: caNeighbours,
+          tier: 'trusted-guidance',
+        },
+        {
+          text: 'GOV.UK outlines practical steps for neighbour disputes, including talking to your neighbour and using mediation before court.',
+          sourceTitle: 'GOV.UK — resolving neighbour disputes',
+          sourceUrl: govDisputes,
+          tier: 'trusted-guidance',
+        },
+        {
+          text: 'Keep a dated record (photos, messages, when access was blocked). If a structure may need planning permission, the council’s planning enforcement route is separate from a private access dispute.',
+          sourceTitle: 'Citizens Advice — problems with neighbours',
+          sourceUrl: caNeighbours,
+          tier: 'trusted-guidance',
+        },
+      ],
+      wikiPages: [],
+      freeHelp: [
+        {
+          title: 'Citizens Advice — problems with neighbours',
+          url: caNeighbours,
+          blurb: 'Noise, boundaries, anti-social behaviour, and when to involve the council.',
+        },
+        {
+          title: 'GOV.UK — how to resolve neighbour disputes',
+          url: govDisputes,
+          blurb: 'Mediation, talking to your neighbour, and next steps.',
+        },
+      ],
+      recommendedFirms: [],
+      sources: [
+        { title: 'Citizens Advice — problems with neighbours', url: caNeighbours, kind: 'trusted-guidance' },
+        { title: 'GOV.UK — resolving neighbour disputes', url: govDisputes, kind: 'trusted-guidance' },
+      ],
+      citation: { ok: true, issues: [] },
+      matchedTopicId: 'neighbour-access-dispute',
+      policyNote:
+        'Signposting only. Access rights depend on title deeds / easements — verify against your documents before taking formal steps.',
+    }
+    pack.citation = checkAnswerCitations(pack)
+    return pack
+  }
 
   if (parkingCase) {
     const officialHits = (session.authorityHits || []).filter(

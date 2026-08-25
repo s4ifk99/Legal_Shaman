@@ -38,11 +38,15 @@ function isWeakCite(text: string): boolean {
   if (JURISDICTION_ONLY.test(t)) return true
   if (/^this is mainly about\b/i.test(t)) return true
   if (/^getting help$/i.test(t)) return true
+  // System / brief goals — never quote these back at the client
+  if (/^find lawful routes\b/i.test(t)) return true
+  if (/\(information only\)\s*$/i.test(t)) return true
+  if (/^i want to (?:find|speak|understand|see if)\b/i.test(t) && t.length < 80) return true
   if (/^(yes|no|not sure|someone else|both)\b/i.test(t) && t.length < 40) return true
   return false
 }
 
-/** Prefer the richest client story phrase — never bare jurisdiction / chip answers. */
+/** Prefer the richest client story phrase — never bare jurisdiction / chip answers / system goals. */
 function cite(session: SessionState): string {
   const candidates: string[] = []
   if (session.whatHappened.trim()) candidates.push(session.whatHappened.trim())
@@ -56,8 +60,10 @@ function cite(session: SessionState): string {
     const span = (e.rawSpan || e.label || '').trim()
     if (span.length >= 16 && !isWeakCite(span)) candidates.push(span)
   }
-  if (session.howCaused.trim().length >= 20) candidates.push(session.howCaused.trim())
-  if (session.goal.trim().length >= 16) candidates.push(session.goal.trim())
+  if (session.howCaused.trim().length >= 20 && !isWeakCite(session.howCaused)) {
+    candidates.push(session.howCaused.trim())
+  }
+  // Do not cite session.goal — brief goals are internal ("Find lawful routes…")
 
   candidates.sort((a, b) => b.length - a.length)
   const best = candidates.find((c) => !isWeakCite(c))
@@ -1176,9 +1182,11 @@ export function buildQuestionForGap(session: SessionState, gap: CausationGap): C
     }
 
     case 'gap_evidence': {
-      const text = ref
-        ? `Do you already have anything in writing about “${ref}” (report, letter, photos, messages)?`
-        : 'Do you already have anything in writing about this (report, letter, photos, messages)?'
+      const text = neighbourHousing
+        ? 'Do you already have photos, messages, or other evidence of the neighbour blocking access (or of the car port / parking)?'
+        : ref
+          ? `Do you already have anything in writing about “${ref}” (report, letter, photos, messages)?`
+          : 'Do you already have anything in writing about this (report, letter, photos, messages)?'
       const options: PredictiveChoice[] =
         matter === 'personal_injury'
           ? [
@@ -1193,12 +1201,31 @@ export function buildQuestionForGap(session: SessionState, gap: CausationGap): C
                 { id: 'd2', label: 'Application papers', value: `I have application papers about “${clip(ref || 'my application', 36)}”` },
                 { id: 'd3', label: 'Nothing yet', value: 'I have no documents to hand yet' },
               ]
-            : [
-                { id: 'd1', label: 'Official letter / notice', value: `I have an official letter or notice about “${clip(ref || 'this', 36)}”` },
-                { id: 'd2', label: 'Tenancy / contract', value: `I have a tenancy or contract about “${clip(ref || 'this', 36)}”` },
-                { id: 'd3', label: 'Messages', value: `I have messages about “${clip(ref || 'this', 36)}”` },
-                { id: 'd4', label: 'Nothing yet', value: 'I have no documents yet' },
-              ]
+            : neighbourHousing
+              ? [
+                  {
+                    id: 'd1',
+                    label: 'Photos / video',
+                    value: 'I have photos or video of the blocked driveway or car port',
+                  },
+                  {
+                    id: 'd2',
+                    label: 'Messages / emails',
+                    value: 'I have messages or emails with the neighbour about access',
+                  },
+                  {
+                    id: 'd3',
+                    label: 'Council / police report',
+                    value: 'I have reported this to the council or police',
+                  },
+                  { id: 'd4', label: 'Nothing yet', value: 'I have no documents or evidence yet' },
+                ]
+              : [
+                  { id: 'd1', label: 'Official letter / notice', value: `I have an official letter or notice about “${clip(ref || 'this', 36)}”` },
+                  { id: 'd2', label: 'Tenancy / contract', value: `I have a tenancy or contract about “${clip(ref || 'this', 36)}”` },
+                  { id: 'd3', label: 'Messages', value: `I have messages about “${clip(ref || 'this', 36)}”` },
+                  { id: 'd4', label: 'Nothing yet', value: 'I have no documents yet' },
+                ]
       return { id: gap.id, gapId: gap.id, kind: 'closed', reason: gap.reason, text, options }
     }
 
