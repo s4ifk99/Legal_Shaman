@@ -48,6 +48,41 @@ export function isPropertyPurchaseMisrepresentationQuery(query: string): boolean
 }
 
 /**
+ * Ex / co-parent damaged a child’s gift or belongings — civil recovery / small claims,
+ * not child arrangements / custody (even though matter may still type as family).
+ */
+export function isFamilyBelongingsPropertyClaim(query: string): boolean {
+  const q = (query || "").toLowerCase();
+  if (!q.trim()) return false;
+  // Pure custody / divorce / DA as the ask — keep family wiki path
+  if (
+    /\b(child arrangements?|contact order|custody|care order|divorce|non-molestation|domestic (?:abuse|violence))\b/i.test(
+      q,
+    ) &&
+    !/\b(threw|broke|broken|damaged|destroyed|smashed|sue|replacement|switch|console|toy|gift|get (?:it|them) (?:back|fixed))\b/i.test(
+      q,
+    )
+  ) {
+    return false;
+  }
+  const damageOrSue =
+    /\b(threw|broke|broken|damaged|destroyed|smashed|ruined)\b/.test(q) ||
+    /\b(sue|get (?:it|them) (?:back|fixed)|can'?t afford a new|replacement|small claims?|money claim|letter before action)\b/.test(
+      q,
+    );
+  if (!damageOrSue) return false;
+  const familyBackdrop =
+    /\b(my ex|ex[- ]?(?:partner|wife|husband)|his mum|his mom|her boyfriend|boyfriend'?s kid|co[- ]?parent)\b/.test(
+      q,
+    ) ||
+    (/\b(\d+\s*year\s*old|my (?:sons?|daughters?|kids?|children|child)|picking .{0,12}(?:sons?|daughters?) up)\b/.test(
+      q,
+    ) &&
+      /\b(ex|mum|mom|mother|dad|father|boyfriend)\b/.test(q));
+  return familyBackdrop;
+}
+
+/**
  * Council / London Tribunals PCN (permit road, bus lane, moving traffic) —
  * not employment just because the story starts “someone at my work”.
  */

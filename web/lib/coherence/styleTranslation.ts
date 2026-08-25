@@ -5,6 +5,7 @@
 
 import type { MatterType, SessionState } from './types'
 import type { SearchContextProfile } from './searchContext'
+import { isFamilyBelongingsPropertyClaim } from '@/lib/legal/query-signals'
 
 /** Lay → formal UK legal/guidance phrasing (retrieval only — not advice). */
 const GLOSSARY: Array<[RegExp, string]> = [
@@ -52,7 +53,9 @@ export function glossaryStyleTranslate(text: string, matterType: MatterType = 'u
   for (const [re, replacement] of GLOSSARY) {
     out = out.replace(re, replacement)
   }
-  const hint = MATTER_HINTS[matterType]
+  const hint = isFamilyBelongingsPropertyClaim(out)
+    ? 'small claims letter before action property damage county court money claim'
+    : MATTER_HINTS[matterType]
   if (hint && !out.toLowerCase().includes(hint.split(' ')[0]!)) {
     out = `${out} ${hint}`
   }

@@ -86,6 +86,11 @@ export function critiqueOverviewRecommendation(opts: {
       label: "PCN / parking appeal",
       need: /pcn|penalty charge|parking|appeal|tribunal|adjudicat|permit|contravention/i,
     },
+    {
+      re: /\b(threw|broke|broken|damaged|destroyed).{0,80}(switch|console|toy|gift|belongings)|sue.{0,40}(ex|mum|replacement)|can'?t afford a new/i,
+      label: "damaged belongings / small claims",
+      need: /small claim|letter before|money claim|county court|compensation|damag|replace|citizens advice|sue|claim/i,
+    },
   ];
 
   const missingThemes: string[] = [];
@@ -95,7 +100,9 @@ export function critiqueOverviewRecommendation(opts: {
     }
   }
   // Fail only if several raised themes are ignored (avoid over-strict single misses)
-  const hardThemes = missingThemes.filter((t) => t === "PCN / parking appeal");
+  const hardThemes = missingThemes.filter(
+    (t) => t === "PCN / parking appeal" || t === "damaged belongings / small claims",
+  );
   if (missingThemes.length >= 2 || hardThemes.length) {
     errors.push(
       `overview: does not address client themes: ${missingThemes.slice(0, 4).join(", ")}`,
@@ -108,6 +115,16 @@ export function critiqueOverviewRecommendation(opts: {
     !/\bpcn|parking ticket|penalty charge|london tribunal/i.test(overview)
   ) {
     errors.push("overview: employment guidance for a PCN / parking appeal story");
+  }
+
+  if (
+    /\b(threw|broke|broken|damaged).{0,80}(switch|console|toy|gift)|sue.{0,40}(ex|mum|replacement)/i.test(
+      story,
+    ) &&
+    /child arrangements|custody|types of court orders in family|contact order/i.test(overview) &&
+    !/small claim|letter before|money claim|county court|compensation|damag/i.test(overview)
+  ) {
+    errors.push("overview: family custody guidance for a belongings / small-claims story");
   }
 
   if (overview && !/legal\s*shaman\.?com/i.test(overview)) {

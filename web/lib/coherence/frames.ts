@@ -323,10 +323,17 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
         'fam-property-dispute',
         'Child’s belongings / parental property dispute',
         'Dispute between parents over a child’s gift or belongings (possible small claim; family context first).',
-        88,
+        96,
       )
     }
-    if (/child|custody|contact|arrangement|care order|year old|son|daughter/.test(t)) {
+    // Only surface child-arrangements when that is actually asked — not for gift/damage stories
+    if (
+      /custody|contact order|child arrangement|care order|living arrangements|who (?:the child|they) (?:live|lives) with/.test(
+        t,
+      ) ||
+      (/child|year old|son|daughter/.test(t) &&
+        !/\b(threw|broke|broken|taken it off|sue|get (?:it|them) (?:back|fixed)|Switch|console|toy|gift)\b/i.test(t))
+    ) {
       add('fam-children', 'Children / arrangements', 'Child arrangements or care concerns are central.', 86)
     }
     if (/divorce|separat|finances|ancillary/.test(t)) {

@@ -1,7 +1,19 @@
-import { isPcnAppealQuery, isPropertyPurchaseMisrepresentationQuery, isRecordingLawQuery, isVehicleRepairQuery } from "@/lib/legal/query-signals";
+import {
+  isFamilyBelongingsPropertyClaim,
+  isPcnAppealQuery,
+  isPropertyPurchaseMisrepresentationQuery,
+  isRecordingLawQuery,
+  isVehicleRepairQuery,
+} from "@/lib/legal/query-signals";
 import { resolveLegalIssueFromQuery } from "@/lib/legal/taxonomy";
 
 import type { WikiSearchHit } from "./search";
+
+const FAMILY_CUSTODY_TITLE =
+  /\b(child arrangements|custody|contact order|types of court orders in family|court orders in family|divorce financial|care order)\b/i;
+
+const SMALL_CLAIMS_BELONGINGS_TITLE =
+  /\b(small claim|letter before action|money claim|county court|personal belongings|household items|property damage|damaged|compensation)\b/i;
 
 const HOUSING_REPAIR_QUERY =
   /\b(housing association|social housing|council (home|house|tenant|housing)|disrepair|repairs?|landlord|leak|damp|mould|mold|bathroom|kitchen|awaab|hoarding|succession)\b/i;
@@ -117,6 +129,19 @@ function slugRoot(slug: string): string {
 export function wikiAnchorsForQuery(query: string): string[] {
   const lower = query.toLowerCase();
   const anchors: string[] = [];
+  const belongingsClaim = isFamilyBelongingsPropertyClaim(query);
+
+  if (belongingsClaim) {
+    anchors.push(
+      "deciding whether to make a small claim",
+      "small claims court and letter before action",
+      "letter before action",
+      "money claim",
+      "household items and personal belongings",
+      "property damage compensation",
+      "county court claim",
+    );
+  }
 
   if (isPcnAppealQuery(query)) {
     anchors.push(
@@ -194,10 +219,16 @@ export function wikiAnchorsForQuery(query: string): string[] {
 
   const resolution = resolveLegalIssueFromQuery(query);
   if (resolution) {
-    anchors.push(resolution.canonicalName);
-    anchors.push(...resolution.searchBoostTerms.slice(0, 8));
-    anchors.push(...(SLUG_ANCHORS[resolution.taxonomySlug] ?? []));
-    anchors.push(...(SLUG_ANCHORS[slugRoot(resolution.taxonomySlug)] ?? []));
+    // Belongings / sue-for-replacement: do not inject family custody/divorce anchors
+    if (belongingsClaim && (resolution.taxonomySlug === "family" || slugRoot(resolution.taxonomySlug) === "family")) {
+      anchors.push(...(SLUG_ANCHORS.consumer_small_claims ?? []));
+      anchors.push(...(SLUG_ANCHORS.consumer ?? []));
+    } else {
+      anchors.push(resolution.canonicalName);
+      anchors.push(...resolution.searchBoostTerms.slice(0, 8));
+      anchors.push(...(SLUG_ANCHORS[resolution.taxonomySlug] ?? []));
+      anchors.push(...(SLUG_ANCHORS[slugRoot(resolution.taxonomySlug)] ?? []));
+    }
   }
 
   return [...new Set(anchors.map((a) => a.trim()).filter((a) => a.length >= 3))];
@@ -206,6 +237,18 @@ export function wikiAnchorsForQuery(query: string): string[] {
 function patternBoostForHit(query: string, hit: WikiSearchHit): number {
   const titleLower = hit.title.toLowerCase();
   let boost = 0;
+
+  if (isFamilyBelongingsPropertyClaim(query)) {
+    if (SMALL_CLAIMS_BELONGINGS_TITLE.test(titleLower)) boost += 140;
+    if (/deciding whether to make a small claim|letter before action|money claim/i.test(titleLower)) {
+      boost += 60;
+    }
+    if (FAMILY_CUSTODY_TITLE.test(titleLower)) boost -= 160;
+    if (hit.category === "Family and Relationships" && !SMALL_CLAIMS_BELONGINGS_TITLE.test(titleLower)) {
+      boost -= 80;
+    }
+    if (hit.category === "Courts and Disputes" || hit.category === "Consumer Rights") boost += 40;
+  }
 
   if (isRecordingLawQuery(query) && !isVehicleRepairQuery(query)) {
     if (/\b(record|filming|consent|cctv|privacy)\b/i.test(titleLower)) boost += 45;
@@ -397,6 +440,20 @@ export function housingRepairAnchors(query: string): string[] {
 
 export function isSharedHousingQuery(query: string): boolean {
   return SHARED_HOUSING_QUERY.test(query);
+}
+
+/** Prefer small-claims / LBA / belongings pages; demote custody / family court order guides. */
+export function rerankFamilyBelongingsHits(query: string, hits: WikiSearchHit[]): WikiSearchHit[] {
+  return [...hits]
+    .map((hit) => {
+      let score = hit.score + patternBoostForHit(query, hit);
+      const t = hit.title.toLowerCase();
+      if (FAMILY_CUSTODY_TITLE.test(t)) score -= 200;
+      if (SMALL_CLAIMS_BELONGINGS_TITLE.test(t)) score += 80;
+      return { hit, score };
+    })
+    .sort((a, b) => b.score - a.score || a.hit.id.localeCompare(b.hit.id))
+    .map((row) => ({ ...row.hit, score: row.score }));
 }
 
 export function isHousingRepairQuery(query: string): boolean {
