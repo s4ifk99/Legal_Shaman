@@ -1,5 +1,5 @@
 import type { MatterType, PredictiveChoice, QuestionKind, SessionState } from './types'
-import { looksNeighbourDispute } from './sense'
+import { looksNeighbourDispute, looksProspectiveVisaApplication, looksVisaRefusalOrChallenge } from './sense'
 import { clipPhrase } from './timelineExtract'
 
 export type { QuestionKind, PredictiveChoice }
@@ -386,13 +386,18 @@ function housingGaps(session: SessionState): CausationGap[] {
 
 function immigrationGaps(session: SessionState): CausationGap[] {
   const c = corpus(session)
+  const refusalTrack = looksVisaRefusalOrChallenge(c)
+  const applyFirst = looksProspectiveVisaApplication(c) || (!refusalTrack && /visa|leave to remain|\bilr\b/.test(c))
+
   return [
     {
       id: 'gap_incident_detail',
-      label: 'Application history',
+      label: refusalTrack ? 'Application / refusal history' : 'Visa / family route details',
       priority: 100,
       kind: 'open',
-      reason: 'Need the application/refusal sequence.',
+      reason: refusalTrack
+        ? 'Need the application/refusal sequence.'
+        : 'Need who they are joining and which visa route — not a refusal story.',
       filled: hasRichNarrative(session),
     },
     {
@@ -402,6 +407,7 @@ function immigrationGaps(session: SessionState): CausationGap[] {
       kind: 'open',
       reason: 'Official reason is the stated causal basis to test.',
       filled:
+        !refusalTrack ||
         answered(session, 'gap_refusal_reason') ||
         session.howCaused.trim().length >= 20 ||
         /character|suitability|income|english|absence|decept/.test(c),
@@ -413,17 +419,22 @@ function immigrationGaps(session: SessionState): CausationGap[] {
       kind: 'closed',
       reason: 'Checks whether character is part of the causal story.',
       filled:
+        !refusalTrack ||
         answered(session, 'gap_character') ||
         session.softFlags.includes('character_concern_raised') ||
         (!/character|criminal|conviction|suitability/.test(c) && answered(session, 'gap_refusal_reason')),
     },
     {
       id: 'gap_when',
-      label: 'When decided',
-      priority: 60,
+      label: refusalTrack ? 'When decided' : 'When you hope to apply / travel',
+      priority: refusalTrack ? 60 : 35,
       kind: 'closed',
-      reason: 'Decision timing for deadlines.',
-      filled: answered(session, 'gap_when') || session.events.some((e) => Boolean(e.dateApprox)),
+      reason: refusalTrack ? 'Decision timing for deadlines.' : 'Optional timing for a prospective application.',
+      filled:
+        answered(session, 'gap_when') ||
+        session.events.some((e) => Boolean(e.dateApprox)) ||
+        // Apply-first: do not block Overview on decision timing
+        (applyFirst && !refusalTrack),
     },
     {
       id: 'gap_where',
@@ -438,18 +449,26 @@ function immigrationGaps(session: SessionState): CausationGap[] {
     },
     {
       id: 'gap_evidence',
-      label: 'Decision papers',
-      priority: 45,
+      label: refusalTrack ? 'Decision papers' : 'Documents you already have',
+      priority: refusalTrack ? 45 : 40,
       kind: 'closed',
-      reason: 'Refusal letter anchors the official cause.',
-      filled: answered(session, 'gap_evidence') || session.documents.length > 0,
+      reason: refusalTrack
+        ? 'Refusal letter anchors the official cause.'
+        : 'Passports / relationship evidence help Matching Help — optional early on.',
+      filled:
+        answered(session, 'gap_evidence') ||
+        session.documents.length > 0 ||
+        // Apply-first without papers: do not insist on a refusal letter
+        (applyFirst && !refusalTrack && session.goal.trim().length > 0),
     },
     {
       id: 'gap_goal',
       label: 'Desired outcome',
-      priority: 20,
+      priority: applyFirst && !refusalTrack ? 70 : 20,
       kind: 'closed',
-      reason: 'Asked after refusal causation is sketched.',
+      reason: refusalTrack
+        ? 'Asked after refusal causation is sketched.'
+        : 'Confirm the visa / leave outcome they want.',
       filled: answered(session, 'gap_goal') || session.goal.trim().length > 0,
     },
   ]
@@ -841,7 +860,11 @@ export function buildQuestionForGap(session: SessionState, gap: CausationGap): C
             : matter === 'housing'
               ? `${hook} Walk through the housing problem in order: what came first, then what happened next?`
               : matter === 'immigration'
-                ? `${hook} Walk through the application or refusal in order — what did you apply for, then what happened?`
+                ? looksVisaRefusalOrChallenge(c)
+                  ? `${hook} Walk through the application or refusal in order — what did you apply for, then what happened?`
+                  : looksProspectiveVisaApplication(c)
+                    ? `${hook} Which visa or leave are you looking at, and who in the UK (if anyone) are you joining or staying with?`
+                    : `${hook} Tell me briefly what immigration step you need — a new visa, extending leave, or something else?`
                 : `${hook} Walk through what happened in order, from the first event to now.`
 
       const options: PredictiveChoice[] =
@@ -866,6 +889,18 @@ export function buildQuestionForGap(session: SessionState, gap: CausationGap): C
                 { id: 'i2', label: 'Started when I was locked out', value: 'It started when I was locked out or forced out' },
                 { id: 'i3', label: 'Started with an eviction notice', value: 'It started when I received an eviction or possession notice' },
               ]
+            : matter === 'immigration'
+              ? looksVisaRefusalOrChallenge(c)
+                ? [
+                    { id: 'i1', label: 'Application was refused', value: 'I applied and the Home Office refused my application' },
+                    { id: 'i2', label: 'I want to appeal / review', value: 'I want to appeal or seek administrative review of a decision' },
+                    { id: 'i3', label: 'I’ll describe the sequence', value: `I will describe the application and decision sequence${ref ? ` for “${clip(ref, 40)}”` : ''}` },
+                  ]
+                : [
+                    { id: 'i1', label: 'Family / partner visa', value: 'I need a family or partner visa to join or stay with family in the UK' },
+                    { id: 'i2', label: 'Extend / switch leave', value: 'I need to extend or switch my current leave / visa' },
+                    { id: 'i3', label: 'Other visa route', value: 'I need another visa or immigration route — I will explain' },
+                  ]
             : [
                 { id: 'i1', label: 'I’ll describe the first event', value: `The first thing that happened was connected to “${clip(ref || 'my situation', 40)}” — I will describe it in order` },
               ]

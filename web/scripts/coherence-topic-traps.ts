@@ -318,6 +318,55 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       )
     },
   },
+  {
+    id: 'imm-need-family-visa-not-refusal-track',
+    run: () => {
+      const s = intake(['I need a family visa'])
+      const frames = proposeCoherentFrames(s, 3)
+      const gaps = openCausationGaps(s)
+      const asks: string[] = []
+      let cur = s
+      for (let i = 0; i < 6; i++) {
+        const p = nextPrompt(cur)
+        asks.push(p.id)
+        if (p.id === 'complete') break
+        cur = {
+          ...cur,
+          answeredPromptIds: [...cur.answeredPromptIds, p.id],
+          rawInputs: [...cur.rawInputs, p.id === 'constraint_jurisdiction' || p.id === 'gap_where' ? 'England' : 'My spouse lives in the UK'],
+        }
+        cur = senseDetails(cur.rawInputs[cur.rawInputs.length - 1]!, cur)
+        cur = applyTopicLockToSession(cur, proposeCoherentFrames(cur, 3))
+      }
+      return (
+        assert(s.matterType === 'immigration', `matter=${s.matterType}`) ||
+        assert(frames.some((f) => f.id === 'imm-family'), `frames=${frames.map((f) => f.id)}`) ||
+        assert(!frames.some((f) => f.id === 'imm-challenge'), `challenge frame on apply-first: ${frames.map((f) => f.id)}`) ||
+        assert(!gaps.some((g) => g.id === 'gap_refusal_reason'), `refusal gap still open: ${gaps.map((g) => g.id)}`) ||
+        assert(!asks.includes('gap_refusal_reason'), `asked refusal: ${asks}`) ||
+        assert(!asks.includes('constraint_decision_letter'), `asked decision letter: ${asks}`) ||
+        assert(
+          asks.every((id) => !/refusal|decision letter/i.test(id)),
+          `refusal-ish ask ids: ${asks}`,
+        )
+      )
+    },
+  },
+  {
+    id: 'imm-refused-visa-still-asks-refusal-reason',
+    run: () => {
+      const s = intake(['My spouse visa was refused by the Home Office last month'])
+      const gaps = openCausationGaps(s)
+      const frames = proposeCoherentFrames(s, 3)
+      return (
+        assert(frames.some((f) => f.id === 'imm-challenge'), `expected challenge, got ${frames.map((f) => f.id)}`) ||
+        assert(
+          gaps.some((g) => g.id === 'gap_refusal_reason'),
+          `refusal gap should stay open: ${gaps.map((g) => g.id)}`,
+        )
+      )
+    },
+  },
 ]
 
 function main() {

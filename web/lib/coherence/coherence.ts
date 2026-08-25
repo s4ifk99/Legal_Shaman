@@ -7,7 +7,7 @@
  */
 import type { SessionState } from './types'
 import type { LegalFrame } from './frames'
-import { looksNeighbourDispute } from './sense'
+import { looksNeighbourDispute, looksVisaRefusalOrChallenge } from './sense'
 import { clipPhrase } from './timelineExtract'
 
 /** Lightweight wiki / guidance node for the session graph. */
@@ -116,7 +116,8 @@ const UNMET_RULES: UnmetRule[] = [
     id: 'constraint_decision_date',
     label: 'Decision / refusal date unclear',
     question: 'When did you get the refusal or decision, roughly?',
-    applies: (fid, _s, t) => fid === 'imm-challenge' || (fid.startsWith('imm-') && /refus|reject|decision/.test(t)),
+    applies: (fid, _s, t) =>
+      fid === 'imm-challenge' || (fid.startsWith('imm-') && looksVisaRefusalOrChallenge(t)),
     filled: (_s, t) =>
       /\b(20\d{2}|last month|this year|yesterday|january|february|march|april|may|june|july|august|september|october|november|december)\b/.test(
         t,
@@ -126,7 +127,7 @@ const UNMET_RULES: UnmetRule[] = [
     id: 'constraint_decision_letter',
     label: 'Decision letter / notice not named',
     question: 'Do you still have the refusal letter or decision notice?',
-    applies: (fid) => fid === 'imm-challenge',
+    applies: (fid, _s, t) => fid === 'imm-challenge' || looksVisaRefusalOrChallenge(t),
     filled: (s, t) => s.documents.length > 0 || /letter|notice|decision|refusal letter/.test(t),
   },
   {
