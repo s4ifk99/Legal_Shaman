@@ -25,23 +25,9 @@ type Body = {
 
 /** Overview: MatterEngine-scoped wiki retrieve → practical recommendation (matches local master path). */
 export async function POST(req: Request) {
-  const { shouldProxyCoherenceToHomeBackend, proxyCoherenceBackendPath } = await import(
-    "@/lib/coherence/server/gateway"
-  );
-  if (shouldProxyCoherenceToHomeBackend()) {
-    let body: unknown = {};
-    try {
-      body = await req.json();
-    } catch {
-      return NextResponse.json({ error: "invalid_json" }, { status: 400 });
-    }
-    return proxyCoherenceBackendPath({
-      path: "/api/coherence/llm/answer",
-      body,
-      signal: req.signal,
-      timeoutMs: 90_000,
-    });
-  }
+  // Always synthesise on this deployment (Vercel has the wiki index + latest ranking).
+  // Do not proxy to the home tunnel — that path still ran legacy collectOverviewHits and
+  // returned housing/IHT pages for belongings disputes.
 
   const blocked = coherenceApiGuard();
   if (blocked) return blocked;

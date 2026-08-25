@@ -13,7 +13,11 @@ const FAMILY_CUSTODY_TITLE =
   /\b(child arrangements|custody|contact order|types of court orders in family|court orders in family|divorce financial|care order)\b/i;
 
 const SMALL_CLAIMS_BELONGINGS_TITLE =
-  /\b(small claim|letter before action|money claim|county court|personal belongings|household items|property damage|damaged|compensation)\b/i;
+  /\b(small claim|letter before action|money claim|county court|personal belongings|household items|property damage|damaged|compensation|should i sue)\b/i;
+
+/** Housing / IHT / leasehold bleed from “year old” / “her house” / “child”. */
+const OFFTOPIC_FOR_BELONGINGS_TITLE =
+  /\b(tenant|tenancy|section\s*21|section\s*8|eviction|landlord|leasehold|enfranchisement|inheritance tax|10-?year charge|trusts?,?\s*inheritance|disinherit|mesher order|indefinite leave|visa|parent of a child who lives)\b/i;
 
 const HOUSING_REPAIR_QUERY =
   /\b(housing association|social housing|council (home|house|tenant|housing)|disrepair|repairs?|landlord|leak|damp|mould|mold|bathroom|kitchen|awaab|hoarding|succession)\b/i;
@@ -240,12 +244,20 @@ function patternBoostForHit(query: string, hit: WikiSearchHit): number {
 
   if (isFamilyBelongingsPropertyClaim(query)) {
     if (SMALL_CLAIMS_BELONGINGS_TITLE.test(titleLower)) boost += 140;
-    if (/deciding whether to make a small claim|letter before action|money claim/i.test(titleLower)) {
+    if (/deciding whether to make a small claim|letter before action|money claim|should i sue/i.test(titleLower)) {
       boost += 60;
     }
     if (FAMILY_CUSTODY_TITLE.test(titleLower)) boost -= 160;
+    if (OFFTOPIC_FOR_BELONGINGS_TITLE.test(titleLower)) boost -= 200;
     if (hit.category === "Family and Relationships" && !SMALL_CLAIMS_BELONGINGS_TITLE.test(titleLower)) {
       boost -= 80;
+    }
+    if (
+      hit.category === "Home and Housing" ||
+      hit.category === "Wills and Planning Ahead" ||
+      hit.category === "Immigration and Citizenship"
+    ) {
+      boost -= 120;
     }
     if (hit.category === "Courts and Disputes" || hit.category === "Consumer Rights") boost += 40;
   }
@@ -449,8 +461,14 @@ export function rerankFamilyBelongingsHits(query: string, hits: WikiSearchHit[])
       let score = hit.score + patternBoostForHit(query, hit);
       const t = hit.title.toLowerCase();
       if (FAMILY_CUSTODY_TITLE.test(t)) score -= 200;
+      if (OFFTOPIC_FOR_BELONGINGS_TITLE.test(t)) score -= 250;
       if (SMALL_CLAIMS_BELONGINGS_TITLE.test(t)) score += 80;
       return { hit, score };
+    })
+    .filter(({ hit, score }) => {
+      const t = hit.title.toLowerCase();
+      if (OFFTOPIC_FOR_BELONGINGS_TITLE.test(t) && score < 50) return false;
+      return score > 0;
     })
     .sort((a, b) => b.score - a.score || a.hit.id.localeCompare(b.hit.id))
     .map((row) => ({ ...row.hit, score: row.score }));

@@ -113,6 +113,13 @@ export function collectOverviewHits(query: string) {
         return false;
       }
       if (/divorce financial|ancillary relief|prenup|living together and marriage/i.test(t)) return false;
+      if (
+        /tenant|tenancy|section\s*21|section\s*8|eviction|landlord|leasehold|enfranchisement|inheritance tax|10-?year charge|disinherit|mesher order|parent of a child who lives|indefinite leave/i.test(
+          t,
+        )
+      ) {
+        return false;
+      }
       return true;
     });
     const pin = [
