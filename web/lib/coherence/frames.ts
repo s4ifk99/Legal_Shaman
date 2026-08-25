@@ -1,7 +1,7 @@
 import type { MatterType, Mode, SessionState } from './types'
 import { maximiseLocalCoherence, type WikiCandidate } from './coherence'
 import { buildRetrievalText } from './retrievalText'
-import { looksNeighbourDispute } from './sense'
+import { looksNeighbourDispute, looksVisaRefusalOrChallenge } from './sense'
 import { classifyUkTaxonomy, type UkTaxonomyHit } from './ukTaxonomy'
 
 export interface LegalFrame {
@@ -128,7 +128,7 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
   const useImm = matter === 'immigration' || (matter === 'unknown' && immKw)
 
   if (useImm) {
-    if (/refus|reject|review|appeal/.test(t) || (/tribunal/.test(t) && immKw)) {
+    if (looksVisaRefusalOrChallenge(t) || (/\btribunal\b/.test(t) && immKw)) {
       add(
         'imm-challenge',
         'Challenge a visa / leave decision',

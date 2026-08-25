@@ -25,6 +25,42 @@ function looksImmigration(t: string): boolean {
 }
 
 /**
+ * True when the client is challenging a Home Office / visa decision.
+ * False for prospective “I need a family visa” apply-first asks — and for
+ * “there was no refusal” style denials (the word “refusal” alone must not flip the track).
+ */
+export function looksVisaRefusalOrChallenge(text: string): boolean {
+  const t = text.toLowerCase()
+  const cleaned = t
+    .replace(
+      /\b(no|not|never|haven'?t|have not|didn'?t|did not|wasn'?t|was not|weren'?t|were not)\s+(a\s+|been\s+|any\s+)?(refusal|refused|reject(?:ed|ion)?)\b/gi,
+      ' ',
+    )
+    .replace(/\bthere (?:was|is) no refusal\b/gi, ' ')
+    .replace(/\bwithout (?:a )?refusal\b/gi, ' ')
+
+  const challengeCue =
+    /\b(refus(?:al|ed)?|reject(?:ed|ion)?|administrative review|\bappeal\b|tribunal)\b/.test(cleaned)
+  if (!challengeCue) return false
+
+  // Bare “appeal” in non-immigration text should not win; need an immigration anchor.
+  return looksImmigration(t) || /\b(decision|home office|ukvi|entry clearance)\b/.test(t)
+}
+
+/** Prospective visa / leave application — not (yet) a refusal challenge. */
+export function looksProspectiveVisaApplication(text: string): boolean {
+  const t = text.toLowerCase()
+  if (looksVisaRefusalOrChallenge(t)) return false
+  return (
+    /\b(need|want|looking for|how (?:do|can) i|apply(?:ing)? for|get(?:ting)?)\b[\s\S]{0,48}\bvisa\b/.test(
+      t,
+    ) ||
+    /\bvisa\b[\s\S]{0,24}\b(application|apply|apply(?:ing)?)\b/.test(t) ||
+    /\b(need|want)\s+(a\s+)?(family|spouse|partner|fiancé|fiance|visit|student|work)\s+visa\b/.test(t)
+  )
+}
+
+/**
  * Neighbour / access disputes (driveway parking, boundary, noise) — still matter=housing
  * for routing, but must not be framed as landlord–tenant.
  */
