@@ -95,7 +95,7 @@ const locations = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user } = useBookmarks();
+  const { user, openAuth, signOut } = useBookmarks();
   const pathname = usePathname();
   const onShaman =
     pathname === "/ask-the-shaman" || pathname.startsWith("/ask-the-shaman/");
@@ -158,8 +158,12 @@ export function Header() {
                 Bookmarks
               </NavBoxLink>
               {!user ? (
-                <NavBoxLink href="/login">Sign in</NavBoxLink>
-              ) : null}
+                <NavBoxButton variant="primary" onClick={() => openAuth("login")}>
+                  Login
+                </NavBoxButton>
+              ) : (
+                <NavBoxButton onClick={() => void signOut()}>Log out</NavBoxButton>
+              )}
             </nav>
 
             <button
@@ -200,14 +204,27 @@ export function Header() {
               Bookmarks
             </NavBoxLink>
             {!user ? (
-              <NavBoxLink
-                href="/login"
+              <NavBoxButton
+                variant="primary"
                 className="w-full"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openAuth("login");
+                }}
               >
-                Sign in
-              </NavBoxLink>
-            ) : null}
+                Login
+              </NavBoxButton>
+            ) : (
+              <NavBoxButton
+                className="w-full"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  void signOut();
+                }}
+              >
+                Log out
+              </NavBoxButton>
+            )}
           </nav>
         ) : null}
       </div>

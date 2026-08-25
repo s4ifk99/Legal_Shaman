@@ -1,11 +1,14 @@
 /**
- * Coherence auth gate — require signed-in verified users before expensive LLM endpoints.
- * Enable with REQUIRE_COHERENCE_AUTH=true (server) and NEXT_PUBLIC_REQUIRE_COHERENCE_AUTH=true (client).
+ * Coherence auth gate — require signed-in users before expensive LLM endpoints.
+ * On by default (aligned with search). Opt out with REQUIRE_COHERENCE_AUTH=false /
+ * NEXT_PUBLIC_REQUIRE_COHERENCE_AUTH=false.
  */
 export function requireCoherenceAuthEnabled(): boolean {
   const server = process.env.REQUIRE_COHERENCE_AUTH?.trim().toLowerCase();
   const pub = process.env.NEXT_PUBLIC_REQUIRE_COHERENCE_AUTH?.trim().toLowerCase();
   const raw = server || pub;
+  if (!raw) return true;
+  if (raw === "0" || raw === "false" || raw === "no" || raw === "off") return false;
   return raw === "1" || raw === "true" || raw === "yes";
 }
 

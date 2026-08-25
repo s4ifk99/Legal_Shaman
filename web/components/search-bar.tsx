@@ -198,7 +198,9 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
                             type="button"
                             role="option"
                             className="flex w-full items-center gap-2 rounded-lg px-2 py-2.5 text-left text-sm hover:bg-primary/10"
-                            onClick={() => router.push(`/category/${c.slug}`)}
+                            onClick={() =>
+                              requireAuth(() => router.push(`/category/${c.slug}`), "search")
+                            }
                           >
                             <FolderOpen className="h-4 w-4 shrink-0 text-primary" />
                             <span>
