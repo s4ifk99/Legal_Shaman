@@ -49,6 +49,17 @@ export const ISSUE_RETRIEVAL_INTENTS: Record<string, string[]> = {
   criminal_defence: ["driving ban disqualification motoring"],
   consumer: ["consumer rights faulty goods refund"],
   consumer_services: ["poor service trader complaint"],
+  consumer_small_claims: [
+    "deciding whether to make a small claim",
+    "small claims court and letter before action",
+    "letter before action money claim",
+    "county court claim compensation",
+  ],
+  family: [
+    "child arrangements contact order",
+    "divorce finances family court",
+    "domestic abuse protective order",
+  ],
 };
 
 /** Title patterns that must not appear when this issue is primary. */
@@ -58,6 +69,8 @@ export const ISSUE_TITLE_EXCLUSIONS: Record<string, RegExp> = {
   conveyancing: /travel agent refund|used car|repairing a car|consumer contracts.*online|distance selling/i,
   housing: /used car|employment tribunal|parking ticket|travel agent/i,
   employment: /parking ticket|pcn|used car bought|conveyancing purchase/i,
+  consumer_small_claims:
+    /child arrangements|custody|types of court orders in family|contact order|care order|divorce financial/i,
 };
 
 export const GLOBAL_EXCLUSION_LABELS = [

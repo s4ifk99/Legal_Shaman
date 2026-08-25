@@ -358,6 +358,29 @@ export async function buildOverviewAnswer(opts: {
       retrievalIntents: evidence.intents,
       matterId: opts.matterFrame.matterId,
     };
+    // Belongings / shared-housing: merge legacy curated collect so live matches local special cases
+    if (isFamilyBelongingsPropertyClaim(searchBlob) || isSharedHousingQuery(searchBlob)) {
+      const curated = collectOverviewHits(searchBlob);
+      const byId = new Map(hits.map((h) => [h.id, h]));
+      for (const hit of curated) {
+        const existing = byId.get(hit.id);
+        if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+      }
+      hits = isFamilyBelongingsPropertyClaim(searchBlob)
+        ? rerankFamilyBelongingsHits(searchBlob, [...byId.values()]).slice(0, 8)
+        : rerankSharedHousingHits(searchBlob, [...byId.values()]).slice(0, 8);
+      retrievalMeta = {
+        ...retrievalMeta,
+        retrievalMode: `${evidence.mode}+collectOverviewHits`,
+      };
+    } else if (hits.length < 2) {
+      // Weak matter intents → fall back to vault collect (same as unscoped path)
+      hits = collectOverviewHits(searchBlob);
+      retrievalMeta = {
+        ...retrievalMeta,
+        retrievalMode: `${evidence.mode}+legacy-fallback`,
+      };
+    }
   } else {
     hits = collectOverviewHits(searchBlob);
     retrievalMeta = { retrievalMode: "legacy-collectOverviewHits" };
