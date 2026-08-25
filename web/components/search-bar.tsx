@@ -129,7 +129,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
               <span className="text-secondary">Shaman</span>
             </h1>
             <p className="mb-1 text-base font-medium text-foreground md:text-lg">
-              Fixing Search for Legal Disputes
+              Justice through Search
             </p>
           </>
         ) : (
@@ -148,7 +148,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
               <span className="text-secondary">Shaman</span>
             </h1>
             <p className="mb-2 text-base font-medium text-foreground md:text-lg">
-              Fixing Search for Legal Disputes
+              Justice through Search
             </p>
           </>
         )}
