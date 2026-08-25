@@ -1,12 +1,13 @@
 /**
  * Turn-level legal state (SaLSA / MAP-Law inspired).
- * Phase 1: derive coverage + nextAction for traps and future intake wiring.
+ * Drives intake clarify priority via nextInteractiveAsk.
  * See docs/product-decisions/coherence-turn-state.md
  */
 import type { LegalFrame } from './frames'
+import { proposeLegalFrames } from './frames'
 import { buildRetrievalText } from './retrievalText'
 import { resolveTopicLock, type LockedPackId, type TopicLock } from './topicLock'
-import type { SessionState } from './types'
+import type { PredictiveChoice, Prompt, SessionState } from './types'
 
 export type TurnAction = 'clarify' | 'retrieve_scoped' | 'reformulate' | 'stop_overview'
 
@@ -20,6 +21,17 @@ export type TurnState = {
   coverage: number
   nextAction: TurnAction
   reason: string
+}
+
+/** Ask candidate produced for the interactive loop (mirrors questions.RankedAsk shape). */
+export type TurnClarifier = {
+  id: string
+  kind: Prompt['kind']
+  text: string
+  reason: string
+  options?: PredictiveChoice[]
+  priority: number
+  theme: string
 }
 
 type ElementDef = {
@@ -146,7 +158,6 @@ export function deriveTurnState(
   }
   const coverage = covered.length / defs.length
 
-  // Core story elements for neighbour / car must exist before Overview
   const coreMissing = missing.filter((id) =>
     ['counterparty_neighbour', 'access_harm', 'purchase', 'fault', 'notice_type'].includes(id),
   )
@@ -173,4 +184,225 @@ export function deriveTurnState(
 /** True when Overview must not run an unscoped / conflicting pack. */
 export function mustScopeRetrieval(state: TurnState): boolean {
   return Boolean(state.lock) && state.nextAction !== 'clarify'
+}
+
+/**
+ * Prompt ids / gap ids to suppress when a pack is locked (landlord bleed on neighbour, etc.).
+ */
+export function suppressedAskIds(state: TurnState): Set<string> {
+  const out = new Set<string>()
+  if (state.packId === 'neighbour-access-dispute') {
+    out.add('constraint_housing_notice')
+    out.add('gap_housing_trigger')
+  }
+  if (state.packId === 'car-reject-failed-repair') {
+    out.add('constraint_housing_notice')
+    out.add('gap_housing_trigger')
+  }
+  return out
+}
+
+/** Map pack element → existing gap / constraint id + theme for the ask loop. */
+export function elementAskBinding(elementId: ElementId): { id: string; theme: string } | null {
+  switch (elementId) {
+    case 'jurisdiction':
+      return { id: 'gap_where', theme: 'jurisdiction' }
+    case 'evidence':
+      return { id: 'gap_evidence', theme: 'evidence' }
+    case 'goal':
+    case 'remedy_sought':
+      return { id: 'gap_goal', theme: 'goal' }
+    case 'access_harm':
+    case 'purchase':
+    case 'fault':
+    case 'notice_type':
+      return { id: 'gap_incident_detail', theme: 'timeline' }
+    case 'counterparty_neighbour':
+      return { id: 'gap_responsible', theme: 'parties' }
+    default:
+      return null
+  }
+}
+
+/**
+ * Highest-priority clarifier for the first missing pack element.
+ * Returns null if covered enough or the element was already answered.
+ */
+export function preferredClarifierFromTurnState(
+  session: SessionState,
+  frames?: LegalFrame[],
+): TurnClarifier | null {
+  const liveFrames = frames?.length ? frames : proposeLegalFrames(session, 5)
+  const state = deriveTurnState(session, liveFrames)
+  if (!state.lock || !state.missing.length) return null
+  if (state.nextAction === 'stop_overview') return null
+
+  for (const elementId of state.missing) {
+    if (session.answeredPromptIds.includes(`element_${elementId}`)) continue
+    const clarifier = preferredClarifierForElement(session, state, elementId)
+    if (clarifier) return clarifier
+  }
+  return null
+}
+
+function preferredClarifierForElement(
+  session: SessionState,
+  state: TurnState,
+  elementId: ElementId,
+): TurnClarifier | null {
+  const binding = elementAskBinding(elementId)
+  if (!binding) return null
+  if (session.answeredPromptIds.includes(binding.id)) return null
+
+  const built = buildElementClarifierPrompt(session, state, elementId, binding.id)
+  if (!built) return null
+  return {
+    ...built,
+    priority: 110, // Above coherence constraints so pack coverage wins
+    theme: binding.theme,
+  }
+}
+
+function buildElementClarifierPrompt(
+  session: SessionState,
+  state: TurnState,
+  elementId: ElementId,
+  promptId: string,
+): Omit<TurnClarifier, 'priority' | 'theme'> | null {
+  void session
+  const pack = state.packId
+  switch (elementId) {
+    case 'jurisdiction':
+      return {
+        id: promptId,
+        kind: 'closed',
+        text: 'Where is this happening — England, Wales, Scotland, Northern Ireland, or a city?',
+        reason: `Turn state: need jurisdiction for ${pack}.`,
+        options: [
+          { id: 'w1', label: 'England', value: 'England' },
+          { id: 'w2', label: 'Wales', value: 'Wales' },
+          { id: 'w3', label: 'Scotland', value: 'Scotland' },
+          { id: 'w4', label: 'Northern Ireland', value: 'Northern Ireland' },
+          { id: 'w5', label: 'London', value: 'London' },
+        ],
+      }
+    case 'evidence':
+      return {
+        id: promptId,
+        kind: 'closed',
+        text:
+          pack === 'neighbour-access-dispute'
+            ? 'Do you already have photos, messages, or other evidence of the neighbour blocking access?'
+            : 'Do you already have anything in writing (letters, photos, messages)?',
+        reason: `Turn state: evidence still open for ${pack}.`,
+        options:
+          pack === 'neighbour-access-dispute'
+            ? [
+                { id: 'd1', label: 'Photos / video', value: 'I have photos or video of the blocked driveway or car port' },
+                { id: 'd2', label: 'Messages / emails', value: 'I have messages or emails with the neighbour about access' },
+                { id: 'd3', label: 'Council / police report', value: 'I have reported this to the council or police' },
+                { id: 'd4', label: 'Nothing yet', value: 'I have no documents or evidence yet' },
+              ]
+            : [
+                { id: 'd1', label: 'Official letter / notice', value: 'I have an official letter or notice' },
+                { id: 'd2', label: 'Messages', value: 'I have messages about this' },
+                { id: 'd3', label: 'Nothing yet', value: 'I have no documents yet' },
+              ],
+      }
+    case 'goal':
+    case 'remedy_sought':
+      return {
+        id: promptId,
+        kind: 'closed',
+        text:
+          pack === 'neighbour-access-dispute'
+            ? 'What would a good outcome look like — stop the parking / car port, restore access, or something else?'
+            : pack === 'car-reject-failed-repair'
+              ? 'What do you want next — reject the car, a refund, a repair, or to understand your options?'
+              : 'What do you want a lawyer or adviser to help you achieve next?',
+        reason: `Turn state: goal still open for ${pack}.`,
+        options:
+          pack === 'neighbour-access-dispute'
+            ? [
+                { id: 'g1', label: 'Stop the blocking', value: 'I want the neighbour to stop blocking my driveway or access' },
+                { id: 'g2', label: 'Remove / challenge the car port', value: 'I want to challenge or remove the car port blocking access' },
+                { id: 'g3', label: 'Understand my options', value: 'I want to understand my lawful options about access' },
+              ]
+            : pack === 'car-reject-failed-repair'
+              ? [
+                  { id: 'g1', label: 'Reject / refund', value: 'I want to reject the car or get a refund' },
+                  { id: 'g2', label: 'Repair', value: 'I want the trader to repair the car properly' },
+                  { id: 'g3', label: 'Understand options', value: 'I want to understand my Consumer Rights Act options' },
+                ]
+              : [
+                  { id: 'g1', label: 'Appeal / cancel', value: 'I want to appeal or cancel the parking charge' },
+                  { id: 'g2', label: 'Understand options', value: 'I want to understand my options about the parking notice' },
+                ],
+      }
+    case 'access_harm':
+      return {
+        id: promptId,
+        kind: 'open',
+        text: 'What exactly is the neighbour doing that blocks you — parking, a car port, a fence, or something else?',
+        reason: 'Turn state: access harm not yet clear.',
+        options: [
+          { id: 'a1', label: 'Parking on driveway', value: 'My neighbour is parking on or across my driveway' },
+          { id: 'a2', label: 'Building a car port', value: 'My neighbour is building a car port that blocks access' },
+          { id: 'a3', label: 'Other blocking', value: 'My neighbour is blocking access another way — I will explain' },
+        ],
+      }
+    case 'counterparty_neighbour':
+      return {
+        id: promptId,
+        kind: 'closed',
+        text: 'Is this mainly about your neighbour (or someone next door), rather than a landlord or trader?',
+        reason: 'Turn state: confirm neighbour as the other party.',
+        options: [
+          { id: 'r1', label: 'Yes — my neighbour', value: 'My neighbour is mainly responsible for this problem' },
+          { id: 'r2', label: 'Someone else', value: 'Someone other than my neighbour may be responsible' },
+          { id: 'r3', label: 'Not sure', value: 'I am not sure who is responsible yet' },
+        ],
+      }
+    case 'purchase':
+      return {
+        id: promptId,
+        kind: 'open',
+        text: 'Who did you buy the vehicle from — a dealer/trader, or a private seller — and roughly when?',
+        reason: 'Turn state: purchase details needed for used-car pack.',
+        options: [
+          { id: 'p1', label: 'Dealer / trader', value: 'I bought the used car from a dealer or trader' },
+          { id: 'p2', label: 'Private seller', value: 'I bought the car from a private seller' },
+        ],
+      }
+    case 'fault':
+      return {
+        id: promptId,
+        kind: 'open',
+        text: 'What went wrong with the car — and when did you first notice it?',
+        reason: 'Turn state: fault details needed for used-car pack.',
+        options: [
+          { id: 'f1', label: 'Broke down', value: 'The car broke down soon after I bought it' },
+          { id: 'f2', label: 'Fault codes / not fixed', value: 'The car has faults that were not fixed properly' },
+        ],
+      }
+    case 'notice_type':
+      return {
+        id: promptId,
+        kind: 'closed',
+        text: 'Is this a council PCN, or a private parking charge from a car-park operator?',
+        reason: 'Turn state: need notice type for parking pack.',
+        options: [
+          { id: 'n1', label: 'Council PCN', value: 'This is a council parking ticket or PCN' },
+          { id: 'n2', label: 'Private parking charge', value: 'This is a private parking charge from an operator' },
+          { id: 'n3', label: 'Not sure', value: 'I am not sure whether this is council or private parking' },
+        ],
+      }
+    default:
+      return null
+  }
+}
+
+/** Convenience: derive state from session alone (frames proposed inside). */
+export function deriveTurnStateForSession(session: SessionState): TurnState {
+  return deriveTurnState(session, proposeLegalFrames(session, 5))
 }

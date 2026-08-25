@@ -97,16 +97,17 @@ elif state.nextAction == stop_overview:
 
 Topic lock, cite hygiene, neighbour packs, trap suite.
 
-### Phase 1 (this note + code stub)
+### Phase 1 (done)
 
 - `turnState.ts`: `deriveTurnState`, pack element coverage, `nextAction`
 - Traps asserting: locked neighbour → not `retrieve_unscoped`; multi-turn driveway + England still neighbour; used-car still CRA after clarifiers
 
-### Phase 2 (wire)
+### Phase 2 (done — wired)
 
-- `nextPrompt` / causation: prefer missing elements from `deriveTurnState` over generic housing gaps when locked
-- Overview API: require `topicId`; reject packs in `forbiddenPackIds`
-- Master brief: never write goals into cite candidates
+- `nextInteractiveAsk` / `nextPrompt`: prefer `preferredClarifierFromTurnState` (missing pack elements) over generic housing gaps when locked
+- Suppress `constraint_housing_notice` / `gap_housing_trigger` on neighbour and used-car locks
+- Overview API: `topicLock` + `oslawPreflight` reject packs in `forbiddenPackIds`
+- Master brief / cite: goals must not become cite candidates (traps)
 
 ### Phase 3 (eval)
 
