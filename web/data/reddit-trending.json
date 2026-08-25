@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-24T18:37:43.436Z",
-    "subredditCount": 1,
-    "postCount": 20,
-    "topicCount": 5,
+    "scrapedAt": "2026-08-25T06:33:05.346Z",
+    "subredditCount": 2,
+    "postCount": 40,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -50,6 +50,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vxkcic",
+          "title": "Police have arrested and questioned 3 of my mates from our private WhatsApp group chat. They're asking to speak to me too, but I'm working abroad.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787617190,
+          "snippet": "They've all been arrested and had interviews under s127 of the Communications Act. There's 4 of us in a group chat on WhatsApp where we chat and also make some edgy jokes and stuff. We're two white, an Indian and a black guy who studied at uni together. All three of them have bee",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vx2rs7",
           "title": "Airbnb cancels our AirBnB while we were in it. - Wales",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx2rs7/airbnb_cancels_our_airbnb_while_we_were_in_it/",
@@ -74,15 +86,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vwwv2p",
-          "title": "Manager denied me of drinking water",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwwv2p/manager_denied_me_of_drinking_water/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwwv2p/manager_denied_me_of_drinking_water/",
+          "id": "1vxfnc0",
+          "title": "Smoking in a private \"pub\" (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxfnc0/smoking_in_a_private_pub_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxfnc0/smoking_in_a_private_pub_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787560107,
-          "snippet": "To keep it short, i work as an assistant engineering surveyor in the UK. My manager has been known to be more of a workaholic and dismiss anything and everything else that is not work related, to get the job done. Last week on the hottest day of the year, my manager decided its b",
+          "createdUtc": 1787605854,
+          "snippet": "I would like to buy one of the many pubs that are closing down and use it as my main dwelling house. I would also like to have an open house several nights a week (Thursday to Sunday) where local people could bring along their own alcohol and pipes and have a civilised drink and ",
           "listingSource": "rss:hot"
         },
         {
@@ -98,6 +110,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vx69qp",
+          "title": "Do I legally have to attend court?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx69qp/do_i_legally_have_to_attend_court/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx69qp/do_i_legally_have_to_attend_court/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787585875,
+          "snippet": "Around 5 years ago, my ex-partner was misdiagnosed with an illness at hospital that almost cost him his life. It did, however, force him to lose his career, of which he had barely had a chance to begin. I have been contacted several times by his solicitors that are working with h",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vx5r6c",
           "title": "UPDATE: My boss verbally promised me garden leave if I resign (UK)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx5r6c/update_my_boss_verbally_promised_me_garden_leave/",
@@ -107,6 +131,18 @@
           "numComments": 0,
           "createdUtc": 1787584747,
           "snippet": "I wasn’t getting on well with my new boss so my CFO told me to resign effective immediately and that he will pay me out my 3 month notice period (ie put me on garden leave). He told me to just write a quick email to him saying that I resign effective immediately. I followed his i",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vwwv2p",
+          "title": "Manager denied me of drinking water",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwwv2p/manager_denied_me_of_drinking_water/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwwv2p/manager_denied_me_of_drinking_water/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787560107,
+          "snippet": "To keep it short, i work as an assistant engineering surveyor in the UK. My manager has been known to be more of a workaholic and dismiss anything and everything else that is not work related, to get the job done. Last week on the hottest day of the year, my manager decided its b",
           "listingSource": "rss:hot"
         },
         {
@@ -122,15 +158,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vx69qp",
-          "title": "Do I legally have to attend court?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx69qp/do_i_legally_have_to_attend_court/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx69qp/do_i_legally_have_to_attend_court/",
+          "id": "1vxr98o",
+          "title": "Ukrainian divorce document not being accepted by UK registry office – advice?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxr98o/ukrainian_divorce_document_not_being_accepted_by/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxr98o/ukrainian_divorce_document_not_being_accepted_by/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787585875,
-          "snippet": "Around 5 years ago, my ex-partner was misdiagnosed with an illness at hospital that almost cost him his life. It did, however, force him to lose his career, of which he had barely had a chance to begin. I have been contacted several times by his solicitors that are working with h",
+          "createdUtc": 1787637251,
+          "snippet": "My partner is Ukrainian and we are getting married in November in England. We recently gave notice at our local register office. My partner was previously married in Ukraine and provided her divorce document through the Diia app. However, the registrar has said they don’t recogni",
           "listingSource": "rss:hot"
         },
         {
@@ -143,6 +179,54 @@
           "numComments": 0,
           "createdUtc": 1787563239,
           "snippet": "I am an approved driving instructor. My pupil was taking their test with two DVSA examiners in the car when a van crashed into them. The van driver has admitted liability. My car was an old car and I am being offered around £1400 for it. As you can appreciate this is not enough t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vx9g2i",
+          "title": "Plead guilty or not guilty- England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx9g2i/plead_guilty_or_not_guilty_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx9g2i/plead_guilty_or_not_guilty_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787592663,
+          "snippet": "My case arose after I went fishing and used my fishing bag. I unintentionally left a locking-blade multitool inside the bag and later took the same bag with me to a theme park. The multitool was discovered during a security search at the entrance. I had forgotten that it was stil",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxgr65",
+          "title": "England having harassment issues with the police, can any helpful organisations or redditors assist please",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxgr65/england_having_harassment_issues_with_the_police/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxgr65/england_having_harassment_issues_with_the_police/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787608379,
+          "snippet": "So basically over the last 6 months to a year someone is making malicious reports to the police, each time they turn up to my house they mention an anonymous call about aggressive shouting/behaviour, or some fake story about potential abuse, each time they found nothing, question",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxie1w",
+          "title": "How do i report a potential online predator?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxie1w/how_do_i_report_a_potential_online_predator/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxie1w/how_do_i_report_a_potential_online_predator/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787612300,
+          "snippet": "Hi everyone I wasn’t sure who to ask but I’ve looked online but most of the options don’t seem to apply to my situation and won’t let me report someone unless I’m the victim. I was scrolling through TikTok per usual and came across a video of a school child in her uniform doing h",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vx7jfu",
+          "title": "Dad died, sisters l believe are renting his house. No Will/Probate found. Help",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx7jfu/dad_died_sisters_l_believe_are_renting_his_house/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx7jfu/dad_died_sisters_l_believe_are_renting_his_house/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787588610,
+          "snippet": "My dad died in 2025 in England He was a widower, and I am his son. He owned a house in West Bromwich solely in his name.I believe he had a Will but can't find it. I've already checked probate, local solicitors, and the National Will Register (Certainty)—all returned nothing. The ",
           "listingSource": "rss:hot"
         },
         {
@@ -168,89 +252,253 @@
           "createdUtc": 1787507960,
           "snippet": "Hi all, apologies if this doesn’t fit within this group but not sure where else to post it. Summary: - Live in Wales. - Live in a semi-detached house. - The house next to us was vacant when we moved in but has recently been sold and buyer is gutting it, including a 2 storey exten",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "name": "UKPersonalFinance",
+      "displayName": "r/UKPersonalFinance",
+      "description": "Debt, benefits, tax disputes, and consumer rights with legal crossover.",
+      "subscribers": null,
+      "posts": [
         {
-          "id": "1vx7jfu",
-          "title": "Dad died, sisters l believe are renting his house. No Will/Probate found. Help",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx7jfu/dad_died_sisters_l_believe_are_renting_his_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx7jfu/dad_died_sisters_l_believe_are_renting_his_house/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vtlh1l",
+          "title": "New ETF version of Vanguard’s legendary Global All-Cap fund coming - with a 0.07% fee!",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vtlh1l/new_etf_version_of_vanguards_legendary_global/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vtlh1l/new_etf_version_of_vanguards_legendary_global/",
+          "subreddit": "UKPersonalFinance",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787588610,
-          "snippet": "My dad died in 2025 in England He was a widower, and I am his son. He owned a house in West Bromwich solely in his name.I believe he had a Will but can't find it. I've already checked probate, local solicitors, and the National Will Register (Certainty)—all returned nothing. The ",
+          "createdUtc": 1787237043,
+          "snippet": "This is it, finally UK investors will have access to the entire world at a truly competitive rate like the US have had with VT for years. Everything in the world, from developed to emerging markets and small cap at an unbelievably good price, available everywhere. As soon as this",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vw5x6f",
-          "title": "The flat below me has their heating set to 30 degrees 24/7. My flat is turning into a sauna as the heat rises.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw5x6f/the_flat_below_me_has_their_heating_set_to_30/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw5x6f/the_flat_below_me_has_their_heating_set_to_30/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vwir7f",
+          "title": "Got nobody else to share this happy milestone with: (41m) and just signed up for a 3 year fixed mortgage deal with a 3 year term. So after this final 36 month stint I'll be mortgage free!",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vwir7f/got_nobody_else_to_share_this_happy_milestone/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vwir7f/got_nobody_else_to_share_this_happy_milestone/",
+          "subreddit": "UKPersonalFinance",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787488127,
-          "snippet": "The flat below mine has their heat on full blast constantly. Heat rises and my flat turns into a sauna. There are 8 flats in our block. The neighbour opposite me has a normal temperature house, so I've ruled out it being a universal issue across the block. I've spoken with the pe",
+          "createdUtc": 1787518569,
+          "snippet": "This has taken a lot of consistent overpayments over the last 16 years and quite a few sacrifices but I've got my mortgage down to 34k, (property is worth 375k), which means I was able to bring the next deal down to a 3 year term while still being affordable. Not something I coul",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vx9g2i",
-          "title": "Plead guilty or not guilty- England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx9g2i/plead_guilty_or_not_guilty_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx9g2i/plead_guilty_or_not_guilty_england/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vxcloa",
+          "title": "I've exhausted my known avenues to try locate a Child Trust Fund. Where to go next?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxcloa/ive_exhausted_my_known_avenues_to_try_locate_a/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxcloa/ive_exhausted_my_known_avenues_to_try_locate_a/",
+          "subreddit": "UKPersonalFinance",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787592663,
-          "snippet": "My case arose after I went fishing and used my fishing bag. I unintentionally left a locking-blade multitool inside the bag and later took the same bag with me to a theme park. The multitool was discovered during a security search at the entrance. I had forgotten that it was stil",
+          "createdUtc": 1787599200,
+          "snippet": "Hi all, Over the past year or so, I've been on and off trying to locate my CTF. I was definitely born Sept 2002 - Jan 2011 when CTFs were set up, but my family has no recollection of ever starting an account. It looks like HMRC should've started an account for me but so far I've ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vwyxqw",
-          "title": "Claiming ‘compensation’ for time spent appealing parking tickets.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwyxqw/claiming_compensation_for_time_spent_appealing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwyxqw/claiming_compensation_for_time_spent_appealing/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vxr2z0",
+          "title": "Personal loan options - car purchase",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxr2z0/personal_loan_options_car_purchase/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxr2z0/personal_loan_options_car_purchase/",
+          "subreddit": "UKPersonalFinance",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787567264,
-          "snippet": "England - I don’t want to go through all of the rigmarole of the MAE Forums toy with them until court. Background - There is an estate I deliver to as a driver regularly. The estate is camera controlled permits only to park. I don’t park I load / unload and leave 10-15 mins. I ha",
+          "createdUtc": 1787636660,
+          "snippet": "34(f). My husband and I are looking to exchange our car in for a new second hand one. Context: our car is a bit beat up now, 70k miles, could do with some TLC. We’ve been offered £6k to exchange it which is staggering to me to be honest and we’d love to take advantage of that. Hu",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vxao3b",
-          "title": "[ENGLAND] How do we protect my mum's house for her children after she remarried, given her husband has a son from another relationship?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxao3b/england_how_do_we_protect_my_mums_house_for_her/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxao3b/england_how_do_we_protect_my_mums_house_for_her/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vwygbb",
+          "title": "The student loan company overpaid me 5 years ago when I was at uni. They gave me another year of maintainance money because I had to get an extension due to COVID related issues ( certain equipment I needed not being accessible). After paying me they told me I needed to pay all the money back after",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vwygbb/the_student_loan_company_overpaid_me_5_years_ago/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vwygbb/the_student_loan_company_overpaid_me_5_years_ago/",
+          "subreddit": "UKPersonalFinance",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787595232,
-          "snippet": "My mum owns her house outright (no mortgage) and remarried about 9 years ago, only her name is down on the house. It's her only home. She has children from a previous relationship (im one of them), and her new husband has a son from a previous relationship of his own. We want to ",
+          "createdUtc": 1787565710,
+          "snippet": "The student loan company overpaid me 5 years ago when I was at uni. They gave me another semister of maintainance money because I had to get an extension due to COVID related issues ( certain equipment I needed not being accessible). After paying me they told me I needed to pay a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vxanjz",
-          "title": "What action can be taken regarding affect of vexatious neighbour dispute on house value - Wales",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxanjz/what_action_can_be_taken_regarding_affect_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxanjz/what_action_can_be_taken_regarding_affect_of/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vxr8y1",
+          "title": "In-year tax relief for relief-at-source pension contributions",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxr8y1/inyear_tax_relief_for_reliefatsource_pension/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxr8y1/inyear_tax_relief_for_reliefatsource_pension/",
+          "subreddit": "UKPersonalFinance",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787595199,
-          "snippet": "We have been subject to a campaign of harassment by our neighbours and plan to sell the house. I will be light on details but it’s relevant that they raised a noise complaint with the council against us that went nowhere as it was baseless. I believe we will have to declare the d",
+          "createdUtc": 1787637221,
+          "snippet": "My workplace pension is relief at source (I think) - my payslip shows I'm taxed on my gross earnings and I have to claim back higher-rate relief. I want to put anything over £100k into my pension, so for every £100 I earn over that, I have to put £80 in. After tax and NI I only t",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vw6p55",
-          "title": "ENGLAND - Leeds Festival not allowing day ticket holders to see all advertised artists",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw6p55/england_leeds_festival_not_allowing_day_ticket/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vw6p55/england_leeds_festival_not_allowing_day_ticket/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1vx09ww",
+          "title": "37F Single mum, complete beginner-Help!",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vx09ww/37f_single_mum_complete_beginnerhelp/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vx09ww/37f_single_mum_complete_beginnerhelp/",
+          "subreddit": "UKPersonalFinance",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787490288,
-          "snippet": "As title. I have just found out that Leeds Festival (Festival Republic) are not allowing day ticket holders to view the sets played on the \"LS23\" stage, due to it being in the camping area. While the day ticket does state that no camping access is allowed, nowhere on their websit",
+          "createdUtc": 1787571315,
+          "snippet": "Ok, as the title states I am 37, with two children, 15 and 10 years old. I rent our home, I have zero debt except a credit card which I got to raise my credit score (I pay it off regularly). I feel like I can't move to a cheaper area due to the children's schools and proximity to",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxaj2f",
+          "title": "Lloyds are closing my bank accounts.",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxaj2f/lloyds_are_closing_my_bank_accounts/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxaj2f/lloyds_are_closing_my_bank_accounts/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787594934,
+          "snippet": "I just started a DMP to pay off my debts and currently overdrawn. I received a letter from Lloyds saying they are going to close my bank account in 90 days. Does anyone have any advice for me on what to do, can I open up another bank account with a different bank submitted by /u/",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxa4b3",
+          "title": "Does this make sense? Help me rationalise",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxa4b3/does_this_make_sense_help_me_rationalise/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxa4b3/does_this_make_sense_help_me_rationalise/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787594082,
+          "snippet": "I have just received about £16,500 in inheritance from my mother after her property was sold off. My husband and I are planning to: Use £7,000 for rent. Where we live is convenient for family, friends and work. I am going to be in teacher training for a year so will give up my wa",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxa42z",
+          "title": "Interactive Investor is a terrible user experience",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxa42z/interactive_investor_is_a_terrible_user_experience/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxa42z/interactive_investor_is_a_terrible_user_experience/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787594069,
+          "snippet": "Interactive Investor is heavily recommended on here, but honestly, it's the most frustrating experience I've had in personal finance. Potentially this is with the nuance of me investing in a SIPP via my business but the whole process feels so antiquated compared to the level of p",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vx5w36",
+          "title": "Pay off mortgage using S&S ISA vs. Keep ISA invested to avoid losing tax-free allowance? (30M, Tech Sales)",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vx5w36/pay_off_mortgage_using_ss_isa_vs_keep_isa/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vx5w36/pay_off_mortgage_using_ss_isa_vs_keep_isa/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787585050,
+          "snippet": "Hi all, looking for some perspective on the classic \"pay off mortgage vs. keep invested\" dilemma, but with a specific tax wrapper catch. The Situation: Age: 30 Mortgage: £81k remaining on a £175k property. 2 years left on current fixed deal. ISA (S&amp;S): £50k. Currently maxing ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vx67ya",
+          "title": "Advice on my short- and long-term savings plans",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vx67ya/advice_on_my_short_and_longterm_savings_plans/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vx67ya/advice_on_my_short_and_longterm_savings_plans/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787585767,
+          "snippet": "Hi all, I was hoping for some general advice on my overall financial situation. This community has been so helpful in the past so looking to lean on the hive mind further. A lot of the below is based on my reading of the UKPF flowchart. I have outlined my situation and then have ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxexkd",
+          "title": "Experience with CASS from Revolut",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxexkd/experience_with_cass_from_revolut/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxexkd/experience_with_cass_from_revolut/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787604289,
+          "snippet": "Hi, has anyone used the Current Account Switch Service from Revolut to another bank? I have a Revolut account I don't use and am considering opening another account (NatWest, Nationwide etc.) to take advantage of their switch offers. I'd like to know whether Revolut supports outg",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxedde",
+          "title": "Best way to replay Credit Union loan",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxedde/best_way_to_replay_credit_union_loan/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxedde/best_way_to_replay_credit_union_loan/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787603045,
+          "snippet": "Hi folks, Things have generally been going quite well for me over the past year I currently have about £50,000 in savings which is going to keep increasing in the future. I have no loan repayments. The only exception is I have a £10,000 loan with my credit union at 6.9%, I have £",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxdfx4",
+          "title": "FIL has significant NI Gaps from self employment(non payment) what should we do?",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxdfx4/fil_has_significant_ni_gaps_from_self/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxdfx4/fil_has_significant_ni_gaps_from_self/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787601049,
+          "snippet": "My father in law hit retirement age last year (66), he hasnt worked regularly in at least the last 10 years due to injury/illness/homelessness. He used to work for himself as a mechanic and looking at his national insurance record it doesn't look like he paid NI (or tax?) since 2",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxc4m5",
+          "title": "Has anyone had success using a Virgin Account and TrueLayer open banking? Trying to use Updraft!",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxc4m5/has_anyone_had_success_using_a_virgin_account_and/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxc4m5/has_anyone_had_success_using_a_virgin_account_and/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787598230,
+          "snippet": "Hi, Wondering if anyone has any advice on using Updraft which requires Truelayer open banking? I tried to do this unsuccessfully, and it appears to be because my main bank account where my salary gets paid is into a Virgin Account, this account was previously Clydesdale Bank (fru",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vwnu0g",
+          "title": "New NS&I guaranteed growth bonds",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vwnu0g/new_nsi_guaranteed_growth_bonds/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vwnu0g/new_nsi_guaranteed_growth_bonds/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787531546,
+          "snippet": "I was lucky enough to get in on the 6.2% guaranteed income bonds from NS&amp;I a few years ago, but inevitably the rate has gone down since then. However the government has recently released 1 year guaranteed growth bonds at 4.82% AER (fixed for 1 year). Each bond is £500, you ca",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxaqu6",
+          "title": "Snoop App a But Confused about Bills",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxaqu6/snoop_app_a_but_confused_about_bills/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxaqu6/snoop_app_a_but_confused_about_bills/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787595392,
+          "snippet": "Anyone using Snooop? I'm new to it and it keeps warning me about upcoming bills. OK, fine, but with my credit card it tells me I am due to pay the amount of last month's bill, as if it were the same amount each month. Is there a way of getting it to understand that if I only owe ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vwyd8n",
+          "title": "Scottish Widow Pensions Investment Portfolio suggestions",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vwyd8n/scottish_widow_pensions_investment_portfolio/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vwyd8n/scottish_widow_pensions_investment_portfolio/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787565437,
+          "snippet": "Hi, I am a 31 year old and was reviewing my investments in Scottish Widows pension scheme. I have redistributed my investment from their default to the following - SW BlackRock 30:70 Global Equity - 30% SW BlackRock World Ex UK Equity - 20% SW BlackRock Gold and General - 30% SW ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vx98ln",
+          "title": "Plan 2 Student Loan and NIable/ Taxable Pay",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vx98ln/plan_2_student_loan_and_niable_taxable_pay/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vx98ln/plan_2_student_loan_and_niable_taxable_pay/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787592239,
+          "snippet": "I earn the vast majority of my money (~£65k give or take a bit for my bonus) via a PAYE role, and therefore pay the overwhelming majority of my plan 2 student loan payments automatically via my payslip. Having asked my company's payroll team this is based on NIable pay and tax pa",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,10 +509,11 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 15,
+      "postCount": 31,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "UKPersonalFinance"
       ],
       "posts": [
         {
@@ -316,15 +565,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vwwv2p",
-          "title": "Manager denied me of drinking water",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwwv2p/manager_denied_me_of_drinking_water/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwwv2p/manager_denied_me_of_drinking_water/",
+          "id": "1vxfnc0",
+          "title": "Smoking in a private \"pub\" (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxfnc0/smoking_in_a_private_pub_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxfnc0/smoking_in_a_private_pub_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787560107,
-          "snippet": "To keep it short, i work as an assistant engineering surveyor in the UK. My manager has been known to be more of a workaholic and dismiss anything and everything else that is not work related, to get the job done. Last week on the hottest day of the year, my manager decided its b",
+          "createdUtc": 1787605854,
+          "snippet": "I would like to buy one of the many pubs that are closing down and use it as my main dwelling house. I would also like to have an open house several nights a week (Thursday to Sunday) where local people could bring along their own alcohol and pipes and have a civilised drink and ",
           "listingSource": "rss:hot"
         },
         {
@@ -340,6 +589,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vx69qp",
+          "title": "Do I legally have to attend court?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx69qp/do_i_legally_have_to_attend_court/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx69qp/do_i_legally_have_to_attend_court/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787585875,
+          "snippet": "Around 5 years ago, my ex-partner was misdiagnosed with an illness at hospital that almost cost him his life. It did, however, force him to lose his career, of which he had barely had a chance to begin. I have been contacted several times by his solicitors that are working with h",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vx5r6c",
           "title": "UPDATE: My boss verbally promised me garden leave if I resign (UK)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vx5r6c/update_my_boss_verbally_promised_me_garden_leave/",
@@ -349,18 +610,6 @@
           "numComments": 0,
           "createdUtc": 1787584747,
           "snippet": "I wasn’t getting on well with my new boss so my CFO told me to resign effective immediately and that he will pay me out my 3 month notice period (ie put me on garden leave). He told me to just write a quick email to him saying that I resign effective immediately. I followed his i",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vwwaaf",
-          "title": "People pretending to be disabled cleared out all the wheelchairs to fast track their way through the airport. I got stranded in the check-in for 45 minutes.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwwaaf/people_pretending_to_be_disabled_cleared_out_all/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwwaaf/people_pretending_to_be_disabled_cleared_out_all/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787558025,
-          "snippet": "I'm disabled. I can manage a distance of 16m aided, but then I will need to rest to catch my breath. I'm employed as an engineer and travel for work. Some can be done remotely, but complex works require my assessment in person. I am happy to do so - my employer is not forcing me ",
           "listingSource": "rss:hot"
         }
       ]
@@ -402,9 +651,9 @@
       ]
     },
     {
-      "slug": "parking-and-pcns",
-      "label": "Parking and PCNs",
-      "legalAreaSlug": "parking_pcn",
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -412,15 +661,15 @@
       ],
       "posts": [
         {
-          "id": "1vwyxqw",
-          "title": "Claiming ‘compensation’ for time spent appealing parking tickets.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwyxqw/claiming_compensation_for_time_spent_appealing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwyxqw/claiming_compensation_for_time_spent_appealing/",
+          "id": "1vxkcic",
+          "title": "Police have arrested and questioned 3 of my mates from our private WhatsApp group chat. They're asking to speak to me too, but I'm working abroad.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787567264,
-          "snippet": "England - I don’t want to go through all of the rigmarole of the MAE Forums toy with them until court. Background - There is an estate I deliver to as a driver regularly. The estate is camera controlled permits only to park. I don’t park I load / unload and leave 10-15 mins. I ha",
+          "createdUtc": 1787617190,
+          "snippet": "They've all been arrested and had interviews under s127 of the Communications Act. There's 4 of us in a group chat on WhatsApp where we chat and also make some edgy jokes and stuff. We're two white, an Indian and a black guy who studied at uni together. All three of them have bee",
           "listingSource": "rss:hot"
         }
       ]
@@ -436,15 +685,15 @@
       ],
       "posts": [
         {
-          "id": "1vxao3b",
-          "title": "[ENGLAND] How do we protect my mum's house for her children after she remarried, given her husband has a son from another relationship?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxao3b/england_how_do_we_protect_my_mums_house_for_her/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxao3b/england_how_do_we_protect_my_mums_house_for_her/",
+          "id": "1vxr98o",
+          "title": "Ukrainian divorce document not being accepted by UK registry office – advice?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxr98o/ukrainian_divorce_document_not_being_accepted_by/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxr98o/ukrainian_divorce_document_not_being_accepted_by/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787595232,
-          "snippet": "My mum owns her house outright (no mortgage) and remarried about 9 years ago, only her name is down on the house. It's her only home. She has children from a previous relationship (im one of them), and her new husband has a son from a previous relationship of his own. We want to ",
+          "createdUtc": 1787637251,
+          "snippet": "My partner is Ukrainian and we are getting married in November in England. We recently gave notice at our local register office. My partner was previously married in Ukraine and provided her divorce document through the Diia app. However, the registrar has said they don’t recogni",
           "listingSource": "rss:hot"
         }
       ]
@@ -460,15 +709,87 @@
       ],
       "posts": [
         {
-          "id": "1vxanjz",
-          "title": "What action can be taken regarding affect of vexatious neighbour dispute on house value - Wales",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxanjz/what_action_can_be_taken_regarding_affect_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxanjz/what_action_can_be_taken_regarding_affect_of/",
+          "id": "1vxgr65",
+          "title": "England having harassment issues with the police, can any helpful organisations or redditors assist please",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxgr65/england_having_harassment_issues_with_the_police/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxgr65/england_having_harassment_issues_with_the_police/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787595199,
-          "snippet": "We have been subject to a campaign of harassment by our neighbours and plan to sell the house. I will be light on details but it’s relevant that they raised a noise complaint with the council against us that went nowhere as it was baseless. I believe we will have to declare the d",
+          "createdUtc": 1787608379,
+          "snippet": "So basically over the last 6 months to a year someone is making malicious reports to the police, each time they turn up to my house they mention an anonymous call about aggressive shouting/behaviour, or some fake story about potential abuse, each time they found nothing, question",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "garage-and-vehicle-repair-disputes",
+      "label": "Garage and Vehicle Repair Disputes",
+      "legalAreaSlug": "consumer_vehicle_repair",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "UKPersonalFinance"
+      ],
+      "posts": [
+        {
+          "id": "1vxr2z0",
+          "title": "Personal loan options - car purchase",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxr2z0/personal_loan_options_car_purchase/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxr2z0/personal_loan_options_car_purchase/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787636660,
+          "snippet": "34(f). My husband and I are looking to exchange our car in for a new second hand one. Context: our car is a bit beat up now, 70k miles, could do with some TLC. We’ve been offered £6k to exchange it which is staggering to me to be honest and we’d love to take advantage of that. Hu",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "banking-and-finance",
+      "label": "Banking and Finance",
+      "legalAreaSlug": "banking_finance",
+      "postCount": 3,
+      "engagementScore": 0,
+      "subreddits": [
+        "UKPersonalFinance"
+      ],
+      "posts": [
+        {
+          "id": "1vwygbb",
+          "title": "The student loan company overpaid me 5 years ago when I was at uni. They gave me another year of maintainance money because I had to get an extension due to COVID related issues ( certain equipment I needed not being accessible). After paying me they told me I needed to pay all the money back after",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vwygbb/the_student_loan_company_overpaid_me_5_years_ago/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vwygbb/the_student_loan_company_overpaid_me_5_years_ago/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787565710,
+          "snippet": "The student loan company overpaid me 5 years ago when I was at uni. They gave me another semister of maintainance money because I had to get an extension due to COVID related issues ( certain equipment I needed not being accessible). After paying me they told me I needed to pay a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxedde",
+          "title": "Best way to replay Credit Union loan",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxedde/best_way_to_replay_credit_union_loan/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vxedde/best_way_to_replay_credit_union_loan/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787603045,
+          "snippet": "Hi folks, Things have generally been going quite well for me over the past year I currently have about £50,000 in savings which is going to keep increasing in the future. I have no loan repayments. The only exception is I have a £10,000 loan with my credit union at 6.9%, I have £",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vx98ln",
+          "title": "Plan 2 Student Loan and NIable/ Taxable Pay",
+          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1vx98ln/plan_2_student_loan_and_niable_taxable_pay/",
+          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1vx98ln/plan_2_student_loan_and_niable_taxable_pay/",
+          "subreddit": "UKPersonalFinance",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787592239,
+          "snippet": "I earn the vast majority of my money (~£65k give or take a bit for my bonus) via a PAYE role, and therefore pay the overwhelming majority of my plan 2 student loan payments automatically via my payslip. Having asked my company's payroll team this is based on NIable pay and tax pa",
           "listingSource": "rss:hot"
         }
       ]
