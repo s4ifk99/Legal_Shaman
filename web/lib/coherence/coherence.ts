@@ -7,6 +7,7 @@
  */
 import type { SessionState } from './types'
 import type { LegalFrame } from './frames'
+import { looksNeighbourDispute } from './sense'
 import { clipPhrase } from './timelineExtract'
 
 /** Lightweight wiki / guidance node for the session graph. */
@@ -168,9 +169,13 @@ const UNMET_RULES: UnmetRule[] = [
     id: 'constraint_housing_notice',
     label: 'Notice / tenancy papers unclear',
     question: 'Do you have a tenancy agreement or any notice from the landlord (for example section 21)?',
-    applies: (fid) => fid.startsWith('hous-'),
+    applies: (fid) => fid.startsWith('hous-') && fid !== 'hous-neighbour',
     filled: (s, t) =>
-      s.documents.length > 0 || /tenancy|section\s*21|section\s*8|notice|possession/.test(t),
+      looksNeighbourDispute(
+        [...s.rawInputs, s.whatHappened, s.goal].join(' '),
+      ) ||
+      s.documents.length > 0 ||
+      /tenancy|section\s*21|section\s*8|notice|possession/.test(t),
   },
   {
     id: 'constraint_employment_status',

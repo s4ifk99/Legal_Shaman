@@ -239,11 +239,27 @@ export function applyMasterToSession(
   const matter = asMatter(classify.matterType || brief.matterType)
   const jurisdiction = asJurisdiction(brief.jurisdiction)
 
+  const briefWhat = brief.whatHappened?.trim() || ''
+  const baseWhat = base.whatHappened?.trim() || ''
+  const latest = latestText.trim()
+  // Never replace a long client story with a short clarifier or location chip
+  const preferStory = (...opts: string[]) =>
+    opts
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .sort((a, b) => b.length - a.length)[0] || ''
+
+  const rawInputs = fresh
+    ? [latest].filter(Boolean)
+    : base.rawInputs[base.rawInputs.length - 1] === latest
+      ? base.rawInputs
+      : [...base.rawInputs, latest].filter(Boolean)
+
   return {
     ...base,
-    rawInputs: fresh ? [latestText] : [...base.rawInputs, latestText].filter(Boolean),
+    rawInputs,
     events: events.length >= 2 ? events : base.events,
-    whatHappened: brief.whatHappened?.trim() || latestText,
+    whatHappened: preferStory(briefWhat, baseWhat, latest.length >= 40 ? latest : ''),
     howCaused: brief.howCaused?.trim() || (fresh ? '' : base.howCaused),
     goal: brief.goal?.trim() || base.goal,
     parties,
@@ -258,8 +274,8 @@ export function applyMasterToSession(
       brief.mode === 'urgent'
         ? (brief.mode as Mode)
         : base.mode,
-    briefUnderstanding: brief.understanding || '',
-    clientQuestion: brief.clientQuestion || '',
+    briefUnderstanding: brief.understanding?.trim() || base.briefUnderstanding || '',
+    clientQuestion: brief.clientQuestion?.trim() || base.clientQuestion || '',
     topicId: classify.topicId || brief.topicId || '',
     taxonomySlug: classify.taxonomySlug || base.taxonomySlug || null,
     matterFrame: master.matterFrame ?? base.matterFrame ?? null,

@@ -153,9 +153,16 @@ export function applyBriefToSession(
 
   return {
     ...base,
-    rawInputs: brief.freshBrief ? [latestText] : [...base.rawInputs, latestText].filter(Boolean),
+    rawInputs: brief.freshBrief
+      ? [latestText].filter(Boolean)
+      : base.rawInputs[base.rawInputs.length - 1] === latestText.trim()
+        ? base.rawInputs
+        : [...base.rawInputs, latestText].filter(Boolean),
     events: events.length >= 2 ? events : base.events,
-    whatHappened: brief.whatHappened?.trim() || latestText,
+    whatHappened:
+      [brief.whatHappened?.trim() || '', base.whatHappened?.trim() || '', latestText.trim().length >= 40 ? latestText.trim() : '']
+        .filter(Boolean)
+        .sort((a, b) => b.length - a.length)[0] || '',
     howCaused: brief.howCaused?.trim() || (brief.freshBrief ? '' : base.howCaused),
     goal: brief.goal?.trim() || base.goal,
     parties,
@@ -170,8 +177,8 @@ export function applyBriefToSession(
       brief.mode === 'urgent'
         ? (brief.mode as Mode)
         : base.mode,
-    briefUnderstanding: brief.understanding || '',
-    clientQuestion: brief.clientQuestion || '',
+    briefUnderstanding: brief.understanding?.trim() || base.briefUnderstanding || '',
+    clientQuestion: brief.clientQuestion?.trim() || base.clientQuestion || '',
     topicId: brief.topicId || '',
   }
 }
