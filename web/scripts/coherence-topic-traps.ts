@@ -3,13 +3,16 @@
  * Fails the process if known bleed / forgetting bugs return.
  *
  * Run: npm run test:coherence-traps
+ *
+ * Includes LexRAG / MAP-Law inspired multi-turn traps — see
+ * docs/product-decisions/coherence-turn-state.md
  */
 import { createInitialSession, senseDetails } from '../lib/coherence/sense'
 import { proposeCoherentFrames } from '../lib/coherence/frames'
 import { buildAnswerPackage } from '../lib/coherence/answerPackage'
 import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causation'
-import { resolveTopicLock, packConflictsWithLock } from '../lib/coherence/topicLock'
-import { applyTopicLockToSession } from '../lib/coherence/topicLock'
+import { resolveTopicLock, packConflictsWithLock, applyTopicLockToSession } from '../lib/coherence/topicLock'
+import { deriveTurnState, mustScopeRetrieval } from '../lib/coherence/turnState'
 import type { SessionState } from '../lib/coherence/types'
 
 type TrapResult = { id: string; ok: boolean; detail: string }
@@ -70,7 +73,6 @@ const traps: Array<{ id: string; run: () => string | null }> = [
     id: 'neighbour-no-landlord-breach-chips',
     run: () => {
       const s = intake(['My neighbour keeps parking on my driveway and will not move'])
-      // Force breach question even if gap auto-filled
       const q = buildQuestionForGap(s, {
         id: 'gap_breach',
         label: 'breach',
@@ -162,6 +164,123 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       return (
         assert(pack.matchedTopicId !== 'car-reject-failed-repair', 'used-car on belongings') ||
         assert(!/child arrangement|custody|indefinite leave|10-?year charge/i.test(blob), `wrong family bleed: ${blob.slice(0, 120)}`)
+      )
+    },
+  },
+
+  // --- LexRAG / MAP-Law inspired multi-turn traps ---
+
+  {
+    id: 'lexrag-mid-dialogue-england-keeps-neighbour-lock',
+    run: () => {
+      const s = intake([
+        'Getting Help',
+        'This is mainly about housing or a neighbour dispute',
+        'Neighbour blocked my driveway and is building a car port',
+        'I have photos of the blocked access',
+        'England',
+      ])
+      const frames = proposeCoherentFrames(s, 3)
+      const lock = resolveTopicLock(s, frames)
+      const pack = buildAnswerPackage(s, frames)
+      const state = deriveTurnState(s, frames, lock)
+      return (
+        assert(lock?.packId === 'neighbour-access-dispute', `lock=${lock?.packId}`) ||
+        assert(pack.matchedTopicId === 'neighbour-access-dispute', `pack=${pack.matchedTopicId}`) ||
+        assert(state.covered.includes('access_harm'), `missing access_harm: ${state.covered}`) ||
+        assert(state.covered.includes('counterparty_neighbour'), `missing neighbour: ${state.covered}`) ||
+        assert(
+          mustScopeRetrieval(state) || state.nextAction === 'clarify' || state.nextAction === 'stop_overview',
+          `bad action ${state.nextAction}`,
+        ) ||
+        assert(state.nextAction !== 'reformulate', 'should not reformulate a clear neighbour story')
+      )
+    },
+  },
+  {
+    id: 'maplaw-neighbour-coverage-core-before-overview',
+    run: () => {
+      const thin = intake(['neighbour problem'])
+      const thinState = deriveTurnState(thin, proposeCoherentFrames(thin, 3))
+      const rich = intake([
+        'My neighbour parks across my driveway every day',
+        'England',
+        'I want them to stop blocking access',
+      ])
+      const richFrames = proposeCoherentFrames(rich, 3)
+      const richState = deriveTurnState(rich, richFrames)
+      return (
+        assert(
+          thinState.nextAction === 'clarify' || thinState.missing.includes('access_harm'),
+          `thin should clarify, got ${thinState.nextAction} missing=${thinState.missing}`,
+        ) ||
+        assert(richState.covered.includes('access_harm'), `rich missing access: ${richState.covered}`) ||
+        assert(richState.packId === 'neighbour-access-dispute', `rich pack ${richState.packId}`) ||
+        assert(
+          ['retrieve_scoped', 'stop_overview', 'clarify'].includes(richState.nextAction),
+          `unexpected action ${richState.nextAction}`,
+        )
+      )
+    },
+  },
+  {
+    id: 'maplaw-used-car-not-neighbour-after-clarifiers',
+    run: () => {
+      const s = intake([
+        'I bought a used car from a garage',
+        'It broke down within a week',
+        'I want a refund or to reject it',
+        'England',
+      ])
+      s.matterType = 'consumer'
+      const frames = proposeCoherentFrames(s, 3)
+      const state = deriveTurnState(s, frames)
+      const pack = buildAnswerPackage(s, frames)
+      return (
+        assert(state.packId === 'car-reject-failed-repair', `state pack=${state.packId}`) ||
+        assert(state.covered.includes('purchase') && state.covered.includes('fault'), `covered=${state.covered}`) ||
+        assert(pack.matchedTopicId === 'car-reject-failed-repair', `pack=${pack.matchedTopicId}`) ||
+        assert(packConflictsWithLock(state.lock, 'neighbour-access-dispute'), 'neighbour must stay forbidden')
+      )
+    },
+  },
+  {
+    id: 'lexrag-brief-goal-must-not-become-cite',
+    run: () => {
+      const s = intake(['Stop neighbour parking on my driveway'])
+      s.goal = 'Find lawful routes to challenge neighbour blocking driveway / car port (information only)'
+      const q = buildQuestionForGap(s, {
+        id: 'gap_evidence',
+        label: 'e',
+        priority: 40,
+        kind: 'closed',
+        reason: 'x',
+        filled: false,
+      })
+      return (
+        assert(!/Find lawful routes/i.test(q.text), `goal leaked into Q: ${q.text}`) ||
+        assert(/photo|message|evidence|driveway|car port|parking/i.test(q.text), `odd Q: ${q.text}`)
+      )
+    },
+  },
+  {
+    id: 'salsa-scoped-retrieval-flag-when-locked',
+    run: () => {
+      const s = intake([
+        'Neighbour constructing a car port that blocks my driveway',
+        'England',
+        'I have messages asking them to stop',
+        'I want lawful options to restore access',
+      ])
+      const frames = proposeCoherentFrames(s, 3)
+      const state = deriveTurnState(s, frames)
+      return (
+        assert(Boolean(state.lock), 'expected lock') ||
+        assert(
+          mustScopeRetrieval(state) || state.nextAction === 'clarify',
+          `must scope or clarify, got ${state.nextAction}`,
+        ) ||
+        assert(state.packId === 'neighbour-access-dispute', `pack=${state.packId}`)
       )
     },
   },
