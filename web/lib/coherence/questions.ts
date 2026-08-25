@@ -5,10 +5,10 @@ import { proposeLegalFrames } from './frames'
 import { clipPhrase } from './timelineExtract'
 
 const MATTER_OPTIONS: Prompt['options'] = [
-  { id: 'm1', label: 'Housing / neighbour', value: 'This is mainly about housing or a neighbour dispute' },
-  { id: 'm2', label: 'Employment / job', value: 'This is mainly about employment or my job' },
-  { id: 'm3', label: 'Debt / bailiffs', value: 'This is mainly about debt, CCJs or bailiffs' },
-  { id: 'm4', label: 'Family / children', value: 'This is mainly about family, children or domestic abuse' },
+  { id: 'm1', label: 'Family / children', value: 'This is mainly about family, children or domestic abuse' },
+  { id: 'm2', label: 'Housing / neighbour', value: 'This is mainly about housing or a neighbour dispute' },
+  { id: 'm3', label: 'Employment / job', value: 'This is mainly about employment or my job' },
+  { id: 'm4', label: 'Debt / bailiffs', value: 'This is mainly about debt, CCJs or bailiffs' },
   {
     id: 'm5',
     label: 'Consumer / tickets / insurance',

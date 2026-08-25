@@ -24,11 +24,46 @@ function looksImmigration(t: string): boolean {
   )
 }
 
-/** Strong housing signals — never bare "rent" (matches currently/different/apparently). */
+/** Strong housing signals — never bare "rent" or "her house" (family disputes often say that). */
 function looksHousing(t: string): boolean {
   return /landlord|tenant|evict|lock(?:ed)?(?:\s+\w+){0,2}\s*out|mould|mold|\brents?\b|section\s*21|section\s*8|homeless|disrepair|tenancy|neighbour|neighbor|driveway|car\s*port|carport|easement|right of way|blocking access|planning permission|shared (?:drive|access)/.test(
     t,
   )
+}
+
+/**
+ * Separated parents / children / contact — including property fights over a child’s belongings.
+ * Must beat bare “her house” language that otherwise bleeds to housing via LLM.
+ */
+function looksFamily(t: string): boolean {
+  if (
+    /\b(divorce|custody|child arrangement|child contact|care order|domestic abuse|non-molestation|family court)\b/i.test(
+      t,
+    )
+  ) {
+    return true
+  }
+
+  const child =
+    /\b(\d+\s*year\s*old|my (?:sons?|daughters?|kids?|children|child)|his (?:mum|mom|mother)|her (?:dad|father)|picking (?:my|him|her) (?:sons?|daughters?) up)\b/i.test(
+      t,
+    )
+  const otherParent =
+    /\b(my ex|ex[- ]?(?:partner|wife|husband)|his mum|his mom|her boyfriend|boyfriend'?s kid|co[- ]?parent)\b/i.test(
+      t,
+    )
+  if (child && otherParent) return true
+
+  // Child’s gift / belongings damaged or withheld by the other parent
+  if (
+    child &&
+    /\b(threw|broke|broken|taken it off|sue|get (?:it|them) (?:back|fixed)|can'?t afford a new)\b/i.test(t) &&
+    /\b(ex|mum|mom|mother|dad|father|boyfriend)\b/i.test(t)
+  ) {
+    return true
+  }
+
+  return false
 }
 
 /** Goods / trader / vehicle purchase — not bare \"car\" (matches driving-ban stories). */
@@ -128,6 +163,8 @@ function detectMatter(text: string): MatterType {
   if (looksImmigration(t)) return 'immigration'
   if (/accident at work|workplace|injured|personal injury|\bpi\b|slipped|crash|whiplash/.test(t))
     return 'personal_injury'
+  // Family (ex + child / belongings) before housing — "her house" must not win
+  if (looksFamily(t)) return 'family'
   // Housing neighbour / access before consumer (carport ≠ used-car goods)
   if (looksHousing(t) && !/dealer|fault codes?|reject(?:ing)? (?:the )?car|board computer/.test(t))
     return 'housing'
@@ -141,8 +178,7 @@ function detectMatter(text: string): MatterType {
   if (looksConsumer(t) && !looksHousing(t)) return 'consumer'
   if (looksHousing(t)) return 'housing'
   if (looksEmployment(t)) return 'employment'
-  if (/divorce|custody|child arrangement|child contact|domestic|partner left|care order/.test(t))
-    return 'family'
+  if (looksFamily(t)) return 'family'
   if (/debt|bailiff|ccj|creditor|owed|owe money|county court judgment|enforcement/.test(t))
     return 'debt'
   if (looksConsumer(t)) return 'consumer'

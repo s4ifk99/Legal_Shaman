@@ -184,9 +184,13 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
       )
     }
   } else if (
-    matter === 'housing' ||
-    tax?.l1 === 'property' ||
-    /landlord|tenant|evict|mould|section\s*21|disrepair|tenancy|\brents?\b|flatmate|housemate/.test(t)
+    (matter === 'housing' ||
+      tax?.l1 === 'property' ||
+      /landlord|tenant|evict|mould|section\s*21|disrepair|tenancy|\brents?\b|flatmate|housemate/.test(t)) &&
+    !(
+      /\b(\d+\s*year\s*old|my (?:son|daughter|kid|child))\b/i.test(t) &&
+      /\b(my ex|ex[- ]?(?:partner|wife|husband)|his mum|her boyfriend)\b/i.test(t)
+    )
   ) {
     if (
       /flatmate|housemate|joint\s+tenant|both\s+on\s+the\s+tenancy|jointly\s+liable/.test(t) ||
@@ -285,7 +289,9 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     tax?.l1 === 'private_client' ||
     /divorce|custody|child arrangement|child contact|domestic|partner left|inherit|trust fund|\bctf\b|probate/.test(
       t,
-    )
+    ) ||
+    (/\b(\d+\s*year\s*old|my (?:son|daughter|kid|child))\b/i.test(t) &&
+      /\b(my ex|ex[- ]?(?:partner|wife|husband)|his mum|her boyfriend|boyfriend'?s kid)\b/i.test(t))
   ) {
     if (/child trust fund|\bctf\b|junior isa|trust fund/.test(t) || tax?.packId === 'trusts_ctf') {
       add(
@@ -307,7 +313,20 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
         92,
       )
     }
-    if (/child|custody|contact|arrangement|care order/.test(t)) {
+    if (
+      /\b(threw|broke|broken|taken it off|sue|get (?:it|them) (?:back|fixed)|Switch|console|toy|gift)\b/i.test(
+        t,
+      ) &&
+      /\b(ex|mum|mom|son|daughter|kid|child)\b/i.test(t)
+    ) {
+      add(
+        'fam-property-dispute',
+        'Child’s belongings / parental property dispute',
+        'Dispute between parents over a child’s gift or belongings (possible small claim; family context first).',
+        88,
+      )
+    }
+    if (/child|custody|contact|arrangement|care order|year old|son|daughter/.test(t)) {
       add('fam-children', 'Children / arrangements', 'Child arrangements or care concerns are central.', 86)
     }
     if (/divorce|separat|finances|ancillary/.test(t)) {

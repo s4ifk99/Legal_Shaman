@@ -20,3 +20,7 @@ web/reports/
 
 # Local ops logs
 web/logs/
+
+# Exa batch runner
+scripts/exa/.venv/
+scripts/exa/runs/

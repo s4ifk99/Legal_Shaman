@@ -10,6 +10,11 @@ import type { HelpMatchResult } from '@/lib/coherence/masterAgent'
 import { buildLawyerBrief, briefToPlainText, placeForSummary } from '@/lib/coherence/brief'
 import { computeProgress } from '@/lib/coherence/slots'
 import { isParkingStoryText } from '@/lib/coherence/signposting'
+import {
+  isFamilyBelongingsDisputeText,
+  isParkingSpecialistService,
+  isPropertyDamageClaimText,
+} from '@/lib/coherence/matchFreeServices'
 import { SraAttribution } from '@/components/sra-attribution'
 import './ServicesView.css'
 
@@ -297,16 +302,20 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
     .join(' ')
     .toLowerCase()
   const parkingStory =
-    session.taxonomySlug === 'parking_pcn' ||
-    /\b(car\s*park|parking|pcn|popla|parking (?:fine|ticket|charge)|private parking|penalty charge)\b/i.test(
-      story,
-    )
+    session.taxonomySlug === 'parking_pcn' || isParkingStoryText(story)
+  const propertyDamage = isPropertyDamageClaimText(story)
+  const familyBelongings = isFamilyBelongingsDisputeText(story)
 
   if (/therap|counsell|intercultural|wellbeing|well-being|psycholog/.test(hay) && !/trauma|mental|abuse/.test(story)) {
     return false
   }
 
-  if (parkingStory || session.taxonomySlug === 'parking_pcn') {
+  // Parking appeal routes never appear on non-parking searches
+  if (!parkingStory && isParkingSpecialistService(hay)) {
+    return false
+  }
+
+  if (parkingStory) {
     if (
       /age uk|free representation unit|\bfru\b|employment|social security|universal credit|\bavma\b|clinical|medical accident|nhs complaint/.test(
         hay,
@@ -314,34 +323,42 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
     ) {
       return false
     }
-  }
-
-  if (/citizens advice|advicenow|legal aid|lawworks|pro bono|civil legal advice|check if you are eligible|popla|\bias\b|tribunal|gov\.uk.*parking|parking tickets|resolver/.test(hay)) {
-    if (parkingStory || session.taxonomySlug === 'parking_pcn') {
-      return /parking|pcn|popla|\bias\b|independent appeals|tribunal|adjudicator|adviceline|consumer helpline|resolver|advicenow|legal aid|pro bono/.test(
-        hay,
-      )
-    }
-    return true
-  }
-
-  if (parkingStory || session.taxonomySlug === 'parking_pcn') {
-    return /parking|pcn|popla|\bias\b|independent appeals|tribunal|adjudicator|penalty charge|motoring|resolver/.test(
+    return /parking|pcn|popla|\bias\b|independent appeals|tribunal|adjudicator|adviceline|consumer helpline|resolver|advicenow|legal aid|pro bono|citizens advice|penalty charge|motoring/.test(
       hay,
     )
   }
+
+  // Core free advice hubs — always OK when not parking-gated above
+  if (/citizens advice|advicenow|legal aid|lawworks|pro bono|civil legal advice|check if you are eligible/.test(hay)) {
+    return true
+  }
+
+  // Family + damaged belongings / sue → consumer / small-claims free help, not DA packs
+  if (familyBelongings || (matter === 'family' && propertyDamage)) {
+    if (
+      /domestic (?:abuse|violence)|rape crisis|refuge\b|\bncdv\b|national centre for domestic|domestic violence assist|rights of women|ourfamilywizard|family mediation|dad'?s house|only dads|family rights group|age uk|creditor/.test(
+        hay,
+      )
+    ) {
+      if (!/\b(domestic (?:abuse|violence)|rape|refuge|molestation)\b/.test(story)) return false
+    }
+    return /consumer|small claim|money claim|citizens advice|advicenow|legal aid|civil legal advice|goods|damag|court|family|child|parent/.test(
+      hay,
+    )
+  }
+
   if (matter === 'housing') {
     return /hous|tenant|landlord|rent|deposit|shelter|homeless|evict|possession|flatmate|roommate|notice to quit|section 21|hlpas|leasehold/.test(
       hay,
     )
   }
-  if (matter === 'consumer') {
-    return /consumer|car|vehicle|refund|trader|ombudsman|resolver|which\b|faulty|goods|parking|pcn|tribunal/.test(
+  if (matter === 'consumer' || propertyDamage) {
+    return /consumer|refund|trader|ombudsman|resolver|which\b|faulty|goods|small claim|money claim|citizens advice|advicenow/.test(
       hay,
     )
   }
   if (matter === 'crime') {
-    return /crime|criminal|motoring|police|magistrates|disqualif|driving|duty solicitor|parking|pcn/.test(hay)
+    return /crime|criminal|motoring|police|magistrates|disqualif|driving|duty solicitor/.test(hay)
   }
   if (matter === 'employment') {
     return /employ|work|tribunal|acas|dismissal|wages/.test(hay)
@@ -353,7 +370,7 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
     return /debt|money advice|insolvency|bankrupt|bailiff/.test(hay)
   }
   if (matter === 'family') {
-    return /family|divorce|child|custody|domestic/.test(hay)
+    return /family|divorce|child|custody|domestic|parent|contact/.test(hay)
   }
 
   return /citizens advice|advicenow|legal aid|lawworks|pro bono|civil legal advice/.test(hay)
@@ -401,13 +418,17 @@ function mergeFreeHelp(
 
   const matterSectionsPreferred = parkingStory
     ? ['driving and parking', 'consumer rights']
-    : session.matterType === 'housing'
-      ? ['home and housing']
-      : session.matterType === 'consumer'
-        ? ['consumer rights', 'driving and parking']
-        : session.matterType === 'immigration'
-          ? ['immigration and citizenship']
-          : []
+    : isFamilyBelongingsDisputeText(story) || isPropertyDamageClaimText(story)
+      ? ['consumer rights', 'courts and disputes']
+      : session.matterType === 'housing'
+        ? ['home and housing']
+        : session.matterType === 'consumer'
+          ? ['consumer rights']
+          : session.matterType === 'family'
+            ? ['family', 'relationships']
+            : session.matterType === 'immigration'
+              ? ['immigration and citizenship']
+              : []
 
   const rankedSign = [...signRows].sort((a, b) => {
     const aPref = matterSectionsPreferred.some((s) => (a.section || '').toLowerCase().includes(s))
