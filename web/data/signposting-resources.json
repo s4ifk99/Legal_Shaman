@@ -4,7 +4,7 @@
       "title": "Getting Help",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Getting Help",
+          "name": "Legal Shaman wiki — Getting Help",
           "description": "Legal aid, pro bono routes, and national advice organisations.",
           "url": "/ask-the-shaman?q=Getting%20Help",
           "links": [
@@ -17,6 +17,24 @@
               "url": "/find-a-lawyer"
             }
           ]
+        },
+        {
+          "name": "Citizens Advice Adviceline (England)",
+          "phone": "0800 144 8848",
+          "description": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+          "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/"
+        },
+        {
+          "name": "Advice NI",
+          "phone": "0800 915 4604",
+          "description": "Free independent advice for people in Northern Ireland.",
+          "url": "https://www.adviceni.net/"
+        },
+        {
+          "name": "Complain about a legal adviser (GOV.UK)",
+          "phone": "0300 555 0333",
+          "description": "How to complain about a solicitor or legal adviser, including Legal Ombudsman and SRA routes.",
+          "url": "https://www.gov.uk/complain-about-legal-adviser"
         },
         {
           "name": "Advicenow",
@@ -80,7 +98,8 @@
         {
           "name": "Civil Legal Advice",
           "description": "(if eligible for legal aid)",
-          "url": "https://www.gov.uk/civil-legal-advice"
+          "url": "https://www.gov.uk/civil-legal-advice",
+          "phone": "0345 345 4345"
         },
         {
           "name": "Guide to family law legal aid",
@@ -90,7 +109,8 @@
         {
           "name": "Legal Aid Agency",
           "phone": "0300 200 2020",
-          "description": "Civil enquiries | 01158 526 000 \u2013 Crime enquiries"
+          "description": "Civil enquiries | 01158 526 000 – Crime enquiries",
+          "url": "https://www.gov.uk/government/organisations/legal-aid-agency"
         },
         {
           "name": "Public Law Project",
@@ -110,7 +130,8 @@
         {
           "name": "Citizens Advice",
           "description": "provides legal advice",
-          "url": "https://www.citizensadvice.org.uk/"
+          "url": "https://www.citizensadvice.org.uk/",
+          "phone": "0800 144 8848"
         },
         {
           "name": "Law Centres Network",
@@ -133,8 +154,8 @@
       "title": "Courts and Disputes",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Courts and Disputes",
-          "description": "Starting a claim, preparing documents, hearings, and enforcement \u2014 in plain language.",
+          "name": "Legal Shaman wiki — Courts and Disputes",
+          "description": "Starting a claim, preparing documents, hearings, and enforcement — in plain language.",
           "url": "/ask-the-shaman?q=Courts%20and%20Disputes",
           "links": [
             {
@@ -239,7 +260,7 @@
         },
         {
           "name": "Litigation funding options",
-          "description": "Third-party funding for higher-value civil claims \u2014 mainly for businesses and complex disputes.",
+          "description": "Third-party funding for higher-value civil claims — mainly for businesses and complex disputes.",
           "links": [
             {
               "text": "Asertis",
@@ -325,7 +346,8 @@
               "text": "Sentry Funding",
               "url": "https://sentryfunding.co.uk/"
             }
-          ]
+          ],
+          "url": "https://www.gov.uk/legal-aid"
         }
       ]
     },
@@ -333,7 +355,7 @@
       "title": "Home and Housing",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Home and Housing",
+          "name": "Legal Shaman wiki — Home and Housing",
           "description": "Renting, buying, eviction, council housing, and repairs.",
           "url": "/ask-the-shaman?q=Home%20and%20Housing",
           "links": [
@@ -387,7 +409,7 @@
           ]
         },
         {
-          "name": "Gov.uk \u2013 What is housing benefit and how to claim it",
+          "name": "Gov.uk – What is housing benefit and how to claim it",
           "url": "https://www.gov.uk/housing-benefit",
           "description": ""
         },
@@ -443,7 +465,7 @@
       "title": "Family and Relationships",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Family and Relationships",
+          "name": "Legal Shaman wiki — Family and Relationships",
           "description": "Divorce, children, domestic abuse, marriage, and separation.",
           "url": "/ask-the-shaman?q=Family%20and%20Relationships",
           "links": [
@@ -561,7 +583,7 @@
           "url": "https://www.hestia.org/brightsky"
         },
         {
-          "name": "National Domestic Violence Helpline",
+          "name": "National Domestic Abuse Helpline",
           "phone": "0808 2000 247",
           "description": "24 hour National Domestic Violence Helpline",
           "url": "https://www.nationaldahelpline.org.uk/"
@@ -611,8 +633,8 @@
       "title": "Wills and Planning Ahead",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Wills and Planning Ahead",
-          "description": "Wills, probate, inheritance tax, and lasting powers of attorney \u2014 plain-language guides from approved sources.",
+          "name": "Legal Shaman wiki — Wills and Planning Ahead",
+          "description": "Wills, probate, inheritance tax, and lasting powers of attorney — plain-language guides from approved sources.",
           "url": "/ask-the-shaman?q=Wills%20and%20Planning%20Ahead",
           "links": [
             {
@@ -626,22 +648,28 @@
           ]
         },
         {
-          "name": "Citizens Advice \u2014 making a will",
+          "name": "Age UK — free legal advice",
+          "phone": "0800 678 1602",
+          "description": "Where older people can find free or low-cost legal advice, including wills and later-life planning.",
+          "url": "https://www.ageuk.org.uk/information-advice/money-legal/legal-issues/free-legal-advice/"
+        },
+        {
+          "name": "Citizens Advice — making a will",
           "url": "https://www.citizensadvice.org.uk/family/death-and-wills/making-a-will/",
           "description": "Who needs a will, what to include, and how to get it signed correctly."
         },
         {
-          "name": "GOV.UK \u2014 make a will",
+          "name": "GOV.UK — make a will",
           "url": "https://www.gov.uk/make-will",
           "description": "Official overview of making and updating a will in England and Wales."
         },
         {
-          "name": "Age UK \u2014 making a will",
+          "name": "Age UK — making a will",
           "url": "https://www.ageuk.org.uk/information-advice/money-legal/legal-issues/making-a-will/",
           "description": "Practical guidance for older people planning a will."
         },
         {
-          "name": "GOV.UK \u2014 lasting power of attorney",
+          "name": "GOV.UK — lasting power of attorney",
           "url": "https://www.gov.uk/power-of-attorney",
           "description": "How to appoint someone to make decisions for you if you lose capacity."
         }
@@ -651,7 +679,7 @@
       "title": "Work and Employment",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Work and Employment",
+          "name": "Legal Shaman wiki — Work and Employment",
           "description": "Rights at work, redundancy, tribunals, and employing staff in a small business.",
           "url": "/ask-the-shaman?q=Work%20and%20Employment",
           "links": [
@@ -732,7 +760,7 @@
         {
           "name": "Rights of women",
           "phone": "020 7490 0152",
-          "description": "Mondays, Tuesdays and Wednesdays: 3pm \u2013 5pm and 6 \u2013 8pm. Offers free employment legal advice to women in England and Wales experiencing sexual harassment at work",
+          "description": "Mondays, Tuesdays and Wednesdays: 3pm – 5pm and 6 – 8pm. Offers free employment legal advice to women in England and Wales experiencing sexual harassment at work",
           "url": "https://rightsofwomen.org.uk/"
         },
         {
@@ -765,7 +793,7 @@
       "title": "Your Business",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Your Business",
+          "name": "Legal Shaman wiki — Your Business",
           "description": "Contracts, company structure, shareholders, and insolvency for small businesses.",
           "url": "/ask-the-shaman?q=Your%20Business",
           "links": [
@@ -780,6 +808,18 @@
           ]
         },
         {
+          "name": "Business support helpline (GOV.UK)",
+          "phone": "0800 998 1098",
+          "description": "Government business support and advice for setting up and running a small business.",
+          "url": "https://www.gov.uk/get-business-support"
+        },
+        {
+          "name": "IPO — defend your intellectual property",
+          "phone": "0300 300 2000",
+          "description": "Intellectual Property Office help on copyright, trade marks and enforcement.",
+          "url": "https://www.gov.uk/defend-your-intellectual-property"
+        },
+        {
           "name": "LawWorks Not for Profit programme",
           "description": "Brokers legal advice to small not-for-profit organisations on a wide range of legal issues.",
           "url": "https://www.lawworks.org.uk/legal-advice-not-profits"
@@ -790,7 +830,7 @@
           "description": "Membership body with legal protection and business advice for small firms."
         },
         {
-          "name": "GOV.UK \u2014 set up a business",
+          "name": "GOV.UK — set up a business",
           "url": "https://www.gov.uk/set-up-business",
           "description": "Official steps for sole traders, partnerships, and limited companies."
         }
@@ -800,7 +840,7 @@
       "title": "Money, Benefits and Debt",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Money, Benefits and Debt",
+          "name": "Legal Shaman wiki — Money, Benefits and Debt",
           "description": "Universal Credit, debt solutions, tax, council tax, and energy bills.",
           "url": "/ask-the-shaman?q=Money,%20Benefits%20and%20Debt",
           "links": [
@@ -844,7 +884,8 @@
         {
           "name": "HMRC Tax and Benefits Confidential Helpline",
           "phone": "0845 608 6000",
-          "description": "helps families and individuals with targeted financial support"
+          "description": "helps families and individuals with targeted financial support",
+          "url": "https://www.gov.uk/contact-hmrc"
         },
         {
           "name": "Mary Ward Legal Centre",
@@ -853,9 +894,9 @@
           "url": "https://marywardlegal.org.uk/"
         },
         {
-          "name": "Money Advice Service",
-          "phone": "0800 138 7777",
-          "description": "provides free and impartial money advice",
+          "name": "MoneyHelper (MaPS)",
+          "phone": "0800 011 3797",
+          "description": "Free government-backed money guidance on debt, benefits, pensions and bills (formerly Money Advice Service).",
           "url": "https://www.moneyhelper.org.uk/"
         },
         {
@@ -911,7 +952,7 @@
       "title": "Consumer Rights",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Consumer Rights",
+          "name": "Legal Shaman wiki — Consumer Rights",
           "description": "Faulty goods, refunds, cancelled travel, and contracts with traders.",
           "url": "/ask-the-shaman?q=Consumer%20Rights",
           "links": [
@@ -926,9 +967,22 @@
           ]
         },
         {
-          "name": "Citizens Advice \u2014 consumer service",
-          "url": "https://www.citizensadvice.org.uk/consumer/",
-          "description": "Buying, refunds, faulty goods, and problems with services."
+          "name": "Citizens Advice consumer helpline",
+          "phone": "0808 223 1133",
+          "description": "Help with faulty goods, refunds, traders, contracts and consumer rights.",
+          "url": "https://www.citizensadvice.org.uk/consumer/get-more-help/if-you-need-more-help-about-a-consumer-issue/"
+        },
+        {
+          "name": "CAA passenger advice",
+          "phone": "020 7453 6888",
+          "description": "UK Civil Aviation Authority advice for flight delays, cancellations and passenger rights.",
+          "url": "https://www.caa.co.uk/passengers/"
+        },
+        {
+          "name": "Ofcom complaints",
+          "phone": "0300 123 3333",
+          "description": "Advice and complaints about phone, broadband and TV providers.",
+          "url": "https://www.ofcom.org.uk/about-ofcom/what-we-do/contact-us"
         },
         {
           "name": "Which? Consumer Rights",
@@ -946,7 +1000,7 @@
       "title": "Neighbours and Property",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Neighbours and Property",
+          "name": "Legal Shaman wiki — Neighbours and Property",
           "description": "Boundaries, noise, party walls, and disputes with neighbours.",
           "url": "/ask-the-shaman?q=Neighbours%20and%20Property",
           "links": [
@@ -961,12 +1015,12 @@
           ]
         },
         {
-          "name": "GOV.UK \u2014 resolving neighbour disputes",
+          "name": "GOV.UK — resolving neighbour disputes",
           "url": "https://www.gov.uk/how-to-resolve-neighbour-disputes",
           "description": "Mediation, noise, boundaries, and when to involve the council."
         },
         {
-          "name": "RICS \u2014 party wall matters",
+          "name": "RICS — party wall matters",
           "url": "https://www.ricsfirms.com/home/party-wall/",
           "description": "Find surveyors for party wall agreements and boundary issues."
         }
@@ -976,7 +1030,7 @@
       "title": "Immigration and Citizenship",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Immigration and Citizenship",
+          "name": "Legal Shaman wiki — Immigration and Citizenship",
           "description": "Visas, settled status, asylum, and British citizenship.",
           "url": "/ask-the-shaman?q=Immigration%20and%20Citizenship",
           "links": [
@@ -989,6 +1043,12 @@
               "url": "/find-a-lawyer"
             }
           ]
+        },
+        {
+          "name": "Asylum helplines (GOV.UK)",
+          "phone": "0808 801 0503",
+          "description": "Official list of free asylum and immigration helplines.",
+          "url": "https://www.gov.uk/asylum-helplines"
         },
         {
           "name": "Anti Trafficking and Labour Exploitation Unit (ATLEU)",
@@ -1038,8 +1098,8 @@
       "title": "Health and Injury",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Health and Injury",
-          "description": "Personal injury claims and clinical negligence \u2014 what to check before you claim.",
+          "name": "Legal Shaman wiki — Health and Injury",
+          "description": "Personal injury claims and clinical negligence — what to check before you claim.",
           "url": "/ask-the-shaman?q=Health%20and%20Injury",
           "links": [
             {
@@ -1053,13 +1113,19 @@
           ]
         },
         {
+          "name": "Independent NHS Complaints Advocacy",
+          "phone": "0300 323 0006",
+          "description": "Free help to complain about NHS care (local advocacy services).",
+          "url": "https://www.nhs.uk/using-the-nhs/about-the-nhs/how-to-complain-to-the-nhs/"
+        },
+        {
           "name": "Action against Medical Accidents (AvMA)",
           "phone": "0845 123 2352",
           "url": "https://www.avma.org.uk/",
           "description": "Independent charity helping people affected by medical accidents."
         },
         {
-          "name": "Citizens Advice \u2014 personal injury",
+          "name": "Citizens Advice — personal injury",
           "url": "https://www.citizensadvice.org.uk/law-and-courts/personal-injuries/",
           "description": "Overview of making a personal injury claim."
         }
@@ -1069,7 +1135,7 @@
       "title": "Driving and Parking",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Driving and Parking",
+          "name": "Legal Shaman wiki — Driving and Parking",
           "description": "Motoring offences, parking fines (PCNs), and the Highway Code.",
           "url": "/ask-the-shaman?q=Driving%20and%20Parking",
           "links": [
@@ -1084,12 +1150,44 @@
           ]
         },
         {
-          "name": "Yellow Box Guru \u2014 yellow box junction PCNs",
-          "description": "Guide to UK yellow box junction law, enforcement and appeals, including a PCN checklist \u2014 for motorists challenging tickets and for understanding when a box or ticket may not comply with the law.",
+          "name": "POPLA — Parking on Private Land Appeals",
+          "phone": "0330 159 6126",
+          "description": "Independent appeals for private parking charges (England and Wales).",
+          "url": "https://www.popla.co.uk/"
+        },
+        {
+          "name": "Independent Appeals Service (IAS)",
+          "description": "Appeals for parking charges from operators in the International Parking Community (IPC) scheme.",
+          "url": "https://theias.org/appeal"
+        },
+        {
+          "name": "Traffic Penalty Tribunal",
+          "description": "Independent appeals for council penalty charge notices outside London.",
+          "url": "https://www.trafficpenaltytribunal.gov.uk/"
+        },
+        {
+          "name": "London Tribunals (Environment & Traffic Adjudicators)",
+          "phone": "020 7520 7200",
+          "description": "Appeals for London borough PCNs (parking, bus lanes, moving traffic).",
+          "url": "https://www.londontribunals.gov.uk/eat"
+        },
+        {
+          "name": "Resolver — private parking tickets guide",
+          "description": "Practical guide and complaint templates for private parking charges.",
+          "url": "https://www.resolver.co.uk/rights-guide/private-parking-tickets"
+        },
+        {
+          "name": "GOV.UK — parking tickets",
+          "description": "Official guidance on parking fines and how to challenge them.",
+          "url": "https://www.gov.uk/parking-tickets"
+        },
+        {
+          "name": "Yellow Box Guru — yellow box junction PCNs",
+          "description": "Guide to yellow box junction PCNs, enforcement and appeals.",
           "url": "https://www.yellowboxes.co.uk/"
         },
         {
-          "name": "Citizens Advice \u2014 parking tickets and PCNs",
+          "name": "Citizens Advice — parking tickets and PCNs",
           "url": "https://www.citizensadvice.org.uk/consumer/parking-travel-leisure/parking-tickets/",
           "description": "Challenge a council or private parking ticket."
         }
@@ -1099,7 +1197,7 @@
       "title": "Rights and Discrimination",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Rights and Discrimination",
+          "name": "Legal Shaman wiki — Rights and Discrimination",
           "description": "Equality Act rights, human rights, and challenging unfair treatment.",
           "url": "/ask-the-shaman?q=Rights%20and%20Discrimination",
           "links": [
@@ -1174,7 +1272,7 @@
         },
         {
           "name": "Shout",
-          "description": "Text 'Shout' to 85258 \u2013 24/7 confidential text support service for those struggling with mental health",
+          "description": "Text 'Shout' to 85258 – 24/7 confidential text support service for those struggling with mental health",
           "url": "https://giveusashout.org/"
         },
         {
@@ -1189,7 +1287,7 @@
       "title": "Crime and Police",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Crime and Police",
+          "name": "Legal Shaman wiki — Crime and Police",
           "description": "If you are accused of a crime, victim support, and fraud.",
           "url": "/ask-the-shaman?q=Crime%20and%20Police",
           "links": [
@@ -1202,6 +1300,18 @@
               "url": "/find-a-lawyer"
             }
           ]
+        },
+        {
+          "name": "Crimestoppers",
+          "phone": "0800 555 111",
+          "description": "Anonymous reporting of crime — independent of the police.",
+          "url": "https://crimestoppers-uk.org/"
+        },
+        {
+          "name": "National Stalking Helpline (Suzy Lamplugh Trust)",
+          "phone": "0808 802 0300",
+          "description": "Specialist advice and support for people experiencing stalking.",
+          "url": "https://www.suzylamplugh.org/pages/category/national-stalking-helpline"
         },
         {
           "name": "Victim Support",
@@ -1313,7 +1423,7 @@
       "title": "Education",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Education",
+          "name": "Legal Shaman wiki — Education",
           "description": "School exclusions, SEND, and education rights for children and young people.",
           "url": "/ask-the-shaman?q=Education",
           "links": [
