@@ -402,17 +402,51 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
   // Narrative / cause hints from free text (do not overwrite richer answers)
   let whatHappened = prev.whatHappened
   let howCaused = prev.howCaused
-  const looksLikeStory =
-    text.length >= 40 &&
-    /(happened|when i|i was|i slipped|i fell|i complained|they|because|after|currently|apparently)/i.test(
-      text,
+  const looksLikeJurisdictionChip =
+    /^(england(?:\s+and\s+wales)?|wales|scotland|northern\s+ireland|uk|united\s+kingdom|london)$/i.test(
+      text.trim(),
     )
-  if (
-    (!whatHappened || looksLikeMultiBeatNarrative(text)) &&
-    looksLikeStory &&
-    !looksLikeGoalOnlyRequest(text)
-  ) {
-    whatHappened = prev.whatHappened ? `${prev.whatHappened} ${text}` : text
+  const looksLikeMatterFork =
+    /^this is mainly about\b/i.test(text.trim()) ||
+    /^getting help$/i.test(text.trim()) ||
+    /^i (?:need|want) (?:general )?information\b/i.test(text.trim())
+  const looksLikeStory =
+    !looksLikeJurisdictionChip &&
+    !looksLikeMatterFork &&
+    text.length >= 28 &&
+    (/(happened|when i|i was|i slipped|i fell|i complained|they|because|after|currently|apparently|neighbour|neighbor|driveway|parking|park(?:ed|ing)|landlord|tenant|employer|dismiss|refund|faulty)/i.test(
+      text,
+    ) ||
+      (text.length >= 50 && !looksLikeGoalOnlyRequest(text)))
+  if (looksLikeStory && !looksLikeGoalOnlyRequest(text)) {
+    if (!whatHappened.trim()) {
+      whatHappened = text
+    } else if (looksLikeMultiBeatNarrative(text) || text.length > whatHappened.length + 20) {
+      // Prefer a clearer problem statement over an earlier thin/meta line
+      if (/^this is mainly about\b/i.test(whatHappened.trim()) || text.length >= whatHappened.length) {
+        whatHappened = /^this is mainly about\b/i.test(whatHappened.trim())
+          ? text
+          : looksLikeMultiBeatNarrative(text)
+            ? `${whatHappened} ${text}`
+            : text.length > whatHappened.length
+              ? text
+              : `${whatHappened} ${text}`
+      }
+    }
+  }
+  // Always keep a substantial user problem statement as the story anchor
+  if (!whatHappened.trim() || /^this is mainly about\b/i.test(whatHappened.trim())) {
+    const opener = [...prev.rawInputs, text]
+      .map((r) => r.trim())
+      .filter(
+        (r) =>
+          r.length >= 28 &&
+          !/^(england|wales|scotland|northern ireland|uk)$/i.test(r) &&
+          !/^this is mainly about\b/i.test(r) &&
+          !/^getting help$/i.test(r),
+      )
+      .sort((a, b) => b.length - a.length)[0]
+    if (opener) whatHappened = opener
   }
   if (!whatHappened.trim() && events.filter((e) => e.kind === 'event').length >= 3) {
     const rich = [...prev.rawInputs, text].find(
@@ -425,6 +459,14 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
   )
   if (!howCaused && causeMatch) {
     howCaused = causeMatch[0].trim()
+  }
+  // Neighbour parking / blocking already states the alleged wrongdoing
+  if (
+    !howCaused.trim() &&
+    looksNeighbourDispute(`${prev.rawInputs.join(' ')} ${text}`) &&
+    /park(?:ed|ing)|driveway|blocking|boundary|noise|nuisance/.test(lower)
+  ) {
+    howCaused = text.length >= 20 ? text.slice(0, 160) : 'Neighbour parking or access problem'
   }
 
   return {

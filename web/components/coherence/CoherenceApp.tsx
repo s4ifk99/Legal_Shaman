@@ -88,6 +88,9 @@ function applyGapAnswer(promptId: string, value: string, next: SessionState): Se
       if (/landlord/.test(lower) && !parties.some((p) => p.role === 'landlord')) {
         parties = [...parties, { label: 'Landlord', role: 'landlord' }]
       }
+      if (/neighbour|neighbor/.test(lower) && !parties.some((p) => p.role === 'neighbour')) {
+        parties = [...parties, { label: 'Neighbour', role: 'neighbour' }]
+      }
       if (/agent/.test(lower) && !parties.some((p) => /agent/i.test(p.label))) {
         parties = [...parties, { label: 'Letting agent', role: 'agent' }]
       }
@@ -107,7 +110,7 @@ function applyGapAnswer(promptId: string, value: string, next: SessionState): Se
       return { ...next, events: pushEvent(next.events, `Harm: ${summariseToLabel(v, 60)}`, v) }
     case 'gap_aftermath':
     case 'gap_housing_trigger':
-      return next
+      return { ...next, events: pushEvent(next.events, summariseToLabel(v, 60), v) }
     case 'gap_character':
       return {
         ...next,

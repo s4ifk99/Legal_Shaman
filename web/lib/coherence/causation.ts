@@ -29,15 +29,41 @@ function clip(text: string, max = 72): string {
   return clipPhrase(text, max)
 }
 
-/** Best concrete phrase already given by the client — never a vague placeholder if avoidable. */
+const JURISDICTION_ONLY =
+  /^(england(?:\s+and\s+wales)?|wales|scotland|northern\s+ireland|uk|united\s+kingdom|london)$/i
+
+function isWeakCite(text: string): boolean {
+  const t = text.trim()
+  if (t.length < 12) return true
+  if (JURISDICTION_ONLY.test(t)) return true
+  if (/^this is mainly about\b/i.test(t)) return true
+  if (/^getting help$/i.test(t)) return true
+  if (/^(yes|no|not sure|someone else|both)\b/i.test(t) && t.length < 40) return true
+  return false
+}
+
+/** Prefer the richest client story phrase — never bare jurisdiction / chip answers. */
 function cite(session: SessionState): string {
-  if (session.whatHappened.trim()) return clip(session.whatHappened, 64)
-  const storyEvent = [...session.events]
-    .reverse()
-    .find((e) => e.kind === 'event' && !/^cause:|^mechanism:|^harm:|^work status:/i.test(e.label))
-  if (storyEvent?.rawSpan) return clip(storyEvent.rawSpan, 64)
-  if (storyEvent) return clip(storyEvent.label, 64)
-  const last = [...session.rawInputs].reverse().find((r) => r.trim().length > 8)
+  const candidates: string[] = []
+  if (session.whatHappened.trim()) candidates.push(session.whatHappened.trim())
+  for (const r of session.rawInputs) {
+    const t = r.trim()
+    if (t.length >= 20 && !isWeakCite(t)) candidates.push(t)
+  }
+  for (const e of session.events) {
+    if (e.kind !== 'event') continue
+    if (/^cause:|^mechanism:|^harm:|^work status:|^decision timing:/i.test(e.label)) continue
+    const span = (e.rawSpan || e.label || '').trim()
+    if (span.length >= 16 && !isWeakCite(span)) candidates.push(span)
+  }
+  if (session.howCaused.trim().length >= 20) candidates.push(session.howCaused.trim())
+  if (session.goal.trim().length >= 16) candidates.push(session.goal.trim())
+
+  candidates.sort((a, b) => b.length - a.length)
+  const best = candidates.find((c) => !isWeakCite(c))
+  if (best) return clip(best, 64)
+
+  const last = [...session.rawInputs].reverse().find((r) => r.trim().length > 8 && !isWeakCite(r))
   if (last) return clip(last, 64)
   return ''
 }
@@ -92,6 +118,9 @@ export function hasRichNarrative(session: SessionState): boolean {
   if (storyEvents.length >= 3) return true
   if (storyEvents.length >= 2 && eventText.length >= 80) return true
   const longestInput = Math.max(0, ...session.rawInputs.map((r) => r.trim().length))
+  // Single substantial opener (e.g. neighbour driveway) must count as enough story
+  if (longestInput >= 60) return true
+  if (longestInput >= 40 && storyEvents.length >= 1) return true
   if (longestInput >= 300 && storyEvents.length >= 2) return true
   return false
 }
@@ -290,7 +319,11 @@ function housingGaps(session: SessionState): CausationGap[] {
       priority: 85,
       kind: 'open',
       reason: 'Alleged failure links actor → harm.',
-      filled: answered(session, 'gap_breach') || session.howCaused.trim().length >= 20,
+      filled:
+        answered(session, 'gap_breach') ||
+        session.howCaused.trim().length >= 20 ||
+        (neighbour &&
+          /park(?:ed|ing)|driveway|blocking|boundary|noise|nuisance|ignored|won'?t (?:move|stop)/.test(c)),
     },
     {
       id: 'gap_aftermath',
@@ -298,7 +331,10 @@ function housingGaps(session: SessionState): CausationGap[] {
       priority: 70,
       kind: 'open',
       reason: 'Sequence after the trigger.',
-      filled: answered(session, 'gap_aftermath') || session.events.length >= 2,
+      filled:
+        answered(session, 'gap_aftermath') ||
+        session.events.length >= 2 ||
+        (neighbour && /ask(?:ed)?|told|complain|police|council|photo|message|email/.test(c)),
     },
     {
       id: 'gap_when',
