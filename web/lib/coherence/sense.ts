@@ -45,7 +45,7 @@ function looksFamily(t: string): boolean {
   }
 
   const child =
-    /\b(\d+\s*year\s*old|my (?:son|daughter|kid|child)|his (?:mum|mom|mother)|her (?:dad|father)|picking (?:my|him|her) (?:son|daughter) up)\b/i.test(
+    /\b(\d+\s*year\s*old|my (?:sons?|daughters?|kids?|children|child)|his (?:mum|mom|mother)|her (?:dad|father)|picking (?:my|him|her) (?:sons?|daughters?) up)\b/i.test(
       t,
     )
   const otherParent =
