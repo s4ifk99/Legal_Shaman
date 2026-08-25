@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 
 import { coherenceOpenRouterConfig, ensureCoherenceServerEnv } from "@/lib/coherence/config";
+import { critiqueOverviewRecommendation } from "@/lib/coherence/critiqueOverview";
 import { buildOverviewAnswer } from "@/lib/coherence/overviewAnswer";
 import { coherenceApiGuard } from "@/lib/coherence/server/guard";
+import { MatterEngine } from "@/lib/matter";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -17,9 +19,11 @@ type Body = {
   frameIds?: string[];
   whatHappened?: string;
   goal?: string;
+  /** Optional: skip critic retry (tests / diagnostics). */
+  skipCritiqueRetry?: boolean;
 };
 
-/** Overview: Legal Shaman wiki retrieve → practical recommendation. */
+/** Overview: MatterEngine-scoped wiki retrieve → practical recommendation (matches local master path). */
 export async function POST(req: Request) {
   const { shouldProxyCoherenceToHomeBackend, proxyCoherenceBackendPath } = await import(
     "@/lib/coherence/server/gateway"
@@ -61,16 +65,72 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "query_too_short" }, { status: 400 });
   }
 
+  const understanding = body.understanding ? String(body.understanding) : undefined;
+  const clientQuestion = body.clientQuestion ? String(body.clientQuestion) : undefined;
+
   try {
-    const { answerPackage, meta } = await buildOverviewAnswer({
-      latestText,
-      understanding: body.understanding,
-      clientQuestion: body.clientQuestion,
+    // Same MatterEngine resolve as /api/coherence/llm/master so live Overview matches local
+    const matterResolved = MatterEngine.resolve({
+      submission: latestText,
+      clientQuestion: clientQuestion || "",
+      understanding: understanding || "",
+      jurisdictionHint: "",
     });
+    const matterFrame = matterResolved.frame;
+    const taxonomySlug = matterFrame.primaryIssues[0]?.slug ?? undefined;
+
+    let { answerPackage, meta } = await buildOverviewAnswer({
+      latestText,
+      understanding,
+      clientQuestion,
+      matterFrame,
+      taxonomySlug,
+    });
+
+    let critique = critiqueOverviewRecommendation({
+      latestText,
+      clientQuestion,
+      understanding,
+      answerPackage,
+    });
+    let retries = 0;
+    const allowRetry =
+      process.env.COHERENCE_OVERVIEW_RETRY !== "0" && !body.skipCritiqueRetry;
+
+    if (!critique.ok && allowRetry && retries < 1) {
+      retries += 1;
+      const retry = await buildOverviewAnswer({
+        latestText,
+        understanding,
+        clientQuestion,
+        matterFrame,
+        taxonomySlug,
+        critique: critique.critique,
+      });
+      answerPackage = retry.answerPackage;
+      meta = {
+        ...retry.meta,
+        overviewRetries: retries,
+        priorCritique: critique.critique,
+      };
+      critique = critiqueOverviewRecommendation({
+        latestText,
+        clientQuestion,
+        understanding,
+        answerPackage,
+      });
+    }
 
     return NextResponse.json({
       answerPackage,
-      wiki: meta,
+      wiki: {
+        ...meta,
+        matterId: matterFrame.matterId,
+        primaryIssues: matterFrame.primaryIssues.map((i) => i.slug),
+        critiqueOk: critique.ok,
+        critique: critique.critique,
+        overviewRetries: retries,
+      },
       origin: (answerPackage as { origin?: string }).origin || "wiki",
     });
   } catch (err) {

@@ -1,5 +1,6 @@
 import { resolveTaxonomy } from "@/lib/legal/taxonomy-resolver";
 import type { TaxonomyResolution } from "@/lib/legal/taxonomy-resolver";
+import { isFamilyBelongingsPropertyClaim } from "@/lib/legal/query-signals";
 
 import {
   extractRelationshipModel,
@@ -299,6 +300,26 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
   const preferred = preferDisputeIssues(primaryIssues, secondaryIssues, relationshipModel);
   primaryIssues = preferred.primary;
   secondaryIssues = preferred.secondary;
+
+  // Ex broke child's gift / sue for replacement → small claims primary, family secondary
+  const storyBlob = [input.submission, input.clientQuestion, input.understanding]
+    .filter(Boolean)
+    .join("\n");
+  if (isFamilyBelongingsPropertyClaim(storyBlob)) {
+    const smallClaims: MatterIssue = {
+      slug: "consumer_small_claims",
+      confidence: Math.max(0.78, primaryIssues[0]?.confidence ?? 0.78),
+      reason: "family backdrop + damaged belongings / civil recovery",
+    };
+    const familyKept = [...primaryIssues, ...secondaryIssues].filter((i) => i.slug === "family");
+    secondaryIssues = [
+      ...familyKept,
+      ...[...primaryIssues, ...secondaryIssues].filter(
+        (i) => i.slug !== "family" && i.slug !== "consumer_small_claims",
+      ),
+    ].slice(0, 4);
+    primaryIssues = [smallClaims];
+  }
 
   if (
     primaryIssues[0]?.slug === "housing" &&
