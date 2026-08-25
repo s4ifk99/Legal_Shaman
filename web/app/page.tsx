@@ -98,7 +98,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="mb-10 text-center">
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Browse by <span className="text-primary">area of law</span>
+              Signposting
             </h2>
             <p className="mt-3 text-muted-foreground md:text-lg">
               Housing, family, work, debt, and more — each section links to our wiki and trusted external help
