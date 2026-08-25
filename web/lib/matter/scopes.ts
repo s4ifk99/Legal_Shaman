@@ -70,7 +70,7 @@ export const ISSUE_TITLE_EXCLUSIONS: Record<string, RegExp> = {
   housing: /used car|employment tribunal|parking ticket|travel agent/i,
   employment: /parking ticket|pcn|used car bought|conveyancing purchase/i,
   consumer_small_claims:
-    /child arrangements|custody|types of court orders in family|contact order|care order|divorce financial/i,
+    /child arrangements|custody|types of court orders in family|contact order|care order|divorce financial|tenant|tenancy|section\s*21|inheritance tax|10-?year charge|leasehold|mesher|disinherit|visa|indefinite leave/i,
 };
 
 export const GLOBAL_EXCLUSION_LABELS = [

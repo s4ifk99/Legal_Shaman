@@ -81,7 +81,11 @@ export function retrieveForMatter(opts: {
   }
 
   const tail = submission.replace(/\s+/g, " ").trim().slice(-220);
-  if (tail.length >= 40) {
+  // Belongings / small-claims: skip raw story-tail search — "year old" / "her house" pollute housing & IHT
+  const skipTail =
+    primarySlugs.includes("consumer_small_claims") ||
+    /\b(threw|broke|broken|damaged).{0,80}(switch|console|toy|gift|belongings)\b/i.test(submission);
+  if (tail.length >= 40 && !skipTail) {
     for (const hit of searchWikiPages(tail, 4)) {
       if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
       const existing = byId.get(hit.id);
