@@ -3,6 +3,12 @@ import { buildQuestionForGap, openCausationGaps } from './causation'
 import { maximiseLocalCoherence } from './coherence'
 import { proposeLegalFrames } from './frames'
 import { clipPhrase } from './timelineExtract'
+import {
+  deriveTurnState,
+  elementAskBinding,
+  preferredClarifierFromTurnState,
+  suppressedAskIds,
+} from './turnState'
 
 const MATTER_OPTIONS: Prompt['options'] = [
   { id: 'm1', label: 'Family / children', value: 'This is mainly about family, children or domestic abuse' },
@@ -110,22 +116,57 @@ type RankedAsk = {
   options?: Prompt['options']
   priority: number
   theme: string
-  source: 'coherence' | 'gap'
+  source: 'coherence' | 'gap' | 'turn'
 }
 
 /**
  * Merge Phase 3 unmet constraints with causation gaps; ask highest-value first.
  * Dedupes by theme so we don't ask jurisdiction twice.
+ * When a topic pack is locked, prefer turn-state missing elements (MAP-Law clarify).
  */
 export function nextInteractiveAsk(session: SessionState): RankedAsk | null {
   if (session.matterType === 'unknown') return null
 
-  const pass = maximiseLocalCoherence(session, proposeLegalFrames(session, 5), [], 3)
+  const frames = proposeLegalFrames(session, 5)
+  const turn = deriveTurnState(session, frames)
+  const suppress = suppressedAskIds(turn)
+  const missingAskIds = new Set(
+    turn.missing
+      .map((el) => elementAskBinding(el)?.id)
+      .filter((id): id is string => Boolean(id)),
+  )
+
+  // Coverage ready: only ask still-missing pack elements; else hand off (complete).
+  if (turn.nextAction === 'stop_overview' && turn.lock) {
+    const clarifier = preferredClarifierFromTurnState(session, frames)
+    if (!clarifier) return null
+    return { ...clarifier, source: 'turn' }
+  }
+
+  const pass = maximiseLocalCoherence(session, frames, [], 3)
   const candidates: RankedAsk[] = []
   const themes = new Set<string>()
 
+  const turnClarifier = preferredClarifierFromTurnState(session, frames)
+  if (turnClarifier && !suppress.has(turnClarifier.id)) {
+    themes.add(turnClarifier.theme)
+    candidates.push({ ...turnClarifier, source: 'turn' })
+  }
+
   for (const c of pass.clarifierSuggestions) {
     if (session.answeredPromptIds.includes(c.id)) continue
+    if (suppress.has(c.id)) continue
+    // When clarifying a locked pack, skip constraints that are not for missing elements
+    // (avoids landlord notice / generic housing crowding out evidence/goal).
+    if (
+      turn.lock &&
+      (turn.nextAction === 'clarify' || turn.nextAction === 'retrieve_scoped') &&
+      missingAskIds.size > 0 &&
+      !missingAskIds.has(c.id) &&
+      c.id === 'constraint_housing_notice'
+    ) {
+      continue
+    }
     const theme = CONSTRAINT_THEME[c.id] || c.id
     if (themes.has(theme)) continue
     themes.add(theme)
@@ -142,10 +183,13 @@ export function nextInteractiveAsk(session: SessionState): RankedAsk | null {
 
   for (const gap of openCausationGaps(session)) {
     if (session.answeredPromptIds.includes(gap.id)) continue
+    if (suppress.has(gap.id)) continue
     const theme = GAP_THEME[gap.id] || gap.id
-    if (themes.has(theme)) continue // coherence already covering this theme
+    if (themes.has(theme)) continue // coherence / turn already covering this theme
     themes.add(theme)
     const q = buildQuestionForGap(session, gap)
+    // Boost gaps that close missing pack elements
+    const packBoost = missingAskIds.has(gap.id) ? 25 : 0
     candidates.push({
       id: q.id,
       kind: q.kind,
@@ -153,7 +197,7 @@ export function nextInteractiveAsk(session: SessionState): RankedAsk | null {
       reason: q.reason,
       options: q.options,
       // Slightly below matching constraint priorities so fit-led asks win ties
-      priority: gap.priority * 0.85,
+      priority: gap.priority * 0.85 + packBoost,
       theme,
       source: 'gap',
     })

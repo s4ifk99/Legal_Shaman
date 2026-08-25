@@ -13,6 +13,7 @@ import { buildAnswerPackage } from '../lib/coherence/answerPackage'
 import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causation'
 import { resolveTopicLock, packConflictsWithLock, applyTopicLockToSession } from '../lib/coherence/topicLock'
 import { deriveTurnState, mustScopeRetrieval } from '../lib/coherence/turnState'
+import { nextPrompt } from '../lib/coherence/questions'
 import type { SessionState } from '../lib/coherence/types'
 
 type TrapResult = { id: string; ok: boolean; detail: string }
@@ -281,6 +282,39 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           `must scope or clarify, got ${state.nextAction}`,
         ) ||
         assert(state.packId === 'neighbour-access-dispute', `pack=${state.packId}`)
+      )
+    },
+  },
+  {
+    id: 'phase2-nextprompt-neighbour-asks-evidence',
+    run: () => {
+      const s = intake(['Stop neighbour parking on my driveway', 'England'])
+      const p = nextPrompt(s)
+      return (
+        assert(s.matterType === 'housing', `matter=${s.matterType}`) ||
+        assert(p.id === 'gap_evidence', `expected gap_evidence, got ${p.id}: ${p.text}`) ||
+        assert(/photo|message|evidence/i.test(p.text), `odd evidence Q: ${p.text}`) ||
+        assert(!/tenancy|landlord|section\s*21/i.test(p.text), `landlord bleed in Q: ${p.text}`)
+      )
+    },
+  },
+  {
+    id: 'phase2-nextprompt-skips-housing-notice-on-neighbour',
+    run: () => {
+      const s = intake([
+        'My neighbour is building a car port that blocks my driveway',
+        'England',
+        'I have photos of the blocked access',
+      ])
+      // Goal still open — turn state should ask goal, never tenancy notice.
+      const p = nextPrompt(s)
+      return (
+        assert(p.id !== 'constraint_housing_notice', `housing notice leaked: ${p.id}`) ||
+        assert(
+          p.id === 'gap_goal' || p.id === 'gap_evidence' || p.id === 'complete',
+          `unexpected ask ${p.id}: ${p.text.slice(0, 80)}`,
+        ) ||
+        assert(!/section\s*21|notice to quit|tenancy/i.test(p.text), `tenancy text: ${p.text}`)
       )
     },
   },
