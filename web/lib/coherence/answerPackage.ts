@@ -7,6 +7,7 @@ import type { LegalFrame } from './frames'
 import craSpine from '@/data/coherence/primaryLaw/craGoodsRemedies.json'
 import { checkAnswerCitations, type CitationIssue } from './citationCheck'
 import { buildRetrievalText } from './retrievalText'
+import { resolveTopicLock, type LockedPackId } from './topicLock'
 
 export type AnswerBullet = {
   text: string
@@ -119,15 +120,28 @@ function isNeighbourAccessDispute(text: string): boolean {
 /**
  * Build AGENTS-shaped overview/recommendation for the session.
  * Firms are empty unless a 5+ firm-topic index is wired; free help always first.
+ * Topic lock (frames / detectors) wins over keyword bleed.
  */
 export function buildAnswerPackage(
   session: SessionState,
   frames: LegalFrame[] = [],
 ): AnswerPackage {
   const text = blob(session, frames)
-  const carCase = isUsedCarReject(text, session.matterType)
-  const neighbourCase = !carCase && isNeighbourAccessDispute(text)
-  const parkingCase = !carCase && !neighbourCase && isPrivateParkingCharge(text)
+  const lock = resolveTopicLock(session, frames)
+  const lockedPack = lock?.packId as LockedPackId | undefined
+
+  const carCase =
+    lockedPack === 'car-reject-failed-repair' ||
+    (lockedPack !== 'neighbour-access-dispute' &&
+      lockedPack !== 'private-parking-charge' &&
+      lockedPack !== 'family-belongings-claim' &&
+      isUsedCarReject(text, session.matterType))
+  const neighbourCase =
+    lockedPack === 'neighbour-access-dispute' ||
+    (!carCase && lockedPack !== 'private-parking-charge' && isNeighbourAccessDispute(text))
+  const parkingCase =
+    lockedPack === 'private-parking-charge' ||
+    (!carCase && !neighbourCase && isPrivateParkingCharge(text))
 
   if (neighbourCase) {
     const caNeighbours = 'https://www.citizensadvice.org.uk/housing/problems-where-you-live/problems-with-neighbours/'
