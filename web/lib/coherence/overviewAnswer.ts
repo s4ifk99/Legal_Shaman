@@ -13,10 +13,14 @@ import { getWikiPageById, searchWikiPages } from "@/lib/wiki/search";
 import {
   isSharedHousingQuery,
   rerankSharedHousingHits,
+  rerankFamilyBelongingsHits,
   stableSortWikiHits,
   filterOffTopicPropertyPurchaseHits,
 } from "@/lib/wiki/rerank-hits";
-import { isPropertyPurchaseMisrepresentationQuery } from "@/lib/legal/query-signals";
+import {
+  isFamilyBelongingsPropertyClaim,
+  isPropertyPurchaseMisrepresentationQuery,
+} from "@/lib/legal/query-signals";
 import { pickRecommendedFirms } from "@/lib/wiki/firm-recommendations";
 import { applyDworkinBoostToWikiHits } from "@/lib/wiki/dworkin-tags";
 import { retrieveDworkinSnippetsForOverview } from "@/lib/coherence/overviewDworkinPack";
@@ -31,7 +35,7 @@ Write a practical UK signposting recommendation for the client's live situation.
 Rules:
 1. Use ONLY the WIKI CONTEXT and DWORKIN AUTHORITY snippets. Do not invent statutes, outcomes, or firm endorsements.
 2. Open with one short line: the client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).
-3. Answer the client's actual questions in clear prose. Cover each distinct issue they raised (e.g. sole-name broadband / WiFi password, joint rent shortfall, cameras/CCTV, threats/harassment, letter before action / money claim, council PCNs / permit-road appeals, estate agent / flat misrepresentation / demolition) when the context supports it. If they only mentioned work as the setting (“someone at my work”) but the dispute is parking tickets, a garage, or a landlord, do not write employment-law guidance.
+3. Answer the client's actual questions in clear prose. Cover each distinct issue they raised (e.g. sole-name broadband / WiFi password, joint rent shortfall, cameras/CCTV, threats/harassment, letter before action / money claim, council PCNs / permit-road appeals, estate agent / flat misrepresentation / demolition, damaged belongings / small claims between parents) when the context supports it. If they only mentioned work as the setting (“someone at my work”) but the dispute is parking tickets, a garage, or a landlord, do not write employment-law guidance. If the dispute is a broken gift or belongings and whether they can sue, do not write child custody / child arrangements guidance unless they also asked about that.
 4. Make useful distinctions the sources support (e.g. sole-name provider contract vs household contribution agreement; joint and several rent liability; cameras on shared space vs private space; harassment vs pure CCTV complaints).
 5. Prefer concrete next steps grounded in the pages. Prefer rule-tagged sources for what to do, principle-tagged sources for fairness questions, and treat policy-tagged sources as background.
 6. Do NOT predict win/lose. Do NOT say "you should definitely".
@@ -74,6 +78,50 @@ export function collectOverviewHits(query: string) {
       /buying and selling a home/i,
       /misrepresentation/i,
       /house sale falls through/i,
+    ];
+    const pinned: typeof hits = [];
+    const rest = [...hits];
+    for (const re of pin) {
+      const idx = rest.findIndex((h) => re.test(h.title));
+      if (idx >= 0) pinned.push(...rest.splice(idx, 1));
+    }
+    return applyDworkinBoostToWikiHits([...pinned, ...rest]).slice(0, 8);
+  }
+  if (isFamilyBelongingsPropertyClaim(query)) {
+    const extras = [
+      "deciding whether to make a small claim",
+      "small claims court and letter before action",
+      "letter before action small claims",
+      "money claim online",
+      "household items and personal belongings after separation",
+      "property damage compensation small claims",
+    ];
+    const byId = new Map<string, ReturnType<typeof searchWikiPages>[number]>();
+    for (const hit of retrieveWikiHitsForQuery(query, 12)) {
+      byId.set(hit.id, hit);
+    }
+    for (const phrase of extras) {
+      for (const hit of searchWikiPages(phrase, 5)) {
+        const existing = byId.get(hit.id);
+        if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+      }
+    }
+    let hits = rerankFamilyBelongingsHits(query, [...byId.values()]);
+    hits = hits.filter((h) => {
+      const t = h.title.toLowerCase();
+      if (/types of court orders in family|child arrangements and custody|contact order|care order/i.test(t)) {
+        return false;
+      }
+      if (/divorce financial|ancillary relief|prenup|living together and marriage/i.test(t)) return false;
+      return true;
+    });
+    const pin = [
+      /deciding whether to make a small claim/i,
+      /letter before action/i,
+      /small claims court/i,
+      /money claim/i,
+      /personal belongings|household items/i,
+      /property damage|compensation/i,
     ];
     const pinned: typeof hits = [];
     const rest = [...hits];
