@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-25T18:37:37.718Z",
+    "scrapedAt": "2026-08-26T06:34:44.203Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 7,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,15 +38,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vxxzw5",
-          "title": "Boss is trying to force us to leave to avoid redundancy",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxxzw5/boss_is_trying_to_force_us_to_leave_to_avoid/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxxzw5/boss_is_trying_to_force_us_to_leave_to_avoid/",
+          "id": "1vyaacn",
+          "title": "Disciplinary for miscarriage..",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyaacn/disciplinary_for_miscarriage/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyaacn/disciplinary_for_miscarriage/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787659718,
-          "snippet": "Hi all, I will try keep it brief. Me and my colleague both have been working at a company for 6+ years, our actual company is owned by another country based on the other side of the country(England), our bosses work there. We never see them in person. Basically after 6 years of w",
+          "createdUtc": 1787687109,
+          "snippet": "Hi guys, Just posting for a bit of advice really. I very recently (within the last three weeks) and sadly had a miscarriage. It’s been really hard for my husband and I and during this time I took two weeks off of work (for context I work in bereavement and that on top of actively",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vy8yi5",
+          "title": "Update: Just found out the Freehold Bungalow I am buying has a Service Charge. Anything I can do to challenge it?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy8yi5/update_just_found_out_the_freehold_bungalow_i_am/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy8yi5/update_just_found_out_the_freehold_bungalow_i_am/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787684315,
+          "snippet": "Here is the original post https://www.reddit.com/r/LegalAdviceUK/s/6X4rqld6iW Thanks for all the advice on our first post, it was really helpful. So the sad update to this is that we have pulled out of the sale. After repeatedly trying to get more information about our mysterious",
           "listingSource": "rss:hot"
         },
         {
@@ -62,15 +74,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vxtyx6",
-          "title": "Registry office refusing to register birth, do I have to drive 4 hours to register?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxtyx6/registry_office_refusing_to_register_birth_do_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxtyx6/registry_office_refusing_to_register_birth_do_i/",
+          "id": "1vy83j7",
+          "title": "Schrödinger's contactless payment",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy83j7/schrödingers_contactless_payment/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy83j7/schrödingers_contactless_payment/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787646805,
-          "snippet": "Based in england. My son was born a couple of weeks ago, due to the town I live in, we have to go to a hospital which is around 1.5 hours drive away, so that means he was born in a different district. I live maybe a 5 minute walk from my local registry office , they say I have to",
+          "createdUtc": 1787682476,
+          "snippet": "Legal question: Under English law, when paying contactless in a shop, once the amount has duly been deducted from the customer's bank account, is the customer legally considered to have paid for their items, and are the items legally their property at that point – even if the sho",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxxzw5",
+          "title": "Boss is trying to force us to leave to avoid redundancy",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxxzw5/boss_is_trying_to_force_us_to_leave_to_avoid/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxxzw5/boss_is_trying_to_force_us_to_leave_to_avoid/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787659718,
+          "snippet": "Hi all, I will try keep it brief. Me and my colleague both have been working at a company for 6+ years, our actual company is owned by another country based on the other side of the country(England), our bosses work there. We never see them in person. Basically after 6 years of w",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vym3ia",
+          "title": "My dad put £17,000 over the course of a few years into my ISA Help to buy but I want to take it out - Scotland",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vym3ia/my_dad_put_17000_over_the_course_of_a_few_years/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vym3ia/my_dad_put_17000_over_the_course_of_a_few_years/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787716431,
+          "snippet": "Without getting into too many details, my dads been putting £200 a month into my ISA help to buy bank account. the only reason i got it was because the scheme was closing down a few years back and it was my last chance. Since then there’s been a lot of family drama and I intend t",
           "listingSource": "rss:hot"
         },
         {
@@ -86,15 +122,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vy2mxe",
-          "title": "Debt enforcement - Wrong address (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy2mxe/debt_enforcement_wrong_address_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy2mxe/debt_enforcement_wrong_address_england/",
+          "id": "1vxtyx6",
+          "title": "Registry office refusing to register birth, do I have to drive 4 hours to register?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxtyx6/registry_office_refusing_to_register_birth_do_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxtyx6/registry_office_refusing_to_register_birth_do_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787670840,
-          "snippet": "Any advice please. This notice arrived for my family member, regarding seizing of property. He hasn't lived here for decades, it's his old parent's address, we pass on the odd mail sometimes. If you wish you had more information, so do we! It seems like scare tactics but is this ",
+          "createdUtc": 1787646805,
+          "snippet": "Based in england. My son was born a couple of weeks ago, due to the town I live in, we have to go to a hospital which is around 1.5 hours drive away, so that means he was born in a different district. I live maybe a 5 minute walk from my local registry office , they say I have to",
           "listingSource": "rss:hot"
         },
         {
@@ -110,15 +146,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vxkcic",
-          "title": "Police have arrested and questioned 3 of my mates from our private WhatsApp group chat. They're asking to speak to me too, but I'm working abroad.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
+          "id": "1vy2mxe",
+          "title": "Debt enforcement - Wrong address (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy2mxe/debt_enforcement_wrong_address_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy2mxe/debt_enforcement_wrong_address_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787617190,
-          "snippet": "They've all been arrested and had interviews under s127 of the Communications Act. There's 4 of us in a group chat on WhatsApp where we chat and also make some edgy jokes and stuff. We're two white, an Indian and a black guy who studied at uni together. All three of them have bee",
+          "createdUtc": 1787670840,
+          "snippet": "Any advice please. This notice arrived for my family member, regarding seizing of property. He hasn't lived here for decades, it's his old parent's address, we pass on the odd mail sometimes. If you wish you had more information, so do we! It seems like scare tactics but is this ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vyjol6",
+          "title": "Defaming a company with proof of not paying me over £1000 in wages in Scotland in just under 30 days of employment after walking out",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyjol6/defaming_a_company_with_proof_of_not_paying_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyjol6/defaming_a_company_with_proof_of_not_paying_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787709777,
+          "snippet": "I was recently employed in a coffee shop in Edinburgh and over the past 3 months have been trying to claim my unpaid wages First of all I have been through ACAS, my employers response was that they planned to pay me in the 2nd week of August. This date has now passed I have appli",
           "listingSource": "rss:hot"
         },
         {
@@ -134,6 +182,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vxkcic",
+          "title": "Police have arrested and questioned 3 of my mates from our private WhatsApp group chat. They're asking to speak to me too, but I'm working abroad.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787617190,
+          "snippet": "They've all been arrested and had interviews under s127 of the Communications Act. There's 4 of us in a group chat on WhatsApp where we chat and also make some edgy jokes and stuff. We're two white, an Indian and a black guy who studied at uni together. All three of them have bee",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vy5sby",
           "title": "Maternity Discrimination advice - UK England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy5sby/maternity_discrimination_advice_uk_england/",
@@ -146,111 +206,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vxzwpd",
-          "title": "Parcel delivered to the right address, wrong name",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxzwpd/parcel_delivered_to_the_right_address_wrong_name/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxzwpd/parcel_delivered_to_the_right_address_wrong_name/",
+          "id": "1vyo752",
+          "title": "Can Timberland claim that I sent back non-Timberland items?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyo752/can_timberland_claim_that_i_sent_back/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyo752/can_timberland_claim_that_i_sent_back/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787664573,
-          "snippet": "Earlier this month, I found an unexpected parcel on my doorstep (England). It had my correct address but someone else’s name. I opened the box in hopes of finding the buyer’s contact details or returns paperwork but no luck. I googled the customer service email and made them awar",
+          "createdUtc": 1787722903,
+          "snippet": "Back in March I bought 2 pairs of timberland boots online (£160 and £125). They both didn’t fit so I sent them back. Within a couple of days of sending them back they sent an email to confirm they had received my return and my refund was being processed. It stayed in this state f",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vxyp3q",
-          "title": "Criminal damage and leaving scene of an accident (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxyp3q/criminal_damage_and_leaving_scene_of_an_accident/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxyp3q/criminal_damage_and_leaving_scene_of_an_accident/",
+          "id": "1vy9sig",
+          "title": "What to do if asked about drug taking. Scotland.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy9sig/what_to_do_if_asked_about_drug_taking_scotland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy9sig/what_to_do_if_asked_about_drug_taking_scotland/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787661563,
-          "snippet": "Good afternoon 😊I am hoping you may be able to give me some advice unfortunately I have experienced the following incident with an Inpost UK driver: An Inpost delivery driver arrived at our property to deliver a parcel that was not addressed to our house and was intended for a d",
+          "createdUtc": 1787686041,
+          "snippet": "I recently reported someone for SA and drug dealing. The police have asked me to come in and discuss what happened. What should I do if they ask me if I've taken drugs, which I have? Thank you all. submitted by /u/Sophi-118_ [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vxvi6o",
-          "title": "Removal of restraining order. Cheapest options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxvi6o/removal_of_restraining_order_cheapest_options/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxvi6o/removal_of_restraining_order_cheapest_options/",
+          "id": "1vyc1jq",
+          "title": "[England] Surving spouse left life interest trust with high upkeep; son entered probate caveat. What are our options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyc1jq/england_surving_spouse_left_life_interest_trust/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyc1jq/england_surving_spouse_left_life_interest_trust/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787652187,
-          "snippet": "Hello Got given an indefinite restraining order a decade ago (TLDR: I wasn't a nice person and neither were they, it was chaos), but have since made a fair bit of progress with regards to the situation so I am extremely ready to move on and forget about it fully. Issue is my line",
+          "createdUtc": 1787690817,
+          "snippet": "My father in law has died in England leaving his house to my mother in law but via a trust - the house only is held in trust, she can live there for life, is the trustee and she must fund all upkeep herself. I worry that the will puts her at a disadvantage, and I'm seeking advice",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vy5zi1",
-          "title": "England: Stately home - Unfixed and unsuitable ramp in gardens caused my wheelchair to tip backwards and I fell out",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy5zi1/england_stately_home_unfixed_and_unsuitable_ramp/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy5zi1/england_stately_home_unfixed_and_unsuitable_ramp/",
+          "id": "1vy86ww",
+          "title": "Prohibited steps order affecting schooling (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy86ww/prohibited_steps_order_affecting_schooling_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy86ww/prohibited_steps_order_affecting_schooling_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787678052,
-          "snippet": "Hoping someone can help. I was visiting a large and very well known stately home &amp; gardens yesterday (not National Trust/English Heritage) and while my husband &amp; daughter were in the house, I bought a coffee and wheeled off to find a sunny spot to drink it. The gardens ar",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vwzy1m",
-          "title": "Can I sue my kids mum for breaking his games? - UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwzy1m/can_i_sue_my_kids_mum_for_breaking_his_games_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vwzy1m/can_i_sue_my_kids_mum_for_breaking_his_games_uk/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787570341,
-          "snippet": "Hello, I was advised to ask this here but im not sure if im doing it right as im new to reddit. I have a 7 year old with my ex. For his birthday this year I bought him one of those Switch 2s because he was begging for one. Recently hes been at his mums and he takes it with him. I",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vxfnc0",
-          "title": "Smoking in a private \"pub\" (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxfnc0/smoking_in_a_private_pub_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxfnc0/smoking_in_a_private_pub_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787605854,
-          "snippet": "I would like to buy one of the many pubs that are closing down and use it as my main dwelling house. I would also like to have an open house several nights a week (Thursday to Sunday) where local people could bring along their own alcohol and pipes and have a civilised drink and ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vxue4d",
-          "title": "AI food posters and false advertising",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxue4d/ai_food_posters_and_false_advertising/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxue4d/ai_food_posters_and_false_advertising/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787648330,
-          "snippet": "Hypothetical one here, based on overhearing a guy yelling about \"suing a takeaway for misrepresentation\". A lot of small businesses like takeaways are jumping on the trend of using AI generated flyers, menus, signage etc. Putting aside the aesthetic and moral arguments for a mome",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vy05mb",
-          "title": "Is my dodgy toilet a legal issue? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy05mb/is_my_dodgy_toilet_a_legal_issue_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy05mb/is_my_dodgy_toilet_a_legal_issue_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787665183,
-          "snippet": "Me and three others have recently moved into a student property for the next academic year, but upon moving in found a sign above the toilet that we are not allowed to flush paper down the toilet because the mechanism is very old and it blocks easily. At first we ignored it becau",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vxy7ku",
-          "title": "Can ex make me pay him for car finance if its all in his name - England?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxy7ku/can_ex_make_me_pay_him_for_car_finance_if_its_all/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxy7ku/can_ex_make_me_pay_him_for_car_finance_if_its_all/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787660292,
-          "snippet": "As the title says. A year ago my ex took out a finance agreement for a car I mainly drove when we were together. It’s all in his name etc etc we can’t sell it on and ownership can’t be transferred to me - he’s already checked. Someone has to pay it off so would involve me informa",
+          "createdUtc": 1787682673,
+          "snippet": "I have divorced my daughters dad and currently have an undertaking order in place after a non molestation order through the court where by he cannot contact me directly or indirectly. This has been breached 13 times. However nothing was done, he has now got a prohibited steps ord",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 12,
+      "postCount": 9,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -292,6 +292,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1vym3ia",
+          "title": "My dad put £17,000 over the course of a few years into my ISA Help to buy but I want to take it out - Scotland",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vym3ia/my_dad_put_17000_over_the_course_of_a_few_years/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vym3ia/my_dad_put_17000_over_the_course_of_a_few_years/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787716431,
+          "snippet": "Without getting into too many details, my dads been putting £200 a month into my ISA help to buy bank account. the only reason i got it was because the scheme was closing down a few years back and it was my last chance. Since then there’s been a lot of family drama and I intend t",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1vxtyx6",
           "title": "Registry office refusing to register birth, do I have to drive 4 hours to register?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxtyx6/registry_office_refusing_to_register_birth_do_i/",
@@ -328,39 +340,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vxzwpd",
-          "title": "Parcel delivered to the right address, wrong name",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxzwpd/parcel_delivered_to_the_right_address_wrong_name/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxzwpd/parcel_delivered_to_the_right_address_wrong_name/",
+          "id": "1vyo752",
+          "title": "Can Timberland claim that I sent back non-Timberland items?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyo752/can_timberland_claim_that_i_sent_back/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyo752/can_timberland_claim_that_i_sent_back/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787664573,
-          "snippet": "Earlier this month, I found an unexpected parcel on my doorstep (England). It had my correct address but someone else’s name. I opened the box in hopes of finding the buyer’s contact details or returns paperwork but no luck. I googled the customer service email and made them awar",
+          "createdUtc": 1787722903,
+          "snippet": "Back in March I bought 2 pairs of timberland boots online (£160 and £125). They both didn’t fit so I sent them back. Within a couple of days of sending them back they sent an email to confirm they had received my return and my refund was being processed. It stayed in this state f",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1vxyp3q",
-          "title": "Criminal damage and leaving scene of an accident (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxyp3q/criminal_damage_and_leaving_scene_of_an_accident/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxyp3q/criminal_damage_and_leaving_scene_of_an_accident/",
+          "id": "1vy9sig",
+          "title": "What to do if asked about drug taking. Scotland.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy9sig/what_to_do_if_asked_about_drug_taking_scotland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy9sig/what_to_do_if_asked_about_drug_taking_scotland/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787661563,
-          "snippet": "Good afternoon 😊I am hoping you may be able to give me some advice unfortunately I have experienced the following incident with an Inpost UK driver: An Inpost delivery driver arrived at our property to deliver a parcel that was not addressed to our house and was intended for a d",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vxvi6o",
-          "title": "Removal of restraining order. Cheapest options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxvi6o/removal_of_restraining_order_cheapest_options/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxvi6o/removal_of_restraining_order_cheapest_options/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787652187,
-          "snippet": "Hello Got given an indefinite restraining order a decade ago (TLDR: I wasn't a nice person and neither were they, it was chaos), but have since made a fair bit of progress with regards to the situation so I am extremely ready to move on and forget about it fully. Issue is my line",
+          "createdUtc": 1787686041,
+          "snippet": "I recently reported someone for SA and drug dealing. The police have asked me to come in and discuss what happened. What should I do if they ask me if I've taken drugs, which I have? Thank you all. submitted by /u/Sophi-118_ [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
@@ -390,10 +390,94 @@
       ]
     },
     {
+      "slug": "sports-law",
+      "label": "Sports Law",
+      "legalAreaSlug": "sports_law",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vyaacn",
+          "title": "Disciplinary for miscarriage..",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyaacn/disciplinary_for_miscarriage/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyaacn/disciplinary_for_miscarriage/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787687109,
+          "snippet": "Hi guys, Just posting for a bit of advice really. I very recently (within the last three weeks) and sadly had a miscarriage. It’s been really hard for my husband and I and during this time I took two weeks off of work (for context I work in bereavement and that on top of actively",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vy8yi5",
+          "title": "Update: Just found out the Freehold Bungalow I am buying has a Service Charge. Anything I can do to challenge it?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy8yi5/update_just_found_out_the_freehold_bungalow_i_am/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy8yi5/update_just_found_out_the_freehold_bungalow_i_am/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787684315,
+          "snippet": "Here is the original post https://www.reddit.com/r/LegalAdviceUK/s/6X4rqld6iW Thanks for all the advice on our first post, it was really helpful. So the sad update to this is that we have pulled out of the sale. After repeatedly trying to get more information about our mysterious",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vxkcic",
+          "title": "Police have arrested and questioned 3 of my mates from our private WhatsApp group chat. They're asking to speak to me too, but I'm working abroad.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787617190,
+          "snippet": "They've all been arrested and had interviews under s127 of the Communications Act. There's 4 of us in a group chat on WhatsApp where we chat and also make some edgy jokes and stuff. We're two white, an Indian and a black guy who studied at uni together. All three of them have bee",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1vy83j7",
+          "title": "Schrödinger's contactless payment",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy83j7/schrödingers_contactless_payment/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vy83j7/schrödingers_contactless_payment/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787682476,
+          "snippet": "Legal question: Under English law, when paying contactless in a shop, once the amount has duly been deducted from the customer's bank account, is the customer legally considered to have paid for their items, and are the items legally their property at that point – even if the sho",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "employment-law",
       "label": "Employment Law",
       "legalAreaSlug": "employment",
-      "postCount": 2,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -409,6 +493,18 @@
           "numComments": 0,
           "createdUtc": 1787659718,
           "snippet": "Hi all, I will try keep it brief. Me and my colleague both have been working at a company for 6+ years, our actual company is owned by another country based on the other side of the country(England), our bosses work there. We never see them in person. Basically after 6 years of w",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1vyjol6",
+          "title": "Defaming a company with proof of not paying me over £1000 in wages in Scotland in just under 30 days of employment after walking out",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyjol6/defaming_a_company_with_proof_of_not_paying_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyjol6/defaming_a_company_with_proof_of_not_paying_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787709777,
+          "snippet": "I was recently employed in a coffee shop in Edinburgh and over the past 3 months have been trying to claim my unpaid wages First of all I have been through ACAS, my employers response was that they planned to pay me in the 2nd week of August. This date has now passed I have appli",
           "listingSource": "rss:hot"
         },
         {
@@ -429,7 +525,7 @@
       "slug": "consumer-law",
       "label": "Consumer Law",
       "legalAreaSlug": "consumer",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -445,18 +541,6 @@
           "numComments": 0,
           "createdUtc": 1787648127,
           "snippet": "England. I bought a £15 item on Vinted which arrived severely damaged and unusable. I immediately told the seller. He says it was undamaged when dispatched, which I don't dispute, so I reported it to Vinted specifically as damaged in transit. Vinted reviewed the case, determined ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1vxue4d",
-          "title": "AI food posters and false advertising",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxue4d/ai_food_posters_and_false_advertising/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxue4d/ai_food_posters_and_false_advertising/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787648330,
-          "snippet": "Hypothetical one here, based on overhearing a guy yelling about \"suing a takeaway for misrepresentation\". A lot of small businesses like takeaways are jumping on the trend of using AI generated flyers, menus, signage etc. Putting aside the aesthetic and moral arguments for a mome",
           "listingSource": "rss:hot"
         }
       ]
@@ -486,9 +570,9 @@
       ]
     },
     {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
+      "slug": "wills-and-probate",
+      "label": "Wills and Probate",
+      "legalAreaSlug": "wills_probate",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -496,39 +580,15 @@
       ],
       "posts": [
         {
-          "id": "1vxkcic",
-          "title": "Police have arrested and questioned 3 of my mates from our private WhatsApp group chat. They're asking to speak to me too, but I'm working abroad.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxkcic/police_have_arrested_and_questioned_3_of_my_mates/",
+          "id": "1vyc1jq",
+          "title": "[England] Surving spouse left life interest trust with high upkeep; son entered probate caveat. What are our options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyc1jq/england_surving_spouse_left_life_interest_trust/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vyc1jq/england_surving_spouse_left_life_interest_trust/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787617190,
-          "snippet": "They've all been arrested and had interviews under s127 of the Communications Act. There's 4 of us in a group chat on WhatsApp where we chat and also make some edgy jokes and stuff. We're two white, an Indian and a black guy who studied at uni together. All three of them have bee",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "car-finance-and-pcp-disputes",
-      "label": "Car Finance and PCP Disputes",
-      "legalAreaSlug": "consumer_car_finance",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1vxy7ku",
-          "title": "Can ex make me pay him for car finance if its all in his name - England?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxy7ku/can_ex_make_me_pay_him_for_car_finance_if_its_all/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1vxy7ku/can_ex_make_me_pay_him_for_car_finance_if_its_all/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787660292,
-          "snippet": "As the title says. A year ago my ex took out a finance agreement for a car I mainly drove when we were together. It’s all in his name etc etc we can’t sell it on and ownership can’t be transferred to me - he’s already checked. Someone has to pay it off so would involve me informa",
+          "createdUtc": 1787690817,
+          "snippet": "My father in law has died in England leaving his house to my mother in law but via a trust - the house only is held in trust, she can live there for life, is the trustee and she must fund all upkeep herself. I worry that the will puts her at a disadvantage, and I'm seeking advice",
           "listingSource": "rss:hot"
         }
       ]
