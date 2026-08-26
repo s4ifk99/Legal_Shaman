@@ -14,6 +14,7 @@ import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causati
 import { resolveTopicLock, packConflictsWithLock, applyTopicLockToSession } from '../lib/coherence/topicLock'
 import { deriveTurnState, mustScopeRetrieval } from '../lib/coherence/turnState'
 import { nextPrompt } from '../lib/coherence/questions'
+import { applyPackClassification, heuristicSuggestPack } from '../lib/coherence/packClassifier'
 import type { SessionState } from '../lib/coherence/types'
 
 type TrapResult = { id: string; ok: boolean; detail: string }
@@ -381,6 +382,38 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(lock?.packId !== 'neighbour-access-dispute', `lock=${lock?.packId}`) ||
         assert(s.topicId !== 'housing-access', `topicId=${s.topicId}`) ||
         assert(!/neighbour blocking|neighbour-access/i.test(blob), `bleed ask: ${blob.slice(0, 120)}`)
+      )
+    },
+  },
+  {
+    id: 'pack-classifier-wash-car-own-property',
+    run: () => {
+      const h = heuristicSuggestPack('can i wash my car on my driveway')
+      let s = intake(['can i wash my car on my driveway'])
+      s = applyPackClassification(s, h)
+      const frames = proposeCoherentFrames(s, 3)
+      const lock = resolveTopicLock(s, frames)
+      const p = nextPrompt(s)
+      return (
+        assert(h.packId === 'own-property-use', `heuristic pack=${h.packId}`) ||
+        assert(s.topicId === 'own-property-use', `topicId=${s.topicId}`) ||
+        assert(s.mode === 'info', `mode=${s.mode}`) ||
+        assert(lock === null, `unexpected lock ${lock?.packId}`) ||
+        assert(!frames.some((f) => f.id === 'hous-neighbour'), `frames=${frames.map((f) => f.id)}`) ||
+        assert(p.id !== 'gap_evidence' || !/neighbour blocking/i.test(p.text), `ask=${p.id} ${p.text.slice(0, 80)}`)
+      )
+    },
+  },
+  {
+    id: 'pack-classifier-neighbour-still-locks',
+    run: () => {
+      const h = heuristicSuggestPack('My neighbour keeps parking on my driveway')
+      let s = intake(['My neighbour keeps parking on my driveway'])
+      s = applyPackClassification(s, h)
+      const lock = resolveTopicLock(s, proposeCoherentFrames(s, 3))
+      return (
+        assert(h.packId === 'neighbour-access-dispute', `pack=${h.packId}`) ||
+        assert(lock?.packId === 'neighbour-access-dispute', `lock=${lock?.packId}`)
       )
     },
   },

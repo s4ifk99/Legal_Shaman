@@ -127,6 +127,14 @@ export interface SessionState {
   }>
   /** T5: citation audit passed on authorityHits. */
   authorityAuditOk: boolean
+  /** OpenRouter / heuristic pack classifier result (first-message intent). */
+  packClassification?: {
+    packId: string
+    confidence: number
+    reason: string
+    clarifyingQuestion?: string
+    source: 'llm' | 'heuristic' | 'user'
+  }
 }
 
 export interface ServiceCard {

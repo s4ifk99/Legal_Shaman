@@ -34,6 +34,14 @@ import { MatterFrameInspector } from './MatterFrameInspector'
 import type { AnswerPackage } from '@/lib/coherence/answerPackage'
 import { proposeCoherentFrames } from '@/lib/coherence/frames'
 import { applyTopicLockToSession } from '@/lib/coherence/topicLock'
+import {
+  applyPackClassification,
+  classificationFromClarifyAnswer,
+  heuristicSuggestPack,
+  shouldRunPackClassify,
+  type PackClassification,
+} from '@/lib/coherence/packClassifier'
+import { resolveApiUrl } from '@/lib/site/api-url'
 import { clearPersisted, loadPersisted, savePersisted } from '@/lib/coherence/persist'
 import { loadLawyerSession, type LawyerSession } from '@/lib/coherence/lawyerAuth'
 import { buildSearchContextProfile } from '@/lib/coherence/searchContext'
@@ -151,6 +159,10 @@ function applyGapAnswer(promptId: string, value: string, next: SessionState): Se
       const docs = [...next.documents]
       if (v && !docs.includes(v)) docs.push(summariseToLabel(v, 64))
       return { ...next, documents: docs }
+    }
+    case 'pack_clarify': {
+      const chosen = classificationFromClarifyAnswer(v)
+      return chosen ? applyPackClassification(next, chosen) : next
     }
     case 'gap_goal':
       return { ...next, goal: next.goal || v }
@@ -480,6 +492,28 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     if (answeredId === 'goal' || answeredId === 'gap_goal' || answeredId === 'constraint_goal') {
       next = { ...next, goal: next.goal || value.trim() }
     }
+
+    // Fast pack classify (OpenRouter) on first story — before keyword topic lock hardens
+    if (shouldRunPackClassify(next, answeredId) && value.trim().length >= 8) {
+      const heuristic = heuristicSuggestPack(value)
+      next = applyPackClassification(next, heuristic)
+      try {
+        const res = await fetch(resolveApiUrl('/api/coherence/llm/classify'), {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ text: value.trim() }),
+        })
+        if (res.ok) {
+          const data = (await res.json()) as { classification?: PackClassification }
+          if (data.classification?.packId) {
+            next = applyPackClassification(next, data.classification)
+          }
+        }
+      } catch {
+        // Heuristic already applied
+      }
+    }
+
     const earlyFrames = proposeCoherentFrames(next, 3)
     next = applyTopicLockToSession(next, earlyFrames)
     next = {
