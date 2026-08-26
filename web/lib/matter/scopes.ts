@@ -1,5 +1,7 @@
 /** Issue → retrieval scope, planned intents, and title-level exclusions. */
 
+import { isDisabilityAbsenceAdjustmentsQuery } from "@/lib/legal/query-signals";
+
 export const ISSUE_RETRIEVAL_SCOPES: Record<string, string[]> = {
   parking_pcn: ["motoring", "parking", "administrative_appeals", "consumer"],
   consumer_vehicle_repair: ["consumer", "services", "vehicle_repair"],
@@ -43,7 +45,15 @@ export const ISSUE_RETRIEVAL_INTENTS: Record<string, string[]> = {
     "neighbour dispute boundary planning",
     "right of way driveway access",
   ],
-  employment: ["unfair dismissal employment tribunal ACAS"],
+  employment: [
+    "unfair dismissal employment tribunal ACAS",
+    "employment rights at work ACAS",
+  ],
+  discrimination_equality: [
+    "disability discrimination reasonable adjustments Equality Act",
+    "equality act discrimination at work",
+    "protected characteristics discrimination",
+  ],
   immigration: ["visa refusal immigration appeal"],
   debt: ["bailiff debt creditor"],
   criminal_defence: ["driving ban disqualification motoring"],
@@ -69,6 +79,9 @@ export const ISSUE_TITLE_EXCLUSIONS: Record<string, RegExp> = {
   conveyancing: /travel agent refund|used car|repairing a car|consumer contracts.*online|distance selling/i,
   housing: /used car|employment tribunal|parking ticket|travel agent/i,
   employment: /parking ticket|pcn|used car bought|conveyancing purchase/i,
+  /** Applied when story is Bradford / disability absence adjustments (not dismissal). */
+  employment_disability_absence:
+    /schedule of loss|unfair dismissal claim|bullying at work|zero hours contracts|how to win a grievance/i,
   consumer_small_claims:
     /child arrangements|custody|types of court orders in family|contact order|care order|divorce financial|tenant|tenancy|section\s*21|inheritance tax|10-?year charge|leasehold|mesher|disinherit|visa|indefinite leave/i,
 };
@@ -91,22 +104,50 @@ export function retrievalScopeForSlugs(slugs: string[]): string[] {
   return [...out];
 }
 
-export function plannedIntentsForFrame(primarySlugs: string[], secondarySlugs: string[]): string[] {
+const EMPLOYMENT_DISABILITY_ABSENCE_INTENTS = [
+  "disability discrimination reasonable adjustments Equality Act",
+  "sickness absence management disability Bradford Factor",
+  "reasonable adjustments disability-related absence",
+  "employer absence procedure disabled employees ACAS",
+];
+
+/** Issue intents, optionally conditioned on the citizen story (avoids dismissal bleed). */
+export function intentsForIssueSlug(slug: string, story = ""): string[] {
+  if (
+    (slug === "employment" || slug === "discrimination_equality") &&
+    isDisabilityAbsenceAdjustmentsQuery(story)
+  ) {
+    return [...EMPLOYMENT_DISABILITY_ABSENCE_INTENTS];
+  }
+  return ISSUE_RETRIEVAL_INTENTS[slug] || [];
+}
+
+export function plannedIntentsForFrame(
+  primarySlugs: string[],
+  secondarySlugs: string[],
+  story = "",
+): string[] {
   const intents = new Set<string>();
   for (const slug of primarySlugs) {
-    for (const i of ISSUE_RETRIEVAL_INTENTS[slug] || []) intents.add(i);
+    for (const i of intentsForIssueSlug(slug, story)) intents.add(i);
   }
   for (const slug of secondarySlugs.slice(0, 2)) {
-    for (const i of (ISSUE_RETRIEVAL_INTENTS[slug] || []).slice(0, 2)) intents.add(i);
+    for (const i of intentsForIssueSlug(slug, story).slice(0, 2)) intents.add(i);
   }
   return [...intents];
 }
 
-export function exclusionPatternsForSlugs(slugs: string[]): RegExp[] {
+export function exclusionPatternsForSlugs(slugs: string[], story = ""): RegExp[] {
   const patterns: RegExp[] = [];
   for (const slug of slugs) {
     const p = ISSUE_TITLE_EXCLUSIONS[slug];
     if (p) patterns.push(p);
+  }
+  if (
+    isDisabilityAbsenceAdjustmentsQuery(story) &&
+    (slugs.includes("employment") || slugs.includes("discrimination_equality"))
+  ) {
+    patterns.push(ISSUE_TITLE_EXCLUSIONS.employment_disability_absence);
   }
   return patterns;
 }

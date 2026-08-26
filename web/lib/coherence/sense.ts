@@ -210,15 +210,28 @@ function looksEventTicket(t: string): boolean {
 
 /**
  * Disability / access (travel, wheelchairs) — not employment just because “employed as…”.
- * Workplace disability discrimination still goes through looksEmployment.
+ * Workplace disability / Bradford Factor / RA to absence stays employment.
  */
+function looksWorkplaceDisability(t: string): boolean {
+  const disability =
+    /\b(disabilit(?:y|ies)|disabled|reasonable adjustments?|equality act|fluctuating (?:health )?conditions?)\b/i.test(
+      t,
+    )
+  const workplace =
+    /\b(employer|employee|at work|workplace|retail|hr\b|my (?:job|work)|bradford factor|sickness absence|absence (?:management|procedure|trigger))\b/i.test(
+      t,
+    )
+  return disability && workplace
+}
+
 function looksDisabilityAccess(t: string): boolean {
   const access =
     /\b(wheelchair|disabled|disability|blue badge|accessibility|stranded|assistance dog)\b/i.test(t) ||
     (/\bairport\b/i.test(t) && /\b(access|assistance|check-?in|wheelchair)\b/i.test(t))
   if (!access) return false
+  if (looksWorkplaceDisability(t)) return false
   if (
-    /\b(dismiss|sacked|fired|redundan|holiday hours|holiday pay|unpaid wages|grievance|tribunal)\b/i.test(
+    /\b(dismiss|sacked|fired|redundan|holiday hours|holiday pay|unpaid wages|grievance|tribunal|bradford factor|sickness absence)\b/i.test(
       t,
     )
   ) {
@@ -234,9 +247,10 @@ function looksDisabilityAccess(t: string): boolean {
 function looksEmployment(t: string): boolean {
   if (looksInsurance(t) || looksEventTicket(t) || looksParking(t)) return false
   if (looksDisabilityAccess(t)) return false
+  if (looksWorkplaceDisability(t)) return true
 
   if (
-    /\b(employer|dismiss(?:ed|al)?|fired|sacked|redundan|employment tribunal|unfair dismiss|constructive dismiss|hasn'?t paid my (?:wage|pay)|unpaid (?:wage|overtime)|acas)\b/i.test(
+    /\b(employer|dismiss(?:ed|al)?|fired|sacked|redundan|employment tribunal|unfair dismiss|constructive dismiss|hasn'?t paid my (?:wage|pay)|unpaid (?:wage|overtime)|acas|bradford factor)\b/i.test(
       t,
     )
   ) {
@@ -246,7 +260,7 @@ function looksEmployment(t: string): boolean {
   const workplaceActor =
     /\b(manager|supervisor|boss|line manager|\bhr\b|my (?:job|work|shift)|at work|at my work)\b/i.test(t)
   const workplaceIssue =
-    /\b(holiday (?:hours|pay|entitlement)|annual leave|shift(?:s)?|overtime|drs?\.? appointment|gp appointment|medical appointment|drinking water|work(?:ing)? hours|hours this year|work up or repay|clock(?:ing)? (?:in|out))\b/i.test(
+    /\b(holiday (?:hours|pay|entitlement)|annual leave|shift(?:s)?|overtime|drs?\.? appointment|gp appointment|medical appointment|drinking water|work(?:ing)? hours|hours this year|work up or repay|clock(?:ing)? (?:in|out)|sickness absence|reasonable adjustments?)\b/i.test(
       t,
     )
   if (workplaceActor && workplaceIssue) return true

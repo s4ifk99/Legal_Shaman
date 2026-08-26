@@ -100,3 +100,32 @@ export function isPcnAppealQuery(query: string): boolean {
     ) || /\bpcns?\b/i.test(q)
   );
 }
+
+/**
+ * Workplace disability / sickness-absence adjustments (Bradford Factor, RA to
+ * attendance triggers) — Equality Act / adjustments, not unfair dismissal.
+ */
+export function isDisabilityAbsenceAdjustmentsQuery(query: string): boolean {
+  const q = query.toLowerCase();
+  const workplace =
+    /\b(employer|employee|at work|workplace|retail|hr\b|my (?:job|work)|customer-?facing)\b/i.test(q);
+  const disability =
+    /\b(disabilit(?:y|ies)|disabled|equality act|reasonable adjustments?|fluctuating (?:health )?conditions?|chronic migraine|epilepsy)\b/i.test(
+      q,
+    );
+  const absence =
+    /\b(bradford factor|sickness absence|absence (?:management|procedure|score|trigger|policy)|attendance (?:trigger|management|score)|disability[- ]related (?:sickness|absence)|sick (?:days?|leave|absence)|short (?:periods? of )?sickness)\b/i.test(
+      q,
+    );
+  if (/\bbradford factor\b/i.test(q) && workplace) return true;
+  if (disability && absence && workplace) return true;
+  if (
+    disability &&
+    workplace &&
+    /\breasonable adjustments?\b/i.test(q) &&
+    /\b(absence|sick|bradford|trigger|attendance)\b/i.test(q)
+  ) {
+    return true;
+  }
+  return false;
+}

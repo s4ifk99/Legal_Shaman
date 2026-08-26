@@ -122,12 +122,25 @@ const CUE_RULES: Array<{ re: RegExp; cues: string[] }> = [
     cues: ['probate', 'will', 'inheritance', 'executor', 'estate', 'contest a will'],
   },
   {
-    re: /\b(unfair dismissal|constructive dismissal|redundan(?:cy|t)|holiday pay|sick (?:leave|note)|workplace bullying|sacked|dismissed|employment tribunal|tribunal)\b/i,
+    re: /\b(bradford factor|disability[- ]related (?:sickness|absence)|reasonable adjustments?.{0,60}(absence|sick|bradford|attendance)|sickness absence.{0,40}(disabilit|disabled|adjustment)|absence (?:management|procedure|trigger).{0,40}(disabilit|disabled))\b/i,
+    cues: [
+      'reasonable adjustments',
+      'disability discrimination',
+      'equality act',
+      'disability-related absence',
+      'sickness absence',
+      'bradford factor',
+      'absence management',
+      'acas',
+      'employer',
+    ],
+  },
+  {
+    re: /\b(unfair dismissal|constructive dismissal|redundan(?:cy|t)|holiday pay|workplace bullying|sacked|dismissed|employment tribunal|tribunal)\b/i,
     cues: [
       'dismissal',
       'redundancy',
       'holiday pay',
-      'sick leave',
       'acas',
       'unfair dismissal',
       'workplace harassment',
@@ -135,6 +148,10 @@ const CUE_RULES: Array<{ re: RegExp; cues: string[] }> = [
       'wages',
       'employment tribunal',
     ],
+  },
+  {
+    re: /\b(sick (?:leave|note|pay)|ssp\b)\b/i,
+    cues: ['sick leave', 'sick pay', 'ssp', 'acas', 'employer', 'fit note'],
   },
   {
     re: /\b(speeding|penalty points|totting|exceptional hardship|driving disqualification|pcn|parking (?:fine|ticket)|penalty notice)\b/i,

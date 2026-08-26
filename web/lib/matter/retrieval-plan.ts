@@ -3,7 +3,7 @@
  * Issues are legal problems; capacities (consumer, trader) live on PartyCapacity.
  */
 import type { MatterEvent, MatterFrame } from "./types";
-import { ISSUE_RETRIEVAL_INTENTS } from "./scopes";
+import { intentsForIssueSlug } from "./scopes";
 
 /** Legal issue slugs supported by each event type (operative events, not backdrop). */
 export const EVENT_TYPE_ISSUES: Record<string, string[]> = {
@@ -73,13 +73,24 @@ export function enrichEvent(
 }
 
 /** Build retrieval intents from disputed events → supported issues, with traceability. */
-export function buildRetrievalPlan(frame: MatterFrame): {
+export function buildRetrievalPlan(
+  frame: MatterFrame,
+  submission = "",
+): {
   intents: string[];
   traces: RetrievalIntentTrace[];
 } {
   const intents = new Set<string>();
   const traces: RetrievalIntentTrace[] = [];
   const primarySlugs = frame.primaryIssues.map((i) => i.slug);
+  const story = [
+    submission,
+    ...frame.events.map((e) => e.description),
+    ...frame.concepts,
+    ...frame.objectives,
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   const disputedEvents = frame.events.filter((e) => e.disputed);
 
@@ -94,7 +105,7 @@ export function buildRetrievalPlan(frame: MatterFrame): {
     ].filter((s, i, arr) => arr.indexOf(s) === i);
 
     for (const issueSlug of issueSlugs.slice(0, 3)) {
-      for (const intent of ISSUE_RETRIEVAL_INTENTS[issueSlug] || []) {
+      for (const intent of intentsForIssueSlug(issueSlug, story)) {
         if (!intents.has(intent)) {
           intents.add(intent);
           traces.push({
@@ -127,7 +138,7 @@ export function buildRetrievalPlan(frame: MatterFrame): {
   // Fallback: primary issue intents when no disputed events traced
   if (traces.length === 0) {
     for (const slug of primarySlugs) {
-      for (const intent of ISSUE_RETRIEVAL_INTENTS[slug] || []) {
+      for (const intent of intentsForIssueSlug(slug, story)) {
         if (!intents.has(intent)) {
           intents.add(intent);
           traces.push({
@@ -142,7 +153,7 @@ export function buildRetrievalPlan(frame: MatterFrame): {
       }
     }
     for (const slug of frame.secondaryIssues.slice(0, 2).map((i) => i.slug)) {
-      for (const intent of (ISSUE_RETRIEVAL_INTENTS[slug] || []).slice(0, 2)) {
+      for (const intent of intentsForIssueSlug(slug, story).slice(0, 2)) {
         if (!intents.has(intent)) {
           intents.add(intent);
           traces.push({

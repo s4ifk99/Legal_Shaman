@@ -27,6 +27,7 @@ export type { MatterGateResult, EvidenceGateResult } from "./types";
 export {
   ISSUE_RETRIEVAL_INTENTS,
   ISSUE_RETRIEVAL_SCOPES,
+  intentsForIssueSlug,
   plannedIntentsForFrame,
   retrievalScopeForSlugs,
 } from "./scopes";
