@@ -9,6 +9,7 @@ import {
   preferredClarifierFromTurnState,
   suppressedAskIds,
 } from './turnState'
+import { needsPackClarify, packClarifyPrompt } from './packClassifier'
 
 const MATTER_OPTIONS: Prompt['options'] = [
   { id: 'm1', label: 'Family / children', value: 'This is mainly about family, children or domestic abuse' },
@@ -258,7 +259,15 @@ export function nextPrompt(session: SessionState): Prompt {
 
   // If matter still unknown after first input, ask closed classifier once — grounded in their words
   if (session.matterType === 'unknown' && !session.answeredPromptIds.includes('matter')) {
+    // Pack clarify first when the pack classifier is unsure
+    if (needsPackClarify(session)) {
+      return packClarifyPrompt(session)
+    }
     return matterClassifierPrompt(session, 'matter')
+  }
+
+  if (needsPackClarify(session)) {
+    return packClarifyPrompt(session)
   }
 
   // Browse / info / OSLAW research: skip deep causation once matter (+ place when possible) is known

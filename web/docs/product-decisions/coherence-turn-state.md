@@ -109,6 +109,12 @@ Topic lock, cite hygiene, neighbour packs, trap suite.
 - Overview API: `topicLock` + `oslawPreflight` reject packs in `forbiddenPackIds`
 - Master brief / cite: goals must not become cite candidates (traps)
 
+### Phase 2b (pack classifier)
+
+- `packClassifier.ts` + `POST /api/coherence/llm/classify` (OpenRouter JSON)
+- First opener → `{ packId, confidence, reason }`; low confidence → `pack_clarify`
+- Confident `own-property-use` / `general-info` blocks neighbour keyword locks
+
 ### Phase 3 (eval)
 
 - Expand traps toward LexRAG / LeCoDe shapes (5-turn scripts with topic shift mid-dialogue)

@@ -56,8 +56,8 @@ function isPrivateParkingStory(text: string): boolean {
 }
 
 /**
- * Resolve a topic lock from frames + story. Prefer explicit hous-neighbour /
- * session.topicId over bag-of-words re-inference.
+ * Resolve a topic lock from frames + story. Prefer explicit pack classification /
+ * hous-neighbour / session.topicId over bag-of-words re-inference.
  */
 export function resolveTopicLock(
   session: SessionState,
@@ -66,6 +66,57 @@ export function resolveTopicLock(
   const text = storyBlob(session, frames)
   const top = frames[0]
   const frameIds = new Set(frames.map((f) => f.id))
+  const classified = session.packClassification
+  const classConf = classified?.confidence ?? 0
+  const classPack = classified?.packId
+
+  // LLM / user pack wins over keyword driveway bleed when confident enough
+  if (classified && classConf >= 0.55) {
+    if (classPack === 'own-property-use' || classPack === 'general-info') {
+      return null
+    }
+    if (classPack === 'neighbour-access-dispute') {
+      return {
+        topicId: 'housing-access',
+        packId: 'neighbour-access-dispute',
+        forbiddenPackIds: NEIGHBOUR_FORBIDDEN,
+        reason: `pack:${classified.source}`,
+        confidence: Math.max(0.85, classConf),
+      }
+    }
+    if (classPack === 'car-reject-failed-repair') {
+      return {
+        topicId: 'consumer-car',
+        packId: 'car-reject-failed-repair',
+        forbiddenPackIds: CAR_FORBIDDEN,
+        reason: `pack:${classified.source}`,
+        confidence: Math.max(0.85, classConf),
+      }
+    }
+    if (classPack === 'private-parking-charge') {
+      return {
+        topicId: 'consumer-parking',
+        packId: 'private-parking-charge',
+        forbiddenPackIds: PARKING_FORBIDDEN,
+        reason: `pack:${classified.source}`,
+        confidence: Math.max(0.85, classConf),
+      }
+    }
+    if (classPack === 'family-belongings-claim') {
+      return {
+        topicId: 'family-belongings',
+        packId: 'family-belongings-claim',
+        forbiddenPackIds: ['car-reject-failed-repair', 'neighbour-access-dispute'],
+        reason: `pack:${classified.source}`,
+        confidence: Math.max(0.85, classConf),
+      }
+    }
+  }
+
+  // Explicit own-drive topic — never neighbour-lock from bare driveway
+  if (session.topicId === 'own-property-use' || session.topicId === 'general-info') {
+    return null
+  }
 
   if (frameIds.has('hous-neighbour') || looksNeighbourDispute(text)) {
     return {

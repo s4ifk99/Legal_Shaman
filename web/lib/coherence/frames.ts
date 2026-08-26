@@ -225,12 +225,17 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
       add('hous-homeless', 'Homelessness / housing duty', 'Client may need local authority homelessness pathways.', 86)
     }
     if (looksNeighbourDispute(t) || tax?.l2 === 'neighbour_dispute' || tax?.packId === 'neighbour_dispute') {
-      add(
-        'hous-neighbour',
-        'Neighbour dispute / access',
-        'Neighbour parking, driveway, boundary, noise, or access — not landlord–tenant.',
-        92,
-      )
+      if (
+        session.packClassification?.packId !== 'own-property-use' &&
+        session.topicId !== 'own-property-use'
+      ) {
+        add(
+          'hous-neighbour',
+          'Neighbour dispute / access',
+          'Neighbour parking, driveway, boundary, noise, or access — not landlord–tenant.',
+          92,
+        )
+      }
     }
     if (frames.length === 0) {
       add('hous-general', 'Housing / landlord–tenant', 'Matter typed as housing; frame will refine with more detail.', 60)
