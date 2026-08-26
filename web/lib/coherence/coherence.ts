@@ -249,7 +249,10 @@ function narrativeSupportReasons(frameId: string, text: string): string[] {
     'hous-deposit': [[/deposit|\brents?\b|arrears/, 'Rent / deposit language']],
     'hous-homeless': [[/homeless|sofa|nowhere to stay/, 'Homelessness language']],
     'hous-neighbour': [
-      [/neighbour|neighbor|driveway|parking|park(?:ed|ing)|boundary|noise|access/, 'Neighbour / access language'],
+      [
+        /neighbour|neighbor|car\s*port|carport|park(?:ed|ing)|boundary|noise|blocking|right of way|easement|shared (?:drive|access)/,
+        'Neighbour / access language',
+      ],
     ],
     'hous-general': [
       [/\b(landlord|tenant|tenancy|section\s*21|\brents?\b)\b/, 'Landlord–tenant language present'],

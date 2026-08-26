@@ -7,7 +7,7 @@
  * Includes LexRAG / MAP-Law inspired multi-turn traps — see
  * docs/product-decisions/coherence-turn-state.md
  */
-import { createInitialSession, senseDetails } from '../lib/coherence/sense'
+import { createInitialSession, senseDetails, looksNeighbourDispute } from '../lib/coherence/sense'
 import { proposeCoherentFrames } from '../lib/coherence/frames'
 import { buildAnswerPackage } from '../lib/coherence/answerPackage'
 import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causation'
@@ -364,6 +364,36 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           gaps.some((g) => g.id === 'gap_refusal_reason'),
           `refusal gap should stay open: ${gaps.map((g) => g.id)}`,
         )
+      )
+    },
+  },
+  {
+    id: 'wash-car-driveway-not-neighbour-access',
+    run: () => {
+      const s = intake(['can i wash my car on my driveway'])
+      const frames = proposeCoherentFrames(s, 3)
+      const lock = resolveTopicLock(s, frames)
+      const p = nextPrompt(s)
+      const blob = `${p.id} ${p.text}`
+      return (
+        assert(!looksNeighbourDispute('can i wash my car on my driveway'), 'detector should be false') ||
+        assert(!frames.some((f) => f.id === 'hous-neighbour'), `neighbour frame: ${frames.map((f) => f.id)}`) ||
+        assert(lock?.packId !== 'neighbour-access-dispute', `lock=${lock?.packId}`) ||
+        assert(s.topicId !== 'housing-access', `topicId=${s.topicId}`) ||
+        assert(!/neighbour blocking|neighbour-access/i.test(blob), `bleed ask: ${blob.slice(0, 120)}`)
+      )
+    },
+  },
+  {
+    id: 'neighbour-parking-driveway-still-neighbour',
+    run: () => {
+      const s = intake(['My neighbour keeps parking on my driveway'])
+      const frames = proposeCoherentFrames(s, 3)
+      const lock = resolveTopicLock(s, frames)
+      return (
+        assert(looksNeighbourDispute('My neighbour keeps parking on my driveway'), 'detector should be true') ||
+        assert(frames.some((f) => f.id === 'hous-neighbour'), `frames=${frames.map((f) => f.id)}`) ||
+        assert(lock?.packId === 'neighbour-access-dispute', `lock=${lock?.packId}`)
       )
     },
   },
