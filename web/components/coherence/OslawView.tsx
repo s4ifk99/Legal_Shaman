@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
+import Link from 'next/link'
 import type { SessionState } from '@/lib/coherence/types'
 import type { LegalFrame } from '@/lib/coherence/frames'
 import {
@@ -19,6 +20,12 @@ import {
 import { logSearchEvent } from '@/lib/coherence/searchAnalytics'
 import { SynthesisHourglass } from './SynthesisHourglass'
 import './OslawView.css'
+
+/** Wiki `path` is a page id (sometimes still ends in `.md` from spines). */
+function wikiArticleHref(path: string): string {
+  const id = path.replace(/\.md$/i, '').replace(/^\/+/, '')
+  return `/ask-the-shaman/wiki/${encodeURIComponent(id)}`
+}
 
 interface Props {
   session: SessionState
@@ -105,9 +112,15 @@ function Recommendation({
       {pages.length > 0 && (
         <section className="oslaw__rec-section">
           <h3 className="oslaw__rec-h">Relevant wiki pages</h3>
-          <ul className="oslaw__rec-pages">
+          <ul className="oslaw__rec-pages oslaw__rec-list--links">
             {pages.map((w) => (
-              <li key={w.path + w.title}>{w.title}</li>
+              <li key={w.path + w.title}>
+                {w.path ? (
+                  <Link href={wikiArticleHref(w.path)}>{w.title}</Link>
+                ) : (
+                  w.title
+                )}
+              </li>
             ))}
           </ul>
         </section>
@@ -156,9 +169,17 @@ function Recommendation({
       {sources.length > 0 && (
         <details className="oslaw__rec-sources">
           <summary>Sources ({sources.length})</summary>
-          <ul>
+          <ul className="oslaw__rec-list--links">
             {sources.map((s) => (
-              <li key={s.title}>{s.title}</li>
+              <li key={s.title + (s.url || '')}>
+                {s.url ? (
+                  <a href={s.url} target="_blank" rel="noreferrer">
+                    {s.title}
+                  </a>
+                ) : (
+                  s.title
+                )}
+              </li>
             ))}
           </ul>
         </details>

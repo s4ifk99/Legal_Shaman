@@ -146,7 +146,14 @@
 }
 
 .oslaw__rec-pages {
-  list-style: disc;
+  list-style: none;
+  padding-left: 0;
+}
+
+.oslaw__rec-pages a {
+  color: var(--action, var(--ink));
+  font-weight: 600;
+  text-underline-offset: 2px;
 }
 
 .oslaw__rec-sources {
