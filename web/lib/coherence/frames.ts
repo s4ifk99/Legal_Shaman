@@ -261,6 +261,19 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
         94,
       )
     }
+    if (
+      /bradford|reasonable adjustment|sickness absence|absence (?:management|procedure|trigger)|disability[- ]related|attendance trigger|fluctuating/.test(
+        t,
+      ) &&
+      /disabilit|disabled|equality act|employer|work|employee|bradford/.test(t)
+    ) {
+      add(
+        'emp-disability-ra',
+        'Disability & sickness absence adjustments',
+        'Disability-related sickness / Bradford Factor / reasonable adjustments to absence procedures.',
+        93,
+      )
+    }
     if (/dismiss|fired|sacked|constructive|redundan/.test(t)) {
       add('emp-unfair', 'Unfair / wrongful dismissal', 'Job loss language may engage dismissal rights.', 86)
     }
@@ -272,10 +285,11 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
         78,
       )
     }
-    if (/discriminat|harass|bully|whistle/.test(t)) {
+    if (/discriminat|harass|bully|whistle|disabilit|disabled|equality act/.test(t)) {
       add('emp-discrim', 'Workplace discrimination / harassment', 'Equality or harassment issues may need early specialist framing.', 80)
     }
-    if (/tribunal|acas|claim/.test(t) || frames.length > 0) {
+    // Do not auto-add tribunal merely because another emp frame opened (RA/absence bleed).
+    if (/tribunal|acas|early conciliation/.test(t) || /dismiss|fired|sacked|redundan/.test(t)) {
       add('emp-tribunal', 'Employment tribunal pathways', 'Employment disputes often need early ACAS / tribunal framing.', 70)
     }
     if (frames.length === 0) {

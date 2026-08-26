@@ -54,8 +54,8 @@ export function retrieveForMatter(opts: {
   const { matterFrame, submission } = opts;
   const limit = opts.limit ?? 8;
   const primarySlugs = matterFrame.primaryIssues.map((i) => i.slug);
-  const { intents, traces } = buildRetrievalPlan(matterFrame);
-  const exclusionPatterns = exclusionPatternsForSlugs(primarySlugs);
+  const { intents, traces } = buildRetrievalPlan(matterFrame, submission);
+  const exclusionPatterns = exclusionPatternsForSlugs(primarySlugs, submission);
 
   const intentTrace = new Map<string, string>();
   for (const t of traces) {

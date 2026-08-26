@@ -430,6 +430,26 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       )
     },
   },
+  {
+    id: 'bradford-disability-absence-not-dismissal',
+    run: () => {
+      const story = [
+        'I work in retail and have several long-term, fluctuating health conditions including chronic migraine and epilepsy, which can cause occasional short periods of sickness absence.',
+        'My employer uses the Bradford Factor, so separate short absences can make my score increase very quickly. I already have reasonable adjustments at work, but disability-related sickness is still counted normally within my Bradford score.',
+        'I understand that completely disregarding disability-related absence isn’t the only option. I’ve seen examples of higher trigger points, percentage reductions, some absences being disregarded, disability absence being recorded separately, etc.',
+        'I’m mainly looking for real-life UK examples — what adjustments does your employer make to sickness absence procedures for disabled employees?',
+      ].join('\n\n')
+      const s = intake([story, 'England'])
+      const frames = proposeCoherentFrames(s, 4)
+      return (
+        assert(s.matterType !== 'consumer', `matter=${s.matterType} (workplace disability must not be consumer access)`) ||
+        assert(s.matterType === 'employment', `matter=${s.matterType}`) ||
+        assert(frames.some((f) => f.id === 'emp-disability-ra'), `expected emp-disability-ra, got ${frames.map((f) => f.id).join(',')}`) ||
+        assert(!frames.some((f) => f.id === 'emp-unfair'), 'unfair dismissal frame on Bradford/RA story') ||
+        assert(!frames.some((f) => f.id === 'emp-tribunal'), 'tribunal frame auto-added without dismissal language')
+      )
+    },
+  },
 ]
 
 function main() {

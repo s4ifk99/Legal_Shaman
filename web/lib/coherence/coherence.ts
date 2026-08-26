@@ -258,9 +258,15 @@ function narrativeSupportReasons(frameId: string, text: string): string[] {
       [/\b(landlord|tenant|tenancy|section\s*21|\brents?\b)\b/, 'Landlord–tenant language present'],
     ],
     'emp-unfair': [[/dismiss|fired|sacked|constructive/, 'Dismissal language']],
+    'emp-disability-ra': [
+      [
+        /bradford|reasonable adjustment|sickness absence|disability[- ]related|absence (?:management|procedure|trigger)|fluctuating/,
+        'Disability / absence adjustment language',
+      ],
+    ],
     'emp-wages': [[/wage|pay|holiday|contract|hours/, 'Pay / contract language']],
-    'emp-discrim': [[/discriminat|harass|whistle/, 'Discrimination / harassment language']],
-    'emp-tribunal': [[/tribunal|acas|claim/, 'Tribunal / ACAS language']],
+    'emp-discrim': [[/discriminat|harass|whistle|disabilit|disabled|equality act/, 'Discrimination / disability language']],
+    'emp-tribunal': [[/tribunal|acas|early conciliation/, 'Tribunal / ACAS language']],
     'emp-general': [[/employer|job|work|employment/, 'Employment language present']],
     'debt-enforcement': [[/bailiff|enforcement|warrant/, 'Enforcement / bailiff language']],
     'debt-ccj': [[/ccj|county court|judgment/, 'CCJ / judgment language']],

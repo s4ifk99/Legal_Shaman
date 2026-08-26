@@ -1,4 +1,5 @@
 import {
+  isDisabilityAbsenceAdjustmentsQuery,
   isFamilyBelongingsPropertyClaim,
   isPcnAppealQuery,
   isPropertyPurchaseMisrepresentationQuery,
@@ -59,7 +60,24 @@ const SLUG_ANCHORS: Record<string, string[]> = {
     "section 21",
     "eviction",
   ],
-  employment: ["unfair dismissal", "ACAS", "employment rights", "workplace", "pension auto enrolment"],
+  employment: [
+    "unfair dismissal",
+    "ACAS",
+    "employment rights",
+    "workplace",
+    "pension auto enrolment",
+    "reasonable adjustments",
+    "disability discrimination",
+    "sickness absence",
+  ],
+  employment_disability_absence: [
+    "reasonable adjustments",
+    "disability discrimination",
+    "sickness absence management",
+    "Bradford Factor",
+    "Equality Act disability",
+    "disability-related absence",
+  ],
   family: ["child arrangements", "divorce", "domestic abuse", "contact order"],
   immigration: ["visa refusal", "immigration", "home office", "spouse visa"],
   debt: ["bailiff", "debt", "creditor", "CCJ"],
@@ -155,6 +173,9 @@ export function wikiAnchorsForQuery(query: string): string[] {
       "penalty charge notice council PCN",
       "London Tribunals parking appeal",
     );
+  }
+  if (isDisabilityAbsenceAdjustmentsQuery(query)) {
+    anchors.push(...(SLUG_ANCHORS.employment_disability_absence ?? []));
   }
   if (isVehicleRepairQuery(query)) {
     anchors.push(
@@ -275,6 +296,23 @@ function patternBoostForHit(query: string, hit: WikiSearchHit): number {
     if (hit.category === "Driving and Parking") boost += 50;
     if (hit.category === "Work and Employment") boost -= 90;
   }
+  if (isDisabilityAbsenceAdjustmentsQuery(query)) {
+    if (
+      /reasonable adjustment|disability discrimination|absence management|bradford|equality act|sickness absence|disabled employee/i.test(
+        titleLower,
+      )
+    ) {
+      boost += 120;
+    }
+    if (
+      /schedule of loss|unfair dismissal|bullying at work|zero hours|how to win a grievance|value a claim for employment tribunal/i.test(
+        titleLower,
+      )
+    ) {
+      boost -= 140;
+    }
+    if (hit.category === "Work and Employment") boost += 30;
+  }
   if (isVehicleRepairQuery(query)) {
     if (/problem with a car repair|buying or repairing a car/i.test(titleLower)) boost += 120;
     if (/poor workmanship|unhappy about poor service|poor standard of a service/i.test(titleLower)) {
@@ -351,6 +389,7 @@ function hasPatternRerank(query: string): boolean {
   return (
     isVehicleRepairQuery(query) ||
     isPcnAppealQuery(query) ||
+    isDisabilityAbsenceAdjustmentsQuery(query) ||
     isPropertyPurchaseMisrepresentationQuery(query) ||
     isRecordingLawQuery(query) ||
     RECORDING_QUERY.test(query) ||
