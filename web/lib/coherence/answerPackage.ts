@@ -8,6 +8,7 @@ import craSpine from '@/data/coherence/primaryLaw/craGoodsRemedies.json'
 import { checkAnswerCitations, type CitationIssue } from './citationCheck'
 import { buildRetrievalText } from './retrievalText'
 import { resolveTopicLock, type LockedPackId } from './topicLock'
+import { looksNeighbourDispute } from './sense'
 
 export type AnswerBullet = {
   text: string
@@ -46,14 +47,15 @@ function blob(session: SessionState, frames: LegalFrame[]): string {
 }
 
 function isUsedCarReject(text: string, matter: string): boolean {
-  // Neighbour / driveway / carport access is not a used-car consumer dispute
+  // Neighbour access fights are not used-car CRA — but "wash my car on my driveway" is neither
   if (
-    /\b(neighbour|neighbor|driveway|car\s*port|carport|right of way|easement|blocking access|party wall)\b/i.test(
+    /\b(neighbour|neighbor|car\s*port|carport|right of way|easement|blocking access|party wall)\b/i.test(
       text,
     )
   ) {
     return false
   }
+  if (looksNeighbourDispute(text)) return false
   // "car park" / "parking" must not trigger the used-car CRA spine.
   const parkingContext =
     /\b(car\s*park|parking|pcn|parking (?:fine|ticket|charge|app)|popla|private parking)\b/i.test(
@@ -100,7 +102,8 @@ function pickSections(text: string) {
 }
 
 function isPrivateParkingCharge(text: string): boolean {
-  if (/\b(neighbour|neighbor|driveway|car\s*port|carport|right of way|easement)\b/i.test(text)) {
+  if (looksNeighbourDispute(text)) return false
+  if (/\b(neighbour|neighbor|car\s*port|carport|right of way|easement)\b/i.test(text)) {
     return false
   }
   return /\b(parking (?:fine|ticket|charge|app|company)|car\s*park|pcn|popla|private parking|parking on private)\b/i.test(
@@ -109,12 +112,7 @@ function isPrivateParkingCharge(text: string): boolean {
 }
 
 function isNeighbourAccessDispute(text: string): boolean {
-  return (
-    /\b(neighbour|neighbor)\b/i.test(text) &&
-    /\b(driveway|car\s*port|carport|parking|park(?:ed|ing)|blocking|access|right of way|easement|boundary)\b/i.test(
-      text,
-    )
-  )
+  return looksNeighbourDispute(text)
 }
 
 /**

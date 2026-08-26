@@ -61,6 +61,34 @@ export function looksProspectiveVisaApplication(text: string): boolean {
 }
 
 /**
+ * Own driveway activity (wash / clean car) — informational, not a neighbour access fight.
+ * Bare “driveway” must not lock neighbour-access packs.
+ */
+export function looksOwnDrivewayActivityQuestion(text: string): boolean {
+  const t = text.toLowerCase()
+  if (
+    /\b(neighbour|neighbor|blocking|blocked|right of way|easement|shared (?:drive|access)|car\s*port|carport)\b/.test(
+      t,
+    )
+  ) {
+    return false
+  }
+  const onDriveway = /\b(on|in|at)\s+(my\s+|the\s+|our\s+)?driveway\b/.test(t) || /\bmy driveway\b/.test(t)
+  if (!onDriveway && !/\bdriveway\b/.test(t)) return false
+
+  const washClean =
+    /\b(wash|washing|clean|cleaning|hose|pressure\s*wash(?:ing)?|valet|soapy\s+water|detergent)\b/.test(t) &&
+    /\b(car|vehicle|van|bike|motorbike)\b/.test(t)
+
+  const permissionAsk =
+    /\b(can i|may i|am i allowed|is it (?:legal|ok|okay|allowed)|allowed to|illegal to)\b/.test(t) &&
+    /\bdriveway\b/.test(t) &&
+    !/\b(park(?:ing|ed)?\s+(?:on|across|blocking)|block(?:ing)?\s+access)\b/.test(t)
+
+  return washClean || (permissionAsk && !/\b(park(?:ed|ing)|block)\b/.test(t))
+}
+
+/**
  * Neighbour / access disputes (driveway parking, boundary, noise) — still matter=housing
  * for routing, but must not be framed as landlord–tenant.
  */
@@ -71,19 +99,27 @@ export function looksNeighbourDispute(text: string): boolean {
     .replace(/this is mainly about housing or a neighbour dispute/gi, ' ')
     .replace(/housing \/ neighbour/gi, ' ')
 
+  if (looksOwnDrivewayActivityQuestion(t)) return false
+
   const tenancyCues =
     /\b(landlord|tenant|tenancy|section\s*21|section\s*8|disrepair|mould|mold|\brents?\b|evict|flatmate|housemate)\b/.test(
       t,
     )
   const neighbour = /\b(neighbour|neighbor)\b/.test(t)
   const accessCue =
-    /\b(driveway|car\s*port|carport|parking|park(?:ed|ing)|boundary|fence|hedge|noise|nuisance|access|right of way|easement|blocking|party wall|extension|tree)\b/.test(
+    /\b(car\s*port|carport|parking|park(?:ed|ing)|boundary|fence|hedge|noise|nuisance|access|right of way|easement|blocking|party wall|extension|tree)\b/.test(
       t,
     )
+  // Driveway alone is not enough — need conflict / third-party use of the drive
+  const drivewayConflict =
+    /\bdriveway\b/.test(t) &&
+    /\b(block|blocked|blocking|park(?:ed|ing)|across|onto|shared|access|neighbour|neighbor)\b/.test(t) &&
+    !/\b(wash|washing|clean|cleaning|hose|valet)\b/.test(t)
 
-  if (neighbour && accessCue) return true
+  if (neighbour && (accessCue || drivewayConflict || /\bdriveway\b/.test(t))) return true
+  if (drivewayConflict && !tenancyCues) return true
   if (
-    /\b(driveway|shared (?:drive|access)|right of way|easement|blocking access)\b/.test(t) &&
+    /\b(shared (?:drive|access)|right of way|easement|blocking access)\b/.test(t) &&
     !tenancyCues
   ) {
     return true
@@ -95,9 +131,10 @@ export function looksNeighbourDispute(text: string): boolean {
 
 /** Strong housing signals — never bare "rent" or "her house" (family disputes often say that). */
 function looksHousing(t: string): boolean {
-  return /landlord|tenant|evict|lock(?:ed)?(?:\s+\w+){0,2}\s*out|mould|mold|\brents?\b|section\s*21|section\s*8|homeless|disrepair|tenancy|neighbour|neighbor|driveway|car\s*port|carport|easement|right of way|blocking access|planning permission|shared (?:drive|access)/.test(
+  if (looksOwnDrivewayActivityQuestion(t)) return false
+  return /landlord|tenant|evict|lock(?:ed)?(?:\s+\w+){0,2}\s*out|mould|mold|\brents?\b|section\s*21|section\s*8|homeless|disrepair|tenancy|neighbour|neighbor|car\s*port|carport|easement|right of way|blocking access|planning permission|shared (?:drive|access)/.test(
     t,
-  )
+  ) || looksNeighbourDispute(t)
 }
 
 /**
