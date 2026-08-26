@@ -147,6 +147,21 @@
           "name": "The University of Law",
           "description": "provides free legal advice to members of the public",
           "url": "https://www.law.ac.uk/"
+        },
+        {
+          "name": "The Access to Justice Foundation",
+          "description": "Home # For a society where everyone has access to justice We increase funding for free legal advice. We award grants, raise funds and help to make the case for investment in advice…",
+          "url": "https://atjf.org.uk/"
+        },
+        {
+          "name": "Finding free or affordable legal help",
+          "description": "Citizens Advice # Finding free or affordable legal help This advice applies to England. See advice for See advice for Northern Ireland, See advice for Scotland, See advice for…",
+          "url": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/finding-free-or-affordable-legal-help/"
+        },
+        {
+          "name": "AdviceUK - Supporting advice organisations",
+          "description": "member resources News Find out how we make a difference together, to individual lives, livelihoods and liberty in our latest news section. Our members Discover more about…",
+          "url": "https://www.adviceuk.org.uk/"
         }
       ]
     },
@@ -348,6 +363,21 @@
             }
           ],
           "url": "https://www.gov.uk/legal-aid"
+        },
+        {
+          "name": "Make a court claim for money",
+          "description": "Resolve your claim through mediation - GOV.UK Skip to main content # Make a court claim for money Skip contents # Resolve your claim through mediation Mediation is when an impartial…",
+          "url": "https://www.gov.uk/make-court-claim-for-money/mediation"
+        },
+        {
+          "name": "Small Claims Mediation Service (SCMS) - Find a Court or Tribunal",
+          "description": "GOV.UK Skip to main content Find a Court or Tribunal beta This is a new service – your feedback will help us to improve it. Cymraeg Back # Small…",
+          "url": "https://www.find-court-tribunal.service.gov.uk/courts/small-claims-mediation-service-scms"
+        },
+        {
+          "name": "Small claims and the civil court",
+          "description": "Advicenow ## Our free Mandatory Reconsideration tools help thousands of people challenge unfair benefit decisions. \"The decision was overturned in my son's favour. A great help in…",
+          "url": "https://www.advicenow.org.uk/get-help/going-court/small-claims-and-civil-court"
         }
       ]
     },
@@ -458,6 +488,16 @@
           "name": "Bloomsbury Legal Clinic",
           "description": "London-based advice clinic offering specialist housing advice.",
           "url": "https://www.bloomsburylegalclinic.org.uk/"
+        },
+        {
+          "name": "Help to Rent Database: Find housing advice near you",
+          "description": "Help to Rent Database | Get help renting a house | Crisis UK Search for schemes that help people overcome barriers to accessing private rented accommodation in the UK. This database is for…",
+          "url": "https://www.crisis.org.uk/ending-homelessness/resources-for-practitioners/prs-database/"
+        },
+        {
+          "name": "Damp and mould",
+          "description": "Housing ombudsman Close Main Menu # Damp and mould support guide ## On this page ## About damp and mould in your home Damp is the build-up of moisture in a building. Damp can happen when there are…",
+          "url": "https://www.housing-ombudsman.org.uk/centre-for-learning/support-guides/damp-and-mould/"
         }
       ]
     },
@@ -626,6 +666,21 @@
           "name": "UK Deed Poll Office",
           "description": "Support for you or your child's name-change process.",
           "url": "https://www.ukdpo.com/"
+        },
+        {
+          "name": "Family law advice",
+          "description": "Rights of Women Skip Main Navigation ## Enter your search term here… Search Safe exit # Family Law Advice Our family law advice lines can advise you on: domestic violence and abuse; divorce,…",
+          "url": "https://www.rightsofwomen.org.uk/get-advice/family-law/"
+        },
+        {
+          "name": "Find a Legal Aid Adviser or Family Mediator",
+          "description": "d adviser or family mediator Use this service to find legal aid…",
+          "url": "https://find-legal-advice.justice.gov.uk/"
+        },
+        {
+          "name": "Family mediation",
+          "description": "Resolution ## What is mediation? Mediators are trained to help resolve disputes over all issues faced by separating couples, or specific issues such as arrangements for any children. A mediator will…",
+          "url": "https://resolution.org.uk/looking-for-help/splitting-up/your-process-options-for-divorce-and-dissolution/family-mediation/"
         }
       ]
     },
@@ -672,6 +727,16 @@
           "name": "GOV.UK — lasting power of attorney",
           "url": "https://www.gov.uk/power-of-attorney",
           "description": "How to appoint someone to make decisions for you if you lose capacity."
+        },
+        {
+          "name": "Setting up a lasting power of attorney (LPA)",
+          "description": "Power of attorney – Setting up a lasting power of attorney (LPA) | Age UK Skip to content Postcode Submit ### Legal issues - Where can I get free legal advice? - How to be an executor information…",
+          "url": "https://www.ageuk.org.uk/information-advice/money-legal/legal-issues/power-of-attorney/"
+        },
+        {
+          "name": "Contested Probate Clinic - Legal Advice Clinic",
+          "description": "# Contested Probate ClinicThe University of Westminster Legal Advice Clinic is now closed for new enquiries while our students take their exams and summer break. We will…",
+          "url": "https://uowlegaladviceclinic.org.uk/contested-probate-clinic/"
         }
       ]
     },
@@ -786,6 +851,16 @@
           "phone": "01904 900 151",
           "description": "free confidential legal information and advice if you believe you have been unfairly treated under a Zero Hours Contract.",
           "url": "https://zerohoursjustice.org.uk/"
+        },
+        {
+          "name": "Get free advice - Maternity Action",
+          "description": "## Get free advice Do you have a question about your rights at work, benefits or entitlement to free NHS maternity care? Maternity Action can help with free legal advice. Please…",
+          "url": "https://maternityaction.org.uk/get-free-advice/"
+        },
+        {
+          "name": "Pay and work rights helpline and complaints",
+          "description": "GOV.UK Skip to main content # Pay and work rights helpline and complaints Help and advice for workers and employers on rights and obligations at work. ## Acas helpline…",
+          "url": "https://www.gov.uk/pay-and-work-rights"
         }
       ]
     },
@@ -833,6 +908,16 @@
           "name": "GOV.UK — set up a business",
           "url": "https://www.gov.uk/set-up-business",
           "description": "Official steps for sole traders, partnerships, and limited companies."
+        },
+        {
+          "name": "Check your employment status",
+          "description": "Citizens Advice # Check your employment status This advice applies to England. See advice for See advice for Northern Ireland, See advice for Scotland, See advice for Wales ## Help us…",
+          "url": "https://www.citizensadvice.org.uk/work/check-your-employment-status/"
+        },
+        {
+          "name": "Self-employment - Employment status",
+          "description": "Acas - Types of employment status - Employee - Worker - Self-employment A person is usually self-employed if they are their own boss. Self-employed status is not defined in…",
+          "url": "https://www.acas.org.uk/employment-status/self-employment"
         }
       ]
     },
@@ -945,6 +1030,21 @@
           "phone": "020 7259 0801",
           "description": "provides advice and support on income, housing and social welfare matters",
           "url": "https://z2k.org/"
+        },
+        {
+          "name": "MoneyHelper — free government-backed money guidance",
+          "description": "Free and impartial help with money, backed by the government | MoneyHelper # Fuel prices near you Find the best petrol and diesel prices near you from live government data. Try our Petrol price…",
+          "url": "https://www.moneyhelper.org.uk/en"
+        },
+        {
+          "name": "Get free debt advice",
+          "description": "GOV.UK Skip to main content # Get free debt advice Get free, confidential and independent advice on dealing with debt problems. This list covers UK-wide organisations and ones based in England…",
+          "url": "https://www.gov.uk/debt-advice"
+        },
+        {
+          "name": "National Debtline: Free Debt Advice and Support",
+          "description": "Free Debt Advice and Support | National Debtline # Free, impartial debt advice and support We’re a trusted debt advice charity offering free, independent support. If you’re struggling with debt,…",
+          "url": "https://nationaldebtline.org/"
         }
       ]
     },
@@ -993,6 +1093,16 @@
           "name": "Resolver",
           "url": "https://www.resolver.co.uk/",
           "description": "Free tool to escalate complaints with many retailers and service providers."
+        },
+        {
+          "name": "Complaining to an ombudsman",
+          "description": "Citizens Advice # Complaining to an ombudsman This advice applies to England. See advice for See advice for Northern Ireland, See advice for Scotland, See advice for Wales ## Help us…",
+          "url": "https://www.citizensadvice.org.uk/consumer/get-more-help/how-to-use-an-ombudsman-in-england/"
+        },
+        {
+          "name": "Motor Ombudsman — refund for a faulty vehicle",
+          "description": "Motoring Advice - 7 Min Read # Can you get a refund from a car dealership for a faulty vehicle? Your rights explained April 29, 2026 Copy link …",
+          "url": "https://www.themotorombudsman.org/motoring-advice/refund-for-faulty-vehicle/"
         }
       ]
     },
@@ -1023,6 +1133,21 @@
           "name": "RICS — party wall matters",
           "url": "https://www.ricsfirms.com/home/party-wall/",
           "description": "Find surveyors for party wall agreements and boundary issues."
+        },
+        {
+          "name": "If you disagree with your neighbour about a wall or fence",
+          "description": "Citizens Advice # If you disagree with your neighbour about a wall or fence This advice applies to England. See advice for See advice for Northern Ireland,…",
+          "url": "https://www.citizensadvice.org.uk/housing/problems-with-neighbours/if-you-disagree-with-your-neighbour-about-a-wall-or-fence/"
+        },
+        {
+          "name": "Party Wall Mediation Scheme",
+          "description": "# Why the Party Wall Surveyors Mediation Scheme? # Why the Party Wall Surveyors Mediation Scheme? ## WELCOME The Party Wall Mediation Scheme has been set up jointly between the Pyramus &…",
+          "url": "https://partywallmediation.co.uk/"
+        },
+        {
+          "name": "Neighbour dispute mediation - WMS",
+          "description": "Home Services Neighbour dispute mediation # Neighbour dispute mediation When communication between neighbours breaks down, mediation can help resolve their disagreement swiftly, and…",
+          "url": "https://wmsmediation.org/services/neighbour-dispute-mediation/"
         }
       ]
     },
@@ -1091,6 +1216,16 @@
           "phone": "0117 911 3393",
           "description": "specifically for Wales and the South West and West of the UK",
           "url": "https://migrantlegalsupport.org/"
+        },
+        {
+          "name": "Immigration and asylum law advice",
+          "description": "Rights of Women Skip Main Navigation ## Enter your search term here… Search Safe exit # Immigration and asylum law advice We have three immigration and asylum law advice lines:…",
+          "url": "https://www.rightsofwomen.org.uk/get-advice/immigration-and-asylum-law/"
+        },
+        {
+          "name": "Home - Refugee Council",
+          "description": "# A little kindness goes a long way It’s normal to have different opinions on immigration and asylum. But there are some things we can all agree on. ## Help for refugees and people…",
+          "url": "https://www.refugeecouncil.org.uk/"
         }
       ]
     },
@@ -1128,6 +1263,11 @@
           "name": "Citizens Advice — personal injury",
           "url": "https://www.citizensadvice.org.uk/law-and-courts/personal-injuries/",
           "description": "Overview of making a personal injury claim."
+        },
+        {
+          "name": "RIDDOR — report workplace injuries (HSE)",
+          "description": "RIDDOR – Reporting of Injuries, Diseases and Dangerous Occurrences Regulations - HSE # RIDDOR – Reporting of Injuries, Diseases and Dangerous Occurrences Regulations ### Reportable incidents Types of…",
+          "url": "https://www.hse.gov.uk/riddor/"
         }
       ]
     },
@@ -1190,6 +1330,21 @@
           "name": "Citizens Advice — parking tickets and PCNs",
           "url": "https://www.citizensadvice.org.uk/consumer/parking-travel-leisure/parking-tickets/",
           "description": "Challenge a council or private parking ticket."
+        },
+        {
+          "name": "Appealing a parking ticket",
+          "description": "Citizens Advice # Appealing a parking ticket This advice applies to England. See advice for See advice for Northern Ireland, See advice for Scotland, See advice for Wales ## Help us…",
+          "url": "https://www.citizensadvice.org.uk/law-and-courts/parking-tickets/appealing-a-parking-ticket/"
+        },
+        {
+          "name": "Appeal against a penalty charge notice: How to appeal a penalty charge notice",
+          "description": "GOV.UK Skip to main content # Appeal against a penalty charge notice Skip contents # How to appeal a penalty charge notice You may be…",
+          "url": "https://www.gov.uk/appeal-against-a-penalty-charge-notice"
+        },
+        {
+          "name": "DVLA records of motoring offences - Unlock",
+          "description": "e to move on positively in their lives. Find out more # DVLA records of…",
+          "url": "https://unlock.org.uk/dvla-records-of-motoring-offences/"
         }
       ]
     },
@@ -1280,6 +1435,11 @@
           "phone": "0117 9897725",
           "description": "a charity providing information, advice & support to parents, children & young people about any type of special educational need or disability from 0-25 years who live in Bristol, N. Somerset or S. Gloucestershire",
           "url": "https://www.sendandyou.org.uk/"
+        },
+        {
+          "name": "What can I do if I'm discriminated against? - Liberty",
+          "description": "## We can’t do this without you. Every day, people’s basic rights and freedoms come under threat. But together, we can create change. By supporting our work,…",
+          "url": "https://www.libertyhumanrights.org.uk/advice_information/what-can-i-do-if-im-discriminated-against/"
         }
       ]
     },
@@ -1416,6 +1576,16 @@
           "name": "Protests stop and search factsheet",
           "description": "The law, the history, and the statistics behind protest-related searches.",
           "url": "https://www.stop-watch.org/what-we-do/resources/protests-stop-and-search-factsheet/"
+        },
+        {
+          "name": "Victim and witness services",
+          "description": "GOV.UK Skip to main content Guidance # Victim and witness services Information on accessing victim and witness support services. From: Ministry of Justice Published: 5 July 2022 Last…",
+          "url": "https://www.gov.uk/guidance/victim-and-witness-services"
+        },
+        {
+          "name": "Make a complaint – Victim and Witness Information",
+          "description": "mplaint As the victim or witness of a crime, you deserve to be treated…",
+          "url": "https://victimandwitnessinformation.org.uk/make-a-complaint"
         }
       ]
     },
@@ -1453,6 +1623,21 @@
           "name": "IPSEA Advice line",
           "description": "provides legally based information and next step advice on any educational issue that is the result of a child's special educational needs or disability.",
           "url": "https://www.ipsea.org.uk/"
+        },
+        {
+          "name": "School Exclusions Hub",
+          "description": "## School Exclusions Hub Your guide to understanding and challenging school exclusions in England. ## Understand Your Rights. ## Navigate Exclusion. # your future Coram’s School Exclusions…",
+          "url": "https://schoolexclusionshub.org.uk/"
+        },
+        {
+          "name": "Permanent exclusions",
+          "description": "(IPSEA) Independent Provider of Special Education Advice # Permanent exclusions The steps we explain on this page only relate to pupils at maintained schools, Academy schools (not 16-19…",
+          "url": "https://www.ipsea.org.uk/permanent-exclusions"
+        },
+        {
+          "name": "Advice for parents on school admission appeals (GOV.UK)",
+          "description": "Advice for parents and guardians on school admission appeals - GOV.UK Skip to main content ## Applies to England Print this page © Crown copyright 2023 This publication is licensed under the terms of…",
+          "url": "https://www.gov.uk/government/publications/admission-appeals-for-school-places/advice-for-parents-and-guardians-on-school-admission-appeals"
         }
       ]
     }
