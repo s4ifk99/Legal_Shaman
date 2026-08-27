@@ -39,13 +39,47 @@ function storyBlob(session: SessionState, frames: LegalFrame[]): string {
   return `${buildRetrievalText(session)} ${frames.map((f) => f.id).join(' ')} ${session.topicId || ''}`
 }
 
-function isUsedCarPurchaseStory(text: string): boolean {
-  if (looksNeighbourDispute(text)) return false
-  return (
-    /\b(used car|bought .{0,24}(?:car|vehicle)|faulty (?:car|vehicle)|dealer|mot\b|fault codes?|motor ombudsman)\b/i.test(
+function isMotoringComplianceNotPurchase(text: string): boolean {
+  const motoring =
+    /\b(no insurance|uninsured|sorn\b|road tax|drove past|driving without|penalty points|disqualif|speeding)\b/i.test(
       text,
-    ) && /\b(reject|refund|repair|faulty|broke|warranty|trader)\b/i.test(text)
+    ) ||
+    (/\bmot\b/i.test(text) &&
+      /\b(insurance|tax|drove|driving|police|sorn)\b/i.test(text) &&
+      !/\b(bought|dealer|used car|reject|refund)\b/i.test(text))
+  const purchase =
+    /\b(used car|bought .{0,24}(?:car|vehicle)|dealer|fault codes?|reject under|consumer rights)\b/i.test(
+      text,
+    )
+  return motoring && !purchase
+}
+
+function isLeaseGaragePropertyNotCarPurchase(text: string): boolean {
+  return (
+    /\b(lease garage|long lease garage|long[- ]?standing lease|property dispute|freehold|leaseholder)\b/i.test(
+      text,
+    ) &&
+    !/\b(used car|bought .{0,24}(?:car|vehicle)|fault codes?|reject under|consumer rights act)\b/i.test(
+      text,
+    )
   )
+}
+
+/** Used-car CRA reject / refund — not MOT compliance, parking, or lease-garage disputes. */
+export function isUsedCarPurchaseStory(text: string): boolean {
+  if (looksNeighbourDispute(text)) return false
+  if (isMotoringComplianceNotPurchase(text)) return false
+  if (isLeaseGaragePropertyNotCarPurchase(text)) return false
+  const purchase =
+    /\b(used car|bought .{0,24}(?:car|vehicle)|faulty (?:car|vehicle)|dealer|fault codes?|motor ombudsman)\b/i.test(
+      text,
+    ) ||
+    (/\b(garage|trader)\b/i.test(text) &&
+      /\b(bought|purchase|from (?:a )?dealer)\b/i.test(text) &&
+      /\b(car|vehicle)\b/i.test(text))
+  const remedy =
+    /\b(reject|refund|repair|faulty|broke|warranty|trader|not as described)\b/i.test(text)
+  return purchase && remedy
 }
 
 function isPrivateParkingStory(text: string): boolean {

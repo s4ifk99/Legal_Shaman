@@ -416,15 +416,18 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
   {
     id: "benefits_pip_uc_appeal",
     matchAll: [
-      /\b(universal credit|pip\b|personal independence|dla\b|esa\b|benefit|sanction)\b/i,
-      /\b(appeal|tribunal|refused|stopped|sanction|assessment|mandatory reconsideration)\b/i,
+      /\b(universal credit|\buc\b|\bpip\b|personal independence|dla\b|esa\b|benefit|sanction)\b/i,
+    ],
+    matchAny: [
+      /\b(appeal|tribunal|refused|stopped|sanction|assessment|mandatory reconsideration|deprivation of capital|eligibility|eligible|affect .{0,40}(?:uc|universal credit|pip|benefits?))\b/i,
     ],
     intents: [
       "universal credit appeal sanction",
       "PIP appeal tribunal mandatory reconsideration",
       "challenging a benefits decision",
+      "universal credit deprivation of capital",
     ],
-    titleExclusion: /unfair dismissal|used car|neighbour driveway|visa refusal/i,
+    titleExclusion: /unfair dismissal|used car|neighbour driveway|visa refusal|fire door/i,
     suppressSlugDefaults: ["employment", "consumer", "housing"],
   },
   {
@@ -457,15 +460,38 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
   {
     id: "housing_homelessness",
     matchAll: [
-      /\b(homeless|sofa.?surf|nowhere to (?:stay|live)|rough sleep|temporary accommodation|homelessness application)\b/i,
+      /\b(homeless(?:ness)?|sofa.?surf|nowhere to (?:stay|live)|rough sleep|temporary accommodation|homelessness application|threatened with homelessness)\b/i,
+    ],
+    matchAny: [
+      /\b(homelessness application|temporary accommodation|sofa.?surf|rough sleep|nowhere to (?:stay|live)|priority need|local authority|council|apply(?:ing)? (?:as )?homeless|threatened with homelessness|actually homeless|i am homeless)\b/i,
+    ],
+    rejectIf: [
+      /\b(fire door|tamper(?:ing)? with fire|adjust.{0,40}latch|leasehold|shared property).{0,120}homeless\b/i,
+      /\bgoing literally homeless\b/i,
     ],
     intents: [
       "homelessness help local authority",
       "temporary accommodation homeless application",
       "priority need homelessness",
     ],
-    titleExclusion: /used car|unfair dismissal|parking ticket|visa/i,
+    titleExclusion: /used car|unfair dismissal|parking ticket|visa|fire door/i,
     suppressSlugDefaults: ["neighbour_dispute", "consumer", "employment"],
+  },
+  {
+    id: "leasehold_fire_safety_alterations",
+    matchAll: [
+      /\b(fire door|fire safety|leasehold|shared (?:property|block)|tamper(?:ing)?|unauthorised alter|unauthorized alter)\b/i,
+    ],
+    matchAny: [
+      /\b(latch(?:es)?|alter(?:ing|ation)?|rules|lease|freeholder|managing agent|common parts|tenancy agreement|apartment|flat)\b/i,
+    ],
+    intents: [
+      "leasehold fire safety alterations LEASE",
+      "fire door shared property rules",
+      "unauthorised alterations leasehold flat",
+    ],
+    titleExclusion: /homelessness application|temporary accommodation|unfair dismissal|used car/i,
+    suppressSlugDefaults: ["neighbour_dispute", "employment", "consumer"],
   },
   {
     id: "housing_joint_tenancy",
@@ -807,14 +833,36 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
       /\b(equality act|discriminat|protected characteristic)\b/i,
       /\b(shop|restaurant|hotel|gym|service provider|goods and services|refused (?:entry|service)|wheelchair|accessibility)\b/i,
     ],
-    rejectIf: [/\b(employer|at work|bradford|dismissed|sacked)\b/i],
+    rejectIf: [
+      /\b(employer|at work|bradford|dismissed|sacked)\b/i,
+      /\b(phone calls?|caller id|no caller id|masturbat|obscene|stalk(?:ing|er)?|harass(?:ing|ment)? calls?|sexual harassment\?)\b/i,
+    ],
     intents: [
       "discrimination in goods and services Equality Act",
       "taking action about discrimination goods services",
       "protected characteristics service provider",
     ],
-    titleExclusion: /unfair dismissal|schedule of loss|used car|section\s*21/i,
+    titleExclusion: /unfair dismissal|schedule of loss|used car|section\s*21|sexual harassment/i,
     suppressSlugDefaults: ["employment", "housing"],
+  },
+  {
+    id: "communications_harassment_victim",
+    matchAll: [
+      /\b(phone calls?|caller id|no caller id|receiv(?:e|ing|ed) calls?|harass(?:ing|ment)|stalk(?:ing|er)?|obscene|masturbat|sexual harassment)\b/i,
+    ],
+    matchAny: [
+      /\b(phone|caller|calls?|message|text|whatsapp|scared|report|police|malicious communications)\b/i,
+    ],
+    rejectIf: [
+      /\b(i (?:am|was) (?:accused|arrested|charged)|under caution|duty solicitor|employer|at work|bradford)\b/i,
+    ],
+    intents: [
+      "harassing phone calls malicious communications",
+      "report stalking harassment police",
+      "victim of crime support phone harassment",
+    ],
+    titleExclusion: /unfair dismissal|goods and services Equality Act|used car|section\s*21/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
   },
   {
     id: "judicial_review_challenge",

@@ -11,8 +11,11 @@ import type { RightsSummary } from './oslawRights'
 import {
   buildRightsFromWiki,
   featuredToolsFromWiki,
+  isBenefitsRulesStory,
+  isLeaseholdFireSafetyAlterationStory,
   isPrivateParkingStory,
   isUsedCarPurchaseStory,
+  isVictimCommunicationsHarassmentStory,
   linkedTopicPages,
   synthesizeStepsFromWiki,
 } from './wikiOslaw'
@@ -206,8 +209,11 @@ export function activeDomains(session: SessionState, frames: LegalFrame[] = []):
     /\b(insurer|insurance (?:company|claim|policy)|festival|day ticket|wheelchair|airport)\b/i.test(blob) &&
     !/\b(dismiss|sacked|fired|redundan|holiday hours|holiday pay)\b/i.test(blob)
   if (employmentDomain && !antiEmploymentBleed) domains.add('employment')
-  if (/debt|bailiff|ccj|creditor|mortgage|repossess/.test(blob) && !/\b(festival|day ticket|concert)\b/i.test(blob))
+  if (/debt|bailiff|ccj|creditor|mortgage|repossess|universal credit|\bpip\b|deprivation of capital/.test(blob) && !/\b(festival|day ticket|concert)\b/i.test(blob))
     domains.add('debt')
+  if (isBenefitsRulesStory(blob)) {
+    domains.add('debt')
+  }
   const familyDomain =
     /\b(divorce|custody|child arrangement|domestic abuse|inherit|probate|trust fund|\bctf\b)\b/i.test(blob) ||
     (/\b(\d+\s*year\s*old|my (?:sons?|daughters?|kids?|children|child))\b/i.test(blob) &&
@@ -230,7 +236,8 @@ export function activeDomains(session: SessionState, frames: LegalFrame[] = []):
     ) ||
       session.matterType === 'consumer') &&
     !(/\b(car\s*park|parking|pcn|popla|neighbour|neighbor|driveway|car\s*port|carport)\b/.test(blob) &&
-      !/\b(used car|dealer|fault codes?)\b/.test(blob))
+      !/\b(used car|dealer|fault codes?)\b/.test(blob)) &&
+    !isBenefitsRulesStory(blob)
   ) {
     domains.add('consumer')
   }
@@ -332,6 +339,44 @@ function scorePage(page: WikiPage, text: string, frameIds: string[], domainId?: 
     /used.?car|faulty.?goods|buying.?a.?used.?car/.test(page.id + page.title.toLowerCase())
   ) {
     score -= 40
+  }
+  if (
+    isLeaseholdFireSafetyAlterationStory(text) &&
+    /homeless/.test(page.id + page.title.toLowerCase())
+  ) {
+    score -= 45
+  }
+  if (
+    isLeaseholdFireSafetyAlterationStory(text) &&
+    /lease|fire|alter|possession|deposit|tenancy|shared/.test(page.id + page.title.toLowerCase())
+  ) {
+    score += 8
+  }
+  if (
+    isBenefitsRulesStory(text) &&
+    /faulty.?goods|refund|trader|consumer rights/.test(page.id + page.title.toLowerCase())
+  ) {
+    score -= 45
+  }
+  if (
+    isBenefitsRulesStory(text) &&
+    /benefit|universal credit|pip|money|debt.?solution|breathing/.test(
+      page.id + page.title.toLowerCase(),
+    )
+  ) {
+    score += 14
+  }
+  if (
+    isVictimCommunicationsHarassmentStory(text) &&
+    /if.?accused|accused|sentencing/.test(page.id + page.title.toLowerCase())
+  ) {
+    score -= 45
+  }
+  if (
+    isVictimCommunicationsHarassmentStory(text) &&
+    /victim|witness|harass|stalk|report/.test(page.id + page.title.toLowerCase())
+  ) {
+    score += 16
   }
   if (/\bilr\b|indefinite leave|settlement|settled/.test(text) && /settlement|ilr|indefinite|settled/.test(page.id)) {
     score += 6
@@ -443,6 +488,9 @@ export async function matchOslawCourse(
 
   const text = sessionText(session)
   const parkingOnly = isPrivateParkingStory(text) && !isUsedCarPurchaseStory(text)
+  const leaseFireOnly = isLeaseholdFireSafetyAlterationStory(text)
+  const benefitsOnly = isBenefitsRulesStory(text)
+  const victimHarassment = isVictimCommunicationsHarassmentStory(text)
   const scoredArrays = await Promise.all(domains.map((d) => scoreDomain(d, session, frameIds)))
 
   let scored = scoredArrays
@@ -468,12 +516,52 @@ export async function matchOslawCourse(
     }
   }
 
+  if (leaseFireOnly) {
+    const withoutHomeless = scored.filter(
+      (x) => !/homeless/.test(`${x.page.id} ${x.page.title}`.toLowerCase()),
+    )
+    if (withoutHomeless.length) scored = withoutHomeless
+  }
+
+  if (benefitsOnly) {
+    const withoutConsumerGoods = scored.filter((x) => {
+      const blob = `${x.page.id} ${x.page.title}`.toLowerCase()
+      return !/faulty.?goods|refund.?cancel|trader.?practices/.test(blob)
+    })
+    if (withoutConsumerGoods.length) scored = withoutConsumerGoods
+  }
+
+  if (victimHarassment) {
+    const withoutAccused = scored.filter(
+      (x) => !/if.?accused|pathway-if-accused|sentencing/.test(`${x.page.id} ${x.page.title}`.toLowerCase()),
+    )
+    if (withoutAccused.length) scored = withoutAccused
+  }
+
   const pathways = scored.filter((x) => x.page.kind === 'pathway' && x.page.primaryUrl)
-  const primary = pathways[0] ?? scored.find((x) => x.page.primaryUrl)
+  // Benefits: prefer Money/Benefits topic when it outranks debt pathways after filters
+  let primary =
+    benefitsOnly
+      ? scored.find(
+          (x) =>
+            x.page.primaryUrl &&
+            /benefit|universal credit|money.?benefits/i.test(`${x.page.id} ${x.page.title}`),
+        ) ??
+        pathways[0] ??
+        scored.find((x) => x.page.primaryUrl)
+      : pathways[0] ?? scored.find((x) => x.page.primaryUrl)
   if (!primary) return null
 
   if (parkingOnly && /used.?car|faulty.?goods/i.test(`${primary.page.id} ${primary.page.title}`)) {
     return null
+  }
+  if (leaseFireOnly && /homeless/i.test(`${primary.page.id} ${primary.page.title}`)) {
+    return null
+  }
+  if (victimHarassment && /if.?accused|accused/i.test(`${primary.page.id} ${primary.page.title}`)) {
+    primary =
+      pathways.find((x) => /victim|witness/i.test(`${x.page.id} ${x.page.title}`)) ?? primary
+    if (/if.?accused|accused/i.test(`${primary.page.id} ${primary.page.title}`)) return null
   }
 
   const page = primary.page

@@ -1,7 +1,7 @@
 import type { MatterType, Mode, SessionState } from './types'
 import { maximiseLocalCoherence, type WikiCandidate } from './coherence'
 import { buildRetrievalText } from './retrievalText'
-import { looksNeighbourDispute, looksVisaRefusalOrChallenge } from './sense'
+import { looksNeighbourDispute, looksVisaRefusalOrChallenge, looksBenefitsRules, looksVictimCommunicationsHarassment, looksLeaseholdFireSafetyAlteration } from './sense'
 import { classifyUkTaxonomy, type UkTaxonomyHit } from './ukTaxonomy'
 
 export interface LegalFrame {
@@ -117,6 +117,36 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     )
   }
 
+  // Benefits / UC / PIP rules — before disability-access consumer framing.
+  if (looksBenefitsRules(t)) {
+    add(
+      'debt-benefits',
+      'Benefits / UC / PIP rules',
+      'Universal Credit, PIP or deprivation-of-capital rules are central — not consumer goods.',
+      94,
+    )
+  }
+
+  // Victim of harassing / obscene calls — before “accused” crime pathways.
+  if (looksVictimCommunicationsHarassment(t)) {
+    add(
+      'crime-victim-harassment',
+      'Victim of harassing / obscene communications',
+      'Client or friend is receiving harassing calls — victim / report pathways, not accused.',
+      94,
+    )
+  }
+
+  // Leasehold / fire-door alterations — before homelessness keyword bleed.
+  if (looksLeaseholdFireSafetyAlteration(t)) {
+    add(
+      'hous-lease-fire',
+      'Leasehold / fire safety / alterations',
+      'Fire doors, lease rules or shared-property alterations — not a homelessness-duty frame.',
+      93,
+    )
+  }
+
   if (tax && tax.confidence >= 0.8) {
     applyMatterPackFrames(add, tax)
   }
@@ -221,7 +251,11 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     if (/deposit|\brents?\b|arrears|housing benefit/.test(t)) {
       add('hous-deposit', 'Tenancy money / deposit', 'Rent or deposit disputes are a common parallel frame.', 72)
     }
-    if (/homeless|sofa|no where to stay|rough sleep/.test(t)) {
+    if (
+      /homeless|sofa|no where to stay|rough sleep/.test(t) &&
+      !looksLeaseholdFireSafetyAlteration(t) &&
+      !/\bgoing literally homeless\b/.test(t)
+    ) {
       add('hous-homeless', 'Homelessness / housing duty', 'Client may need local authority homelessness pathways.', 86)
     }
     if (looksNeighbourDispute(t) || tax?.l2 === 'neighbour_dispute' || tax?.packId === 'neighbour_dispute') {
@@ -314,6 +348,14 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
     if (/ccj|county court|judgment/.test(t)) {
       add('debt-ccj', 'County court judgment (CCJ)', 'A CCJ or court claim features in the story.', 84)
     }
+    if (looksBenefitsRules(t) || /\b(universal credit|\bpip\b|deprivation of capital)\b/i.test(t)) {
+      add(
+        'debt-benefits',
+        'Benefits / UC / PIP rules',
+        'Benefit eligibility, PIP or deprivation-of-capital questions.',
+        90,
+      )
+    }
     if (/afford|budget|iva|bankruptcy|debt relief|dro/.test(t)) {
       add('debt-solution', 'Debt solutions / breathing space', 'Client may need breathing space or formal debt options.', 76)
     }
@@ -397,6 +439,14 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
         94,
       )
     }
+    if (looksVictimCommunicationsHarassment(t)) {
+      add(
+        'crime-victim-harassment',
+        'Victim of harassing / obscene communications',
+        'Harassing or obscene calls — victim / report pathways.',
+        94,
+      )
+    }
     add('crime-police', 'Police powers / process', 'Police or criminal process features in the account.', 78)
     if (frames.length === 0) {
       add('crime-general', 'Crime / police triage', 'Matter typed as crime; frame will refine with more detail.', 60)
@@ -422,8 +472,9 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
       )
     }
     if (
-      /\b(wheelchair|disabled|disability|blue badge|accessibility|stranded)\b/i.test(t) ||
-      (/\bairport\b/i.test(t) && /\b(access|assistance|check-?in|wheelchair)\b/i.test(t))
+      (/\b(wheelchair|disabled|disability|blue badge|accessibility|stranded)\b/i.test(t) ||
+        (/\bairport\b/i.test(t) && /\b(access|assistance|check-?in|wheelchair)\b/i.test(t))) &&
+      !looksBenefitsRules(t)
     ) {
       add(
         'cons-access',

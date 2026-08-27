@@ -225,6 +225,7 @@ function looksWorkplaceDisability(t: string): boolean {
 }
 
 function looksDisabilityAccess(t: string): boolean {
+  if (looksBenefitsRules(t)) return false
   const access =
     /\b(wheelchair|disabled|disability|blue badge|accessibility|stranded|assistance dog)\b/i.test(t) ||
     (/\bairport\b/i.test(t) && /\b(access|assistance|check-?in|wheelchair)\b/i.test(t))
@@ -238,6 +239,39 @@ function looksDisabilityAccess(t: string): boolean {
     return false
   }
   return true
+}
+
+/** UC / PIP / deprivation-of-capital — benefits rules, not consumer access. */
+export function looksBenefitsRules(text: string): boolean {
+  const t = text.toLowerCase()
+  const benefit =
+    /\b(universal credit|\buc\b|\bpip\b|personal independence|dla\b|esa\b|benefit)\b/i.test(t)
+  const rules =
+    /\b(eligibility|eligible|deprivation of capital|sanction|mandatory reconsideration|tribunal|affect (?:my|their|our) (?:uc|universal credit|pip|benefits?)|savings|capital)\b/i.test(
+      t,
+    )
+  return benefit && rules
+}
+
+/** Victim of harassing / obscene calls (not accused). */
+export function looksVictimCommunicationsHarassment(text: string): boolean {
+  const t = text.toLowerCase()
+  const victimCue =
+    /\b(receiv(?:e|ing|ed) calls?|caller id|no caller id|phone calls?|harass(?:ing|ment)? calls?|obscene|masturbat|stalk(?:ing|er)?|sexual harassment)\b/i.test(
+      t,
+    )
+  const accusedCue =
+    /\b(i (?:am|was) (?:accused|arrested|charged)|police (?:interview|station)|under caution|duty solicitor|cps charged)\b/i.test(
+      t,
+    )
+  return victimCue && !accusedCue
+}
+
+/** Lease / fire-door alteration fears — not homelessness duty. */
+export function looksLeaseholdFireSafetyAlteration(text: string): boolean {
+  return /\b(fire door|fire safety|tamper(?:ing)? with fire|adjust.{0,40}latch(?:es)?|leasehold|shared (?:property|block)|unauthorised alter|unauthorized alter)\b/i.test(
+    text,
+  )
 }
 
 /**
@@ -285,6 +319,10 @@ function detectMatter(text: string): MatterType {
     return 'personal_injury'
   // Family (ex + child / belongings) before housing — "her house" must not win
   if (looksFamily(t)) return 'family'
+  // Benefits / UC / PIP rules before disability-access → consumer
+  if (looksBenefitsRules(t)) return 'debt'
+  // Victim communications harassment before consumer/housing bleed
+  if (looksVictimCommunicationsHarassment(t)) return 'crime'
   // Housing neighbour / access before consumer (carport ≠ used-car goods)
   if (looksHousing(t) && !/dealer|fault codes?|reject(?:ing)? (?:the )?car|board computer/.test(t))
     return 'housing'
@@ -304,7 +342,7 @@ function detectMatter(text: string): MatterType {
   if (looksConsumer(t)) return 'consumer'
   if (
     !looksParking(t) &&
-    /sentenc|magistrates|arrest|charg(?:ed|e)|bail|police station|criminal|offence|cps|witness statement|victim of crime|fraud|theft|assault|driving ban|disqualif|motoring/.test(
+    /sentenc|magistrates|arrest|charg(?:ed|e)|bail|police station|criminal|offence|cps|witness statement|victim of crime|fraud|theft|assault|driving ban|disqualif|motoring|harassment|stalk/.test(
       t,
     )
   )

@@ -9,7 +9,7 @@
  */
 import { createInitialSession, senseDetails, looksNeighbourDispute } from '../lib/coherence/sense'
 import { proposeCoherentFrames } from '../lib/coherence/frames'
-import { buildAnswerPackage } from '../lib/coherence/answerPackage'
+import { buildAnswerPackage, enrichAnswerPackageWithOslaw } from '../lib/coherence/answerPackage'
 import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causation'
 import { resolveTopicLock, packConflictsWithLock, applyTopicLockToSession } from '../lib/coherence/topicLock'
 import { deriveTurnState, mustScopeRetrieval } from '../lib/coherence/turnState'
@@ -550,6 +550,24 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           cluster: 'housing_homelessness',
         },
         {
+          story:
+            'r/askuk says DIY adjust the fire door latches in my apartment — shared property rules, would I get kicked out and go homeless?',
+          cluster: 'leasehold_fire_safety_alterations',
+          mustNot: 'housing_homelessness',
+        },
+        {
+          story:
+            'Mum on PIP and Universal Credit wants to help pay my direct debits — could that be deprivation of capital and affect UC eligibility?',
+          cluster: 'benefits_pip_uc_appeal',
+          mustNot: 'equality_goods_services',
+        },
+        {
+          story:
+            'Sexual harassment phone calls — No caller ID man masturbating; she is scared and wants to report it',
+          cluster: 'communications_harassment_victim',
+          mustNot: 'equality_goods_services',
+        },
+        {
           story: 'I need to make a will and lasting power of attorney',
           cluster: 'wills_making',
         },
@@ -665,6 +683,147 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       return assert(
         /timeshare|cooling/i.test(joined),
         `agent concepts did not become intents: ${joined}`,
+      )
+    },
+  },
+  {
+    id: 'mot-no-insurance-not-car-reject-pack',
+    run: () => {
+      const q =
+        'Drove past police with No insurance, MOT or tax on car in England — what happens next?'
+      const s = intake([q])
+      const frames = proposeCoherentFrames(s, 3)
+      const pack = buildAnswerPackage(s, frames)
+      return assert(
+        pack.matchedTopicId !== 'car-reject-failed-repair',
+        `wrong pack ${pack.matchedTopicId}`,
+      )
+    },
+  },
+  {
+    id: 'lease-garage-dispute-not-car-reject-pack',
+    run: () => {
+      const q =
+        'Looking for solicitor for property dispute involving long lease garages in England on my freehold driveway'
+      const s = intake([q])
+      const frames = proposeCoherentFrames(s, 3)
+      const pack = buildAnswerPackage(s, frames)
+      return assert(
+        pack.matchedTopicId !== 'car-reject-failed-repair',
+        `wrong pack ${pack.matchedTopicId}`,
+      )
+    },
+  },
+  {
+    id: 'fallback-recommendation-has-bullets-from-ca',
+    run: () => {
+      const q = 'Voluntary police interview under caution but I am on holiday abroad — England'
+      const s = intake([q])
+      const frames = proposeCoherentFrames(s, 3)
+      const pack = buildAnswerPackage(s, frames)
+      const enriched = enrichAnswerPackageWithOslaw(pack, null, s)
+      return assert(
+        enriched.bullets.length >= 1 && enriched.citation.ok,
+        `bullets=${enriched.bullets.length} cite=${enriched.citation.ok}`,
+      )
+    },
+  },
+  {
+    id: 'reddit-miss-fire-door-not-homelessness',
+    run: () => {
+      const q =
+        "(England) r/askuk is advising me to DIY adjust the fire door latches in my apartment so they slam more slowly. I keep saying i'm pretty sure this would be against the rules of my shared property and would count as tampering with fire doors, am I correct?. Everyone in that thread is telling me to do it, and I'm telling them that if i did I would end up at risk of going literally homeless after I get kicked out."
+      const s = intake([q])
+      const frames = proposeCoherentFrames(s, 4)
+      const ids = frames.map((f) => f.id)
+      const plan = buildConceptRetrievalPlan(
+        {
+          matterId: 'trap',
+          primaryIssues: [{ slug: 'housing', confidence: 0.8, reason: 'trap' }],
+          secondaryIssues: [],
+          parties: [],
+          capacities: [],
+          relationships: [],
+          events: [],
+          objectives: [],
+          concepts: [],
+          exclusions: [],
+          ambiguities: [],
+          overallConfidence: 0.8,
+          resolutionStatus: 'partially_resolved',
+          provenance: {},
+          retrievalScope: [],
+        },
+        q,
+      )
+      return (
+        assert(ids.includes('hous-lease-fire'), `frames=${ids.join(',')}`) ||
+        assert(!ids.includes('hous-homeless'), `homeless frame leaked: ${ids.join(',')}`) ||
+        assert(
+          plan.clusterIds.includes('leasehold_fire_safety_alterations'),
+          `clusters=${plan.clusterIds.join(',')}`,
+        ) ||
+        assert(
+          !plan.clusterIds.includes('housing_homelessness'),
+          `homelessness cluster leaked: ${plan.clusterIds.join(',')}`,
+        )
+      )
+    },
+  },
+  {
+    id: 'reddit-miss-mum-pip-benefits-not-consumer-access',
+    run: () => {
+      const q =
+        "Can my mum help me with some of my direct debits in England?. My mum and dad are on universal credit due to my mum’s disability. She also receives PIP. She has full mental capacity. She said that she could help me pay some of my direct debits. Could this affect their Universal Credit eligibility? Can this legally be seen as deprivation of capital?"
+      const s = intake([q])
+      const frames = proposeCoherentFrames(s, 4)
+      const ids = frames.map((f) => f.id)
+      return (
+        assert(s.matterType === 'debt', `matter=${s.matterType}`) ||
+        assert(ids.includes('debt-benefits'), `frames=${ids.join(',')}`) ||
+        assert(!ids.includes('cons-access'), `cons-access leaked: ${ids.join(',')}`)
+      )
+    },
+  },
+  {
+    id: 'reddit-miss-harassing-calls-victim-not-equality-goods',
+    run: () => {
+      const q =
+        "(Wales) Sexual Harassment? phone calls. I'm posting this for a friend - about a month ago she started receiving calls (on No caller ID) where it sounded like a man was on the other end of the phone just masturbating. Today he spoke to her and mentioned her mum is black so he knows her. She is scared."
+      const s = intake([q])
+      const frames = proposeCoherentFrames(s, 4)
+      const ids = frames.map((f) => f.id)
+      const plan = buildConceptRetrievalPlan(
+        {
+          matterId: 'trap',
+          primaryIssues: [{ slug: 'criminal_defence', confidence: 0.8, reason: 'trap' }],
+          secondaryIssues: [],
+          parties: [],
+          capacities: [],
+          relationships: [],
+          events: [],
+          objectives: [],
+          concepts: ['discrimination', 'protected characteristic', 'goods and services'],
+          exclusions: [],
+          ambiguities: [],
+          overallConfidence: 0.8,
+          resolutionStatus: 'partially_resolved',
+          provenance: {},
+          retrievalScope: [],
+        },
+        q,
+      )
+      return (
+        assert(s.matterType === 'crime', `matter=${s.matterType}`) ||
+        assert(ids.includes('crime-victim-harassment'), `frames=${ids.join(',')}`) ||
+        assert(
+          plan.clusterIds.includes('communications_harassment_victim'),
+          `clusters=${plan.clusterIds.join(',')}`,
+        ) ||
+        assert(
+          !plan.clusterIds.includes('equality_goods_services'),
+          `equality goods leaked: ${plan.clusterIds.join(',')}`,
+        )
       )
     },
   },
