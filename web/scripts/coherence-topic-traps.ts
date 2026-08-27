@@ -488,6 +488,93 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       )
     },
   },
+  {
+    id: 'concept-clusters-cover-known-packs',
+    run: () => {
+      const cases: Array<{ story: string; cluster: string; mustNot?: string }> = [
+        {
+          story: 'Neighbour blocked my driveway with a car port',
+          cluster: 'neighbour_access',
+          mustNot: 'used_car_reject',
+        },
+        {
+          story: 'Can I wash my car on my own driveway?',
+          cluster: 'own_property_use',
+          mustNot: 'neighbour_access',
+        },
+        {
+          story: 'Bought a used car from a dealer that keeps breaking — want to reject under CRA',
+          cluster: 'used_car_reject',
+        },
+        {
+          story: 'Got a private parking charge PCN and want to appeal to POPLA',
+          cluster: 'private_parking_pcn',
+        },
+        {
+          story: 'My landlord will not fix the mould and damp in my flat',
+          cluster: 'landlord_disrepair',
+        },
+        {
+          story: 'Landlord served a section 21 notice to evict me',
+          cluster: 'landlord_eviction_section21',
+        },
+        {
+          story: 'I want to apply for a spouse visa for my partner — not refused yet',
+          cluster: 'family_visa_apply',
+          mustNot: 'visa_refusal_challenge',
+        },
+        {
+          story: 'Home Office refused my visa and I want to appeal the refusal',
+          cluster: 'visa_refusal_challenge',
+        },
+        {
+          story: 'My ex threw out my belongings and broke my Switch — can I claim for replacement?',
+          cluster: 'family_belongings_claim',
+          mustNot: 'family_children_arrangements',
+        },
+        {
+          story: 'Garage did a poor repair on my van and charged me — workmanship is awful',
+          cluster: 'garage_vehicle_repair',
+        },
+        {
+          story: 'I was sacked by my employer last week and think it is unfair dismissal',
+          cluster: 'employment_unfair_dismissal',
+          mustNot: 'disability_absence_adjustments',
+        },
+        {
+          story: 'Bailiffs visited about a CCJ debt — what can they take?',
+          cluster: 'debt_bailiff_enforcement',
+        },
+      ]
+      const emptyFrame: MatterFrame = {
+        matterId: 'trap',
+        primaryIssues: [{ slug: 'unknown', confidence: 0.5, reason: 'trap' }],
+        secondaryIssues: [],
+        parties: [],
+        capacities: [],
+        relationships: [],
+        events: [],
+        objectives: [],
+        concepts: [],
+        exclusions: [],
+        ambiguities: [],
+        overallConfidence: 0.5,
+        resolutionStatus: 'partially_resolved',
+        provenance: {},
+        retrievalScope: [],
+      }
+      for (const c of cases) {
+        const plan = buildConceptRetrievalPlan(emptyFrame, c.story)
+        if (!plan.clusterIds.includes(c.cluster)) {
+          return assert(false, `${c.cluster} missing for “${c.story.slice(0, 48)}…” got ${plan.clusterIds.join(',')}`)
+        }
+        if (c.mustNot && plan.clusterIds.includes(c.mustNot)) {
+          return assert(false, `${c.mustNot} wrongly matched for “${c.story.slice(0, 48)}…”`)
+        }
+      }
+      return null
+    },
+  },
 ]
 
 function main() {
