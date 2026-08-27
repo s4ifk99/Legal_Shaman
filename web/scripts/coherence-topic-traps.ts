@@ -612,6 +612,62 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       return null
     },
   },
+  {
+    id: 'area-intent-defaults-cover-wiki-areas',
+    run: () => {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { listWikiAreas, SLUG_INTENT_DEFAULTS } = require('../lib/matter/areaIntentDefaults') as {
+        listWikiAreas: () => string[]
+        SLUG_INTENT_DEFAULTS: Record<string, string[]>
+      }
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { intentsForIssueSlug } = require('../lib/matter/scopes') as {
+        intentsForIssueSlug: (slug: string) => string[]
+      }
+      const areas = listWikiAreas()
+      if (areas.length < 14) return assert(false, `expected ≥14 wiki areas, got ${areas.length}`)
+      for (const slug of [
+        'wills_probate',
+        'welfare_benefits',
+        'personal_injury',
+        'education',
+        'commercial',
+        'criminal_defence',
+      ]) {
+        if (!intentsForIssueSlug(slug).length) return assert(false, `no default intents for ${slug}`)
+      }
+      if (!SLUG_INTENT_DEFAULTS.wills_probate?.length) {
+        return assert(false, 'wills_probate missing from area defaults')
+      }
+      return null
+    },
+  },
+  {
+    id: 'agent-concepts-merge-into-retrieval-plan',
+    run: () => {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { resolveMatterFrame } = require('../lib/matter/resolve') as {
+        resolveMatterFrame: (input: {
+          submission: string
+          agentConcepts?: string[]
+        }) => { frame: MatterFrame }
+      }
+      const result = resolveMatterFrame({
+        submission:
+          'Unusual dispute about a timeshare cancellation cooling-off period after a sales presentation',
+        agentConcepts: ['timeshare cancellation', 'cooling off period', 'consumer holiday club'],
+      })
+      if (!result.frame.concepts.some((c) => /timeshare|cooling/i.test(c))) {
+        return assert(false, `concepts missing agent terms: ${result.frame.concepts.join(',')}`)
+      }
+      const plan = buildConceptRetrievalPlan(result.frame, result.frame.concepts.join(' '))
+      const joined = plan.intents.join(' | ')
+      return assert(
+        /timeshare|cooling/i.test(joined),
+        `agent concepts did not become intents: ${joined}`,
+      )
+    },
+  },
 ]
 
 function main() {

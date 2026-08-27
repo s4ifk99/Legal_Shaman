@@ -19,6 +19,9 @@ type Body = {
   frameIds?: string[];
   whatHappened?: string;
   goal?: string;
+  /** Prior LexKeyPlan concepts from master / session. */
+  concepts?: string[];
+  session?: { matterFrame?: { concepts?: string[] } };
   /** Optional: skip critic retry (tests / diagnostics). */
   skipCritiqueRetry?: boolean;
 };
@@ -56,11 +59,16 @@ export async function POST(req: Request) {
 
   try {
     // Same MatterEngine resolve as /api/coherence/llm/master so live Overview matches local
+    const priorConcepts = [
+      ...(body.concepts || []),
+      ...(body.session?.matterFrame?.concepts || []),
+    ];
     const matterResolved = MatterEngine.resolve({
       submission: latestText,
       clientQuestion: clientQuestion || "",
       understanding: understanding || "",
       jurisdictionHint: "",
+      agentConcepts: priorConcepts,
     });
     const matterFrame = matterResolved.frame;
     const taxonomySlug = matterFrame.primaryIssues[0]?.slug ?? undefined;

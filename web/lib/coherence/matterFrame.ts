@@ -35,6 +35,8 @@ export type SessionMatterFrame = {
   }[];
   retrievalScope: string[];
   overallConfidence: number;
+  /** LexKeyPlan concepts for retrieval (from matter resolution + story). */
+  concepts?: string[];
 };
 
 export function toSessionMatterFrame(
@@ -58,5 +60,6 @@ export function toSessionMatterFrame(
     })),
     retrievalScope: frame.retrievalScope,
     overallConfidence: frame.overallConfidence,
+    concepts: frame.concepts?.slice(0, 16),
   };
 }

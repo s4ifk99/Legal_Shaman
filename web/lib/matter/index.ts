@@ -29,6 +29,13 @@ export {
   shouldSuppressSlugDefaults,
 } from "./conceptRetrievalPlan";
 export type { ConceptRetrievalPlan } from "./conceptRetrievalPlan";
+export {
+  WIKI_AREA_INTENT_DEFAULTS,
+  areaForSlug,
+  listWikiAreas,
+  SLUG_INTENT_DEFAULTS,
+} from "./areaIntentDefaults";
+export type { WikiAreaIntentDefault } from "./areaIntentDefaults";
 export { evaluateMatterGate } from "./matter-gate";
 export type { MatterGateResult, EvidenceGateResult } from "./types";
 export {

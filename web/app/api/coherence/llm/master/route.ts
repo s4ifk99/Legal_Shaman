@@ -158,12 +158,20 @@ export async function POST(req: Request) {
       String(brief.whatHappened || "") ||
       String((body.session as { whatHappened?: string } | undefined)?.whatHappened || "");
 
+    const agentMf = matterResolution?.matterFrame as
+      | { concepts?: string[] }
+      | undefined;
+    const agentTaxonomy = taxonomy as { searchBoostTerms?: string[] } | null;
     const matterResolved = MatterEngine.resolve({
       submission: story,
       clientQuestion,
       understanding,
       brief: brief as Record<string, unknown>,
       taxonomy: taxonomy as Record<string, unknown>,
+      agentConcepts: [
+        ...(agentMf?.concepts || []),
+        ...(agentTaxonomy?.searchBoostTerms || []),
+      ],
       jurisdictionHint: String(
         (body.session as { locationHint?: string } | undefined)?.locationHint || "",
       ),
