@@ -545,6 +545,43 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           story: 'Bailiffs visited about a CCJ debt — what can they take?',
           cluster: 'debt_bailiff_enforcement',
         },
+        {
+          story: 'I am homeless and need temporary accommodation from the council',
+          cluster: 'housing_homelessness',
+        },
+        {
+          story: 'I need to make a will and lasting power of attorney',
+          cluster: 'wills_making',
+        },
+        {
+          story: 'Home Office refused my asylum claim',
+          cluster: 'asylum_refugees',
+        },
+        {
+          story: 'Package holiday cancelled — want ATOL refund and flight delay compensation',
+          cluster: 'consumer_travel_holidays',
+        },
+        {
+          story: 'School permanently excluded my child and we need an EHCP appeal',
+          cluster: 'education_exclusion_ehcp',
+        },
+        {
+          story: 'I was arrested and taken to the police station — need duty solicitor rights',
+          cluster: 'police_station_arrest',
+        },
+        {
+          story: 'Gym refused me entry because of my disability — Equality Act goods and services',
+          cluster: 'equality_goods_services',
+          mustNot: 'workplace_harassment_bullying',
+        },
+        {
+          story: 'PIP refused after assessment — mandatory reconsideration and tribunal appeal',
+          cluster: 'benefits_pip_uc_appeal',
+        },
+        {
+          story: 'Clinical negligence after surgery at NHS hospital — AvMA help',
+          cluster: 'clinical_negligence',
+        },
       ]
       const emptyFrame: MatterFrame = {
         matterId: 'trap',
