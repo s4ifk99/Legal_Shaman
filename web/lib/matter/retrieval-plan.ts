@@ -1,9 +1,16 @@
 /**
  * Event type → legal issue slugs and retrieval intents.
  * Issues are legal problems; capacities (consumer, trader) live on PartyCapacity.
+ *
+ * Concept-planned intents (LexKeyPlan / multi-intent) take priority over hard-coded
+ * slug defaults when a concept cluster matches — see conceptRetrievalPlan.ts.
  */
 import type { MatterEvent, MatterFrame } from "./types";
 import { intentsForIssueSlug } from "./scopes";
+import {
+  buildConceptRetrievalPlan,
+  shouldSuppressSlugDefaults,
+} from "./conceptRetrievalPlan";
 
 /** Legal issue slugs supported by each event type (operative events, not backdrop). */
 export const EVENT_TYPE_ISSUES: Record<string, string[]> = {
@@ -40,7 +47,7 @@ export type RetrievalIntentTrace = {
   issueSlug: string;
   intent: string;
   relationshipTypes: string[];
-  source: "event-issue" | "issue-fallback";
+  source: "event-issue" | "issue-fallback" | "concept-plan";
 };
 
 export function defaultIssuesForEventType(eventType: string): string[] {
@@ -92,6 +99,21 @@ export function buildRetrievalPlan(
     .filter(Boolean)
     .join("\n");
 
+  const conceptPlan = buildConceptRetrievalPlan(frame, story);
+  for (const intent of conceptPlan.intents) {
+    if (!intents.has(intent)) {
+      intents.add(intent);
+      traces.push({
+        eventId: "",
+        eventType: "concept-plan",
+        issueSlug: conceptPlan.clusterIds[0] || primarySlugs[0] || "concept",
+        intent,
+        relationshipTypes: conceptPlan.clusterIds,
+        source: "concept-plan",
+      });
+    }
+  }
+
   const disputedEvents = frame.events.filter((e) => e.disputed);
 
   for (const ev of disputedEvents) {
@@ -105,6 +127,7 @@ export function buildRetrievalPlan(
     ].filter((s, i, arr) => arr.indexOf(s) === i);
 
     for (const issueSlug of issueSlugs.slice(0, 3)) {
+      if (shouldSuppressSlugDefaults(conceptPlan, issueSlug)) continue;
       for (const intent of intentsForIssueSlug(issueSlug, story)) {
         if (!intents.has(intent)) {
           intents.add(intent);
@@ -135,9 +158,12 @@ export function buildRetrievalPlan(
     }
   }
 
-  // Fallback: primary issue intents when no disputed events traced
-  if (traces.length === 0) {
+  // Fallback: primary issue intents when concept plan + events produced nothing useful
+  const onlyConcept =
+    traces.length > 0 && traces.every((t) => t.source === "concept-plan");
+  if (traces.length === 0 || (onlyConcept && !conceptPlan.clusterIds.length && intents.size < 2)) {
     for (const slug of primarySlugs) {
+      if (shouldSuppressSlugDefaults(conceptPlan, slug)) continue;
       for (const intent of intentsForIssueSlug(slug, story)) {
         if (!intents.has(intent)) {
           intents.add(intent);
@@ -153,6 +179,7 @@ export function buildRetrievalPlan(
       }
     }
     for (const slug of frame.secondaryIssues.slice(0, 2).map((i) => i.slug)) {
+      if (shouldSuppressSlugDefaults(conceptPlan, slug)) continue;
       for (const intent of intentsForIssueSlug(slug, story).slice(0, 2)) {
         if (!intents.has(intent)) {
           intents.add(intent);

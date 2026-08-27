@@ -15,6 +15,9 @@ import { resolveTopicLock, packConflictsWithLock, applyTopicLockToSession } from
 import { deriveTurnState, mustScopeRetrieval } from '../lib/coherence/turnState'
 import { nextPrompt } from '../lib/coherence/questions'
 import { applyPackClassification, heuristicSuggestPack } from '../lib/coherence/packClassifier'
+import { buildConceptRetrievalPlan } from '../lib/matter/conceptRetrievalPlan'
+import { buildRetrievalPlan } from '../lib/matter/retrieval-plan'
+import type { MatterFrame } from '../lib/matter/types'
 import type { SessionState } from '../lib/coherence/types'
 
 type TrapResult = { id: string; ok: boolean; detail: string }
@@ -447,6 +450,41 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(frames.some((f) => f.id === 'emp-disability-ra'), `expected emp-disability-ra, got ${frames.map((f) => f.id).join(',')}`) ||
         assert(!frames.some((f) => f.id === 'emp-unfair'), 'unfair dismissal frame on Bradford/RA story') ||
         assert(!frames.some((f) => f.id === 'emp-tribunal'), 'tribunal frame auto-added without dismissal language')
+      )
+    },
+  },
+  {
+    id: 'concept-plan-bradford-not-dismissal-intents',
+    run: () => {
+      const story =
+        'I work in retail with epilepsy. Employer Bradford Factor counts disability-related sickness. Looking for reasonable adjustments to absence procedures.'
+      const frame: MatterFrame = {
+        matterId: 'trap',
+        primaryIssues: [{ slug: 'employment', confidence: 0.9, reason: 'trap' }],
+        secondaryIssues: [],
+        parties: [],
+        capacities: [],
+        relationships: [],
+        events: [],
+        objectives: [],
+        concepts: [],
+        exclusions: [],
+        ambiguities: [],
+        overallConfidence: 0.9,
+        resolutionStatus: 'resolved',
+        provenance: {},
+        retrievalScope: ['employment'],
+      }
+      const plan = buildConceptRetrievalPlan(frame, story)
+      const { intents } = buildRetrievalPlan(frame, story)
+      const joined = intents.join(' | ')
+      return (
+        assert(
+          plan.clusterIds.includes('disability_absence_adjustments'),
+          `clusters=${plan.clusterIds.join(',')}`,
+        ) ||
+        assert(/reasonable adjustment|bradford|disability/i.test(joined), `intents=${joined}`) ||
+        assert(!/unfair dismissal employment tribunal/i.test(joined), `dismissal intent leaked: ${joined}`)
       )
     },
   },
