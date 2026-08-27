@@ -1,9 +1,15 @@
 /** Issue → retrieval scope, planned intents, and title-level exclusions.
  *
  * Prefer conceptRetrievalPlan clusters over new special-cases here.
+ * Area breadth defaults come from areaIntentDefaults (wiki Areas → slugs).
  */
 
-export const ISSUE_RETRIEVAL_SCOPES: Record<string, string[]> = {
+import {
+  SLUG_INTENT_DEFAULTS,
+  SLUG_RETRIEVAL_SCOPES,
+} from "./areaIntentDefaults";
+
+const BASE_SCOPES: Record<string, string[]> = {
   parking_pcn: ["motoring", "parking", "administrative_appeals", "consumer"],
   consumer_vehicle_repair: ["consumer", "services", "vehicle_repair"],
   conveyancing: ["property", "conveyancing", "misrepresentation"],
@@ -13,13 +19,14 @@ export const ISSUE_RETRIEVAL_SCOPES: Record<string, string[]> = {
   immigration: ["immigration"],
   family: ["family"],
   debt: ["debt"],
-  criminal_defence: ["crime", "motoring"],
+  criminal_defence: ["crime", "motoring", "police"],
   consumer: ["consumer"],
   consumer_services: ["consumer", "services"],
   consumer_small_claims: ["civil_claims", "consumer"],
+  discrimination_equality: ["equality", "discrimination"],
 };
 
-export const ISSUE_RETRIEVAL_INTENTS: Record<string, string[]> = {
+const BASE_INTENTS: Record<string, string[]> = {
   parking_pcn: [
     "appealing a parking ticket",
     "penalty charge notice council PCN",
@@ -55,9 +62,16 @@ export const ISSUE_RETRIEVAL_INTENTS: Record<string, string[]> = {
     "equality act discrimination at work",
     "protected characteristics discrimination",
   ],
-  immigration: ["visa refusal immigration appeal"],
-  debt: ["bailiff debt creditor"],
-  criminal_defence: ["driving ban disqualification motoring"],
+  immigration: [
+    "visa refusal immigration appeal",
+    "family visa partner spouse application",
+  ],
+  debt: ["bailiff debt creditor", "IVA bankruptcy debt solutions"],
+  criminal_defence: [
+    "arrested police station rights duty solicitor",
+    "magistrates court charged with offence",
+    "driving ban disqualification motoring",
+  ],
   consumer: ["consumer rights faulty goods refund"],
   consumer_services: ["poor service trader complaint"],
   consumer_small_claims: [
@@ -73,6 +87,45 @@ export const ISSUE_RETRIEVAL_INTENTS: Record<string, string[]> = {
   ],
 };
 
+function mergeIntentMaps(
+  base: Record<string, string[]>,
+  area: Record<string, string[]>,
+): Record<string, string[]> {
+  const keys = new Set([...Object.keys(base), ...Object.keys(area)]);
+  const out: Record<string, string[]> = {};
+  for (const key of keys) {
+    const merged: string[] = [];
+    for (const intent of [...(base[key] || []), ...(area[key] || [])]) {
+      if (!merged.includes(intent)) merged.push(intent);
+    }
+    out[key] = merged.slice(0, 8);
+  }
+  return out;
+}
+
+function mergeScopeMaps(
+  base: Record<string, string[]>,
+  area: Record<string, string[]>,
+): Record<string, string[]> {
+  const keys = new Set([...Object.keys(base), ...Object.keys(area)]);
+  const out: Record<string, string[]> = {};
+  for (const key of keys) {
+    out[key] = [...new Set([...(base[key] || []), ...(area[key] || [])])];
+  }
+  return out;
+}
+
+/** Merged: hand-tuned bases + wiki Area defaults (covers wills, benefits, PI, education, …). */
+export const ISSUE_RETRIEVAL_SCOPES: Record<string, string[]> = mergeScopeMaps(
+  BASE_SCOPES,
+  SLUG_RETRIEVAL_SCOPES,
+);
+
+export const ISSUE_RETRIEVAL_INTENTS: Record<string, string[]> = mergeIntentMaps(
+  BASE_INTENTS,
+  SLUG_INTENT_DEFAULTS,
+);
+
 /** Title patterns that must not appear when this issue is primary. */
 export const ISSUE_TITLE_EXCLUSIONS: Record<string, RegExp> = {
   parking_pcn: /employment|working time|rights at work|used car|car repair|travel agent/i,
@@ -80,6 +133,11 @@ export const ISSUE_TITLE_EXCLUSIONS: Record<string, RegExp> = {
   conveyancing: /travel agent refund|used car|repairing a car|consumer contracts.*online|distance selling/i,
   housing: /used car|employment tribunal|parking ticket|travel agent/i,
   employment: /parking ticket|pcn|used car bought|conveyancing purchase/i,
+  wills_probate: /unfair dismissal|used car|parking ticket|section\s*21 tenant/i,
+  welfare_benefits: /unfair dismissal|used car|neighbour driveway/i,
+  personal_injury: /unfair dismissal schedule of loss|used car reject|visa/i,
+  education: /unfair dismissal|used car|neighbour driveway/i,
+  commercial: /unfair dismissal employee|section\s*21|neighbour driveway/i,
   consumer_small_claims:
     /child arrangements|custody|types of court orders in family|contact order|care order|divorce financial|tenant|tenancy|section\s*21|inheritance tax|10-?year charge|leasehold|mesher|disinherit|visa|indefinite leave/i,
 };

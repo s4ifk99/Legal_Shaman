@@ -91,19 +91,25 @@ function buildConcepts(
   primarySlugs: string[],
   taxonomy: TaxonomyResolution | null,
   story = "",
+  agentConcepts: string[] = [],
 ): string[] {
   const concepts = new Set<string>();
   for (const slug of primarySlugs) {
     concepts.add(slug.replace(/_/g, " "));
   }
-  for (const term of taxonomy?.searchBoostTerms?.slice(0, 6) || []) {
+  // Matter-resolution LLM concepts first (LexKeyPlan IR)
+  for (const term of agentConcepts) {
+    const t = term.trim().toLowerCase();
+    if (t.length >= 3) concepts.add(t);
+  }
+  for (const term of taxonomy?.searchBoostTerms?.slice(0, 8) || []) {
     if (term.length >= 4) concepts.add(term.toLowerCase());
   }
   // LexKeyPlan: story keyphrases compound into the frame (wiki navigation IR)
   for (const phrase of extractStoryKeyphrases(story, 8)) {
     concepts.add(phrase);
   }
-  return [...concepts].slice(0, 16);
+  return [...concepts].slice(0, 20);
 }
 
 function buildObjectives(input: MatterResolveInput, primarySlugs: string[]): string[] {
@@ -241,23 +247,40 @@ function mergeTaxonomy(input: MatterResolveInput): TaxonomyResolution | null {
   });
   if (!resolved) return null;
 
+  const agentBoosts = [
+    ...(input.agentConcepts || []),
+    ...(input.taxonomy?.searchBoostTerms || []),
+  ]
+    .map((t) => String(t).trim().toLowerCase())
+    .filter((t) => t.length >= 3);
+
+  let next: TaxonomyResolution = resolved;
+  if (agentBoosts.length) {
+    next = {
+      ...resolved,
+      searchBoostTerms: [
+        ...new Set([...agentBoosts, ...resolved.searchBoostTerms]),
+      ].slice(0, 12),
+    };
+  }
+
   const classifySlug = input.classify?.taxonomySlug || input.taxonomy?.taxonomySlug;
-  if (classifySlug && classifySlug !== resolved.taxonomySlug) {
-    const boosted = resolved.candidates.find((c) => c.slug === classifySlug);
+  if (classifySlug && classifySlug !== next.taxonomySlug) {
+    const boosted = next.candidates.find((c) => c.slug === classifySlug);
     if (boosted) {
       return {
-        ...resolved,
+        ...next,
         taxonomySlug: classifySlug,
-        confidence: input.taxonomy?.confidence === "high" ? "high" : resolved.confidence,
-        reason: `classify-stamp:${classifySlug}; ${resolved.reason}`,
+        confidence: input.taxonomy?.confidence === "high" ? "high" : next.confidence,
+        reason: `classify-stamp:${classifySlug}; ${next.reason}`,
         candidates: [
           { slug: classifySlug, score: Math.max(boosted.score, 50), sources: ["classify-stamp"] },
-          ...resolved.candidates.filter((c) => c.slug !== classifySlug),
+          ...next.candidates.filter((c) => c.slug !== classifySlug),
         ],
       };
     }
   }
-  return resolved;
+  return next;
 }
 
 function deriveResolutionStatus(opts: {
@@ -418,6 +441,10 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
       primarySlugs,
       taxonomy,
       [input.submission, input.clientQuestion, input.understanding].filter(Boolean).join("\n"),
+      [
+        ...(input.agentConcepts || []),
+        ...(input.taxonomy?.searchBoostTerms || []),
+      ],
     ),
     exclusions: buildExclusions(primarySlugs, taxonomy),
     ambiguities,

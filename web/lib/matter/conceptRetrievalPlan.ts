@@ -1080,8 +1080,10 @@ function clusterMatches(cluster: ConceptCluster, blob: string): boolean {
 }
 
 function keyphraseIntents(concepts: string[], limit = 4): string[] {
-  // Prefer longer / multi-word concepts as search queries
+  // Prefer longer / multi-word concepts as search queries (agent concepts + LexKeyPlan)
   return [...concepts]
+    .map((c) => c.trim())
+    .filter((c) => c.length >= 4)
     .sort((a, b) => b.length - a.length || a.localeCompare(b))
     .filter((c) => c.split(/\s+/).length >= 2 || c.length >= 10)
     .slice(0, limit);
@@ -1124,12 +1126,12 @@ export function buildConceptRetrievalPlan(
     for (const s of cluster.suppressSlugDefaults || []) suppress.add(s);
   }
 
-  // Always add a few keyphrase intents (MuISQA / LexKeyPlan) when clusters fired or story is rich
-  for (const kp of keyphraseIntents(concepts, clusterIds.length ? 3 : 5)) {
+  // Always add keyphrase / agent-concept intents (MuISQA / LexKeyPlan)
+  for (const kp of keyphraseIntents(concepts, clusterIds.length ? 4 : 6)) {
     intents.add(kp);
   }
 
-  // If no cluster matched, fall back to slug default intents via caller — still return keyphrases
+  // If no cluster matched, still keep concept intents; slug defaults fill via buildRetrievalPlan
   if (!clusterIds.length && !intents.size) {
     for (const slug of frame.primaryIssues.map((i) => i.slug)) {
       for (const intent of ISSUE_RETRIEVAL_INTENTS[slug] || []) intents.add(intent);
