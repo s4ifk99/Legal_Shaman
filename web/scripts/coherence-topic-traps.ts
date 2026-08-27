@@ -572,6 +572,22 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           cluster: 'wills_making',
         },
         {
+          story: 'I need a clean break financial order after our divorce',
+          cluster: 'family_agreements',
+        },
+        {
+          story: 'I need to draft a commercial contract for my retail business',
+          cluster: 'commercial_business_contracts',
+        },
+        {
+          story: 'Where can I get a statutory declaration certified and witnessed?',
+          cluster: 'legal_documents_certification',
+        },
+        {
+          story: "How does inheritance tax affect my late father's bank account?",
+          cluster: 'tax_estate_banking',
+        },
+        {
           story: 'Home Office refused my asylum claim',
           cluster: 'asylum_refugees',
         },

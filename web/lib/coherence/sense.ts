@@ -312,11 +312,28 @@ function looksEmployment(t: string): boolean {
 
 function detectMatter(text: string): MatterType {
   const t = text.toLowerCase()
-  if (/conveyanc|solicitor.*(buy|sell|purchase)|buying a (flat|house)|stamp duty/.test(t))
+  if (
+    /conveyanc|transfer(?:ring)? (?:of )?(?:equity|property|ownership)|add name to title|remove name from title|solicitor.*(buy|sell|purchase)|buying a (flat|house)|stamp duty/.test(
+      t,
+    )
+  )
     return 'conveyancing'
   if (looksImmigration(t)) return 'immigration'
   if (/accident at work|workplace|injured|personal injury|\bpi\b|slipped|crash|whiplash/.test(t))
     return 'personal_injury'
+  if (
+    /\b(probates?|executor|letters of administration|lasting power of attorney|power of attorney|lpa|trust(?:s|ee|ees)?|inheritance tax)\b/.test(
+      t,
+    ) ||
+    /\b(?:make|making|draft|drafting|write|writing|update|change)\b.{0,30}\bwill\b/.test(t)
+  )
+    return 'family'
+  if (
+    /\b(clean break|separation agreement|financial order|consent order|cohabitation agreement|prenup|pre-?nuptial|post-?nuptial|parenting agreement)\b/.test(
+      t,
+    )
+  )
+    return 'family'
   // Family (ex + child / belongings) before housing — "her house" must not win
   if (looksFamily(t)) return 'family'
   // Benefits / UC / PIP rules before disability-access → consumer
