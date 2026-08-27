@@ -25,6 +25,7 @@ export type { RetrievalIntentTrace } from "./retrieval-plan";
 export {
   buildConceptRetrievalPlan,
   extractStoryKeyphrases,
+  listConceptClusterIds,
   shouldSuppressSlugDefaults,
 } from "./conceptRetrievalPlan";
 export type { ConceptRetrievalPlan } from "./conceptRetrievalPlan";
