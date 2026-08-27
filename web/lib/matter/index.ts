@@ -22,6 +22,12 @@ export type { MatterInspectorView } from "./inspector";
 export { extractRelationshipModel, preferDisputeIssues } from "./relationships";
 export { buildRetrievalPlan, syncEventIssueLinks, enrichEvent } from "./retrieval-plan";
 export type { RetrievalIntentTrace } from "./retrieval-plan";
+export {
+  buildConceptRetrievalPlan,
+  extractStoryKeyphrases,
+  shouldSuppressSlugDefaults,
+} from "./conceptRetrievalPlan";
+export type { ConceptRetrievalPlan } from "./conceptRetrievalPlan";
 export { evaluateMatterGate } from "./matter-gate";
 export type { MatterGateResult, EvidenceGateResult } from "./types";
 export {

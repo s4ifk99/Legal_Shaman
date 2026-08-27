@@ -1,6 +1,7 @@
 import { searchWikiPages } from "@/lib/wiki/search";
 import { wikiAnchorsForQuery } from "@/lib/wiki/rerank-hits";
 
+import { buildConceptRetrievalPlan } from "./conceptRetrievalPlan";
 import { buildRetrievalPlan } from "./retrieval-plan";
 import { exclusionPatternsForSlugs } from "./scopes";
 import type { MatterEvidenceSet, MatterFrame } from "./types";
@@ -55,7 +56,11 @@ export function retrieveForMatter(opts: {
   const limit = opts.limit ?? 8;
   const primarySlugs = matterFrame.primaryIssues.map((i) => i.slug);
   const { intents, traces } = buildRetrievalPlan(matterFrame, submission);
-  const exclusionPatterns = exclusionPatternsForSlugs(primarySlugs, submission);
+  const conceptPlan = buildConceptRetrievalPlan(matterFrame, submission);
+  const exclusionPatterns = [
+    ...exclusionPatternsForSlugs(primarySlugs, submission),
+    ...conceptPlan.titleExclusions,
+  ];
 
   const intentTrace = new Map<string, string>();
   for (const t of traces) {

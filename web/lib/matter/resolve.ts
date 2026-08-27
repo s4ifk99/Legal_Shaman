@@ -2,6 +2,7 @@ import { resolveTaxonomy } from "@/lib/legal/taxonomy-resolver";
 import type { TaxonomyResolution } from "@/lib/legal/taxonomy-resolver";
 import { isFamilyBelongingsPropertyClaim } from "@/lib/legal/query-signals";
 
+import { extractStoryKeyphrases } from "./conceptRetrievalPlan";
 import {
   extractRelationshipModel,
   preferDisputeIssues,
@@ -86,7 +87,11 @@ function buildExclusions(primarySlugs: string[], taxonomy: TaxonomyResolution | 
   return [...out];
 }
 
-function buildConcepts(primarySlugs: string[], taxonomy: TaxonomyResolution | null): string[] {
+function buildConcepts(
+  primarySlugs: string[],
+  taxonomy: TaxonomyResolution | null,
+  story = "",
+): string[] {
   const concepts = new Set<string>();
   for (const slug of primarySlugs) {
     concepts.add(slug.replace(/_/g, " "));
@@ -94,7 +99,11 @@ function buildConcepts(primarySlugs: string[], taxonomy: TaxonomyResolution | nu
   for (const term of taxonomy?.searchBoostTerms?.slice(0, 6) || []) {
     if (term.length >= 4) concepts.add(term.toLowerCase());
   }
-  return [...concepts].slice(0, 12);
+  // LexKeyPlan: story keyphrases compound into the frame (wiki navigation IR)
+  for (const phrase of extractStoryKeyphrases(story, 8)) {
+    concepts.add(phrase);
+  }
+  return [...concepts].slice(0, 16);
 }
 
 function buildObjectives(input: MatterResolveInput, primarySlugs: string[]): string[] {
@@ -405,7 +414,11 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
       ? "pre_action"
       : undefined,
     objectives: buildObjectives(input, primarySlugs),
-    concepts: buildConcepts(primarySlugs, taxonomy),
+    concepts: buildConcepts(
+      primarySlugs,
+      taxonomy,
+      [input.submission, input.clientQuestion, input.understanding].filter(Boolean).join("\n"),
+    ),
     exclusions: buildExclusions(primarySlugs, taxonomy),
     ambiguities,
     overallConfidence,
