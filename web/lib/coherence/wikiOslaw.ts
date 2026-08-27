@@ -59,6 +59,37 @@ export function isUsedCarPurchaseStory(text: string): boolean {
   return purchase
 }
 
+/** Lease / fire-door / shared-property alteration — not a homelessness-duty story. */
+export function isLeaseholdFireSafetyAlterationStory(text: string): boolean {
+  return /\b(fire door|fire safety|tamper(?:ing)? with fire|adjust.{0,40}latch(?:es)?|leasehold|shared (?:property|block)|unauthorised alter|unauthorized alter)\b/i.test(
+    text,
+  )
+}
+
+/** UC / PIP / deprivation-of-capital — benefits rules, not consumer goods. */
+export function isBenefitsRulesStory(text: string): boolean {
+  const benefit =
+    /\b(universal credit|\buc\b|\bpip\b|personal independence|dla\b|esa\b|benefit)\b/i.test(text)
+  const rules =
+    /\b(eligibility|eligible|deprivation of capital|sanction|mandatory reconsideration|tribunal|affect (?:my|their|our) (?:uc|universal credit|pip|benefits?)|savings|capital)\b/i.test(
+      text,
+    )
+  return benefit && rules
+}
+
+/** Victim of harassing / obscene calls — not “if you are accused”. */
+export function isVictimCommunicationsHarassmentStory(text: string): boolean {
+  const victimCue =
+    /\b(receiv(?:e|ing|ed) calls?|caller id|no caller id|phone calls?|on the (?:other end|phone)|harass(?:ing|ment)? calls?|obscene|masturbat|stalk(?:ing|er)?)\b/i.test(
+      text,
+    )
+  const accusedCue =
+    /\b(i (?:am|was) (?:accused|arrested|charged)|police (?:interview|station)|under caution|duty solicitor|cps charged)\b/i.test(
+      text,
+    )
+  return victimCue && !accusedCue
+}
+
 function looksLikeUsedCarWhen(when: string): boolean {
   return /\\bcar\\b|used car|vehicle|dealer|garage|mot\\b|fault codes?|motor/i.test(when)
 }

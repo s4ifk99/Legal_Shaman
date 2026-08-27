@@ -248,6 +248,9 @@ function narrativeSupportReasons(frameId: string, text: string): string[] {
     'hous-disrepair': [[/mould|mold|damp|\brepairs?\b|disrepair/, 'Disrepair / conditions language']],
     'hous-deposit': [[/deposit|\brents?\b|arrears/, 'Rent / deposit language']],
     'hous-homeless': [[/homeless|sofa|nowhere to stay/, 'Homelessness language']],
+    'hous-lease-fire': [
+      [/fire door|leasehold|tamper|shared (?:property|block)|latch/, 'Leasehold / fire safety language'],
+    ],
     'hous-neighbour': [
       [
         /neighbour|neighbor|car\s*port|carport|park(?:ed|ing)|boundary|noise|blocking|right of way|easement|shared (?:drive|access)/,
@@ -270,6 +273,9 @@ function narrativeSupportReasons(frameId: string, text: string): string[] {
     'emp-general': [[/employer|job|work|employment/, 'Employment language present']],
     'debt-enforcement': [[/bailiff|enforcement|warrant/, 'Enforcement / bailiff language']],
     'debt-ccj': [[/ccj|county court|judgment/, 'CCJ / judgment language']],
+    'debt-benefits': [
+      [/universal credit|\bpip\b|deprivation of capital|benefit/, 'Benefits / UC / PIP language'],
+    ],
     'debt-solution': [[/afford|iva|bankruptcy|breathing/, 'Debt solution language']],
     'debt-general': [[/debt|owe|creditor|money/, 'Debt language present']],
     'fam-children': [[/child|custody|contact|arrangement/, 'Children / arrangements language']],
