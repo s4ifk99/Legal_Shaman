@@ -7,8 +7,9 @@ import type { LegalFrame } from './frames'
 import craSpine from '@/data/coherence/primaryLaw/craGoodsRemedies.json'
 import { checkAnswerCitations, type CitationIssue } from './citationCheck'
 import { buildRetrievalText } from './retrievalText'
-import { resolveTopicLock, type LockedPackId } from './topicLock'
+import { resolveTopicLock, type LockedPackId, isUsedCarPurchaseStory } from './topicLock'
 import { looksNeighbourDispute } from './sense'
+import type { OslawCourse } from './wiki'
 
 export type AnswerBullet = {
   text: string
@@ -46,37 +47,112 @@ function blob(session: SessionState, frames: LegalFrame[]): string {
   return `${buildRetrievalText(session)} ${frames.map((f) => f.id).join(' ')}`.toLowerCase()
 }
 
-function isUsedCarReject(text: string, matter: string): boolean {
-  // Neighbour access fights are not used-car CRA — but "wash my car on my driveway" is neither
-  if (
-    /\b(neighbour|neighbor|car\s*port|carport|right of way|easement|blocking access|party wall)\b/i.test(
-      text,
-    )
-  ) {
-    return false
+function isUsedCarReject(text: string, _matter: string): boolean {
+  return isUsedCarPurchaseStory(text)
+}
+
+export type AnswerPackageOptions = {
+  /** When no curated pack matches, lift bullets from OSLAW pathway steps. */
+  oslaw?: OslawCourse | null
+}
+
+/**
+ * Fill thin / unmatched packs from OSLAW steps + official authority hits.
+ * Official guidance before firm commentary.
+ */
+export function enrichAnswerPackageWithOslaw(
+  pack: AnswerPackage,
+  course: OslawCourse | null | undefined,
+  session?: SessionState,
+): AnswerPackage {
+  if (pack.matchedTopicId) return pack
+
+  const existingFirm = pack.bullets.filter((b) => b.tier === 'law-firm-commentary')
+  const bullets: AnswerBullet[] = []
+  const sources = [...pack.sources]
+  const freeHelp = [...pack.freeHelp]
+  const seen = new Set<string>()
+
+  const pushBullet = (b: AnswerBullet) => {
+    if (!b.sourceUrl || seen.has(b.sourceUrl)) return
+    if (bullets.length >= 4) return
+    seen.add(b.sourceUrl)
+    bullets.push(b)
+    if (!sources.some((s) => s.url === b.sourceUrl)) {
+      sources.push({ title: b.sourceTitle, url: b.sourceUrl, kind: b.tier })
+    }
   }
-  if (looksNeighbourDispute(text)) return false
-  // "car park" / "parking" must not trigger the used-car CRA spine.
-  const parkingContext =
-    /\b(car\s*park|parking|pcn|parking (?:fine|ticket|charge|app)|popla|private parking)\b/i.test(
-      text,
-    )
-  if (parkingContext && !/\b(used car|bought .{0,20}car|dealer|garage|mot\b|fault codes?)\b/i.test(text)) {
-    return false
+
+  if (course) {
+    const overviewBits = [course.title, course.summary].filter(Boolean).join(' — ')
+    for (const step of course.steps.slice(0, 4)) {
+      const url = step.url || course.primaryUrl
+      if (!url) continue
+      pushBullet({
+        text: (step.detail || step.label).replace(/\s+/g, ' ').trim().slice(0, 280),
+        sourceTitle: step.sourceTitle || course.title,
+        sourceUrl: url,
+        tier: 'trusted-guidance',
+      })
+    }
+    if (course.primaryUrl && !seen.has(course.primaryUrl)) {
+      pushBullet({
+        text: `Follow the open pathway “${course.title}” for step-by-step guidance on this issue type.`,
+        sourceTitle: course.title,
+        sourceUrl: course.primaryUrl,
+        tier: 'trusted-guidance',
+      })
+    }
+    if (overviewBits && (!pack.answerOverview || /no curated primary-law/i.test(pack.answerOverview))) {
+      pack = {
+        ...pack,
+        answerOverview: `Open wiki pathway matched: ${overviewBits}. The points below are grounded in that pathway’s sources — signposting only, not advice on your specific outcome.`,
+      }
+    }
   }
-  // Require real vehicle-purchase / trader signals — bare "car" (e.g. "car port") is not enough
-  const car =
-    /\b(used car|bought .{0,24}(?:car|vehicle)|faulty (?:car|vehicle)|dealer|mot\b|fault codes?|motor (?:vehicle|ombudsman))\b/i.test(
-      text,
-    ) ||
-    (/\b(garage|trader|warranty)\b/i.test(text) &&
-      /\b(car|vehicle)\b/i.test(text) &&
-      /\b(bought|purchase|refund|reject|repair|faulty)\b/i.test(text))
-  if (!car) return false
-  if (matter === 'consumer') return true
-  return /\b(reject|refund|repair|faulty|fault codes?|not fixed|still broken|warranty|trader)\b/i.test(
-    text,
+
+  const officialHits = (session?.authorityHits || []).filter(
+    (h) => h.kind !== 'law_firm' && h.tier !== 'firm' && h.url,
   )
+  for (const h of officialHits.slice(0, 3)) {
+    pushBullet({
+      text: `Official / trusted guidance: ${h.title.replace(/\s*\|\s*.*$/, '')}. Check how it applies to your facts before you act.`,
+      sourceTitle: h.title,
+      sourceUrl: h.url,
+      tier: 'trusted-guidance',
+    })
+    if (!freeHelp.some((f) => f.url === h.url)) {
+      freeHelp.push({
+        title: h.title,
+        url: h.url,
+        blurb: 'Trusted UK guidance (authority seed / Exa cache).',
+      })
+    }
+  }
+
+  if (bullets.length === 0) {
+    pushBullet({
+      text: 'Start with Citizens Advice free guidance for your nation, then compare a second official source before you act.',
+      sourceTitle: 'Citizens Advice — get advice',
+      sourceUrl: 'https://www.citizensadvice.org.uk/get-advice/',
+      tier: 'getting-help',
+    })
+  }
+
+  for (const b of existingFirm) pushBullet(b)
+
+  const next: AnswerPackage = {
+    ...pack,
+    bullets,
+    freeHelp,
+    sources,
+    citation: { ok: true, issues: [] },
+    policyNote:
+      pack.policyNote ||
+      'Composed from open wiki / authority sources when no curated remedy pack matched. Not legal advice.',
+  }
+  next.citation = checkAnswerCitations(next)
+  return next
 }
 
 function pickSections(text: string) {
@@ -123,6 +199,7 @@ function isNeighbourAccessDispute(text: string): boolean {
 export function buildAnswerPackage(
   session: SessionState,
   frames: LegalFrame[] = [],
+  options: AnswerPackageOptions = {},
 ): AnswerPackage {
   const text = blob(session, frames)
   const lock = resolveTopicLock(session, frames)
@@ -330,7 +407,7 @@ export function buildAnswerPackage(
         'Policy: official guidance before firm blogs. Firm URLs are tertiary commentary cites — never primary law. Free help before instructing a firm.',
     }
     empty.citation = checkAnswerCitations(empty)
-    return empty
+    return enrichAnswerPackageWithOslaw(empty, options.oslaw, session)
   }
 
   const sections = pickSections(text)

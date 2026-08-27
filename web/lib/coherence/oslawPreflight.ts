@@ -3,7 +3,7 @@
  * Fail closed on topic conflicts; drop dead free-help / bullet URLs when checkable.
  */
 import type { AnswerPackage } from './answerPackage'
-import { buildAnswerPackage } from './answerPackage'
+import { buildAnswerPackage, enrichAnswerPackageWithOslaw } from './answerPackage'
 import type { OslawCourse } from './wiki'
 import { isPrivateParkingStory, isUsedCarPurchaseStory } from './wikiOslaw'
 import { buildRetrievalText } from './retrievalText'
@@ -208,6 +208,7 @@ export async function runOslawPreflight(
 
   const conflictIssues = detectPathwayConflicts(session, frames, workingPack, course)
   const blockPathway = conflictIssues.some((i) => i.severity === 'block-pathway')
+  workingPack = enrichAnswerPackageWithOslaw(workingPack, blockPathway ? null : course, session)
   const { pack: filteredPack, issues: urlIssues } = await filterDeadUrls(workingPack, signal)
   const issues = [...lockIssues, ...conflictIssues, ...urlIssues]
 

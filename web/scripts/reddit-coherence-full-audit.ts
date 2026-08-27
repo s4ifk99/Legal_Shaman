@@ -361,13 +361,30 @@ function gradeOslaw(
   return { grade: 'fail', notes: 'No OSLAW course' }
 }
 
-function gradeRecommendation(answer: import('../lib/coherence/answerPackage').AnswerPackage): {
+function gradeRecommendation(
+  answer: import('../lib/coherence/answerPackage').AnswerPackage,
+  story: string,
+): {
   grade: Grade
   notes: string
 } {
   const bullets = answer.bullets?.length || 0
+  const topic = answer.matchedTopicId
+  // Wrong CRA pack on MOT / insurance / lease-garage stories
+  if (
+    topic === 'car-reject-failed-repair' &&
+    (/\b(no insurance|sorn\b|drove past|road tax)\b/i.test(story) ||
+      (/\bmot\b/i.test(story) && !/\b(bought|dealer|used car|reject|refund)\b/i.test(story)) ||
+      (/\b(lease garage|property dispute|freehold)\b/i.test(story) &&
+        !/\b(bought|dealer|used car)\b/i.test(story)))
+  ) {
+    return { grade: 'fail', notes: `Wrong topic ${topic} for story` }
+  }
   if (bullets >= 2 && answer.citation?.ok) {
-    return { grade: 'pass', notes: `${bullets} bullets, citation ok` }
+    return {
+      grade: 'pass',
+      notes: `${bullets} bullets, citation ok${topic ? `; topic=${topic}` : ' (composed)'}`,
+    }
   }
   if (bullets >= 1 || answer.answerOverview?.length > 40) {
     return { grade: 'partial', notes: `${bullets} bullets; citation=${answer.citation?.ok}` }
@@ -423,7 +440,7 @@ async function runCase(
   post: PostRow,
   deps: Awaited<ReturnType<typeof loadDeps>>,
 ): Promise<AuditCase> {
-  const { createInitialSession, senseDetails, nextPrompt, proposeCoherentFrames, matchOslawCourse, buildAnswerPackage, buildHelpPack, buildAuthorityPackage, tryAutoAuthorityResolve, needsAuthorityInterrogator, applyAuthorityInterrogator, suggestMatterFromText, prepareAuthorityRetrievalText, retrieveAuthorityOfficial, retrieveAuthorityExaCache, retrieveAuthorityFirms } =
+  const { createInitialSession, senseDetails, nextPrompt, proposeCoherentFrames, matchOslawCourse, buildAnswerPackage, enrichAnswerPackageWithOslaw, buildHelpPack, buildAuthorityPackage, tryAutoAuthorityResolve, needsAuthorityInterrogator, applyAuthorityInterrogator, suggestMatterFromText, prepareAuthorityRetrievalText, retrieveAuthorityOfficial, retrieveAuthorityExaCache, retrieveAuthorityFirms } =
     deps
 
   let session = createInitialSession()
@@ -496,7 +513,11 @@ async function runCase(
     fit: f.fitScore ?? f.score,
   }))
   const course = await matchOslawCourse(session, frameList, 3)
-  const answer = buildAnswerPackage(session, frameList)
+  const answer = enrichAnswerPackageWithOslaw(
+    buildAnswerPackage(session, frameList, { oslaw: course }),
+    course,
+    session,
+  )
   const pack = await buildHelpPack(session, frameList)
 
   // Concept-planned retrieval (Area defaults + clusters) — same path Overview uses
@@ -564,7 +585,7 @@ async function runCase(
     auditOk: authPack.auditOk,
   })
   const oG = gradeOslaw(matterEnd, course)
-  const rG = gradeRecommendation(answer)
+  const rG = gradeRecommendation(answer, post.query)
   const freeCount = pack.freeServices.length + pack.signposts.length
   const officialCount = pack.authorityOfficial.length
   const mG = gradeMatchingHelp({
@@ -667,7 +688,7 @@ async function loadDeps() {
   const { nextPrompt } = await import('../lib/coherence/questions')
   const { proposeCoherentFrames } = await import('../lib/coherence/frames')
   const { matchOslawCourse } = await import('../lib/coherence/wiki')
-  const { buildAnswerPackage } = await import('../lib/coherence/answerPackage')
+  const { buildAnswerPackage, enrichAnswerPackageWithOslaw } = await import('../lib/coherence/answerPackage')
   const { buildHelpPack } = await import('../lib/coherence/services')
   const {
     buildAuthorityPackage,
@@ -690,6 +711,7 @@ async function loadDeps() {
     proposeCoherentFrames,
     matchOslawCourse,
     buildAnswerPackage,
+    enrichAnswerPackageWithOslaw,
     buildHelpPack,
     buildAuthorityPackage,
     tryAutoAuthorityResolve,

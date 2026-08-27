@@ -10,6 +10,7 @@ import type { SourceSnippet } from './oslawSummary'
 import type { OslawCourseStep, WikiCatalogue, WikiDomainId, WikiPage } from './wiki'
 import { tidySentence } from './timelineExtract'
 import { buildRetrievalText } from './retrievalText'
+import { isUsedCarPurchaseStory as isUsedCarPurchaseStoryLocked } from './topicLock'
 
 export type OslawRightsBullet = {
   text: string
@@ -51,12 +52,10 @@ export function isPrivateParkingStory(text: string): boolean {
 }
 
 export function isUsedCarPurchaseStory(text: string): boolean {
-  const purchase =
-    /\b(used car|bought .{0,24}(?:car|vehicle)|dealer|garage|mot\b|fault codes?|motor vehicle)\b/i.test(
-      text,
-    )
-  if (isPrivateParkingStory(text) && !purchase) return false
-  return purchase
+  if (isPrivateParkingStory(text) && !/\b(used car|bought .{0,24}(?:car|vehicle)|dealer|fault codes?)\b/i.test(text)) {
+    return false
+  }
+  return isUsedCarPurchaseStoryLocked(text)
 }
 
 /** Lease / fire-door / shared-property alteration — not a homelessness-duty story. */

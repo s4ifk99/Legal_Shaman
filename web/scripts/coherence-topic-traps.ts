@@ -9,7 +9,7 @@
  */
 import { createInitialSession, senseDetails, looksNeighbourDispute } from '../lib/coherence/sense'
 import { proposeCoherentFrames } from '../lib/coherence/frames'
-import { buildAnswerPackage } from '../lib/coherence/answerPackage'
+import { buildAnswerPackage, enrichAnswerPackageWithOslaw } from '../lib/coherence/answerPackage'
 import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causation'
 import { resolveTopicLock, packConflictsWithLock, applyTopicLockToSession } from '../lib/coherence/topicLock'
 import { deriveTurnState, mustScopeRetrieval } from '../lib/coherence/turnState'
@@ -683,6 +683,48 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       return assert(
         /timeshare|cooling/i.test(joined),
         `agent concepts did not become intents: ${joined}`,
+      )
+    },
+  },
+  {
+    id: 'mot-no-insurance-not-car-reject-pack',
+    run: () => {
+      const q =
+        'Drove past police with No insurance, MOT or tax on car in England — what happens next?'
+      const s = intake([q])
+      const frames = proposeCoherentFrames(s, 3)
+      const pack = buildAnswerPackage(s, frames)
+      return assert(
+        pack.matchedTopicId !== 'car-reject-failed-repair',
+        `wrong pack ${pack.matchedTopicId}`,
+      )
+    },
+  },
+  {
+    id: 'lease-garage-dispute-not-car-reject-pack',
+    run: () => {
+      const q =
+        'Looking for solicitor for property dispute involving long lease garages in England on my freehold driveway'
+      const s = intake([q])
+      const frames = proposeCoherentFrames(s, 3)
+      const pack = buildAnswerPackage(s, frames)
+      return assert(
+        pack.matchedTopicId !== 'car-reject-failed-repair',
+        `wrong pack ${pack.matchedTopicId}`,
+      )
+    },
+  },
+  {
+    id: 'fallback-recommendation-has-bullets-from-ca',
+    run: () => {
+      const q = 'Voluntary police interview under caution but I am on holiday abroad — England'
+      const s = intake([q])
+      const frames = proposeCoherentFrames(s, 3)
+      const pack = buildAnswerPackage(s, frames)
+      const enriched = enrichAnswerPackageWithOslaw(pack, null, s)
+      return assert(
+        enriched.bullets.length >= 1 && enriched.citation.ok,
+        `bullets=${enriched.bullets.length} cite=${enriched.citation.ok}`,
       )
     },
   },
