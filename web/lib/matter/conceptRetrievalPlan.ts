@@ -390,11 +390,49 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     suppressSlugDefaults: ["employment", "consumer", "housing"],
   },
   {
+    id: "debt_iva_bankruptcy",
+    matchAll: [
+      /\b(iva|individual voluntary arrangement|bankruptcy|debt relief order|dro\b|breathing space|debt solution)\b/i,
+    ],
+    intents: [
+      "IVA bankruptcy debt relief order",
+      "breathing space debt solutions",
+      "options if you cannot pay your debts",
+    ],
+    titleExclusion: /unfair dismissal|used car|visa|neighbour driveway/i,
+    suppressSlugDefaults: ["employment", "consumer"],
+  },
+  {
+    id: "council_tax_arrears",
+    matchAll: [/\b(council tax)\b/i, /\b(arrears|bailiff|liability order|not paid|behind)\b/i],
+    intents: [
+      "council tax arrears bailiffs",
+      "council tax liability order",
+      "help with council tax debt",
+    ],
+    titleExclusion: /unfair dismissal|used car|visa refusal/i,
+    suppressSlugDefaults: ["employment", "housing"],
+  },
+  {
+    id: "benefits_pip_uc_appeal",
+    matchAll: [
+      /\b(universal credit|pip\b|personal independence|dla\b|esa\b|benefit|sanction)\b/i,
+      /\b(appeal|tribunal|refused|stopped|sanction|assessment|mandatory reconsideration)\b/i,
+    ],
+    intents: [
+      "universal credit appeal sanction",
+      "PIP appeal tribunal mandatory reconsideration",
+      "challenging a benefits decision",
+    ],
+    titleExclusion: /unfair dismissal|used car|neighbour driveway|visa refusal/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
     id: "motoring_disqualification",
     matchAll: [
       /\b(speeding|penalty points|totting|exceptional hardship|driving (?:ban|disqualification)|disqualified)\b/i,
     ],
-    rejectIf: [/\b(pcn|parking ticket|private car park|popla)\b/i],
+    rejectIf: [/\b(pcn|parking ticket|private car park|popla|drink.?driv|drug.?driv)\b/i],
     intents: [
       "driving ban disqualification motoring",
       "exceptional hardship penalty points",
@@ -402,6 +440,492 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     ],
     titleExclusion: /unfair dismissal|used car reject|neighbour driveway|visa/i,
     suppressSlugDefaults: ["employment", "consumer", "parking_pcn"],
+  },
+  {
+    id: "drink_drug_driving",
+    matchAll: [/\b(drink[-\s]?driv\w*|drunk\s+driv\w*|drug[-\s]?driv\w*|excess alcohol|fail(?:ed|ure) to provide)\b/i],
+    intents: [
+      "drink driving offence penalties",
+      "drug driving charge court",
+      "failing to provide specimen",
+    ],
+    titleExclusion: /parking ticket|POPLA|unfair dismissal|used car/i,
+    suppressSlugDefaults: ["employment", "parking_pcn", "consumer"],
+  },
+
+  // —— Housing extras ——
+  {
+    id: "housing_homelessness",
+    matchAll: [
+      /\b(homeless|sofa.?surf|nowhere to (?:stay|live)|rough sleep|temporary accommodation|homelessness application)\b/i,
+    ],
+    intents: [
+      "homelessness help local authority",
+      "temporary accommodation homeless application",
+      "priority need homelessness",
+    ],
+    titleExclusion: /used car|unfair dismissal|parking ticket|visa/i,
+    suppressSlugDefaults: ["neighbour_dispute", "consumer", "employment"],
+  },
+  {
+    id: "housing_joint_tenancy",
+    matchAll: [/\b(joint tenancy|joint tenant|shared tenancy|housemate|flatmate)\b/i],
+    matchAny: [/\b(rent|deposit|leave|liable|notice|landlord)\b/i],
+    intents: [
+      "joint tenancy liability leaving",
+      "share accommodation joint tenancy",
+      "ending a joint tenancy",
+    ],
+    titleExclusion: /used car|unfair dismissal|neighbour driveway/i,
+    suppressSlugDefaults: ["neighbour_dispute", "employment"],
+  },
+  {
+    id: "mortgage_possession",
+    matchAll: [
+      /\b(mortgage)\b/i,
+      /\b(repossess|possession|arrears|lender|shortfall|cannot pay)\b/i,
+    ],
+    intents: [
+      "mortgage possession repossession",
+      "mortgage arrears help",
+      "defend mortgage possession claim",
+    ],
+    titleExclusion: /used car|unfair dismissal|visa|neighbour driveway/i,
+    suppressSlugDefaults: ["employment", "consumer", "neighbour_dispute"],
+  },
+  {
+    id: "housing_council_social",
+    matchAll: [
+      /\b(council (?:tenant|flat|house)|housing association|social housing|secure tenancy|introductory tenancy)\b/i,
+    ],
+    matchAny: [/\b(evict|repair|mould|rent|transfer|succession|antisocial)\b/i],
+    intents: [
+      "council housing association tenant rights",
+      "social housing eviction repairs",
+      "housing association complaints",
+    ],
+    titleExclusion: /used car|unfair dismissal|private parking/i,
+    suppressSlugDefaults: ["neighbour_dispute", "employment", "consumer"],
+  },
+  {
+    id: "neighbour_noise_asb",
+    matchAll: [
+      /\b(neighbour|neighbor)\b/i,
+      /\b(noise|noisy|antisocial|asb\b|barking|parties|music|nuisance)\b/i,
+    ],
+    rejectIf: [/\b(driveway|carport|boundary|right of way|parking on)\b/i],
+    intents: [
+      "neighbour noise nuisance complaint",
+      "antisocial behaviour neighbour",
+      "problems with neighbours noise",
+    ],
+    titleExclusion: /used car|section\s*21|unfair dismissal|parking ticket POPLA/i,
+    suppressSlugDefaults: ["housing", "consumer", "employment"],
+  },
+
+  // —— Family extras ——
+  {
+    id: "family_domestic_abuse",
+    matchAll: [
+      /\b(domestic (?:abuse|violence)|non-?molestation|occupation order|coercive control|fleeing|refuge)\b/i,
+    ],
+    intents: [
+      "domestic abuse protective order",
+      "non-molestation occupation order",
+      "getting help domestic abuse",
+    ],
+    titleExclusion: /used car|unfair dismissal|parking ticket|small claim belongings/i,
+    suppressSlugDefaults: ["employment", "consumer", "consumer_small_claims"],
+  },
+  {
+    id: "family_care_proceedings",
+    matchAll: [
+      /\b(care (?:order|proceedings)|social services|child protection|interim care|placement order)\b/i,
+    ],
+    intents: [
+      "care proceedings social services",
+      "care order child protection",
+      "what happens in care proceedings",
+    ],
+    titleExclusion: /small claim|used car|unfair dismissal|visa refusal/i,
+    suppressSlugDefaults: ["consumer_small_claims", "employment", "consumer"],
+  },
+
+  // —— Wills / planning ——
+  {
+    id: "wills_making",
+    matchAll: [/\b(make a will|making a will|writing a will|will kit|testament)\b/i],
+    rejectIf: [/\b(contest|challeng|disinherit|inheritance dispute|probate already)\b/i],
+    intents: [
+      "making a will England",
+      "how to make a will Age UK",
+      "will writing requirements",
+    ],
+    titleExclusion: /unfair dismissal|used car|visa|section\s*21/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "probate_estate_admin",
+    matchAll: [/\b(probate|executor|letters of administration|administer (?:the )?estate|grant of probate)\b/i],
+    rejectIf: [/\b(contest|challeng|disinherit|inheritance dispute|left me out)\b/i],
+    intents: [
+      "applying for probate estate administration",
+      "executor responsibilities probate",
+      "letters of administration",
+    ],
+    titleExclusion: /unfair dismissal|used car|neighbour driveway/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "inheritance_dispute",
+    matchAll: [
+      /\b(inherit|inheritance|will)\b/i,
+      /\b(contest|challeng|dispute|disinherit|left out|1975 act|family provision)\b/i,
+    ],
+    intents: [
+      "contesting a will inheritance dispute",
+      "Inheritance Act 1975 family provision",
+      "challenging a will",
+    ],
+    titleExclusion: /unfair dismissal|used car|parking ticket/i,
+    suppressSlugDefaults: ["employment", "consumer"],
+  },
+  {
+    id: "lasting_power_attorney",
+    matchAll: [/\b(lasting power of attorney|lpa\b|power of attorney|deputy order|court of protection)\b/i],
+    intents: [
+      "lasting power of attorney LPA",
+      "setting up a lasting power of attorney",
+      "Court of Protection deputy",
+    ],
+    titleExclusion: /unfair dismissal|used car|visa|section\s*21/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "trusts_ctf",
+    matchAll: [/\b(trust\b|trustee|child trust fund|ctf\b|beneficial interest)\b/i],
+    matchAny: [/\b(will|estate|settlement|beneficiary|trust fund)\b/i],
+    rejectIf: [/\b(unfair dismiss|used car|parking ticket)\b/i],
+    intents: [
+      "trusts trustees beneficiaries",
+      "child trust fund",
+      "trusts and inheritance",
+    ],
+    titleExclusion: /unfair dismissal|used car|parking ticket/i,
+    suppressSlugDefaults: ["employment", "consumer"],
+  },
+
+  // —— Immigration extras ——
+  {
+    id: "asylum_refugees",
+    matchAll: [/\b(asylum|refugee|asylum seeker|protection claim|NASS|asylum support)\b/i],
+    intents: [
+      "asylum claim UK refugee",
+      "asylum support housing",
+      "challenging an asylum decision",
+    ],
+    titleExclusion: /unfair dismissal|used car|neighbour driveway|section\s*21 tenancy/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "british_citizenship",
+    matchAll: [
+      /\b(british citizenship|naturalis|citizenship application|british passport|register as british)\b/i,
+    ],
+    intents: [
+      "British citizenship application naturalisation",
+      "register as a British citizen",
+      "citizenship requirements GOV.UK",
+    ],
+    titleExclusion: /unfair dismissal|used car|section\s*21/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+
+  // —— Consumer extras ——
+  {
+    id: "consumer_travel_holidays",
+    matchAll: [
+      /\b(holiday|flight|airline|package holiday|tour|travel agent|cruise|hotel booking|ATOL)\b/i,
+      /\b(cancel|refund|delay|disrupted|mis-?sold|complaint|compensation)\b/i,
+    ],
+    intents: [
+      "holiday flight delay compensation refund",
+      "package holiday ATOL protection",
+      "travel agent complaint consumer",
+    ],
+    titleExclusion: /unfair dismissal|neighbour driveway|section\s*21|visa refusal/i,
+    suppressSlugDefaults: ["employment", "housing"],
+  },
+  {
+    id: "consumer_online_distance",
+    matchAll: [
+      /\b(bought online|distance selling|cooling.?off|amazon|ebay|marketplace|click and collect)\b/i,
+      /\b(cancel|refund|return|not arrived|wrong item|consumer contracts)\b/i,
+    ],
+    rejectIf: [/\b(used car|garage|landlord|employer|visa)\b/i],
+    intents: [
+      "cancelling online purchase cooling off",
+      "distance selling consumer contracts",
+      "marketplace seller refund rights",
+    ],
+    titleExclusion: /unfair dismissal|section\s*21|visa|neighbour driveway/i,
+    suppressSlugDefaults: ["employment", "housing"],
+  },
+  {
+    id: "consumer_credit_finance",
+    matchAll: [
+      /\b(credit card|personal loan|finance agreement|hire purchase|logbook loan|payday|APR)\b/i,
+      /\b(unfair|mis-?sold|section\s*75|chargeback|affordability|FCA|ombudsman)\b/i,
+    ],
+    intents: [
+      "section 75 credit card claim",
+      "unfair credit agreement complaint",
+      "Financial Ombudsman consumer credit",
+    ],
+    titleExclusion: /unfair dismissal|neighbour driveway|visa|section\s*21 housing/i,
+    suppressSlugDefaults: ["employment", "housing"],
+  },
+  {
+    id: "consumer_insurance_claim",
+    matchAll: [
+      /\b(insurance|insurer|policy)\b/i,
+      /\b(claim|refused|rejected|won'?t pay|payout|excess|mis-?sold PPI)\b/i,
+    ],
+    rejectIf: [/\b(visa|section\s*21|unfair dismiss|bradford)\b/i],
+    intents: [
+      "insurance claim refused complaint",
+      "Financial Ombudsman insurance",
+      "challenging an insurance decision",
+    ],
+    titleExclusion: /unfair dismissal|neighbour driveway|section\s*21/i,
+    suppressSlugDefaults: ["employment", "housing"],
+  },
+  {
+    id: "consumer_energy_telecoms",
+    matchAll: [
+      /\b(energy|gas|electricity|broadband|mobile phone|ofcom|ofgem|supplier)\b/i,
+      /\b(bill|overcharge|switch|complaint|ombudsman|debt|disconnection)\b/i,
+    ],
+    intents: [
+      "energy bill complaint ombudsman",
+      "broadband mobile Ofcom complaint",
+      "gas electricity supplier dispute",
+    ],
+    titleExclusion: /unfair dismissal|used car|visa|neighbour driveway/i,
+    suppressSlugDefaults: ["employment", "housing"],
+  },
+  {
+    id: "employment_settlement_agreement",
+    matchAll: [/\b(settlement agreement|compromise agreement|COT3|without prejudice)\b/i],
+    intents: [
+      "settlement agreement employment",
+      "signing a settlement agreement ACAS",
+      "COT3 conciliation settlement",
+    ],
+    titleExclusion: /used car|parking ticket|visa|neighbour driveway/i,
+    suppressSlugDefaults: ["consumer", "housing"],
+  },
+
+  // —— Health / injury ——
+  {
+    id: "personal_injury_claim",
+    matchAll: [
+      /\b(personal injury|accident at work|slipped|whiplash|injured|road traffic accident|\brta\b)\b/i,
+      /\b(claim|compensation|negligen|fault|injury)\b/i,
+    ],
+    rejectIf: [/\b(clinical|medical negligence|nhs complain|hospital misdiagnos)\b/i],
+    intents: [
+      "personal injury claim compensation",
+      "accident at work injury claim",
+      "road traffic accident injury claim",
+    ],
+    titleExclusion: /unfair dismissal schedule of loss|used car reject|visa|section\s*21/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "clinical_negligence",
+    matchAll: [
+      /\b(clinical negligence|medical negligence|misdiagnos|surgical error|nhs (?:negligen|complaint)|AvMA)\b/i,
+    ],
+    intents: [
+      "clinical negligence claim NHS",
+      "medical negligence compensation",
+      "complaining about NHS treatment AvMA",
+    ],
+    titleExclusion: /unfair dismissal|used car|neighbour driveway|visa/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+
+  // —— Crime / police ——
+  {
+    id: "police_station_arrest",
+    matchAll: [
+      /\b(arrest(?:ed)?|police station|under caution|charged with|custody|duty solicitor)\b/i,
+    ],
+    rejectIf: [/\b(parking ticket|pcn|popLA|civil claim only)\b/i],
+    intents: [
+      "arrested police station rights",
+      "duty solicitor custody",
+      "what happens if you are charged",
+    ],
+    titleExclusion: /unfair dismissal|used car|section\s*21|visa apply/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "police_property_seizure",
+    matchAll: [
+      /\b(police)\b/i,
+      /\b(seiz(?:ed|ure)|retained (?:my )?property|kept my (?:phone|laptop|car)|return (?:my )?property)\b/i,
+    ],
+    intents: [
+      "police seized property return",
+      "getting property back from police",
+      "police retention of belongings",
+    ],
+    titleExclusion: /unfair dismissal|used car reject|section\s*21/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "fraud_financial_crime_victim",
+    matchAll: [
+      /\b(fraud|scam|phishing|authorised push payment|APP fraud|identity theft)\b/i,
+      /\b(victim|stolen|bank|money|report|refund)\b/i,
+    ],
+    intents: [
+      "fraud scam victim bank refund",
+      "authorised push payment APP fraud",
+      "reporting fraud Action Fraud",
+    ],
+    titleExclusion: /unfair dismissal|neighbour driveway|section\s*21/i,
+    suppressSlugDefaults: ["employment", "housing"],
+  },
+
+  // —— Rights / public law / education / courts / care ——
+  {
+    id: "equality_goods_services",
+    matchAll: [
+      /\b(equality act|discriminat|protected characteristic)\b/i,
+      /\b(shop|restaurant|hotel|gym|service provider|goods and services|refused (?:entry|service)|wheelchair|accessibility)\b/i,
+    ],
+    rejectIf: [/\b(employer|at work|bradford|dismissed|sacked)\b/i],
+    intents: [
+      "discrimination in goods and services Equality Act",
+      "taking action about discrimination goods services",
+      "protected characteristics service provider",
+    ],
+    titleExclusion: /unfair dismissal|schedule of loss|used car|section\s*21/i,
+    suppressSlugDefaults: ["employment", "housing"],
+  },
+  {
+    id: "judicial_review_challenge",
+    matchAll: [/\b(judicial review|JR claim)\b/i],
+    matchAny: [
+      /\b(public body|local authority|council decision|quash|challenge|pre-action|letter before claim|ultra vires)\b/i,
+    ],
+    intents: [
+      "judicial review public body decision",
+      "challenging a local authority decision",
+      "judicial review pre-action protocol",
+    ],
+    titleExclusion: /unfair dismissal|used car|parking POPLA/i,
+    suppressSlugDefaults: ["employment", "consumer"],
+  },
+  {
+    id: "education_exclusion_ehcp",
+    matchAll: [
+      /\b(school|ehcp|sen\b|send\b|exclusion|excluded|special educational|admission appeal)\b/i,
+      /\b(appeal|tribunal|ehcp|exclusion|sen|send|education)\b/i,
+    ],
+    intents: [
+      "school exclusion appeal EHCP",
+      "special educational needs EHCP",
+      "school admission appeal",
+    ],
+    titleExclusion: /unfair dismissal|used car|neighbour driveway|visa/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "small_claims_procedure",
+    matchAll: [
+      /\b(small claim|money claim|N1\b|county court claim|letter before action|claim form)\b/i,
+    ],
+    rejectIf: [/\b(child arrangements|custody|visa refusal|unfair dismiss)\b/i],
+    intents: [
+      "deciding whether to make a small claim",
+      "letter before action money claim",
+      "small claims court and letter before action",
+    ],
+    titleExclusion: /child arrangements|custody|visa refusal|unfair dismissal claim/i,
+    suppressSlugDefaults: ["family", "employment"],
+  },
+  {
+    id: "litigant_in_person_hearing",
+    matchAll: [
+      /\b(litigant in person|representing myself|court hearing|case management|bundle)\b/i,
+    ],
+    intents: [
+      "litigant in person court hearing",
+      "representing yourself in court",
+      "preparing for a court hearing",
+    ],
+    titleExclusion: /used car Motor Ombudsman|bradford factor/i,
+    suppressSlugDefaults: ["employment", "consumer"],
+  },
+  {
+    id: "community_care_assessment",
+    matchAll: [
+      /\b(care assessment|social care|care package|care needs|local authority care|carer'?s assessment)\b/i,
+    ],
+    intents: [
+      "adult social care assessment",
+      "care needs assessment local authority",
+      "challenging a care package decision",
+    ],
+    titleExclusion: /unfair dismissal|used car|parking ticket/i,
+    suppressSlugDefaults: ["employment", "consumer"],
+  },
+  {
+    id: "mental_health_detention",
+    matchAll: [
+      /\b(sectioned|mental health act|detention|nearest relative|tribunal mental|MHA\b)\b/i,
+    ],
+    intents: [
+      "Mental Health Act detention rights",
+      "sectioned nearest relative",
+      "mental health tribunal",
+    ],
+    titleExclusion: /unfair dismissal|used car|section\s*21 tenancy/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+
+  // —— Business (thin) ——
+  {
+    id: "business_contract_dispute",
+    matchAll: [
+      /\b(limited company|ltd\b|sole trader|partnership|b2b|business contract|supplier agreement)\b/i,
+      /\b(breach|dispute|invoice unpaid|contract|terms)\b/i,
+    ],
+    rejectIf: [/\b(my employer sacked|unfair dismiss|tenant landlord)\b/i],
+    intents: [
+      "business contract dispute",
+      "unpaid business invoice",
+      "breach of contract company",
+    ],
+    titleExclusion: /unfair dismissal employee|section\s*21|neighbour driveway/i,
+    suppressSlugDefaults: ["employment", "housing"],
+  },
+  {
+    id: "business_insolvency_closure",
+    matchAll: [
+      /\b(liquidat|insolvent|administration|strike off|close (?:my |the )?company|creditors.? voluntary)\b/i,
+    ],
+    intents: [
+      "company insolvency liquidation",
+      "closing a limited company",
+      "company administration creditors",
+    ],
+    titleExclusion: /unfair dismissal|used car|neighbour driveway/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
   },
 ];
 
