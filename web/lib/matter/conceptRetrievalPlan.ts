@@ -13,6 +13,7 @@
 
 import type { MatterFrame } from "./types";
 import { ISSUE_RETRIEVAL_INTENTS } from "./scopes";
+import { normaliseLayText } from "../coherence/normaliseLay";
 
 export type ConceptRetrievalPlan = {
   /** Merged frame + story keyphrases used for planning. */
@@ -579,8 +580,26 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
 
   // —— Wills / planning ——
   {
+    id: "wills_lpa_trusts",
+    matchAll: [
+      /\b(will|testament|probate|estate|trust(?:s|ee|ees)?|LPA|lasting power of attorney|power of attorney|deputy(?:ship)?)\b/i,
+      /\b(make|making|draft|drafting|write|writing|update|change|set up|register|administer|manage|plan|advice|help|required|valid)\b/i,
+    ],
+    rejectIf: [/\b(unfair dismissal|used car|parking ticket|visa application)\b/i],
+    intents: [
+      "wills lasting power of attorney trusts",
+      "making or updating a will GOV.UK",
+      "lasting power of attorney LPA GOV.UK",
+      "trustee beneficiary estate planning",
+    ],
+    titleExclusion: /unfair dismissal|used car|parking ticket|visa/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
     id: "wills_making",
-    matchAll: [/\b(make a will|making a will|writing a will|will kit|testament)\b/i],
+    matchAll: [
+      /\b(make a will|making a will|writing a will|draft(?:ing)? (?:a )?will|update (?:a )?will|will kit|testament)\b/i,
+    ],
     rejectIf: [/\b(contest|challeng|disinherit|inheritance dispute|probate already)\b/i],
     intents: [
       "making a will England",
@@ -639,6 +658,70 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     ],
     titleExclusion: /unfair dismissal|used car|parking ticket/i,
     suppressSlugDefaults: ["employment", "consumer"],
+  },
+  {
+    id: "family_agreements",
+    matchAll: [
+      /\b(clean break|separation agreement|financial order|consent order|cohabitation agreement|prenup|pre-?nuptial|post-?nuptial|parenting agreement|family agreement)\b/i,
+      /\b(agreement|order|arrangement|settle|settlement|financial|money|property|children|separation|divorc)\b/i,
+    ],
+    rejectIf: [/\b(employer|employment|used car|parking ticket|visa)\b/i],
+    intents: [
+      "clean break financial order after divorce",
+      "family financial agreement consent order",
+      "cohabitation or prenuptial agreement",
+      "child arrangements parenting agreement",
+    ],
+    titleExclusion: /unfair dismissal|used car|parking ticket|visa/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "commercial_business_contracts",
+    matchAll: [
+      /\b(business|commercial|company|companies|supplier|customer|client|trade|shop|retail|partnership|sole trader)\b/i,
+      /\b(contract|agreement|terms|lease|licence|invoice|unpaid|dispute|draft|review|breach|termination)\b/i,
+    ],
+    rejectIf: [/\b(employment contract|tenancy agreement|residential lease|used car)\b/i],
+    intents: [
+      "commercial business contract drafting and review",
+      "business contract dispute breach termination",
+      "commercial lease for a shop or retail premises",
+      "unpaid business invoice supplier customer",
+    ],
+    titleExclusion: /unfair dismissal|tenancy|used car|parking ticket|visa/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "legal_documents_certification",
+    matchAll: [
+      /\b(statutory declaration|affidavit|deed|certif(?:y|ied|ication)|notar(?:y|ise|ized|ised)|apostille|legalis(?:e|ation)|witness(?:ed|ing)?|power of attorney)\b/i,
+      /\b(document|form|paperwork|signature|sign|certif|notar|legalis|declaration|affidavit|deed|apostille)\b/i,
+    ],
+    rejectIf: [/\b(employer|employment|used car|parking ticket|visa refusal)\b/i],
+    intents: [
+      "statutory declaration affidavit legal document",
+      "certifying or witnessing a legal document",
+      "notary public and document legalisation apostille",
+      "power of attorney document requirements",
+    ],
+    titleExclusion: /unfair dismissal|used car|parking ticket|visa refusal/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
+  },
+  {
+    id: "tax_estate_banking",
+    matchAll: [
+      /\b(inheritance tax|IHT|estate tax|capital gains tax|income tax|stamp duty|bank account|banking|mortgage|savings|investment|executor|estate|probate)\b/i,
+      /\b(tax|account|money|funds|payment|transfer|frozen|blocked|liability|return|allowance|relief|valuation|estate|probate)\b/i,
+    ],
+    rejectIf: [/\b(benefit|universal credit|PIP|bailiff|used car|parking ticket)\b/i],
+    intents: [
+      "inheritance tax estate administration GOV.UK",
+      "estate bank account executor funds",
+      "capital gains tax property or inheritance",
+      "bank account blocked after death probate",
+    ],
+    titleExclusion: /unfair dismissal|used car|parking ticket|visa|universal credit/i,
+    suppressSlugDefaults: ["employment", "consumer", "housing"],
   },
 
   // —— Immigration extras ——
@@ -1144,8 +1227,9 @@ export function buildConceptRetrievalPlan(
   frame: MatterFrame,
   story = "",
 ): ConceptRetrievalPlan {
+  const normalizedStory = normaliseLayText(story);
   const storyBlob = [
-    story,
+    normalizedStory,
     ...frame.events.map((e) => e.description),
     ...frame.objectives,
     ...frame.concepts,

@@ -1,6 +1,7 @@
 import { resolveTaxonomy } from "@/lib/legal/taxonomy-resolver";
 import type { TaxonomyResolution } from "@/lib/legal/taxonomy-resolver";
 import { isFamilyBelongingsPropertyClaim } from "@/lib/legal/query-signals";
+import { normaliseLayText } from "@/lib/coherence/normaliseLay";
 
 import { extractStoryKeyphrases } from "./conceptRetrievalPlan";
 import {
@@ -239,11 +240,11 @@ function vagueAmbiguities(submission: string): MatterAmbiguity[] {
 }
 
 function mergeTaxonomy(input: MatterResolveInput): TaxonomyResolution | null {
-  const story = input.submission.trim();
+  const story = normaliseLayText(input.submission.trim());
   const resolved = resolveTaxonomy({
     story,
-    question: input.clientQuestion || input.brief?.clientQuestion,
-    understanding: input.understanding || input.brief?.understanding,
+    question: normaliseLayText(input.clientQuestion || input.brief?.clientQuestion || ""),
+    understanding: normaliseLayText(input.understanding || input.brief?.understanding || ""),
   });
   if (!resolved) return null;
 

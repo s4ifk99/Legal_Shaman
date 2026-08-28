@@ -74,6 +74,7 @@ INCLUDE_DOMAINS = [
     "cas.org.uk",
     "nidirect.gov.uk",
     "gov.wales",
+    "libertyhumanrights.org.uk",
     "taylor-rose.co.uk",
     "lawhive.co.uk",
     "harperjames.co.uk",

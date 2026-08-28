@@ -42,6 +42,8 @@ export const SIGNPOST_CATEGORY_TITLES = [
   "Health and Injury",
   "Driving and Parking",
   "Rights and Discrimination",
+  "Human Rights and Protest",
+  "Palestine Activist Resources",
   "Crime and Police",
   "Education",
 ] as const;
@@ -61,6 +63,10 @@ const SECTION_DESCRIPTIONS: Record<string, string> = {
   "Health and Injury": "Personal injury and clinical negligence.",
   "Driving and Parking": "Motoring offences, PCNs, and the Highway Code.",
   "Rights and Discrimination": "Equality Act, human rights, and disability rights.",
+  "Human Rights and Protest":
+    "Human Rights Act, freedom of expression, assembly, protest restrictions, and police powers.",
+  "Palestine Activist Resources":
+    "Lawful Palestine solidarity protest guidance, arrest rights, legal support, and activist resources.",
   "Crime and Police": "If you are accused, victim support, and complaints about police.",
   Education: "School exclusions, SEND, and education rights.",
 };

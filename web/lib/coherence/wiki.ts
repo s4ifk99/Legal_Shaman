@@ -7,7 +7,8 @@ import {
   loadSourceSnippets,
   type SourceSnippet,
 } from './oslawSummary'
-import type { RightsSummary } from './oslawRights'
+import { RIGHTS_CAVEAT, type RightsSummary } from './oslawRights'
+import { normaliseLayText } from './normaliseLay'
 import {
   buildRightsFromWiki,
   featuredToolsFromWiki,
@@ -182,6 +183,153 @@ export async function loadWiki(domain: WikiDomainId = 'immigration'): Promise<Wi
   return catalogue
 }
 
+type LeadOslawFallback = {
+  id: string
+  title: string
+  summary: string
+  url: string
+  overview: string
+  bullets: string[]
+  steps: { id: string; label: string; detail: string; url: string; sourceTitle: string }[]
+  when: RegExp
+}
+
+/**
+ * Small, cited OSLAW pathways for high-volume areas that do not yet have a
+ * compiled domain catalogue. These are deliberately scoped to open guidance
+ * and never replace a catalogue match where one exists.
+ */
+const LEAD_OSLAW_FALLBACKS: LeadOslawFallback[] = [
+  {
+    id: 'pathway-wills-lpa-trusts',
+    title: 'Wills, powers of attorney and trusts',
+    summary: 'A practical open-guidance route for planning ahead, appointing decision-makers, or dealing with trusts and estates.',
+    url: 'https://www.gov.uk/make-will',
+    overview:
+      'GOV.UK guidance covers making or changing a will, appointing attorneys under a lasting power of attorney, and the roles around trusts and estates. The correct document and formalities depend on the person’s circumstances, so the linked guidance should be checked before signing.',
+    bullets: [
+      'A will should be checked for signing and witnessing formalities; GOV.UK explains the basic process.',
+      'A lasting power of attorney must be registered before an attorney can generally use it.',
+      'Trustee, executor, and attorney duties are distinct roles — use the matching official guide.',
+    ],
+    steps: [
+      { id: 'identify-document', label: 'Identify the document', detail: 'Decide whether the issue is a will, lasting power of attorney, trust, or estate administration question.', url: 'https://www.gov.uk/make-will', sourceTitle: 'GOV.UK: Make a will' },
+      { id: 'check-formalities', label: 'Check formalities', detail: 'Read the relevant GOV.UK process before signing, witnessing, registering, or distributing assets.', url: 'https://www.gov.uk/power-of-attorney', sourceTitle: 'GOV.UK: Power of attorney' },
+      { id: 'keep-records', label: 'Keep the paperwork', detail: 'Keep signed originals, registration details, valuations, and correspondence together for the people who may need them.', url: 'https://www.gov.uk/applying-for-probate', sourceTitle: 'GOV.UK: Applying for probate' },
+    ],
+    when: /\b(?:make|making|draft|drafting|write|writing|update|change|set up|lasting power of attorney|power of attorney|lpa|trust|trustee|probate|executor|letters of administration)\b/i,
+  },
+  {
+    id: 'pathway-family-agreements',
+    title: 'Family and separation agreements',
+    summary: 'Open guidance on recording financial, property, and parenting arrangements after separation or before marriage.',
+    url: 'https://www.gov.uk/money-property-when-relationship-ends',
+    overview:
+      'When relationships change, open guidance distinguishes informal arrangements, mediation, and court-approved financial or child arrangements. A written agreement or order can matter later, particularly where property, pensions, or children are involved.',
+    bullets: [
+      'A clean-break or other financial arrangement may need a court order to record it formally.',
+      'Mediation and a written parenting plan are common first steps where it is safe and suitable.',
+      'Keep full financial disclosure and signed agreement versions, including dates and review points.',
+    ],
+    steps: [
+      { id: 'map-arrangements', label: 'List what needs agreeing', detail: 'Separate finances and property from child arrangements so each issue follows the right process.', url: 'https://www.gov.uk/money-property-when-relationship-ends', sourceTitle: 'GOV.UK: Money and property when a relationship ends' },
+      { id: 'consider-mediation', label: 'Consider a supported agreement', detail: 'Check whether mediation or another supported negotiation route is appropriate and safe.', url: 'https://www.gov.uk/try-mediation', sourceTitle: 'GOV.UK: Family mediation' },
+      { id: 'formalise', label: 'Check formalisation', detail: 'Where a financial clean break or consent arrangement is intended, check whether a court order is needed.', url: 'https://www.gov.uk/apply-financial-order', sourceTitle: 'GOV.UK: Apply for a financial order' },
+    ],
+    when: /\b(clean break|separation agreement|financial order|consent order|cohabitation agreement|prenup|pre-?nuptial|post-?nuptial|parenting agreement|family agreement)\b/i,
+  },
+  {
+    id: 'pathway-commercial-business-contracts',
+    title: 'Commercial and business contracts',
+    summary: 'An open-guidance route for drafting, reviewing, or dealing with a contract used in a business or commercial setting.',
+    url: 'https://www.gov.uk/starting-up-a-business',
+    overview:
+      'Business guidance covers choosing a structure, recording terms, and keeping commercial records. A contract dispute usually turns on the wording, performance evidence, notice provisions, and the loss or remedy being claimed.',
+    bullets: [
+      'Record the parties, scope, price, payment dates, delivery standards, and termination terms clearly.',
+      'Keep the signed contract, variations, invoices, and dated communications in one evidence file.',
+      'Check dispute, notice, governing-law, and escalation clauses before sending a formal demand.',
+    ],
+    steps: [
+      { id: 'identify-business', label: 'Identify the business relationship', detail: 'Confirm whether this is a supplier, customer, partnership, company, or commercial premises arrangement.', url: 'https://www.gov.uk/business-legal-structures', sourceTitle: 'GOV.UK: Business legal structures' },
+      { id: 'collect-contract', label: 'Collect the contract record', detail: 'Gather the signed terms, order forms, invoices, variations, and messages showing what happened.', url: 'https://www.gov.uk/starting-up-a-business', sourceTitle: 'GOV.UK: Starting a business' },
+      { id: 'follow-notice', label: 'Follow the escalation route', detail: 'Use any contractual notice or dispute process before considering court or another remedy.', url: 'https://www.gov.uk/make-court-claim-for-money', sourceTitle: 'GOV.UK: Make a court claim for money' },
+    ],
+    when: /\b(business|commercial|company|companies|supplier|customer|client|trade|shop|retail|partnership|sole trader)\b[\s\S]{0,100}\b(contract|agreement|terms|lease|licence|invoice|unpaid|dispute|draft|review|breach|termination)\b/i,
+  },
+  {
+    id: 'pathway-legal-documents-certification',
+    title: 'Legal documents and certification',
+    summary: 'Open guidance on statutory declarations, affidavits, witnessing, certification, notarisation, and legalisation.',
+    url: 'https://www.gov.uk/certifying-document',
+    overview:
+      'Different documents require different people and formalities: certification is not the same as witnessing, notarisation, or legalisation. Official guidance explains the process and when an apostille or other authentication may be needed.',
+    bullets: [
+      'Check exactly whether the recipient requires a certified copy, witness, solicitor, notary, or apostille.',
+      'Do not sign a declaration or deed until the required signing and witnessing sequence is clear.',
+      'Keep the original, certified copy, receipt, and the receiving organisation’s requirements.',
+    ],
+    steps: [
+      { id: 'check-requirement', label: 'Confirm the receiving requirement', detail: 'Ask the organisation what form of certification, witnessing, notarisation, or legalisation it accepts.', url: 'https://www.gov.uk/certifying-document', sourceTitle: 'GOV.UK: Certifying a document' },
+      { id: 'sign-correctly', label: 'Use the correct formalities', detail: 'Follow the document-specific signing and witnessing instructions before submitting it.', url: 'https://www.gov.uk/government/publications/statutory-declarations', sourceTitle: 'GOV.UK: Statutory declarations' },
+      { id: 'legalise-if-needed', label: 'Legalise for overseas use if required', detail: 'Check whether the receiving country needs an apostille or other legalisation step.', url: 'https://www.gov.uk/get-document-legalised', sourceTitle: 'GOV.UK: Get a document legalised' },
+    ],
+    when: /\b(statutory declaration|affidavit|deed|certif(?:y|ied|ication)|notar(?:y|ise|ized|ised)|apostille|legalis(?:e|ation)|witness(?:ed|ing)?|power of attorney)\b/i,
+  },
+  {
+    id: 'pathway-tax-estate-banking',
+    title: 'Tax, estates and banking',
+    summary: 'An open-guidance route for inheritance tax, estate funds, property tax, and bank-account questions after a death or transfer.',
+    url: 'https://www.gov.uk/inheritance-tax',
+    overview:
+      'Official guidance separates inheritance tax, capital gains tax, income tax, and the administration of estate money. Bank and executor steps depend on the account holder, the grant or other authority available, and the type of asset.',
+    bullets: [
+      'Inheritance tax and estate administration have separate reporting and payment steps.',
+      'Keep valuations, debts, gifts, account statements, and property information for the relevant tax return.',
+      'Ask the bank which authority it needs before transferring or closing an estate account.',
+    ],
+    steps: [
+      { id: 'identify-tax', label: 'Identify the tax or estate step', detail: 'Work out whether the question concerns inheritance tax, capital gains tax, income tax, or banking authority.', url: 'https://www.gov.uk/inheritance-tax', sourceTitle: 'GOV.UK: Inheritance Tax' },
+      { id: 'collect-valuations', label: 'Collect financial evidence', detail: 'Gather account statements, asset valuations, liabilities, gifts, and correspondence with the bank or personal representatives.', url: 'https://www.gov.uk/valuing-estate-of-someone-who-died', sourceTitle: 'GOV.UK: Valuing an estate' },
+      { id: 'check-deadlines', label: 'Check the current deadline', detail: 'Use the official tax and probate guidance for the applicable reporting and payment deadlines.', url: 'https://www.gov.uk/tax', sourceTitle: 'GOV.UK: Tax' },
+    ],
+    when: /\b(inheritance tax|IHT|capital gains tax|stamp duty|bank account|banking|executor.{0,30}(?:account|funds)|estate.{0,30}(?:tax|account|funds)|probate.{0,30}(?:bank|tax))\b/i,
+  },
+]
+
+function buildLeadOslawFallback(text: string): OslawCourse | null {
+  const fallback = LEAD_OSLAW_FALLBACKS.find((candidate) => candidate.when.test(text))
+  if (!fallback) return null
+  const sourceSnippets: SourceSnippet[] = fallback.steps.map((step) => ({
+    title: step.sourceTitle,
+    url: step.url,
+    preview: step.detail,
+    authority: 'primary',
+  }))
+  const rights: RightsSummary = {
+    overview: fallback.overview,
+    bullets: fallback.bullets.map((text, index) => ({
+      text,
+      sourceTitle: fallback.steps[index % fallback.steps.length]?.sourceTitle,
+      sourceUrl: fallback.steps[index % fallback.steps.length]?.url,
+    })),
+    origin: 'heuristic',
+    caveat: RIGHTS_CAVEAT,
+  }
+  return {
+    pathwayId: fallback.id,
+    title: fallback.title,
+    summary: fallback.summary,
+    primaryUrl: fallback.url,
+    rights,
+    sourceSnippets,
+    featuredTools: [],
+    steps: fallback.steps,
+    related: [],
+    disclaimer: RIGHTS_CAVEAT,
+  }
+}
+
 /** Domains to query for this session / frame set. */
 export function activeDomains(session: SessionState, frames: LegalFrame[] = []): WikiDomainId[] {
   const domains = new Set<WikiDomainId>()
@@ -194,7 +342,7 @@ export function activeDomains(session: SessionState, frames: LegalFrame[] = []):
     }
   }
 
-  const blob = session.rawInputs.join(' ').toLowerCase()
+  const blob = normaliseLayText(session.rawInputs.join(' ')).toLowerCase()
   if (/\bilr\b|visa|asylum|home office|deport/.test(blob)) domains.add('immigration')
   if (/landlord|tenant|evict|mould|homeless|\brents?\b|tenancy|section\s*21|flatmate|housemate/.test(blob))
     domains.add('housing')
@@ -479,6 +627,10 @@ export async function matchOslawCourse(
   frames: LegalFrame[],
   limit = 3,
 ): Promise<OslawCourse | null> {
+  const text = normaliseLayText(sessionText(session))
+  const leadFallback = buildLeadOslawFallback(text)
+  if (leadFallback) return leadFallback
+
   const domains = activeDomains(session, frames)
   if (domains.length === 0) return null
 
@@ -486,7 +638,6 @@ export async function matchOslawCourse(
     ? frames.map((f) => f.id)
     : [`${domains[0] === 'immigration' ? 'imm' : domains[0].slice(0, 4)}-general`]
 
-  const text = sessionText(session)
   const parkingOnly = isPrivateParkingStory(text) && !isUsedCarPurchaseStory(text)
   const leaseFireOnly = isLeaseholdFireSafetyAlterationStory(text)
   const benefitsOnly = isBenefitsRulesStory(text)
