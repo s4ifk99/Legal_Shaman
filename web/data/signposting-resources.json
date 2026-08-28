@@ -1444,6 +1444,204 @@
       ]
     },
     {
+      "title": "Human Rights and Protest",
+      "resources": [
+        {
+          "name": "Liberty — Advice and Information",
+          "description": "Liberty's human-rights guidance is reputable NGO information and signposting. It is not a substitute for current legislation, official guidance, or tailored legal advice.",
+          "url": "https://www.libertyhumanrights.org.uk/advice-and-information/",
+          "links": [
+            {
+              "text": "Explainer: Can I be arrested for something I post on social media or chant at a protest?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-can-i-be-arrested-for-something-i-post-on-social-media-or-chant-at-a-protest/"
+            },
+            {
+              "text": "Crime and Policing Act 2026: Explaining the new protest restrictions",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/crime-and-policing-act-2026-explaining-the-new-protest-restrictions/"
+            },
+            {
+              "text": "Talking to the police — Easy Read",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/talking-to-the-police-easy-read/"
+            },
+            {
+              "text": "Protesting at university: What are my rights?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/university-protests/"
+            },
+            {
+              "text": "Watch: Disabled People's Protest Rights Webinar",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/protest-rights-webinar/"
+            },
+            {
+              "text": "Police use of facial recognition technology: What are my rights?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/police-use-of-facial-recognition-technology-what-are-my-rights/"
+            },
+            {
+              "text": "Examined under Schedule 7 of the Terrorism Act 2000: What are my rights?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/examined-under-schedule-7-of-the-terrorism-act-2000-what-are-my-rights/"
+            },
+            {
+              "text": "Requesting data held by your university: Subject Access Request template",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/requesting-data-held-by-your-university-a-subject-access-request-template-for-students-and-academics/"
+            },
+            {
+              "text": "Prevent: What are my rights?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/prevent-what-are-my-rights/"
+            },
+            {
+              "text": "Your right to protest",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/right-to-protest/"
+            },
+            {
+              "text": "How to organise a protest",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/how-to-organise-a-protest/"
+            },
+            {
+              "text": "What if I'm arrested at a protest?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/what-if-im-arrested-at-a-protest/"
+            },
+            {
+              "text": "Public Order Act: new protest offences and serious disruption",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/public-order-act-new-protest-offences/"
+            },
+            {
+              "text": "Public Order Act: new protest stop and search powers",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/public-order-act-new-stop-search-powers/"
+            },
+            {
+              "text": "How to organise a more accessible protest",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/organise-a-more-accessible-protest/"
+            },
+            {
+              "text": "Your right to protest: disabled people's rights",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/disabled-people-protest/"
+            },
+            {
+              "text": "Practical protest tips",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/practical-protest-tips/"
+            },
+            {
+              "text": "A guide to kettling",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/kettling-guide/"
+            },
+            {
+              "text": "Monitoring and reporting on protests",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-monitoring-reporting-on-protests/"
+            },
+            {
+              "text": "Policing and protest: LGBTQ+ people of colour",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/lgbtq-people-of-colour-rights/"
+            },
+            {
+              "text": "How does the new Policing Act 2022 affect my protest rights?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/pcsc-policing-act-protest-rights/"
+            },
+            {
+              "text": "What can I do if the police discriminate against me?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/what-can-i-do-if-the-police-discriminate-against-me/"
+            },
+            {
+              "text": "I need a lawyer",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/i-need-a-lawyer/"
+            },
+            {
+              "text": "Public Order Act: serious disruption and protest conditions",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-serious-disruption-to-the-life-of-the-community-protest-conditions/"
+            }
+          ]
+        },
+        {
+          "name": "Legal Shaman wiki — Human Rights and Public Law",
+          "description": "Search the dedicated human-rights and public-law guides.",
+          "url": "/ask-the-shaman?q=Human%20Rights%20and%20Public%20Law"
+        },
+        {
+          "name": "Legislation.gov.uk — Public Order Act 2023",
+          "description": "Primary legislation to check alongside explanatory guidance.",
+          "url": "https://www.legislation.gov.uk/ukpga/2023/15/contents"
+        },
+        {
+          "name": "Crown Prosecution Service — Protest-related offences",
+          "description": "Official prosecution guidance on offences that may arise during protests and demonstrations.",
+          "url": "https://www.cps.gov.uk/legal-guidance/public-order-offences-incorporating-charging-standard"
+        }
+      ]
+    },
+    {
+      "title": "Palestine Activist Resources",
+      "resources": [
+        {
+          "name": "Liberty — Palestine Solidarity Protests",
+          "description": "Explains protest rights, possible police powers, restrictions, arrest, and routes to legal advice and support. Check the page date and current law before relying on it.",
+          "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-palestine-protests/"
+        },
+        {
+          "name": "Liberty — Protest bust cards",
+          "description": "Practical rights information for protesters, including translated materials and arrest-related signposting.",
+          "url": "https://www.libertyhumanrights.org.uk/advice_information/protest-bust-cards-with-translations/"
+        },
+        {
+          "name": "Liberty — How to organise a protest",
+          "description": "England-only guidance for organisers on notification, police conditions, accessibility, legal observers, and support.",
+          "url": "https://www.libertyhumanrights.org.uk/advice_information/how-to-organise-a-protest/"
+        },
+        {
+          "name": "Liberty — What if I'm arrested at a protest?",
+          "description": "England-only guidance on arrest, custody, appropriate adults, legal advice, and protest support contacts.",
+          "url": "https://www.libertyhumanrights.org.uk/advice_information/what-if-im-arrested-at-a-protest/"
+        },
+        {
+          "name": "European Legal Support Centre",
+          "description": "Legal support and reporting routes for Palestine advocacy repression in Europe and Britain; check eligibility and current availability.",
+          "url": "https://elsc.support/about/"
+        },
+        {
+          "name": "European Legal Support Centre — Britain research",
+          "description": "Research and monitoring on repression of Palestine solidarity in Britain. Research is not a substitute for legal advice.",
+          "url": "https://elsc.support/wp-content/uploads/2026/03/On-All-Fronts-The-Multi-Sited-Repression-of-Palestine-Solidarity-in-Britain.pdf"
+        },
+        {
+          "name": "Green and Black Cross — Protest rights and bust cards",
+          "description": "Independent protest-rights information and practical resources. Not legal representation.",
+          "url": "https://greenandblackcross.org/"
+        },
+        {
+          "name": "Netpol — Protest legal support",
+          "description": "Protest monitoring, legal-observer information, and protest solicitor signposting.",
+          "url": "https://netpol.org/"
+        },
+        {
+          "name": "Black Protest Legal Support",
+          "description": "Legal support information for people protesting racial injustice; check current eligibility and availability.",
+          "url": "https://blackprotestlaw.org/"
+        },
+        {
+          "name": "Joint Council for the Welfare of Immigrants — Protest information",
+          "description": "Immigration-related information for protesters. Immigration status can make tailored advice especially important.",
+          "url": "https://www.jcwi.org.uk/"
+        },
+        {
+          "name": "Informed Dissent — Protest and immigration guidance",
+          "description": "Additional guidance referenced by Liberty on the possible immigration consequences of arrest; obtain individual immigration advice where needed.",
+          "url": "https://www.informeddissent.info/immigration-status"
+        },
+        {
+          "name": "Bristol Defendant Solidarity",
+          "description": "Local police-station and court support for arrested protesters. Contact details and availability can change.",
+          "url": "https://bristolabc.org/defendant-solidarity/"
+        },
+        {
+          "name": "Citizens Advice — Human rights",
+          "description": "Independent guidance on human-rights protections and routes to further help.",
+          "url": "https://www.citizensadvice.org.uk/law-and-courts/human-rights/"
+        },
+        {
+          "name": "GOV.UK — Get legal advice",
+          "description": "Find regulated legal advice and check legal-aid eligibility where applicable.",
+          "url": "https://www.gov.uk/find-legal-advice"
+        }
+      ]
+    },
+    {
       "title": "Crime and Police",
       "resources": [
         {

@@ -1,7 +1,7 @@
 {
   "meta": {
     "note": "Curated UK authority seeds. Matching uses word-boundary/phrase rules (authorityMatch.ts). Exa R&D refresh only via exa_authority_rd.py.",
-    "updated": "2026-08-21",
+    "updated": "2026-08-28",
     "papers": [
       "EXCISE arXiv:2608.05497 — query-side exclusion / FP demotion",
       "Rhetorical-role BM25 hybrid arXiv:2608.06828 — exact lexical keys",
@@ -712,6 +712,136 @@
       ],
       "requireAny": ["animal welfare", "wild animals", "wildlife", "injured animal", "veterinary"],
       "excludeIf": ["parking", "gym", "tenancy"]
+    },
+    {
+      "id": "liberty-protest-rights",
+      "title": "Advice and information on protest and human rights — Liberty",
+      "url": "https://www.libertyhumanrights.org.uk/advice-and-information/",
+      "domain": "libertyhumanrights.org.uk",
+      "tier": "tertiary",
+      "keywords": [
+        "human rights",
+        "protest rights",
+        "freedom of expression",
+        "freedom of assembly",
+        "police powers",
+        "protest restrictions",
+        "arrest at a protest"
+      ],
+      "requireAny": ["human rights", "protest rights", "freedom of expression", "freedom of assembly", "protest"],
+      "excludeIf": ["parking", "tenancy", "divorce"]
+    },
+    {
+      "id": "liberty-palestine-protests",
+      "title": "Palestine solidarity protests — Liberty",
+      "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-palestine-protests/",
+      "domain": "libertyhumanrights.org.uk",
+      "tier": "tertiary",
+      "keywords": [
+        "Palestine solidarity protest",
+        "Palestine protest",
+        "protest law",
+        "police arrest",
+        "protest restrictions",
+        "public order",
+        "legal advice"
+      ],
+      "requireAny": ["Palestine", "Palestine solidarity", "protest law"],
+      "excludeIf": ["parking", "tenancy", "divorce"]
+    },
+    {
+      "id": "liberty-protest-speech-arrest",
+      "title": "Speech, social media and protest arrests — Liberty",
+      "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-can-i-be-arrested-for-something-i-post-on-social-media-or-chant-at-a-protest/",
+      "domain": "libertyhumanrights.org.uk",
+      "tier": "tertiary",
+      "keywords": [
+        "free speech",
+        "freedom of expression",
+        "social media",
+        "chant",
+        "arrest",
+        "protest"
+      ],
+      "requireAny": ["free speech", "freedom of expression", "social media", "chant", "protest"],
+      "excludeIf": ["parking", "tenancy", "divorce"]
+    },
+    {
+      "id": "liberty-crime-policing-act-2026-protest",
+      "title": "Crime and Policing Act 2026: new protest restrictions — Liberty",
+      "url": "https://www.libertyhumanrights.org.uk/advice_information/crime-and-policing-act-2026-explaining-the-new-protest-restrictions/",
+      "domain": "libertyhumanrights.org.uk",
+      "tier": "tertiary",
+      "keywords": [
+        "Crime and Policing Act 2026",
+        "new protest restrictions",
+        "protest offences",
+        "face covering",
+        "police powers",
+        "protest"
+      ],
+      "requireAny": ["Crime and Policing Act 2026", "new protest restrictions", "protest offences", "face covering"],
+      "excludeIf": ["parking", "tenancy", "divorce"]
+    },
+    {
+      "id": "liberty-right-to-protest",
+      "title": "Your right to protest — Liberty",
+      "url": "https://www.libertyhumanrights.org.uk/advice_information/right-to-protest/",
+      "domain": "libertyhumanrights.org.uk",
+      "tier": "tertiary",
+      "keywords": ["right to protest", "freedom of assembly", "freedom of expression", "protest conditions", "protest ban"],
+      "requireAny": ["right to protest", "freedom of assembly", "freedom of expression", "protest conditions"],
+      "excludeIf": ["parking", "tenancy", "divorce"]
+    },
+    {
+      "id": "liberty-organise-protest",
+      "title": "How to organise a protest — Liberty",
+      "url": "https://www.libertyhumanrights.org.uk/advice_information/how-to-organise-a-protest/",
+      "domain": "libertyhumanrights.org.uk",
+      "tier": "tertiary",
+      "keywords": ["organise a protest", "protest organiser", "notify police", "protest march", "legal observers", "bust cards"],
+      "requireAny": ["organise a protest", "protest organiser", "notify police", "protest march"],
+      "excludeIf": ["parking", "tenancy", "divorce"]
+    },
+    {
+      "id": "liberty-arrested-protest",
+      "title": "What if I am arrested at a protest? — Liberty",
+      "url": "https://www.libertyhumanrights.org.uk/advice_information/what-if-im-arrested-at-a-protest/",
+      "domain": "libertyhumanrights.org.uk",
+      "tier": "tertiary",
+      "keywords": ["arrested at a protest", "protest arrest", "appropriate adult", "police station", "protest solicitor", "caution"],
+      "requireAny": ["arrested at a protest", "protest arrest", "appropriate adult", "protest solicitor"],
+      "excludeIf": ["parking", "tenancy", "divorce"]
+    },
+    {
+      "id": "liberty-public-order-protest-offences",
+      "title": "Public Order Act: new protest offences — Liberty",
+      "url": "https://www.libertyhumanrights.org.uk/advice_information/public-order-act-new-protest-offences/",
+      "domain": "libertyhumanrights.org.uk",
+      "tier": "tertiary",
+      "keywords": ["Public Order Act 2023", "new protest offences", "serious disruption", "locking on", "tunnelling", "protest"],
+      "requireAny": ["Public Order Act 2023", "new protest offences", "serious disruption", "locking on"],
+      "excludeIf": ["parking", "tenancy", "divorce"]
+    },
+    {
+      "id": "liberty-protest-monitoring-reporting",
+      "title": "Monitoring and reporting on protests — Liberty",
+      "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-monitoring-reporting-on-protests/",
+      "domain": "libertyhumanrights.org.uk",
+      "tier": "tertiary",
+      "keywords": ["monitoring protests", "reporting on protests", "legal observers", "journalists", "filming police", "protest"],
+      "requireAny": ["monitoring protests", "reporting on protests", "legal observers", "filming police"],
+      "excludeIf": ["parking", "tenancy", "divorce"]
+    },
+    {
+      "id": "liberty-protest-accessibility",
+      "title": "Disabled people’s protest rights — Liberty",
+      "url": "https://www.libertyhumanrights.org.uk/advice_information/disabled-people-protest/",
+      "domain": "libertyhumanrights.org.uk",
+      "tier": "tertiary",
+      "keywords": ["disabled protesters", "disability protest rights", "reasonable adjustments", "accessible protest", "kettling"],
+      "requireAny": ["disabled protesters", "disability protest rights", "reasonable adjustments", "accessible protest"],
+      "excludeIf": ["parking", "tenancy", "divorce"]
     }
   ]
 }

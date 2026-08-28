@@ -36,6 +36,9 @@ export const UK_AUTHORITY_DOMAINS: Record<string, AuthorityTier> = {
   'www.moneyhelper.org.uk': 'tertiary',
   'shelter.org.uk': 'tertiary',
   'england.shelter.org.uk': 'tertiary',
+  /** Civil-liberties / human-rights explainers (not primary law) */
+  'libertyhumanrights.org.uk': 'tertiary',
+  'www.libertyhumanrights.org.uk': 'tertiary',
   /** Higher education student complaints (uni disciplinary / Facebook association cases) */
   'oiahe.org.uk': 'tertiary',
   'www.oiahe.org.uk': 'tertiary',
@@ -230,6 +233,7 @@ export const EXA_RD_INCLUDE_DOMAINS = [
   'cas.org.uk',
   'nidirect.gov.uk',
   'gov.wales',
+  'libertyhumanrights.org.uk',
   'taylor-rose.co.uk',
   'lawhive.co.uk',
   'harperjames.co.uk',
