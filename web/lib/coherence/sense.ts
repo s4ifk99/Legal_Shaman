@@ -313,7 +313,7 @@ function looksEmployment(t: string): boolean {
 function detectMatter(text: string): MatterType {
   const t = text.toLowerCase()
   if (
-    /conveyanc|transfer(?:ring)? (?:of )?(?:equity|property|ownership)|add name to title|remove name from title|solicitor.*(buy|sell|purchase)|buying a (flat|house)|stamp duty/.test(
+    /conveyanc|transfer(?:ring)? (?:of )?(?:equity|property|ownership)|add name to title|remove name from title|title deeds?|lease extension|remortgag|solicitor.*(buy|sell|purchase)|buying (?:a )?(?:property|flat|house)|selling (?:a )?(?:property|flat|house)|buying and\/or selling|buying or selling|stamp duty/.test(
       t,
     )
   )
@@ -364,6 +364,22 @@ function detectMatter(text: string): MatterType {
     )
   )
     return 'crime'
+  if (
+    /\b(business|commercial|company|supplier|customer|shop|retail|partnership|sole trader)\b/.test(t) &&
+    /\b(contract|agreement|terms|lease|licen[cs]e|invoice|unpaid|dispute|breach)\b/.test(t)
+  )
+    return 'other'
+  if (
+    /\b(statutory declaration|affidavit|deed|certif(?:y|ied|ication)|notar(?:y|ise|ized|ised)|apostille|legalis(?:e|ation)|witness(?:ed|ing)?)\b/.test(
+      t,
+    )
+  )
+    return 'other'
+  if (
+    /\b(inheritance tax|capital gains tax|stamp duty|isa|premium bonds|bank account|banking)\b/.test(t) &&
+    /\b(late|deceased|died|death|estate|tax|executor|probate|account|funds|savings)\b/.test(t)
+  )
+    return 'other'
   if (/lawyer|solicitor|barrister|legal help|advice/.test(t)) return 'other'
   return 'unknown'
 }

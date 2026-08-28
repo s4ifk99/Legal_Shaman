@@ -6,6 +6,8 @@
  * Usage:
  *   npx tsx scripts/reddit-coherence-full-audit.ts --limit=100
  *   npx tsx scripts/reddit-coherence-full-audit.ts --from-file=data/reddit-eval-100-lauk-random.json --live-sra=https://www.legalshaman.com
+ *   npx tsx scripts/reddit-coherence-full-audit.ts --from-file=data/leads-no-booked-call-eval.json --limit=1000 --report=leads-coherence-audit --live-sra=https://www.legalshaman.com
+ *   npx tsx scripts/reddit-coherence-full-audit.ts --from-file=data/leads-no-booked-call-eval.json --offset=150 --limit=150
  */
 import './load-dotenv'
 
@@ -30,14 +32,18 @@ try {
 }
 
 const LIMIT = Number(process.argv.find((a) => a.startsWith('--limit='))?.split('=')[1] || 100)
+const OFFSET = Number(process.argv.find((a) => a.startsWith('--offset='))?.split('=')[1] || 0)
 const FROM_FILE =
   process.argv.find((a) => a.startsWith('--from-file='))?.split('=')[1] ||
   'data/reddit-eval-100-lauk-random.json'
 const LIVE_SRA =
   process.argv.find((a) => a.startsWith('--live-sra='))?.split('=')[1]?.replace(/\/$/, '') || ''
 const MAX_TURNS = Number(process.argv.find((a) => a.startsWith('--max-turns='))?.split('=')[1] || 8)
-const OUT_JSON = path.join(process.cwd(), 'reports/reddit-coherence-full-audit.json')
-const OUT_MD = path.join(process.cwd(), 'reports/reddit-coherence-full-audit.md')
+const REPORT =
+  process.argv.find((a) => a.startsWith('--report='))?.split('=')[1]?.replace(/[^\w.-]+/g, '-') ||
+  'reddit-coherence-full-audit'
+const OUT_JSON = path.join(process.cwd(), `reports/${REPORT}.json`)
+const OUT_MD = path.join(process.cwd(), `reports/${REPORT}.md`)
 
 type Grade = 'pass' | 'partial' | 'fail'
 
@@ -247,7 +253,7 @@ function autoReply(
   return post.title.slice(0, 200)
 }
 
-function loadPosts(limit: number): PostRow[] {
+function loadPosts(offset: number, limit: number): PostRow[] {
   const p = path.isAbsolute(FROM_FILE) ? FROM_FILE : path.join(process.cwd(), FROM_FILE)
   const raw = JSON.parse(readFileSync(p, 'utf8')) as {
     questions: Array<{
@@ -259,7 +265,7 @@ function loadPosts(limit: number): PostRow[] {
       flair?: string
     }>
   }
-  return (raw.questions || []).slice(0, limit).map((q) => ({
+  return (raw.questions || []).slice(offset, offset + limit).map((q) => ({
     id: q.id,
     title: q.title,
     query: q.query,
@@ -739,8 +745,16 @@ function tally(cases: AuditCase[], key: keyof AuditCase) {
 }
 
 async function main() {
-  const posts = loadPosts(LIMIT)
-  console.info(JSON.stringify({ event: 'start', count: posts.length, from: FROM_FILE, liveSra: LIVE_SRA || 'local' }))
+  const posts = loadPosts(OFFSET, LIMIT)
+  console.info(
+    JSON.stringify({
+      event: 'start',
+      count: posts.length,
+      offset: OFFSET,
+      from: FROM_FILE,
+      liveSra: LIVE_SRA || 'local',
+    }),
+  )
   const deps = await loadDeps()
   const cases: AuditCase[] = []
 
@@ -773,6 +787,7 @@ async function main() {
     generatedAt: new Date().toISOString(),
     source: FROM_FILE,
     count: n,
+    offset: OFFSET,
     liveSra: LIVE_SRA || null,
     maxTurns: MAX_TURNS,
     summary,
@@ -795,10 +810,10 @@ async function main() {
 
   const pct = (x: number) => `${Math.round(x * 100)}%`
   const lines = [
-    '# Reddit full Coherence audit (r/LegalAdviceUK)',
+    '# Coherence audit',
     '',
     `Generated: ${report.generatedAt}`,
-    `Posts: ${n} · Source: \`${FROM_FILE}\``,
+    `Posts: ${n} · Source: \`${FROM_FILE}\` · Report: \`${REPORT}\``,
     `Interactive max turns: ${MAX_TURNS} · Live SRA: ${LIVE_SRA || 'off'}`,
     '',
     '## Pass rates (strict pass)',

@@ -9,6 +9,7 @@ import { checkAnswerCitations, type CitationIssue } from './citationCheck'
 import { buildRetrievalText } from './retrievalText'
 import { resolveTopicLock, type LockedPackId, isUsedCarPurchaseStory } from './topicLock'
 import { looksNeighbourDispute } from './sense'
+import { normaliseLayText } from './normaliseLay'
 import type { OslawCourse } from './wiki'
 
 export type AnswerBullet = {
@@ -191,6 +192,145 @@ function isNeighbourAccessDispute(text: string): boolean {
   return looksNeighbourDispute(text)
 }
 
+type CuratedPackDefinition = {
+  id: string
+  when: RegExp
+  overview: string
+  bullets: Array<[string, string, string]>
+  help: Array<[string, string, string]>
+  policy: string
+}
+
+function buildCuratedPack(def: CuratedPackDefinition): AnswerPackage {
+  const bullets: AnswerBullet[] = def.bullets.map(([text, sourceTitle, sourceUrl]) => ({
+    text,
+    sourceTitle,
+    sourceUrl,
+    tier: 'trusted-guidance',
+  }))
+  const freeHelp = def.help.map(([title, url, blurb]) => ({ title, url, blurb }))
+  const pack: AnswerPackage = {
+    answerOverview: def.overview,
+    bullets,
+    wikiPages: [],
+    freeHelp,
+    recommendedFirms: [],
+    sources: [
+      ...bullets.map((b) => ({ title: b.sourceTitle, url: b.sourceUrl, kind: b.tier })),
+      ...freeHelp.map((h) => ({ title: h.title, url: h.url, kind: 'trusted-guidance' })),
+    ],
+    citation: { ok: true, issues: [] },
+    matchedTopicId: def.id,
+    policyNote: def.policy,
+  }
+  pack.citation = checkAnswerCitations(pack)
+  return pack
+}
+
+const CURATED_LEAD_PACKS: CuratedPackDefinition[] = [
+  {
+    id: 'property-transfer-conveyancing',
+    when: /\b(conveyanc|transfer(?:ring)? (?:of )?(?:equity|property|ownership)|add name to title|remove name from title|title deeds?|lease extension|remortgag|buying (?:a )?(?:property|flat|house)|selling (?:a )?(?:property|flat|house)|buying and\/or selling|buying or selling)\b/i,
+    overview:
+      'Property transfer questions usually turn on the title, the ownership structure, any lender or lease restrictions, and the tax and Land Registry steps. Confirm whether this is a sale, gift, transfer of equity, remortgage, or title correction before signing anything.',
+    bullets: [
+      ['Confirm whether this is a sale, gift, transfer of equity, remortgage, or title correction; each follows a different conveyancing route.', 'GOV.UK — buying or selling your home', 'https://www.gov.uk/buy-sell-your-home'],
+      ['Check the title register, restrictions, lease terms, and mortgage consent requirements before agreeing the transfer.', 'HM Land Registry — registering land and property', 'https://www.gov.uk/government/collections/registering-land-and-property-with-land-registry'],
+      ['Keep valuations and tax correspondence, and check Stamp Duty Land Tax or Capital Gains Tax before completion.', 'GOV.UK — Stamp Duty Land Tax', 'https://www.gov.uk/stamp-duty-land-tax'],
+    ],
+    help: [
+      ['GOV.UK — buying or selling your home', 'https://www.gov.uk/buy-sell-your-home', 'Official conveyancing and transaction guidance.'],
+      ['HM Land Registry', 'https://www.gov.uk/government/organisations/land-registry', 'Official title and registration information.'],
+    ],
+    policy: 'Property transfer pack: verify title, lender, lease, tax, and registration requirements. Signposting only, not legal advice.',
+  },
+  {
+    id: 'wills-lpa-trusts',
+    when: /\b(probates?|executor|letters of administration|lasting power of attorney|power of attorney|lpa|trust(?:s|ee|ees)?)\b|(?:make|making|draft|drafting|write|writing|update|change).{0,30}\bwill\b/i,
+    overview:
+      'Wills, lasting powers of attorney, trusts, and estate administration use different documents and formalities. Identify the document first, then follow the relevant official process before signing, registering, or distributing assets.',
+    bullets: [
+      ['Check the signing and witnessing requirements for a will before relying on it or changing an earlier version.', 'GOV.UK — make a will', 'https://www.gov.uk/make-will'],
+      ['A lasting power of attorney generally needs registration before an attorney can use it.', 'GOV.UK — power of attorney', 'https://www.gov.uk/power-of-attorney'],
+      ['Executors and administrators should use the probate process and keep estate valuations, debts, and correspondence.', 'GOV.UK — applying for probate', 'https://www.gov.uk/applying-for-probate'],
+    ],
+    help: [
+      ['GOV.UK — make a will', 'https://www.gov.uk/make-will', 'Official will-making guidance.'],
+      ['GOV.UK — power of attorney', 'https://www.gov.uk/power-of-attorney', 'Official LPA and attorney guidance.'],
+    ],
+    policy: 'Wills and estate pack: official process first; formal validity depends on the facts and document.',
+  },
+  {
+    id: 'family-agreement',
+    when: /\b(clean break|separation agreement|financial order|consent order|cohabitation agreement|prenup|pre-?nuptial|post-?nuptial|parenting agreement|family agreement)\b/i,
+    overview:
+      'Family agreements should distinguish financial and property arrangements from child arrangements. Mediation may help where safe and suitable, while a clean break or other financial settlement may need a court order to be formally recorded.',
+    bullets: [
+      ['List finances, property, pensions, and child arrangements separately so each issue follows the right process.', 'GOV.UK — money and property when a relationship ends', 'https://www.gov.uk/money-property-when-relationship-ends'],
+      ['Consider mediation or another supported negotiation route where it is safe and appropriate.', 'GOV.UK — family mediation', 'https://www.gov.uk/try-mediation'],
+      ['Check whether a clean break or consent arrangement needs a court order and keep the signed version.', 'GOV.UK — apply for a financial order', 'https://www.gov.uk/apply-financial-order'],
+    ],
+    help: [
+      ['GOV.UK — money and property when a relationship ends', 'https://www.gov.uk/money-property-when-relationship-ends', 'Official separation and financial guidance.'],
+      ['GOV.UK — family mediation', 'https://www.gov.uk/try-mediation', 'Official mediation information.'],
+    ],
+    policy: 'Family agreement pack: separate financial, property, and child issues; signposting only.',
+  },
+  {
+    id: 'commercial-business-contracts',
+    when: /\b(business|commercial|company|companies|supplier|customer|client|trade|shop|retail|partnership|sole trader)\b[\s\S]{0,100}\b(contract|agreement|terms|lease|licence|invoice|unpaid|dispute|draft|review|breach|termination)\b/i,
+    overview:
+      'A business contract recommendation should start with the parties, scope, price, performance, and termination terms. Preserve the signed agreement and communications, then follow any contractual notice or dispute process.',
+    bullets: [
+      ['Record the parties, scope, price, payment dates, delivery standards, and termination provisions clearly.', 'GOV.UK — starting a business', 'https://www.gov.uk/starting-up-a-business'],
+      ['Keep the signed contract, variations, invoices, and dated messages showing performance or breach.', 'GOV.UK — business legal structures', 'https://www.gov.uk/business-legal-structures'],
+      ['Check notice, escalation, governing-law, and dispute clauses before sending a formal demand.', 'GOV.UK — make a court claim for money', 'https://www.gov.uk/make-court-claim-for-money'],
+    ],
+    help: [
+      ['GOV.UK — starting a business', 'https://www.gov.uk/starting-up-a-business', 'Official business setup guidance.'],
+      ['GOV.UK — make a court claim for money', 'https://www.gov.uk/make-court-claim-for-money', 'Official money-claim process.'],
+    ],
+    policy: 'Commercial contract pack: contract wording and evidence control the route; signposting only.',
+  },
+  {
+    id: 'legal-document-certification',
+    when: /\b(statutory declaration|affidavit|deed|certif(?:y|ied|ication)|notar(?:y|ise|ized|ised)|apostille|legalis(?:e|ation)|witness(?:ed|ing)?)\b/i,
+    overview:
+      'Certification, witnessing, notarisation, and legalisation are different processes. Confirm exactly what the receiving organisation requires before signing or arranging an apostille.',
+    bullets: [
+      ['Confirm whether the recipient needs a certified copy, witness, solicitor, notary, or apostille.', 'GOV.UK — certifying a document', 'https://www.gov.uk/certifying-document'],
+      ['Follow the document-specific signing and witnessing sequence for a declaration, affidavit, or deed.', 'GOV.UK — statutory declarations', 'https://www.gov.uk/government/publications/statutory-declarations'],
+      ['For overseas use, check whether the destination requires an apostille or other legalisation.', 'GOV.UK — get a document legalised', 'https://www.gov.uk/get-document-legalised'],
+    ],
+    help: [
+      ['GOV.UK — certifying a document', 'https://www.gov.uk/certifying-document', 'Official certification guidance.'],
+      ['GOV.UK — get a document legalised', 'https://www.gov.uk/get-document-legalised', 'Official overseas legalisation guidance.'],
+    ],
+    policy: 'Legal-document pack: recipient requirements determine the necessary formality; signposting only.',
+  },
+  {
+    id: 'tax-estate-banking',
+    when: /\b(inheritance tax|iht|capital gains tax|stamp duty|bank account|banking|executor.{0,30}(?:account|funds)|estate.{0,30}(?:tax|account|funds)|probate.{0,30}(?:bank|tax)|(?:late|deceased|died|death).{0,80}(?:isa|premium bonds|bank|account|savings))\b/i,
+    overview:
+      'Estate and banking questions can involve inheritance tax, other taxes, probate authority, and the bank’s own requirements. Keep valuations, statements, liabilities, gifts, and correspondence together while confirming which process applies.',
+    bullets: [
+      ['Separate inheritance tax and estate administration steps from capital gains or income tax questions.', 'GOV.UK — inheritance tax', 'https://www.gov.uk/inheritance-tax'],
+      ['Gather account statements, asset valuations, liabilities, gifts, and property information for the estate record.', 'GOV.UK — valuing an estate', 'https://www.gov.uk/valuing-estate-of-someone-who-died'],
+      ['Ask the bank what grant or other authority it needs before closing or transferring estate funds.', 'GOV.UK — applying for probate', 'https://www.gov.uk/applying-for-probate'],
+    ],
+    help: [
+      ['GOV.UK — inheritance tax', 'https://www.gov.uk/inheritance-tax', 'Official estate-tax guidance.'],
+      ['GOV.UK — applying for probate', 'https://www.gov.uk/applying-for-probate', 'Official probate process.'],
+    ],
+    policy: 'Estate and banking pack: verify tax, authority, and asset-specific requirements before acting.',
+  },
+]
+
+function curatedLeadPack(text: string): AnswerPackage | null {
+  const definition = CURATED_LEAD_PACKS.find((candidate) => candidate.when.test(text))
+  return definition ? buildCuratedPack(definition) : null
+}
+
 /**
  * Build AGENTS-shaped overview/recommendation for the session.
  * Firms are empty unless a 5+ firm-topic index is wired; free help always first.
@@ -201,7 +341,7 @@ export function buildAnswerPackage(
   frames: LegalFrame[] = [],
   options: AnswerPackageOptions = {},
 ): AnswerPackage {
-  const text = blob(session, frames)
+  const text = normaliseLayText(blob(session, frames))
   const lock = resolveTopicLock(session, frames)
   const lockedPack = lock?.packId as LockedPackId | undefined
 
@@ -351,6 +491,11 @@ export function buildAnswerPackage(
     }
     pack.citation = checkAnswerCitations(pack)
     return pack
+  }
+
+  if (!carCase) {
+    const curated = curatedLeadPack(text)
+    if (curated) return curated
   }
 
   if (!carCase) {

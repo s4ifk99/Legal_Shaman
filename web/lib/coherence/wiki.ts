@@ -201,6 +201,25 @@ type LeadOslawFallback = {
  */
 const LEAD_OSLAW_FALLBACKS: LeadOslawFallback[] = [
   {
+    id: 'pathway-conveyancing-transfer',
+    title: 'Property transfer and conveyancing',
+    summary: 'Open guidance for buying, selling, remortgaging, or transferring a share or title in property.',
+    url: 'https://www.gov.uk/buy-sell-your-home',
+    overview:
+      'Property transfers can involve conveyancing, Land Registry title changes, mortgage consent, tax, and sometimes independent legal advice. The right process depends on whether this is a sale, gift, transfer of equity, remortgage, or leasehold matter.',
+    bullets: [
+      'Check the title, ownership structure, restrictions, mortgage terms, and any lease or transfer conditions.',
+      'A transfer of equity or change to title may require lender consent and an application to HM Land Registry.',
+      'Keep the contract, title documents, valuations, tax correspondence, and conveyancer instructions together.',
+    ],
+    steps: [
+      { id: 'identify-transfer', label: 'Identify the transaction', detail: 'Confirm whether this is a purchase, sale, transfer of equity, gift, remortgage, or title correction.', url: 'https://www.gov.uk/buy-sell-your-home', sourceTitle: 'GOV.UK: Buying or selling your home' },
+      { id: 'check-title', label: 'Check title and lender requirements', detail: 'Review the title register, restrictions, lease terms, and whether a lender or another owner must consent.', url: 'https://www.gov.uk/government/collections/registering-land-and-property-with-land-registry', sourceTitle: 'GOV.UK: HM Land Registry' },
+      { id: 'check-tax', label: 'Check tax and registration', detail: 'Before signing or transferring, check possible Stamp Duty Land Tax, Capital Gains Tax, and Land Registry steps.', url: 'https://www.gov.uk/stamp-duty-land-tax', sourceTitle: 'GOV.UK: Stamp Duty Land Tax' },
+    ],
+    when: /\b(conveyanc|transfer(?:ring)? (?:of )?(?:equity|property|ownership)|transfer of equity|add name to title|remove name from title|title deeds?|buying (?:a )?(?:property|flat|house)|selling (?:a )?(?:property|flat|house)|buying and\/or selling|buying or selling|lease extension|remortgag|stamp duty)\b/i,
+  },
+  {
     id: 'pathway-wills-lpa-trusts',
     title: 'Wills, powers of attorney and trusts',
     summary: 'A practical open-guidance route for planning ahead, appointing decision-makers, or dealing with trusts and estates.',
@@ -293,7 +312,7 @@ const LEAD_OSLAW_FALLBACKS: LeadOslawFallback[] = [
       { id: 'collect-valuations', label: 'Collect financial evidence', detail: 'Gather account statements, asset valuations, liabilities, gifts, and correspondence with the bank or personal representatives.', url: 'https://www.gov.uk/valuing-estate-of-someone-who-died', sourceTitle: 'GOV.UK: Valuing an estate' },
       { id: 'check-deadlines', label: 'Check the current deadline', detail: 'Use the official tax and probate guidance for the applicable reporting and payment deadlines.', url: 'https://www.gov.uk/tax', sourceTitle: 'GOV.UK: Tax' },
     ],
-    when: /\b(inheritance tax|IHT|capital gains tax|stamp duty|bank account|banking|executor.{0,30}(?:account|funds)|estate.{0,30}(?:tax|account|funds)|probate.{0,30}(?:bank|tax))\b/i,
+    when: /\b(inheritance tax|IHT|capital gains tax|stamp duty|bank account|banking|executor.{0,30}(?:account|funds)|estate.{0,30}(?:tax|account|funds)|probate.{0,30}(?:bank|tax)|(?:late|deceased|died|death).{0,80}(?:ISA|premium bonds|bank|account|savings))\b/i,
   },
 ]
 
@@ -346,6 +365,13 @@ export function activeDomains(session: SessionState, frames: LegalFrame[] = []):
   if (/\bilr\b|visa|asylum|home office|deport/.test(blob)) domains.add('immigration')
   if (/landlord|tenant|evict|mould|homeless|\brents?\b|tenancy|section\s*21|flatmate|housemate/.test(blob))
     domains.add('housing')
+  if (
+    /\b(conveyanc|transfer(?:ring)? (?:of )?(?:equity|property|ownership)|title deeds?|lease extension|remortgag|buying (?:a )?(?:property|flat|house)|selling (?:a )?(?:property|flat|house))\b/.test(
+      blob,
+    )
+  ) {
+    domains.add('housing')
+  }
   // Employment domain: require real workplace dispute cues — not bare “employed as…” / “employer travel”
   const employmentDomain =
     /\b(dismiss|fired|sacked|redundan|unfair dismiss|constructive dismiss|unpaid wages|holiday (?:hours|pay)|employment tribunal|acas|pregnant|maternity)\b/i.test(
