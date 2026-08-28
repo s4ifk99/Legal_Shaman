@@ -28,7 +28,7 @@ export function Footer() {
             </div>
             <div>
               <span className="font-serif text-2xl font-bold">Legal Shaman</span>
-              <p className="text-sm text-primary-foreground/70">Navigate Your Disputes</p>
+              <p className="text-sm text-primary-foreground/70">Fixing Search for Legal Disputes</p>
             </div>
           </div>
           
@@ -36,19 +36,16 @@ export function Footer() {
             <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
               About
             </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Help / FAQ
-            </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
+            <Link href="/terms" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Terms
             </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
+            <Link href="/privacy" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Privacy
             </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Advertise
+            <Link href="/signpost" className="text-primary-foreground/70 transition-colors hover:text-gold">
+              Signpost
             </Link>
-            <Link href="#" className="text-primary-foreground/70 transition-colors hover:text-gold">
+            <Link href="https://www.linkedin.com/in/aleemthedreamm/" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Contact
             </Link>
           </nav>
