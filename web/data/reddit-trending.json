@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-08-28T17:57:53.337Z",
+    "scrapedAt": "2026-08-29T01:28:51.275Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 6,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -62,6 +62,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1w0z77p",
+          "title": "My brother has no id and has no documents to get any, living in England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0z77p/my_brother_has_no_id_and_has_no_documents_to_get/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0z77p/my_brother_has_no_id_and_has_no_documents_to_get/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787942936,
+          "snippet": "My brother only has his UK birth certificate and some random assortment of letters that apparently do not count as proof of identity. He can't reopen his child bank account without proof of address and identity, he lives with me but is not on the tenancy. Every option we can thin",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1w0ncpw",
           "title": "One of the managers at work announced my pregnancy without my permission in a meeting I wasn’t present in",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0ncpw/one_of_the_managers_at_work_announced_my/",
@@ -74,27 +86,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w0q0ux",
-          "title": "Family keeps calling social services on me",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0q0ux/family_keeps_calling_social_services_on_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0q0ux/family_keeps_calling_social_services_on_me/",
+          "id": "1w0wh5y",
+          "title": "Thought we were insured on car. Turns out we were not.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0wh5y/thought_we_were_insured_on_car_turns_out_we_were/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0wh5y/thought_we_were_insured_on_car_turns_out_we_were/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787922223,
-          "snippet": "(England) I've taken in a family member N (15f), police and social services knocked on my door and asked if we could give her temporary placement. We didn't see this family for more as a decade but I do not let any girl standing in the cold or disappear in the care system. Her mo",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w0k1bo",
-          "title": "Is it illegal to clone myself?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0k1bo/is_it_illegal_to_clone_myself/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0k1bo/is_it_illegal_to_clone_myself/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787903203,
-          "snippet": "In England is it legal to make a genetically identical clone of myself purely from my own dna, and if I did would the clone be legally considered as my child? submitted by /u/Used_Willingness_160 [link] [comments]",
+          "createdUtc": 1787936983,
+          "snippet": "**TLDR: Renewed with Esure. Had documents through. Turns out not insured at all.** Hi all, apologies in advance for the long read... At the end of July (27th) it was time to renew the car insurance. The wife does this as she is the main driver, and I have a van (which I sort out)",
           "listingSource": "rss:hot"
         },
         {
@@ -110,15 +110,75 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w0nows",
-          "title": "My parents broke up now my dad is threatening the police if I go back home",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0nows/my_parents_broke_up_now_my_dad_is_threatening_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0nows/my_parents_broke_up_now_my_dad_is_threatening_the/",
+          "id": "1w15q9k",
+          "title": "Issues a fine by GWR despite valid tickets. Possible discrimination? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w15q9k/issues_a_fine_by_gwr_despite_valid_tickets/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w15q9k/issues_a_fine_by_gwr_despite_valid_tickets/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787915764,
-          "snippet": "FOR CONTEXT: My parents have been broken up for about just over a month, and my mum had a friend, and now they are ¿romantically involved? Only been seeing each other for like 2 weeks?? My dad found out who is was last night and for me, my mums and our 2 cats safety we stayed at ",
+          "createdUtc": 1787958089,
+          "snippet": "Posting for a friend who was was travelling on a GWR train today. She’s 26 and has a valid, in date 16-25 railcard. When she got to the gate, the inspectors pulled her after her partner had already passed through the gates and issued her a fine. They told her the Railcard was inv",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w16hd6",
+          "title": "Can I sue for not being able to go on a holiday I paid for?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w16hd6/can_i_sue_for_not_being_able_to_go_on_a_holiday_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w16hd6/can_i_sue_for_not_being_able_to_go_on_a_holiday_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787960056,
+          "snippet": "Hi, I’m not from the UK originally and am not very sure of the precedent so I’m wondering if anyone has any advice. This situation is: my boyfriend’s family asked if I wanted to go on vacation with them to France in September about 8 months ago. It was booked as a loveholidays pa",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w0q0ux",
+          "title": "Family keeps calling social services on me",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0q0ux/family_keeps_calling_social_services_on_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0q0ux/family_keeps_calling_social_services_on_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787922223,
+          "snippet": "(England) I've taken in a family member N (15f), police and social services knocked on my door and asked if we could give her temporary placement. We didn't see this family for more as a decade but I do not let any girl standing in the cold or disappear in the care system. Her mo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w16dmn",
+          "title": "Help with neighbours trying to steel my cat then luring him into their property and trapping him there. (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w16dmn/help_with_neighbours_trying_to_steel_my_cat_then/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w16dmn/help_with_neighbours_trying_to_steel_my_cat_then/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787959779,
+          "snippet": "So first of all I am kind of ashamed I have to post this at all, compared to losing jobs / houses ect this is absolute nonsense. But it is causing me and my partner significant distress and I am all out of ideas for what to try. To try and keep the story short I have a cat, rescu",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w0zerv",
+          "title": "My free legal advice for interview under caution was not a solicitor?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0zerv/my_free_legal_advice_for_interview_under_caution/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0zerv/my_free_legal_advice_for_interview_under_caution/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787943402,
+          "snippet": "They were a first year solicitor apprentice. 19 years old. Is this allowed? Not sure if I've been had on here. Based in England. I had been asked if I wanted to bring my own solicitor and I had declined and asked for the \"free legal advice\". submitted by /u/JediMindFlicks [link] ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w0k1bo",
+          "title": "Is it illegal to clone myself?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0k1bo/is_it_illegal_to_clone_myself/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0k1bo/is_it_illegal_to_clone_myself/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787903203,
+          "snippet": "In England is it legal to make a genetically identical clone of myself purely from my own dna, and if I did would the clone be legally considered as my child? submitted by /u/Used_Willingness_160 [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
@@ -134,6 +194,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1w0x8k6",
+          "title": "£180 walking shoes failed after 5 months - retailer says wear and tear. What would you do next? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0x8k6/180_walking_shoes_failed_after_5_months_retailer/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0x8k6/180_walking_shoes_failed_after_5_months_retailer/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787938649,
+          "snippet": "Hi, Looking for some advice/feedback on what people would do next with this. I bought a £180 pair of waterproof walking shoes last October. After about 4–5 months both shoes started leaking because the waterproof lining had worn through. The retailer sent them back to the manufac",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1w0lbio",
           "title": "My dad has unexpectedly passed away. Had flights booked to USA for end of the month for family wedding.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0lbio/my_dad_has_unexpectedly_passed_away_had_flights/",
@@ -143,6 +215,18 @@
           "numComments": 0,
           "createdUtc": 1787907869,
           "snippet": "TUI are saying it's going to cost £1200 to cancel my dad's seat and that we are then to claim off the travel insurance. Is this the correct course of action to be taken? I would have thought some bereavement measures would be applicable here. Any help or experience with this woul",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w0ywc4",
+          "title": "Solar company missed installation, now refusing full refund and keeping £1,350 — where do we stand? England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0ywc4/solar_company_missed_installation_now_refusing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0ywc4/solar_company_missed_installation_now_refusing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787942271,
+          "snippet": "My dad entered into a contract with Right NRG Ltd for a solar PV installation and paid £5,291 towards it. The contract included agreed dates for scaffolding and installation. The scaffolding was supposed to be erected first, with the solar installation following the next day. The",
           "listingSource": "rss:hot"
         },
         {
@@ -158,54 +242,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w0rv6m",
-          "title": "got a suspicious parking charge recently dated from months ago now theyre threatening to send debt collectors",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0rv6m/got_a_suspicious_parking_charge_recently_dated/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0rv6m/got_a_suspicious_parking_charge_recently_dated/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787926671,
-          "snippet": "hiya so to preface i live in wales earlier this month i got a letter from a private parking company asking for £170 saying that on the 31st of may i parked without paying and the only thing they have is my license plate and a time the only thing in that area is a mcdonalds and i ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w0mnnq",
-          "title": "Am I allowed to change mind on \"promotion\" that isn't actually giving me anything?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0mnnq/am_i_allowed_to_change_mind_on_promotion_that/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0mnnq/am_i_allowed_to_change_mind_on_promotion_that/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787912480,
-          "snippet": "Hey guys, I work as a technical architect for an MSP, recently got an offer to change job roles and was told (with evidence; have screenshots from teams, email saying they will \"sort it\", and offline ranscripts I saved from a call) I would be getting a pay rise to accompany it wh",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w0o7v0",
-          "title": "Neighbour involving us in financial matters (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0o7v0/neighbour_involving_us_in_financial_matters/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0o7v0/neighbour_involving_us_in_financial_matters/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787917325,
-          "snippet": "We have an elderly neighbour who we help out from time to time, usually moving things around, giving him some company, helping him set up stereos/tvs and that sort of thing. He is definitely of sound mind, he's just... gullible for whatever reason. He's online a lot and tells us ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w0l58j",
-          "title": "Been told that I need to move out of the house as soon as possible (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0l58j/been_told_that_i_need_to_move_out_of_the_house_as/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0l58j/been_told_that_i_need_to_move_out_of_the_house_as/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787907269,
-          "snippet": "Hello this might be a long one as I am writing this in a panic, I am absolutely terrified right now. I (21F) have been threatened and told by my mother's (50f) ex partner (54m) that I need to move out of the house as soon as possible or he will change the locks on the door (he sa",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1w0q238",
           "title": "I've found videos of my stolen car being driven in a field and then set aflame on Tik Tok.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0q238/ive_found_videos_of_my_stolen_car_being_driven_in/",
@@ -215,42 +251,6 @@
           "numComments": 0,
           "createdUtc": 1787922310,
           "snippet": "Friend sent me a TikTok and asked if this was my car on fire. It was. I just want to try and figure out what I am supposed to do next. I have a crime reference number. I've called police and let them know about the video. The operator said an officer would call me back. Do I also",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w0540v",
-          "title": "Damp being caused by neighbours roof which he denied 1 year ago",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0540v/damp_being_caused_by_neighbours_roof_which_he/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0540v/damp_being_caused_by_neighbours_roof_which_he/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787861673,
-          "snippet": "Hello everyone, I am going to try to write this as clearly and in as few words as possible. My situation: House bought on auction 1 year ago - England. Didnt view the house, just based off pictures. No survery etc. Sold as seen as per auction contract. House built around 1890s as",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w0x8k6",
-          "title": "£180 walking shoes failed after 5 months - retailer says wear and tear. What would you do next? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0x8k6/180_walking_shoes_failed_after_5_months_retailer/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0x8k6/180_walking_shoes_failed_after_5_months_retailer/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787938649,
-          "snippet": "Hi, Looking for some advice/feedback on what people would do next with this. I bought a £180 pair of waterproof walking shoes last October. After about 4–5 months both shoes started leaking because the waterproof lining had worn through. The retailer sent them back to the manufac",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w0wvx5",
-          "title": "Do I need to add wife's name to deeds of house? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0wvx5/do_i_need_to_add_wifes_name_to_deeds_of_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0wvx5/do_i_need_to_add_wifes_name_to_deeds_of_house/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787937882,
-          "snippet": "Do I need to add wife's name to deeds of house? Recently married. I have a mortgage on a house, and used a help to buy loan for part of the deposit. I've lived there 9 years, my wife moved in 7 years ago, and we've been married 18 months. Wife has some savings and wants to help p",
           "listingSource": "rss:hot"
         }
       ]
@@ -292,6 +292,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1w0z77p",
+          "title": "My brother has no id and has no documents to get any, living in England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0z77p/my_brother_has_no_id_and_has_no_documents_to_get/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0z77p/my_brother_has_no_id_and_has_no_documents_to_get/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787942936,
+          "snippet": "My brother only has his UK birth certificate and some random assortment of letters that apparently do not count as proof of identity. He can't reopen his child bank account without proof of address and identity, he lives with me but is not on the tenancy. Every option we can thin",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1w0ncpw",
           "title": "One of the managers at work announced my pregnancy without my permission in a meeting I wasn’t present in",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0ncpw/one_of_the_managers_at_work_announced_my/",
@@ -304,15 +316,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w0k1bo",
-          "title": "Is it illegal to clone myself?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0k1bo/is_it_illegal_to_clone_myself/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0k1bo/is_it_illegal_to_clone_myself/",
+          "id": "1w0wh5y",
+          "title": "Thought we were insured on car. Turns out we were not.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0wh5y/thought_we_were_insured_on_car_turns_out_we_were/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0wh5y/thought_we_were_insured_on_car_turns_out_we_were/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787903203,
-          "snippet": "In England is it legal to make a genetically identical clone of myself purely from my own dna, and if I did would the clone be legally considered as my child? submitted by /u/Used_Willingness_160 [link] [comments]",
+          "createdUtc": 1787936983,
+          "snippet": "**TLDR: Renewed with Esure. Had documents through. Turns out not insured at all.** Hi all, apologies in advance for the long read... At the end of July (27th) it was time to renew the car insurance. The wife does this as she is the main driver, and I have a van (which I sort out)",
           "listingSource": "rss:hot"
         },
         {
@@ -328,39 +340,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w0nows",
-          "title": "My parents broke up now my dad is threatening the police if I go back home",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0nows/my_parents_broke_up_now_my_dad_is_threatening_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0nows/my_parents_broke_up_now_my_dad_is_threatening_the/",
+          "id": "1w16hd6",
+          "title": "Can I sue for not being able to go on a holiday I paid for?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w16hd6/can_i_sue_for_not_being_able_to_go_on_a_holiday_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w16hd6/can_i_sue_for_not_being_able_to_go_on_a_holiday_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787915764,
-          "snippet": "FOR CONTEXT: My parents have been broken up for about just over a month, and my mum had a friend, and now they are ¿romantically involved? Only been seeing each other for like 2 weeks?? My dad found out who is was last night and for me, my mums and our 2 cats safety we stayed at ",
+          "createdUtc": 1787960056,
+          "snippet": "Hi, I’m not from the UK originally and am not very sure of the precedent so I’m wondering if anyone has any advice. This situation is: my boyfriend’s family asked if I wanted to go on vacation with them to France in September about 8 months ago. It was booked as a loveholidays pa",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w0obx8",
-          "title": "Colleuge has found out company has forgot to enroll him into Company pension for 4 years",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0obx8/colleuge_has_found_out_company_has_forgot_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0obx8/colleuge_has_found_out_company_has_forgot_to/",
+          "id": "1w16dmn",
+          "title": "Help with neighbours trying to steel my cat then luring him into their property and trapping him there. (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w16dmn/help_with_neighbours_trying_to_steel_my_cat_then/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w16dmn/help_with_neighbours_trying_to_steel_my_cat_then/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1787917664,
-          "snippet": "Im in England and work with someone aged 72 at a large company. He has worked for them for many years. He's planning to retire and has just found out that the company, when it was sold to someone else in 2022 forgot to enroll him into the company pension scheme. So 4 years in tot",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w0lbio",
-          "title": "My dad has unexpectedly passed away. Had flights booked to USA for end of the month for family wedding.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0lbio/my_dad_has_unexpectedly_passed_away_had_flights/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0lbio/my_dad_has_unexpectedly_passed_away_had_flights/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787907869,
-          "snippet": "TUI are saying it's going to cost £1200 to cancel my dad's seat and that we are then to claim off the travel insurance. Is this the correct course of action to be taken? I would have thought some bereavement measures would be applicable here. Any help or experience with this woul",
+          "createdUtc": 1787959779,
+          "snippet": "So first of all I am kind of ashamed I have to post this at all, compared to losing jobs / houses ect this is absolute nonsense. But it is causing me and my partner significant distress and I am all out of ideas for what to try. To try and keep the story short I have a cat, rescu",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 3,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -397,18 +397,6 @@
           "numComments": 0,
           "createdUtc": 1787926671,
           "snippet": "I'm going to link the news article that explains what has been happening because you're not going to believe anything I say if I don't. https://www.belfastlive.co.uk/news/belfast-news/south-belfast-drugs-annadale-flats-34514922 We're in mixed accomodation. Some private, some run ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w0540v",
-          "title": "Damp being caused by neighbours roof which he denied 1 year ago",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0540v/damp_being_caused_by_neighbours_roof_which_he/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0540v/damp_being_caused_by_neighbours_roof_which_he/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787861673,
-          "snippet": "Hello everyone, I am going to try to write this as clearly and in as few words as possible. My situation: House bought on auction 1 year ago - England. Didnt view the house, just based off pictures. No survery etc. Sold as seen as per auction contract. House built around 1890s as",
           "listingSource": "rss:hot"
         }
       ]
@@ -438,6 +426,30 @@
       ]
     },
     {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1w15q9k",
+          "title": "Issues a fine by GWR despite valid tickets. Possible discrimination? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w15q9k/issues_a_fine_by_gwr_despite_valid_tickets/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w15q9k/issues_a_fine_by_gwr_despite_valid_tickets/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787958089,
+          "snippet": "Posting for a friend who was was travelling on a GWR train today. She’s 26 and has a valid, in date 16-25 railcard. When she got to the gate, the inspectors pulled her after her partner had already passed through the gates and issued her a fine. They told her the Railcard was inv",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "community-care",
       "label": "Community Care",
       "legalAreaSlug": "community_care",
@@ -462,30 +474,6 @@
       ]
     },
     {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1w0rv6m",
-          "title": "got a suspicious parking charge recently dated from months ago now theyre threatening to send debt collectors",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0rv6m/got_a_suspicious_parking_charge_recently_dated/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0rv6m/got_a_suspicious_parking_charge_recently_dated/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1787926671,
-          "snippet": "hiya so to preface i live in wales earlier this month i got a letter from a private parking company asking for £170 saying that on the 31st of may i parked without paying and the only thing they have is my license plate and a time the only thing in that area is a mcdonalds and i ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
       "slug": "tenant-contents-and-deposit-damage",
       "label": "Tenant Contents and Deposit Damage",
       "legalAreaSlug": "consumer_property_repairs_tenant",
@@ -505,6 +493,30 @@
           "numComments": 0,
           "createdUtc": 1787938649,
           "snippet": "Hi, Looking for some advice/feedback on what people would do next with this. I bought a £180 pair of waterproof walking shoes last October. After about 4–5 months both shoes started leaking because the waterproof lining had worn through. The retailer sent them back to the manufac",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1w0ywc4",
+          "title": "Solar company missed installation, now refusing full refund and keeping £1,350 — where do we stand? England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0ywc4/solar_company_missed_installation_now_refusing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w0ywc4/solar_company_missed_installation_now_refusing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1787942271,
+          "snippet": "My dad entered into a contract with Right NRG Ltd for a solar PV installation and paid £5,291 towards it. The contract included agreed dates for scaffolding and installation. The scaffolding was supposed to be erected first, with the solar installation following the next day. The",
           "listingSource": "rss:hot"
         }
       ]
