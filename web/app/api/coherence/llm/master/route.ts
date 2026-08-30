@@ -101,6 +101,12 @@ export async function POST(req: Request) {
     heuristicPrompt?: { id?: string; text?: string; reason?: string };
     frameIds?: string[];
     mode?: "intake" | "answer";
+    searchMode?: "umbra" | "penumbra";
+    followUp?: {
+      kind?: "clarify" | "add_detail" | "refine";
+      text?: string;
+      priorAnswer?: string;
+    };
     captchaToken?: string;
   };
   try {
@@ -108,11 +114,17 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ error: "invalid_json", fallback: true }, { status: 400 });
   }
+  const searchKey =
+    Array.isArray(body.session?.rawInputs) && typeof body.session.rawInputs[0] === "string"
+      ? body.session.rawInputs[0]
+      : body.latestText;
 
   const access = await requireCoherenceAccess(req, {
     endpoint: "/api/coherence/llm/master",
     captchaToken: body.captchaToken,
     expectedFrontierCalls: 2,
+    countSearch: true,
+    searchKey,
   });
   if (access instanceof NextResponse) return access;
   const { user, requestId: accessRequestId, trustedGateway } = access;
@@ -222,6 +234,16 @@ export async function POST(req: Request) {
       heuristicPrompt: body.heuristicPrompt || null,
       frameIds: body.frameIds || [],
       mode: body.mode || "intake",
+      followUp:
+        body.followUp?.kind && body.followUp.text
+          ? {
+              kind: body.followUp.kind,
+              text: String(body.followUp.text),
+              priorAnswer: body.followUp.priorAnswer
+                ? String(body.followUp.priorAnswer)
+                : undefined,
+            }
+          : undefined,
       maxAnswerRetries: body.mode === "answer" ? 2 : 1,
       brief,
       taxonomy,
@@ -308,6 +330,17 @@ export async function POST(req: Request) {
           clientQuestion,
           matterFrame: matterResolved.frame,
           taxonomySlug: matterResolved.frame.primaryIssues[0]?.slug ?? undefined,
+          searchMode: "penumbra",
+          followUp:
+            body.followUp?.kind && body.followUp.text
+              ? {
+                  kind: body.followUp.kind,
+                  text: String(body.followUp.text),
+                  priorAnswer: body.followUp.priorAnswer
+                    ? String(body.followUp.priorAnswer)
+                    : undefined,
+                }
+              : undefined,
         });
         overviewPack = first.answerPackage;
         overviewMeta = first.meta;
@@ -337,6 +370,17 @@ export async function POST(req: Request) {
             critique: cOverview.critique,
             matterFrame: matterResolved.frame,
             taxonomySlug: matterResolved.frame.primaryIssues[0]?.slug ?? undefined,
+            searchMode: "penumbra",
+            followUp:
+              body.followUp?.kind && body.followUp.text
+                ? {
+                    kind: body.followUp.kind,
+                    text: String(body.followUp.text),
+                    priorAnswer: body.followUp.priorAnswer
+                      ? String(body.followUp.priorAnswer)
+                      : undefined,
+                  }
+                : undefined,
           });
           overviewPack = retry.answerPackage;
           overviewMeta = { ...retry.meta, retry: true, priorCritique: cOverview.critique };

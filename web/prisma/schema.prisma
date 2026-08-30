@@ -652,6 +652,7 @@ model User {
   bookmarks         Bookmark[]
   usageEvents       UsageEvent[]
   verificationTokens EmailVerificationToken[]
+  billingSubscription BillingSubscription?
 
   @@map("users")
 }
@@ -674,6 +675,7 @@ model UsageEvent {
   id               String   @id @default(cuid())
   userId           String   @map("user_id")
   requestId        String?  @map("request_id") @db.VarChar(64)
+  searchKey        String?  @map("search_key") @db.VarChar(128)
   endpoint         String   @db.VarChar(128)
   status           String   @default("started") @db.VarChar(32)
   llmCalls         Int      @default(0) @map("llm_calls")
@@ -686,6 +688,23 @@ model UsageEvent {
   @@index([userId, createdAt])
   @@index([userId, endpoint, createdAt])
   @@map("usage_events")
+}
+
+/// B2C recurring subscription state mirrored from Stripe/RevenueCat webhooks.
+model BillingSubscription {
+  id                   String   @id @default(cuid())
+  userId               String   @unique @map("user_id")
+  providerCustomerId   String?  @unique @map("provider_customer_id") @db.VarChar(128)
+  providerSubscriptionId String? @unique @map("provider_subscription_id") @db.VarChar(128)
+  status               String   @db.VarChar(32)
+  currentPeriodEnd     DateTime? @map("current_period_end") @db.Timestamptz(3)
+  provider             String   @default("stripe") @db.VarChar(32)
+  createdAt            DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt            DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([status, currentPeriodEnd])
+  @@map("billing_subscriptions")
 }
 
 /// Saved law firm / provider bookmark for a signed-in user.

@@ -1,6 +1,7 @@
 import type { SessionState } from './types'
 import type { LegalFrame } from './frames'
 import type { AnswerPackage } from './answerPackage'
+import type { ResearchBundle } from './researchBundle'
 import { MAX_SEARCH_QUERY_CHARS } from '@/lib/legal-search/query-limits'
 
 export type RetrieveAnswerResult = {
@@ -8,6 +9,12 @@ export type RetrieveAnswerResult = {
   retrieve?: { snippets?: unknown[]; layers?: string[] }
   origin?: string
   error?: string
+}
+
+export type AnswerFollowUpContext = {
+  kind: 'clarify' | 'add_detail' | 'refine'
+  text: string
+  priorAnswer?: string
 }
 
 /** Build story text for Retrieve → Answer. */
@@ -67,6 +74,8 @@ export function isFinalOverviewPackage(pack: AnswerPackage | null | undefined): 
 export async function fetchRetrieveAnswer(
   session: SessionState,
   frames: LegalFrame[] = [],
+  followUp?: AnswerFollowUpContext,
+  researchBundle?: ResearchBundle,
 ): Promise<RetrieveAnswerResult | null> {
   const latestText = sessionAnswerQuery(session, frames)
   if (latestText.length < 8) return null
@@ -81,9 +90,12 @@ export async function fetchRetrieveAnswer(
         clientQuestion: session.clientQuestion,
         matterType: session.matterType,
         topicId: session.topicId,
+        searchMode: session.searchMode,
         whatHappened: session.whatHappened,
         goal: session.goal,
         frameIds: frames.map((f) => f.id),
+        followUp,
+        researchBundle,
       }),
     })
     const data = (await res.json().catch(() => null)) as RetrieveAnswerResult | null

@@ -30,6 +30,9 @@ export type CoherenceAccessOptions = {
   expectedFrontierCalls?: number;
   /** Skip started usage event (gateway records after backend success). */
   skipUsageRecord?: boolean;
+  /** Count one stable user-initiated case search, not each internal LLM call. */
+  countSearch?: boolean;
+  searchKey?: string;
 };
 
 function quotaResponse(allowance: UsageAllowance): NextResponse {
@@ -40,6 +43,8 @@ function quotaResponse(allowance: UsageAllowance): NextResponse {
       error: allowance.reason ?? "quota_exceeded",
       dailyUsed: allowance.dailyUsed,
       dailyLimit: allowance.dailyLimit,
+      monthlySearchUsed: allowance.monthlySearchUsed,
+      monthlySearchLimit: allowance.monthlySearchLimit,
       retryAfterSec: allowance.retryAfterSec,
     },
     { status: 429, headers },
@@ -126,6 +131,8 @@ export async function requireCoherenceAccess(
     requestId,
     endpoint: opts.endpoint,
     expectedFrontierCalls: opts.expectedFrontierCalls ?? 2,
+    countSearch: opts.countSearch,
+    searchKey: opts.searchKey,
   });
   if (!allowance.allowed) {
     if (allowance.reason !== "concurrent") {
@@ -158,6 +165,7 @@ export async function requireCoherenceAccess(
       requestId,
       endpoint: opts.endpoint,
       status: "started",
+      searchKey: opts.countSearch ? opts.searchKey : undefined,
     });
   }
 

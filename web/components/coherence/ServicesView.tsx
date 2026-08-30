@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { SessionState } from '@/lib/coherence/types'
-import type { LegalFrame } from '@/lib/coherence/frames'
+import { proposeLegalFrames, type LegalFrame } from '@/lib/coherence/frames'
 import {
   buildHelpPack,
   matterLabel,
+  matchingSessionForHelp,
   type HelpPack,
 } from '@/lib/coherence/services'
 import type { HelpMatchResult } from '@/lib/coherence/masterAgent'
@@ -16,6 +17,7 @@ import {
   isPropertyDamageClaimText,
 } from '@/lib/coherence/matchFreeServices'
 import { SraAttribution } from '@/components/sra-attribution'
+import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './ServicesView.css'
 
 interface Props {
@@ -24,6 +26,7 @@ interface Props {
   helpMatch?: HelpMatchResult | null
   onBack: () => void
   onOpenSraFirm?: (sraId: string) => void
+  pageNavigation?: PageNavigationProps
 }
 
 type Row = {
@@ -78,6 +81,27 @@ function legalAreaLabel(session: SessionState): string {
     return [session.ukTaxonomyL1, session.ukTaxonomyL2].filter(Boolean).join(' · ')
   }
   return matterLabel(session.matterType)
+}
+
+function disputeTypeLabel(session: SessionState): string {
+  const labels: Record<string, string> = {
+    consumer_services: 'Consumer services / contractor workmanship dispute',
+    consumer_small_claims: 'Consumer small claim / money recovery',
+    consumer_vehicle_repair: 'Used vehicle / repair dispute',
+    parking_pcn: 'Parking charge / PCN dispute',
+    neighbour_dispute: 'Neighbour access / property dispute',
+    employment: 'Employment / workplace dispute',
+    housing: 'Housing / tenancy dispute',
+    conveyancing: 'Conveyancing / property purchase dispute',
+    family: 'Family / relationship dispute',
+    debt: 'Debt / enforcement dispute',
+    immigration: 'Immigration / visa matter',
+  }
+  if (session.taxonomySlug && labels[session.taxonomySlug]) return labels[session.taxonomySlug]
+  if (session.topicId && session.topicId !== 'general') {
+    return session.topicId.replace(/[-_]/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase())
+  }
+  return session.matterType === 'unknown' ? 'General legal matter — still being classified' : matterLabel(session.matterType)
 }
 
 function Item({ s, onOpenSraFirm }: { s: Row; onOpenSraFirm?: (sraId: string) => void }) {
@@ -247,6 +271,14 @@ function CaseContext({
         {session.matterType !== 'unknown' && session.taxonomySlug !== 'parking_pcn' ? (
           <p className="services__meta-sub">{matterLabel(session.matterType)}</p>
         ) : null}
+      </section>
+
+      <section className="services__context-block" aria-labelledby="services-dispute-type">
+        <h2 id="services-dispute-type" className="services__section-title">
+          Dispute type
+        </h2>
+        <p className="services__meta-value">{disputeTypeLabel(session)}</p>
+        <p className="services__meta-sub">Used to route the most relevant free help, directories and solicitors.</p>
       </section>
 
       <section className="services__context-block" aria-labelledby="services-jurisdiction">
@@ -447,15 +479,27 @@ function mergeFreeHelp(
   return out.slice(0, limit)
 }
 
-export function ServicesView({ session, frames = [], helpMatch = null, onBack, onOpenSraFirm }: Props) {
+export function ServicesView({
+  session,
+  frames = [],
+  helpMatch = null,
+  onBack,
+  onOpenSraFirm,
+  pageNavigation,
+}: Props) {
   const [pack, setPack] = useState<HelpPack | null>(null)
   const [loading, setLoading] = useState(true)
+  const helpSession = useMemo(() => matchingSessionForHelp(session), [session])
+  const helpFrames = useMemo(
+    () => (helpSession === session ? frames : proposeLegalFrames(helpSession, 5)),
+    [frames, helpSession, session],
+  )
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
     void (async () => {
-      const next = await buildHelpPack(session, frames)
+      const next = await buildHelpPack(helpSession, helpFrames)
       if (cancelled) return
       setPack(next)
       setLoading(false)
@@ -463,7 +507,7 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
     return () => {
       cancelled = true
     }
-  }, [session, frames])
+  }, [helpFrames, helpSession])
 
   const phase2Rows: Row[] =
     pack?.phase2Wiki.map((s) => ({
@@ -581,6 +625,18 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
       phone: s.phone,
     })) ?? []
 
+  const arambResourceRows: Row[] =
+    (helpSession.penumbraResearch?.bundle?.freeResources || [])
+      .filter((resource) => resource.matterType === helpSession.matterType || resource.matterType === 'unknown')
+      .map((resource) => ({
+        id: `aramb-resource:${resource.id}`,
+        type: `The Shaman lead · ${resource.resourceType} · pending review`,
+        title: resource.title,
+        blurb: `${resource.description} Source-linked to ${resource.sourceIds.join(', ')}. Verify suitability before relying on it.`,
+        url: resource.url,
+        phone: resource.phone,
+      }))
+
   const agentDirRows: Row[] =
     helpMatch?.directories.map((s) => ({
       id: s.id,
@@ -650,6 +706,7 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
 
   return (
     <div className="services">
+      {pageNavigation ? <PageNavigation {...pageNavigation} /> : null}
       <header className="services__header">
         <button type="button" className="services__back" onClick={onBack}>
           ← Back to timeline
@@ -660,7 +717,7 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
         </p>
       </header>
 
-      <CaseContext session={session} frames={frames} />
+      <CaseContext session={helpSession} frames={helpFrames} />
 
       <div className="services__matches">
         <h2 className="services__band-title">People and services to contact</h2>
@@ -672,6 +729,15 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
           <p className="services__blurb">No matches yet — try adding a place or more detail.</p>
         ) : (
           <>
+            {arambResourceRows.length > 0 && (
+              <Section
+                title="Additional resources found by The Shaman"
+                lead="Open-web resources found after the curated Legal Shaman review. These leads are not yet verified or approved."
+                rows={arambResourceRows}
+                variant="free"
+                onOpenSraFirm={onOpenSraFirm}
+              />
+            )}
             <Section
               title="Free services"
               lead="Charities and helplines you can call first, then official guidance pages."
@@ -727,6 +793,12 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
         Signposts only — verify regulation and suitability yourself. Not a recommendation ranking. Not legal
         advice.
       </p>
+      {helpSession.matterType !== session.matterType ? (
+        <p className="services__note">
+          Matching area adjusted to {matterLabel(helpSession.matterType)} after reviewing the case evidence.
+        </p>
+      ) : null}
+      {pageNavigation ? <PageNavigation {...pageNavigation} /> : null}
     </div>
   )
 }

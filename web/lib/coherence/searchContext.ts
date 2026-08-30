@@ -312,6 +312,8 @@ export function sessionForRoleTest(
     jurisdiction: 'Unknown',
     locationHint: '',
     mode: 'unknown',
+    searchMode: 'umbra',
+    penumbraAcknowledged: false,
     softFlags: [],
     safetyRisk: false,
     answeredPromptIds: [],

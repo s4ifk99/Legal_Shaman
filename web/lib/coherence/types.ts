@@ -1,4 +1,5 @@
 import type { SessionMatterFrame } from './matterFrame'
+import type { ResearchBundle } from './researchBundle'
 
 export type QuestionKind = 'open' | 'closed'
 
@@ -33,6 +34,8 @@ export type MatterType =
 export type Jurisdiction = 'EnglandWales' | 'Scotland' | 'NorthernIreland' | 'Unknown'
 
 export type Mode = 'browse' | 'dispute' | 'info' | 'research' | 'urgent' | 'unknown'
+export type SearchMode = 'umbra' | 'penumbra'
+export type PenumbraResearchStatus = 'idle' | 'starting' | 'awaiting_input' | 'complete' | 'error'
 
 export interface TimelineEvent {
   id: string
@@ -59,6 +62,20 @@ export interface SessionState {
   jurisdiction: Jurisdiction
   locationHint: string
   mode: Mode
+  /** Retrieval breadth preference; hard safety and grounding checks apply in both modes. */
+  searchMode: SearchMode
+  penumbraAcknowledged: boolean
+  /** Separate, optional exploratory child session; never the canonical case answer. */
+  penumbraResearch?: {
+    status: PenumbraResearchStatus
+    caseKey: string
+    conversationId?: string
+    questions: string[]
+    bundle?: ResearchBundle
+        fallback?: boolean
+    error?: string
+    updatedAt: string
+  }
   softFlags: string[]
   safetyRisk: boolean
   answeredPromptIds: string[]
@@ -135,6 +152,18 @@ export interface SessionState {
     clarifyingQuestion?: string
     source: 'llm' | 'heuristic' | 'user'
   }
+  /** Client corrections and refinement requests retained with the local case draft. */
+  feedbackHistory?: Array<{
+    kind: 'clarify' | 'add_detail' | 'refine'
+    text: string
+    at: string
+  }>
+  /** Local-only snapshots of prior overviews so a refinement can be compared after reload. */
+  answerRevisionHistory?: Array<{
+    kind: 'clarify' | 'add_detail' | 'refine'
+    answerOverview: string
+    at: string
+  }>
 }
 
 export interface ServiceCard {

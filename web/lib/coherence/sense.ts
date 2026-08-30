@@ -436,6 +436,8 @@ export function createInitialSession(): SessionState {
     jurisdiction: 'Unknown',
     locationHint: '',
     mode: 'unknown',
+    searchMode: 'penumbra',
+    penumbraAcknowledged: false,
     softFlags: [],
     safetyRisk: false,
     answeredPromptIds: [],

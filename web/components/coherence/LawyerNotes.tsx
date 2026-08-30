@@ -23,6 +23,7 @@ import { queueHandoff } from '@/lib/coherence/lawyerInbox'
 import { sourcesByFrame, wikiHitsToSignposts, matchImmigrationWiki } from '@/lib/coherence/wiki'
 import { isImmigrationSession } from '@/lib/coherence/services'
 import { LawyerReview } from './LawyerReview'
+import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './LawyerNotes.css'
 
 interface Props {
@@ -40,6 +41,7 @@ interface Props {
   /** When reviewing an imported Phase 0 JSON, use it as the brief base. */
   importedBrief?: SolicitorBriefV0
   onBack: () => void
+  pageNavigation?: PageNavigationProps
 }
 
 export function LawyerNotes({
@@ -51,6 +53,7 @@ export function LawyerNotes({
   lawyerName,
   importedBrief,
   onBack,
+  pageNavigation,
 }: Props) {
   const isLawyer = audience === 'lawyer'
   const printRef = useRef<HTMLElement>(null)
@@ -256,6 +259,7 @@ export function LawyerNotes({
 
   return (
     <div className="notes">
+      {pageNavigation ? <PageNavigation {...pageNavigation} /> : null}
       <header className="notes__chrome no-print">
         <button type="button" className="notes__back" onClick={onBack}>
           {isLawyer ? '← Back' : '← Back to timeline'}
@@ -487,6 +491,7 @@ export function LawyerNotes({
 
         <p className="notes__disclaimer">{brief.disclaimer}</p>
       </article>
+      {pageNavigation ? <PageNavigation {...pageNavigation} /> : null}
     </div>
   )
 }

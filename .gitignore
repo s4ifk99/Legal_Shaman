@@ -14,6 +14,7 @@ __pycache__/
 Thumbs.db
 web/.sra-sync-state.json
 web/reports/
+web/data/leads-no-booked-call-eval.json
 *api-keys*.txt
 .vercel
 .env*

@@ -16,7 +16,10 @@ import { ClosingNextSteps } from './ClosingNextSteps'
 import { OslawView } from './OslawView'
 import { SraOrganisationView } from './SraOrganisationView'
 import { LoadingScreen } from './LoadingScreen'
-import { ReformulationGate, type SearchDestination } from './ReformulationGate'
+import { PageNavigation } from './PageNavigation'
+import { B2CBillingBanner } from '@/components/billing/b2c-billing-banner'
+import { captureProductEvent } from '@/components/analytics/posthog-provider'
+import type { SearchDestination } from './ReformulationGate'
 import { createInitialSession, senseDetails } from '@/lib/coherence/sense'
 import { summariseToLabel } from '@/lib/coherence/timelineExtract'
 import { matterClassifierPrompt, nextPrompt } from '@/lib/coherence/questions'
@@ -28,10 +31,10 @@ import {
   clarifiersForSession,
 } from '@/lib/coherence/llmOrchestrate'
 import { applyMasterToSession, runMasterOrchestrate, type HelpMatchResult, type MasterResult } from '@/lib/coherence/masterAgent'
-import { isFinalOverviewPackage, fetchRetrieveAnswer } from '@/lib/coherence/retrieveAnswer'
+import { isFinalOverviewPackage, fetchRetrieveAnswer, sessionAnswerQuery } from '@/lib/coherence/retrieveAnswer'
 import { useCoherenceAuth } from '@/lib/auth/use-coherence-auth'
 import { MatterFrameInspector } from './MatterFrameInspector'
-import type { AnswerPackage } from '@/lib/coherence/answerPackage'
+import type { AnswerFollowUp, AnswerPackage } from '@/lib/coherence/answerPackage'
 import { proposeCoherentFrames } from '@/lib/coherence/frames'
 import { applyTopicLockToSession } from '@/lib/coherence/topicLock'
 import {
@@ -46,8 +49,14 @@ import { clearPersisted, loadPersisted, savePersisted } from '@/lib/coherence/pe
 import { loadLawyerSession, type LawyerSession } from '@/lib/coherence/lawyerAuth'
 import { buildSearchContextProfile } from '@/lib/coherence/searchContext'
 import { styleTranslateForRetrieval } from '@/lib/coherence/styleTranslation'
-import type { Mode, Party, Prompt, SessionState, TimelineEvent } from '@/lib/coherence/types'
+import {
+  newPenumbraCaseKey,
+  requestPenumbraResearch,
+} from '@/lib/coherence/penumbraResearch'
+import type { Mode, Party, Prompt, SearchMode, SessionState, TimelineEvent } from '@/lib/coherence/types'
 import './CoherenceApp.css'
+
+const PENUMBRA_SKIP_QUESTION = '__penumbra_skip_question__'
 
 type View = 'intake' | 'services' | 'notes' | 'oslaw' | 'lawyer-login' | 'lawyer-portal' | 'sra-org'
 
@@ -249,9 +258,36 @@ function persistedLooksLikeStory(session: SessionState, story: string): boolean 
 
 function normalizeSession(session: SessionState): SessionState {
   const base = createInitialSession()
+  const research = session.penumbraResearch
+  const normalizedResearch =
+    research && typeof research.caseKey === 'string'
+      ? {
+          ...research,
+          status:
+            // An in-flight request cannot survive a page reload. Recover stale
+            // persisted work to an actionable idle state.
+            research.status === 'starting'
+              ? 'idle' as const
+              : research.status === 'awaiting_input' ||
+                  (research.status as string) === 'needs_input' ||
+                  research.status === 'complete' ||
+                  research.status === 'error'
+              ? research.status
+              : 'idle' as const,
+          caseKey: research.caseKey.slice(0, 120),
+          questions: Array.isArray(research.questions)
+            ? research.questions.filter((question): question is string => typeof question === 'string').slice(0, 3)
+            : [],
+          fallback: research.fallback === true,
+        }
+      : undefined
   return {
     ...base,
     ...session,
+    // Penumbra is now the sole research path; normalize legacy persisted sessions.
+    searchMode: 'penumbra',
+    penumbraAcknowledged: session.penumbraAcknowledged === true,
+    penumbraResearch: normalizedResearch,
     confirmedSearchQuery: session.confirmedSearchQuery ?? '',
     reformulationOutcome: session.reformulationOutcome ?? 'none',
     styleTranslatedQuery: session.styleTranslatedQuery ?? '',
@@ -331,6 +367,9 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   const boot = useMemo(() => initialFromStorage(initialStory), [])
   const [session, setSession] = useState<SessionState>(boot.session)
   const [view, setView] = useState<View>(boot.view)
+  const pageHistoryRef = useRef<View[]>([boot.view])
+  const pageIndexRef = useRef(0)
+  const [, setPageNavigationVersion] = useState(0)
   const [selectedNode, setSelectedNode] = useState<string | undefined>()
   const [llmConfigured, setLlmConfigured] = useState(false)
   const [llmStatusReady, setLlmStatusReady] = useState(false)
@@ -345,17 +384,58 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   const [selectedSraId, setSelectedSraId] = useState<string | null>(null)
   const [helpMatch, setHelpMatch] = useState<HelpMatchResult | null>(null)
   const [matterInspector, setMatterInspector] = useState<MasterResult['matterInspector']>(null)
-  const [pendingSearch, setPendingSearch] = useState<SearchDestination | null>(null)
   /** Matching Help / OSLAW deferred until matter is classified. */
   const [resumeSearchAfterMatter, setResumeSearchAfterMatter] = useState<SearchDestination | null>(null)
   const [enrichingSearch, setEnrichingSearch] = useState(false)
   const [answerPackage, setAnswerPackage] = useState<AnswerPackage | null>(null)
+  const [pendingFollowUp, setPendingFollowUp] = useState<AnswerFollowUp | null>(null)
   const [agentError, setAgentError] = useState<string | null>(null)
+  const [penumbraBusy, setPenumbraBusy] = useState(false)
   const masterInFlightRef = useRef(false)
+  const penumbraInFlightRef = useRef(false)
   const masterRanRef = useRef(boot.session.rawInputs.length > 0)
   const autoStartedRef = useRef(false)
   const shouldAutoRunRef = useRef(boot.shouldAutoRun)
   const lastStoryRef = useRef(initialStory.trim())
+
+  function resetPageNavigation(nextView: View) {
+    pageHistoryRef.current = [nextView]
+    pageIndexRef.current = 0
+    setPageNavigationVersion((version) => version + 1)
+    setView(nextView)
+  }
+
+  function navigatePage(nextView: View) {
+    const current = pageHistoryRef.current[pageIndexRef.current]
+    if (current === nextView) return
+    const nextHistory = pageHistoryRef.current.slice(0, pageIndexRef.current + 1)
+    nextHistory.push(nextView)
+    pageHistoryRef.current = nextHistory
+    pageIndexRef.current = nextHistory.length - 1
+    setPageNavigationVersion((version) => version + 1)
+    setView(nextView)
+  }
+
+  function goToPreviousPage() {
+    if (pageIndexRef.current === 0) return
+    pageIndexRef.current -= 1
+    setPageNavigationVersion((version) => version + 1)
+    setView(pageHistoryRef.current[pageIndexRef.current])
+  }
+
+  function goToNextPage() {
+    if (pageIndexRef.current >= pageHistoryRef.current.length - 1) return
+    pageIndexRef.current += 1
+    setPageNavigationVersion((version) => version + 1)
+    setView(pageHistoryRef.current[pageIndexRef.current])
+  }
+
+  const pageNavigation = {
+    canGoBack: pageIndexRef.current > 0,
+    canGoForward: pageIndexRef.current < pageHistoryRef.current.length - 1,
+    onBack: goToPreviousPage,
+    onForward: goToNextPage,
+  }
 
   const heuristicPrompt = useMemo(() => nextPrompt(session), [session])
   const [prompt, setPrompt] = useState<Prompt>(heuristicPrompt)
@@ -379,13 +459,13 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     masterInFlightRef.current = false
     masterRanRef.current = nextBoot.session.rawInputs.length > 0
     setSession(nextBoot.session)
-    setView(nextBoot.view)
+    resetPageNavigation(nextBoot.view)
     setPrompt(nextPrompt(nextBoot.session))
     setHelpMatch(null)
     setMatterInspector(null)
     setAnswerPackage(null)
+    setPendingFollowUp(null)
     setAgentError(null)
-    setPendingSearch(null)
     setResumeSearchAfterMatter(null)
     setSelectedNode(undefined)
     setLlmBusy(false)
@@ -401,12 +481,23 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   }, [session, view])
 
   useEffect(() => {
-    setPrompt(heuristicPrompt)
     // Master run owns the loading overlay — do not clear busy here.
     if (skipEnhance) {
       setSkipEnhance(false)
       return
     }
+    // Penumbra owns the research questioning loop. Do not let the legacy
+    // local question enhancer run before The Shaman has identified the real gaps.
+    if (session.searchMode === 'penumbra') {
+      // runPenumbraResearch sets an explicit running/question/ready prompt.
+      // A session update during that request must not replace it with the
+      // heuristic closed question (which also makes the input look disabled).
+      if (penumbraBusy || penumbraInFlightRef.current) return
+      setLlmEnhancing(false)
+      setLlmPhase('idle')
+      return
+    }
+    setPrompt(heuristicPrompt)
     if (masterInFlightRef.current) return
 
     if (
@@ -450,9 +541,9 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   }, [heuristicPrompt.id])
 
   const options = useMemo(() => {
-    if (session.rawInputs.length === 0) return []
+    if (penumbraBusy || session.rawInputs.length === 0) return []
     return predictiveOptions(prompt, session)
-  }, [prompt, session])
+  }, [penumbraBusy, prompt, session])
   const progress = useMemo(() => computeProgress(session), [session])
   const serviceConfidence = useMemo(() => computeServiceConfidence(session), [session])
   const frames = useMemo(() => {
@@ -485,10 +576,61 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     setAddingDetail(false)
     setAgentError(null)
     const answeredId = prompt.id
+    const followUp = pendingFollowUp
+    setPendingFollowUp(null)
+
+    if (answeredId === 'penumbra_research_running') return
+
+    if (answeredId === 'penumbra_research_question') {
+      const skipped = value === PENUMBRA_SKIP_QUESTION
+      const next = {
+        ...(skipped ? session : senseDetails(value, session)),
+        answeredPromptIds: Array.from(new Set([...session.answeredPromptIds, answeredId])),
+      }
+      setSession(next)
+      void runPenumbraResearch(
+        skipped
+          ? 'No additional information is available for that question. Skip it and continue the research using the facts already provided.'
+          : value,
+        next,
+      )
+      return
+    }
+
+    if (answeredId === 'penumbra_research_ready') {
+      void usePenumbraResearch(session)
+      return
+    }
 
     // Heuristic baseline immediately so UI stays responsive
     let next = senseDetails(value, session)
     next = applyGapAnswer(answeredId, value, next)
+    if (followUp && value.trim()) {
+      next = {
+        ...next,
+        feedbackHistory: [
+          ...(session.feedbackHistory || []),
+          {
+            kind: followUp.kind,
+            text: value.trim(),
+            at: new Date().toISOString(),
+          },
+        ],
+      }
+      if (answerPackage?.answerOverview?.trim()) {
+        next = {
+          ...next,
+          answerRevisionHistory: [
+            ...(session.answerRevisionHistory || []),
+            {
+              kind: followUp.kind,
+              answerOverview: answerPackage.answerOverview.slice(0, 4000),
+              at: new Date().toISOString(),
+            },
+          ].slice(-5),
+        }
+      }
+    }
     if (answeredId === 'goal' || answeredId === 'gap_goal' || answeredId === 'constraint_goal') {
       next = { ...next, goal: next.goal || value.trim() }
     }
@@ -522,6 +664,9 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     }
     setSession(next)
     setPrompt(nextPrompt(next))
+    if (session.rawInputs.length === 0 && value.trim()) {
+      captureProductEvent('b2c_search_started', { search_mode: next.searchMode })
+    }
 
     // After matter clarify for Matching Help / OSLAW — resume destination once classified
     if (
@@ -532,16 +677,34 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       setResumeSearchAfterMatter(null)
       if (next.matterType !== 'unknown') {
         if (next.reformulationOutcome === 'none' && next.rawInputs.length > 0) {
-          setPendingSearch(dest)
+          const original = next.rawInputs.find((r) => r.trim().length >= 8)?.trim() || next.whatHappened.trim()
+          void confirmSearchQuery(original, 'skipped', dest, next)
         } else {
-          setPendingSearch(null)
-          setView(dest)
+          navigatePage(dest)
         }
         return
       }
     }
 
-    if (!llmConfigured) return
+    // Penumbra researches the case before Legal Shaman asks another intake
+    // question. The Shaman's returned gaps become the next prompt.
+    if (!followUp && next.searchMode === 'penumbra' && !next.penumbraResearch?.bundle) {
+      const launch = () => {
+        void runPenumbraResearch('', next)
+      }
+      if (authRequired) {
+        requireCoherenceAuth(launch)
+      } else {
+        launch()
+      }
+      return
+    }
+
+    if (!llmConfigured) {
+      // Keep the local-first loop usable when no LLM credentials are configured.
+      if (followUp) navigatePage('oslaw')
+      return
+    }
 
     const runMasterPipeline = async () => {
       if (authRequired && user && !emailVerified) {
@@ -560,12 +723,22 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       try {
         const phaseTimer = window.setTimeout(() => setLlmPhase('grounding'), 900)
         const sharpenTimer = window.setTimeout(() => setLlmPhase('sharpening'), 12_000)
+        const analysisText = followUp
+          ? `${sessionAnswerQuery(next, earlyFrames)}\n\nFollow-up request (${followUp.kind}): ${value.trim()}`
+          : value
         const master = await runMasterOrchestrate(
           next,
-          value,
+          analysisText,
           nextPrompt(next),
           controller.signal,
           'intake',
+          followUp
+            ? {
+                kind: followUp.kind,
+                text: value.trim(),
+                priorAnswer: answerPackage?.answerOverview,
+              }
+            : undefined,
         )
         window.clearTimeout(phaseTimer)
         window.clearTimeout(sharpenTimer)
@@ -582,8 +755,16 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
             setAgentError('Verify your email before analysing your matter.')
             return
           }
-          if (master.error === 'daily_quota' || master.error === 'minute_quota') {
-            setAgentError('Daily or per-minute search limit reached. Try again later.')
+          if (
+            master.error === 'daily_quota' ||
+            master.error === 'minute_quota' ||
+            master.error === 'monthly_search_quota'
+          ) {
+            setAgentError(
+              master.error === 'monthly_search_quota'
+                ? 'You have used your 5 free searches this month. Upgrade to The Shaman Unlimited for £3.49 every 4 weeks.'
+                : 'Daily or per-minute search limit reached. Try again later.',
+            )
             return
           }
           setAgentError(master.message || 'Agent request failed. Please try again.')
@@ -618,7 +799,11 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
           setAnswerPackage(null)
           setOverviewPending(true)
           const framesForOverview = proposeCoherentFrames(merged, 3)
-          void fetchRetrieveAnswer(merged, framesForOverview)
+          void fetchRetrieveAnswer(merged, framesForOverview, followUp ? {
+            kind: followUp.kind,
+            text: value.trim(),
+            priorAnswer: answerPackage?.answerOverview,
+          } : undefined)
             .then((retrieved) => {
               if (retrieved?.answerPackage && isFinalOverviewPackage(retrieved.answerPackage)) {
                 setAnswerPackage(retrieved.answerPackage)
@@ -652,10 +837,10 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     }
 
     // Full master is expensive (~30–70s). Only on opening / large new story dumps.
-    if (!shouldRunMasterPipeline(answeredId, value, session)) {
+    if (!followUp && !shouldRunMasterPipeline(answeredId, value, session)) {
       return
     }
-    if (masterRanRef.current && value.trim().length < 220) {
+    if (!followUp && masterRanRef.current && value.trim().length < 220) {
       return
     }
 
@@ -669,6 +854,20 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     void runMasterPipeline()
   }
 
+  function handleFollowUp(followUp: AnswerFollowUp) {
+    setPendingFollowUp(followUp)
+    setAnswerPackage(null)
+    setAgentError(null)
+    navigatePage('intake')
+    setAddingDetail(followUp.kind === 'add_detail')
+    setPrompt({
+      id: `feedback_${followUp.id}`,
+      kind: 'open',
+      text: followUp.prompt,
+      reason: 'Your response will be added to the case and used to refine the guidance.',
+    })
+  }
+
   // Deep-link: /ask-the-shaman?q=… should run Coherence intake, not sit ignored.
   useEffect(() => {
     const story = initialStory.trim()
@@ -676,7 +875,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     if (!shouldAutoRunRef.current) return
     autoStartedRef.current = true
     shouldAutoRunRef.current = false
-    setView('intake')
+    resetPageNavigation('intake')
     setHelpMatch(null)
     setMatterInspector(null)
     setAnswerPackage(null)
@@ -687,19 +886,28 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
 
   function openNotes(download = false) {
     setNotesAutoDownload(download)
-    setPendingSearch(null)
-    setView('notes')
+    navigatePage('notes')
   }
 
   function requestSearch(destination: SearchDestination) {
+    // Penumbra must research the user's story before asking for any
+    // classification. Matching Help can use the evidence-based routing lens
+    // while The Shaman is still completing its curated-first pass.
+    if (session.searchMode === 'penumbra' && session.rawInputs.length > 0) {
+      if (!session.penumbraResearch?.bundle && !penumbraInFlightRef.current) {
+        void runPenumbraResearch('', session)
+      }
+      navigatePage(destination)
+      return
+    }
+
     // Empty solicitor packs are a product signal when matter is unknown — ask once first
     if (
       session.matterType === 'unknown' &&
       !session.answeredPromptIds.includes('matter_for_services')
     ) {
       setResumeSearchAfterMatter(destination)
-      setPendingSearch(null)
-      setView('intake')
+      navigatePage('intake')
       setSkipEnhance(true)
       setPrompt(
         session.answeredPromptIds.includes('matter')
@@ -709,22 +917,26 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       return
     }
     if (session.reformulationOutcome === 'none' && session.rawInputs.length > 0) {
-      setPendingSearch(destination)
+      const original =
+        session.rawInputs.find((r) => r.trim().length >= 8)?.trim() ||
+        session.whatHappened.trim() ||
+        ''
+      void confirmSearchQuery(original, 'skipped', destination)
       return
     }
-    setPendingSearch(null)
-    setView(destination)
+    navigatePage(destination)
   }
 
   async function confirmSearchQuery(
     query: string,
     outcome: SessionState['reformulationOutcome'],
+    destination: SearchDestination,
+    sourceSession: SessionState = session,
   ) {
-    const destination = pendingSearch || 'services'
     setEnrichingSearch(true)
     try {
       let next: SessionState = {
-        ...session,
+        ...sourceSession,
         confirmedSearchQuery: query,
         reformulationOutcome: outcome,
       }
@@ -738,8 +950,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         abPrimaryMetric: profile.abPrimaryMetric,
       }
       setSession(next)
-      setPendingSearch(null)
-      setView(destination)
+      navigatePage(destination)
     } finally {
       setEnrichingSearch(false)
     }
@@ -755,6 +966,124 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       setPrompt(nextPrompt(next))
       return next
     })
+  }
+
+  function chooseSearchMode(searchMode: SearchMode) {
+    if (searchMode !== 'penumbra') return
+    setSession((prev) => ({ ...prev, searchMode: 'penumbra' }))
+    setAnswerPackage(null)
+  }
+
+  function acknowledgePenumbra() {
+    setSession((prev) => ({ ...prev, penumbraAcknowledged: true }))
+  }
+
+  async function runPenumbraResearch(message = '', sourceSession: SessionState = session) {
+    if (sourceSession.searchMode !== 'penumbra' || penumbraInFlightRef.current) return
+    penumbraInFlightRef.current = true
+    setPenumbraBusy(true)
+    setSkipEnhance(true)
+    setPrompt({
+      id: 'penumbra_research_running',
+      kind: 'open',
+      text: 'Penumbra is researching your case before asking for more detail.',
+      reason: 'The Shaman is reviewing curated Legal Shaman sources first, then checking wider public sources for genuine gaps.',
+    })
+    const current = sourceSession.penumbraResearch
+    const researchState = {
+      status: 'starting' as const,
+      caseKey: current?.caseKey || newPenumbraCaseKey(),
+      conversationId: current?.conversationId,
+      questions: current?.questions || [],
+      bundle: current?.bundle,
+      fallback: current?.fallback,
+      updatedAt: new Date().toISOString(),
+    }
+    const requestSession = { ...sourceSession, penumbraResearch: researchState }
+    setSession(requestSession)
+    try {
+      const result = await requestPenumbraResearch(requestSession, { message, stream: true })
+      if (!result) throw new Error('aramb_research_unavailable')
+      setSession((prev) => ({
+        ...prev,
+        penumbraResearch: {
+          ...researchState,
+          status: result.status === 'needs_input' ? 'awaiting_input' : 'complete',
+          conversationId: result.conversationId,
+          questions: result.questions,
+          bundle: result.bundle,
+          fallback: result.fallback === true,
+          updatedAt: new Date().toISOString(),
+        },
+      }))
+      if (result.questions.length > 0) {
+        setSkipEnhance(true)
+        setPrompt({
+          id: 'penumbra_research_question',
+          kind: 'open',
+          text: result.questions[0],
+          reason: 'The Shaman reviewed the curated sources and identified this missing fact before the grounded answer is prepared.',
+          options: [{
+            id: 'penumbra-skip-question',
+            label: 'Skip this question and continue',
+            value: PENUMBRA_SKIP_QUESTION,
+          }],
+        })
+      } else {
+        setSkipEnhance(true)
+        setPrompt({
+          id: 'penumbra_research_ready',
+          kind: 'closed',
+          text: 'Penumbra research is ready. Ask Legal Shaman to validate the findings and prepare the grounded answer.',
+          reason: result.fallback
+            ? 'The Shaman was unavailable, so only curated Legal Shaman sources are being handed off.'
+            : 'External research remains labelled as unverified until Legal Shaman reviews it.',
+          options: [{
+            id: 'penumbra-handoff',
+            label: 'Ask Legal Shaman to review',
+            value: 'Ask Legal Shaman to review the Penumbra findings',
+          }],
+        })
+      }
+    } catch (error) {
+      if (error instanceof Error && error.message === 'monthly_search_quota') {
+        setAgentError('You have used your 5 free searches this month. Upgrade to The Shaman Unlimited for £3.49 every 4 weeks.')
+      }
+      setSession((prev) => ({
+        ...prev,
+        penumbraResearch: {
+          ...researchState,
+          status: 'error',
+          error: error instanceof Error ? error.message : 'aramb_research_failed',
+          updatedAt: new Date().toISOString(),
+        },
+      }))
+    } finally {
+      penumbraInFlightRef.current = false
+      setPenumbraBusy(false)
+    }
+  }
+
+  async function usePenumbraResearch(sourceSession: SessionState = session) {
+    const bundle = sourceSession.penumbraResearch?.bundle
+    if (sourceSession.searchMode !== 'penumbra' || !bundle) return
+    setOverviewPending(true)
+    setAgentError(null)
+    try {
+      const result = await fetchRetrieveAnswer(
+        sourceSession,
+        proposeCoherentFrames(sourceSession, 3),
+        undefined,
+        bundle,
+      )
+      if (!result?.answerPackage) throw new Error('final_synthesis_unavailable')
+      setAnswerPackage(result.answerPackage)
+      if (view !== 'oslaw') navigatePage('oslaw')
+    } catch (error) {
+      setAgentError(error instanceof Error ? error.message : 'final_synthesis_unavailable')
+    } finally {
+      setOverviewPending(false)
+    }
   }
 
   function updateEvent(id: string, patch: Partial<Pick<TimelineEvent, 'label' | 'dateApprox'>>) {
@@ -791,10 +1120,11 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     setHelpMatch(null)
     setMatterInspector(null)
     setAnswerPackage(null)
+    setPenumbraBusy(false)
+    setPendingFollowUp(null)
     setAgentError(null)
-    setView('intake')
+    resetPageNavigation('intake')
     setSelectedNode(undefined)
-    setPendingSearch(null)
     setPrompt(nextPrompt(fresh))
     setLlmBusy(false)
     setLlmEnhancing(false)
@@ -805,7 +1135,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     return (
       <SraOrganisationView
         sraId={selectedSraId}
-        onBack={() => setView('services')}
+        onBack={() => navigatePage('services')}
       />
     )
   }
@@ -816,11 +1146,12 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         session={session}
         frames={frames}
         helpMatch={helpMatch}
-        onBack={() => setView('intake')}
+        onBack={() => navigatePage('intake')}
         onOpenSraFirm={(sraId) => {
           setSelectedSraId(sraId)
-          setView('sra-org')
+          navigatePage('sra-org')
         }}
+        pageNavigation={pageNavigation}
       />
     )
   }
@@ -832,8 +1163,29 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         frames={frames}
         masterAnswerPackage={answerPackage}
         overviewLoading={overviewLoading}
-        onBack={() => setView('intake')}
+        onBack={() => navigatePage('intake')}
         onFindHelp={() => requestSearch('services')}
+        onFollowUp={handleFollowUp}
+        searchMode={session.searchMode}
+        onStartPenumbraResearch={(message) => {
+          if (authRequired) {
+            requireCoherenceAuth(() => {
+              void runPenumbraResearch(message)
+            })
+          } else {
+            void runPenumbraResearch(message)
+          }
+        }}
+        onUsePenumbraResearch={() => {
+          if (authRequired) {
+            requireCoherenceAuth(() => {
+              void usePenumbraResearch()
+            })
+          } else {
+            void usePenumbraResearch()
+          }
+        }}
+        pageNavigation={pageNavigation}
       />
     )
   }
@@ -848,8 +1200,9 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         audience="client"
         onBack={() => {
           setNotesAutoDownload(false)
-          setView('intake')
+          navigatePage('intake')
         }}
+        pageNavigation={pageNavigation}
       />
     )
   }
@@ -859,9 +1212,9 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       <LawyerLogin
         onSignedIn={(s) => {
           setLawyer(s)
-          setView('lawyer-portal')
+          navigatePage('lawyer-portal')
         }}
-        onBackToClient={() => setView('intake')}
+        onBackToClient={() => navigatePage('intake')}
       />
     )
   }
@@ -872,9 +1225,9 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         <LawyerLogin
           onSignedIn={(s) => {
             setLawyer(s)
-            setView('lawyer-portal')
+            navigatePage('lawyer-portal')
           }}
-          onBackToClient={() => setView('intake')}
+          onBackToClient={() => navigatePage('intake')}
         />
       )
     }
@@ -886,9 +1239,9 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         liveFrames={frames}
         onSignedOut={() => {
           setLawyer(null)
-          setView('lawyer-login')
+          navigatePage('lawyer-login')
         }}
-        onBackToClient={() => setView('intake')}
+        onBackToClient={() => navigatePage('intake')}
       />
     )
   }
@@ -925,12 +1278,14 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
           <button
             type="button"
             className="shell__solicitor"
-            onClick={() => setView(lawyer ? 'lawyer-portal' : 'lawyer-login')}
+            onClick={() => navigatePage(lawyer ? 'lawyer-portal' : 'lawyer-login')}
           >
             Solicitor login
           </button>
         </span>
       </div>
+      <B2CBillingBanner />
+      <PageNavigation {...pageNavigation} />
       {agentError ? (
         <p role="alert" className="agent-error">
           {agentError}
@@ -949,37 +1304,18 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
 
       <FrameChips frames={frames} />
 
-      {showModeFork && <ModeFork onChoose={chooseMode} />}
+      {showModeFork && (
+        <ModeFork
+          onChoose={chooseMode}
+          searchMode={session.searchMode}
+          penumbraAcknowledged={session.penumbraAcknowledged}
+          onSearchMode={chooseSearchMode}
+          onAcknowledgePenumbra={acknowledgePenumbra}
+        />
+      )}
 
       <main className="shell__main">
-        {pendingSearch ? (
-          <ReformulationGate
-            session={session}
-            destination={pendingSearch}
-            llmConfigured={llmConfigured}
-            onConfirm={(query) => {
-              void confirmSearchQuery(query, 'confirmed')
-            }}
-            onUseOriginal={() => {
-              const original =
-                session.rawInputs.find((r) => r.trim().length >= 8)?.trim() ||
-                session.whatHappened.trim() ||
-                ''
-              void confirmSearchQuery(original, 'skipped')
-            }}
-            onCancel={() => setPendingSearch(null)}
-            onDownloadNotes={() => {
-              setSession((prev) => ({ ...prev, reformulationOutcome: 'refused' }))
-              openNotes(true)
-            }}
-            onConfirmRole={(role) => {
-              setSession((prev) => ({ ...prev, confirmedUserRole: role }))
-            }}
-            onAuthorityResolved={(next) => {
-              setSession(next)
-            }}
-          />
-        ) : closing ? (
+        {closing ? (
           <ClosingNextSteps
             servicesReady={servicesReady}
             preferOslaw={session.mode === 'research'}
@@ -1008,7 +1344,14 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
             {!addingDetail && (
               <PredictiveOptions options={options} onSelect={handleAnswer} kind={prompt.kind} />
             )}
-            <InputBar onSubmit={handleAnswer} disabled={llmBusy} />
+            {/* Background synthesis must not prevent the user drafting the next answer. */}
+            <InputBar
+              onSubmit={handleAnswer}
+              // Keep answers typeable whenever a question is visible. Only
+              // the explicit research-running state should temporarily block
+              // submission while the handoff prompt is being replaced.
+              disabled={penumbraBusy && prompt.id === 'penumbra_research_running'}
+            />
           </>
         )}
       </main>
@@ -1028,6 +1371,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         onShowServices={() => requestSearch('services')}
         onShowNotes={() => openNotes(false)}
       />
+      <PageNavigation {...pageNavigation} />
     </div>
   )
 }

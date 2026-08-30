@@ -1,0 +1,184 @@
+[
+  {
+    "title": "An Intent Taxonomy of Legal Case Retrieval",
+    "url": "https://doi.org/10.48550/arxiv.2307.13298",
+    "score": 0,
+    "publishedDate": "2023-07-25T00:00:00.000Z",
+    "author": "Yunqiu Shao, Haitao Li, Yueyue Wu, Yiqun Liu, Qingyao Ai, Jiaxin Mao, et al.",
+    "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+    "highlights": [
+      "# An Intent Taxonomy of Legal Case Retrieval\n\narXiv (Cornell University). Published: 2023-07-25. Preprint. 0 citations.\n\n## Authors\n\n- Yunqiu Shao: h-index 11; 523 citations\n- Haitao Li: h-index 16; 866 citations\n- Yueyue Wu: h-index 11; 389 citations\n- Yiqun Liu: h-index 53; 10,446 citations\n- Qingyao Ai: h-index 25; 4,783 citations\n- Jiaxin Mao: h-index 25; 2,581 citations\n- Yixiao Ma: h-index 11; 816 citations\n- Shaoping Ma: h-index 52; 10,948 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Legal Education and Practice Innovations\n\n## Funding\n\n- National Natural Science Foundation of China\n\n---\n\n# An Intent Taxonomy of Legal Case Retrieval\n\n## Abstract\n\nLegal case retrieval is a special Information Retrieval (IR) task focusing on legal case documents. Depending on the downstrea"
+    ],
+    "text": "# An Intent Taxonomy of Legal Case Retrieval\n\narXiv (Cornell University). Published: 2023-07-25. Preprint. 0 citations.\n\n## Authors\n\n- Yunqiu Shao: h-index 11; 523 citations\n- Haitao Li: h-index 16; 866 citations\n- Yueyue Wu: h-index 11; 389 citations\n- Yiqun Liu: h-index 53; 10,446 citations\n- Qingyao Ai: h-index 25; 4,783 citations\n- Jiaxin Mao: h-index 25; 2,581 citations\n- Yixiao Ma: h-index 11; 816 citations\n- Shaoping Ma: h-index 52; 10,948 citations\n\n## Topics\n\n- Artificial Intelligence i",
+    "relevance": 6
+  },
+  {
+    "title": "Decompose-and-Refine: Structured Legal Question Answering with Parametric Retrieval",
+    "url": "https://doi.org/10.48550/arxiv.2605.24454",
+    "score": 0,
+    "publishedDate": "2026-05-23T00:00:00.000Z",
+    "author": "Jihyung Lee, Hyounghun Kim, Gary Lee",
+    "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+    "highlights": [
+      "# Decompose-and-Refine: Structured Legal Question Answering with Parametric Retrieval\n\narXiv (Cornell University). Published: 2026-05-23. Preprint. 0 citations.\n\n## Authors\n\n- Jihyung Lee: h-index 9; 359 citations\n- Hyounghun Kim: h-index 0; 0 citations\n- Gary Lee: h-index 0; 0 citations\n\n## Topics\n\n- Topic Modeling\n- Multimodal Machine Learning Applications\n- Advanced Graph Neural Networks\n\n---\n\n# Decompose-and-Refine: Structured Legal Question Answering with Parametric Retrieval\n\nJihyung Lee 1, Hyounghun Kim 1,2, Gary Geunbae Lee 1,2 1Graduate School of Artificial Intelligence, POSTECH, Republic of Korea 2Department of Computer Science and Engineering, POSTECH, Republic of Korea {jihyung.lee, h.kim, gblee}@postech.ac.kr\n\n## Abstract\n\nLarge language models (LLMs) have shown strong perform"
+    ],
+    "text": "# Decompose-and-Refine: Structured Legal Question Answering with Parametric Retrieval\n\narXiv (Cornell University). Published: 2026-05-23. Preprint. 0 citations.\n\n## Authors\n\n- Jihyung Lee: h-index 9; 359 citations\n- Hyounghun Kim: h-index 0; 0 citations\n- Gary Lee: h-index 0; 0 citations\n\n## Topics\n\n- Topic Modeling\n- Multimodal Machine Learning Applications\n- Advanced Graph Neural Networks\n\n---\n\n# Decompose-and-Refine: Structured Legal Question Answering with Parametric Retrieval\n\nJihyung Lee 1",
+    "relevance": 5
+  },
+  {
+    "title": "LegalMALR:Multi-Agent Query Understanding and LLM-Based Reranking for Chinese Statute Retrieval",
+    "url": "https://doi.org/10.48550/arxiv.2601.17692",
+    "score": 0,
+    "publishedDate": "2026-01-25T00:00:00.000Z",
+    "author": "Yunhan Li, Mingjie Xie, Gaoli Kang, Zihan Gong, Gengshen Wu, Min Yang",
+    "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+    "highlights": [
+      "# LegalMALR:Multi-Agent Query Understanding and LLM-Based Reranking for Chinese Statute Retrieval\n\narXiv (Cornell University). Published: 2026-01-25. Preprint. 0 citations.\n\n## Authors\n\n- Yunhan Li: h-index 0; 0 citations\n- Mingjie Xie: h-index 0; 0 citations\n- Gaoli Kang: h-index 0; 0 citations\n- Zihan Gong: h-index 0; 0 citations\n- Gengshen Wu: h-index 10; 643 citations\n- Min Yang: h-index 0; 0 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n- Multi-Agent Systems and Negotiation\n\n---\n\n# LegalMALR:Multi-Agent Query Understanding and LLM-Based Reranking for Chinese Statute Retrieval\n\nYunhan Li1,2, Mingjie Xie3,4, Gaoli Kang4, Zihan Gong2,3, Gengshen Wu1, Min Yang2*\n\n1Faculty of Data Science, City University of Macau, Avenida Padre Tom\u00e1s Pereira Taipa, Macau. 2*Shenz"
+    ],
+    "text": "# LegalMALR:Multi-Agent Query Understanding and LLM-Based Reranking for Chinese Statute Retrieval\n\narXiv (Cornell University). Published: 2026-01-25. Preprint. 0 citations.\n\n## Authors\n\n- Yunhan Li: h-index 0; 0 citations\n- Mingjie Xie: h-index 0; 0 citations\n- Gaoli Kang: h-index 0; 0 citations\n- Zihan Gong: h-index 0; 0 citations\n- Gengshen Wu: h-index 10; 643 citations\n- Min Yang: h-index 0; 0 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n- Multi-Agent Systems and Ne",
+    "relevance": 5
+  },
+  {
+    "title": "Learning and Reusing Policy Decompositions for Hierarchical Generalized Planning with LLM Agents",
+    "url": "https://doi.org/10.48550/arxiv.2605.06957",
+    "score": 0,
+    "publishedDate": "2026-05-07T00:00:00.000Z",
+    "author": "Shirin Sohrabi, Haritha Ananthakrishnan, Harsha Kokel, Kavitha Srinivas, Michael Katz",
+    "query": "task decomposition agents retrieval planning instead of handcrafted rules",
+    "highlights": [
+      "# Learning and Reusing Policy Decompositions for Hierarchical Generalized Planning with LLM Agents\n\narXiv (Cornell University). Published: 2026-05-07. Preprint. 0 citations.\n\n## Authors\n\n- Shirin Sohrabi: h-index 19; 1,268 citations\n- Haritha Ananthakrishnan: h-index 2; 15 citations\n- Harsha Kokel: h-index 3; 58 citations\n- Kavitha Srinivas: h-index 31; 3,314 citations\n- Michael Katz: h-index 0; 0 citations\n\n## Topics\n\n- Reinforcement Learning in Robotics\n- AI-based Problem Solving and Planning\n- Machine Learning in Healthcare\n\n---\n\n# Learning and Reusing Policy Decompositions for Hierarchical Generalized Planning with LLM Agents\n\nShirin Sohrabi Haritha Ananthakrishnan Harsha Kokel Kavitha Srinivas Michael Katz IBM ssohrab@us.ibm.com {hananthakris,Harsha.Kokel,kavitha.srinivas,Michael.Katz"
+    ],
+    "text": "# Learning and Reusing Policy Decompositions for Hierarchical Generalized Planning with LLM Agents\n\narXiv (Cornell University). Published: 2026-05-07. Preprint. 0 citations.\n\n## Authors\n\n- Shirin Sohrabi: h-index 19; 1,268 citations\n- Haritha Ananthakrishnan: h-index 2; 15 citations\n- Harsha Kokel: h-index 3; 58 citations\n- Kavitha Srinivas: h-index 31; 3,314 citations\n- Michael Katz: h-index 0; 0 citations\n\n## Topics\n\n- Reinforcement Learning in Robotics\n- AI-based Problem Solving and Planning\n",
+    "relevance": 5
+  },
+  {
+    "title": "LevelRAG: Enhancing Retrieval-Augmented Generation with Multi-hop Logic Planning over Rewriting Augmented Searchers",
+    "url": "https://doi.org/10.48550/arxiv.2502.18139",
+    "score": 0,
+    "publishedDate": "2025-02-25T00:00:00.000Z",
+    "author": "Zhuocheng Zhang, Feng Yang, Min Zhang",
+    "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+    "highlights": [
+      "# LevelRAG: Enhancing Retrieval-Augmented Generation with Multi-hop Logic Planning over Rewriting Augmented Searchers\n\narXiv (Cornell University). Published: 2025-02-25. Preprint. 0 citations.\n\n## Authors\n\n- Zhuocheng Zhang: h-index 3; 106 citations\n- Feng Yang: h-index 8; 205 citations\n- Min Zhang: h-index 43; 6,630 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n- Web Data Mining and Analysis\n- Advanced Database Systems and Queries\n\n---\n\n# LevelRAG: Enhancing Retrieval-Augmented Generation with Multi-hop Logic Planning over Rewriting Augmented Searchers\n\nRetrieval-Augmented Generation (RAG) is a crucial method for mitigating hallucinations in Large Language Models (LLMs) and integrating external knowledge into their re sponses. Existing RAG methods typically employ query rewriting to"
+    ],
+    "text": "# LevelRAG: Enhancing Retrieval-Augmented Generation with Multi-hop Logic Planning over Rewriting Augmented Searchers\n\narXiv (Cornell University). Published: 2025-02-25. Preprint. 0 citations.\n\n## Authors\n\n- Zhuocheng Zhang: h-index 3; 106 citations\n- Feng Yang: h-index 8; 205 citations\n- Min Zhang: h-index 43; 6,630 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n- Web Data Mining and Analysis\n- Advanced Database Systems and Queries\n\n---\n\n# LevelRAG: Enhancing Retrieval-Augmented Generation",
+    "relevance": 4
+  },
+  {
+    "title": "NLP-Based Rule Learning from Legal Text for Question Answering",
+    "url": "https://doi.org/10.9734/ajrcos/2024/v17i7475",
+    "score": 0,
+    "publishedDate": "2024-06-14T00:00:00.000Z",
+    "author": "Biralatei Fawei",
+    "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+    "highlights": [
+      "# NLP-Based Rule Learning from Legal Text for Question Answering\n\nAsian Journal of Research in Computer Science. Published: 2024-06-14. 0 citations.\n\n## Authors\n\n- Biralatei Fawei (Niger Delta University): h-index 4; 98 citations; corresponding author\n\n## Topics\n\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n- Natural Language Processing Techniques\n\n---\n\n# NLP-Based Rule Learning from Legal\n\nVolume 17, Issue 7, Page 31-40, 2024; Article no.AJRCOS.118145 ISSN: 2581-8260 Biralatei Fawei a*\n\na Department of Computing Science, Niger Delta University, Wilberforce, PMB 581, Bayelsa State, Nigeria.\n\nAuthor\u2019s contribution\n\nThe sole author designed, analyzed, interpreted and prepared the manuscript.\n\nDOI: https://doi.org/10.9734/ajrcos/2024/v17i7475 Open Peer Review History"
+    ],
+    "text": "# NLP-Based Rule Learning from Legal Text for Question Answering\n\nAsian Journal of Research in Computer Science. Published: 2024-06-14. 0 citations.\n\n## Authors\n\n- Biralatei Fawei (Niger Delta University): h-index 4; 98 citations; corresponding author\n\n## Topics\n\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n- Natural Language Processing Techniques\n\n---\n\n# NLP-Based Rule Learning from Legal\n\nVolume 17, Issue 7, Page 31-40, 2024; Article no.AJRCOS.118145 ISSN: 2581-8260 B",
+    "relevance": 4
+  },
+  {
+    "title": "Segment First, Retrieve Better: Realistic Legal Search via Rhetorical Role-Based Queries",
+    "url": "https://doi.org/10.48550/arxiv.2508.00679",
+    "score": 0,
+    "publishedDate": "2025-08-01T00:00:00.000Z",
+    "author": "Shubham Kumar Nigam, Tanmay Dubey, Noel Shallum, Arnab Bhattacharya",
+    "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+    "highlights": [
+      "# Segment First, Retrieve Better: Realistic Legal Search via Rhetorical Role-Based Queries\n\narXiv (Cornell University). Published: 2025-08-01. Preprint. 0 citations.\n\n## Authors\n\n- Shubham Kumar Nigam: h-index 5; 83 citations\n- Tanmay Dubey: h-index 1; 5 citations\n- Noel Shallum: h-index 4; 37 citations\n- Arnab Bhattacharya: h-index 18; 1,387 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n- Multi-Agent Systems and Negotiation\n\n---\n\n# Segment First, Retrieve Better: Realistic Legal Search via Rhetorical Role-Based Queries\n\n1IIT Kanpur, India 2IISER Kolkata, India 3 Symbiosis Law School Pune, India {sknigam, tanmay, arnabb}@cse.iitk.ac.in noelshallum@gmail.com\n\n## Abstract\n\nLegal precedent retrieval is a cornerstone of the common law system, governed by the prin cipl"
+    ],
+    "text": "# Segment First, Retrieve Better: Realistic Legal Search via Rhetorical Role-Based Queries\n\narXiv (Cornell University). Published: 2025-08-01. Preprint. 0 citations.\n\n## Authors\n\n- Shubham Kumar Nigam: h-index 5; 83 citations\n- Tanmay Dubey: h-index 1; 5 citations\n- Noel Shallum: h-index 4; 37 citations\n- Arnab Bhattacharya: h-index 18; 1,387 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n- Multi-Agent Systems and Negotiation\n\n---\n\n# Segment First, Retrieve Better: Reali",
+    "relevance": 4
+  },
+  {
+    "title": "Learning Interpretable Legal Case Retrieval via Knowledge-Guided Case Reformulation",
+    "url": "https://doi.org/10.18653/v1/2024.emnlp-main.73",
+    "score": 0,
+    "publishedDate": "2024-01-01T00:00:00.000Z",
+    "author": "Chenlong Deng, Kelong Mao, Zhicheng Dou",
+    "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+    "highlights": [
+      "# Learning Interpretable Legal Case Retrieval via Knowledge-Guided Case Reformulation\n\nPublished: 2024-01-01. 4 citations.\n\n## Authors\n\n- Chenlong Deng (Renmin University of China): h-index 17; 1,530 citations\n- Kelong Mao (Renmin University of China): h-index 15; 1,128 citations\n- Zhicheng Dou (Renmin University of China): h-index 34; 4,330 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Legal Education and Practice Innovations\n- Dispute Resolution and Class Actions\n\n## Funding\n\n- National Natural Science Foundation of China\n- National Science and Technology Major Project\n\n---\n\n# Learning Interpretable Legal Case Retrieval via Knowledge-Guided Case Reformulation\n\n## Abstract\n\nLegal case retrieval for sourcing similar cases is critical in upholding judicial fairness. Different fro"
+    ],
+    "text": "# Learning Interpretable Legal Case Retrieval via Knowledge-Guided Case Reformulation\n\nPublished: 2024-01-01. 4 citations.\n\n## Authors\n\n- Chenlong Deng (Renmin University of China): h-index 17; 1,530 citations\n- Kelong Mao (Renmin University of China): h-index 15; 1,128 citations\n- Zhicheng Dou (Renmin University of China): h-index 34; 4,330 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Legal Education and Practice Innovations\n- Dispute Resolution and Class Actions\n\n## Funding\n\n- Nati",
+    "relevance": 4
+  },
+  {
+    "title": "LexKeyPlan: Planning with Keyphrases and Retrieval Augmentation for Legal Text Generation: A Case Study on European Court of Human Rights Cases",
+    "url": "https://doi.org/10.18653/v1/2025.acl-short.32",
+    "score": 0,
+    "publishedDate": "2025-01-01T00:00:00.000Z",
+    "author": "Santosh T.y.s.s, Elvin Quero Hernandez",
+    "query": "LLM structured output legal issue framing concepts exclusions retrieval planning",
+    "highlights": [
+      "# LexKeyPlan: Planning with Keyphrases and Retrieval Augmentation for Legal Text Generation: A Case Study on European Court of Human Rights Cases\n\nPublished: 2025-01-01. 2 citations.\n\n## Authors\n\n- Santosh T.y.s.s: h-index 4; 42 citations\n- Elvin Quero Hernandez (Technical University of Munich): h-index 1; 2 citations\n\n## Topics\n\n- Advanced Text Analysis Techniques\n- Topic Modeling\n- Natural Language Processing Techniques\n\n---\n\n# LexKeyPlan: Planning with Keyphrases and Retrieval Augmentation for Legal Text Generation: A Case Study on European Court of Human Rights Cases\n\n## Abstract\n\nLarge language models excel at legal text generation but often produce hallucinations due to their sole reliance on parametric knowledge. Retrieval-augmented models mitigate this by providing relevant externa"
+    ],
+    "text": "# LexKeyPlan: Planning with Keyphrases and Retrieval Augmentation for Legal Text Generation: A Case Study on European Court of Human Rights Cases\n\nPublished: 2025-01-01. 2 citations.\n\n## Authors\n\n- Santosh T.y.s.s: h-index 4; 42 citations\n- Elvin Quero Hernandez (Technical University of Munich): h-index 1; 2 citations\n\n## Topics\n\n- Advanced Text Analysis Techniques\n- Topic Modeling\n- Natural Language Processing Techniques\n\n---\n\n# LexKeyPlan: Planning with Keyphrases and Retrieval Augmentation fo",
+    "relevance": 4
+  },
+  {
+    "title": "LegalCheck: Retrieval- and Context-Augmented Generation for Drafting Municipal Legal Advice Letters",
+    "url": "https://doi.org/10.48550/arxiv.2605.12012",
+    "score": 0,
+    "publishedDate": "2026-05-12T00:00:00.000Z",
+    "author": "Virgill van der Meer, Julien Rossi",
+    "query": "LLM structured output legal issue framing concepts exclusions retrieval planning",
+    "highlights": [
+      "# LegalCheck: Retrieval- and Context-Augmented Generation for Drafting Municipal Legal Advice Letters\n\narXiv (Cornell University). Published: 2026-05-12. Preprint. 0 citations.\n\n## Authors\n\n- Virgill van der Meer: h-index 0; 0 citations\n- Julien Rossi: h-index 0; 0 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n- Ethics and Social Impacts of AI\n\n---\n\n# LegalCheck: Retrieval- and Context-Augmented Generation for Drafting Municipal Legal Advice Letters\n\n## Abstract\n\nPublic-sector legal departments in the Netherlands face acute staff shortages, increased case volumes, and increased pressure to meet regulatory compliance. This paper presents LegalCheck, a novel system that addresses these challenges by automating the drafting of objection response"
+    ],
+    "text": "# LegalCheck: Retrieval- and Context-Augmented Generation for Drafting Municipal Legal Advice Letters\n\narXiv (Cornell University). Published: 2026-05-12. Preprint. 0 citations.\n\n## Authors\n\n- Virgill van der Meer: h-index 0; 0 citations\n- Julien Rossi: h-index 0; 0 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n- Ethics and Social Impacts of AI\n\n---\n\n# LegalCheck: Retrieval- and Context-Augmented Generation for Drafting Municipal Legal Advice Letters",
+    "relevance": 4
+  },
+  {
+    "title": "Section-Weighted Hybrid Approach for Legal Case Retrieval",
+    "url": "https://doi.org/10.48550/arxiv.2606.03138",
+    "score": 0,
+    "publishedDate": "2026-06-02T00:00:00.000Z",
+    "author": "Rajith Arulanandam, Nisansa de Silva",
+    "query": "HyDE query expansion dense retrieval topic drift mitigation legal IR",
+    "highlights": [
+      "# Section-Weighted Hybrid Approach for Legal Case Retrieval\n\narXiv (Cornell University). Published: 2026-06-02. Preprint. 0 citations.\n\n## Authors\n\n- Rajith Arulanandam: h-index 0; 0 citations\n- Nisansa de Silva: h-index 0; 0 citations\n\n## Topics\n\n- Topic Modeling\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n\n---\n\n# Section-Weighted Hybrid Approach for Legal Case Retrieval\n\nRajith Arulanandam, Nisansa de Silva Department of Computer Science & Engineering, University of Moratuwa, Sri Lanka { rajith.24,nisansadds} @cse.mrt.ac.lk\n\nAbstract\u2014Finding truly analogous precedents requires captur ing legal reasoning beyond surface word overlap. We present a two-stage, section-aware framework for legal case retrieval that first segments raw judgments into facts, issues, deci"
+    ],
+    "text": "# Section-Weighted Hybrid Approach for Legal Case Retrieval\n\narXiv (Cornell University). Published: 2026-06-02. Preprint. 0 citations.\n\n## Authors\n\n- Rajith Arulanandam: h-index 0; 0 citations\n- Nisansa de Silva: h-index 0; 0 citations\n\n## Topics\n\n- Topic Modeling\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n\n---\n\n# Section-Weighted Hybrid Approach for Legal Case Retrieval\n\nRajith Arulanandam, Nisansa de Silva Department of Computer Science & Engineering, University of ",
+    "relevance": 4
+  },
+  {
+    "title": "Multi-Agent LLM Collaborative Reasoning and Task Planning for Complex Task Solving",
+    "url": "https://doi.org/10.21203/rs.3.rs-10232223/v1",
+    "score": 0,
+    "publishedDate": "2026-07-06T00:00:00.000Z",
+    "author": "Wentao Zhang, Tian Liao, Yihui Feng",
+    "query": "task decomposition agents retrieval planning instead of handcrafted rules",
+    "highlights": [
+      "# Multi-Agent LLM Collaborative Reasoning and Task Planning for Complex Task Solving\n\nResearch Square. Published: 2026-07-06. Preprint. 0 citations.\n\n## Authors\n\n- Wentao Zhang (University of Southern California): h-index 11; 355 citations\n- Tian Liao (Universidad del Noreste): h-index 25; 2,108 citations\n- Yihui Feng (Rose\u2013Hulman Institute of Technology): h-index 5; 70 citations\n\n## Topics\n\n- Natural Language Processing Techniques\n- Topic Modeling\n- Text Readability and Simplification\n\n---\n\n# Multi-Agent LLM Collaborative Reasoning and Task Planning for Complex Task Solving\n\n## Abstract\n\nComplex open-domain tasks require long-range reasoning, controlled decomposition, and reliable tool-mediated execution from large language models (LLMs). Single-agent LLM workflows still suffer from one-p"
+    ],
+    "text": "# Multi-Agent LLM Collaborative Reasoning and Task Planning for Complex Task Solving\n\nResearch Square. Published: 2026-07-06. Preprint. 0 citations.\n\n## Authors\n\n- Wentao Zhang (University of Southern California): h-index 11; 355 citations\n- Tian Liao (Universidad del Noreste): h-index 25; 2,108 citations\n- Yihui Feng (Rose\u2013Hulman Institute of Technology): h-index 5; 70 citations\n\n## Topics\n\n- Natural Language Processing Techniques\n- Topic Modeling\n- Text Readability and Simplification\n\n---\n\n# M",
+    "relevance": 4
+  },
+  {
+    "title": "UniRAG: A Unified RAG Framework for Knowledge-Intensive Queries with Decomposition, Break-Down Reasoning, and Iterative Rewriting",
+    "url": "https://doi.org/10.18653/v1/2025.findings-emnlp.1022",
+    "score": 0,
+    "publishedDate": "2025-01-01T00:00:00.000Z",
+    "author": "Gun Il Kim, Jong Wook Kim, Beakcheol Jang",
+    "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+    "highlights": [
+      "# UniRAG: A Unified RAG Framework for Knowledge-Intensive Queries with Decomposition, Break-Down Reasoning, and Iterative Rewriting\n\nPublished: 2025-01-01. 0 citations.\n\n## Authors\n\n- Gun Il Kim: h-index 4; 87 citations\n- Jong Wook Kim: h-index 35; 10,993 citations\n- Beakcheol Jang: h-index 26; 3,122 citations\n\n## Topics\n\n- Constraint Satisfaction and Optimization\n- Logic, Reasoning, and Knowledge\n- Semantic Web and Ontologies\n\n---\n\n# UniRAG: A Unified RAG Framework for Knowledge-Intensive Queries with Decomposition, Break-Down Reasoning, and Iterative Rewriting\n\n## Abstract\n\nKnowledge-intensive queries require accurate answers that are explicitly grounded in retrieved evidence. However, existing retrievalaugmented generation (RAG) approaches often struggle with query complexity, suffer fr"
+    ],
+    "text": "# UniRAG: A Unified RAG Framework for Knowledge-Intensive Queries with Decomposition, Break-Down Reasoning, and Iterative Rewriting\n\nPublished: 2025-01-01. 0 citations.\n\n## Authors\n\n- Gun Il Kim: h-index 4; 87 citations\n- Jong Wook Kim: h-index 35; 10,993 citations\n- Beakcheol Jang: h-index 26; 3,122 citations\n\n## Topics\n\n- Constraint Satisfaction and Optimization\n- Logic, Reasoning, and Knowledge\n- Semantic Web and Ontologies\n\n---\n\n# UniRAG: A Unified RAG Framework for Knowledge-Intensive Queri",
+    "relevance": 3
+  },
+  {
+    "title": "MuISQA: Multi-Intent Retrieval-Augmented Generation for Scientific Question Answering",
+    "url": "https://doi.org/10.48550/arxiv.2511.16283",
+    "score": 0,
+    "publishedDate": "2025-11-20T00:00:00.000Z",
+    "author": "Li, Zhiyuan, Yu, Haisheng, Guo, Guangchuan, Zhou, Nan, Zhang, Jiajun",
+    "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+    "highlights": [
+      "# MuISQA: Multi-Intent Retrieval-Augmented Generation for Scientific Question Answering\n\narXiv (Cornell University). Published: 2025-11-20. Preprint. 0 citations.\n\n## Authors\n\n- Li, Zhiyuan\n- Yu, Haisheng\n- Guo, Guangchuan\n- Zhou, Nan\n- Zhang, Jiajun\n\n## Topics\n\n- Topic Modeling\n- Multimodal Machine Learning Applications\n- Advanced Graph Neural Networks\n\n---\n\n# MuISQA: Multi-Intent Retrieval-Augmented Generation for Scientific Question Answering\n\n## Abstract\n\nComplex scientific questions often en tail multiple intents, such as identifying gene mutations and linking them to re lated diseases. These tasks require ev idence from diverse sources and multi hop reasoning, while conventional retrieval augmented generation (RAG) systems are usually single-intent oriented, leading to in complete ev"
+    ],
+    "text": "# MuISQA: Multi-Intent Retrieval-Augmented Generation for Scientific Question Answering\n\narXiv (Cornell University). Published: 2025-11-20. Preprint. 0 citations.\n\n## Authors\n\n- Li, Zhiyuan\n- Yu, Haisheng\n- Guo, Guangchuan\n- Zhou, Nan\n- Zhang, Jiajun\n\n## Topics\n\n- Topic Modeling\n- Multimodal Machine Learning Applications\n- Advanced Graph Neural Networks\n\n---\n\n# MuISQA: Multi-Intent Retrieval-Augmented Generation for Scientific Question Answering\n\n## Abstract\n\nComplex scientific questions often e",
+    "relevance": 3
+  }
+]

@@ -60,6 +60,59 @@
   color: var(--ink);
 }
 
+.oslaw__mode {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.85rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: var(--radius, 0.5rem);
+}
+
+.oslaw__mode-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.oslaw__mode-copy,
+.oslaw__mode-risk {
+  margin: 0.25rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.oslaw__mode-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.oslaw__mode-button {
+  border: 1px solid var(--ink-muted);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+.oslaw__mode-button.is-selected {
+  border-color: var(--action, var(--ink));
+  box-shadow: inset 0 0 0 1px var(--action, var(--ink));
+}
+
+.oslaw__mode-ack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  padding: 0.6rem 0;
+  color: var(--ink-faint);
+  font-size: 0.78rem;
+}
+
 .oslaw__body {
   display: flex;
   flex-direction: column;
@@ -145,6 +198,42 @@
   text-underline-offset: 2px;
 }
 
+.oslaw__options {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.oslaw__option {
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: var(--radius, 0.5rem);
+}
+
+.oslaw__option h4 {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.oslaw__option p {
+  margin: 0.35rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.oslaw__follow-up {
+  padding: 0.9rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: var(--radius, 0.5rem);
+}
+
+.oslaw__follow-up-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
 .oslaw__rec-pages {
   list-style: none;
   padding-left: 0;
@@ -210,4 +299,69 @@
 
 .oslaw__btn--primary:hover {
   background: color-mix(in oklab, var(--action, #1f5c45) 88%, black);
+}
+
+.oslaw__research-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--ink-muted);
+  border-left: 3px solid var(--action, var(--ink));
+  border-radius: var(--radius, 0.5rem);
+  background: color-mix(in srgb, var(--action, #1f5c45) 4%, transparent);
+}
+
+.oslaw__research-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.oslaw__research-status {
+  flex: none;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.oslaw__research-error {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+}
+
+.oslaw__research-questions,
+.oslaw__research-findings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.oslaw__research-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.oslaw__research-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.55rem;
+  padding: 0.65rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: var(--radius, 0.5rem);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+}
+
+.oslaw__research-input:focus {
+  outline: 2px solid color-mix(in srgb, var(--action, #1f5c45) 50%, transparent);
+  outline-offset: 1px;
 }

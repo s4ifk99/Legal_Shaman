@@ -1,3 +1,5 @@
+import type { ResearchBundle } from './researchBundle'
+
 /**
  * Policy-aware answer package (AGENTS.md schema) for Overview / Recommendation.
  * Areas/Reference + primary-law spine first; Directory never as primary law; free help before firms.
@@ -31,14 +33,62 @@ export type AnswerFirm = {
   note: string
 }
 
+export type AnswerOption = {
+  title: string
+  description: string
+}
+
+export type AnswerFollowUp = {
+  id: string
+  label: string
+  kind: 'clarify' | 'add_detail' | 'refine'
+  prompt: string
+}
+
+export function defaultAnswerFollowUps(missingFacts: string[] = []): AnswerFollowUp[] {
+  const firstMissing = missingFacts[0]
+  return [
+    {
+      id: 'clarify',
+      label: 'Clarify the guidance',
+      kind: 'clarify',
+      prompt: firstMissing
+        ? `What do you want to know about: ${firstMissing}`
+        : 'Which part of this guidance would you like explained more clearly?',
+    },
+    {
+      id: 'add-detail',
+      label: 'Add more detail',
+      kind: 'add_detail',
+      prompt: 'What else should we add to your timeline, documents or facts?',
+    },
+    {
+      id: 'refine',
+      label: 'Refine the result',
+      kind: 'refine',
+      prompt: 'What outcome or route should we focus on next?',
+    },
+  ]
+}
+
 export type AnswerPackage = {
   /** AGENTS.md sections */
   answerOverview: string
   bullets: AnswerBullet[]
+  /** Practical actions grounded in the retrieved guidance. */
+  recommendations: string[]
+  /** Realistic routes the client can compare, without predicting an outcome. */
+  options: AnswerOption[]
+  /** Facts that could materially change the route or recommendation. */
+  missingFacts: string[]
+  /** First-class follow-up actions for the conversational overview. */
+  followUps: AnswerFollowUp[]
   wikiPages: AnswerWikiLink[]
   freeHelp: { title: string; url: string; blurb: string }[]
   recommendedFirms: AnswerFirm[]
   sources: { title: string; url: string; kind: string }[]
+  /** Optional supplemental bundle from the feature-flagged research provider. */
+  researchBundle?: ResearchBundle
   citation: { ok: boolean; issues: CitationIssue[] }
   matchedTopicId: string | null
   policyNote: string
@@ -212,6 +262,21 @@ function buildCuratedPack(def: CuratedPackDefinition): AnswerPackage {
   const pack: AnswerPackage = {
     answerOverview: def.overview,
     bullets,
+    recommendations: bullets.map((b) => b.text).slice(0, 4),
+    options: [
+      {
+        title: 'Follow the recommended next steps',
+        description: 'Use the cited guidance and evidence checklist to progress the matter yourself.',
+      },
+      {
+        title: 'Get independent help',
+        description: 'Ask Citizens Advice or a solicitor to review the facts if the route or wording is uncertain.',
+      },
+    ],
+    missingFacts: ['Exact dates, documents, contract or notice wording, and the outcome you want.'],
+    followUps: defaultAnswerFollowUps([
+      'Exact dates, documents, contract or notice wording, and the outcome you want.',
+    ]),
     wikiPages: [],
     freeHelp,
     recommendedFirms: [],
@@ -384,6 +449,23 @@ export function buildAnswerPackage(
           tier: 'trusted-guidance',
         },
       ],
+      recommendations: [
+        'Check the title, ownership and any right of way before choosing a remedy.',
+        'Keep dated photographs, messages and records of blocked access.',
+        'Try written contact or mediation before court where safe and practical.',
+      ],
+      options: [
+        {
+          title: 'Informal resolution or mediation',
+          description: 'A lower-cost route focused on restoring access without court.',
+        },
+        {
+          title: 'Formal civil action',
+          description: 'Consider professional advice if access remains blocked or informal steps fail.',
+        },
+      ],
+      missingFacts: ['Whether the land is solely yours, shared, or subject to a right of way.'],
+      followUps: defaultAnswerFollowUps(['Whether the land is solely yours, shared, or subject to a right of way.']),
       wikiPages: [],
       freeHelp: [
         {
@@ -443,6 +525,23 @@ export function buildAnswerPackage(
           tier: 'trusted-guidance',
         },
       ],
+      recommendations: [
+        'Confirm whether the notice is from a council or a private parking operator.',
+        'Preserve the notice, photographs, payment records and any app or machine evidence.',
+        'Use the issuer’s appeal route before considering further escalation.',
+      ],
+      options: [
+        {
+          title: 'Appeal the charge',
+          description: 'Use the available appeal process if the evidence supports a challenge and the deadline is open.',
+        },
+        {
+          title: 'Seek independent help',
+          description: 'Use Citizens Advice or the relevant independent appeal scheme to check the next stage.',
+        },
+      ],
+      missingFacts: ['Who issued the notice and whether the appeal deadline has passed.'],
+      followUps: defaultAnswerFollowUps(['Who issued the notice and whether the appeal deadline has passed.']),
       wikiPages: [],
       freeHelp: [
         {
@@ -516,6 +615,23 @@ export function buildAnswerPackage(
         ? `No curated primary-law remedy package matched yet. ${officialHits.length ? 'Official signposts are listed under free help / guidance. ' : ''}We can cite ${firmHits.length} law-firm explainer(s) below — commentary only, not a recommendation to instruct that firm.`
         : 'No curated primary-law remedy package matched yet for this story. Use free help and the matched wiki pathway, then verify any statute on legislation.gov.uk.',
       bullets: firmBullets,
+      recommendations: [
+        'Start with the official guidance listed under free help.',
+        'Gather the contract, notices, payments and dated communications.',
+        'Use the provider’s complaint or dispute process before paid legal help.',
+      ],
+      options: [
+        {
+          title: 'Self-help and formal complaint',
+          description: 'Use the provider’s process with a clear explanation and supporting evidence.',
+        },
+        {
+          title: 'Independent advice',
+          description: 'Ask Citizens Advice or a solicitor to review the documents if the dispute remains unresolved.',
+        },
+      ],
+      missingFacts: ['The governing contract, jurisdiction and exact remedy sought.'],
+      followUps: defaultAnswerFollowUps(['The governing contract, jurisdiction and exact remedy sought.']),
       wikiPages: [],
       freeHelp: [
         {
@@ -652,6 +768,25 @@ export function buildAnswerPackage(
     answerOverview:
       'For a faulty used car bought from a trader, start with the Consumer Rights Act 2015 remedies ladder (short-term reject → repair/replacement → final reject or price reduction), then use Citizens Advice / Motor Ombudsman for process — not firm blogs as primary law. This is information and signposting, not advice on your specific outcome.',
     bullets: filtered,
+    recommendations: [
+      'Identify which Consumer Rights Act remedy fits the timing and repair history.',
+      'Keep the sale contract, fault evidence, repair records and communications.',
+      'Set out the requested remedy in writing before escalating.',
+    ],
+    options: [
+      {
+        title: 'Repair or replacement',
+        description: 'Often the first route after the short-term rejection period, subject to statutory conditions.',
+      },
+      {
+        title: 'Price reduction or final rejection',
+        description: 'May become relevant if repair or replacement fails or is not provided properly and promptly.',
+      },
+    ],
+    missingFacts: ['Purchase date, trader status, fault history and whether a repair has already failed.'],
+    followUps: defaultAnswerFollowUps([
+      'Purchase date, trader status, fault history and whether a repair has already failed.',
+    ]),
     wikiPages,
     freeHelp,
     recommendedFirms: [], // 5+ firm-topic gate — empty until index qualifies

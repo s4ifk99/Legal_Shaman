@@ -2,10 +2,11 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
-import type { SessionState } from '@/lib/coherence/types'
+import type { SearchMode, SessionState } from '@/lib/coherence/types'
 import type { LegalFrame } from '@/lib/coherence/frames'
 import {
   buildAnswerPackage,
+  type AnswerFollowUp,
   type AnswerPackage,
 } from '@/lib/coherence/answerPackage'
 import { matchOslawCourse } from '@/lib/coherence/wiki'
@@ -19,6 +20,7 @@ import {
 } from '@/lib/coherence/retrieveAnswer'
 import { logSearchEvent } from '@/lib/coherence/searchAnalytics'
 import { SynthesisHourglass } from './SynthesisHourglass'
+import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './OslawView.css'
 
 /** Wiki `path` is a page id (sometimes still ends in `.md` from spines). */
@@ -35,16 +37,23 @@ interface Props {
   overviewLoading?: boolean
   onBack: () => void
   onFindHelp: () => void
+  onFollowUp: (followUp: AnswerFollowUp) => void
+  searchMode: SearchMode
+  onStartPenumbraResearch: (message?: string) => void
+  onUsePenumbraResearch: () => void
+  pageNavigation?: PageNavigationProps
 }
 
 function Recommendation({
   pack,
   preflightNote,
   authorityHits,
+  onFollowUp,
 }: {
   pack: AnswerPackage
   preflightNote?: string | null
   authorityHits?: SessionState['authorityHits']
+  onFollowUp: (followUp: AnswerFollowUp) => void
 }) {
   const takeaways = pack.bullets.filter((b) => b.text.trim().length >= 12).slice(0, 5)
   const pages = pack.wikiPages.slice(0, 6)
@@ -58,7 +67,10 @@ function Recommendation({
         <p className="oslaw__rec-origin">Legal Shaman wiki · signposting only</p>
       </header>
 
-      <div className="oslaw__rec-body">{pack.answerOverview}</div>
+      <section className="oslaw__rec-section">
+        <h3 className="oslaw__rec-h">What the sources say</h3>
+        <div className="oslaw__rec-body">{pack.answerOverview}</div>
+      </section>
 
       {preflightNote ? (
         <p className="oslaw__rec-note" role="status">
@@ -106,6 +118,63 @@ function Recommendation({
               </li>
             ))}
           </ul>
+        </section>
+      )}
+
+      {pack.recommendations.length > 0 && (
+        <section className="oslaw__rec-section">
+          <h3 className="oslaw__rec-h">Recommended next steps</h3>
+          <ul className="oslaw__rec-list">
+            {pack.recommendations.map((recommendation) => (
+              <li key={recommendation}>{recommendation}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {pack.options.length > 0 && (
+        <section className="oslaw__rec-section">
+          <h3 className="oslaw__rec-h">Your options</h3>
+          <div className="oslaw__options">
+            {pack.options.map((option) => (
+              <div className="oslaw__option" key={option.title}>
+                <h4>{option.title}</h4>
+                {option.description ? <p>{option.description}</p> : null}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {pack.missingFacts.length > 0 && (
+        <section className="oslaw__rec-section">
+          <h3 className="oslaw__rec-h">What could change the guidance</h3>
+          <ul className="oslaw__rec-list">
+            {pack.missingFacts.map((fact) => (
+              <li key={fact}>{fact}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {pack.followUps.length > 0 && (
+        <section className="oslaw__rec-section oslaw__follow-up" aria-label="Improve this result">
+          <h3 className="oslaw__rec-h">Ask/refine this result</h3>
+          <p className="oslaw__rec-note">
+            Add context or tell us what you want to focus on. We’ll use it to refine the guidance.
+          </p>
+          <div className="oslaw__follow-up-actions">
+            {pack.followUps.map((followUp) => (
+              <button
+                type="button"
+                className="oslaw__btn"
+                key={followUp.id}
+                onClick={() => onFollowUp(followUp)}
+              >
+                {followUp.label}
+              </button>
+            ))}
+          </div>
         </section>
       )}
 
@@ -185,6 +254,46 @@ function Recommendation({
         </details>
       )}
 
+      {pack.researchBundle?.sources.length ? (
+        <details className="oslaw__rec-sources oslaw__research-bundle">
+          <summary>The Shaman research ({pack.researchBundle.sources.length} labelled sources)</summary>
+          <p className="oslaw__rec-note">
+            Supplemental exploration only. Legal Shaman checks the final answer against its own grounded sources.
+          </p>
+          <ul className="oslaw__rec-list--links">
+            {pack.researchBundle.sources.map((source) => (
+              <li key={source.id}>
+                {source.url ? (
+                  <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+                ) : (
+                  source.title
+                )}{' '}
+                <span>
+                  ({source.origin === 'external' ? 'external · unverified' : 'curated'} · {source.tier})
+                </span>
+              </li>
+            ))}
+          </ul>
+          {pack.researchBundle.claims.length ? (
+            <>
+              <p className="oslaw__rec-note">Source-linked claims and confidence</p>
+              <ul className="oslaw__rec-list">
+                {pack.researchBundle.claims.map((claim) => (
+                  <li key={claim.claim}>
+                    {claim.claim} <span>({claim.confidence}; {claim.sourceIds.join(', ')})</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : null}
+          {pack.researchBundle.conflicts.length ? (
+            <p className="oslaw__rec-note">
+              Conflicts to check: {pack.researchBundle.conflicts.join(' · ')}
+            </p>
+          ) : null}
+        </details>
+      ) : null}
+
       <p className="oslaw__rec-disclaimer">{pack.policyNote}</p>
     </article>
   )
@@ -194,12 +303,155 @@ function pickBestPack(
   local: AnswerPackage,
   master: AnswerPackage | null,
   retrieved: AnswerPackage | null,
+  mode: SearchMode,
+  preferRetrieved = false,
 ): AnswerPackage {
+  if (mode === 'penumbra' || preferRetrieved) {
+    if (master && isFinalOverviewPackage(master)) return master
+    if (retrieved && isFinalOverviewPackage(retrieved)) return retrieved
+  }
   // Deterministic R&D topic packs win when they matched (parking, CRA, etc.).
   if (local.matchedTopicId && local.bullets.length > 0) return local
   if (master && isFinalOverviewPackage(master)) return master
   if (retrieved && isFinalOverviewPackage(retrieved)) return retrieved
   return local
+}
+
+function PenumbraResearchPanel({
+  session,
+  onStart,
+  onUseFindings,
+}: {
+  session: SessionState
+  onStart: (message?: string) => void
+  onUseFindings: () => void
+}) {
+  const research = session.penumbraResearch
+  const [reply, setReply] = useState('')
+  if (session.searchMode !== 'penumbra') return null
+
+  const busy = research?.status === 'starting'
+  const hasFindings = Boolean(research?.bundle)
+  return (
+    <section className="oslaw__research-panel" aria-labelledby="penumbra-research-title">
+      <div className="oslaw__research-head">
+        <div>
+          <h2 id="penumbra-research-title" className="oslaw__rec-h">
+            Penumbra exploratory research
+          </h2>
+          <p className="oslaw__rec-note">
+            The Shaman first reviews curated Legal Shaman sources, then researches wider public sources for gaps. It supplies labelled leads only; Legal Shaman remains responsible for the answer.
+          </p>
+        </div>
+        <span className="oslaw__research-status">{research?.status || 'not started'}</span>
+      </div>
+
+      {research?.error ? <p className="oslaw__research-error">{research.error}</p> : null}
+      {research?.fallback ? (
+        <p className="oslaw__rec-note" role="status">
+          The Shaman could not complete the open-web phase. These are curated Legal Shaman sources only; no external research was added.
+        </p>
+      ) : null}
+      {!research || research.status === 'idle' || research.status === 'error' ? (
+        <button type="button" className="oslaw__btn" onClick={() => onStart()} disabled={busy}>
+          Run exploratory research
+        </button>
+      ) : null}
+      {busy ? (
+        <p className="oslaw__rec-note" role="status">
+          The Shaman is collating scoped sources. This does not change the Legal Shaman answer.
+        </p>
+      ) : null}
+
+      {research?.questions.length ? (
+        <div className="oslaw__research-questions">
+          <h3 className="oslaw__rec-h">The Shaman needs more research detail</h3>
+          <ul className="oslaw__rec-list">
+            {research.questions.map((question) => <li key={question}>{question}</li>)}
+          </ul>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault()
+              const value = reply.trim()
+              if (!value) return
+              setReply('')
+              onStart(value)
+            }}
+          >
+            <label className="oslaw__research-label" htmlFor="penumbra-research-reply">
+              Your response
+            </label>
+            <textarea
+              id="penumbra-research-reply"
+              className="oslaw__research-input"
+              value={reply}
+              onChange={(event) => setReply(event.target.value)}
+              rows={3}
+              maxLength={3000}
+              placeholder="Add facts for this exploratory research thread"
+            />
+            <button type="submit" className="oslaw__btn" disabled={!reply.trim() || busy}>
+              Continue research
+            </button>
+            <button
+              type="button"
+              className="oslaw__btn"
+              disabled={busy}
+              onClick={() => onStart('No additional information is available. Skip this question and continue using the current facts.')}
+            >
+              Skip this question
+            </button>
+          </form>
+        </div>
+      ) : null}
+
+      {hasFindings ? (
+        <div className="oslaw__research-findings">
+          <p className="oslaw__rec-note">
+            {research?.bundle?.sources.length || 0} canonical sources · {research?.bundle?.claims.length || 0} linked claims
+            {' '}· {research?.bundle?.freeResources.length || 0} free-resource leads queued for review
+          </p>
+          {research?.bundle?.matching ? (
+            <p className="oslaw__rec-note">
+              Matching lens: <strong>{research.bundle.matching.matterType}</strong> · {research.bundle.matching.topicId}
+              {' '}({research.bundle.matching.confidence}) — {research.bundle.matching.rationale}
+            </p>
+          ) : null}
+          {research?.bundle?.sources.length ? (
+            <details className="oslaw__rec-sources">
+              <summary>Sources, provenance and tiers</summary>
+              <ul className="oslaw__rec-list--links">
+                {research.bundle.sources.map((source) => (
+                  <li key={source.id}>
+                    {source.url ? <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a> : source.title}
+                    <span>
+                      {' '}
+                      — {source.origin === 'external' ? 'external · unverified' : 'curated'} · {source.tier}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ) : null}
+          {research?.bundle?.claims.length ? (
+            <ul className="oslaw__rec-list">
+            {research.bundle.claims.map((claim) => (
+                <li key={claim.claim}>
+                  {claim.claim} <span>({claim.confidence}; {claim.sourceIds.join(', ')})</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {research?.bundle?.conflicts.length ? (
+            <p className="oslaw__rec-note">Conflicts to check: {research.bundle.conflicts.join(' · ')}</p>
+          ) : null}
+          <button type="button" className="oslaw__btn oslaw__btn--primary" onClick={onUseFindings}>
+            Ask Legal Shaman to review these findings
+          </button>
+        </div>
+      ) : null}
+    </section>
+  )
 }
 
 export function OslawView({
@@ -209,13 +461,30 @@ export function OslawView({
   overviewLoading = false,
   onBack,
   onFindHelp,
+  onFollowUp,
+  searchMode,
+  onStartPenumbraResearch,
+  onUsePenumbraResearch,
+  pageNavigation,
 }: Props) {
-  const basePack = useMemo(() => buildAnswerPackage(session, frames), [session, frames])
+  const frameKey = frames.map((frame) => frame.id).join('|')
+  const overviewKey = [
+    session.rawInputs.join('|'),
+    session.whatHappened,
+    session.howCaused,
+    session.goal,
+    session.clientQuestion,
+    session.topicId,
+    session.searchMode,
+    session.reformulationOutcome,
+  ].join('¦')
+  const basePack = useMemo(() => buildAnswerPackage(session, frames), [overviewKey, frameKey])
   const [pack, setPack] = useState<AnswerPackage | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [preflightIssues, setPreflightIssues] = useState<PreflightIssue[]>([])
   const mountedAt = useRef(Date.now())
+  const previousMode = useRef(searchMode)
 
   useEffect(() => {
     let cancelled = false
@@ -236,13 +505,15 @@ export function OslawView({
     setLoading(true)
     setError(null)
     setPreflightIssues([])
+    const modeChanged = previousMode.current !== searchMode
+    previousMode.current = searchMode
 
     void (async () => {
       const course = await matchOslawCourse(session, frames)
       if (cancelled) return
 
       let retrieved: AnswerPackage | null = null
-      if (!basePack.matchedTopicId) {
+      if (!basePack.matchedTopicId || searchMode === 'penumbra' || modeChanged) {
         const res = await fetchRetrieveAnswer(session, frames)
         if (cancelled) return
         retrieved = res?.answerPackage ?? null
@@ -252,6 +523,8 @@ export function OslawView({
         basePack,
         isFinalOverviewPackage(masterAnswerPackage) ? masterAnswerPackage : null,
         retrieved,
+        searchMode,
+        modeChanged,
       )
 
       const preflight = await runOslawPreflight(
@@ -307,7 +580,7 @@ export function OslawView({
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [session, frames, masterAnswerPackage, overviewLoading, basePack])
+  }, [overviewKey, frameKey, masterAnswerPackage, overviewLoading, basePack, searchMode])
 
   const blockedPathway = preflightIssues.some((i) => i.severity === 'block-pathway')
   const preflightNote = blockedPathway
@@ -320,6 +593,7 @@ export function OslawView({
 
   return (
     <div className="oslaw">
+      {pageNavigation ? <PageNavigation {...pageNavigation} /> : null}
       <header className="oslaw__header">
         <button type="button" className="oslaw__back" onClick={onBack}>
           ← Back
@@ -331,6 +605,20 @@ export function OslawView({
           </p>
         </div>
       </header>
+
+      <section className="oslaw__mode" aria-labelledby="oslaw-mode-title">
+        <div>
+          <h2 id="oslaw-mode-title" className="oslaw__mode-title">
+            Research mode: Penumbra
+          </h2>
+          <p className="oslaw__mode-copy">
+            Curated Legal Shaman sources first, followed by broader exploratory research with source quality and uncertainty labelled.
+          </p>
+        </div>
+        <p className="oslaw__mode-risk">
+          The Shaman is supplemental research only. Legal Shaman retains final synthesis, matching help and safety checks.
+        </p>
+      </section>
 
       {loading && (
         <div className="oslaw__status oslaw__status--busy">
@@ -350,6 +638,12 @@ export function OslawView({
             pack={pack}
             preflightNote={preflightNote}
             authorityHits={session.authorityHits}
+            onFollowUp={onFollowUp}
+          />
+          <PenumbraResearchPanel
+            session={session}
+            onStart={onStartPenumbraResearch}
+            onUseFindings={onUsePenumbraResearch}
           />
           <div className="oslaw__actions">
             <button type="button" className="oslaw__btn oslaw__btn--primary" onClick={onFindHelp}>
@@ -375,6 +669,7 @@ export function OslawView({
           </div>
         </div>
       )}
+      {pageNavigation ? <PageNavigation {...pageNavigation} /> : null}
     </div>
   )
 }

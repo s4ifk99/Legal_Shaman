@@ -25,7 +25,9 @@ const MATTER_OPTIONS: Prompt['options'] = [
   { id: 'm7', label: 'Work injury / accident', value: 'This is mainly about a work injury or accident' },
   { id: 'm8', label: 'Buying or selling a home', value: 'This is about buying or selling a home — conveyancing' },
   { id: 'm9', label: 'Crime / police', value: 'This is mainly about crime or the police' },
-  { id: 'm10', label: 'Something else', value: 'This is about something else' },
+  { id: 'm10', label: 'Education / university / student finance', value: 'This is mainly about education, university fees or student finance' },
+  { id: 'm11', label: 'Money / contract / consumer', value: 'This is mainly about a contract, payment, refund or consumer problem' },
+  { id: 'm12', label: 'Something else', value: 'This is about something else' },
 ]
 
 /** Closed matter classifier — also used before Matching Help when matter is still unknown. */

@@ -54,6 +54,18 @@ export function critiqueOverviewRecommendation(opts: {
     errors.push("overview: fewer than 2 wiki pages grounding the answer");
   }
 
+  if (pack && (pack.recommendations?.length || 0) < 2) {
+    errors.push("overview: fewer than 2 concrete recommendations");
+  }
+
+  if (pack && (pack.options?.length || 0) < 2) {
+    errors.push("overview: fewer than 2 realistic options");
+  }
+
+  if (pack && (pack.followUps?.length || 0) < 3) {
+    errors.push("overview: missing conversational follow-up actions");
+  }
+
   // Client story themes the recommendation should touch when present
   const checks: { re: RegExp; label: string; need: RegExp }[] = [
     {

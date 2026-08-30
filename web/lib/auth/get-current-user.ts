@@ -11,7 +11,7 @@ export async function getCurrentUser(): Promise<PublicUser | null> {
   try {
     const user = await accountsPrisma.user.findUnique({
       where: { id: userId },
-      select: { id: true, name: true, email: true, emailVerifiedAt: true },
+      select: { id: true, name: true, email: true, emailVerifiedAt: true, plan: true },
     });
     if (!user) return null;
     return {
@@ -19,6 +19,7 @@ export async function getCurrentUser(): Promise<PublicUser | null> {
       name: user.name,
       email: user.email,
       emailVerified: skipEmailVerificationInDev() || Boolean(user.emailVerifiedAt),
+      plan: user.plan === "paid" ? "paid" : "free",
     };
   } catch (err) {
     console.error("[auth] getCurrentUser failed:", err);

@@ -14,11 +14,15 @@ import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causati
 import { resolveTopicLock, packConflictsWithLock, applyTopicLockToSession } from '../lib/coherence/topicLock'
 import { deriveTurnState, mustScopeRetrieval } from '../lib/coherence/turnState'
 import { nextPrompt } from '../lib/coherence/questions'
-import { applyPackClassification, heuristicSuggestPack } from '../lib/coherence/packClassifier'
+import { applyPackClassification, heuristicSuggestPack, packClarifyPrompt } from '../lib/coherence/packClassifier'
+import { applyMasterToSession } from '../lib/coherence/masterAgent'
 import { buildConceptRetrievalPlan } from '../lib/matter/conceptRetrievalPlan'
 import { buildRetrievalPlan } from '../lib/matter/retrieval-plan'
 import type { MatterFrame } from '../lib/matter/types'
 import type { SessionState } from '../lib/coherence/types'
+import { normalizeSearchMode, searchModePolicy } from '../lib/coherence/searchMode'
+import { canonicalizeResearchBundle, parseResearchBundle, researchBundlePrompt } from '../lib/coherence/researchBundle'
+import { matchingSessionForHelp } from '../lib/coherence/services'
 
 type TrapResult = { id: string; ok: boolean; detail: string }
 
@@ -36,6 +40,31 @@ function assert(cond: boolean, detail: string): string | null {
 }
 
 const traps: Array<{ id: string; run: () => string | null }> = [
+  {
+    id: 'matching-help-prefers-employment-over-stray-criminal-label',
+    run: () => {
+      const s = {
+        ...createInitialSession(),
+        matterType: 'crime' as const,
+        rawInputs: ['My employer dismissed me after I raised a grievance', 'Criminal'],
+        whatHappened: 'My employer dismissed me after I raised a grievance',
+        clientQuestion: 'What are my employment rights?',
+      }
+      const matched = matchingSessionForHelp(s)
+      const contractor = matchingSessionForHelp({
+        ...createInitialSession(),
+        rawInputs: ['I hired a painter and scaffolder under a contract; the work is dangerous and damaged my property.'],
+        whatHappened: 'The contractor caused damage and refuses to put the work right.',
+      })
+      return (
+        assert(matched.matterType === 'employment', `matter=${matched.matterType}`) ||
+        assert(matched.topicId === 'employment', `topic=${matched.topicId}`) ||
+        assert(matched.taxonomySlug === 'employment', `taxonomy=${matched.taxonomySlug}`) ||
+        assert(contractor.matterType === 'consumer', `contractor matter=${contractor.matterType}`) ||
+        assert(contractor.taxonomySlug === 'consumer_services', `contractor taxonomy=${contractor.taxonomySlug}`)
+      )
+    },
+  },
   {
     id: 'neighbour-carport-not-used-car',
     run: () => {
@@ -141,6 +170,193 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       return (
         assert(pack.matchedTopicId === 'car-reject-failed-repair', `pack=${pack.matchedTopicId}`) ||
         assert(/Consumer Rights Act|used car/i.test(pack.answerOverview), 'missing CRA overview')
+      )
+    },
+  },
+  {
+    id: 'overview-has-conversational-guidance',
+    run: () => {
+      const s = intake([
+        'My landlord will not fix the mould in the bathroom',
+        'England',
+      ])
+      const pack = buildAnswerPackage(s, proposeCoherentFrames(s, 3))
+      return (
+        assert(pack.recommendations.length >= 2, 'missing recommendations') ||
+        assert(pack.options.length >= 2, 'missing options') ||
+        assert(pack.followUps.length >= 3, 'missing follow-up actions') ||
+        assert(pack.followUps.some((f) => f.kind === 'clarify'), 'missing clarify action') ||
+        assert(pack.followUps.some((f) => f.kind === 'add_detail'), 'missing add-detail action') ||
+        assert(pack.followUps.some((f) => f.kind === 'refine'), 'missing refine action')
+      )
+    },
+  },
+  {
+    id: 'follow-up-history-survives-master-merge',
+    run: () => {
+      const original = intake(['My landlord has not fixed mould in the bathroom'])
+      const withFeedback: SessionState = {
+        ...original,
+        feedbackHistory: [{ kind: 'clarify', text: 'Does the repair deadline matter?', at: '2026-01-01T00:00:00.000Z' }],
+        answerRevisionHistory: [
+          { kind: 'clarify', answerOverview: 'The prior grounded overview.', at: '2026-01-01T00:00:00.000Z' },
+        ],
+      }
+      const merged = applyMasterToSession(
+        withFeedback,
+        {
+          brief: { freshBrief: true, understanding: 'Housing repair issue', whatHappened: original.whatHappened },
+          classify: { matterType: 'housing', topicId: 'housing-disrepair' },
+        },
+        'The landlord has now offered an inspection date.',
+      )
+      return (
+        assert(merged.feedbackHistory?.length === 1, 'feedback history was dropped') ||
+        assert(merged.answerRevisionHistory?.length === 1, 'answer revision history was dropped') ||
+        assert(merged.rawInputs.includes('The landlord has now offered an inspection date.'), 'new feedback was not merged')
+      )
+    },
+  },
+  {
+    id: 'penumbra-policy-and-bundle-guards',
+    run: () => {
+      const umbra = searchModePolicy('umbra')
+      const penumbra = searchModePolicy('penumbra')
+      const bundle = parseResearchBundle(
+        JSON.stringify({
+          sources: [{ id: 's1', title: 'Official source', tier: 'official', excerpt: 'A grounded excerpt.' }],
+          claims: [
+            { claim: 'Supported claim', sourceIds: ['s1'], confidence: 'high' },
+            { claim: 'Unlinked claim', sourceIds: ['missing'], confidence: 'high' },
+          ],
+          matching: {
+            matterType: 'employment',
+            topicId: 'employment',
+            confidence: 'high',
+            rationale: 'Employer and workplace facts are the primary routing evidence.',
+            sourceIds: ['s1'],
+          },
+          freeResources: [{
+            id: 'web-cab',
+            title: 'External free advice',
+            description: 'Free guidance for employment disputes.',
+            url: 'https://example.org/free-help',
+            resourceType: 'charity',
+            matterType: 'employment',
+            topicId: 'employment',
+            sourceIds: ['s1'],
+          }],
+          missingFacts: ['The exact date'],
+        }),
+        'penumbra',
+      )
+      const external = parseResearchBundle(
+        JSON.stringify({
+          sources: [
+            { id: 'web-uk-guidance', title: 'External guidance', url: 'https://example.org/guidance', tier: 'trusted-guidance', excerpt: 'External excerpt.' },
+            { id: 'web-insecure', title: 'Insecure source', url: 'http://example.org', tier: 'official', excerpt: 'Should be rejected.' },
+          ],
+          claims: [{ claim: 'External claim', sourceIds: ['web-uk-guidance'], confidence: 'low' }],
+        }),
+        'penumbra',
+        new Set(['s1']),
+      )
+      const prompt = researchBundlePrompt({ mode: 'penumbra', query: 'question', context: 'curated context' })
+      return (
+        assert(umbra.retrievalBreadth === 'focused', 'Umbra should be focused') ||
+        assert(penumbra.retrievalBreadth === 'broad', 'Penumbra should be broad') ||
+        assert(penumbra.maxSecondarySources > umbra.maxSecondarySources, 'Penumbra should allow broader material') ||
+        assert(normalizeSearchMode('umbra') === 'penumbra', 'legacy Umbra mode was not normalized') ||
+        assert(bundle?.mode === 'penumbra', 'bundle mode was not retained') ||
+        assert(bundle?.claims.length === 1, 'unlinked claim was not rejected') ||
+        assert(bundle?.matching?.matterType === 'employment', 'matching lens was not retained') ||
+        assert(bundle?.freeResources.length === 1 && bundle.freeResources[0].reviewStatus === 'pending_review', 'free resource candidate was not retained') ||
+        assert(external?.sources.length === 1 && external.sources[0].origin === 'external' && !external.sources[0].verified, 'external provenance was not enforced') ||
+        assert(prompt.indexOf('curated Legal Shaman sources') < prompt.indexOf('enabled web'), 'curated-first prompt order was lost')
+      )
+    },
+  },
+  {
+    id: 'contextual-answer-suggestions-fit-story',
+    run: () => {
+      const s = intake(['My university is charging the rest of my tuition after withdrawing me from my course'])
+      const classification = heuristicSuggestPack(s.whatHappened)
+      const prompt = packClarifyPrompt({ ...s, packClassification: { ...classification, confidence: 0.4 } })
+      return (
+        assert(classification.packId === 'education-general', `pack=${classification.packId}`) ||
+        assert(prompt.options?.some((option) => /education/i.test(option.label)), 'missing education option') ||
+        assert(!prompt.options?.some((option) => /neighbour|driveway|used car/i.test(option.label)), 'unrelated options shown')
+      )
+    },
+  },
+  {
+    id: 'aramb-free-resources-are-source-linked-pending-candidates',
+    run: () => {
+      const bundle = parseResearchBundle(
+        JSON.stringify({
+          sources: [{ id: 'web-cab', title: 'External advice', url: 'https://example.org', tier: 'trusted-guidance', excerpt: 'Free guidance.' }],
+          freeResources: [{
+            title: 'Free employment clinic',
+            description: 'Initial advice for workplace disputes.',
+            url: 'https://example.org/clinic',
+            resourceType: 'clinic',
+            matterType: 'employment',
+            topicId: 'employment',
+            sourceIds: ['web-cab'],
+          }],
+        }),
+        'penumbra',
+      )
+      return assert(
+        bundle?.freeResources.length === 1 && bundle.freeResources[0]?.reviewStatus === 'pending_review',
+        'free resource was not retained as a pending source-linked candidate',
+      )
+    },
+  },
+  {
+    id: 'interactive-penumbra-child-session-isolated',
+    run: () => {
+      const s = intake(['My university is charging the rest of my tuition after withdrawing me from my course'])
+      const parsed = parseResearchBundle(
+        JSON.stringify({
+          status: 'needs_input',
+          questions: ['What did the withdrawal email say?'],
+          sources: [
+            { id: 'wiki-course-fees', title: 'Fake title', url: 'https://untrusted.example', tier: 'secondary', excerpt: 'Candidate text.' },
+            { id: 'unknown', title: 'Invented source', url: 'https://bad.example', tier: 'official', excerpt: 'Should be dropped.' },
+          ],
+          claims: [{ claim: 'Candidate claim', sourceIds: ['wiki-course-fees'], confidence: 'medium' }],
+        }),
+        'penumbra',
+        new Set(['wiki-course-fees']),
+      )
+      const canonical = parsed
+        ? canonicalizeResearchBundle(parsed, [{
+            id: 'wiki-course-fees',
+            title: 'Canonical Legal Shaman page',
+            url: '',
+            tier: 'wiki',
+            excerpt: 'Canonical excerpt.',
+            origin: 'curated',
+            verified: true,
+          }])
+        : null
+      const child = {
+        status: 'awaiting_input' as const,
+        caseKey: 'case-test-123456789',
+        conversationId: 'conv-test',
+        questions: canonical?.questions || [],
+        bundle: canonical || undefined,
+        updatedAt: new Date().toISOString(),
+      }
+      const withChild = { ...s, penumbraResearch: child }
+      return (
+        assert(withChild.searchMode === 'penumbra', 'legacy parent research mode was not normalized') ||
+        assert(withChild.penumbraResearch?.conversationId === 'conv-test', 'conversation ID was not retained') ||
+        assert(withChild.penumbraResearch?.status === 'awaiting_input', 'needs_input status was not retained') ||
+        assert(withChild.penumbraResearch?.bundle?.sources[0]?.title === 'Canonical Legal Shaman page', 'source was not canonicalized') ||
+        assert(withChild.penumbraResearch?.bundle?.sources[0]?.url === '', 'untrusted source URL survived mapping') ||
+        assert(withChild.penumbraResearch?.bundle?.claims[0]?.sourceIds[0] === 'wiki-course-fees', 'claim link was lost')
       )
     },
   },

@@ -22,6 +22,7 @@ export type CoherencePackId =
   | 'family-visa-apply'
   | 'visa-refusal-challenge'
   | 'family-belongings-claim'
+  | 'education-general'
   | 'employment-general'
   | 'general-info'
   | 'unclear'
@@ -43,6 +44,7 @@ export const COHERENCE_PACK_IDS: CoherencePackId[] = [
   'family-visa-apply',
   'visa-refusal-challenge',
   'family-belongings-claim',
+  'education-general',
   'employment-general',
   'general-info',
   'unclear',
@@ -92,6 +94,12 @@ const PACK_META: Record<
     matter: 'family',
     topicId: 'family-belongings',
     label: 'Family / belongings money claim (not child arrangements)',
+  },
+  'education-general': {
+    matter: 'other',
+    topicId: 'education',
+    label: 'Education / university fees or student finance',
+    mode: 'research',
   },
   'employment-general': {
     matter: 'employment',
@@ -164,6 +172,17 @@ export function heuristicSuggestPack(text: string): PackClassification {
       packId: 'neighbour-access-dispute',
       confidence: 0.76,
       reason: 'Neighbour / access conflict language',
+      source: 'heuristic',
+    }
+  }
+
+  if (
+    /\b(university|college|course|tuition|student finance|student loan|sfe|education provider)\b/i.test(t)
+  ) {
+    return {
+      packId: 'education-general',
+      confidence: 0.78,
+      reason: 'Education, university fees or student finance language',
       source: 'heuristic',
     }
   }
@@ -259,7 +278,7 @@ export function packClarifyPrompt(session: SessionState): Prompt {
   const text =
     c?.clarifyingQuestion?.trim() ||
     'Which of these best matches what you need help with?'
-  const options: PredictiveChoice[] = [
+  const allOptions: PredictiveChoice[] = [
     {
       id: 'pc1',
       label: 'Neighbour / access',
@@ -296,11 +315,24 @@ export function packClarifyPrompt(session: SessionState): Prompt {
       value: 'pack:visa-refusal-challenge',
     },
     {
+      id: 'pc9',
+      label: 'Education / university / student finance',
+      value: 'pack:education-general',
+    },
+    {
       id: 'pc8',
       label: 'Something else',
       value: 'pack:general-info',
     },
   ]
+  const story = [...session.rawInputs, session.whatHappened, session.goal].join(' ')
+  const options = /\b(university|college|course|tuition|student finance|student loan|sfe|education)\b/i.test(story)
+    ? allOptions.filter((option) => ['pc9', 'pc8'].includes(option.id))
+    : /\b(neighbour|next door|driveway|car port|access)\b/i.test(story)
+      ? allOptions.filter((option) => ['pc1', 'pc2', 'pc5', 'pc8'].includes(option.id))
+      : /\b(car|vehicle|dealer|parking|pcn|refund|repair)\b/i.test(story)
+        ? allOptions.filter((option) => ['pc3', 'pc4', 'pc8'].includes(option.id))
+        : allOptions
   return {
     id: 'pack_clarify',
     kind: 'closed',

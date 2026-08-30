@@ -130,6 +130,66 @@ export async function matchImmigrationKnowledge(
 export const matchDomainKnowledge = matchImmigrationKnowledge
 
 /**
+ * Resolve the routing lens for matching help. Penumbra may suggest a primary
+ * area only after citing its research sources; strong employment facts also
+ * outrank stray labels such as a user tapping "Criminal" in an earlier turn.
+ */
+export function matchingSessionForHelp(session: SessionState): SessionState {
+  const text = [
+    ...session.rawInputs,
+    session.whatHappened,
+    session.howCaused,
+    session.goal,
+    session.clientQuestion,
+    session.briefUnderstanding,
+    ...session.events.flatMap((event) => [event.label, event.rawSpan || '']),
+  ].join(' ')
+  const employmentSignal =
+    /\b(employer|employment|employee|workplace|work schedule|rota|shift|childcare|pregnan|maternity|acas|hr\b|dismiss|redundan)\b/i.test(
+      text,
+    )
+  const activeCrimeSignal =
+    /\b(police|arrest(?:ed)?|charged with|prosecut(?:ion|ed)|magistrates?|cps\b|offen[cs]e|driving ban|court hearing)\b/i.test(
+      text,
+    )
+  const contractorDisputeSignal =
+    /\b(painter|builder|contractor|scaffold(?:er|ing)?|tradesperson|workmanship|plumber|roofer|renovation)\b/i.test(
+      text,
+    ) &&
+    /\b(contract|damage|repair|work|pay|invoice|subcontract|unsafe|dangerous)\b/i.test(text)
+  const matching = session.penumbraResearch?.bundle?.matching
+
+  if (employmentSignal && !activeCrimeSignal) {
+    return {
+      ...session,
+      matterType: 'employment',
+      topicId: matching?.matterType === 'employment' ? matching.topicId : 'employment',
+      taxonomySlug: matching?.matterType === 'employment' ? matching.taxonomySlug || 'employment' : 'employment',
+    }
+  }
+
+  if (contractorDisputeSignal && !activeCrimeSignal) {
+    return {
+      ...session,
+      matterType: 'consumer',
+      topicId: 'consumer-services',
+      taxonomySlug: 'consumer_services',
+    }
+  }
+
+  if (matching && matching.confidence !== 'low' && matching.matterType !== 'unknown') {
+    return {
+      ...session,
+      matterType: matching.matterType,
+      topicId: matching.topicId || session.topicId,
+      taxonomySlug: matching.taxonomySlug || session.taxonomySlug,
+    }
+  }
+
+  return session
+}
+
+/**
  * Full help pack: Phase 2 legal wiki + V1 knowledge, signposting, legal aid, pro bono, directories.
  */
 export async function buildHelpPack(

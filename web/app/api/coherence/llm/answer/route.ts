@@ -5,6 +5,10 @@ import { critiqueOverviewRecommendation } from "@/lib/coherence/critiqueOverview
 import { buildOverviewAnswer } from "@/lib/coherence/overviewAnswer";
 import { coherenceApiGuard } from "@/lib/coherence/server/guard";
 import { MatterEngine } from "@/lib/matter";
+import { KnowledgeRetriever, matterEvidenceToWikiHits } from "@/lib/matter/retrieve";
+import { retrieveDworkinSnippetsForOverview } from "@/lib/coherence/overviewDworkinPack";
+import { canonicalizeResearchBundle, type ResearchBundle } from "@/lib/coherence/researchBundle";
+import { runScopedResearchTools } from "@/lib/aramb/tools";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -16,12 +20,19 @@ type Body = {
   clientQuestion?: string;
   matterType?: string;
   topicId?: string;
+  searchMode?: "umbra" | "penumbra";
+  researchBundle?: ResearchBundle;
   frameIds?: string[];
   whatHappened?: string;
   goal?: string;
   /** Prior LexKeyPlan concepts from master / session. */
   concepts?: string[];
   session?: { matterFrame?: { concepts?: string[] } };
+  followUp?: {
+    kind?: "clarify" | "add_detail" | "refine";
+    text?: string;
+    priorAnswer?: string;
+  };
   /** Optional: skip critic retry (tests / diagnostics). */
   skipCritiqueRetry?: boolean;
 };
@@ -72,6 +83,33 @@ export async function POST(req: Request) {
     });
     const matterFrame = matterResolved.frame;
     const taxonomySlug = matterFrame.primaryIssues[0]?.slug ?? undefined;
+    const scopedEvidence = KnowledgeRetriever.forMatter({
+      matterFrame,
+      submission: latestText,
+      limit: 14,
+    });
+    const scopedHits = matterEvidenceToWikiHits(scopedEvidence.hits);
+    const scopedAuthority = retrieveDworkinSnippetsForOverview({
+      query: [clientQuestion, understanding, latestText].filter(Boolean).join("\n\n"),
+      taxonomySlug,
+      excludeTitles: scopedHits.map((hit) => hit.title),
+      limit: 8,
+    });
+    const canonicalSources = runScopedResearchTools(
+      scopedHits,
+      scopedAuthority.map((snippet) => ({
+        title: snippet.title,
+        url: snippet.url,
+        snippet: snippet.snippet,
+        dworkinKind: snippet.dworkinKind,
+      })),
+    ).sources;
+    const researchBundle =
+      body.researchBundle &&
+      Array.isArray(body.researchBundle.sources) &&
+      Array.isArray(body.researchBundle.claims)
+      ? canonicalizeResearchBundle(body.researchBundle, canonicalSources)
+      : undefined;
 
     let { answerPackage, meta } = await buildOverviewAnswer({
       latestText,
@@ -79,6 +117,18 @@ export async function POST(req: Request) {
       clientQuestion,
       matterFrame,
       taxonomySlug,
+      searchMode: "penumbra",
+      researchBundle,
+      followUp:
+        body.followUp?.kind && body.followUp.text
+          ? {
+              kind: body.followUp.kind,
+              text: String(body.followUp.text),
+              priorAnswer: body.followUp.priorAnswer
+                ? String(body.followUp.priorAnswer)
+                : undefined,
+            }
+          : undefined,
     });
 
     let critique = critiqueOverviewRecommendation({
@@ -99,7 +149,19 @@ export async function POST(req: Request) {
         clientQuestion,
         matterFrame,
         taxonomySlug,
+        searchMode: "penumbra",
+        researchBundle,
         critique: critique.critique,
+        followUp:
+          body.followUp?.kind && body.followUp.text
+            ? {
+                kind: body.followUp.kind,
+                text: String(body.followUp.text),
+                priorAnswer: body.followUp.priorAnswer
+                  ? String(body.followUp.priorAnswer)
+                  : undefined,
+              }
+            : undefined,
       });
       answerPackage = retry.answerPackage;
       meta = {

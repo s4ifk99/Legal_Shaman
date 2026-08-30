@@ -125,6 +125,11 @@ export async function runMasterOrchestrate(
   heuristicPrompt: Prompt | null,
   signal?: AbortSignal,
   mode: 'intake' | 'answer' = 'intake',
+  followUp?: {
+    kind: 'clarify' | 'add_detail' | 'refine'
+    text: string
+    priorAnswer?: string
+  },
 ): Promise<MasterResult | null> {
   if (!latestText.trim()) return null
   const endpoint = coherenceMasterEndpoint()
@@ -140,6 +145,8 @@ export async function runMasterOrchestrate(
       body: JSON.stringify({
         latestText,
         mode,
+        searchMode: session.searchMode,
+        followUp,
         heuristicPrompt: heuristicPrompt
           ? { id: heuristicPrompt.id, text: heuristicPrompt.text, reason: heuristicPrompt.reason }
           : null,
@@ -160,6 +167,8 @@ export async function runMasterOrchestrate(
           })),
           rawInputs: session.rawInputs.slice(-4),
           topicId: session.topicId,
+          searchMode: session.searchMode,
+          penumbraAcknowledged: session.penumbraAcknowledged,
           answeredPromptIds: session.answeredPromptIds,
         },
       }),
@@ -279,5 +288,9 @@ export function applyMasterToSession(
     topicId: classify.topicId || brief.topicId || '',
     taxonomySlug: classify.taxonomySlug || base.taxonomySlug || null,
     matterFrame: master.matterFrame ?? base.matterFrame ?? null,
+    searchMode: session.searchMode,
+    penumbraAcknowledged: session.penumbraAcknowledged,
+    feedbackHistory: session.feedbackHistory,
+    answerRevisionHistory: session.answerRevisionHistory,
   }
 }
