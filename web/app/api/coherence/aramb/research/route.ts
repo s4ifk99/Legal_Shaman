@@ -115,6 +115,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "invalid_json" }, { status: 400 });
   }
 
+  const caseKey = safeCaseKey(body.caseKey);
   const access = await requireCoherenceAccess(req, {
     endpoint: "/api/coherence/aramb/research",
     expectedFrontierCalls: 1,
@@ -130,7 +131,6 @@ export async function POST(req: Request) {
   const latestText = String(body.latestText || "").trim();
   const submission = researchStory(latestText);
   const message = String(body.message || "").trim();
-  const caseKey = safeCaseKey(body.caseKey);
   if (latestText.length < 8 || !caseKey) {
     return NextResponse.json({ error: "missing_research_context" }, { status: 400 });
   }
