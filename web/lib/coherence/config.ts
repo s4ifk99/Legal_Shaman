@@ -1,12 +1,29 @@
+function enabledFlag(value?: string): boolean {
+  const flag = (value || "").trim().toLowerCase();
+  return flag === "1" || flag === "true" || flag === "yes" || flag === "on";
+}
+
+function vercelCoherenceV2Enabled(): boolean {
+  const mode = (process.env.COHERENCE_MODE || "legacy").trim().toLowerCase();
+  return (
+    process.env.VERCEL === "1" &&
+    enabledFlag(process.env.ENABLE_COHERENCE_V2) &&
+    (mode === "v2" || mode === "shadow")
+  );
+}
+
+function vercelArambEnabled(): boolean {
+  return process.env.VERCEL === "1" && enabledFlag(process.env.ENABLE_ARAMB_PILOT);
+}
+
 /**
- * Local-only gate for Coherence intake on /ask-the-shaman.
- * Never on when Vercel (or ENABLE_COHERENCE_ASK unset/false).
- * For staged V2 on Vercel see lib/coherence/mode.ts and docs/ops/COHERENCE_CUTOVER.md.
+ * Gate Coherence intake on /ask-the-shaman and its server APIs.
+ * Local development uses ENABLE_COHERENCE_ASK; staged V2 or Aramb production
+ * uses the corresponding server-side feature flag.
  */
 export function enableCoherenceAsk(): boolean {
-  if (process.env.VERCEL === "1") return false;
-  const flag = (process.env.ENABLE_COHERENCE_ASK || "").trim().toLowerCase();
-  return flag === "1" || flag === "true" || flag === "yes" || flag === "on";
+  if (process.env.VERCEL === "1") return vercelCoherenceV2Enabled() || vercelArambEnabled();
+  return enabledFlag(process.env.ENABLE_COHERENCE_ASK);
 }
 
 /** Map Signpost env → Coherence agent env (OPENROUTER_*, wiki paths). Call from API routes. */
