@@ -3,8 +3,8 @@
  * All default to safe/off or "inherit existing behaviour" unless noted.
  *
  * V1 directory search:
- * - Production / Vercel preview → Postgres full-text (Neon `sra_organisations` + lexical listings)
- * - Local dev → Typesense `legal_entities` when `ENABLE_TYPESENSE_UNIFIED=true`
+ * - Typesense `legal_entities` when `TYPESENSE_HOST` + `TYPESENSE_API_KEY` are set
+ * - Otherwise Postgres FTS (`sra_organisations` + lexical listings)
  *
  * Override with `DIRECTORY_SEARCH_BACKEND=postgres|typesense`.
  */
@@ -52,23 +52,18 @@ function typesenseDirectoryConfigured(): boolean {
 /**
  * Directory backend selection:
  * - Explicit `DIRECTORY_SEARCH_BACKEND` wins.
- * - Production / Vercel preview → Postgres FTS (Neon) — Typesense is often unreachable
- *   there and caused empty Find-a-Lawyer results when the unified path hung.
- * - Local / other → Typesense when host + API key are set.
+ * - Typesense when `TYPESENSE_HOST` + `TYPESENSE_API_KEY` are set (including Vercel).
+ * - Otherwise Postgres FTS.
  */
 export function directorySearchBackend(): DirectorySearchBackend {
   const explicit = process.env.DIRECTORY_SEARCH_BACKEND?.trim().toLowerCase();
   if (explicit === "postgres" || explicit === "typesense") {
     return explicit;
   }
-  const vercelEnv = process.env.VERCEL_ENV?.trim();
-  if (vercelEnv === "production" || vercelEnv === "preview" || process.env.VERCEL === "1") {
-    return "postgres";
-  }
   if (typesenseDirectoryConfigured()) {
     return "typesense";
   }
-  return "typesense";
+  return "postgres";
 }
 
 export function usePostgresDirectorySearch(): boolean {
@@ -78,7 +73,7 @@ export function usePostgresDirectorySearch(): boolean {
 /** Typesense `legal_entities` as primary directory + map retrieval (local dev). */
 export function enableTypesenseUnified(): boolean {
   if (usePostgresDirectorySearch()) return false;
-  return envBool("ENABLE_TYPESENSE_UNIFIED", false);
+  return envBool("ENABLE_TYPESENSE_UNIFIED", typesenseDirectoryConfigured());
 }
 
 export function enableMapSearch(): boolean {

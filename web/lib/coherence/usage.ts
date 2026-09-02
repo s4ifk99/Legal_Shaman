@@ -59,17 +59,15 @@ function stableSearchKey(value?: string): string | null {
 
 export async function monthlySearchUsage(userId: string): Promise<number> {
   await ensureBillingSchema();
-  const searches = await accountsPrisma.usageEvent.findMany({
-    where: {
-      userId,
-      searchKey: { not: null },
-      status: { in: ["started", "completed"] },
-      createdAt: { gte: startOfUtcMonth() },
-    },
-    select: { searchKey: true },
-    distinct: ["searchKey"],
-  });
-  return searches.length;
+  const rows = await accountsPrisma.$queryRaw<Array<{ n: bigint | number }>>`
+    SELECT COUNT(DISTINCT "search_key") AS n
+    FROM "usage_events"
+    WHERE "user_id" = ${userId}
+      AND "search_key" IS NOT NULL
+      AND "status" IN ('started', 'completed')
+      AND "created_at" >= ${startOfUtcMonth()}
+  `;
+  return Number(rows[0]?.n ?? 0);
 }
 
 export async function canStartCoherenceUsage(opts: {
