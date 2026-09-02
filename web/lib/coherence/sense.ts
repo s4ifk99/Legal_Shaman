@@ -467,6 +467,18 @@ function looksLikeGoalOnlyRequest(text: string): boolean {
   return /^(?:i (?:just )?want(?:\s+to)?|i need(?:\s+a)?|looking (?:for|to)|hoping to|find a conveyanc)/i.test(t)
 }
 
+/** "because I don't know what's relevant" is about the post, not the legal cause. */
+function isMetaCauseLine(line: string): boolean {
+  return /don'?t know what'?s relevant|as much detail as i can, because|giving as much detail/i.test(
+    line,
+  )
+}
+
+/** Medical/mobility needs must not become the Matching Help "goal". */
+function isPhysicalNeedNotGoal(fragment: string): boolean {
+  return /\b(crutches?|hobble|surgery|painkillers?|wheelchair|physio|hospital bed)\b/i.test(fragment)
+}
+
 /** Heuristic detail sensing for Phase 1 (no API required). */
 export function senseDetails(rawInput: string, prev: SessionState): SessionState {
   const text = normaliseLayText(rawInput.trim())
@@ -536,17 +548,24 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
     if (!softFlags.includes('character_concern_raised')) softFlags.push('character_concern_raised')
   }
 
-  // Goal extraction
+  // Goal extraction — "I need two crutches" is a fact, not the legal outcome they want.
   let goal = prev.goal
   const goalMatch = text.match(
-    /(?:i (?:just )?want(?: to)?|i need(?: to)?|looking (?:for|to)|hoping to)\s+(.+)/i,
+    /(?:i (?:just )?want to|i need to|looking (?:for|to)|hoping to)\s+(.+)/i,
   )
-  if (goalMatch) {
-    goal = goalMatch[1].replace(/[.?!].*$/, '').trim()
+  const goalFragment = goalMatch?.[1]?.replace(/[.?!].*$/, '').trim() || ''
+  if (goalFragment && !isPhysicalNeedNotGoal(goalFragment) && !isMetaCauseLine(goalFragment)) {
+    goal = goalFragment
   } else if (mode === 'browse' && /conveyanc|solicitor|lawyer/i.test(text) && !goal) {
     goal = matterType === 'conveyancing' ? 'Find a conveyancer' : 'Find suitable legal help'
   } else if (/need a (?:pi |personal injury )?lawyer|need a solicitor/i.test(text) && !goal) {
     goal = 'Speak to a suitable solicitor'
+  } else if (
+    !goal &&
+    /next step should be|give me some advice|what should i do/i.test(text) &&
+    /landlord|tenant|evict|flat|door|homeless|wages/i.test(text)
+  ) {
+    goal = 'Find out the next steps to stay housed and recover unpaid wages'
   }
 
   // Documents
@@ -620,7 +639,7 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
   const purposeBecause =
     /rather than|viewed as|so that|in order to|make sure/i.test(text) &&
     /because/i.test(causeMatch?.[0] || '')
-  if (!howCaused && causeMatch && !purposeBecause) {
+  if (!howCaused && causeMatch && !purposeBecause && !isMetaCauseLine(causeMatch[0])) {
     howCaused = causeMatch[0].trim()
   }
   // Neighbour parking / blocking already states the alleged wrongdoing

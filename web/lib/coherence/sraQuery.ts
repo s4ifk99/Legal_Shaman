@@ -297,7 +297,10 @@ export function relevantWorkAreas(
       ? (matched.length ? matched : areas).filter((a) => !/employment|criminal/i.test(a))
       : matched
   if (pool.length) return pool.slice(0, 4)
-  return areas.filter((a) => !/employment/i.test(a) || matterType === 'employment').slice(0, 3)
+  return areas
+    .filter((a) => !/intellectual property/i.test(a))
+    .filter((a) => !/employment/i.test(a) || matterType === 'employment')
+    .slice(0, 3)
 }
 
 export function sraMatchReason(
