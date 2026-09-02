@@ -17,6 +17,7 @@ import {
   type WikiHit,
 } from './wiki'
 import { matchV1Wiki, v1WikiInfo, type V1WikiHit } from './v1Wiki'
+import { applyFrameRoutingToSession } from './issueRouting'
 
 export type { KnowledgeHit, WikiHit }
 export { matchImmigrationWiki, sourcesByFrame, wikiHitsToBriefSources, wikiHitsToSignposts } from './wiki'
@@ -135,6 +136,9 @@ export const matchDomainKnowledge = matchImmigrationKnowledge
  * outrank stray labels such as a user tapping "Criminal" in an earlier turn.
  */
 export function matchingSessionForHelp(session: SessionState): SessionState {
+  if (session.matterFrame?.primaryIssues?.length) {
+    return applyFrameRoutingToSession(session)
+  }
   const text = [
     ...session.rawInputs,
     session.whatHappened,

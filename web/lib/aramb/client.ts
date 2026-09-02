@@ -3,22 +3,15 @@ import 'server-only'
 import { createHash } from 'node:crypto'
 
 import type { ResearchBundle } from '@/lib/coherence/researchBundle'
-import type { SearchMode } from '@/lib/coherence/types'
 import type { ArambResearchDiagnostic } from '@/lib/aramb/diagnostics'
 import {
   penumbraResearchEnabled,
   runPenumbraResearch,
+  type PenumbraResearchInput,
   type PenumbraResearchOutcome,
 } from '@/lib/penumbra/researcher'
 
-type ArambResearchInput = {
-  mode: SearchMode
-  query: string
-  sourceContext: string
-  canonicalSources: import('@/lib/coherence/researchBundle').ResearchSource[]
-  tenantKey: string
-  conversationId?: string
-}
+type ArambResearchInput = PenumbraResearchInput
 
 export type ArambResearchResult = {
   bundle: ResearchBundle

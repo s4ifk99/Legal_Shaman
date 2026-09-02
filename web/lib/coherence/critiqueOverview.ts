@@ -99,9 +99,9 @@ export function critiqueOverviewRecommendation(opts: {
       need: /pcn|penalty charge|parking|appeal|tribunal|adjudicat|permit|contravention/i,
     },
     {
-      re: /\b(threw|broke|broken|damaged|destroyed).{0,80}(switch|console|toy|gift|belongings)|sue.{0,40}(ex|mum|replacement)|can'?t afford a new/i,
-      label: "damaged belongings / small claims",
-      need: /small claim|letter before|money claim|county court|compensation|damag|replace|citizens advice|sue|claim/i,
+      re: /door.{0,24}removed|no front door|illegal evict|forced .{0,40}(?:leave|vacate)|homeless|nowhere else to go/i,
+      label: "illegal eviction / homelessness",
+      need: /illegal evict|homeless|shelter|lock|court order|occup|tenancy|housing/i,
     },
   ];
 
@@ -113,7 +113,10 @@ export function critiqueOverviewRecommendation(opts: {
   }
   // Fail only if several raised themes are ignored (avoid over-strict single misses)
   const hardThemes = missingThemes.filter(
-    (t) => t === "PCN / parking appeal" || t === "damaged belongings / small claims",
+    (t) =>
+      t === "PCN / parking appeal" ||
+      t === "damaged belongings / small claims" ||
+      t === "illegal eviction / homelessness",
   );
   if (missingThemes.length >= 2 || hardThemes.length) {
     errors.push(

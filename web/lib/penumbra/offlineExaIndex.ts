@@ -6,6 +6,11 @@ import exaIndex from '@/data/coherence/authority/authorityExaIndex.json'
 import { isAllowedAuthorityUrl } from '@/lib/coherence/authorityAllowlist'
 import { evaluateSeedPage } from '@/lib/coherence/authorityMatch'
 import type { ExaSearchHit } from '@/lib/penumbra/exaSearch'
+import {
+  matchingSlotIds,
+  primaryMatterSlug,
+  type CoverageSlot,
+} from '@/lib/matter/coverageSlots'
 
 type ExaCachedPage = {
   id: string
@@ -103,6 +108,14 @@ function tokenOverlapScore(query: string, corpus: string): number {
   return score
 }
 
+function topicKeyAllowedForMatter(key: string, matterSlug?: string): boolean {
+  const matter = primaryMatterSlug(matterSlug)
+  if (!matter) return true
+  if (matter === 'housing') return /housing|landlord|homeless|evict|tenan|rent/i.test(key)
+  if (matter === 'employment') return /employment|work|wage|holiday|acas|dismiss/i.test(key)
+  return key.includes(matter) || key.startsWith(`area-${matter}`)
+}
+
 function matterTopicPages(matterSlug?: string): ExaCachedPage[] {
   const topicKey = MATTER_TO_AREA_TOPIC[(matterSlug || '').trim().toLowerCase()]
   if (!topicKey) return []
@@ -131,10 +144,12 @@ function pagesForTopicKeys(topicKeys: string[]): ExaCachedPage[] {
 
 /** Match indexed sample queries (Exa fallback topics) to the live user story. */
 function matchingTopicKeys(query: string, matterSlug?: string, limit = 4): string[] {
-  const matterTopic = MATTER_TO_AREA_TOPIC[(matterSlug || '').trim().toLowerCase()]
+  const matter = primaryMatterSlug(matterSlug)
+  const matterTopic = MATTER_TO_AREA_TOPIC[matter]
   const scored: Array<{ key: string; score: number }> = []
 
   for (const [key, topic] of Object.entries(TOPICS)) {
+    if (!topicKeyAllowedForMatter(key, matterSlug)) continue
     let score = 0
     for (const sample of topic.sampleQueries || []) {
       score = Math.max(score, tokenOverlapScore(query, sample))
@@ -156,7 +171,7 @@ function scorePage(page: ExaCachedPage, query: string, matterSlug?: string): num
     score = tokenOverlapScore(query, `${page.title} ${page.summary || ''} ${page.keywords.join(' ')}`)
     if (score < 6) return 0
   }
-  const matterTopic = MATTER_TO_AREA_TOPIC[(matterSlug || '').trim().toLowerCase()]
+  const matterTopic = MATTER_TO_AREA_TOPIC[primaryMatterSlug(matterSlug)]
   if (matterTopic && page.topicKeys?.includes(matterTopic)) score += 20
   if (page.source === 'exa-fallback' || page.source === 'area-fill') score += 2
   return score
@@ -172,40 +187,43 @@ export type OfflineExaSearchResult = {
 /** Rank pages from authorityExaIndex.json — no network. */
 export function searchOfflineExaIndexForPenumbra(
   query: string,
-  opts: { matterSlug?: string; limit?: number } = {},
+  opts: { matterSlug?: string; limit?: number; slots?: CoverageSlot[]; story?: string } = {},
 ): OfflineExaSearchResult {
   if (!penumbraOfflineExaEnabled()) {
     return { hits: [], matchedPageCount: 0 }
   }
 
   const limit = Math.min(Math.max(opts.limit ?? 8, 1), 12)
-  const matterTopicKey = MATTER_TO_AREA_TOPIC[(opts.matterSlug || '').trim().toLowerCase()]
+  const matterTopicKey = MATTER_TO_AREA_TOPIC[primaryMatterSlug(opts.matterSlug)]
   const matchedTopicKeys = matchingTopicKeys(query, opts.matterSlug)
   const scored = new Map<string, { page: ExaCachedPage; score: number }>()
+  const slots = opts.slots || []
+  const story = opts.story || query
 
-  for (const page of PAGES) {
-    if (!isAllowedAuthorityUrl(page.url)) continue
-    const score = scorePage(page, query, opts.matterSlug)
-    if (score <= 0) continue
+  const consider = (page: ExaCachedPage, extra = 0) => {
+    if (!isAllowedAuthorityUrl(page.url)) return
+    if (
+      page.topicKeys?.length &&
+      opts.matterSlug &&
+      !page.topicKeys.some((key) => topicKeyAllowedForMatter(key, opts.matterSlug))
+    ) {
+      return
+    }
+    if (slots.length) {
+      const ids = matchingSlotIds(`${page.title} ${page.url} ${page.summary || ''}`, slots, story)
+      if (!ids.length) return
+    }
+    const score = extra + scorePage(page, query, opts.matterSlug)
+    if (score <= 0) return
     const existing = scored.get(page.url)
     if (!existing || score > existing.score) {
       scored.set(page.url, { page, score })
     }
   }
 
-  for (const page of matterTopicPages(opts.matterSlug)) {
-    if (!isAllowedAuthorityUrl(page.url)) continue
-    const base = scored.get(page.url)?.score || 0
-    const score = Math.max(base, 12 + scorePage(page, query, opts.matterSlug))
-    scored.set(page.url, { page, score })
-  }
-
-  for (const page of pagesForTopicKeys(matchedTopicKeys)) {
-    if (!isAllowedAuthorityUrl(page.url)) continue
-    const base = scored.get(page.url)?.score || 0
-    const score = Math.max(base, 10 + scorePage(page, query, opts.matterSlug))
-    scored.set(page.url, { page, score })
-  }
+  for (const page of PAGES) consider(page)
+  for (const page of matterTopicPages(opts.matterSlug)) consider(page, 12)
+  for (const page of pagesForTopicKeys(matchedTopicKeys)) consider(page, 10)
 
   const hits = [...scored.values()]
     .sort((a, b) => b.score - a.score)

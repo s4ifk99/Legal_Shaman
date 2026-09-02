@@ -13,6 +13,7 @@
 
 import type { MatterFrame } from "./types";
 import { ISSUE_RETRIEVAL_INTENTS } from "./scopes";
+import { intentAllowedOnGraph } from "./issueGraphHits";
 import { normaliseLayText } from "../coherence/normaliseLay";
 
 export type ConceptRetrievalPlan = {
@@ -41,6 +42,8 @@ type ConceptCluster = {
   titleExclusion?: RegExp;
   /** Coarse slugs whose hard-coded default intents would bleed. */
   suppressSlugDefaults?: string[];
+  /** Do not fire unless at least one of these issue slugs is on the frozen graph. */
+  requireAnyIssue?: string[];
 };
 
 /**
@@ -98,6 +101,7 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     ],
     titleExclusion: /schedule of loss|bradford factor|used car|parking ticket/i,
     suppressSlugDefaults: ["employment"],
+    requireAnyIssue: ["discrimination_equality"],
   },
   {
     id: "employment_unfair_dismissal",
@@ -187,7 +191,22 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
       "challenging a section 21 notice",
     ],
     titleExclusion: /used car|neighbour driveway|parking ticket|unfair dismissal/i,
-    suppressSlugDefaults: ["neighbour_dispute", "consumer", "employment"],
+    suppressSlugDefaults: ["neighbour_dispute", "consumer"],
+  },
+  {
+    id: "illegal_eviction_lockout",
+    matchAll: [
+      /\b(landlord|tenant|tenancy|flat|housing|occupier)\b/i,
+      /\b(door.{0,24}removed|changed? (?:the )?locks?|illegal evict|forced (?:me )?to (?:leave|vacate)|lock(?:ed)? out|no (?:front )?door)\b/i,
+    ],
+    intents: [
+      "illegal eviction lock out without court order",
+      "homelessness help local authority Shelter",
+      "occupier no written tenancy service occupancy",
+    ],
+    titleExclusion:
+      /used car|child arrangements|unfair dismissal|parking ticket|capital gains|inheritance tax|unused pension|gifting property/i,
+    suppressSlugDefaults: ["neighbour_dispute", "consumer"],
   },
   {
     id: "tenancy_deposit",
@@ -356,7 +375,9 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
       /\b(child|children|son|daughter)\b/i,
       /\b(contact|custody|child arrangements|reside|weekend|school run|Cafcass)\b/i,
     ],
-    rejectIf: [/\b(belongings|broke my|threw|visa|used car)\b/i],
+    rejectIf: [
+      /\b(belongings|broke my|threw|visa|used car|son[- ]in[- ]law|daughter[- ]in[- ]law|friends or family)\b/i,
+    ],
     intents: [
       "child arrangements contact order",
       "making child arrangements after separation",
@@ -364,6 +385,7 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     ],
     titleExclusion: /small claim|letter before action|visa refusal|unfair dismissal|used car/i,
     suppressSlugDefaults: ["consumer_small_claims", "employment", "consumer"],
+    requireAnyIssue: ["family"],
   },
   {
     id: "family_divorce_finances",
@@ -389,6 +411,7 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     ],
     titleExclusion: /unfair dismissal|used car|visa refusal|neighbour driveway/i,
     suppressSlugDefaults: ["employment", "consumer", "housing"],
+    requireAnyIssue: ["debt"],
   },
   {
     id: "debt_iva_bankruptcy",
@@ -476,7 +499,7 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
       "priority need homelessness",
     ],
     titleExclusion: /used car|unfair dismissal|parking ticket|visa|fire door/i,
-    suppressSlugDefaults: ["neighbour_dispute", "consumer", "employment"],
+    suppressSlugDefaults: ["neighbour_dispute", "consumer"],
   },
   {
     id: "leasehold_fire_safety_alterations",
@@ -850,6 +873,7 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     ],
     titleExclusion: /unfair dismissal schedule of loss|used car reject|visa|section\s*21/i,
     suppressSlugDefaults: ["employment", "consumer", "housing"],
+    requireAnyIssue: ["personal_injury"],
   },
   {
     id: "clinical_negligence",
@@ -863,6 +887,7 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     ],
     titleExclusion: /unfair dismissal|used car|neighbour driveway|visa/i,
     suppressSlugDefaults: ["employment", "consumer", "housing"],
+    requireAnyIssue: ["clinical_negligence"],
   },
 
   // —— Crime / police ——
@@ -879,6 +904,7 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     ],
     titleExclusion: /unfair dismissal|used car|section\s*21|visa apply/i,
     suppressSlugDefaults: ["employment", "consumer", "housing"],
+    requireAnyIssue: ["criminal_defence"],
   },
   {
     id: "police_property_seizure",
@@ -1210,6 +1236,21 @@ function clusterMatches(cluster: ConceptCluster, blob: string): boolean {
   return true;
 }
 
+function frameIssueSlugs(frame: MatterFrame): Set<string> {
+  return new Set([
+    ...frame.primaryIssues.map((i) => i.slug),
+    ...frame.secondaryIssues.map((i) => i.slug),
+  ]);
+}
+
+function clusterFitsFrame(cluster: ConceptCluster, frame: MatterFrame): boolean {
+  if (!cluster.requireAnyIssue?.length) return true;
+  const slugs = frameIssueSlugs(frame);
+  const resolved = [...slugs].filter((s) => s && s !== "unknown");
+  if (!resolved.length) return true;
+  return cluster.requireAnyIssue.some((s) => slugs.has(s));
+}
+
 function keyphraseIntents(concepts: string[], limit = 4): string[] {
   // Prefer longer / multi-word concepts as search queries (agent concepts + LexKeyPlan)
   return [...concepts]
@@ -1250,23 +1291,32 @@ export function buildConceptRetrievalPlan(
   const titleExclusions: RegExp[] = [];
   const suppress = new Set<string>();
 
+  const graphSlugs = frameIssueSlugs(frame);
   for (const cluster of CONCEPT_CLUSTERS) {
+    if (!clusterFitsFrame(cluster, frame)) continue;
     if (!clusterMatches(cluster, blob)) continue;
     clusterIds.push(cluster.id);
-    for (const intent of cluster.intents) intents.add(intent);
+    for (const intent of cluster.intents) {
+      if (intentAllowedOnGraph(intent, frame)) intents.add(intent);
+    }
     if (cluster.titleExclusion) titleExclusions.push(cluster.titleExclusion);
-    for (const s of cluster.suppressSlugDefaults || []) suppress.add(s);
+    for (const s of cluster.suppressSlugDefaults || []) {
+      if (graphSlugs.has(s) && frame.primaryIssues[0]?.slug !== s) continue;
+      suppress.add(s);
+    }
   }
 
   // Always add keyphrase / agent-concept intents (MuISQA / LexKeyPlan)
   for (const kp of keyphraseIntents(concepts, clusterIds.length ? 4 : 6)) {
-    intents.add(kp);
+    if (intentAllowedOnGraph(kp, frame)) intents.add(kp);
   }
 
   // If no cluster matched, still keep concept intents; slug defaults fill via buildRetrievalPlan
   if (!clusterIds.length && !intents.size) {
     for (const slug of frame.primaryIssues.map((i) => i.slug)) {
-      for (const intent of ISSUE_RETRIEVAL_INTENTS[slug] || []) intents.add(intent);
+      for (const intent of ISSUE_RETRIEVAL_INTENTS[slug] || []) {
+        if (intentAllowedOnGraph(intent, frame)) intents.add(intent);
+      }
     }
   }
 

@@ -9,6 +9,8 @@ export type PenumbraResearchResponse = {
   fallback?: boolean
   latencyMs?: number
   tokens?: number
+  cacheHit?: boolean
+  exaSource?: string
 }
 
 export function newPenumbraCaseKey(): string {
@@ -54,8 +56,7 @@ export async function requestPenumbraResearch(
       message: input.message,
       searchMode: session.searchMode,
       caseKey: state.caseKey,
-      conversationId: state.conversationId,
-      stream: input.stream ?? false,
+      matterFrame: session.matterFrame || undefined,
     }),
   })
   let data: (PenumbraResearchResponse & { error?: string; fallback?: boolean }) | null = null

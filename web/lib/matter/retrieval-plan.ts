@@ -11,11 +11,13 @@ import {
   buildConceptRetrievalPlan,
   shouldSuppressSlugDefaults,
 } from "./conceptRetrievalPlan";
+import { employmentIsBackdropOnly, intentAllowedOnGraph } from "./issueGraphHits";
 
 /** Legal issue slugs supported by each event type (operative events, not backdrop). */
 export const EVENT_TYPE_ISSUES: Record<string, string[]> = {
   brief_event: [],
   employment: ["employment"],
+  family: ["family"],
   vehicle_sale: ["consumer_vehicle_repair", "consumer"],
   vehicle_purchase: ["consumer_vehicle_repair", "consumer"],
   vehicle_repair: ["consumer_vehicle_repair", "consumer"],
@@ -34,7 +36,12 @@ export const EVENT_TYPE_RETRIEVAL_INTENTS: Record<string, string[]> = {
   ],
   vehicle_purchase: ["buying a car dealer refund faulty vehicle MOT"],
   vehicle_repair: ["problem with a car repair garage consumer"],
-  housing: ["landlord tenant disrepair section 21 deposit"],
+  housing: [
+    "illegal eviction lock out without court order",
+    "homelessness duty emergency housing Shelter",
+    "occupier no tenancy agreement service occupancy",
+    "landlord tenant disrepair section 21 deposit",
+  ],
   neighbour_dispute: ["neighbour noise nuisance barking dog"],
   parking_pcn: ["appealing parking ticket penalty charge notice"],
   consumer_services: ["builder poor workmanship consumer services trader"],
@@ -100,21 +107,15 @@ export function buildRetrievalPlan(
     .join("\n");
 
   const conceptPlan = buildConceptRetrievalPlan(frame, story);
-  for (const intent of conceptPlan.intents) {
-    if (!intents.has(intent)) {
-      intents.add(intent);
-      traces.push({
-        eventId: "",
-        eventType: "concept-plan",
-        issueSlug: conceptPlan.clusterIds[0] || primarySlugs[0] || "concept",
-        intent,
-        relationshipTypes: conceptPlan.clusterIds,
-        source: "concept-plan",
-      });
-    }
-  }
-
   const disputedEvents = frame.events.filter((e) => e.disputed);
+  const addIntent = (
+    intent: string,
+    trace: Omit<RetrievalIntentTrace, "intent">,
+  ) => {
+    if (!intentAllowedOnGraph(intent, frame) || intents.has(intent)) return;
+    intents.add(intent);
+    traces.push({ ...trace, intent });
+  };
 
   for (const ev of disputedEvents) {
     const relTypes = frame.relationships
@@ -128,34 +129,40 @@ export function buildRetrievalPlan(
 
     for (const issueSlug of issueSlugs.slice(0, 3)) {
       if (shouldSuppressSlugDefaults(conceptPlan, issueSlug)) continue;
-      for (const intent of intentsForIssueSlug(issueSlug, story)) {
-        if (!intents.has(intent)) {
-          intents.add(intent);
-          traces.push({
-            eventId: ev.id,
-            eventType: ev.type,
-            issueSlug,
-            intent,
-            relationshipTypes: relTypes,
-            source: "event-issue",
-          });
-        }
-      }
-    }
-
-    for (const intent of EVENT_TYPE_RETRIEVAL_INTENTS[ev.type] || []) {
-      if (!intents.has(intent)) {
-        intents.add(intent);
-        traces.push({
+      const slugIntents =
+        employmentIsBackdropOnly(frame) && issueSlug === "employment"
+          ? ["unpaid wages holiday pay ACAS", "statutory sick pay employment"]
+          : intentsForIssueSlug(issueSlug, story);
+      for (const intent of slugIntents) {
+        addIntent(intent, {
           eventId: ev.id,
           eventType: ev.type,
-          issueSlug: issueSlugs[0] || ev.type,
-          intent,
+          issueSlug,
           relationshipTypes: relTypes,
           source: "event-issue",
         });
       }
     }
+
+    for (const intent of EVENT_TYPE_RETRIEVAL_INTENTS[ev.type] || []) {
+      addIntent(intent, {
+        eventId: ev.id,
+        eventType: ev.type,
+        issueSlug: issueSlugs[0] || ev.type,
+        relationshipTypes: relTypes,
+        source: "event-issue",
+      });
+    }
+  }
+
+  for (const intent of conceptPlan.intents) {
+    addIntent(intent, {
+      eventId: "",
+      eventType: "concept-plan",
+      issueSlug: conceptPlan.clusterIds[0] || primarySlugs[0] || "concept",
+      relationshipTypes: conceptPlan.clusterIds,
+      source: "concept-plan",
+    });
   }
 
   // Fallback: primary issue intents when concept plan + events produced nothing useful
@@ -165,33 +172,29 @@ export function buildRetrievalPlan(
     for (const slug of primarySlugs) {
       if (shouldSuppressSlugDefaults(conceptPlan, slug)) continue;
       for (const intent of intentsForIssueSlug(slug, story)) {
-        if (!intents.has(intent)) {
-          intents.add(intent);
-          traces.push({
-            eventId: "",
-            eventType: "",
-            issueSlug: slug,
-            intent,
-            relationshipTypes: [],
-            source: "issue-fallback",
-          });
-        }
+        addIntent(intent, {
+          eventId: "",
+          eventType: "",
+          issueSlug: slug,
+          relationshipTypes: [],
+          source: "issue-fallback",
+        });
       }
     }
     for (const slug of frame.secondaryIssues.slice(0, 2).map((i) => i.slug)) {
       if (shouldSuppressSlugDefaults(conceptPlan, slug)) continue;
-      for (const intent of intentsForIssueSlug(slug, story).slice(0, 2)) {
-        if (!intents.has(intent)) {
-          intents.add(intent);
-          traces.push({
-            eventId: "",
-            eventType: "",
-            issueSlug: slug,
-            intent,
-            relationshipTypes: [],
-            source: "issue-fallback",
-          });
-        }
+      const extra =
+        employmentIsBackdropOnly(frame) && slug === "employment"
+          ? ["unpaid wages holiday pay ACAS", "statutory sick pay employment"]
+          : intentsForIssueSlug(slug, story).slice(0, 2);
+      for (const intent of extra) {
+        addIntent(intent, {
+          eventId: "",
+          eventType: "",
+          issueSlug: slug,
+          relationshipTypes: [],
+          source: "issue-fallback",
+        });
       }
     }
   }

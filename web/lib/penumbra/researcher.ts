@@ -9,11 +9,11 @@ import {
   canonicalizeResearchBundle,
   parseResearchBundle,
   researchBundlePrompt,
+  type FreeResourceCandidate,
   type ResearchBundle,
   type ResearchSource,
 } from '@/lib/coherence/researchBundle'
 import type { SearchMode } from '@/lib/coherence/types'
-import { chat } from '@/lib/llm/client'
 import {
   openRouterDefaultHeaders,
   resolveChatModel,
@@ -34,9 +34,15 @@ import {
 } from '@/lib/penumbra/offlineExaIndex'
 import {
   buildPenumbraCacheKey,
+  buildExaHitsCacheKey,
   getPenumbraResearchCache,
+  getPenumbraExaHitsCache,
   putPenumbraResearchCache,
+  putPenumbraExaHitsCache,
 } from '@/lib/penumbra/researchCache'
+import type { ExaResearchQuery } from '@/lib/penumbra/exaBrief'
+import { groupBySlot, matchingSlotIds, primaryMatterSlug, type CoverageSlot } from '@/lib/matter/coverageSlots'
+import { discoverHelpFromExaHits } from '@/lib/penumbra/helpDiscover'
 
 export type PenumbraResearchInput = {
   mode: SearchMode
@@ -49,6 +55,12 @@ export type PenumbraResearchInput = {
   matterSlug?: string
   /** Skip cache read/write (e.g. admin replay). */
   skipCache?: boolean
+  /** Full-power Exa queries (open web + official). */
+  exaQueries?: ExaResearchQuery[]
+  /** Frozen coverage slots — Exa hits must fill these. */
+  coverageSlots?: CoverageSlot[]
+  /** Original story for jurisdiction / slot matching. */
+  story?: string
 }
 
 export type PenumbraResearchResult = {
@@ -105,17 +117,74 @@ function formatExaContext(sources: ResearchSource[]): string {
     .join('\n\n')
 }
 
-/** Last-resort bundle from indexed sources when LLM synthesis fails. */
+function filterHitsBySlots(
+  hits: Awaited<ReturnType<typeof searchExaForPenumbra>>['hits'],
+  slots: CoverageSlot[],
+  story: string,
+) {
+  if (!slots.length) return hits
+  const good = hits.filter((hit) => matchingSlotIds(`${hit.title} ${hit.url} ${hit.excerpt}`, slots, story).length)
+  return good.length ? good : hits.slice(0, 3)
+}
+
+function filterCanonicalBySlots(sources: ResearchSource[], slots: CoverageSlot[], story: string): ResearchSource[] {
+  if (!slots.length) return sources
+  const good = sources.filter((source) => matchingSlotIds(`${source.title} ${source.excerpt}`, slots, story).length)
+  return good.length >= 2 ? good : sources
+}
+
+function memoFromExaSources(
+  query: string,
+  exaSources: ResearchSource[],
+  canonicalSources: ResearchSource[],
+  slots: CoverageSlot[] = [],
+  story = '',
+): string {
+  const groups = groupBySlot(exaSources, slots, {
+    story,
+    extraText: (s) => `${s.url} ${s.excerpt}`,
+  })
+  const found =
+    groups.length > 0
+      ? groups.flatMap((g) => {
+          const heading = g.slot ? g.slot.label : 'Other'
+          return [
+            `${heading}:`,
+            ...g.items.slice(0, 4).map((s, i) => `${i + 1}. ${s.title} (${s.tier}, unverified)\n${s.url}\n${s.excerpt.slice(0, 280)}`),
+          ]
+        })
+      : exaSources.slice(0, 10).map(
+          (s, i) => `${i + 1}. ${s.title} (${s.tier}, unverified)\n${s.url}\n${s.excerpt.slice(0, 320)}`,
+        )
+  const lines = [
+    'Third Eye filled gaps on the frozen issue graph. This is supplemental, not a second recommendation.',
+    '',
+    query.replace(/\s+/g, ' ').trim().slice(0, 280),
+    '',
+    'What Exa found (by issue):',
+    ...found,
+  ]
+  if (canonicalSources.length) {
+    lines.push('', 'Legal Shaman library already on file:', ...canonicalSources.slice(0, 4).map((s) => `- ${s.title}`))
+  }
+  return lines.join('\n')
+}
+
+function penumbraLlmSynthEnabled(): boolean {
+  return /^(1|true|yes|on)$/i.test(process.env.PENUMBRA_LLM_SYNTH?.trim() || '')
+}
 function deterministicBundleFromSources(
   mode: SearchMode,
   query: string,
   canonicalSources: ResearchSource[],
   exaSources: ResearchSource[],
+  slots: CoverageSlot[] = [],
+  story = '',
 ): ResearchBundle | null {
   const sources = [...canonicalSources, ...exaSources]
-  if (sources.length < 2) return null
+  if (!sources.length) return null
 
-  const claims = exaSources.slice(0, 4).map((source) => ({
+  const claims = exaSources.slice(0, 6).map((source) => ({
     claim: source.excerpt.replace(/\s+/g, ' ').trim().slice(0, 400),
     sourceIds: [source.id],
     confidence: 'low' as const,
@@ -134,10 +203,25 @@ function deterministicBundleFromSources(
       'Read the cited official guidance and compare it to your documents before you act.',
       'Ask Citizens Advice or a specialist helpline if the route or liability is unclear.',
     ],
-    answerDraft:
-      `Indexed UK guidance was retrieved for: ${questionLead}. The points below come from offline authority sources — verify each link before relying on it.`,
+    answerDraft: memoFromExaSources(query, exaSources, canonicalSources, slots, story),
     freeResources: [],
   }
+}
+
+function mergeHelpResources(
+  existing: FreeResourceCandidate[],
+  discovered: FreeResourceCandidate[],
+): FreeResourceCandidate[] {
+  const seen = new Set(existing.map((r) => r.url.replace(/\/+$/, '').toLowerCase()))
+  const out = [...existing]
+  for (const item of discovered) {
+    const key = item.url.replace(/\/+$/, '').toLowerCase()
+    if (seen.has(key)) continue
+    seen.add(key)
+    out.push(item)
+    if (out.length >= 12) break
+  }
+  return out
 }
 
 function fail(
@@ -258,83 +342,155 @@ export async function runPenumbraResearch(
   }
 
   try {
-    const exaQuery = [
-      input.query,
-      'United Kingdom England Wales official guidance Citizens Advice GOV.UK',
-    ]
-      .filter(Boolean)
-      .join('. ')
-      .slice(0, 2000)
+    const planned: ExaResearchQuery[] = input.exaQueries?.length
+      ? input.exaQueries
+      : [
+          { id: 'full', query: input.query.slice(0, 1800), scope: 'open' },
+          {
+            id: 'official',
+            query: `${input.query.slice(0, 400)} United Kingdom official guidance GOV.UK Shelter ACAS Citizens Advice`,
+            scope: 'allowlist',
+          },
+          {
+            id: 'help-free',
+            query: `${input.query.slice(0, 280)} England free advice helpline Shelter Citizens Advice law centre legal aid get help`,
+            scope: 'open',
+          },
+          {
+            id: 'help-paid',
+            query: `${input.query.slice(0, 280)} England find a solicitor SRA Law Society regulated directory`,
+            scope: 'open',
+          },
+        ]
+    const queryPlan = planned.map((q) => `${q.scope}:${q.query}`).join('\n---\n')
+    const hitsCacheKey = buildExaHitsCacheKey(queryPlan, input.matterSlug)
+    const numResults = Number(process.env.PENUMBRA_EXA_NUM_RESULTS || 10)
+    const timeoutMs = Number(process.env.PENUMBRA_EXA_TIMEOUT_MS || 20_000)
 
-    const numResults = Number(process.env.PENUMBRA_EXA_NUM_RESULTS || 8)
+    const slots = input.coverageSlots || []
+    const story = input.story || input.query
+    const matterSlug = primaryMatterSlug(input.matterSlug) || input.matterSlug
     const offline = offlineExaAvailable
-      ? searchOfflineExaIndexForPenumbra(exaQuery, {
-          matterSlug: input.matterSlug,
+      ? searchOfflineExaIndexForPenumbra(planned[0]?.query || input.query, {
+          matterSlug,
           limit: numResults,
+          slots,
+          story,
         })
       : { hits: [], matchedPageCount: 0, matchedTopicKeys: [] as string[] }
+
     let exaHits = offline.hits
+    let helpHits = offline.hits
     let exaRequestId: string | undefined
     let exaSource: 'offline' | 'live' | 'hybrid' = offline.hits.length ? 'offline' : 'live'
+    let hitsFromCache = false
 
-    // Third Eye always uses live Exa when configured; offline index pre-fills and merges.
-    if (liveExaAvailable) {
-      const live = await searchExaForPenumbra(exaQuery, {
-        numResults,
-        timeoutMs: Number(process.env.PENUMBRA_EXA_TIMEOUT_MS || 20_000),
-      })
-      exaRequestId = live.requestId
-      exaHits = mergeExaSearchHits(offline.hits, live.hits, numResults)
-      exaSource = offline.hits.length && live.hits.length ? 'hybrid' : live.hits.length ? 'live' : 'offline'
-    } else if (!offline.hits.length) {
+    if (!input.skipCache) {
+      const cachedHits = await getPenumbraExaHitsCache(hitsCacheKey)
+      if (cachedHits?.hits.length) {
+        const cachedMerged = mergeExaSearchHits(cachedHits.hits, offline.hits, 24)
+        helpHits = cachedMerged
+        exaHits = filterHitsBySlots(cachedMerged, slots, story)
+        hitsFromCache = true
+        exaSource = offline.hits.length ? 'hybrid' : 'live'
+        console.info(
+          '[penumbra-exa]',
+          JSON.stringify({
+            event: 'exa_hits_cache_hit',
+            conversationId,
+            hitCount: cachedHits.hits.length,
+          }),
+        )
+      }
+    }
+
+    if (!hitsFromCache && liveExaAvailable) {
+      const liveRuns = await Promise.all(
+        planned.map((q) =>
+          searchExaForPenumbra(q.query, {
+            numResults,
+            timeoutMs,
+            scope: q.scope,
+          }),
+        ),
+      )
+      exaRequestId = liveRuns.map((r) => r.requestId).filter(Boolean).join(',')
+      let merged: typeof offline.hits = []
+      for (const run of liveRuns) {
+        merged = mergeExaSearchHits(merged, run.hits, 24)
+      }
+      helpHits = mergeExaSearchHits(merged, offline.hits, 24)
+      exaHits = filterHitsBySlots(helpHits, slots, story)
+      exaSource = offline.hits.length && liveRuns.some((r) => r.hits.length)
+        ? 'hybrid'
+        : liveRuns.some((r) => r.hits.length)
+          ? 'live'
+          : 'offline'
+      if (!input.skipCache && helpHits.length) {
+        await putPenumbraExaHitsCache({
+          cacheKey: hitsCacheKey,
+          query: queryPlan,
+          matterSlug: input.matterSlug,
+          hits: helpHits,
+        })
+      }
+    } else if (!hitsFromCache && !offline.hits.length) {
       return fail('empty_bundle', started, {
         conversationId,
         errorMessage: 'offline Exa index returned no hits and live Exa is disabled',
       })
     }
+
     const exaSources = exaHitsToSources(exaHits)
+    const canonicalSources = filterCanonicalBySlots(input.canonicalSources, slots, story)
     const allowedSourceIds = new Set([
-      ...input.canonicalSources.map((source) => source.id),
+      ...canonicalSources.map((source) => source.id),
       ...exaSources.map((source) => source.id),
     ])
 
-    const prompt = [
-      researchBundlePrompt({
-        mode: input.mode,
-        query: input.query,
-        context: `${input.sourceContext}\n\nExa open-web candidates (already retrieved; cite by id):\n${formatExaContext(exaSources)}`,
-      }),
-      'Curated Legal Shaman wiki and authority tools were already executed before this turn.',
-      'Use the Exa candidates above for genuine gaps. Do not invent sources.',
-      'Every external source must use its provided web- id and https URL.',
-      'Return JSON only.',
-    ].join('\n\n')
-
-    if (onChunk) onChunk('…')
-
-    const reply = await synthesizeResearchBundle(prompt)
-
-    if (onChunk && reply) onChunk(reply.slice(0, 200))
-
-    const parsed = parseResearchBundle(reply, input.mode, allowedSourceIds)
     let bundle: ResearchBundle | null = null
-    if (parsed) {
-      bundle = canonicalizeResearchBundle(parsed, [...input.canonicalSources, ...exaSources])
-    } else {
+    let reply = ''
+    let parsed: ReturnType<typeof parseResearchBundle> = null
+
+    if (penumbraLlmSynthEnabled()) {
+      const prompt = [
+        researchBundlePrompt({
+          mode: input.mode,
+          query: input.query,
+          context: `${input.sourceContext}\n\nExa full-search candidates (already retrieved; cite by id):\n${formatExaContext(exaSources)}`,
+        }),
+        'Legal Shaman already froze a case brief. Research the whole matter from scratch using Exa results.',
+        'Do not elect a new primary matter that the brief excluded. Do not invent sources.',
+        'Every external source must use its provided web- id and https URL.',
+        'Return JSON only.',
+      ].join('\n\n')
+      if (onChunk) onChunk('…')
+      reply = await synthesizeResearchBundle(prompt)
+      if (onChunk && reply) onChunk(reply.slice(0, 200))
+      parsed = parseResearchBundle(reply, input.mode, allowedSourceIds)
+      if (parsed) {
+        bundle = canonicalizeResearchBundle(parsed, [...canonicalSources, ...exaSources])
+      }
+    }
+
+    if (!bundle) {
       bundle = deterministicBundleFromSources(
         input.mode,
         input.query,
-        input.canonicalSources,
+        canonicalSources,
         exaSources,
+        slots,
+        story,
       )
-      if (bundle) {
-        console.warn(
+      if (bundle && !penumbraLlmSynthEnabled()) {
+        console.info(
           '[penumbra-exa]',
           JSON.stringify({
-            event: 'research_llm_fallback_deterministic',
+            event: 'research_exa_memo_no_llm',
             conversationId,
             exaSource,
             sourceCount: bundle.sources.length,
+            hitsFromCache,
           }),
         )
       }
@@ -344,16 +500,22 @@ export async function runPenumbraResearch(
       return fail('parse_failed', started, {
         conversationId,
         replyLength: reply.length,
-        errorMessage: `parseResearchBundle returned null; reply=${reply.slice(0, 240)}`,
+        errorMessage: `no Third Eye bundle; reply=${reply.slice(0, 240)}`,
       })
     }
+
+    const discoveredHelp = discoverHelpFromExaHits(helpHits, {
+      matterSlug: input.matterSlug,
+      topicId: matterSlug || input.matterSlug,
+    })
+    bundle.freeResources = mergeHelpResources(bundle.freeResources || [], discoveredHelp)
 
     if (bundle.sources.length === 0 && bundle.questions.length === 0) {
       return fail('empty_bundle', started, {
         conversationId,
         replyLength: reply.length,
-        parsedSourceCount: parsed.sources.length,
-        parsedQuestionCount: parsed.questions.length,
+        parsedSourceCount: parsed?.sources.length || 0,
+        parsedQuestionCount: parsed?.questions.length || 0,
         errorMessage: 'canonical bundle had no sources or questions',
       })
     }
@@ -374,6 +536,7 @@ export async function runPenumbraResearch(
         matchedTopicKeys: offline.matchedTopicKeys,
         parsedSourceCount: bundle.sources.length,
         parsedQuestionCount: bundle.questions.length,
+        helpLeadCount: bundle.freeResources.length,
         cacheKey: cacheKey.slice(0, 12),
       }),
     )

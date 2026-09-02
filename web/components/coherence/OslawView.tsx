@@ -19,6 +19,7 @@ import {
   isFinalOverviewPackage,
 } from '@/lib/coherence/retrieveAnswer'
 import { logSearchEvent } from '@/lib/coherence/searchAnalytics'
+import { coverageSlotsFrom, groupBySlot } from '@/lib/matter/coverageSlots'
 import { SynthesisHourglass } from './SynthesisHourglass'
 import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './OslawView.css'
@@ -44,13 +45,61 @@ interface Props {
   pageNavigation?: PageNavigationProps
 }
 
+function sessionStory(session: SessionState): string {
+  return [session.whatHappened, session.howCaused, ...(session.rawInputs || [])].filter(Boolean).join('\n')
+}
+
+function SlotSourceList({
+  session,
+  items,
+}: {
+  session: SessionState
+  items: Array<{ title: string; url?: string; origin?: string; excerpt?: string }>
+}) {
+  const story = sessionStory(session)
+  const frame = session.matterFrame
+  const slots = frame ? coverageSlotsFrom(frame, story) : []
+  const groups = groupBySlot(items, slots, {
+    story,
+    extraText: (item) => `${item.url || ''} ${item.excerpt || ''}`,
+  })
+  if (!groups.length) return null
+  return (
+    <div className="oslaw__slot-groups">
+      {groups.map((group) => (
+        <div key={group.slot?.id || 'other'} className="oslaw__slot-group">
+          <h4 className="oslaw__slot-label">{group.slot?.label || 'Other sources'}</h4>
+          <ul className="oslaw__rec-list--links">
+            {group.items.map((item) => (
+              <li key={`${item.title}-${item.url || ''}`}>
+                {item.url?.startsWith('/') ? (
+                  <Link href={item.url}>{item.title}</Link>
+                ) : item.url ? (
+                  <a href={item.url} target="_blank" rel="noreferrer">
+                    {item.title}
+                  </a>
+                ) : (
+                  item.title
+                )}
+                {item.origin === 'external' ? <span> — supplemental · unverified</span> : <span> — library</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function Recommendation({
   pack,
+  session,
   preflightNote,
   authorityHits,
   onFollowUp,
 }: {
   pack: AnswerPackage
+  session: SessionState
   preflightNote?: string | null
   authorityHits?: SessionState['authorityHits']
   onFollowUp: (followUp: AnswerFollowUp) => void
@@ -184,18 +233,20 @@ function Recommendation({
 
       {pages.length > 0 && (
         <section className="oslaw__rec-section">
-          <h3 className="oslaw__rec-h">Relevant wiki pages</h3>
-          <ul className="oslaw__rec-pages oslaw__rec-list--links">
-            {pages.map((w) => (
-              <li key={w.path + w.title}>
-                {w.path ? (
-                  <Link href={wikiArticleHref(w.path)}>{w.title}</Link>
-                ) : (
-                  w.title
-                )}
-              </li>
-            ))}
-          </ul>
+          <h3 className="oslaw__rec-h">Sources by issue</h3>
+          <SlotSourceList
+            session={session}
+            items={[
+              ...pages.map((w) => ({
+                title: w.title,
+                url: w.path ? wikiArticleHref(w.path) : undefined,
+                origin: 'curated' as const,
+              })),
+              ...(pack.researchBundle?.sources || [])
+                .filter((s) => s.origin === 'external')
+                .map((s) => ({ title: s.title, url: s.url, origin: s.origin, excerpt: s.excerpt })),
+            ]}
+          />
         </section>
       )}
 
@@ -258,46 +309,10 @@ function Recommendation({
         </details>
       )}
 
-      {pack.researchBundle ? (
-        <details className="oslaw__rec-sources oslaw__research-bundle">
-          <summary>
-            Third Eye research ({pack.researchBundle.sources.length} labelled sources)
-          </summary>
-          <p className="oslaw__rec-note">
-            Supplemental exploration only. Legal Shaman checks the final answer against its own grounded sources.
-          </p>
-          <ul className="oslaw__rec-list--links">
-            {pack.researchBundle.sources.map((source) => (
-              <li key={source.id}>
-                {source.url ? (
-                  <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
-                ) : (
-                  source.title
-                )}{' '}
-                <span>
-                  ({source.origin === 'external' ? 'external · unverified' : 'curated'} · {source.tier})
-                </span>
-              </li>
-            ))}
-          </ul>
-          {pack.researchBundle.claims.length ? (
-            <>
-              <p className="oslaw__rec-note">Source-linked claims and confidence</p>
-              <ul className="oslaw__rec-list">
-                {pack.researchBundle.claims.map((claim) => (
-                  <li key={claim.claim}>
-                    {claim.claim} <span>({claim.confidence}; {claim.sourceIds.join(', ')})</span>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : null}
-          {pack.researchBundle.conflicts.length ? (
-            <p className="oslaw__rec-note">
-              Conflicts to check: {pack.researchBundle.conflicts.join(' · ')}
-            </p>
-          ) : null}
-        </details>
+      {pack.researchBundle?.conflicts.length ? (
+        <p className="oslaw__rec-note">
+          Conflicts to check: {pack.researchBundle.conflicts.join(' · ')}
+        </p>
       ) : null}
 
       <p className="oslaw__rec-disclaimer">{pack.policyNote}</p>
@@ -312,10 +327,10 @@ function pickBestPack(
   mode: SearchMode,
   preferRetrieved = false,
 ): AnswerPackage {
-  if (mode === 'penumbra' || preferRetrieved) {
-    if (local.matchedTopicId === 'research-led' && local.bullets.length > 0) return local
-    if (master && isFinalOverviewPackage(master)) return master
-    if (retrieved && isFinalOverviewPackage(retrieved)) return retrieved
+  if (master && isFinalOverviewPackage(master)) return master
+  if (retrieved && isFinalOverviewPackage(retrieved)) return retrieved
+  if ((mode === 'penumbra' || preferRetrieved) && local.matchedTopicId === 'research-led' && local.bullets.length > 0) {
+    return local
   }
   // Deterministic R&D topic packs win when they matched (parking, CRA, etc.).
   if (local.matchedTopicId && local.matchedTopicId !== 'matter-housing' && local.bullets.length > 0) {
@@ -324,8 +339,6 @@ function pickBestPack(
     }
     if (!local.matchedTopicId.startsWith('matter-')) return local
   }
-  if (master && isFinalOverviewPackage(master)) return master
-  if (retrieved && isFinalOverviewPackage(retrieved)) return retrieved
   return local
 }
 
@@ -356,7 +369,7 @@ function PenumbraResearchPanel({
             Third Eye exploratory research
           </h2>
           <p className="oslaw__rec-note">
-            The Shaman first reviews curated Legal Shaman sources, then researches wider public sources for gaps. It supplies labelled leads only; Legal Shaman remains responsible for the answer.
+            Third Eye searches official sources for each issue on the frozen case graph. Hits that cover a graph slot are folded into the recommendation above. They stay labelled unverified until you treat them as library pages.
           </p>
         </div>
         <span className="oslaw__research-status">{research?.status || 'not started'}</span>
@@ -375,7 +388,7 @@ function PenumbraResearchPanel({
       ) : null}
       {busy ? (
         <p className="oslaw__rec-note" role="status">
-          The Shaman is collating scoped sources. This does not change the Legal Shaman answer.
+        The Shaman is running a full Exa search from your case brief. Repeat visits use a cache so we do not call Exa or a model again for the same brief.
         </p>
       ) : null}
 
@@ -424,9 +437,31 @@ function PenumbraResearchPanel({
       {hasFindings ? (
         <div className="oslaw__research-findings">
           <p className="oslaw__rec-note">
-            {research?.bundle?.sources.length || 0} canonical sources · {research?.bundle?.claims.length || 0} linked claims
-            {' '}· {research?.bundle?.freeResources.length || 0} free-resource leads queued for review
+            {research?.bundle?.sources.length || 0} sources · {research?.bundle?.claims.length || 0} claims
+            {' '}· {research?.bundle?.freeResources.length || 0} free-help leads for review
+            {research?.cacheHit ? ' · cached (no new Exa or model call)' : ''}
+            {research?.exaSource ? ` · Exa ${research.exaSource}` : ''}
           </p>
+          {research?.bundle?.sources.length ? (
+            <div className="oslaw__research-findings-sources">
+              <h3 className="oslaw__rec-h">Supplemental sources by issue</h3>
+              <SlotSourceList
+                session={session}
+                items={research.bundle.sources.map((s) => ({
+                  title: s.title,
+                  url: s.url,
+                  origin: s.origin,
+                  excerpt: s.excerpt,
+                }))}
+              />
+            </div>
+          ) : null}
+          {research?.bundle?.answerDraft ? (
+            <details className="oslaw__rec-sources">
+              <summary>Exa notes</summary>
+              <div className="oslaw__research-memo">{research.bundle.answerDraft}</div>
+            </details>
+          ) : null}
           {research?.bundle?.matching ? (
             <p className="oslaw__rec-note">
               Matching lens: <strong>{research.bundle.matching.matterType}</strong> · {research.bundle.matching.topicId}
@@ -444,6 +479,7 @@ function PenumbraResearchPanel({
                       {' '}
                       — {source.origin === 'external' ? 'external · unverified' : 'curated'} · {source.tier}
                     </span>
+                    {source.excerpt ? <p className="oslaw__rec-note">{source.excerpt.slice(0, 280)}</p> : null}
                   </li>
                 ))}
               </ul>
@@ -462,7 +498,7 @@ function PenumbraResearchPanel({
             <p className="oslaw__rec-note">Conflicts to check: {research.bundle.conflicts.join(' · ')}</p>
           ) : null}
           <button type="button" className="oslaw__btn oslaw__btn--primary" onClick={onUseFindings}>
-            Ask Legal Shaman to review these findings
+            Rebuild the recommendation
           </button>
         </div>
       ) : null}
@@ -663,6 +699,7 @@ export function OslawView({
         <div className="oslaw__body">
           <Recommendation
             pack={pack}
+            session={session}
             preflightNote={preflightNote}
             authorityHits={session.authorityHits}
             onFollowUp={onFollowUp}

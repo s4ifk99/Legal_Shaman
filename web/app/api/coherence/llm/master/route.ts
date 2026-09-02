@@ -12,6 +12,7 @@ import {
 } from "@/lib/coherence/llm-budget";
 import { toSessionMatterFrame } from "@/lib/coherence/matterFrame";
 import { buildOverviewAnswer } from "@/lib/coherence/overviewAnswer";
+import type { ResearchBundle } from "@/lib/coherence/researchBundle";
 import { loadMasterOrchestrate, loadAgents } from "@/lib/coherence/server/agents";
 import { coherenceApiGuard, requireCoherenceAccess } from "@/lib/coherence/server/guard";
 import {
@@ -324,6 +325,7 @@ export async function POST(req: Request) {
       matterResolution?.decision?.canProceed !== false
     ) {
       try {
+        const sessionResearch = body.session?.penumbraResearch as { bundle?: ResearchBundle } | undefined
         const first = await buildOverviewAnswer({
           latestText: story,
           understanding,
@@ -331,6 +333,7 @@ export async function POST(req: Request) {
           matterFrame: matterResolved.frame,
           taxonomySlug: matterResolved.frame.primaryIssues[0]?.slug ?? undefined,
           searchMode: "penumbra",
+          researchBundle: sessionResearch?.bundle,
           followUp:
             body.followUp?.kind && body.followUp.text
               ? {
@@ -371,6 +374,7 @@ export async function POST(req: Request) {
             matterFrame: matterResolved.frame,
             taxonomySlug: matterResolved.frame.primaryIssues[0]?.slug ?? undefined,
             searchMode: "penumbra",
+            researchBundle: sessionResearch?.bundle,
             followUp:
               body.followUp?.kind && body.followUp.text
                 ? {

@@ -30,13 +30,27 @@ export {
 } from "./conceptRetrievalPlan";
 export type { ConceptRetrievalPlan } from "./conceptRetrievalPlan";
 export {
+  coverageSlotsFrom,
+  groupBySlot,
+  matchingSlotIds,
+  primaryMatterSlug,
+  rankByCoverage,
+  titleCoversGraph,
+  uncoveredSlots,
+} from "./coverageSlots";
+export type { CoverageSlot } from "./coverageSlots";
+export {
   WIKI_AREA_INTENT_DEFAULTS,
   areaForSlug,
   listWikiAreas,
   SLUG_INTENT_DEFAULTS,
 } from "./areaIntentDefaults";
 export type { WikiAreaIntentDefault } from "./areaIntentDefaults";
-export { evaluateMatterGate } from "./matter-gate";
+export {
+  employmentIsBackdropOnly,
+  intentAllowedOnGraph,
+  titleAllowedOnGraph,
+} from "./issueGraphHits";
 export type { MatterGateResult, EvidenceGateResult } from "./types";
 export {
   ISSUE_RETRIEVAL_INTENTS,

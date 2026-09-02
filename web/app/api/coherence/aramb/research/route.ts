@@ -11,7 +11,7 @@ import {
   logArambDiagnostic,
   type ArambResearchDiagnostic,
 } from "@/lib/aramb/diagnostics";
-import { saveArambFreeResourceCandidates } from "@/lib/aramb/resourceBank";
+import { saveArambFreeResourceCandidates, saveWikiLibraryCandidates } from "@/lib/aramb/resourceBank";
 import {
   arambBackendTimeoutMs,
   proxyArambResearchCollect,
@@ -19,7 +19,8 @@ import {
 } from "@/lib/coherence/server/gateway";
 import { recordUsageEvent, releaseConcurrent } from "@/lib/coherence/usage";
 import type { MatterFrame } from "@/lib/matter";
-import type { ResearchSource } from "@/lib/coherence/researchBundle";
+import { matchingGuidanceFromFrame, preferFrameMatching } from "@/lib/coherence/issueRouting";
+import { buildExaResearchBrief, cacheMatterKey } from "@/lib/penumbra/exaBrief";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -46,52 +47,38 @@ function safeCaseKey(value: unknown): string {
 }
 
 function researchStory(text: string): string {
-  const employment = /\b(employer|employment|employee|workplace|work schedule|rota|shift|childcare|pregnan|maternity|acas|hr\b|dismiss|redundan)\b/i.test(
-    text,
-  );
+  const trimmed = text.trim();
+  if (/^criminal(?: law)?$/i.test(trimmed)) return trimmed;
+  const employment = /\b(employer|employment|employee|workplace|dismiss|redundan|acas)\b/i.test(text);
   const activeCrime = /\b(police|arrest(?:ed)?|charged with|prosecut(?:ion|ed)|magistrates?|cps\b|offen[cs]e|driving ban|court hearing)\b/i.test(
     text,
   );
-  // A prior predictive chip can leave “Criminal” in the saved narrative.
-  // Do not let that isolated label displace an employment story.
   return employment && !activeCrime ? text.replace(/\bcriminal(?: law)?\b/gi, " ") : text;
 }
 
-function matchingFromFrame(frame: MatterFrame, sources: ResearchSource[]) {
-  const slug = frame.primaryIssues[0]?.slug || "";
-  const matterType =
-    slug.startsWith("employment") || slug === "employment"
-      ? "employment"
-      : slug.startsWith("housing") || slug === "neighbour_dispute"
-        ? "housing"
-        : slug.startsWith("consumer") || slug === "parking_pcn"
-          ? "consumer"
-          : slug.startsWith("family")
-            ? "family"
-            : slug.startsWith("immigration")
-              ? "immigration"
-              : slug.startsWith("debt")
-                ? "debt"
-                : slug.startsWith("conveyancing")
-                  ? "conveyancing"
-                  : slug.startsWith("crime") || slug === "motoring_disqualification"
-                    ? "crime"
-                    : "other";
-  if (!slug || !sources.length) return undefined;
-  return {
-    matterType,
-    topicId: matterType === "employment" ? "employment" : "general",
-    taxonomySlug: slug,
-    confidence: frame.overallConfidence >= 0.75 ? "high" : frame.overallConfidence >= 0.5 ? "medium" : "low",
-    rationale: `Legal Shaman curated matter routing identified ${slug} as the primary issue.`,
-    sourceIds: sources.slice(0, 3).map((source) => source.id),
-  } as const;
+function researchConstraints(frame: MatterFrame, clientQuestion: string): string {
+  const issues = [...frame.primaryIssues, ...frame.secondaryIssues]
+    .map((i) => i.slug)
+    .slice(0, 6);
+  const caps = frame.capacities
+    .map((c) => `${c.partyId}:${c.capacity}`)
+    .slice(0, 8);
+  const exclusions = (frame.exclusions || []).slice(0, 8);
+  return [
+    `Issue graph (keep all that apply; do not collapse to one topic): ${issues.join(", ") || "uncertain"}.`,
+    caps.length ? `Capacities: ${caps.join("; ")}.` : "",
+    exclusions.length ? `Do not retrieve or match on excluded issues: ${exclusions.join(", ")}.` : "",
+    clientQuestion ? `Answer each client question: ${clientQuestion}` : "",
+    "Third Eye: run full open-web research from this brief. Do not replace the frozen primary matter with an excluded neighbouring topic.",
+  ]
+    .filter(Boolean)
+    .join("\n");
 }
 
 function curatedFallback(
   sources: ReturnType<typeof runScopedResearchTools>["sources"],
   reason: string,
-  matching?: ReturnType<typeof matchingFromFrame>,
+  matching?: MatchingGuidance,
 ) {
   return {
     mode: "penumbra" as const,
@@ -232,10 +219,15 @@ export async function POST(req: Request) {
         dworkinKind: snippet.dworkinKind,
       })),
     ).sources;
+    const planned = buildExaResearchBrief({
+      story: submission,
+      frame: matterFrame,
+      clientQuestion,
+    });
     const query = [
-      clientQuestion || "Explore the legal research question.",
+      planned.brief,
       understanding ? `Current Legal Shaman understanding: ${understanding}` : "",
-      `Legal Shaman curated routing hypothesis: ${matterFrame.primaryIssues[0]?.slug || "uncertain"}. Confirm or correct this before matching help.`,
+      researchConstraints(matterFrame, clientQuestion),
       message ? `User response to the previous research question: ${message}` : "",
     ]
       .filter(Boolean)
@@ -247,14 +239,17 @@ export async function POST(req: Request) {
       canonicalSources: scopedSources,
       tenantKey: `${access.user.id}:${caseKey}`,
       conversationId: String(body.conversationId || "").trim() || undefined,
-      matterSlug: matterFrame.primaryIssues[0]?.slug || "unknown",
+      matterSlug: cacheMatterKey(matterFrame),
       skipCache: body.skipCache === true,
+      exaQueries: planned.queries,
+      coverageSlots: planned.slots,
+      story: submission,
     };
     const arambEnabled = arambPilotEnabled();
     const fallbackReason = arambEnabled
       ? "The Shaman could not complete the Exa open-web research phase."
       : "The Shaman is not configured (set EXA_API_KEY and ENABLE_ARAMB_PILOT); open-web research was skipped.";
-    const curatedMatching = matchingFromFrame(matterFrame, scopedSources);
+    const curatedMatching = matchingGuidanceFromFrame(matterFrame, scopedSources);
 
     const researchContext = {
       caseKey,
@@ -273,7 +268,12 @@ export async function POST(req: Request) {
       }
       const result = outcome.result;
       await saveArambFreeResourceCandidates(result.bundle.freeResources);
-      const bundle = result.bundle.matching ? result.bundle : { ...result.bundle, matching: curatedMatching };
+      await saveWikiLibraryCandidates(
+        result.bundle.sources,
+        matterFrame.primaryIssues[0]?.slug || "unknown",
+      );
+      const matching = preferFrameMatching(curatedMatching, result.bundle.matching, matterFrame);
+      const bundle = { ...result.bundle, matching };
       await finishUsage("completed");
       return NextResponse.json({
         conversationId: result.conversationId,
@@ -327,9 +327,12 @@ export async function POST(req: Request) {
           } else {
             const result = outcome.result;
             await saveArambFreeResourceCandidates(result.bundle.freeResources);
-            const bundle = result.bundle.matching
-              ? result.bundle
-              : { ...result.bundle, matching: curatedMatching };
+            await saveWikiLibraryCandidates(
+              result.bundle.sources,
+              matterFrame.primaryIssues[0]?.slug || "unknown",
+            );
+            const matching = preferFrameMatching(curatedMatching, result.bundle.matching, matterFrame);
+            const bundle = { ...result.bundle, matching };
             send("result", {
               conversationId: result.conversationId,
               status: bundle.status,
