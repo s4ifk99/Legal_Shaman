@@ -1,10 +1,7 @@
 import "server-only";
 
-import { typesenseConfigured } from "@/lib/search-index/config";
-import {
-  LEGAL_ENTITIES_COLLECTION,
-  searchLegalEntitiesMulti,
-} from "@/lib/search-index/typesense-legal-entities-search";
+import { LEGAL_ENTITIES_COLLECTION, typesenseConfigured } from "@/lib/search-index/config";
+import { searchLegalEntitiesMulti } from "@/lib/search-index/typesense-legal-entities-search";
 import { buildTypesenseListingsClientFromEnv } from "@/lib/search/typesense-listings-client";
 import { sraProfileUrlForId } from "@/lib/search/sra-document";
 import { scoreSraWorkAreaForMatching, type SraSearchPayload } from "@/lib/coherence/sraQuery";
