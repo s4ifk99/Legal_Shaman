@@ -2,6 +2,7 @@ import "server-only";
 
 import type Stripe from "stripe";
 import { accountsPrisma } from "@/lib/db/accounts";
+import { ensureBillingSchema } from "@/lib/billing/schema";
 
 const ACTIVE_STATUSES = new Set(["active", "trialing"]);
 
@@ -16,6 +17,7 @@ export async function syncStripeSubscription(
   subscription: Stripe.Subscription,
   fallbackUserId?: string,
 ): Promise<boolean> {
+  await ensureBillingSchema();
   const userId = subscriptionUserId(subscription, fallbackUserId);
   if (!userId) return false;
 
@@ -55,6 +57,7 @@ export async function syncRevenueCatEntitlement(input: {
   subscriptionId?: string;
   currentPeriodEnd?: Date | null;
 }): Promise<boolean> {
+  await ensureBillingSchema();
   const userId = input.appUserId.trim();
   if (!userId) return false;
   await accountsPrisma.billingSubscription.upsert({

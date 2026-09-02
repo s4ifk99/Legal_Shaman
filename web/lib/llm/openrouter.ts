@@ -1,11 +1,18 @@
 const OPENROUTER_DEFAULT_BASE = "https://openrouter.ai/api/v1";
 
 export function resolveLlmApiKey(): string | undefined {
-  return (
-    process.env.LLM_API_KEY?.trim() ||
-    process.env.OPENROUTER_API_KEY?.trim() ||
-    undefined
-  );
+  const explicitBase =
+    process.env.LLM_BASE_URL?.trim() || process.env.OPENROUTER_BASE_URL?.trim();
+  const openRouterKey = process.env.OPENROUTER_API_KEY?.trim();
+  const llmKey = process.env.LLM_API_KEY?.trim();
+
+  // When the base URL explicitly targets OpenRouter, do not let an older
+  // provider-specific LLM_API_KEY shadow the current OpenRouter credential.
+  if (explicitBase && isOpenRouterBaseUrl(explicitBase)) {
+    return openRouterKey || llmKey || undefined;
+  }
+
+  return llmKey || openRouterKey || undefined;
 }
 
 export function resolveLlmBaseUrl(): string {

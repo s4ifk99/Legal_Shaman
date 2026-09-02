@@ -46,6 +46,22 @@ const ENTITY_LABEL: Record<string, string> = {
 const PARKING_SPECIALIST_RE =
   /popla|independent appeals|\bias\b|traffic penalty tribunal|london tribunals|parking (?:charge|appeal|adjudicator)/i
 
+/** National seed helplines to pin near the top when matter + story align. */
+const MATTER_SPECIALIST_IDS: Partial<Record<MatterType, readonly string[]>> = {
+  housing: ['fs-shelter', 'fs-cab-adviceline-england', 'fs-cla'],
+  employment: ['fs-acas', 'fs-cab-adviceline-england'],
+  debt: ['fs-stepchange', 'fs-national-debtline', 'fs-cab-adviceline-england'],
+  immigration: ['fs-cab-adviceline-england'],
+  family: ['fs-cab-adviceline-england', 'fs-cla'],
+  consumer: ['fs-cab-adviceline-england', 'fs-cab-consumer-helpline'],
+}
+
+const HOUSING_STORY_RE =
+  /\b(tenant|tenancy|landlord|rental|rent\b|deposit|eviction|homeless|disrepair|letting|inventory|assignment|wear and tear|section\s*21|assured shorthold)\b/i
+
+const LOCAL_ONLY_SERVICE_RE =
+  /\b(based in (?:east )?london|in london only|camden|tower hamlets|mary ward|toynbee hall|south west london law)\b/i
+
 /** Family / DA / contact orgs — wrong for pure belongings / small-claims disputes. */
 const FAMILY_SUPPORT_ONLY_RE =
   /domestic (?:abuse|violence)|rape crisis|refuge\b|\bncdv\b|national centre for domestic|domestic violence assist|rights of women|ourfamilywizard|family mediation|\bresolution\b|dad'?s house|only dads|family rights group|child contact centre|womens aid|women'?s aid/i
@@ -81,6 +97,41 @@ export function isParkingSpecialistService(titleOrHay: string): boolean {
   return PARKING_SPECIALIST_RE.test(titleOrHay)
 }
 
+export function isHousingStoryText(text: string): boolean {
+  return HOUSING_STORY_RE.test(text || '')
+}
+
+function isWeakExaDuplicate(svc: FreeServiceRecord): boolean {
+  if (!(svc.source || '').includes('exa')) return false
+  const blob = `${svc.title} ${svc.description}`
+  if (/does not provide a housing advice helpline|no general shelter housing advice phone/i.test(blob)) {
+    return true
+  }
+  if (/contact us.*shelter/i.test(svc.title) && svc.id !== 'fs-shelter') return true
+  return false
+}
+
+function isLocalOnlyWithoutHint(svc: FreeServiceRecord, locationHint: string): boolean {
+  if (locationHint.trim()) return false
+  return LOCAL_ONLY_SERVICE_RE.test(serviceHay(svc))
+}
+
+function specialistBoost(svc: FreeServiceRecord, matter: MatterType, text: string): number {
+  if (!(svc.source || '').startsWith('seed')) return 0
+  let boost = 0
+  const specialists = MATTER_SPECIALIST_IDS[matter] || []
+  const rank = specialists.indexOf(svc.id)
+  if (rank >= 0) boost += 18 - rank * 4
+
+  if (matter === 'housing' && svc.id === 'fs-shelter') {
+    boost += 10
+    if (/\b(deposit|inventory|assignment|wear and tear)\b/i.test(text)) boost += 8
+  }
+  if (matter === 'employment' && svc.id === 'fs-acas') boost += 8
+  if (matter === 'debt' && /stepchange|national debtline/i.test(svc.title)) boost += 6
+  return boost
+}
+
 /** Map session matter + story → Exa area-* topic keys used in freeServicesIndex. */
 export function topicKeysForSession(session: SessionState): string[] {
   const text = buildRetrievalText(session)
@@ -110,6 +161,9 @@ export function topicKeysForSession(session: SessionState): string[] {
     keys.add('area-motoring-parking-rta')
   } else {
     for (const k of matterMap[session.matterType] || []) keys.add(k)
+    if (session.matterType === 'housing' || HOUSING_STORY_RE.test(text)) {
+      keys.add('area-housing-landlord-tenant')
+    }
     if (/flight|holiday|airline|atol/.test(text)) keys.add('area-travel-flights-holidays')
     if (/energy|broadband|ofgem|ofcom/.test(text)) keys.add('area-energy-broadband-complaints')
     if (/neighbour|boundary|fence|tree/.test(text)) keys.add('area-neighbour-boundary-trees')
@@ -162,6 +216,18 @@ function scoreService(
   }
 
   if (svc.source === 'seed' || (svc.source || '').startsWith('seed')) score += 1
+  score += specialistBoost(svc, matter, text)
+
+  if (isWeakExaDuplicate(svc)) score -= 60
+  if (isLocalOnlyWithoutHint(svc, locationHint)) score -= 18
+  if (
+    matter === 'housing' &&
+    (svc.source || '') === 'signpost-import' &&
+    !locationHint &&
+    svc.id !== 'fs-shelter'
+  ) {
+    score -= 6
+  }
 
   // Parking specialists only when the story is parking — never bleed into other matters.
   if (parking && isParkingSpecialistService(svc.title)) {
@@ -261,6 +327,50 @@ function allowNonParkingHit(
   return false
 }
 
+function recordToHit(s: FreeServiceRecord, score: number): FreeServiceHit {
+  return {
+    id: s.id,
+    title: s.title,
+    type: entityLabel(s.entityType),
+    blurb: s.description,
+    phone: (s.phone || '').trim() || undefined,
+    url: s.website || undefined,
+    score,
+    topicKeys: s.topicKeys,
+  }
+}
+
+function pinMatterSpecialists(
+  ranked: FreeServiceHit[],
+  matter: MatterType,
+  text: string,
+  services: FreeServiceRecord[],
+  limit: number,
+): FreeServiceHit[] {
+  const effectiveMatter: MatterType | null =
+    matter === 'housing' || (isHousingStoryText(text) && (matter === 'unknown' || matter === 'other'))
+      ? 'housing'
+      : matter
+  const specialistIds = effectiveMatter ? MATTER_SPECIALIST_IDS[effectiveMatter] : undefined
+  if (!specialistIds?.length) return ranked
+
+  const byId = new Map(services.map((s) => [s.id, s]))
+  const pinned: FreeServiceHit[] = []
+  const seen = new Set<string>()
+
+  for (const id of specialistIds) {
+    const svc = byId.get(id)
+    if (!svc || isWeakExaDuplicate(svc)) continue
+    if (!(svc.phone || '').trim() && !(svc.website || '').trim()) continue
+    pinned.push(recordToHit(svc, 100 - pinned.length))
+    seen.add(svc.id)
+    if (pinned.length >= Math.min(3, limit)) break
+  }
+
+  const rest = ranked.filter((hit) => !seen.has(hit.id))
+  return [...pinned, ...rest].slice(0, limit)
+}
+
 /** Free charities / helplines / appeal routes from offline index, ranked by area + matter. */
 export function matchFreeServices(session: SessionState, limit = 10): FreeServiceHit[] {
   const bundle = index as { services: FreeServiceRecord[] }
@@ -273,6 +383,7 @@ export function matchFreeServices(session: SessionState, limit = 10): FreeServic
 
   const scored = bundle.services
     .filter((s) => {
+      if (isWeakExaDuplicate(s)) return false
       const hasPhone = (s.phone || '').trim().length > 0
       const hasWeb = (s.website || '').trim().length > 0
       // Parking appeal routes may be online-only; other areas still prefer dialable.
@@ -317,5 +428,5 @@ export function matchFreeServices(session: SessionState, limit = 10): FreeServic
     if (out.length >= limit) break
   }
 
-  return out
+  return pinMatterSpecialists(out, matter, text, bundle.services, limit)
 }

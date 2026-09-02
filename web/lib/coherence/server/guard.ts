@@ -21,6 +21,8 @@ export type CoherenceAccessContext = {
   allowance: UsageAllowance;
   /** Quota already enforced on Vercel gateway — skip local usage records. */
   trustedGateway?: boolean;
+  /** Whether this request acquired a local concurrency slot and usage record. */
+  usageTracked?: boolean;
 };
 
 export type CoherenceAccessOptions = {
@@ -82,6 +84,7 @@ export async function requireCoherenceAccess(
       requestId,
       allowance: { allowed: true },
       trustedGateway: true,
+      usageTracked: false,
     };
   }
 
@@ -92,12 +95,14 @@ export async function requireCoherenceAccess(
         user,
         requestId,
         allowance: { allowed: true },
+        usageTracked: false,
       };
     }
     return {
       user: { id: "anonymous", name: "Guest", email: "", emailVerified: true },
       requestId,
       allowance: { allowed: true },
+      usageTracked: false,
     };
   }
 
@@ -169,7 +174,7 @@ export async function requireCoherenceAccess(
     });
   }
 
-  return { user, requestId, allowance };
+  return { user, requestId, allowance, usageTracked: !opts.skipUsageRecord };
 }
 
 /** Legacy sync guard — feature flag only (non-LLM probes). */

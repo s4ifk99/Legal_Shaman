@@ -80,8 +80,43 @@ export function coherenceOpenRouterConfig(): {
   };
 }
 
-export function coherenceDatabaseUrl(): string {
-  return (
-    process.env.DATA_DATABASE_URL?.trim() || process.env.DATABASE_URL?.trim() || ""
+function isPlaceholderDatabaseHost(hostname: string): boolean {
+  const host = hostname.trim().toLowerCase();
+  if (!host) return true;
+  return /^(host|hostname|placeholder|changeme|example|example\.com|your-host|db-host)$/.test(
+    host,
   );
+}
+
+export function coherenceDatabaseUrl(): string {
+  const candidates = [
+    process.env.DATA_DATABASE_URL,
+    process.env.DATABASE_URL,
+    process.env.POSTGRES_URL_NON_POOLING,
+    process.env.POSTGRES_PRISMA_URL,
+    process.env.POSTGRES_URL,
+    process.env.POSTGRES_URL_NO_SSL,
+  ];
+
+  for (const candidate of candidates) {
+    const value = candidate?.trim();
+    if (!value) continue;
+
+    try {
+      const url = new URL(value);
+      if (!["postgres:", "postgresql:"].includes(url.protocol)) continue;
+      if (isPlaceholderDatabaseHost(url.hostname)) continue;
+      if (
+        process.env.VERCEL === "1" &&
+        /^(host|localhost|127(?:\.\d{1,3}){3}|0\.0\.0\.0)$/i.test(url.hostname)
+      ) {
+        continue;
+      }
+      return value;
+    } catch {
+      continue;
+    }
+  }
+
+  return "";
 }

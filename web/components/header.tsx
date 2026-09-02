@@ -114,13 +114,12 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center group" aria-label="Legal Shaman home">
             <div className="relative">
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 opacity-0 blur transition-opacity group-hover:opacity-100" />
               <Image
-                src="/logo.jpg"
-                alt="Legal Shaman Logo"
-                width={52}
-                height={52}
-                className="relative h-13 w-13 rounded-full border-2 border-gold/50"
+                src="/legal-shaman-header-transparent.png"
+                alt="Legal Shaman"
+                width={1024}
+                height={114}
+                className="relative h-auto w-[min(30rem,55vw)] max-w-full"
               />
             </div>
           </Link>

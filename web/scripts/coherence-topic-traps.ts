@@ -21,8 +21,17 @@ import { buildRetrievalPlan } from '../lib/matter/retrieval-plan'
 import type { MatterFrame } from '../lib/matter/types'
 import type { SessionState } from '../lib/coherence/types'
 import { normalizeSearchMode, searchModePolicy } from '../lib/coherence/searchMode'
-import { canonicalizeResearchBundle, parseResearchBundle, researchBundlePrompt } from '../lib/coherence/researchBundle'
+import { canonicalizeResearchBundle, emptyResearchBundle, parseResearchBundle, researchBundlePrompt } from '../lib/coherence/researchBundle'
 import { matchingSessionForHelp } from '../lib/coherence/services'
+import { matchFreeServices } from '../lib/coherence/matchFreeServices'
+import {
+  buildPenumbraCacheKey,
+  clearPenumbraResearchMemoryCacheForTests,
+  getPenumbraResearchCache,
+  normalizePenumbraCacheQuery,
+  putPenumbraResearchCache,
+} from '../lib/penumbra/researchCache'
+import { mergeExaSearchHits, searchOfflineExaIndexForPenumbra } from '../lib/penumbra/offlineExaIndex'
 
 type TrapResult = { id: string; ok: boolean; detail: string }
 
@@ -1059,13 +1068,177 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       )
     },
   },
+  {
+    id: 'tenancy-assignment-not-commercial-contract',
+    run: () => {
+      const story = `I am due to move into a new rental flat in England. The letting agent provided a deed of assignment to sign. The replacement tenant and outgoing tenant have settled deterioration since the inventory. The inventory is five years old and I worry about deposit liability for pre-existing damage.`
+      const s = intake([story, 'Are there established rules for this?'])
+      const frames = proposeCoherentFrames(s, 3)
+      const pack = buildAnswerPackage(s, frames)
+      return (
+        assert(s.matterType === 'housing', `matter=${s.matterType}`) ||
+        assert(pack.matchedTopicId !== 'commercial-business-contracts', `pack=${pack.matchedTopicId}`) ||
+        assert(!/business contract recommendation/i.test(pack.answerOverview), 'commercial overview leaked') ||
+        assert(/housing|tenancy|deposit|inventory|assignment/i.test(pack.answerOverview), `overview=${pack.answerOverview.slice(0, 80)}`)
+      )
+    },
+  },
+  {
+    id: 'research-bundle-wins-over-curated-regex',
+    run: () => {
+      const story =
+        'Letting agent deed of assignment for rental flat — worried about five year old inventory and deposit.'
+      const s = intake([story])
+      const frames = proposeCoherentFrames(s, 3)
+      const parsed = parseResearchBundle(
+        JSON.stringify({
+          status: 'complete',
+          sources: [
+            {
+              id: 'web-cab-deposit',
+              title: 'Check your deposit is protected',
+              url: 'https://www.citizensadvice.org.uk/housing/deposits/check-your-landlord-has-protected-your-deposit/',
+              tier: 'trusted-guidance',
+              excerpt: 'Your deposit must be protected in a government scheme within 30 days.',
+            },
+          ],
+          claims: [
+            {
+              claim: 'On assignment, check deposit scheme records and request an updated inventory before paying your share.',
+              sourceIds: ['web-cab-deposit'],
+              confidence: 'medium',
+            },
+          ],
+          nextActions: ['Request a new check-in inventory with photos before signing the deed.'],
+          missingFacts: ['Move-in date and deposit amount.'],
+          answerDraft:
+            'Before signing a deed of assignment, confirm deposit protection, the check-in record, and whether you accept liability only from your move-in date.',
+        }),
+        'penumbra',
+      )
+      const bundle = parsed || emptyResearchBundle('penumbra')
+      const pack = buildAnswerPackage(s, frames, { researchBundle: bundle })
+      return (
+        assert(pack.matchedTopicId === 'research-led', `pack=${pack.matchedTopicId}`) ||
+        assert(/deposit|inventory|assignment/i.test(pack.answerOverview), 'research overview missing housing terms') ||
+        assert(pack.bullets.some((b) => /deposit|inventory/i.test(b.text)), 'missing research bullets')
+      )
+    },
+  },
+  {
+    id: 'housing-free-help-pins-shelter',
+    run: () => {
+      const story =
+        'I am moving into a rental flat in England. The letting agent sent a deed of assignment. The inventory is five years old and I worry about deposit liability for wear and tear.'
+      const s = intake([story])
+      const helpSession = matchingSessionForHelp(s)
+      const free = matchFreeServices(helpSession, 6)
+      return (
+        assert(
+          helpSession.matterType === 'housing' || /\b(deposit|tenant|landlord|rental)\b/i.test(story),
+          `matter=${helpSession.matterType}`,
+        ) ||
+        assert(
+          free.some((f) => /shelter housing advice/i.test(f.title)),
+          `missing Shelter: ${free.map((f) => f.title).join(' | ')}`,
+        ) ||
+        assert(
+          free[0] && /shelter housing advice/i.test(free[0].title),
+          `Shelter not first: ${free.map((f) => f.title).join(' | ')}`,
+        ) ||
+        assert(
+          !free.some((f) => /contact us - shelter england/i.test(f.title)),
+          'weak Shelter Exa duplicate still present',
+        )
+      )
+    },
+  },
+  {
+    id: 'penumbra-cache-key-stable-and-memory-roundtrip',
+    run: () => {
+      clearPenumbraResearchMemoryCacheForTests()
+      const q = '  Deed of ASSIGNMENT — deposit and inventory in England  '
+      const norm = normalizePenumbraCacheQuery(q)
+      const k1 = buildPenumbraCacheKey(q, 'housing')
+      const k2 = buildPenumbraCacheKey(q, 'housing')
+      const k3 = buildPenumbraCacheKey(q, 'employment')
+      if (k1 !== k2) return 'cache key not stable'
+      if (k1 === k3) return 'matter slug should change cache key'
+      if (!norm.includes('deed of assignment')) return `norm=${norm}`
+      return null
+    },
+  },
+  {
+    id: 'penumbra-cache-memory-hit',
+    run: () => {
+      clearPenumbraResearchMemoryCacheForTests()
+      const key = buildPenumbraCacheKey('tenant deposit wear and tear', 'housing')
+      const bundle = emptyResearchBundle('penumbra')
+      bundle.status = 'complete'
+      bundle.sources = [
+        {
+          id: 'web-test',
+          title: 'Test',
+          url: 'https://www.citizensadvice.org.uk/housing/deposits/',
+          tier: 'trusted-guidance',
+          excerpt: 'Deposit protection guidance.',
+          origin: 'external',
+          verified: false,
+        },
+      ]
+      bundle.claims = [
+        { claim: 'Check deposit scheme records before signing.', sourceIds: ['web-test'], confidence: 'medium' },
+      ]
+      return (async () => {
+        await putPenumbraResearchCache({ cacheKey: key, query: 'tenant deposit', matterSlug: 'housing', bundle })
+        const hit = await getPenumbraResearchCache(key)
+        return (
+          assert(Boolean(hit), 'cache miss') ||
+          assert(hit!.bundle.sources.length === 1, 'bundle not stored') ||
+          assert(hit!.bundle.claims.length === 1, 'claims not stored')
+        )
+      })()
+    },
+  },
+  {
+    id: 'penumbra-offline-exa-housing-deposit',
+    run: () => {
+      const result = searchOfflineExaIndexForPenumbra(
+        'deed of assignment rental flat deposit inventory wear and tear England landlord tenant',
+        { matterSlug: 'housing', limit: 6 },
+      )
+      return (
+        assert(result.hits.length >= 4, `hits=${result.hits.length}`) ||
+        assert(
+          result.hits.some((h) => /deposit|tenancy|landlord/i.test(`${h.title} ${h.url}`)),
+          'no housing deposit sources',
+        ) ||
+        assert(result.matterTopicKey === 'area-housing-landlord-tenant', `topic=${result.matterTopicKey}`) ||
+        assert(result.hits.every((h) => h.id.startsWith('web-')), 'offline hits need web- ids') ||
+        assert(Array.isArray(result.matchedTopicKeys), 'missing matchedTopicKeys')
+      )
+    },
+  },
+  {
+    id: 'penumbra-offline-exa-merge-dedupes-urls',
+    run: () => {
+      const hit = {
+        id: 'web-example',
+        url: 'https://www.gov.uk/tenancy-deposit-protection',
+        title: 'Deposit protection',
+        excerpt: 'Official deposit scheme guidance.',
+      }
+      const merged = mergeExaSearchHits([hit], [hit], 4)
+      return assert(merged.length === 1, `expected 1 merged hit, got ${merged.length}`)
+    },
+  },
 ]
 
-function main() {
+async function main() {
   const results: TrapResult[] = []
   for (const trap of traps) {
     try {
-      const fail = trap.run()
+      const fail = await Promise.resolve(trap.run())
       results.push({ id: trap.id, ok: !fail, detail: fail || 'ok' })
     } catch (err) {
       results.push({
@@ -1086,4 +1259,4 @@ function main() {
   }
 }
 
-main()
+void main()

@@ -69,3 +69,117 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.penumbra-status {
+  width: min(100% - 2rem, 42rem);
+  margin: 0 auto 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--action, #1f5c45) 35%, var(--ink-muted));
+  border-left: 4px solid var(--action, #1f5c45);
+  border-radius: var(--radius, 0.5rem);
+  background: color-mix(in srgb, var(--action, #1f5c45) 7%, white);
+  color: var(--ink);
+}
+
+.penumbra-status--awaiting_input {
+  border-left-color: #b87919;
+  background: color-mix(in srgb, #b87919 8%, white);
+}
+
+.penumbra-status--complete {
+  border-left-color: #27704f;
+}
+
+.penumbra-status--error {
+  border-left-color: #a53b32;
+  background: color-mix(in srgb, #a53b32 6%, white);
+}
+
+.penumbra-status__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.penumbra-status__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.94rem;
+}
+
+.penumbra-status__indicator {
+  width: 0.62rem;
+  height: 0.62rem;
+  flex: none;
+  border-radius: 50%;
+  background: #27704f;
+}
+
+.penumbra-status__indicator.is-running {
+  background: var(--action, #1f5c45);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--action, #1f5c45) 40%, transparent);
+  animation: penumbra-status-pulse 1.6s ease-out infinite;
+}
+
+.penumbra-status__duration {
+  flex: none;
+  color: var(--ink-faint);
+  font-size: 0.74rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.penumbra-status__message {
+  margin: 0.45rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.penumbra-status__steps {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-faint);
+  font-size: 0.76rem;
+}
+
+.penumbra-status__steps li::before {
+  content: '○';
+  display: inline-block;
+  width: 1.1rem;
+  color: var(--ink-muted);
+}
+
+.penumbra-status__steps li.is-current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.penumbra-status__steps li.is-current::before {
+  content: '●';
+  color: var(--action, #1f5c45);
+}
+
+@keyframes penumbra-status-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--action, #1f5c45) 40%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 0.42rem color-mix(in srgb, var(--action, #1f5c45) 0%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--action, #1f5c45) 0%, transparent);
+  }
+}
+
+@media (max-width: 40rem) {
+  .penumbra-status__top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

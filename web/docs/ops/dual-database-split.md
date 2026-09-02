@@ -16,7 +16,7 @@ flowchart LR
 
 | Store | Contents | Size risk |
 |---|---|---|
-| **Neon** (`ACCOUNTS_DATABASE_URL`) | `users`, `bookmarks`, `triage_feedback_emails` | Tiny |
+| **Home Postgres** (`ACCOUNTS_DATABASE_URL` + `ACCOUNTS_WS_PROXY`) | `users`, `bookmarks`, `triage_feedback_emails` | Tiny — hosted on Envy, reached via `llm.legalshaman.com/pg-ws` |
 | **Home Postgres** (`DATA_DATABASE_URL`) | SRA register, legal chunks/embeddings, knowledge graph, search events, CRM, crawler | Large (use disk) |
 | **Typesense** (home) | Directory search index (`legal_entities`) | Large, but not Neon |
 

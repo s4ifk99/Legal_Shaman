@@ -2,6 +2,9 @@
   "name": "signpost-web",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "build": "prisma generate && next build --webpack",
     "dev": "next dev",
@@ -140,6 +143,8 @@
     "@aramb-ai/sdk": "^0.0.12",
     "@hookform/resolvers": "^3.10.0",
     "@huggingface/inference": "^4.13.15",
+    "@neondatabase/serverless": "^1.1.0",
+    "@prisma/adapter-neon": "^7.10.0",
     "@prisma/adapter-pg": "^7.8.0",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",
@@ -203,6 +208,7 @@
     "tailwindcss-animate": "^1.0.7",
     "typesense": "^3.0.5",
     "vaul": "^1.1.2",
+    "ws": "^8.21.3",
     "zod": "3.25.76"
   },
   "devDependencies": {
@@ -214,6 +220,8 @@
     "@types/pg": "^8.20.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.0.10",
     "i": "^0.3.7",
     "npm": "^11.15.0",
     "playwright": "^1.60.0",
