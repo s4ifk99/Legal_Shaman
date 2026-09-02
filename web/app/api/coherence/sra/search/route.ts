@@ -7,6 +7,7 @@ import {
   shouldProxySraToHomeBackend,
 } from "@/lib/coherence/server/gateway";
 import { sraQuery } from "@/lib/coherence/server/sra-db";
+import { searchSraOrganisationsTypesense } from "@/lib/coherence/server/sra-typesense-search";
 import {
   postcodePrefixesForLocation,
   resolveSraSearchFlags,
@@ -18,24 +19,6 @@ export const dynamic = "force-dynamic";
 export async function POST(req: Request) {
   const blocked = coherenceApiGuard();
   if (blocked) return blocked;
-
-  if (!coherenceDatabaseUrl()) {
-    if (shouldProxySraToHomeBackend()) {
-      let body: unknown;
-      try {
-        body = await req.json();
-      } catch {
-        return NextResponse.json({ hits: [], error: "invalid_json" }, { status: 400 });
-      }
-      return proxyCoherenceBackendPath({
-        path: "/api/coherence/sra/search",
-        method: "POST",
-        body,
-        timeoutMs: 15_000,
-      });
-    }
-    return NextResponse.json({ hits: [], error: "DATABASE_URL not set" }, { status: 503 });
-  }
 
   let body: {
     locationHint?: string;
@@ -56,53 +39,69 @@ export async function POST(req: Request) {
     return NextResponse.json({ hits: [], error: "invalid_json" }, { status: 400 });
   }
 
-  try {
-    const limit = Math.min(Math.max(Number(body.limit) || 5, 1), 12);
-    const hint = (body.locationHint || "").trim();
-    const flags = resolveSraSearchFlags({
-      matterType: body.matterType,
-      query: body.query,
-      taxonomySlug: body.taxonomySlug,
-      wantCar: body.wantCar,
-      wantConsumer: body.wantConsumer,
-      wantHousing: body.wantHousing,
-      wantEmployment: body.wantEmployment,
-      wantImmigration: body.wantImmigration,
-      wantMotoring: body.wantMotoring,
-    });
-    const {
-      wantImmigration,
-      wantConsumer,
-      wantCar,
-      wantHousing,
-      wantEmployment,
-      wantMotoring,
-    } = flags;
-
-    const london = /\blondon\b/i.test(hint);
-    const countyPrefixes = postcodePrefixesForLocation(hint);
-    // Counties like "Cornwall" are not SRA city names — rank by outward codes (TR/PL).
-    const cityNeedle =
-      countyPrefixes.length > 1 || (countyPrefixes.length === 1 && !/^[A-Z]{1,2}\d/i.test(hint.trim()))
-        ? ""
-        : hint.replace(/[^a-zA-Z\s]/g, " ").trim();
-    const postcodeArea =
-      countyPrefixes.length > 0
-        ? countyPrefixes.join("|")
-        : hint.toUpperCase().match(/\b([A-Z]{1,2}\d{1,2}[A-Z]?)\b/)?.[1] || null;
-    const parkingConsumer = wantConsumer && !wantMotoring;
-    const minScore = wantMotoring
+  const limit = Math.min(Math.max(Number(body.limit) || 5, 1), 12);
+  const hint = (body.locationHint || "").trim();
+  const flags = resolveSraSearchFlags({
+    matterType: body.matterType,
+    query: body.query,
+    taxonomySlug: body.taxonomySlug,
+    wantCar: body.wantCar,
+    wantConsumer: body.wantConsumer,
+    wantHousing: body.wantHousing,
+    wantEmployment: body.wantEmployment,
+    wantImmigration: body.wantImmigration,
+    wantMotoring: body.wantMotoring,
+  });
+  const {
+    wantImmigration,
+    wantConsumer,
+    wantCar,
+    wantHousing,
+    wantEmployment,
+    wantMotoring,
+  } = flags;
+  const london = /\blondon\b/i.test(hint);
+  const countyPrefixes = postcodePrefixesForLocation(hint);
+  const cityNeedle =
+    countyPrefixes.length > 1 || (countyPrefixes.length === 1 && !/^[A-Z]{1,2}\d/i.test(hint.trim()))
+      ? ""
+      : hint.replace(/[^a-zA-Z\s]/g, " ").trim();
+  const postcodeArea =
+    countyPrefixes.length > 0
+      ? countyPrefixes.join("|")
+      : hint.toUpperCase().match(/\b([A-Z]{1,2}\d{1,2}[A-Z]?)\b/)?.[1] || null;
+  const parkingConsumer = wantConsumer && !wantMotoring;
+  const minScore = wantMotoring
+    ? 16
+    : parkingConsumer
       ? 16
-      : parkingConsumer
-        ? 16
-        : wantConsumer || wantCar
-          ? 18
-          : wantImmigration
-            ? 16
-            : wantHousing && !hint
-              ? 20
-              : 12;
+      : wantConsumer || wantCar
+        ? 18
+        : wantImmigration
+          ? 16
+          : wantHousing && !hint
+            ? 20
+            : 12;
 
+  async function typesenseHits() {
+    return searchSraOrganisationsTypesense({ flags, limit, minScore });
+  }
+
+  if (!coherenceDatabaseUrl()) {
+    const hits = await typesenseHits();
+    if (hits.length) return NextResponse.json({ hits, source: "typesense" });
+    if (shouldProxySraToHomeBackend()) {
+      return proxyCoherenceBackendPath({
+        path: "/api/coherence/sra/search",
+        method: "POST",
+        body,
+        timeoutMs: 15_000,
+      });
+    }
+    return NextResponse.json({ hits: [], error: "sra_directory_unavailable" });
+  }
+
+  try {
     const sql = `
       SELECT * FROM (
         SELECT
@@ -236,6 +235,8 @@ export async function POST(req: Request) {
       })),
     });
   } catch (err) {
+    const hits = await typesenseHits();
+    if (hits.length) return NextResponse.json({ hits, source: "typesense" });
     if (shouldProxySraToHomeBackend()) {
       return proxyCoherenceBackendPath({
         path: "/api/coherence/sra/search",

@@ -7,7 +7,7 @@
  * Includes LexRAG / MAP-Law inspired multi-turn traps — see
  * docs/product-decisions/coherence-turn-state.md
  */
-import { createInitialSession, senseDetails, looksNeighbourDispute } from '../lib/coherence/sense'
+import { createInitialSession, senseDetails, looksNeighbourDispute, sanitizeIntakeNarrative } from '../lib/coherence/sense'
 import { proposeCoherentFrames } from '../lib/coherence/frames'
 import { buildAnswerPackage, enrichAnswerPackageWithOslaw } from '../lib/coherence/answerPackage'
 import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causation'
@@ -16,6 +16,7 @@ import { deriveTurnState, mustScopeRetrieval } from '../lib/coherence/turnState'
 import { nextPrompt } from '../lib/coherence/questions'
 import { applyPackClassification, heuristicSuggestPack, packClarifyPrompt } from '../lib/coherence/packClassifier'
 import { applyMasterToSession } from '../lib/coherence/masterAgent'
+import { mergeOrchestratedTimeline } from '../lib/coherence/llmOrchestrate'
 import { buildConceptRetrievalPlan } from '../lib/matter/conceptRetrievalPlan'
 import { buildRetrievalPlan } from '../lib/matter/retrieval-plan'
 import type { MatterFrame } from '../lib/matter/types'
@@ -24,7 +25,7 @@ import { normalizeSearchMode, searchModePolicy } from '../lib/coherence/searchMo
 import { canonicalizeResearchBundle, emptyResearchBundle, parseResearchBundle, researchBundlePrompt } from '../lib/coherence/researchBundle'
 import { matchingSessionForHelp } from '../lib/coherence/services'
 import { buildLawyerBrief } from '../lib/coherence/brief'
-import { relevantWorkAreas } from '../lib/coherence/sraQuery'
+import { relevantWorkAreas, scoreSraWorkAreaForMatching } from '../lib/coherence/sraQuery'
 import { attachResolvedMatterFrame } from '../lib/coherence/applyMatterFrame'
 import { preferFrameMatching } from '../lib/coherence/issueRouting'
 import { matchFreeServices } from '../lib/coherence/matchFreeServices'
@@ -1382,7 +1383,52 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           !/don'?t know what'?s relevant/i.test(brief.situationSummary),
           `summary still has meta because: ${brief.situationSummary}`,
         ) ||
-        assert(!/crutches|hobble/i.test(brief.desiredOutcome), `outcome=${brief.desiredOutcome}`)
+        assert(!/crutches|hobble/i.test(brief.desiredOutcome), `outcome=${brief.desiredOutcome}`) ||
+        assert(/stay housed/i.test(s.goal), `expected housing next-step goal, got ${s.goal}`)
+      )
+    },
+  },
+  {
+    id: 'cafe-flat-curly-apostrophe-and-llm-overwrite',
+    run: () => {
+      const story =
+        "I'm in a dispute with my landlord about my flat. I'm giving as much detail as I can, because I don\u2019t know what\u2019s relevant. I need two crutches to hobble around. The front door was removed. I really don't know what my next step should be."
+      let s = senseDetails(story, createInitialSession())
+      s = applyMasterToSession(
+        s,
+        {
+          brief: {
+            goal: 'two crutches to hobble around, and even so I am still extremely limited',
+            howCaused: "because I don\u2019t know what\u2019s relevant.",
+            whatHappened: s.whatHappened,
+          },
+          classify: { matterType: 'housing' },
+        },
+        'Treat this as involving all of the issues already identified.',
+      )
+      s = mergeOrchestratedTimeline(s, {
+        events: s.events.map((e) => ({ label: e.label, rawSpan: e.rawSpan || e.label })),
+        whatHappened: s.whatHappened,
+        goal: 'two crutches to hobble around',
+        howCaused: "because I don't know what's relevant",
+      })
+      const dirty = {
+        ...createInitialSession(),
+        rawInputs: [story],
+        whatHappened: story,
+        goal: 'two crutches to hobble around',
+        howCaused: "because I don't know what's relevant",
+        matterType: 'housing' as const,
+      }
+      const cleaned = sanitizeIntakeNarrative(dirty)
+      const brief = buildLawyerBrief(dirty, 50)
+      return (
+        assert(!/crutches|hobble/i.test(s.goal), `master/llm goal=${s.goal}`) ||
+        assert(!/don'?t know what'?s relevant/i.test(s.howCaused), `master cause=${s.howCaused}`) ||
+        assert(!/crutches|hobble/i.test(cleaned.goal), `sanitize goal=${cleaned.goal}`) ||
+        assert(!cleaned.howCaused, `sanitize cause=${cleaned.howCaused}`) ||
+        assert(!/don'?t know what'?s relevant/i.test(brief.situationSummary), brief.situationSummary) ||
+        assert(!/crutches|hobble/i.test(brief.desiredOutcome), `brief outcome=${brief.desiredOutcome}`)
       )
     },
   },
@@ -1395,9 +1441,29 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         false,
         'housing',
       )
-      return assert(
-        !shown.some((area) => /intellectual property/i.test(area)),
-        `IP leaked onto housing cards: ${shown.join(', ')}`,
+      const ipScore = scoreSraWorkAreaForMatching('Intellectual Property, Corporate', {
+        wantHousing: true,
+        wantEmployment: false,
+        wantImmigration: false,
+        wantConsumer: false,
+        wantCar: false,
+        wantMotoring: false,
+      })
+      const housingScore = scoreSraWorkAreaForMatching('Housing, Landlord and Tenant', {
+        wantHousing: true,
+        wantEmployment: false,
+        wantImmigration: false,
+        wantConsumer: false,
+        wantCar: false,
+        wantMotoring: false,
+      })
+      return (
+        assert(
+          !shown.some((area) => /intellectual property/i.test(area)),
+          `IP leaked onto housing cards: ${shown.join(', ')}`,
+        ) ||
+        assert(ipScore < 20, `IP score too high: ${ipScore}`) ||
+        assert(housingScore >= 20, `housing score too low: ${housingScore}`)
       )
     },
   },

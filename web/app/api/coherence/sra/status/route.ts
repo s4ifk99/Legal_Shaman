@@ -7,6 +7,7 @@ import {
   shouldProxySraToHomeBackend,
 } from "@/lib/coherence/server/gateway";
 import { sraQuery } from "@/lib/coherence/server/sra-db";
+import { typesenseSraStatus } from "@/lib/coherence/server/sra-typesense-search";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -16,6 +17,8 @@ export async function GET() {
   if (blocked) return blocked;
 
   if (!coherenceDatabaseUrl()) {
+    const ts = await typesenseSraStatus();
+    if (ts.configured && ts.reachable) return NextResponse.json(ts);
     if (shouldProxySraToHomeBackend()) {
       return proxyCoherenceBackendPath({
         path: "/api/coherence/sra/status",
@@ -24,9 +27,10 @@ export async function GET() {
       });
     }
     return NextResponse.json({
-      configured: false,
-      reachable: false,
-      error: "DATABASE_URL not set",
+      configured: ts.configured,
+      reachable: ts.reachable,
+      total: ts.total,
+      error: ts.error || "sra_directory_unavailable",
     });
   }
 
@@ -40,6 +44,8 @@ export async function GET() {
       total: Number(r.rows[0]?.n || 0),
     });
   } catch (err) {
+    const ts = await typesenseSraStatus();
+    if (ts.configured && ts.reachable) return NextResponse.json(ts);
     if (shouldProxySraToHomeBackend()) {
       return proxyCoherenceBackendPath({
         path: "/api/coherence/sra/status",

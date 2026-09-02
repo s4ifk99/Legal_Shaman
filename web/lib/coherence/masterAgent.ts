@@ -2,7 +2,7 @@
  * Client Master Orchestrator — subagents + critic via /api/llm/master
  */
 import type { MatterType, Mode, Party, Prompt, SessionState, TimelineEvent, Jurisdiction } from './types'
-import { createInitialSession } from './sense'
+import { createInitialSession, sanitizeIntakeNarrative } from './sense'
 import type { AnswerPackage } from './answerPackage'
 import type { SessionMatterFrame } from './matterFrame'
 import { coherenceMasterEndpoint } from '@/lib/coherence/client-gateway'
@@ -264,7 +264,7 @@ export function applyMasterToSession(
       ? base.rawInputs
       : [...base.rawInputs, latest].filter(Boolean)
 
-  return {
+  return sanitizeIntakeNarrative({
     ...base,
     rawInputs,
     events: events.length >= 2 ? events : base.events,
@@ -292,5 +292,5 @@ export function applyMasterToSession(
     penumbraAcknowledged: session.penumbraAcknowledged,
     feedbackHistory: session.feedbackHistory,
     answerRevisionHistory: session.answerRevisionHistory,
-  }
+  })
 }

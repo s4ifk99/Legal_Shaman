@@ -1,6 +1,7 @@
 import type { MatterType, Mode, Party, Prompt, SessionState, TimelineEvent, Jurisdiction } from './types'
 import { maximiseLocalCoherence } from './coherence'
 import { proposeLegalFrames } from './frames'
+import { sanitizeIntakeNarrative } from './sense'
 
 export type OrchestrateSnippet = {
   title: string
@@ -113,7 +114,7 @@ export function mergeOrchestratedTimeline(
       ? (timeline.mode as Mode)
       : undefined
 
-  return {
+  return sanitizeIntakeNarrative({
     ...session,
     events,
     whatHappened:
@@ -144,7 +145,7 @@ export function mergeOrchestratedTimeline(
     clientQuestion:
       (timeline as { clientQuestion?: string }).clientQuestion?.trim() || session.clientQuestion,
     topicId: (timeline as { topicId?: string }).topicId?.trim() || session.topicId,
-  }
+  })
 }
 
 export function clarifiersForSession(session: SessionState) {

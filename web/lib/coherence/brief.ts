@@ -6,6 +6,7 @@ import type { LegalFrame } from './frames'
 import type { LawyerReviewRecord, SolicitorBriefWithReview } from './lawyerLoop'
 import { matterLabel } from './services'
 import { missingSlots } from './slots'
+import { isMetaCauseLine, sanitizeIntakeNarrative } from './sense'
 import { tidySentence } from './timelineExtract'
 
 export type { SolicitorBriefV0 } from './briefSchema'
@@ -159,7 +160,7 @@ function buildSituationSummary(session: SessionState): string {
   if (gist) bullets.push(gist)
 
   const cause = session.howCaused.trim()
-  if (cause && !/don'?t know what'?s relevant|as much detail as i can/i.test(cause)) {
+  if (cause && !isMetaCauseLine(cause)) {
     bullets.push(`How it was caused: ${cause}`)
   }
   if (session.parties.length) {
@@ -189,6 +190,7 @@ export function buildLawyerBrief(
   progress: number,
   frames: LegalFrame[] = [],
 ): LawyerBrief {
+  session = sanitizeIntakeNarrative(session)
   const ready = isBriefReady(session, progress)
   const readyForSolicitor = isReadyForSolicitor(session, progress)
   const timeline = session.events.map((e, i) => ({

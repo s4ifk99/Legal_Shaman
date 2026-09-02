@@ -265,6 +265,36 @@ export function postcodePrefixesForLocation(hint: string): string[] {
   return area ? [area] : []
 }
 
+/** Score a register work-area blob the same way Matching Help ranks housing vs IP. */
+export function scoreSraWorkAreaForMatching(
+  workArea: string,
+  flags: Pick<
+    SraSearchPayload,
+    'wantHousing' | 'wantEmployment' | 'wantImmigration' | 'wantConsumer' | 'wantCar' | 'wantMotoring'
+  >,
+): number {
+  const w = workArea || ''
+  let score = 0
+  if (flags.wantHousing && /Housing|Landlord|Tenant/i.test(w)) score += 28
+  if (flags.wantHousing && /Property - Residential/i.test(w) && !/Intellectual Property/i.test(w)) {
+    score += 10
+  }
+  if (flags.wantEmployment && /Employment/i.test(w)) score += 24
+  if (flags.wantImmigration && /Immigration/i.test(w)) score += 24
+  if (flags.wantConsumer && /Consumer/i.test(w)) score += 28
+  if (flags.wantCar && /Litigation/i.test(w)) score += 8
+  if (flags.wantMotoring && /Motoring|Criminal|Crime -/i.test(w)) score += 32
+  if (flags.wantHousing && /Intellectual Property/i.test(w)) score -= 40
+  if (
+    flags.wantHousing &&
+    /Property - Commercial/i.test(w) &&
+    !/Housing|Landlord|Tenant/i.test(w)
+  ) {
+    score -= 22
+  }
+  return score
+}
+
 /** Pick work areas to show on a firm card for this matter. */
 export function relevantWorkAreas(
   workAreaRaw: string,

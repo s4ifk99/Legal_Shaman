@@ -1,5 +1,5 @@
 import type { Jurisdiction, MatterType, Mode, SessionState, TimelineEvent } from './types'
-import { normaliseLayText } from './normaliseLay'
+import { foldTypographicPunctuation, normaliseLayText } from './normaliseLay'
 import {
   extractNarrativeEvents,
   looksLikeMultiBeatNarrative,
@@ -464,19 +464,53 @@ export function createInitialSession(): SessionState {
 function looksLikeGoalOnlyRequest(text: string): boolean {
   const t = text.trim()
   if (t.length > 180) return false
-  return /^(?:i (?:just )?want(?:\s+to)?|i need(?:\s+a)?|looking (?:for|to)|hoping to|find a conveyanc)/i.test(t)
+  if (isPhysicalNeedNotGoal(t)) return false
+  return /^(?:i (?:just )?want to|i need to|i need a |looking (?:for|to)|hoping to|find a conveyanc)/i.test(
+    t,
+  )
 }
 
 /** "because I don't know what's relevant" is about the post, not the legal cause. */
-function isMetaCauseLine(line: string): boolean {
-  return /don'?t know what'?s relevant|as much detail as i can, because|giving as much detail/i.test(
-    line,
+export function isMetaCauseLine(line: string): boolean {
+  const t = foldTypographicPunctuation(line)
+  return /don'?t know what'?s relevant|dont know whats relevant|as much detail as i can, because|giving as much detail/i.test(
+    t,
   )
 }
 
 /** Medical/mobility needs must not become the Matching Help "goal". */
-function isPhysicalNeedNotGoal(fragment: string): boolean {
-  return /\b(crutches?|hobble|surgery|painkillers?|wheelchair|physio|hospital bed)\b/i.test(fragment)
+export function isPhysicalNeedNotGoal(fragment: string): boolean {
+  return /\b(crutches?|hobble|surgery|painkillers?|wheelchair|physio|hospital bed)\b/i.test(
+    foldTypographicPunctuation(fragment),
+  )
+}
+
+const HOUSING_NEXT_STEP_GOAL = 'Find out the next steps to stay housed and recover unpaid wages'
+
+function housingNextStepBlob(parts: string[]): boolean {
+  const blob = parts.join('\n')
+  return (
+    /next step should be|give me some advice|what should i do/i.test(blob) &&
+    /landlord|tenant|evict|flat|door|homeless|wages/i.test(blob)
+  )
+}
+
+/** Drop LLM/heuristic junk that mangled Matching Help for the café-flat story. */
+export function sanitizeIntakeNarrative(session: SessionState): SessionState {
+  let howCaused = foldTypographicPunctuation(session.howCaused || '').trim()
+  if (isMetaCauseLine(howCaused)) howCaused = ''
+
+  let goal = foldTypographicPunctuation(session.goal || '').trim()
+  if (isPhysicalNeedNotGoal(goal) || isMetaCauseLine(goal)) goal = ''
+  if (!goal && housingNextStepBlob([
+    ...session.rawInputs,
+    session.whatHappened,
+    ...session.events.map((e) => `${e.label} ${e.rawSpan || ''}`),
+  ])) {
+    goal = HOUSING_NEXT_STEP_GOAL
+  }
+
+  return { ...session, howCaused, goal }
 }
 
 /** Heuristic detail sensing for Phase 1 (no API required). */
@@ -550,6 +584,7 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
 
   // Goal extraction — "I need two crutches" is a fact, not the legal outcome they want.
   let goal = prev.goal
+  if (isPhysicalNeedNotGoal(goal) || isMetaCauseLine(goal)) goal = ''
   const goalMatch = text.match(
     /(?:i (?:just )?want to|i need to|looking (?:for|to)|hoping to)\s+(.+)/i,
   )
@@ -560,12 +595,8 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
     goal = matterType === 'conveyancing' ? 'Find a conveyancer' : 'Find suitable legal help'
   } else if (/need a (?:pi |personal injury )?lawyer|need a solicitor/i.test(text) && !goal) {
     goal = 'Speak to a suitable solicitor'
-  } else if (
-    !goal &&
-    /next step should be|give me some advice|what should i do/i.test(text) &&
-    /landlord|tenant|evict|flat|door|homeless|wages/i.test(text)
-  ) {
-    goal = 'Find out the next steps to stay housed and recover unpaid wages'
+  } else if (!goal && housingNextStepBlob([...prev.rawInputs, text])) {
+    goal = HOUSING_NEXT_STEP_GOAL
   }
 
   // Documents
@@ -633,6 +664,7 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
     )
     if (rich) whatHappened = rich.trim()
   }
+  if (isMetaCauseLine(howCaused)) howCaused = ''
   const causeMatch = text.match(
     /(?:caused by|because|due to|fault of|they (?:didn’t|did not|failed)|unsafe|negligen)\s*.+/i,
   )
@@ -651,7 +683,7 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
     howCaused = text.length >= 20 ? text.slice(0, 160) : 'Neighbour parking or access problem'
   }
 
-  return {
+  return sanitizeIntakeNarrative({
     ...prev,
     rawInputs: [...prev.rawInputs, text],
     events,
@@ -670,5 +702,5 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
         : prev.taxonomySlug,
     softFlags,
     safetyRisk,
-  }
+  })
 }
