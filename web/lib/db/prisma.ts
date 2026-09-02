@@ -69,13 +69,21 @@ function dataConnectionString(): string | undefined {
   return process.env.DATA_DATABASE_URL?.trim() || process.env.DATABASE_URL?.trim();
 }
 
-export const prisma =
-  globalForPrisma.prisma ??
-  createPrismaClient({
-    connectionString: dataConnectionString(),
-    label: "data",
-  });
-
-if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
+function getDataPrismaClient(): PrismaClient {
+  if (!globalForPrisma.prisma) {
+    globalForPrisma.prisma = createPrismaClient({
+      connectionString: dataConnectionString(),
+      label: "data",
+    });
+  }
+  return globalForPrisma.prisma;
 }
+
+/** Lazy so `next build` / unit eval can import routes without DATABASE_URL. */
+export const prisma: PrismaClient = new Proxy({} as PrismaClient, {
+  get(_target, prop, receiver) {
+    const client = getDataPrismaClient();
+    const value = Reflect.get(client, prop, receiver);
+    return typeof value === "function" ? value.bind(client) : value;
+  },
+});

@@ -45,9 +45,18 @@ const globalForAccounts = globalThis as unknown as {
   accountsPrisma: PrismaClient | undefined;
 };
 
-export const accountsPrisma =
-  globalForAccounts.accountsPrisma ?? createAccountsPrismaClient();
-
-if (process.env.NODE_ENV !== "production") {
-  globalForAccounts.accountsPrisma = accountsPrisma;
+function getAccountsPrismaClient(): PrismaClient {
+  if (!globalForAccounts.accountsPrisma) {
+    globalForAccounts.accountsPrisma = createAccountsPrismaClient();
+  }
+  return globalForAccounts.accountsPrisma;
 }
+
+/** Lazy so Next page-data collection can import login without a live DB. */
+export const accountsPrisma: PrismaClient = new Proxy({} as PrismaClient, {
+  get(_target, prop, receiver) {
+    const client = getAccountsPrismaClient();
+    const value = Reflect.get(client, prop, receiver);
+    return typeof value === "function" ? value.bind(client) : value;
+  },
+});
