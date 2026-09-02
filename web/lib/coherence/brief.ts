@@ -158,8 +158,9 @@ function buildSituationSummary(session: SessionState): string {
   const gist = compactGist(session)
   if (gist) bullets.push(gist)
 
-  if (session.howCaused.trim()) {
-    bullets.push(`How it was caused: ${session.howCaused.trim()}`)
+  const cause = session.howCaused.trim()
+  if (cause && !/don'?t know what'?s relevant|as much detail as i can/i.test(cause)) {
+    bullets.push(`How it was caused: ${cause}`)
   }
   if (session.parties.length) {
     bullets.push(`People / bodies mentioned: ${session.parties.map((p) => p.label).join(', ')}.`)

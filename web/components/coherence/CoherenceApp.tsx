@@ -1138,19 +1138,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         })
       } else {
         setSkipEnhance(true)
-        setPrompt({
-          id: 'penumbra_research_ready',
-          kind: 'closed',
-          text: 'Third Eye findings are folded into the recommendation above. Supplemental pages are grouped by issue on the graph.',
-          reason: result.fallback
-            ? 'Open-web research was unavailable, so only curated Legal Shaman sources were used.'
-            : 'Overview is rebuilt from the library plus labelled Third Eye sources that cover the frozen issue graph.',
-          options: [{
-            id: 'penumbra-handoff',
-            label: 'Rebuild the recommendation',
-            value: 'Ask Legal Shaman to review the Third Eye findings',
-          }],
-        })
+        navigatePage('oslaw')
         void applyPenumbraResearch(nextSession)
       }
     } catch (error) {
@@ -1182,6 +1170,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   async function applyPenumbraResearch(sourceSession: SessionState = session) {
     const bundle = sourceSession.penumbraResearch?.bundle
     if (sourceSession.searchMode !== 'penumbra' || !bundle) return
+    navigatePage('oslaw')
     setOverviewPending(true)
     setAgentError(null)
     try {
@@ -1193,7 +1182,6 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       )
       if (!result?.answerPackage) throw new Error('final_synthesis_unavailable')
       setAnswerPackage(result.answerPackage)
-      if (view !== 'oslaw') navigatePage('oslaw')
     } catch (error) {
       setAgentError(error instanceof Error ? error.message : 'final_synthesis_unavailable')
     } finally {

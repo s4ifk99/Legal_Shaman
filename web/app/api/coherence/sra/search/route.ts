@@ -99,7 +99,9 @@ export async function POST(req: Request) {
           ? 18
           : wantImmigration
             ? 16
-            : 12;
+            : wantHousing && !hint
+              ? 20
+              : 12;
 
     const sql = `
       SELECT * FROM (
@@ -130,11 +132,12 @@ export async function POST(req: Request) {
               OR business_name ILIKE '%motor%'
             ) THEN 10 ELSE 0 END
             + CASE WHEN $7::boolean AND (
-              work_area::text ILIKE '%Housing%' OR work_area::text ILIKE '%Landlord%'
+              work_area::text ILIKE '%Housing%'
+              OR work_area::text ILIKE '%Landlord%'
               OR work_area::text ILIKE '%Tenant%'
-              OR work_area::text ILIKE '%Property - Residential%'
-              OR work_area::text ILIKE '%Property%'
-            ) THEN 24 ELSE 0 END
+            ) THEN 28 ELSE 0 END
+            + CASE WHEN $7::boolean AND work_area::text ILIKE '%Property - Residential%'
+                AND work_area::text NOT ILIKE '%Intellectual Property%' THEN 10 ELSE 0 END
             + CASE WHEN $8::boolean AND work_area::text ILIKE '%Employment%' THEN 24 ELSE 0 END
             + CASE WHEN $11::boolean AND (
               work_area::text ILIKE '%Motoring%'
@@ -163,6 +166,11 @@ export async function POST(req: Request) {
                 AND work_area::text NOT ILIKE '%"Litigation%' THEN 40 ELSE 0 END
             - CASE WHEN $11::boolean AND work_area::text ILIKE '%Employment%' THEN 30 ELSE 0 END
             - CASE WHEN $9::boolean AND work_area::text ILIKE '%Personal Injury%' AND work_area::text NOT ILIKE '%"Litigation%' THEN 14 ELSE 0 END
+            - CASE WHEN $7::boolean AND work_area::text ILIKE '%Intellectual Property%' THEN 40 ELSE 0 END
+            - CASE WHEN $7::boolean AND work_area::text ILIKE '%Property - Commercial%'
+                AND work_area::text NOT ILIKE '%Housing%'
+                AND work_area::text NOT ILIKE '%Landlord%'
+                AND work_area::text NOT ILIKE '%Tenant%' THEN 22 ELSE 0 END
           )::int AS score
         FROM sra_organisations
         WHERE
@@ -175,8 +183,10 @@ export async function POST(req: Request) {
             work_area::text ILIKE '%Housing%'
             OR work_area::text ILIKE '%Landlord%'
             OR work_area::text ILIKE '%Tenant%'
-            OR work_area::text ILIKE '%Property - Residential%'
-            OR work_area::text ILIKE '%Property%'
+            OR (
+              work_area::text ILIKE '%Property - Residential%'
+              AND work_area::text NOT ILIKE '%Intellectual Property%'
+            )
           ))
           OR ($8::boolean AND work_area::text ILIKE '%Employment%')
           OR ($11::boolean AND (

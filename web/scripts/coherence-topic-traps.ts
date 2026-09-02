@@ -23,6 +23,8 @@ import type { SessionState } from '../lib/coherence/types'
 import { normalizeSearchMode, searchModePolicy } from '../lib/coherence/searchMode'
 import { canonicalizeResearchBundle, emptyResearchBundle, parseResearchBundle, researchBundlePrompt } from '../lib/coherence/researchBundle'
 import { matchingSessionForHelp } from '../lib/coherence/services'
+import { buildLawyerBrief } from '../lib/coherence/brief'
+import { relevantWorkAreas } from '../lib/coherence/sraQuery'
 import { attachResolvedMatterFrame } from '../lib/coherence/applyMatterFrame'
 import { preferFrameMatching } from '../lib/coherence/issueRouting'
 import { matchFreeServices } from '../lib/coherence/matchFreeServices'
@@ -1364,6 +1366,39 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       }
       const merged = mergeExaSearchHits([hit], [hit], 4)
       return assert(merged.length === 1, `expected 1 merged hit, got ${merged.length}`)
+    },
+  },
+  {
+    id: 'cafe-flat-summary-not-crutches-or-meta-because',
+    run: () => {
+      const story =
+        "I'm in a dispute with my landlord/employer about my right to stay in my flat. I'm giving as much detail as I can, because I don't know what's relevant.\n\nI need two crutches to hobble around, and even so I'm still extremely limited in how far I can go.\n\nYesterday the front door to my flat had been removed. I really don't know what my next step should be, and I hope maybe someone here can give me some advice."
+      const s = senseDetails(story, createInitialSession())
+      const brief = buildLawyerBrief(s, 50)
+      return (
+        assert(!/crutches|hobble/i.test(s.goal), `goal leaked mobility need: ${s.goal}`) ||
+        assert(!/don'?t know what'?s relevant/i.test(s.howCaused), `cause=${s.howCaused}`) ||
+        assert(
+          !/don'?t know what'?s relevant/i.test(brief.situationSummary),
+          `summary still has meta because: ${brief.situationSummary}`,
+        ) ||
+        assert(!/crutches|hobble/i.test(brief.desiredOutcome), `outcome=${brief.desiredOutcome}`)
+      )
+    },
+  },
+  {
+    id: 'housing-sra-cards-drop-intellectual-property',
+    run: () => {
+      const shown = relevantWorkAreas(
+        'Intellectual Property, Corporate, Commercial',
+        'housing',
+        false,
+        'housing',
+      )
+      return assert(
+        !shown.some((area) => /intellectual property/i.test(area)),
+        `IP leaked onto housing cards: ${shown.join(', ')}`,
+      )
     },
   },
 ]
