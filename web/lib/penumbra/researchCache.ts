@@ -16,7 +16,7 @@ export function penumbraCacheEnabled(): boolean {
 }
 
 export function penumbraCacheVersion(): string {
-  return process.env.PENUMBRA_CACHE_VERSION?.trim() || '1'
+  return process.env.PENUMBRA_CACHE_VERSION?.trim() || '2-full'
 }
 
 function cacheTtlDays(): number {
@@ -92,6 +92,86 @@ function readBundleJson(value: unknown): ResearchBundle | null {
   const bundle = value as ResearchBundle
   if (!bundle.mode || !Array.isArray(bundle.sources)) return null
   return bundle
+}
+
+export function buildExaHitsCacheKey(queryPlan: string, matterSlug?: string): string {
+  return buildPenumbraCacheKey(`exa-hits|${queryPlan}`, matterSlug)
+}
+
+type HitsPayload = { hits: Array<{ id: string; url: string; title: string; excerpt: string; publishedDate?: string }> }
+
+function readHitsPayload(value: unknown): HitsPayload | null {
+  if (!value || typeof value !== 'object') return null
+  const hits = (value as HitsPayload).hits
+  if (!Array.isArray(hits)) return null
+  return { hits }
+}
+
+export async function getPenumbraExaHitsCache(cacheKey: string): Promise<HitsPayload | null> {
+  if (!penumbraCacheEnabled()) return null
+  const mem = memoryCache.get(cacheKey)
+  if (mem?.expiresAt > Date.now()) {
+    const payload = readHitsPayload(mem.bundle as unknown as HitsPayload)
+    if (payload?.hits.length) return payload
+  }
+  if (!coherenceDatabaseUrl()) return null
+  try {
+    await ensureCacheTable()
+    const res = await sraQuery<{ rows: Array<{ bundle_json: unknown }> }>(
+      `SELECT bundle_json FROM penumbra_research_cache WHERE cache_key = $1 AND expires_at > NOW() LIMIT 1`,
+      [cacheKey],
+    )
+    const payload = readHitsPayload(res.rows[0]?.bundle_json)
+    if (!payload?.hits.length) return null
+    const expiresAt = Date.now() + cacheTtlDays() * 86_400_000
+    memoryCache.set(cacheKey, { bundle: payload as unknown as ResearchBundle, expiresAt })
+    return payload
+  } catch (error) {
+    console.warn('[penumbra-cache] hits get failed:', error instanceof Error ? error.message : error)
+    return null
+  }
+}
+
+export async function putPenumbraExaHitsCache(opts: {
+  cacheKey: string
+  query: string
+  matterSlug?: string
+  hits: HitsPayload['hits']
+}): Promise<void> {
+  if (!penumbraCacheEnabled() || !opts.hits.length) return
+  const payload = { hits: opts.hits } as unknown as ResearchBundle
+  const expiresAt = Date.now() + cacheTtlDays() * 86_400_000
+  memoryCache.set(opts.cacheKey, { bundle: payload, expiresAt })
+  trimMemoryCache()
+  if (!coherenceDatabaseUrl()) return
+  try {
+    await ensureCacheTable()
+    await sraQuery(
+      `
+        INSERT INTO penumbra_research_cache (
+          cache_key, cache_version, matter_slug, query_norm, bundle_json, source_count, expires_at
+        )
+        VALUES ($1, $2, $3, $4, $5::jsonb, $6, NOW() + ($7::text || ' days')::interval)
+        ON CONFLICT (cache_key) DO UPDATE SET
+          bundle_json = EXCLUDED.bundle_json,
+          source_count = EXCLUDED.source_count,
+          cache_version = EXCLUDED.cache_version,
+          expires_at = EXCLUDED.expires_at,
+          last_hit_at = NOW()
+      `,
+      [
+        opts.cacheKey,
+        penumbraCacheVersion(),
+        (opts.matterSlug || 'unknown').slice(0, 80),
+        normalizePenumbraCacheQuery(opts.query).slice(0, 2000),
+        JSON.stringify({ hits: opts.hits }),
+        opts.hits.length,
+        String(cacheTtlDays()),
+      ],
+    )
+  } catch (error) {
+    console.warn('[penumbra-cache] hits put failed:', error instanceof Error ? error.message : error)
+  }
 }
 
 export type PenumbraCacheHit = {

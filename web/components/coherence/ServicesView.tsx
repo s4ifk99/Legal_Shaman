@@ -489,6 +489,9 @@ export function ServicesView({
   pageNavigation,
 }: Props) {
   const [pack, setPack] = useState<HelpPack | null>(null)
+  const [cachedHelp, setCachedHelp] = useState<
+    NonNullable<SessionState['penumbraResearch']>['bundle']['freeResources']
+  >([])
   const [loading, setLoading] = useState(true)
   const helpSession = useMemo(() => matchingSessionForHelp(session), [session])
   const helpFrames = useMemo(
@@ -510,23 +513,26 @@ export function ServicesView({
     }
   }, [helpFrames, helpSession])
 
-  const phase2Rows: Row[] =
-    pack?.phase2Wiki.map((s) => ({
-      id: s.id,
-      type: `Wiki · ${s.topic}`,
-      title: s.title,
-      blurb: s.description,
-      url: s.sourceUrl,
-    })) ?? []
-
-  const v1Rows: Row[] =
-    pack?.v1Wiki.map((s) => ({
-      id: s.id,
-      type: `Knowledge · ${s.topic}`,
-      title: s.title,
-      blurb: s.description,
-      url: s.sourceUrl,
-    })) ?? []
+  useEffect(() => {
+    let cancelled = false
+    const matterType = helpSession.matterType || 'unknown'
+    void (async () => {
+      try {
+        const res = await fetch(
+          `/api/coherence/help-candidates?matterType=${encodeURIComponent(matterType)}`,
+        )
+        if (!res.ok) return
+        const data = (await res.json()) as { resources?: typeof cachedHelp }
+        if (cancelled || !Array.isArray(data.resources)) return
+        setCachedHelp(data.resources)
+      } catch {
+        /* Matching Help still works from indexed SRA + session bundle */
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [helpSession.matterType])
 
   const signRows: Row[] =
     pack?.signposts.map((s) => ({
@@ -606,16 +612,6 @@ export function ServicesView({
       score: s.score,
     })) ?? []
 
-  const authorityFirmRows: Row[] =
-    pack?.authorityFirms.map((s) => ({
-      id: s.id,
-      type: s.firm ? `Firm · ${s.firm}` : 'Law firm commentary',
-      title: s.title,
-      blurb: s.blurb,
-      url: s.url,
-      score: s.score,
-    })) ?? []
-
   const agentFreeRows: Row[] =
     helpMatch?.freeHelp.map((s) => ({
       id: s.id,
@@ -626,17 +622,39 @@ export function ServicesView({
       phone: s.phone,
     })) ?? []
 
-  const arambResourceRows: Row[] =
-    (helpSession.penumbraResearch?.bundle?.freeResources || [])
-      .filter((resource) => resource.matterType === helpSession.matterType || resource.matterType === 'unknown')
-      .map((resource) => ({
-        id: `aramb-resource:${resource.id}`,
-        type: `The Shaman lead · ${resource.resourceType} · pending review`,
-        title: resource.title,
-        blurb: `${resource.description} Source-linked to ${resource.sourceIds.join(', ')}. Verify suitability before relying on it.`,
-        url: resource.url,
-        phone: resource.phone,
-      }))
+  const thirdEyeHelp = (() => {
+    const seen = new Set<string>()
+    const merged = [
+      ...(helpSession.penumbraResearch?.bundle?.freeResources || []),
+      ...cachedHelp,
+    ].filter((resource) => {
+      if (!(resource.matterType === helpSession.matterType || resource.matterType === 'unknown')) {
+        return false
+      }
+      const key = resource.url.replace(/\/+$/, '').toLowerCase()
+      if (seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+    const toRow = (
+      resource: (typeof merged)[number],
+      band: 'free' | 'paid',
+    ): Row => ({
+      id: `aramb-resource:${band}:${resource.id}`,
+      type:
+        band === 'paid'
+          ? `Third Eye · paid / directory · ${resource.resourceType} · unverified`
+          : `Third Eye · free help · ${resource.resourceType} · pending review`,
+      title: resource.title,
+      blurb: `${resource.description} Verify this organisation before you rely on it. This is not a substitute for the SRA register or indexed free services.`,
+      url: resource.url,
+      phone: resource.phone,
+    })
+    return {
+      free: merged.filter((r) => r.costBand !== 'paid').map((r) => toRow(r, 'free')),
+      paid: merged.filter((r) => r.costBand === 'paid').map((r) => toRow(r, 'paid')),
+    }
+  })()
 
   const agentDirRows: Row[] =
     helpMatch?.directories.map((s) => ({
@@ -669,18 +687,6 @@ export function ServicesView({
     12,
   )
 
-  const guidanceRows: Row[] = [...phase2Rows, ...v1Rows]
-  const parkingStory =
-    session.taxonomySlug === 'parking_pcn' ||
-    isParkingStoryText(
-      [...session.rawInputs, session.whatHappened, session.goal].join(' '),
-    )
-  const readingRows: Row[] = [...guidanceRows, ...authorityFirmRows].filter((row) => {
-    if (!parkingStory) return true
-    const hay = `${row.title} ${row.blurb} ${row.type}`.toLowerCase()
-    return /parking|pcn|popla|motoring|ticket|penalty charge|citizens advice/.test(hay)
-  })
-
   const helpMatchHasLiveSra = (helpMatch?.solicitors || []).some(
     (s) => (s.type === 'sra-live' || s.id?.startsWith('sra-live:')) && (s.title || '').trim(),
   )
@@ -703,7 +709,8 @@ export function ServicesView({
     !freeRows.length &&
     !solicitorRows.length &&
     !directoryRows.length &&
-    !readingRows.length
+    !thirdEyeHelp.free.length &&
+    !thirdEyeHelp.paid.length
 
   return (
     <div className="services">
@@ -714,7 +721,7 @@ export function ServicesView({
         </button>
         <h1 className="services__title">Matching help</h1>
         <p className="services__sub">
-          Your situation, who to contact (free first), then relevant reading.
+          Your situation, then who to contact — free help first, then regulated solicitors.
         </p>
       </header>
 
@@ -730,12 +737,20 @@ export function ServicesView({
           <p className="services__blurb">No matches yet — try adding a place or more detail.</p>
         ) : (
           <>
-            {arambResourceRows.length > 0 && (
+            {thirdEyeHelp.free.length > 0 && (
               <Section
-                title="Additional resources found by The Shaman"
-                lead="Open-web resources found after the curated Legal Shaman review. These leads are not yet verified or approved."
-                rows={arambResourceRows}
+                title="Third Eye · free help found"
+                lead="Charities, helplines, law centres and legal-aid pages found by Third Eye, in addition to the indexed list. These leads are cached and not yet verified."
+                rows={thirdEyeHelp.free}
                 variant="free"
+                onOpenSraFirm={onOpenSraFirm}
+              />
+            )}
+            {thirdEyeHelp.paid.length > 0 && (
+              <Section
+                title="Third Eye · paid / regulated directories"
+                lead="Official find-a-solicitor directories found by Third Eye. They do not replace the live SRA matches below, and they are not a recommendation of a particular firm."
+                rows={thirdEyeHelp.paid}
                 onOpenSraFirm={onOpenSraFirm}
               />
             )}
@@ -767,14 +782,6 @@ export function ServicesView({
             {showSraSolicitors ? (
               <SraAttribution className="services__sra-attribution" />
             ) : null}
-
-            <Section
-              title="Things to read"
-              lead="Relevant wiki and indexed commentary for your situation."
-              rows={readingRows}
-              variant="read"
-              onOpenSraFirm={onOpenSraFirm}
-            />
           </>
         )}
       </div>

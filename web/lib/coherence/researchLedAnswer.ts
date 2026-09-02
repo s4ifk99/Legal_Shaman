@@ -1,16 +1,18 @@
 /**
- * Compose Overview / Recommendation from Third Eye (Penumbra) research output
- * instead of adding a new curated topic pack per scenario.
+ * Compose Overview / Recommendation as coverage over the frozen MatterFrame
+ * (issues + exclusions + client questions), not a ranked wiki dump.
  */
-import type { ResearchBundle, ResearchSource } from './researchBundle'
-import type { SessionState } from './types'
+import type { ResearchBundle, ResearchClaim, ResearchSource } from './researchBundle'
+import type { MatterType, SessionState } from './types'
 import type { LegalFrame } from './frames'
 import type { AnswerPackage, AnswerBullet } from './answerPackage'
 import { defaultAnswerFollowUps } from './answerPackage'
 import { checkAnswerCitations } from './citationCheck'
 import { matchFreeServices } from './matchFreeServices'
 import { matchingSessionForHelp } from './services'
-import type { MatterType } from './types'
+import { extractClientQuestions } from './applyMatterFrame'
+import { issueSlugsFromFrame, matterTypeFromSlug } from './issueRouting'
+import { titleAllowedOnGraph } from '@/lib/matter/issueGraphHits'
 
 function sourceTier(tier: ResearchSource['tier']): AnswerBullet['tier'] {
   if (tier === 'primary-law') return 'primary-law'
@@ -34,6 +36,8 @@ export function researchBundleIsUsable(bundle: ResearchBundle | null | undefined
 }
 
 function resolveMatterType(session: SessionState, bundle: ResearchBundle): MatterType {
+  const fromFrame = matterTypeFromSlug(session.matterFrame?.primaryIssues[0]?.slug)
+  if (fromFrame !== 'unknown') return fromFrame
   if (bundle.matching?.matterType && bundle.matching.matterType !== 'unknown') {
     return bundle.matching.matterType
   }
@@ -54,38 +58,116 @@ function resolveMatterType(session: SessionState, bundle: ResearchBundle): Matte
   return 'unknown'
 }
 
-function buildOverview(session: SessionState, bundle: ResearchBundle, matter: MatterType): string {
-  const draft = bundle.answerDraft?.trim()
-  if (draft && draft.length >= 80) {
-    return draft.length > 1200 ? `${draft.slice(0, 1197)}…` : draft
+function claimsAllowedByFrame(session: SessionState, claims: ResearchClaim[]): ResearchClaim[] {
+  const frame = session.matterFrame
+  let out = claims
+  if (frame) {
+    out = claims.filter((c) => titleAllowedOnGraph(c.claim, frame))
   }
+  const exclusions = new Set((frame?.exclusions || []).map((e) => e.toLowerCase()))
+  if (!exclusions.has('discrimination_equality') && !exclusions.has('workplace_discrimination')) {
+    return out
+  }
+  return out.filter(
+    (c) => !/\b(discriminat|harass|bullied|bullying|equality act|protected characteristic)\b/i.test(c.claim),
+  )
+}
 
-  const question = session.clientQuestion?.trim()
-  const claimBits = bundle.claims
-    .slice(0, 3)
-    .map((c) => c.claim)
-    .join(' ')
-  const matterLead =
-    matter === 'housing'
-      ? 'For a private tenancy in England, open guidance usually starts with the tenancy agreement, deposit protection, and the condition record at check-in.'
-      : matter !== 'unknown'
-        ? `For ${matter.replace(/_/g, ' ')} matters, start with the governing documents and official UK guidance before you sign or commit.`
-        : 'Start with the governing documents and official UK guidance before you sign or commit.'
+function uncoveredQuestions(session: SessionState, claims: ResearchClaim[], draft: string): string[] {
+  const questions = extractClientQuestions(`${session.clientQuestion || ''}\n${session.whatHappened || ''}`)
+  if (!questions.length) return []
+  const hay = `${draft} ${claims.map((c) => c.claim).join(' ')}`.toLowerCase()
+  const aliases: Array<{ re: RegExp; tokens: string[] }> = [
+    { re: /locked out|forced to leave|court order|door/, tokens: ['illegal', 'evict', 'lock'] },
+    { re: /emergency housing|tonight|homeless/, tokens: ['homeless'] },
+    { re: /written tenancy|right to stay/, tokens: ['tenancy', 'occupier', 'tenant', 'landlord'] },
+    { re: /wages|holiday pay/, tokens: ['wage', 'holiday', 'acas'] },
+    { re: /next to stay safe|next step/, tokens: ['illegal', 'homeless', 'shelter'] },
+  ]
+  return questions.filter((q) => {
+    const alias = aliases.find((a) => a.re.test(q))
+    if (alias && alias.tokens.some((tok) => hay.includes(tok))) return false
+    const keys = q
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .split(/\s+/)
+      .filter((w) => w.length >= 5)
+      .slice(0, 6)
+    return keys.filter((w) => hay.includes(w)).length < Math.min(2, keys.length)
+  })
+}
 
-  const parts = [matterLead]
-  if (question) parts.push(`Your question: ${question}`)
-  if (claimBits) parts.push(claimBits)
+function independentReviewCopy(session: SessionState): { title: string; description: string } {
+  const slugs = issueSlugsFromFrame(session.matterFrame)
+  const housing = slugs.some((s) => s.startsWith('housing'))
+  const family = slugs.some((s) => s.startsWith('family'))
+  const employment = slugs.some((s) => s.startsWith('employment'))
+  const employer = session.confirmedUserRole === 'employer'
+  const blob = `${session.whatHappened || ''} ${session.goal || ''}`
+  if (housing && /door|lock|vacat|homeless|no tenancy|forced.{0,24}leave|illegal evict/i.test(blob)) {
+    return {
+      title: 'Independent review',
+      description:
+        'Contact Shelter (including out-of-hours if you are homeless tonight), the council homelessness team, and Citizens Advice. A lock-out or being forced out without a court order is a housing emergency — not a tenancy-deposit dispute.',
+    }
+  }
+  if (housing) {
+    return {
+      title: 'Independent review',
+      description:
+        'Ask Citizens Advice, Shelter (housing), or a solicitor to review occupancy status, notices, and next steps before you sign or leave.',
+    }
+  }
+  if (employment && family) {
+    return {
+      title: 'Independent review',
+      description:
+        employer
+          ? 'Speak to an employment solicitor (employer-side process) and ask them to coordinate with your family solicitor before you act.'
+          : 'Speak to an employment solicitor and ask them to coordinate with a family solicitor if relationship breakdown is also in play.',
+    }
+  }
+  if (employment) {
+    return {
+      title: 'Independent review',
+      description: 'Ask Acas or an employment solicitor to review process, documents, and next steps before you act.',
+    }
+  }
+  return {
+    title: 'Independent review',
+    description: 'Ask Citizens Advice or a solicitor to review the documents and official guidance against your facts.',
+  }
+}
+
+function buildOverview(session: SessionState, bundle: ResearchBundle, matter: MatterType): string {
+  const claims = claimsAllowedByFrame(session, bundle.claims)
+  const questions = extractClientQuestions(`${session.clientQuestion || ''}\n${session.whatHappened || ''}`)
+  const uncovered = uncoveredQuestions(session, claims, claims.map((c) => c.claim).join(' '))
+  const slugs = issueSlugsFromFrame(session.matterFrame)
+  const issueLead = slugs.length
+    ? `Legal issues in play: ${slugs.slice(0, 4).map((s) => s.replace(/_/g, ' ')).join('; ')}.`
+    : matter !== 'unknown'
+      ? `For ${matter.replace(/_/g, ' ')} matters, start with the governing documents and official UK guidance before you sign or commit.`
+      : 'Start with the governing documents and official UK guidance before you sign or commit.'
+
+  const covered = claims
+    .slice(0, 4)
+    .map((c) => c.claim.replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+  const parts = [issueLead]
+  if (questions.length) parts.push(`Your questions: ${questions.join(' ')}`)
+  if (covered.length) parts.push(`What the sources cover: ${covered.join('; ')}.`)
+  if (uncovered.length) parts.push(`Not yet covered from your questions: ${uncovered.join(' ')}`)
   parts.push('This is signposting from researched sources — not legal advice on your specific outcome.')
-
   return parts.join(' ')
 }
 
-function buildBullets(bundle: ResearchBundle): AnswerBullet[] {
+function buildBullets(session: SessionState, bundle: ResearchBundle): AnswerBullet[] {
   const lookup = sourceById(bundle)
   const bullets: AnswerBullet[] = []
   const seen = new Set<string>()
 
-  for (const claim of bundle.claims) {
+  for (const claim of claimsAllowedByFrame(session, bundle.claims)) {
     const source = claim.sourceIds.map((id) => lookup.get(id)).find(Boolean)
     if (!source?.url || seen.has(source.url)) continue
     seen.add(source.url)
@@ -153,17 +235,29 @@ export function buildResearchLedAnswerPackage(
   _frames: LegalFrame[] = [],
 ): AnswerPackage {
   const matter = resolveMatterType(session, bundle)
-  const bullets = buildBullets(bundle)
+  const bullets = buildBullets(session, bundle)
   const freeHelp = buildFreeHelp(session, bundle)
+  const uncovered = uncoveredQuestions(
+    session,
+    claimsAllowedByFrame(session, bundle.claims),
+    bundle.answerDraft || '',
+  )
   const recommendations =
-    bundle.nextActions.length > 0
-      ? bundle.nextActions.slice(0, 4)
-      : bullets.map((b) => b.text).slice(0, 3)
+    uncovered.length > 0
+      ? [
+          ...uncovered.slice(0, 3).map((q) => `Still needs sources: ${q}`),
+          ...bundle.nextActions.slice(0, 2),
+        ]
+      : bundle.nextActions.length > 0
+        ? bundle.nextActions.slice(0, 4)
+        : bullets.map((b) => b.text).slice(0, 3)
 
   const missingFacts =
-    bundle.missingFacts.length > 0
-      ? bundle.missingFacts.slice(0, 6)
-      : ['Exact dates, documents, contract wording, and the outcome you want.']
+    uncovered.length > 0
+      ? uncovered.slice(0, 6)
+      : bundle.missingFacts.length > 0
+        ? bundle.missingFacts.slice(0, 6)
+        : ['Exact dates, documents, contract wording, and the outcome you want.']
 
   const pack: AnswerPackage = {
     answerOverview: buildOverview(session, bundle, matter),
@@ -174,10 +268,7 @@ export function buildResearchLedAnswerPackage(
         title: 'Self-help using official guidance',
         description: 'Work through the cited sources and gather documents before signing or paying.',
       },
-      {
-        title: 'Independent review',
-        description: 'Ask Citizens Advice, Shelter (housing), or a solicitor to review the wording if liability or deposits are unclear.',
-      },
+      independentReviewCopy(session),
     ],
     missingFacts,
     followUps: defaultAnswerFollowUps(missingFacts),

@@ -617,7 +617,10 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
   const causeMatch = text.match(
     /(?:caused by|because|due to|fault of|they (?:didn’t|did not|failed)|unsafe|negligen)\s*.+/i,
   )
-  if (!howCaused && causeMatch) {
+  const purposeBecause =
+    /rather than|viewed as|so that|in order to|make sure/i.test(text) &&
+    /because/i.test(causeMatch?.[0] || '')
+  if (!howCaused && causeMatch && !purposeBecause) {
     howCaused = causeMatch[0].trim()
   }
   // Neighbour parking / blocking already states the alleged wrongdoing

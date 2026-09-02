@@ -38,6 +38,11 @@ import type { AnswerFollowUp, AnswerPackage } from '@/lib/coherence/answerPackag
 import { proposeCoherentFrames } from '@/lib/coherence/frames'
 import { applyTopicLockToSession } from '@/lib/coherence/topicLock'
 import {
+  attachResolvedMatterFrame,
+  matterGatePrompt,
+  sessionMatterGate,
+} from '@/lib/coherence/applyMatterFrame'
+import {
   applyPackClassification,
   classificationFromClarifyAnswer,
   heuristicSuggestPack,
@@ -740,7 +745,18 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       ...next,
       answeredPromptIds: Array.from(new Set([...next.answeredPromptIds, answeredId])),
     }
+    const framed = attachResolvedMatterFrame(next, value)
+    next = framed.session
+    setMatterInspector(framed.inspector)
     setSession(next)
+
+    const gate = sessionMatterGate(next)
+    if (gate.status === 'needs_clarification' && !next.answeredPromptIds.includes('matter_gate')) {
+      setSkipEnhance(true)
+      setPrompt(matterGatePrompt(next))
+      return
+    }
+
     setPrompt(nextPrompt(next))
     if (session.rawInputs.length === 0 && value.trim()) {
       captureProductEvent('b2c_search_started', { search_mode: next.searchMode })
@@ -764,8 +780,8 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       }
     }
 
-    // Penumbra researches the case before Legal Shaman asks another intake
-    // question. The Shaman's returned gaps become the next prompt.
+    // Penumbra researches only after the matter frame is attached (and the
+    // gate has either passed or already been asked once).
     if (!followUp && next.searchMode === 'penumbra' && !next.penumbraResearch?.bundle) {
       const launch = () => {
         void runPenumbraResearch('', next)
@@ -1092,8 +1108,8 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       // server still exposes a clear running state while this request completes.
       const result = await requestPenumbraResearch(requestSession, { message, stream: false })
       if (!result) throw new Error('aramb_research_unavailable')
-      setSession((prev) => ({
-        ...prev,
+      const nextSession = {
+        ...requestSession,
         penumbraResearch: {
           ...researchState,
           status: result.status === 'needs_input' ? 'awaiting_input' : 'complete',
@@ -1101,9 +1117,12 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
           questions: result.questions,
           bundle: result.bundle,
           fallback: result.fallback === true,
+          cacheHit: result.cacheHit === true,
+          exaSource: result.exaSource,
           updatedAt: new Date().toISOString(),
         },
-      }))
+      }
+      setSession(nextSession)
       if (result.questions.length > 0) {
         setSkipEnhance(true)
         setPrompt({
@@ -1122,16 +1141,17 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         setPrompt({
           id: 'penumbra_research_ready',
           kind: 'closed',
-          text: 'Third Eye research is ready. Ask Legal Shaman to validate the findings and prepare the grounded answer.',
+          text: 'Third Eye findings are folded into the recommendation above. Supplemental pages are grouped by issue on the graph.',
           reason: result.fallback
-            ? 'The Shaman was unavailable, so only curated Legal Shaman sources are being handed off.'
-            : 'External research remains labelled as unverified until Legal Shaman reviews it.',
+            ? 'Open-web research was unavailable, so only curated Legal Shaman sources were used.'
+            : 'Overview is rebuilt from the library plus labelled Third Eye sources that cover the frozen issue graph.',
           options: [{
             id: 'penumbra-handoff',
-            label: 'Ask Legal Shaman to review',
+            label: 'Rebuild the recommendation',
             value: 'Ask Legal Shaman to review the Third Eye findings',
           }],
         })
+        void applyPenumbraResearch(nextSession)
       }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'aramb_research_failed'

@@ -23,17 +23,26 @@ export function sessionAnswerQuery(session: SessionState, frames: LegalFrame[] =
     session.clientQuestion,
     session.briefUnderstanding,
     session.whatHappened,
-    session.howCaused,
-    session.goal,
     ...session.rawInputs.slice(-2),
-    ...session.events.slice(0, 8).map((e) => [e.label, e.rawSpan].filter(Boolean).join(' ')),
-    frames
-      .slice(0, 3)
-      .map((f) => f.label)
-      .join(' '),
   ]
     .map((p) => String(p || '').trim())
     .filter(Boolean)
+
+  const frameLabels = frames
+    .slice(0, 3)
+    .map((f) => f.label)
+    .filter(Boolean)
+    .join(' ')
+  if (frameLabels) parts.push(frameLabels)
+  const story = String(session.whatHappened || '').toLowerCase()
+  const goal = String(session.goal || '').trim()
+  const caused = String(session.howCaused || '').trim()
+  if (goal && goal.length >= 8 && !story.includes(goal.toLowerCase().slice(0, 40))) {
+    if (!/^because i don't know/i.test(goal)) parts.push(goal)
+  }
+  if (caused && !/^because i don't know/i.test(caused) && !story.includes(caused.toLowerCase().slice(0, 40))) {
+    parts.push(caused)
+  }
 
   const seen = new Set<string>()
   const unique: string[] = []

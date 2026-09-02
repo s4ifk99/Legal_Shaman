@@ -1,9 +1,12 @@
-import { searchWikiPages } from "@/lib/wiki/search";
+import { searchWikiPages, getWikiPageById } from "@/lib/wiki/search";
 import { wikiAnchorsForQuery } from "@/lib/wiki/rerank-hits";
 
 import { buildConceptRetrievalPlan } from "./conceptRetrievalPlan";
 import { buildRetrievalPlan } from "./retrieval-plan";
+import { titleAllowedOnGraph } from "./issueGraphHits";
+import { gapIntentsForFrame } from "./gapRetrieve";
 import { exclusionPatternsForSlugs } from "./scopes";
+import { coverageSlotsFrom, rankByCoverage } from "./coverageSlots";
 import type { MatterEvidenceSet, MatterFrame } from "./types";
 
 /** Legacy path: raw submission drives search (pre–Matter Engine baseline). */
@@ -38,7 +41,7 @@ function titleExcluded(title: string, patterns: RegExp[], exclusionLabels: strin
     return true;
   }
   if (exclusionLabels.includes("travel_agent") && /travel agent/.test(t)) return true;
-  if (exclusionLabels.includes("distance_contracts") && /consumer contracts.*regulations|cancel.*online/.test(t)) {
+  if (exclusionLabels.includes("discrimination_equality") && /discriminat|equality act|protected characteristic|bullying at work|harassment at work/.test(t)) {
     return true;
   }
   return false;
@@ -72,12 +75,18 @@ export function retrieveForMatter(opts: {
   for (const intent of intents) {
     for (const hit of searchWikiPages(intent, 6)) {
       if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
+      if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
       const existing = byId.get(hit.id);
+      const boost = /illegal evict|homeless|occupi|service occup|tied accommodation|no tenancy|holiday pay|unpaid wage/i.test(
+        hit.title,
+      )
+        ? 1.3
+        : 1;
       const row = {
         id: hit.id,
         title: hit.title,
         category: hit.category,
-        score: hit.score,
+        score: hit.score * boost,
         intent,
         trace: intentTrace.get(intent),
       };
@@ -89,10 +98,12 @@ export function retrieveForMatter(opts: {
   // Belongings / small-claims: skip raw story-tail search — "year old" / "her house" pollute housing & IHT
   const skipTail =
     primarySlugs.includes("consumer_small_claims") ||
+    primarySlugs.includes("housing") ||
     /\b(threw|broke|broken|damaged).{0,80}(switch|console|toy|gift|belongings)\b/i.test(submission);
   if (tail.length >= 40 && !skipTail) {
     for (const hit of searchWikiPages(tail, 4)) {
       if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
+      if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
       const existing = byId.get(hit.id);
       const row = {
         id: hit.id,
@@ -106,7 +117,33 @@ export function retrieveForMatter(opts: {
     }
   }
 
-  const hits = [...byId.values()].sort((a, b) => b.score - a.score).slice(0, limit);
+  for (const intent of gapIntentsForFrame(
+    matterFrame,
+    submission,
+    [...byId.values()].map((h) => h.title),
+  )) {
+    if (!intents.includes(intent)) intents.push(intent);
+    for (const hit of searchWikiPages(intent, 6)) {
+      if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
+      if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
+      const existing = byId.get(hit.id);
+      const boost = /illegal evict|homeless|occupi|holiday pay|unpaid wage/i.test(hit.title) ? 1.35 : 1.15;
+      const row = {
+        id: hit.id,
+        title: hit.title,
+        category: hit.category,
+        score: hit.score * boost,
+        intent,
+        trace: "gap-fill",
+      };
+      if (!existing || row.score > existing.score) byId.set(hit.id, row);
+    }
+  }
+
+  const hits = rankByCoverage([...byId.values()], coverageSlotsFrom(matterFrame, submission), {
+    story: submission,
+    limit,
+  });
 
   return { hits, intents, retrievalTraces: traces, mode: "matter-scoped" };
 }
@@ -120,15 +157,18 @@ export const KnowledgeRetriever = {
 export function matterEvidenceToWikiHits(
   hits: MatterEvidenceSet["hits"],
 ): ReturnType<typeof searchWikiPages> {
-  return hits.map((h) => ({
-    id: h.id,
-    title: h.title,
-    category: h.category,
-    summary: "",
-    keyInformation: [],
-    practicalGuidance: [],
-    relatedConcepts: [],
-    relatedOrganisations: [],
-    score: h.score,
-  }));
+  return hits.map((h) => {
+    const page = getWikiPageById(h.id);
+    return {
+      id: h.id,
+      title: h.title,
+      category: h.category || page?.category || "",
+      summary: page?.summary || "",
+      keyInformation: page?.keyInformation || [],
+      practicalGuidance: page?.practicalGuidance || [],
+      relatedConcepts: page?.relatedConcepts || [],
+      relatedOrganisations: page?.relatedOrganisations || [],
+      score: h.score,
+    };
+  });
 }

@@ -30,7 +30,8 @@ export type FreeResourceCandidate = {
   title: string
   description: string
   url: string
-  resourceType: 'charity' | 'helpline' | 'clinic' | 'ombudsman' | 'government' | 'directory' | 'other'
+  resourceType: 'charity' | 'helpline' | 'clinic' | 'ombudsman' | 'government' | 'directory' | 'other' | 'solicitor' | 'law-centre' | 'legal-aid'
+  costBand?: 'free' | 'paid'
   matterType: MatterType
   topicId: string
   phone?: string
@@ -179,7 +180,18 @@ export function parseResearchBundle(
     'other',
     'unknown',
   ]
-  const validResourceTypes = ['charity', 'helpline', 'clinic', 'ombudsman', 'government', 'directory', 'other']
+  const validResourceTypes = [
+    'charity',
+    'helpline',
+    'clinic',
+    'ombudsman',
+    'government',
+    'directory',
+    'other',
+    'solicitor',
+    'law-centre',
+    'legal-aid',
+  ]
   const freeResources = Array.isArray(value.freeResources)
     ? value.freeResources
         .map((resource, index) => {
@@ -194,8 +206,7 @@ export function parseResearchBundle(
             !description ||
             !/^https:\/\//i.test(url) ||
             !validMatterTypes.includes(matterType) ||
-            !validResourceTypes.includes(String(item.resourceType)) ||
-            ids.length === 0
+            !validResourceTypes.includes(String(item.resourceType))
           ) {
             return null
           }
@@ -205,10 +216,11 @@ export function parseResearchBundle(
             description,
             url,
             resourceType: String(item.resourceType) as FreeResourceCandidate['resourceType'],
+            costBand: String(item.costBand || '') === 'paid' ? ('paid' as const) : ('free' as const),
             matterType: matterType as MatterType,
             topicId: String(item.topicId || 'general').replace(/\s+/g, '-').slice(0, 100),
             phone: String(item.phone || '').trim().slice(0, 40) || undefined,
-            sourceIds: ids,
+            sourceIds: ids.length ? ids : [],
             reviewStatus: 'pending_review' as const,
           }
         })
@@ -266,7 +278,7 @@ export function canonicalizeResearchBundle(
       ...resource,
       sourceIds: resource.sourceIds.filter((id) => sourceIds.has(id)),
     }))
-    .filter((resource) => resource.sourceIds.length > 0)
+    .filter((resource) => resource.url.startsWith('https://'))
   return {
     ...bundle,
     status: questions.length > 0 ? 'needs_input' : bundle.status,
@@ -292,7 +304,7 @@ export function researchBundlePrompt(opts: {
     'Keep curated source ids unchanged. Every external source id must start with web- or external-, include an https URL, title and excerpt. Every claim must cite one or more returned source ids.',
     'For each source return id, title, url, tier and excerpt; set origin to curated for supplied sources and external for open-web sources. Do not return a source without an excerpt.',
     'Always return matching: {matterType, topicId, taxonomySlug, confidence, rationale, sourceIds}. Choose one primary area only, cite the source ids supporting that routing choice, and never recommend a specific solicitor from open-web material. If the evidence is insufficient, use confidence low and say why.',
-    'After the curated review, search the open web for relevant free advice resources too. Return freeResources: [{id,title,description,url,resourceType,matterType,topicId,phone,sourceIds}]. Include only HTTPS URLs and cite the source ids. These are pending-review leads, not verified recommendations; do not invent contact details.',
+    'After the curated review, also find who can help: freeResources for charities, helplines, law centres, legal aid, and official solicitor directories (SRA / Law Society). Set costBand to free or paid. Do not return individual unsolicited law-firm marketing pages as recommendations. HTTPS URLs only; cite source ids when present.',
     'Label external material with its actual source quality and treat it as unverified research leads, not established law. Record conflicts rather than silently choosing between sources.',
     'Do not predict whether the client will win. Say when the supplied sources do not answer the question.',
     `Client research question:\n${opts.query.slice(0, 3500)}`,

@@ -44,10 +44,12 @@ const BASE_INTENTS: Record<string, string[]> = {
     "misrepresentation property transaction",
   ],
   housing: [
+    "illegal eviction lock out without court order",
+    "homelessness duty emergency housing Shelter",
+    "occupier no tenancy agreement service occupancy",
     "housing disrepair mould landlord repair",
     "section 21 notice tenant eviction",
     "tenancy deposit dispute",
-    "share accommodation joint tenancy",
   ],
   neighbour_dispute: [
     "neighbour dispute boundary planning",
@@ -56,6 +58,8 @@ const BASE_INTENTS: Record<string, string[]> = {
   employment: [
     "unfair dismissal employment tribunal ACAS",
     "employment rights at work ACAS",
+    "dismissing an employee ACAS employer process",
+    "return of company property employee",
   ],
   discrimination_equality: [
     "disability discrimination reasonable adjustments Equality Act",

@@ -23,7 +23,11 @@ import type { SessionState } from '../lib/coherence/types'
 import { normalizeSearchMode, searchModePolicy } from '../lib/coherence/searchMode'
 import { canonicalizeResearchBundle, emptyResearchBundle, parseResearchBundle, researchBundlePrompt } from '../lib/coherence/researchBundle'
 import { matchingSessionForHelp } from '../lib/coherence/services'
+import { attachResolvedMatterFrame } from '../lib/coherence/applyMatterFrame'
+import { preferFrameMatching } from '../lib/coherence/issueRouting'
 import { matchFreeServices } from '../lib/coherence/matchFreeServices'
+import { buildExaResearchBrief } from '../lib/penumbra/exaBrief'
+import { discoverHelpFromExaHits } from '../lib/penumbra/helpDiscover'
 import {
   buildPenumbraCacheKey,
   clearPenumbraResearchMemoryCacheForTests,
@@ -32,6 +36,9 @@ import {
   putPenumbraResearchCache,
 } from '../lib/penumbra/researchCache'
 import { mergeExaSearchHits, searchOfflineExaIndexForPenumbra } from '../lib/penumbra/offlineExaIndex'
+import { titleAllowedOnGraph } from '../lib/matter/issueGraphHits'
+import { coverageSlotsFrom } from '../lib/matter/coverageSlots'
+import { buildCaseLedOverview } from '../lib/coherence/caseBuilder'
 
 type TrapResult = { id: string; ok: boolean; detail: string }
 
@@ -71,6 +78,45 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(matched.taxonomySlug === 'employment', `taxonomy=${matched.taxonomySlug}`) ||
         assert(contractor.matterType === 'consumer', `contractor matter=${contractor.matterType}`) ||
         assert(contractor.taxonomySlug === 'consumer_services', `contractor taxonomy=${contractor.taxonomySlug}`)
+      )
+    },
+  },
+  {
+    id: 'matter-frame-first-not-keyword-or-discrimination-matching',
+    run: () => {
+      const story = `I'm going through divorce/family proceedings with my ex-wife, who has been on PAYE through my limited company for over 10 years. She is not carrying out any work. What are my options for lawfully ending her employment? How do I recover the company vehicle?`
+      let s = senseDetails(story, createInitialSession())
+      const { session } = attachResolvedMatterFrame(s, story)
+      const matched = matchingSessionForHelp(session)
+      const research = preferFrameMatching(
+        {
+          matterType: 'employment',
+          topicId: 'employment',
+          taxonomySlug: 'employment',
+          confidence: 'medium',
+          rationale: 'frame',
+          sourceIds: ['s1'],
+        },
+        {
+          matterType: 'employment',
+          topicId: 'discrimination',
+          taxonomySlug: 'employment',
+          confidence: 'high',
+          rationale: 'Discrimination at work is covered by the Equality Act.',
+          sourceIds: ['s1'],
+        },
+        session.matterFrame,
+      )
+      const slugs = [
+        ...(session.matterFrame?.primaryIssues || []),
+        ...(session.matterFrame?.secondaryIssues || []),
+      ].map((i) => i.slug)
+      return (
+        assert(session.confirmedUserRole === 'employer', `role=${session.confirmedUserRole}`) ||
+        assert(matched.matterType === 'employment', `matched matter=${matched.matterType}`) ||
+        assert(slugs.includes('employment') && slugs.includes('family'), `slugs=${slugs.join(',')}`) ||
+        assert(session.matterFrame?.exclusions?.includes('discrimination_equality'), 'missing discrimination exclusion') ||
+        assert(research?.topicId !== 'discrimination', `topic=${research?.topicId}`)
       )
     },
   },
@@ -281,7 +327,8 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(bundle?.matching?.matterType === 'employment', 'matching lens was not retained') ||
         assert(bundle?.freeResources.length === 1 && bundle.freeResources[0].reviewStatus === 'pending_review', 'free resource candidate was not retained') ||
         assert(external?.sources.length === 1 && external.sources[0].origin === 'external' && !external.sources[0].verified, 'external provenance was not enforced') ||
-        assert(prompt.indexOf('curated Legal Shaman sources') < prompt.indexOf('enabled web'), 'curated-first prompt order was lost')
+        assert(prompt.indexOf('curated Legal Shaman sources') < prompt.indexOf('enabled web'), 'curated-first prompt order was lost') ||
+        assert(/freeResources/.test(prompt) && /costBand/.test(prompt), 'research prompt no longer asks for free and paid help leads')
       )
     },
   },
@@ -1150,6 +1197,93 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           !free.some((f) => /contact us - shelter england/i.test(f.title)),
           'weak Shelter Exa duplicate still present',
         )
+      )
+    },
+  },
+  {
+    id: 'exa-brief-steers-full-search-from-frame',
+    run: () => {
+      const story =
+        'Landlord removed the front door and forced me out without a court order. No tenancy agreement. Wages held until I leave. Nowhere to sleep tonight.'
+      const s = intake([story])
+      const { frame } = attachResolvedMatterFrame(s, story)
+      const planned = buildExaResearchBrief({ story, frame, clientQuestion: 'What should I do tonight?' })
+      const blob = `${planned.brief} ${planned.queries.map((q) => q.query).join(' ')}`.toLowerCase()
+      const scopes = planned.queries.map((q) => q.scope).sort().join(',')
+      return (
+        assert(planned.queries.some((q) => q.scope === 'open'), 'missing open Exa query') ||
+        assert(planned.queries.some((q) => q.scope === 'allowlist'), 'missing official Exa query') ||
+        assert(/housing|illegal evict|homeless/.test(blob), `brief not steered: ${blob.slice(0, 180)}`) ||
+        assert(!/gap-fill only/.test(blob), 'still describing gap-fill only') ||
+        assert(scopes.includes('allowlist') && scopes.includes('open'), `scopes=${scopes}`) ||
+        assert(
+          planned.queries.some((q) => /illegal evict|lock out|Protection from Eviction/i.test(q.query)),
+          'missing per-slot illegal eviction query',
+        ) ||
+        assert(planned.queries.some((q) => q.id === 'help-free'), 'missing free-help Exa query') ||
+        assert(planned.queries.some((q) => q.id === 'help-paid'), 'missing paid-directory Exa query')
+      )
+    },
+  },
+  {
+    id: 'third-eye-discovers-free-and-paid-help',
+    run: () => {
+      const leads = discoverHelpFromExaHits(
+        [
+          {
+            id: 'web-shelter',
+            url: 'https://england.shelter.org.uk/housing_advice/eviction/get_help',
+            title: 'Get help from Shelter',
+            excerpt: 'Emergency helpline for illegal eviction.',
+          },
+          {
+            id: 'web-sra',
+            url: 'https://www.sra.org.uk/consumers/using-solicitor/find-solicitor/',
+            title: 'Find a solicitor',
+            excerpt: 'Search the SRA register for a regulated firm.',
+          },
+          {
+            id: 'web-firm',
+            url: 'https://www.taylor-rose.co.uk/illegal-eviction',
+            title: 'Taylor Rose illegal eviction',
+            excerpt: 'Our solicitors can help.',
+          },
+        ],
+        { matterSlug: 'housing' },
+      )
+      return (
+        assert(leads.some((r) => r.costBand === 'free' && /shelter/i.test(r.url)), 'missing Shelter free lead') ||
+        assert(leads.some((r) => r.costBand === 'paid' && /sra\.org/i.test(r.url)), 'missing SRA paid directory lead') ||
+        assert(!leads.some((r) => /taylor-rose/i.test(r.url)), 'marketing firm should not be a Matching Help lead')
+      )
+    },
+  },
+  {
+    id: 'coverage-wiki-drops-cgt-on-lockout',
+    run: () => {
+      const story =
+        'Landlord removed the front door of my flat. No tenancy agreement. Wages held until I leave. I am still inside with no door.'
+      const s = intake([story])
+      const { frame } = attachResolvedMatterFrame(s, story)
+      const slots = coverageSlotsFrom(frame, story)
+      const cased = buildCaseLedOverview({
+        story,
+        frame,
+        hitTitles: ['Illegal Evictions Guide For Tenants', 'Housing And Homelessness'],
+      })
+      return (
+        assert(slots.some((slot) => slot.id === 'illegal_eviction'), 'missing illegal eviction slot') ||
+        assert(slots.some((slot) => slot.id === 'occupying_insecure'), 'missing occupying slot') ||
+        assert(
+          !titleAllowedOnGraph(
+            'What Changes have there been to Capital Gains Tax, Inheritance Tax and Unused Pension Funds?',
+            frame,
+          ),
+          'CGT title still allowed on housing graph',
+        ) ||
+        assert(titleAllowedOnGraph('Illegal Evictions Guide For Tenants', frame), 'illegal eviction title blocked') ||
+        assert(/still in occupation|missing door/i.test(cased.answer), `occupying rec missing: ${cased.answer.slice(0, 240)}`) ||
+        assert(!/emergency accommodation, not a tenancy-deposit/i.test(cased.recommendations[0] || ''), 'still leading with homelessness tonight')
       )
     },
   },

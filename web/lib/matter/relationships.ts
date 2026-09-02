@@ -114,37 +114,67 @@ export function extractRelationshipModel(input: MatterResolveInput): Relationshi
     disputeEventIds.push(ev.id);
   };
 
+  const speakerAsEmployee = /\b(i (?:was |have been )?(?:dismissed|fired|sacked|made redundant)|my employer|at my work|my (?:job|boss|manager|workplace))\b/.test(
+    blob,
+  );
+  const speakerOwnsOrganisation =
+    /\b(my|our) (limited )?company\b/.test(blob) ||
+    /\bthrough my (limited )?company\b/.test(blob) ||
+    /\b(i am|i'm) (the )?(director|employer|owner)\b/.test(blob);
+  const payrollOrStaff =
+    /\b(paye|payroll|on the (?:company )?books|ending (?:her|his|their) employment|company vehicle|company car)\b/.test(
+      blob,
+    ) || /\b(employee|staff member) (?:who|on|is|has)\b/.test(blob);
+  const speakerAsEmployer = speakerOwnsOrganisation && (payrollOrStaff || /\bemployment\b/.test(blob));
   const hasEmploymentBackdrop =
+    speakerAsEmployer ||
+    speakerAsEmployee ||
     /\b(employer|manager|boss|employee|at work|my work|workplace|colleague|shift)\b/.test(blob);
 
   let employmentEventId: string | null = null;
   if (hasEmploymentBackdrop) {
     employmentEventId = eventId("employment", 1);
-    ensureParty("user", "claimant", "user");
-    ensureParty("counterparty_employer", "employer", "employer/manager");
-    capacities.push(
-      capacity("user", "employee", 0.7, [employmentEventId]),
-      capacity("counterparty_employer", "employer", 0.7, [employmentEventId]),
-    );
-    relationships.push(
-      rel("user", "counterparty_employer", "employment", [employmentEventId], 0.72),
-    );
+    ensureParty("user", speakerAsEmployer ? "employer" : "claimant", "user");
+    if (speakerAsEmployer) {
+      ensureParty("counterparty_worker", "employee", "worker/PAYE staff");
+      capacities.push(
+        capacity("user", "employer", 0.86, [employmentEventId]),
+        capacity("user", "company", 0.8, [employmentEventId]),
+        capacity("counterparty_worker", "employee", 0.82, [employmentEventId]),
+      );
+      relationships.push(
+        rel("user", "counterparty_worker", "employment", [employmentEventId], 0.86),
+      );
+    } else {
+      ensureParty("counterparty_employer", "employer", "employer/manager");
+      capacities.push(
+        capacity("user", "employee", 0.7, [employmentEventId]),
+        capacity("counterparty_employer", "employer", 0.7, [employmentEventId]),
+      );
+      relationships.push(
+        rel("user", "counterparty_employer", "employment", [employmentEventId], 0.72),
+      );
+    }
 
-    const employmentDispute = /\b(dismiss|sacked|fired|redundan|tribunal|grievance|unpaid wages|constructive)\b/.test(
-      blob,
-    );
+    const employmentDispute = speakerAsEmployer
+      ? payrollOrStaff || /\b(dismiss|ending .{0,20}employment|no duties|not carrying out any work)\b/.test(blob)
+      : /\b(dismiss|sacked|fired|redundan|tribunal|grievance|unpaid wages|constructive)\b/.test(blob);
 
     addDisputeEvent(
       enrichEvent({
         id: employmentEventId,
         type: "employment",
-        description: employmentDispute
-          ? "Employment dispute (dismissal/wages)"
-          : "Employment or workplace backdrop",
-        fact: employmentDispute
-          ? "Employment dispute (dismissal/wages)"
-          : "Employment or workplace backdrop",
-        participants: ["user", "counterparty_employer"],
+        description: speakerAsEmployer
+          ? "Employer / company employment relationship"
+          : employmentDispute
+            ? "Employment dispute (dismissal/wages)"
+            : "Employment or workplace backdrop",
+        fact: speakerAsEmployer
+          ? "Employer / company employment relationship"
+          : employmentDispute
+            ? "Employment dispute (dismissal/wages)"
+            : "Employment or workplace backdrop",
+        participants: speakerAsEmployer ? ["user", "counterparty_worker"] : ["user", "counterparty_employer"],
         relationships: ["employment"],
         supportsIssues: ["employment"],
         disputed: employmentDispute,
@@ -155,10 +185,41 @@ export function extractRelationshipModel(input: MatterResolveInput): Relationshi
     if (employmentDispute) {
       disputeIssueHints.push({
         slug: "employment",
-        confidence: 0.88,
-        reason: "dispute-event:employment dismissal/wages",
+        confidence: speakerAsEmployer ? 0.86 : 0.88,
+        reason: speakerAsEmployer
+          ? "dispute-event:employer-capacity payroll/staff"
+          : "dispute-event:employment dismissal/wages",
       });
     }
+  }
+
+  if (
+    /\b(divorce|family proceedings|financial (?:order|remedies)|ancillary relief|separation agreement)\b/.test(
+      blob,
+    )
+  ) {
+    const familyId = eventId("family", 1);
+    ensureParty("user", "spouse", "user");
+    ensureParty("counterparty_family", "former_partner", "former partner");
+    relationships.push(rel("user", "counterparty_family", "family", [familyId], 0.84));
+    addDisputeEvent(
+      enrichEvent({
+        id: familyId,
+        type: "family",
+        description: "Family / divorce proceedings",
+        fact: "Family / divorce proceedings",
+        participants: ["user", "counterparty_family"],
+        relationships: ["family"],
+        supportsIssues: ["family"],
+        disputed: true,
+        confidence: 0.86,
+      }),
+    );
+    disputeIssueHints.push({
+      slug: "family",
+      confidence: 0.86,
+      reason: "dispute-event:family proceedings",
+    });
   }
 
   const soldVehicle =
@@ -220,6 +281,7 @@ export function extractRelationshipModel(input: MatterResolveInput): Relationshi
 
   const vehiclePurchaseDispute =
     !soldVehicle &&
+    !/\bcompany (?:vehicle|car)\b/.test(blob) &&
     /\b(bought|purchase[d]?)\b.{0,40}\b(van|car|vehicle)\b/.test(blob) &&
     /\b(broke|fault|refund|dealer|mot\b|repair)\b/.test(blob);
   const vehicleRepair =
@@ -506,6 +568,52 @@ export function preferDisputeIssues(
     return { primary: taxonomyPrimary, secondary: taxonomySecondary };
   }
 
+  const mergeSecondary = (
+    primarySlug: string,
+    extra: { slug: string; confidence: number; reason: string }[],
+  ) =>
+    [...extra, ...taxonomyPrimary, ...taxonomySecondary]
+      .filter((i) => i.slug !== primarySlug)
+      .filter((i, idx, arr) => arr.findIndex((x) => x.slug === i.slug) === idx)
+      .slice(0, 4);
+
+  const userCaps = new Set(
+    model.capacities.filter((c) => c.partyId === "user").map((c) => c.capacity),
+  );
+  const uniqueHints = hints.filter(
+    (h, i) => hints.findIndex((x) => x.slug === h.slug) === i,
+  );
+
+  if (userCaps.has("employer") && uniqueHints.some((h) => h.slug === "employment")) {
+    const emp =
+      uniqueHints.find((h) => h.slug === "employment") || {
+        slug: "employment",
+        confidence: 0.84,
+        reason: "capacity:employer",
+      };
+    return { primary: [emp], secondary: mergeSecondary("employment", uniqueHints) };
+  }
+
+  const disputedSlugs = new Set(
+    model.events.filter((e) => e.disputed).flatMap((e) => e.supportsIssues || []),
+  );
+  if (disputedSlugs.size) {
+    const disputedHint = uniqueHints.find((h) => disputedSlugs.has(h.slug));
+    if (disputedHint && (!taxonomyPrimary[0] || !disputedSlugs.has(taxonomyPrimary[0].slug))) {
+      return {
+        primary: [{ ...disputedHint, reason: `${disputedHint.reason}; disputed-event` }],
+        secondary: mergeSecondary(disputedHint.slug, uniqueHints),
+      };
+    }
+  }
+
+  if (uniqueHints.length >= 2 && !model.relationships.some((r) => r.type === "seller_buyer")) {
+    const taxSlugEarly = taxonomyPrimary[0]?.slug;
+    const primary =
+      (taxSlugEarly && uniqueHints.find((h) => h.slug === taxSlugEarly)) || uniqueHints[0]!;
+    return { primary: [primary], secondary: mergeSecondary(primary.slug, uniqueHints) };
+  }
+
   const topHint = hints[0]!;
   const taxSlug = taxonomyPrimary[0]?.slug;
   const hasSellerBuyer = model.relationships.some((r) => r.type === "seller_buyer");
@@ -552,7 +660,7 @@ export function preferDisputeIssues(
       primary: taxonomyPrimary.map((p, i) =>
         i === 0 ? { ...p, reason: `${p.reason}; event-confirm` } : p,
       ),
-      secondary: taxonomySecondary,
+      secondary: mergeSecondary(taxSlug, hints),
     };
   }
 

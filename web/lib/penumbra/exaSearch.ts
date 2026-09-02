@@ -47,37 +47,42 @@ function stableWebSourceId(url: string): string {
   return `web-${slug || 'source'}`
 }
 
-/** UK-biased Exa search for Penumbra gap-fill (allowlisted domains only). */
+/** UK-biased Exa search. `allowlist` keeps official domains; `open` is full-web (Third Eye power). */
 export async function searchExaForPenumbra(
   query: string,
-  opts: { numResults?: number; timeoutMs?: number } = {},
+  opts: { numResults?: number; timeoutMs?: number; scope?: "allowlist" | "open" } = {},
 ): Promise<{ hits: ExaSearchHit[]; requestId?: string }> {
   const apiKey = exaApiKey()
   if (!apiKey) return { hits: [] }
 
-  const numResults = Math.min(Math.max(opts.numResults ?? 8, 1), 12)
+  const scope = opts.scope || "allowlist"
+  const numResults = Math.min(Math.max(opts.numResults ?? (scope === "open" ? 10 : 8), 1), 12)
   const timeoutMs = opts.timeoutMs ?? 25_000
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), timeoutMs)
 
   try {
-    const res = await fetch('https://api.exa.ai/search', {
-      method: 'POST',
+    const body: Record<string, unknown> = {
+      query: query.slice(0, 2000),
+      type: "auto",
+      numResults,
+      userLocation: "GB",
+      contents: {
+        highlights: { numSentences: 4 },
+        summary: true,
+      },
+    }
+    if (scope === "allowlist") {
+      body.includeDomains = EXA_RD_INCLUDE_DOMAINS
+    }
+
+    const res = await fetch("https://api.exa.ai/search", {
+      method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        query: query.slice(0, 2000),
-        type: 'auto',
-        numResults,
-        userLocation: 'GB',
-        includeDomains: EXA_RD_INCLUDE_DOMAINS,
-        contents: {
-          highlights: { numSentences: 3 },
-          summary: true,
-        },
-      }),
+      body: JSON.stringify(body),
       signal: controller.signal,
       cache: 'no-store',
     })

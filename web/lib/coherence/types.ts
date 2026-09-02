@@ -72,9 +72,11 @@ export interface SessionState {
     conversationId?: string
     questions: string[]
     bundle?: ResearchBundle
-        fallback?: boolean
+    fallback?: boolean
     error?: string
     updatedAt: string
+    cacheHit?: boolean
+    exaSource?: string
   }
   softFlags: string[]
   safetyRisk: boolean

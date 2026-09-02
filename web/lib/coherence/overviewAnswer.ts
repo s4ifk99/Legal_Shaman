@@ -25,6 +25,7 @@ import { pickRecommendedFirms } from "@/lib/wiki/firm-recommendations";
 import { applyDworkinBoostToWikiHits } from "@/lib/wiki/dworkin-tags";
 import { retrieveDworkinSnippetsForOverview } from "@/lib/coherence/overviewDworkinPack";
 import { KnowledgeRetriever, matterEvidenceToWikiHits } from "@/lib/matter/retrieve";
+import { titleAllowedOnGraph } from "@/lib/matter/issueGraphHits";
 import type { MatterFrame } from "@/lib/matter/types";
 import {
   defaultAnswerFollowUps,
@@ -35,24 +36,31 @@ import {
   normalizeSearchMode,
   searchModePolicy,
 } from "@/lib/coherence/searchMode";
+import { formatCaseBrief, buildCaseLedOverview } from "@/lib/coherence/caseBuilder";
 import type { ResearchBundle } from "@/lib/coherence/researchBundle";
+import { coverageSlotsFrom, rankByCoverage, titleCoversGraph } from "@/lib/matter/coverageSlots";
 
-const OVERVIEW_SYSTEM = `You are Legal Shaman's Overview agent — imitating Cursor working inside the legal_shaman Obsidian vault (AGENTS.md).
+const OVERVIEW_SYSTEM = `You are Legal Shaman's Overview agent — a research agent that builds the client's case from the CASE FILE, WIKI CONTEXT (library), and optional Third Eye notes.
 
-Write a practical UK signposting recommendation for the client's live situation. The answer must help the client decide what to do next, not merely list search results.
+Write a practical UK signposting recommendation that helps the client decide what to do next. Do not merely list search results.
 
 Rules:
-1. Treat WIKI CONTEXT and DWORKIN AUTHORITY snippets as the curated foundation. A supplemental Penumbra bundle may include source-linked external research: use it only as an unverified lead, identify uncertainty or conflict, and never turn an unsupported external claim into established law. Do not invent statutes, outcomes, or firm endorsements.
-2. Open with one short line: the client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).
-3. Answer the client's actual questions in clear prose. Cover each distinct issue they raised (e.g. sole-name broadband / WiFi password, joint rent shortfall, cameras/CCTV, threats/harassment, letter before action / money claim, council PCNs / permit-road appeals, estate agent / flat misrepresentation / demolition, damaged belongings / small claims between parents) when the context supports it. If they only mentioned work as the setting (“someone at my work”) but the dispute is parking tickets, a garage, or a landlord, do not write employment-law guidance. If the dispute is a broken gift or belongings and whether they can sue, do not write child custody / child arrangements guidance unless they also asked about that.
-4. Make useful distinctions the sources support (e.g. sole-name provider contract vs household contribution agreement; joint and several rent liability; cameras on shared space vs private space; harassment vs pure CCTV complaints).
-5. Prefer concrete next steps grounded in the pages. Prefer rule-tagged sources for what to do, principle-tagged sources for fairness questions, and treat policy-tagged sources as background.
-6. Do NOT predict win/lose. Do NOT say "you should definitely".
-7. Keep it concise: about 250–450 words. Short section headings allowed (plain lines, not markdown #).
-8. End with one sentence: this is Legal Shaman signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.
-9. If Master Critic feedback is provided, fix every listed failure before answering.
-10. Separate established facts from assumptions and identify facts that could change the route.
-11. Give concrete recommendations and at least two realistic options where the sources support more than one route. Describe trade-offs and the next step for each option without predicting the outcome.
+1. Treat the CASE FILE as frozen. Cover every primary and secondary issue on the graph. Never switch the matter to an excluded topic (e.g. discrimination, child arrangements) just because a neighbouring wiki page ranked.
+2. Treat WIKI CONTEXT and DWORKIN AUTHORITY as the curated foundation. A supplemental Third Eye / Penumbra bundle is unverified lead material: use it to fill gaps, name uncertainty, and never treat an unsupported external claim as established law. Do not invent statutes, outcomes, or firm endorsements.
+3. Open with one short line: the client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).
+4. Structure the answer as a case, in this order:
+   - The matter (what is actually live on these facts)
+   - Area of law (primary, then secondary strands such as withheld wages)
+   - What is live now vs later (e.g. homelessness tonight vs ACAS pay)
+   - Next steps in time order, grounded in the sources
+   - Facts that would change the route
+5. Answer the client's actual questions. If they were already forced out, do not write as if they still have a quiet week before a notice date.
+6. Prefer concrete next steps grounded in the pages. Prefer rule-tagged sources for what to do, principle-tagged sources for fairness questions, and treat policy-tagged sources as background.
+7. Do NOT predict win/lose. Do NOT say "you should definitely".
+8. Keep it concise: about 280–520 words. Short section headings allowed (plain lines, not markdown #).
+9. End with one sentence: this is Legal Shaman signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.
+10. If Master Critic feedback is provided, fix every listed failure before answering.
+11. Give at least two realistic options where the sources support more than one route.
 12. Return JSON only:
 {
   "answer": "full recommendation text",
@@ -215,7 +223,7 @@ function buildContext(
       const page = getWikiPageById(hit.id);
       const keys = (hit.keyInformation || []).slice(0, 5).join(" · ");
       const guide = (hit.practicalGuidance || []).slice(0, 4).join(" · ");
-      const excerpt = (page?.content || hit.summary || "").replace(/\s+/g, " ").trim().slice(0, 900);
+      const excerpt = (page?.content || hit.summary || "").replace(/\s+/g, " ").trim().slice(0, 1400);
       const kind = hit.dworkinKind ? `Dworkin: ${hit.dworkinKind} (${hit.dworkinSource || "inferred"})` : "";
       return [
         `### ${i + 1}. ${hit.title}`,
@@ -484,6 +492,8 @@ export async function buildOverviewAnswer(opts: {
       limit: policy.retrievalBreadth === 'broad' ? 14 : 8,
     });
     hits = matterEvidenceToWikiHits(evidence.hits);
+    const slots = coverageSlotsFrom(opts.matterFrame, latestText);
+    hits = rankByCoverage(hits, slots, { story: latestText, limit: hits.length || 8 });
     retrievalMeta = {
       retrievalMode: evidence.mode,
       retrievalIntents: evidence.intents,
@@ -530,6 +540,11 @@ export async function buildOverviewAnswer(opts: {
     taxonomySlug,
     excludeTitles: hits.map((h) => h.title),
     limit: policy.retrievalBreadth === 'broad' ? 8 : 4,
+  }).filter((s) => {
+    if (opts.matterFrame && !titleAllowedOnGraph(s.title, opts.matterFrame)) return false;
+    if (!opts.matterFrame) return true;
+    const slots = coverageSlotsFrom(opts.matterFrame, latestText);
+    return titleCoversGraph(s.title, slots, latestText) || slots.length === 0;
   });
   const packMeta = {
     taxonomySlug,
@@ -545,6 +560,7 @@ export async function buildOverviewAnswer(opts: {
   const searchMode = normalizeSearchMode(opts.searchMode);
 
   const storyBlock = [
+    opts.matterFrame ? formatCaseBrief(opts.matterFrame, latestText, opts.clientQuestion) : "",
     opts.understanding ? `Brief understanding: ${opts.understanding}` : "",
     opts.clientQuestion ? `Client questions: ${opts.clientQuestion}` : "",
     `Situation:\n${latestText}`,
@@ -579,7 +595,7 @@ export async function buildOverviewAnswer(opts: {
         {
           jsonMode: true,
           temperature: 0.2,
-          maxTokens: 1400,
+          maxTokens: 1800,
           model: resolveSynthesisModel(),
           purpose: "final_synthesis",
           caller: "overviewAnswer",
@@ -642,7 +658,11 @@ export async function buildOverviewAnswer(opts: {
   }
 
   // Deterministic practical fallback for shared housing (avoid cancel-contract boilerplate)
-  if (isSharedHousingQuery(latestText) && hits.length >= 2) {
+  if (
+    isSharedHousingQuery(latestText) &&
+    hits.length >= 2 &&
+    !/illegal evict|door.{0,24}removed|no front door|forced .{0,30}(?:leave|vacate)|homeless/i.test(latestText)
+  ) {
     const primary = hits.find((h) => /share accommodation/i.test(h.title)) || hits[0];
     const bill = hits.find((h) => /dispute a mobile|internet or tv bill/i.test(h.title));
     const harass = hits.find((h) => /harass/i.test(h.title));
@@ -701,6 +721,42 @@ export async function buildOverviewAnswer(opts: {
         retrievalScore: hits[0]?.score ?? 0,
         pageTitles: hits.slice(0, 6).map((h) => h.title),
         used: "shared-housing-deterministic",
+        arambPilot: Boolean(opts.researchBundle),
+        ...packMeta,
+      },
+    };
+  }
+
+  // Case-shaped fallback: MatterFrame + wiki hits, not a title dump or generic wiki answer.
+  if (opts.matterFrame && hits.length >= 2) {
+    const slots = coverageSlotsFrom(opts.matterFrame, latestText);
+    const supplemental = (opts.researchBundle?.sources || [])
+      .filter((s) => s.origin === "external" && s.url)
+      .filter((s) => titleCoversGraph(`${s.title} ${s.url} ${s.excerpt || ""}`, slots, latestText))
+      .slice(0, 10)
+      .map((s) => ({ title: s.title, url: s.url }));
+    const cased = buildCaseLedOverview({
+      story: latestText,
+      frame: opts.matterFrame,
+      clientQuestion: opts.clientQuestion,
+      hitTitles: hits.map((h) => h.title),
+      supplemental,
+    });
+    return {
+      answerPackage: attachResearchBundle(
+        toPackage(cased.answer, hits, cased.takeaways, "retrieve-deterministic", latestText, dworkin, {
+          recommendations: cased.recommendations,
+          options: cased.options,
+          missingFacts: cased.missingFacts,
+          followUpPrompts: cased.followUpPrompts,
+        }),
+        opts.researchBundle,
+      ),
+      meta: {
+        mode: "retrieval_only",
+        retrievalScore: hits[0]?.score ?? 0,
+        pageTitles: hits.slice(0, 6).map((h) => h.title),
+        used: "case-led-deterministic",
         arambPilot: Boolean(opts.researchBundle),
         ...packMeta,
       },

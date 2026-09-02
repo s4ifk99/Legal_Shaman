@@ -51,12 +51,27 @@ function parseJurisdiction(hint?: string): MatterFrame["jurisdiction"] {
   return { code: "england_wales", confidence: 0.5 };
 }
 
-function buildExclusions(primarySlugs: string[], taxonomy: TaxonomyResolution | null): string[] {
+function looksProtectedCharacteristicClaim(story: string): boolean {
+  return /\b(discriminat|harass(?:ment|ed)?|bullied|bullying|protected characteristic|reasonable adjustments?|pregnancy discriminat|racist|homophob|sexist|disability discriminat)\b/i.test(
+    story,
+  );
+}
+
+function buildExclusions(
+  primarySlugs: string[],
+  taxonomy: TaxonomyResolution | null,
+  story = "",
+  keepSlugs: string[] = [],
+): string[] {
   const out = new Set<string>();
   for (const slug of primarySlugs) {
     const pattern = ISSUE_TITLE_EXCLUSIONS[slug];
     if (!pattern) continue;
-    if (/employment/i.test(pattern.source)) out.add("employment");
+    if (/\bemployment tribunal|rights at work|working time\b/i.test(pattern.source)) {
+      if (!keepSlugs.includes("employment") && !primarySlugs.includes("employment")) {
+        out.add("employment");
+      }
+    }
     if (/used car|car repair/i.test(pattern.source)) out.add("used_vehicle");
     if (/travel agent/i.test(pattern.source)) out.add("travel_agent");
     if (/consumer contracts|distance/i.test(pattern.source)) out.add("distance_contracts");
@@ -85,6 +100,10 @@ function buildExclusions(primarySlugs: string[], taxonomy: TaxonomyResolution | 
       if (label !== "employment") out.delete(label);
     }
   }
+  if (!looksProtectedCharacteristicClaim(story)) {
+    out.add("discrimination_equality");
+  }
+  for (const slug of [...primarySlugs, ...keepSlugs]) out.delete(slug);
   return [...out];
 }
 
@@ -145,12 +164,15 @@ function withMateriality(
 function buildAmbiguities(
   taxonomy: TaxonomyResolution | null,
   input: MatterResolveInput,
+  independentIssueCount = 0,
 ): MatterAmbiguity[] {
   const out: MatterAmbiguity[] = [];
   const candidates = taxonomy?.candidates || [];
   const top = candidates[0];
   const second = candidates[1];
-  const closeCall = Boolean(second && top && second.score / top.score >= 0.78);
+  const closeCall = Boolean(
+    second && top && second.score / top.score >= 0.78 && independentIssueCount < 2,
+  );
 
   if (closeCall && top && second) {
     out.push(
@@ -366,15 +388,29 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
     });
   }
 
+  const disputedSupports = new Set(
+    relationshipModel.events.filter((e) => e.disputed).flatMap((e) => e.supportsIssues),
+  );
+  secondaryIssues = secondaryIssues.filter(
+    (i) =>
+      i.confidence >= 0.4 ||
+      disputedSupports.has(i.slug) ||
+      (i.slug === "employment" &&
+        relationshipModel.relationships.some((r) => r.type === "employment")),
+  );
+
   const primarySlugs = primaryIssues.map((i) => i.slug);
   const secondarySlugs = secondaryIssues.map((i) => i.slug);
   const top = candidates[0];
   const second = candidates[1];
-  const closeCall = Boolean(second && top && second.score / top.score >= 0.78);
+  const independentIssueCount = new Set(relationshipModel.disputeIssueHints.map((h) => h.slug)).size;
+  const closeCall = Boolean(
+    second && top && second.score / top.score >= 0.78 && independentIssueCount < 2,
+  );
 
   let ambiguities = [
     ...relationshipModel.ambiguities,
-    ...buildAmbiguities(taxonomy, input),
+    ...buildAmbiguities(taxonomy, input, independentIssueCount),
   ];
   if (!ambiguities.length && isVagueSubmission(input.submission)) {
     ambiguities = vagueAmbiguities(input.submission);
@@ -447,7 +483,7 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
         ...(input.taxonomy?.searchBoostTerms || []),
       ],
     ),
-    exclusions: buildExclusions(primarySlugs, taxonomy),
+    exclusions: buildExclusions(primarySlugs, taxonomy, storyBlob, secondarySlugs),
     ambiguities,
     overallConfidence,
     resolutionStatus,
