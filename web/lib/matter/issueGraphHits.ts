@@ -93,5 +93,29 @@ export function titleAllowedOnGraph(title: string, frame: IssueGraph): boolean {
   if (frame.primaryIssues[0]?.slug === "housing" && !slugs.has("conveyancing")) {
     if (/conveyancing|home insurance|cancelling policy/i.test(t)) return false;
   }
+  if (
+    /right of way|easement|using (?:a |the )?(?:back )?garden|back garden/i.test(t) &&
+    !slugs.has("neighbour_dispute")
+  ) {
+    return false;
+  }
+  if (
+    /package holiday|smart meter|scam refund|authorised push payment/i.test(t) &&
+    frame.primaryIssues[0]?.slug !== "consumer"
+  ) {
+    return false;
+  }
+  if (
+    /tenancy deposit|deposit protection|tenancy deposits/i.test(t) &&
+    !slugs.has("housing")
+  ) {
+    return false;
+  }
+  if (
+    /parking ticket|penalty charge|\bpcn\b/i.test(t) &&
+    !slugs.has("parking_pcn")
+  ) {
+    return false;
+  }
   return true;
 }

@@ -4,6 +4,7 @@ import { wikiAnchorsForQuery } from "@/lib/wiki/rerank-hits";
 import { buildConceptRetrievalPlan } from "./conceptRetrievalPlan";
 import { buildRetrievalPlan } from "./retrieval-plan";
 import { titleAllowedOnGraph } from "./issueGraphHits";
+import { isNeighbourAttractorTitle } from "./graphAdmissibility";
 import { gapIntentsForFrame } from "./gapRetrieve";
 import { exclusionPatternsForSlugs } from "./scopes";
 import { coverageSlotsFrom, rankByCoverage } from "./coverageSlots";
@@ -76,6 +77,7 @@ export function retrieveForMatter(opts: {
     for (const hit of searchWikiPages(intent, 6)) {
       if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
       if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
+      if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
       const existing = byId.get(hit.id);
       const boost = /illegal evict|homeless|occupi|service occup|tied accommodation|no tenancy|holiday pay|unpaid wage/i.test(
         hit.title,
@@ -104,6 +106,7 @@ export function retrieveForMatter(opts: {
     for (const hit of searchWikiPages(tail, 4)) {
       if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
       if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
+      if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
       const existing = byId.get(hit.id);
       const row = {
         id: hit.id,
@@ -126,6 +129,7 @@ export function retrieveForMatter(opts: {
     for (const hit of searchWikiPages(intent, 6)) {
       if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
       if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
+      if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
       const existing = byId.get(hit.id);
       const boost = /illegal evict|homeless|occupi|holiday pay|unpaid wage/i.test(hit.title) ? 1.35 : 1.15;
       const row = {

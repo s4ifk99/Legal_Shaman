@@ -13,6 +13,7 @@ import { matchingSessionForHelp } from './services'
 import { extractClientQuestions } from './applyMatterFrame'
 import { issueSlugsFromFrame, matterTypeFromSlug } from './issueRouting'
 import { titleAllowedOnGraph } from '@/lib/matter/issueGraphHits'
+import { isNeighbourAttractorTitle } from '@/lib/matter/graphAdmissibility'
 
 function sourceTier(tier: ResearchSource['tier']): AnswerBullet['tier'] {
   if (tier === 'primary-law') return 'primary-law'
@@ -62,7 +63,7 @@ function claimsAllowedByFrame(session: SessionState, claims: ResearchClaim[]): R
   const frame = session.matterFrame
   let out = claims
   if (frame) {
-    out = claims.filter((c) => titleAllowedOnGraph(c.claim, frame))
+    out = claims.filter((c) => titleAllowedOnGraph(c.claim, frame) && !isNeighbourAttractorTitle(c.claim, frame, `${session.whatHappened || ''} ${session.clientQuestion || ''}`))
   }
   const exclusions = new Set((frame?.exclusions || []).map((e) => e.toLowerCase()))
   if (!exclusions.has('discrimination_equality') && !exclusions.has('workplace_discrimination')) {

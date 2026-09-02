@@ -131,11 +131,12 @@ export async function POST(req: Request) {
           : undefined,
     });
 
-    let critique = critiqueOverviewRecommendation({
+        let critique = critiqueOverviewRecommendation({
       latestText,
       clientQuestion,
       understanding,
       answerPackage,
+      matterFrame,
     });
     let retries = 0;
     const allowRetry =
@@ -174,6 +175,7 @@ export async function POST(req: Request) {
         clientQuestion,
         understanding,
         answerPackage,
+        matterFrame,
       });
     }
 

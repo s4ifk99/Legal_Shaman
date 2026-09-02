@@ -21,13 +21,14 @@ export type CoherenceSraHit = {
 function typesenseQueryForFlags(
   flags: Pick<
     SraSearchPayload,
-    "wantHousing" | "wantEmployment" | "wantImmigration" | "wantConsumer" | "wantCar" | "wantMotoring" | "query"
+    "wantHousing" | "wantEmployment" | "wantImmigration" | "wantConsumer" | "wantCar" | "wantMotoring" | "query" | "matterType"
   >,
 ): string {
   if (flags.wantHousing) return "housing landlord tenant eviction residential property";
   if (flags.wantEmployment) return "employment workplace tribunal wages";
   if (flags.wantImmigration) return "immigration asylum nationality visa";
   if (flags.wantMotoring) return "motoring criminal road traffic";
+  if (flags.matterType === "crime") return "criminal defence police station magistrates duty solicitor";
   if (flags.wantConsumer || flags.wantCar) return "consumer litigation goods trader";
   return String(flags.query || "solicitor").slice(0, 80);
 }

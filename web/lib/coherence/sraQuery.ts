@@ -2,6 +2,7 @@ import { isPcnAppealQuery, isVehicleRepairQuery } from '@/lib/legal/query-signal
 import { resolveTaxonomy } from '@/lib/legal/taxonomy-resolver'
 import type { SessionState } from './types'
 import type { LegalFrame } from './frames'
+import { storyLooksMotoringCrime } from '@/lib/matter/graphAdmissibility'
 
 export type SraSearchPayload = {
   locationHint: string
@@ -53,6 +54,7 @@ export function resolveSraSearchFlags(opts: {
     }
   }
   if (taxonomySlug === 'criminal_defence' || matter === 'crime') {
+    const motoring = storyLooksMotoringCrime(query)
     return {
       matterType: 'crime',
       query,
@@ -62,7 +64,7 @@ export function resolveSraSearchFlags(opts: {
       wantHousing: false,
       wantEmployment: false,
       wantImmigration: false,
-      wantMotoring: true,
+      wantMotoring: motoring,
     }
   }
   if (taxonomySlug === 'consumer_vehicle_repair' || isVehicleRepairQuery(query)) {
@@ -209,7 +211,7 @@ export function buildSraSearchPayload(
       session.taxonomySlug === 'parking_pcn'
         ? false
         : session.matterType === 'crime'
-          ? true
+          ? storyLooksMotoringCrime(text)
           : undefined,
     wantImmigration:
       session.matterType === 'immigration' || frames.some((f) => f.id.startsWith('imm-'))
@@ -233,6 +235,7 @@ const RELEVANT_AREA_HINTS: Record<string, RegExp> = {
   housing: /housing|landlord|tenant|property.residential|disrepair/i,
   employment: /employment|workplace|tribunal|discriminat/i,
   immigration: /immigration|asylum|nationality/i,
+  crime: /criminal|crime|police|magistrates|defence/i,
 }
 
 /** County / nation names → outward postcode areas for SRA geo ranking. */
@@ -270,7 +273,7 @@ export function scoreSraWorkAreaForMatching(
   workArea: string,
   flags: Pick<
     SraSearchPayload,
-    'wantHousing' | 'wantEmployment' | 'wantImmigration' | 'wantConsumer' | 'wantCar' | 'wantMotoring'
+    'wantHousing' | 'wantEmployment' | 'wantImmigration' | 'wantConsumer' | 'wantCar' | 'wantMotoring' | 'matterType'
   >,
 ): number {
   const w = workArea || ''
@@ -283,7 +286,12 @@ export function scoreSraWorkAreaForMatching(
   if (flags.wantImmigration && /Immigration/i.test(w)) score += 24
   if (flags.wantConsumer && /Consumer/i.test(w)) score += 28
   if (flags.wantCar && /Litigation/i.test(w)) score += 8
-  if (flags.wantMotoring && /Motoring|Criminal|Crime -/i.test(w)) score += 32
+  if (flags.wantMotoring && /Motoring|Road Traffic/i.test(w)) score += 32
+  if (flags.matterType === 'crime' && !flags.wantMotoring) {
+    if (/Criminal|Crime -/i.test(w) && !/Motoring|Road Traffic/i.test(w)) score += 32
+    if (/Motoring|Road Traffic|\bPCN\b|parking/i.test(w) && !/Criminal/i.test(w)) score -= 24
+  }
+  if (flags.wantMotoring && /Criminal|Crime -/i.test(w)) score += 24
   if (flags.wantHousing && /Intellectual Property/i.test(w)) score -= 40
   if (
     flags.wantHousing &&
@@ -319,6 +327,8 @@ export function relevantWorkAreas(
             ? RELEVANT_AREA_HINTS.employment
             : matterType === 'immigration'
               ? RELEVANT_AREA_HINTS.immigration
+              : matterType === 'crime'
+                ? RELEVANT_AREA_HINTS.crime
               : RELEVANT_AREA_HINTS.consumer
 
   const matched = areas.filter((a) => hint.test(a))
@@ -326,7 +336,13 @@ export function relevantWorkAreas(
     taxonomySlug === 'parking_pcn' || taxonomySlug === 'consumer_vehicle_repair'
       ? (matched.length ? matched : areas).filter((a) => !/employment|criminal/i.test(a))
       : matched
-  if (pool.length) return pool.slice(0, 4)
+  if (pool.length) {
+    const shown = pool.slice(0, 4)
+    if (matterType === 'crime') {
+      return shown.filter((a) => !/motoring|parking|\bpcn\b/i.test(a) || /criminal/i.test(a))
+    }
+    return shown
+  }
   return areas
     .filter((a) => !/intellectual property/i.test(a))
     .filter((a) => !/employment/i.test(a) || matterType === 'employment')
@@ -357,6 +373,11 @@ export function sraMatchReason(
   if (payload.wantMotoring) {
     if (areas.some((a) => /motoring|crime|criminal|road traffic|\brta\b|parking/i.test(a))) {
       return 'Listed for Motoring / RTA work — confirm they take driving / PCN matters'
+    }
+  }
+  if (payload.matterType === 'crime' && !payload.wantMotoring) {
+    if (areas.some((a) => /crime|criminal/i.test(a))) {
+      return 'Listed for criminal defence — confirm they take police station / magistrates work'
     }
   }
   if (payload.wantCar && areas.some((a) => /consumer/i.test(a))) {

@@ -4,6 +4,11 @@
  */
 import type { MatterFrame } from "@/lib/matter/types";
 import { extractClientQuestions } from "./applyMatterFrame";
+import {
+  graphIsWeakForHits,
+  storyLooksEmployerSeizedKit,
+  titleAdmissibleOnGeometry,
+} from "@/lib/matter/graphAdmissibility";
 
 export function formatCaseBrief(
   frame: MatterFrame,
@@ -85,7 +90,13 @@ export function buildCaseLedOverview(opts: {
   const wages = /wages|holiday pay|ssp|statutory sick/i.test(story);
   const alreadyOut = /had no choice but to comply|leave everything else behind|son in law showed up/i.test(story);
   const stillOccupying = lockout && !alreadyOut;
-  const sourcesLine = hitTitles.slice(0, 6).join("; ") || "matched Legal Shaman wiki pages";
+  const housingMatter = primary === "housing";
+  const seizedKit = storyLooksEmployerSeizedKit(story);
+  const weakGraph = graphIsWeakForHits(hitTitles, frame, story);
+  const admittedTitles = hitTitles.filter((t) => titleAdmissibleOnGeometry(t, frame, story));
+  const sourcesLine = admittedTitles.slice(0, 6).join("; ") || (weakGraph
+    ? "no matching Legal Shaman wiki pages for this geometry"
+    : "matched Legal Shaman wiki pages");
   const supplementalLine = (opts.supplemental || [])
     .slice(0, 8)
     .map((s) => (s.url ? `${s.title} (${s.url})` : s.title))
@@ -97,13 +108,13 @@ export function buildCaseLedOverview(opts: {
 
   const liveNow: string[] = [];
   const later: string[] = [];
-  if (stillOccupying) {
+  if (housingMatter && stillOccupying) {
     liveNow.push("you are still in occupation — the missing door and isolation are the emergency, not a future move-out date");
     liveNow.push("treat removal of the door without a court-appointed bailiff as illegal eviction / Protection from Eviction; keep the crime number; ask police and the council to treat this as a lock-out while you remain");
     if (homeless) {
       later.push("homelessness / emergency accommodation is the fallback if it becomes unsafe to stay, not the first move while you are still inside");
     }
-  } else {
+  } else if (housingMatter) {
     if (homeless || alreadyOut) {
       liveNow.push("somewhere safe to stay tonight and a homelessness application with the council");
     }
@@ -114,31 +125,53 @@ export function buildCaseLedOverview(opts: {
   if (wages) later.push("unpaid wages and holiday pay through ACAS — that is a separate employment claim, not a reason you had to leave");
   if (!liveNow.length) liveNow.push(`progress the ${primary.replace(/_/g, " ")} issue using the matched guidance`);
 
-  const recs = [
-    stillOccupying
-      ? "Stay in occupation if you can do so safely. Record the missing door, keep the crime number, and call police again — a landlord cannot lawfully evict you by taking the door off or by setting a leave-by date without a court order and bailiff."
-      : homeless || alreadyOut
-        ? "Call the council homelessness team again tonight and Shelter (including any out-of-hours line) — you are asking for emergency accommodation, not a tenancy-deposit review."
-        : "Use the matched housing guidance and free help before paid advice.",
-    stillOccupying
-      ? "Call Shelter as soon as they open and your named housing officer — they are the people to press the council and landlord. Use the emergency housing number only if you are forced out or it becomes unsafe to stay."
-      : lockout || alreadyOut
-        ? "Keep the crime reference, council emails, and any proof the door was removed or you were told to leave without a court order and bailiff."
-        : "Gather contracts, notices, dated messages, and the outcome you want.",
-    wages
-      ? "Treat last wages and holiday pay as an employment/ACAS issue in parallel — they should not be held hostage against leaving."
-      : "Map each client question to a cited source before you act.",
-    "This is signposting from Legal Shaman sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.",
-  ];
+  const recs = housingMatter
+    ? [
+        stillOccupying
+          ? "Stay in occupation if you can do so safely. Record the missing door, keep the crime number, and call police again — a landlord cannot lawfully evict you by taking the door off or by setting a leave-by date without a court order and bailiff."
+          : homeless || alreadyOut
+            ? "Call the council homelessness team again tonight and Shelter (including any out-of-hours line) — you are asking for emergency accommodation, not a tenancy-deposit review."
+            : "Use the matched housing guidance and free help before paid advice.",
+        stillOccupying
+          ? "Call Shelter as soon as they open and your named housing officer — they are the people to press the council and landlord. Use the emergency housing number only if you are forced out or it becomes unsafe to stay."
+          : lockout || alreadyOut
+            ? "Keep the crime reference, council emails, and any proof the door was removed or you were told to leave without a court order and bailiff."
+            : "Gather contracts, notices, dated messages, and the outcome you want.",
+        wages
+          ? "Treat last wages and holiday pay as an employment/ACAS issue in parallel — they should not be held hostage against leaving."
+          : "Map each client question to a cited source before you act.",
+        "This is signposting from Legal Shaman sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.",
+      ]
+    : seizedKit
+      ? [
+          "Treat this as police seizure of employer property, not a housing or motoring matter. Ask the investigating force in writing for the property reference and whether the laptop is retained as evidence.",
+          "A criminal defence solicitor for the arrested person is the usual route on charge/interview; separately, the employer can ask how to recover company kit and whether work files may be examined.",
+          questions.length
+            ? `Cover the client's live questions: ${questions.join(" ")}`
+            : "Do not fill gaps with neighbouring wiki topics (garden access, tenancy deposits, parking tickets).",
+          "This is signposting from Legal Shaman sources — get a Citizens Advice or solicitor check before relying on it.",
+        ]
+      : [
+          weakGraph
+            ? "The library does not yet have enough matching pages for this geometry — do not switch to a neighbouring topic to complete the page."
+            : "Use only the cited sources that sit on this frozen issue graph.",
+          questions.length
+            ? `Answer the live questions from those sources: ${questions.join(" ")}`
+            : "Gather contracts, notices, dated messages, and the outcome you want.",
+          "Ask Citizens Advice or a solicitor who actually does this kind of work before you file or write to the other side.",
+          "This is signposting from Legal Shaman sources — not legal advice.",
+        ];
 
   const answer = [
     "This client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).",
     "",
     "The matter",
     `The live problem is ${liveSituation(story, frame)}. ${
-      alreadyOut
+      alreadyOut && housingMatter
         ? "On these facts you have already been made to leave, so the case is homelessness and recovering the home/belongings, not a polite dispute about a future notice date."
-        : "Stay with the frozen issue graph — do not switch the matter to a neighbouring wiki topic."
+        : weakGraph
+          ? "The library is thin on this geometry — cite only admitted pages and do not complete the page with neighbour topics."
+          : "Stay with the frozen issue graph — do not switch the matter to a neighbouring wiki topic."
     }`,
     questions.length ? `Your questions: ${questions.join(" ")}` : "",
     "",
@@ -171,29 +204,49 @@ export function buildCaseLedOverview(opts: {
       {
         title: "Self-help using official guidance tonight",
         description:
-          stillOccupying
+          housingMatter && stillOccupying
             ? "Stay in occupation if safe; police and crime number for the missing door; Shelter and your housing officer as soon as they open."
-            : homeless || lockout
+            : housingMatter && (homeless || lockout)
             ? "Council homelessness duty and Shelter first; keep evidence of the lock-out or forced exit."
-            : "Work through the cited wiki pages and gather documents before you sign or leave.",
+            : seizedKit
+            ? "Write to the force about the property reference; get criminal-defence advice for the arrested person and employer-side advice on recovering company kit."
+            : "Work through the cited wiki pages that actually match this matter and gather documents before you sign or leave.",
       },
       {
         title: "Independent review",
         description:
-          primary === "housing"
+          housingMatter
             ? "Contact Shelter, the council homelessness team, and Citizens Advice. A lock-out is a housing emergency — not a deposit dispute."
+            : seizedKit
+            ? "Ask a criminal defence solicitor (for the arrested person) and an employment/commercial solicitor (for the employer’s property) — not a housing or motoring firm by default."
             : "Ask Citizens Advice or a solicitor to review the documents and official guidance against your facts.",
       },
     ],
     missingFacts: [
       questions[0] || "Exact dates, notices, and the outcome you want.",
-      "Whether a court order or bailiff was ever produced.",
+      housingMatter
+        ? "Whether a court order or bailiff was ever produced."
+        : seizedKit
+          ? "Whether anyone has been charged, and the police property reference for the laptop."
+          : "The documents the other side or the police rely on.",
       wages ? "Employment contract, last payslips, and the email tying pay to vacating." : "The documents the other side relies on.",
     ].slice(0, 5),
-    followUpPrompts: [
-      "Add the council email and crime reference wording.",
-      "Say whether you still have access to the flat or only to belongings.",
-      "Paste the wages / holiday-pay email if you want that strand sourced next.",
-    ],
+    followUpPrompts: housingMatter
+      ? [
+          "Add the council email and crime reference wording.",
+          "Say whether you still have access to the flat or only to belongings.",
+          "Paste the wages / holiday-pay email if you want that strand sourced next.",
+        ]
+      : seizedKit
+        ? [
+            "Add the police force and any property / crime reference.",
+            "Say whether the arrested person has been charged or released.",
+            "Say whether the laptop is company-owned and whether Dropbox is work or personal.",
+          ]
+        : [
+            "Paste the documents or messages that set out what you want next.",
+            "Name the other party and what they have already done.",
+            "Say which of your questions still needs a source.",
+          ],
   };
 }
