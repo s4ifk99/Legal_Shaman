@@ -17,6 +17,7 @@ import {
   isPropertyDamageClaimText,
 } from '@/lib/coherence/matchFreeServices'
 import { SraAttribution } from '@/components/sra-attribution'
+import { sraRegisterFootnote } from '@/lib/coherence/sraRegisterFootnote'
 import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './ServicesView.css'
 
@@ -780,11 +781,7 @@ export function ServicesView({
 
       {pack && (
         <p className="services__trial">
-          {pack.meta.sra?.reachable
-            ? `Live SRA register: ${pack.meta.sra.total?.toLocaleString() ?? '—'} organisations. `
-            : pack.meta.sra?.configured
-              ? 'Live SRA register temporarily unreachable — start Podman Postgres on :5433 then refresh. '
-              : 'SRA live search offline (set DATABASE_URL). '}
+          {sraRegisterFootnote(pack.meta.sra)}
           Not legal advice — verify live pages and regulation yourself.
         </p>
       )}

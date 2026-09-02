@@ -13,6 +13,12 @@ import { resolveTopicLock, type LockedPackId, isUsedCarPurchaseStory } from './t
 import { looksNeighbourDispute } from './sense'
 import { normaliseLayText } from './normaliseLay'
 import type { OslawCourse } from './wiki'
+import { curatedPackAllowed, type CuratedPackId } from './curatedPackGates'
+import {
+  buildResearchLedAnswerPackage,
+  researchBundleIsUsable,
+} from './researchLedAnswer'
+import { buildMatterLedAnswerPackage } from './matterLedAnswer'
 
 export type AnswerBullet = {
   text: string
@@ -105,6 +111,8 @@ function isUsedCarReject(text: string, _matter: string): boolean {
 export type AnswerPackageOptions = {
   /** When no curated pack matches, lift bullets from OSLAW pathway steps. */
   oslaw?: OslawCourse | null
+  /** Third Eye / Penumbra research bundle — preferred over regex curated packs. */
+  researchBundle?: ResearchBundle | null
 }
 
 /**
@@ -391,9 +399,24 @@ const CURATED_LEAD_PACKS: CuratedPackDefinition[] = [
   },
 ]
 
-function curatedLeadPack(text: string): AnswerPackage | null {
-  const definition = CURATED_LEAD_PACKS.find((candidate) => candidate.when.test(text))
+function curatedLeadPack(
+  text: string,
+  session: SessionState,
+  frames: LegalFrame[],
+): AnswerPackage | null {
+  const definition = CURATED_LEAD_PACKS.find(
+    (candidate) =>
+      candidate.when.test(text) && curatedPackAllowed(candidate.id as CuratedPackId, session, frames),
+  )
   return definition ? buildCuratedPack(definition) : null
+}
+
+function resolveResearchBundle(
+  session: SessionState,
+  options: AnswerPackageOptions,
+): ResearchBundle | null {
+  const bundle = options.researchBundle ?? session.penumbraResearch?.bundle ?? null
+  return researchBundleIsUsable(bundle) ? bundle : null
 }
 
 /**
@@ -593,7 +616,17 @@ export function buildAnswerPackage(
   }
 
   if (!carCase) {
-    const curated = curatedLeadPack(text)
+    const researchBundle = resolveResearchBundle(session, options)
+    if (researchBundle) {
+      return buildResearchLedAnswerPackage(session, researchBundle, frames)
+    }
+
+    const matterPack = buildMatterLedAnswerPackage(session, frames)
+    if (matterPack) {
+      return enrichAnswerPackageWithOslaw(matterPack, options.oslaw, session)
+    }
+
+    const curated = curatedLeadPack(text, session, frames)
     if (curated) return curated
   }
 

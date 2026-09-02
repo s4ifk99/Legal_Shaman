@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 
 import { coherenceDatabaseUrl } from "@/lib/coherence/config";
 import { coherenceApiGuard } from "@/lib/coherence/server/guard";
+import {
+  proxyCoherenceBackendPath,
+  shouldProxySraToHomeBackend,
+} from "@/lib/coherence/server/gateway";
 import { sraQuery } from "@/lib/coherence/server/sra-db";
 
 export const runtime = "nodejs";
@@ -12,6 +16,13 @@ export async function GET() {
   if (blocked) return blocked;
 
   if (!coherenceDatabaseUrl()) {
+    if (shouldProxySraToHomeBackend()) {
+      return proxyCoherenceBackendPath({
+        path: "/api/coherence/sra/status",
+        method: "GET",
+        timeoutMs: 12_000,
+      });
+    }
     return NextResponse.json({
       configured: false,
       reachable: false,
@@ -29,6 +40,13 @@ export async function GET() {
       total: Number(r.rows[0]?.n || 0),
     });
   } catch (err) {
+    if (shouldProxySraToHomeBackend()) {
+      return proxyCoherenceBackendPath({
+        path: "/api/coherence/sra/status",
+        method: "GET",
+        timeoutMs: 12_000,
+      });
+    }
     return NextResponse.json({
       configured: true,
       reachable: false,

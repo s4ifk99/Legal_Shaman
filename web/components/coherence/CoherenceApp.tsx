@@ -60,6 +60,84 @@ const PENUMBRA_SKIP_QUESTION = '__penumbra_skip_question__'
 
 type View = 'intake' | 'services' | 'notes' | 'oslaw' | 'lawyer-login' | 'lawyer-portal' | 'sra-org'
 
+function PenumbraStatusBanner({
+  research,
+  busy,
+}: {
+  research: SessionState['penumbraResearch']
+  busy: boolean
+}) {
+  const status = research?.status ?? 'idle'
+  const running = busy || status === 'starting'
+  const [elapsed, setElapsed] = useState(0)
+
+  useEffect(() => {
+    if (!running) {
+      return
+    }
+    const startedAt = Date.parse(research?.updatedAt || '') || Date.now()
+    const update = () => setElapsed(Math.max(0, Math.floor((Date.now() - startedAt) / 1000)))
+    update()
+    const timer = window.setInterval(update, 1000)
+    return () => window.clearInterval(timer)
+  }, [research?.updatedAt, running])
+
+  if (!research || status === 'idle') return null
+
+  const content =
+    status === 'awaiting_input'
+      ? {
+          title: 'Research paused — your answer is needed',
+          message:
+            'The Shaman found a gap that could change the research. Answer the question below, or skip it to continue with the current facts.',
+          duration: 'Waiting for you',
+        }
+      : status === 'complete'
+        ? {
+            title: 'Research complete — ready for review',
+            message:
+              'The Shaman has finished its research pass. Legal Shaman can now check the findings and prepare the grounded answer.',
+            duration: 'Complete',
+          }
+        : status === 'error'
+          ? {
+              title: 'Research stopped — please try again',
+              message:
+                'The research pass did not complete. Your case information is still saved; run the research again when ready.',
+              duration: 'Stopped',
+            }
+          : {
+              title: 'Researching now',
+              message:
+                'The Shaman is reviewing curated Legal Shaman sources first, then checking wider public sources for genuine gaps.',
+              duration: `Running for ${elapsed}s`,
+            }
+
+  return (
+    <section
+      className={`penumbra-status penumbra-status--${status}`}
+      aria-live="polite"
+      aria-busy={running}
+    >
+      <div className="penumbra-status__top">
+        <div className="penumbra-status__title">
+          <span className={`penumbra-status__indicator${running ? ' is-running' : ''}`} aria-hidden="true" />
+          <strong>{content.title}</strong>
+        </div>
+        <span className="penumbra-status__duration">{content.duration}</span>
+      </div>
+      <p className="penumbra-status__message">{content.message}</p>
+      {running ? (
+        <ol className="penumbra-status__steps" aria-label="Research steps">
+          <li className="is-current">Reviewing curated Legal Shaman sources</li>
+          <li>Checking wider public sources for gaps</li>
+          <li>Preparing findings for Legal Shaman review</li>
+        </ol>
+      ) : null}
+    </section>
+  )
+}
+
 function uid() {
   return Math.random().toString(36).slice(2, 10)
 }
@@ -598,7 +676,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     }
 
     if (answeredId === 'penumbra_research_ready') {
-      void usePenumbraResearch(session)
+      void applyPenumbraResearch(session)
       return
     }
 
@@ -799,11 +877,18 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
           setAnswerPackage(null)
           setOverviewPending(true)
           const framesForOverview = proposeCoherentFrames(merged, 3)
-          void fetchRetrieveAnswer(merged, framesForOverview, followUp ? {
-            kind: followUp.kind,
-            text: value.trim(),
-            priorAnswer: answerPackage?.answerOverview,
-          } : undefined)
+          void fetchRetrieveAnswer(
+            merged,
+            framesForOverview,
+            followUp
+              ? {
+                  kind: followUp.kind,
+                  text: value.trim(),
+                  priorAnswer: answerPackage?.answerOverview,
+                }
+              : undefined,
+            merged.penumbraResearch?.bundle,
+          )
             .then((retrieved) => {
               if (retrieved?.answerPackage && isFinalOverviewPackage(retrieved.answerPackage)) {
                 setAnswerPackage(retrieved.answerPackage)
@@ -986,7 +1071,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     setPrompt({
       id: 'penumbra_research_running',
       kind: 'open',
-      text: 'Penumbra is researching your case before asking for more detail.',
+      text: 'Third Eye is researching your case before asking for more detail.',
       reason: 'The Shaman is reviewing curated Legal Shaman sources first, then checking wider public sources for genuine gaps.',
     })
     const current = sourceSession.penumbraResearch
@@ -1002,7 +1087,10 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     const requestSession = { ...sourceSession, penumbraResearch: researchState }
     setSession(requestSession)
     try {
-      const result = await requestPenumbraResearch(requestSession, { message, stream: true })
+      // Use Aramb's awaited run contract here. The SDK's WebSocket streaming
+      // path is unreliable when the agent invokes research capabilities; the
+      // server still exposes a clear running state while this request completes.
+      const result = await requestPenumbraResearch(requestSession, { message, stream: false })
       if (!result) throw new Error('aramb_research_unavailable')
       setSession((prev) => ({
         ...prev,
@@ -1034,18 +1122,19 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         setPrompt({
           id: 'penumbra_research_ready',
           kind: 'closed',
-          text: 'Penumbra research is ready. Ask Legal Shaman to validate the findings and prepare the grounded answer.',
+          text: 'Third Eye research is ready. Ask Legal Shaman to validate the findings and prepare the grounded answer.',
           reason: result.fallback
             ? 'The Shaman was unavailable, so only curated Legal Shaman sources are being handed off.'
             : 'External research remains labelled as unverified until Legal Shaman reviews it.',
           options: [{
             id: 'penumbra-handoff',
             label: 'Ask Legal Shaman to review',
-            value: 'Ask Legal Shaman to review the Penumbra findings',
+            value: 'Ask Legal Shaman to review the Third Eye findings',
           }],
         })
       }
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'aramb_research_failed'
       if (error instanceof Error && error.message === 'monthly_search_quota') {
         setAgentError('You have used your 5 free searches this month. Upgrade to The Shaman Unlimited for £3.49 every 4 weeks.')
       }
@@ -1054,17 +1143,23 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         penumbraResearch: {
           ...researchState,
           status: 'error',
-          error: error instanceof Error ? error.message : 'aramb_research_failed',
+          error: errorMessage,
           updatedAt: new Date().toISOString(),
         },
       }))
+      setPrompt({
+        id: 'penumbra_research_error',
+        kind: 'closed',
+        text: 'Third Eye research stopped before it completed.',
+        reason: 'Your case information is still saved. Run Third Eye again to retry the research pass.',
+      })
     } finally {
       penumbraInFlightRef.current = false
       setPenumbraBusy(false)
     }
   }
 
-  async function usePenumbraResearch(sourceSession: SessionState = session) {
+  async function applyPenumbraResearch(sourceSession: SessionState = session) {
     const bundle = sourceSession.penumbraResearch?.bundle
     if (sourceSession.searchMode !== 'penumbra' || !bundle) return
     setOverviewPending(true)
@@ -1179,10 +1274,10 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         onUsePenumbraResearch={() => {
           if (authRequired) {
             requireCoherenceAuth(() => {
-              void usePenumbraResearch()
+              void applyPenumbraResearch()
             })
           } else {
-            void usePenumbraResearch()
+            void applyPenumbraResearch()
           }
         }}
         pageNavigation={pageNavigation}
@@ -1328,6 +1423,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
           />
         ) : (
           <>
+            <PenumbraStatusBanner research={session.penumbraResearch} busy={penumbraBusy} />
             <PromptBlock
               text={
                 addingDetail

@@ -64,7 +64,11 @@ function Recommendation({
     <article className="oslaw__rec" aria-label="Recommendation">
       <header className="oslaw__rec-head">
         <h2 className="oslaw__rec-title">Recommendation</h2>
-        <p className="oslaw__rec-origin">Legal Shaman wiki · signposting only</p>
+        <p className="oslaw__rec-origin">
+          {pack.researchBundle
+            ? 'Legal Shaman wiki + Third Eye research · signposting only'
+            : 'Legal Shaman wiki · signposting only'}
+        </p>
       </header>
 
       <section className="oslaw__rec-section">
@@ -254,9 +258,11 @@ function Recommendation({
         </details>
       )}
 
-      {pack.researchBundle?.sources.length ? (
+      {pack.researchBundle ? (
         <details className="oslaw__rec-sources oslaw__research-bundle">
-          <summary>The Shaman research ({pack.researchBundle.sources.length} labelled sources)</summary>
+          <summary>
+            Third Eye research ({pack.researchBundle.sources.length} labelled sources)
+          </summary>
           <p className="oslaw__rec-note">
             Supplemental exploration only. Legal Shaman checks the final answer against its own grounded sources.
           </p>
@@ -307,11 +313,17 @@ function pickBestPack(
   preferRetrieved = false,
 ): AnswerPackage {
   if (mode === 'penumbra' || preferRetrieved) {
+    if (local.matchedTopicId === 'research-led' && local.bullets.length > 0) return local
     if (master && isFinalOverviewPackage(master)) return master
     if (retrieved && isFinalOverviewPackage(retrieved)) return retrieved
   }
   // Deterministic R&D topic packs win when they matched (parking, CRA, etc.).
-  if (local.matchedTopicId && local.bullets.length > 0) return local
+  if (local.matchedTopicId && local.matchedTopicId !== 'matter-housing' && local.bullets.length > 0) {
+    if (local.matchedTopicId.startsWith('matter-') && retrieved && isFinalOverviewPackage(retrieved)) {
+      return retrieved
+    }
+    if (!local.matchedTopicId.startsWith('matter-')) return local
+  }
   if (master && isFinalOverviewPackage(master)) return master
   if (retrieved && isFinalOverviewPackage(retrieved)) return retrieved
   return local
@@ -332,12 +344,16 @@ function PenumbraResearchPanel({
 
   const busy = research?.status === 'starting'
   const hasFindings = Boolean(research?.bundle)
+  const researchError =
+    research?.error === 'concurrent'
+      ? 'A previous research request is still finishing. Please try again shortly.'
+      : research?.error
   return (
     <section className="oslaw__research-panel" aria-labelledby="penumbra-research-title">
       <div className="oslaw__research-head">
         <div>
           <h2 id="penumbra-research-title" className="oslaw__rec-h">
-            Penumbra exploratory research
+            Third Eye exploratory research
           </h2>
           <p className="oslaw__rec-note">
             The Shaman first reviews curated Legal Shaman sources, then researches wider public sources for gaps. It supplies labelled leads only; Legal Shaman remains responsible for the answer.
@@ -346,7 +362,7 @@ function PenumbraResearchPanel({
         <span className="oslaw__research-status">{research?.status || 'not started'}</span>
       </div>
 
-      {research?.error ? <p className="oslaw__research-error">{research.error}</p> : null}
+      {researchError ? <p className="oslaw__research-error">{researchError}</p> : null}
       {research?.fallback ? (
         <p className="oslaw__rec-note" role="status">
           The Shaman could not complete the open-web phase. These are curated Legal Shaman sources only; no external research was added.
@@ -478,7 +494,13 @@ export function OslawView({
     session.searchMode,
     session.reformulationOutcome,
   ].join('¦')
-  const basePack = useMemo(() => buildAnswerPackage(session, frames), [overviewKey, frameKey])
+  const basePack = useMemo(
+    () =>
+      buildAnswerPackage(session, frames, {
+        researchBundle: session.penumbraResearch?.bundle,
+      }),
+    [overviewKey, frameKey, session.penumbraResearch?.bundle, session.penumbraResearch?.updatedAt],
+  )
   const [pack, setPack] = useState<AnswerPackage | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -514,7 +536,12 @@ export function OslawView({
 
       let retrieved: AnswerPackage | null = null
       if (!basePack.matchedTopicId || searchMode === 'penumbra' || modeChanged) {
-        const res = await fetchRetrieveAnswer(session, frames)
+        const res = await fetchRetrieveAnswer(
+          session,
+          frames,
+          undefined,
+          session.penumbraResearch?.bundle,
+        )
         if (cancelled) return
         retrieved = res?.answerPackage ?? null
       }
@@ -609,7 +636,7 @@ export function OslawView({
       <section className="oslaw__mode" aria-labelledby="oslaw-mode-title">
         <div>
           <h2 id="oslaw-mode-title" className="oslaw__mode-title">
-            Research mode: Penumbra
+            Research mode: Third Eye
           </h2>
           <p className="oslaw__mode-copy">
             Curated Legal Shaman sources first, followed by broader exploratory research with source quality and uncertainty labelled.

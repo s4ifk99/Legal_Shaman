@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 
 import { coherenceDatabaseUrl } from "@/lib/coherence/config";
 import { coherenceApiGuard } from "@/lib/coherence/server/guard";
+import {
+  proxyCoherenceBackendPath,
+  shouldProxySraToHomeBackend,
+} from "@/lib/coherence/server/gateway";
 import { sraQuery } from "@/lib/coherence/server/sra-db";
 import {
   postcodePrefixesForLocation,
@@ -16,6 +20,20 @@ export async function POST(req: Request) {
   if (blocked) return blocked;
 
   if (!coherenceDatabaseUrl()) {
+    if (shouldProxySraToHomeBackend()) {
+      let body: unknown;
+      try {
+        body = await req.json();
+      } catch {
+        return NextResponse.json({ hits: [], error: "invalid_json" }, { status: 400 });
+      }
+      return proxyCoherenceBackendPath({
+        path: "/api/coherence/sra/search",
+        method: "POST",
+        body,
+        timeoutMs: 15_000,
+      });
+    }
     return NextResponse.json({ hits: [], error: "DATABASE_URL not set" }, { status: 503 });
   }
 
@@ -208,6 +226,14 @@ export async function POST(req: Request) {
       })),
     });
   } catch (err) {
+    if (shouldProxySraToHomeBackend()) {
+      return proxyCoherenceBackendPath({
+        path: "/api/coherence/sra/search",
+        method: "POST",
+        body,
+        timeoutMs: 15_000,
+      });
+    }
     return NextResponse.json(
       {
         hits: [],

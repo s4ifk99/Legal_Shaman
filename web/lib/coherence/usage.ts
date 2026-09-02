@@ -2,6 +2,7 @@ import "server-only";
 
 import { createHash } from "node:crypto";
 import { accountsPrisma } from "@/lib/db/accounts";
+import { ensureBillingSchema } from "@/lib/billing/schema";
 import {
   checkRateLimit,
   releaseConcurrent,
@@ -57,6 +58,7 @@ function stableSearchKey(value?: string): string | null {
 }
 
 export async function monthlySearchUsage(userId: string): Promise<number> {
+  await ensureBillingSchema();
   const searches = await accountsPrisma.usageEvent.findMany({
     where: {
       userId,
@@ -82,6 +84,13 @@ export async function canStartCoherenceUsage(opts: {
 
   if (!tryAcquireConcurrent(opts.userId, opts.requestId)) {
     return { allowed: false, reason: "concurrent" };
+  }
+
+  try {
+    await ensureBillingSchema();
+  } catch (error) {
+    releaseConcurrent(opts.userId, opts.requestId);
+    throw error;
   }
 
   const minuteKey = `coherence:min:${opts.userId}`;

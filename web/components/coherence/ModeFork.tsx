@@ -47,7 +47,7 @@ export function ModeFork({
   return (
     <div className="mode-fork" aria-label="How do you want to use this?">
       <section className="mode-fork__search" aria-labelledby="search-mode-title">
-        <p className="mode-fork__lead" id="search-mode-title">Penumbra research</p>
+        <p className="mode-fork__lead" id="search-mode-title">Third Eye research</p>
         <div className="mode-fork__search-grid" role="radiogroup" aria-label="Search mode">
           <button
             type="button"
@@ -56,17 +56,17 @@ export function ModeFork({
             className={`mode-fork__search-card${searchMode === 'penumbra' ? ' is-selected' : ''}`}
             onClick={() => chooseSearchMode('penumbra')}
           >
-            <span className="mode-fork__search-name">Penumbra</span>
+            <span className="mode-fork__search-name">Third Eye</span>
             <span className="mode-fork__search-hint">Broader exploratory research</span>
             <span className="mode-fork__search-detail">More commentary and competing views, labelled by source quality and confidence.</span>
           </button>
         </div>
         <p className="mode-fork__risk">
-          Penumbra is the main research path: Legal Shaman’s curated sources are supplied first, then The Shaman can explore wider public sources. Findings remain labelled and are checked before they inform the answer.
+          Third Eye is the main research path: Legal Shaman’s curated sources are supplied first, then The Shaman can explore wider public sources. Findings remain labelled and are checked before they inform the answer.
         </p>
         {!penumbraAcknowledged ? (
           <div className="mode-fork__ack" role="alert">
-            <strong>Penumbra is exploratory.</strong>
+            <strong>Third Eye is exploratory.</strong>
             <span>Results may be broader or less authoritative. Check the linked sources before acting.</span>
             <button
               type="button"
@@ -76,7 +76,7 @@ export function ModeFork({
                 onSearchMode('penumbra')
               }}
             >
-              I understand — use Penumbra
+              I understand — use Third Eye
             </button>
           </div>
         ) : null}

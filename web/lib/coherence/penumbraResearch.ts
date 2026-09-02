@@ -15,7 +15,7 @@ export function newPenumbraCaseKey(): string {
   return `case-${crypto.randomUUID()}`
 }
 
-const PENUMBRA_REQUEST_TIMEOUT_MS = 40_000
+const PENUMBRA_REQUEST_TIMEOUT_MS = 95_000
 
 async function fetchPenumbra(
   input: RequestInfo | URL,

@@ -24,6 +24,7 @@ import {
   releaseConcurrent,
   summarizeLlmTrace,
 } from "@/lib/coherence/usage";
+import { ensureBillingSchema } from "@/lib/billing/schema";
 import { requireCoherenceAuthEnabled } from "@/lib/auth/coherence-auth-config";
 import { isUserEmailVerified } from "@/lib/auth/email-verification";
 import {
@@ -56,6 +57,7 @@ function unavailableResponse(message: string, requestId: string): NextResponse {
 }
 
 async function duplicateRequest(requestId: string): Promise<boolean> {
+  await ensureBillingSchema();
   const existing = await accountsPrisma.usageEvent.findFirst({
     where: {
       requestId,
