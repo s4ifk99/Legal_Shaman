@@ -53,8 +53,11 @@ export {
 } from "./issueGraphHits";
 export {
   filterAdmissibleTitles,
+  freeHelpAdmissibleOnGeometry,
   graphIsWeakForHits,
   isNeighbourAttractorTitle,
+  storyLooksAmbiguousSeizedDevice,
+  storyLooksEmployerSeizedKit,
   titleAdmissibleOnGeometry,
 } from "./graphAdmissibility";
 export type { MatterGateResult, EvidenceGateResult } from "./types";

@@ -496,7 +496,7 @@ export async function buildOverviewAnswer(opts: {
     hits = matterEvidenceToWikiHits(evidence.hits);
     const slots = coverageSlotsFrom(opts.matterFrame, latestText);
     hits = rankByCoverage(hits, slots, { story: latestText, limit: hits.length || 8 });
-    hits = filterAdmissibleTitles(hits, opts.matterFrame, latestText);
+    hits = filterAdmissibleTitles(hits, opts.matterFrame, latestText, { requireCoverage: true });
     retrievalMeta = {
       retrievalMode: evidence.mode,
       retrievalIntents: evidence.intents,

@@ -53,6 +53,19 @@ function occupancyStatusStory(story: string): boolean {
   )
 }
 
+function employerSeizedKitStory(story: string): boolean {
+  const s = story || ""
+  const policeTookKit =
+    /\b(police|cops|seized|confiscat|took)\b/i.test(s) &&
+    /\b(laptop|computer|phone|dropbox|work files)\b/i.test(s)
+  if (!policeTookKit) return false
+  return (
+    /\b(work laptop|company laptop|employer(?:'s)? (?:work )?laptop|work (?:computer|pc|phone)|belongs to the business|my laptop.{0,40}work laptop|staff (?:member|has been)|member of my staff)\b/i.test(
+      s,
+    ) || /\b(company files|work files|employer(?:'s)? (?:property|kit|equipment))\b/i.test(s)
+  )
+}
+
 export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlot[] {
   const primary = frame.primaryIssues[0]?.slug || ""
   const slugs = new Set([
@@ -142,21 +155,36 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
     })
   }
 
-  if (
-    primary === "criminal_defence" ||
-    slugs.has("criminal_defence") ||
-    (/\bpolice\b/i.test(story) &&
-      /\b(seized|took|arrest|charged|laptop|property)\b/i.test(story) &&
-      primary !== "housing")
-  ) {
+  if (employerSeizedKitStory(story)) {
     slots.push({
-      id: "police_property",
-      label: "Police seizure / return of property",
+      id: "return_seized_property",
+      label: "Return of seized employer property",
       cover: [
-        /police|seize|seizure|pace|search (?:and )?seizure|return of property|charged|laptop|work (?:computer|files)|duty solicitor/i,
+        /return of (?:seized )?property|seized property|retention of property|property reference|pace.{0,30}(?:s\.?\s*)?22|if not charged|not charged.{0,40}return|recover.{0,20}(?:laptop|computer|property)/i,
       ],
       exaQuery:
-        "England police seized property return if not charged PACE employer laptop work files Citizens Advice",
+        "England police seized employer laptop return of property if not charged PACE section 22 property reference owner",
+    })
+    slots.push({
+      id: "employer_data_on_device",
+      label: "Police examining employer files on a seized device",
+      cover: [
+        /work (?:files|laptop|computer)|employer (?:property|data|files)|dropbox|third[- ]party data|computer files|digital evidence|examine.{0,24}(?:device|computer|files)|work files/i,
+      ],
+      exaQuery:
+        "England police examine employer work files on seized laptop Dropbox third party data PACE owner",
+    })
+  } else if (
+    primary === "criminal_defence" ||
+    slugs.has("criminal_defence")
+  ) {
+    slots.push({
+      id: "criminal_defence_core",
+      label: "Criminal defence / police station",
+      cover: [
+        /criminal defence|duty solicitor|police station|under caution|magistrates|charged with|legal aid.{0,20}crime/i,
+      ],
+      exaQuery: "England arrested police station duty solicitor criminal legal aid magistrates",
     })
   }
 

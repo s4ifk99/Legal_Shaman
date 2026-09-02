@@ -40,7 +40,13 @@ import {
 } from '../lib/penumbra/researchCache'
 import { mergeExaSearchHits, searchOfflineExaIndexForPenumbra } from '../lib/penumbra/offlineExaIndex'
 import { titleAllowedOnGraph } from '../lib/matter/issueGraphHits'
+import {
+  freeHelpAdmissibleOnGeometry,
+  storyLooksAmbiguousSeizedDevice,
+  titleAdmissibleOnGeometry,
+} from '../lib/matter/graphAdmissibility'
 import { coverageSlotsFrom } from '../lib/matter/coverageSlots'
+import { extractClientQuestions } from '../lib/coherence/clientQuestions'
 import { buildCaseLedOverview } from '../lib/coherence/caseBuilder'
 import { critiqueOverviewRecommendation } from '../lib/coherence/critiqueOverview'
 
@@ -1514,8 +1520,64 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(!deposit, 'tenancy deposit still allowed on crime graph') ||
         assert(flags.wantMotoring === false, `wantMotoring=${flags.wantMotoring}`) ||
         assert(!/driving \/ PCN/i.test(sraMatchReason('Motoring, Crime - General', { ...flags, wantCar: false, wantConsumer: false })), 'motoring PCN reason on non-driving crime') ||
+        assert(
+          /arrested person/i.test(
+            sraMatchReason('Criminal Defence, Crime - General', { ...flags, wantCar: false, wantConsumer: false }),
+          ),
+          'SRA reason still treats employer as the defendant',
+        ) ||
+        assert(!/progress the .{0,40} using the matched guidance/i.test(cased.answer), 'fill line still in live-now') ||
+        assert(
+          !/Staff member arrested\. Police took/i.test(cased.answer.split('Your questions:')[1] || ''),
+          'whole brief echoed as Your questions',
+        ) ||
+        assert(
+          !titleAdmissibleOnGeometry('If you report child abuse to the police', frame, story, { requireCoverage: true }),
+          'child-abuse police title still admitted',
+        ) ||
+        assert(
+          !titleAdmissibleOnGeometry('How to react if you are asked to attend a police interview under caution?', frame, story, {
+            requireCoverage: true,
+          }),
+          'interview-under-caution title still admitted for employer',
+        ) ||
+        assert(
+          !freeHelpAdmissibleOnGeometry(
+            'Our free helpline - Shelter England',
+            'you are homeless you have nowhere to stay tonight',
+            story,
+          ),
+          'Shelter homelessness helpline still allowed on employer-kit crime',
+        ) ||
+        assert(extractClientQuestions(story).every((q) => q.length <= 180), 'questions still dump the narrative') ||
         assert(!/Asking for any police officers|Not yet stated/i.test(`${brief.situationSummary} ${brief.desiredOutcome}`), `brief=${brief.situationSummary} | ${brief.desiredOutcome}`) ||
         assert(critique.ok || !critique.errors.some((e) => /fewer than 2 wiki/.test(e)), `critic still demands two wiki pages: ${critique.critique}`)
+      )
+    },
+  },
+  {
+    id: 'ambiguous-seized-device-asks-who-the-asker-is',
+    run: () => {
+      const ambiguous = 'Someone was arrested and the police took a laptop. What happens next?'
+      const employer =
+        "Staff member arrested. Police took the employer's work laptop. Can we get it back if they are not charged?"
+      const { frame: unclear } = attachResolvedMatterFrame(intake([ambiguous]), ambiguous)
+      const { frame: clear } = attachResolvedMatterFrame(intake([employer]), employer)
+      return (
+        assert(storyLooksAmbiguousSeizedDevice(ambiguous), 'ambiguous geometry not detected') ||
+        assert(!storyLooksAmbiguousSeizedDevice(employer), 'clear employer kit treated as ambiguous') ||
+        assert(
+          unclear.ambiguities.some((a) => /arrested, or the employer/i.test(a.question) && a.blocking),
+          `missing blocking capacity ask: ${unclear.ambiguities.map((a) => a.question).join(' | ')}`,
+        ) ||
+        assert(
+          !clear.ambiguities.some((a) => a.blocking && /arrested, or the employer/i.test(a.question)),
+          'clear employer kit still blocked',
+        ) ||
+        assert(
+          clear.capacities.some((c) => c.partyId === 'user' && c.capacity === 'employer'),
+          `employer capacity missing: ${clear.capacities.map((c) => `${c.partyId}:${c.capacity}`).join(',')}`,
+        )
       )
     },
   },

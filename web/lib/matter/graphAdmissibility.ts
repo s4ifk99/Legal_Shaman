@@ -28,12 +28,34 @@ export function storyLooksMotoringCrime(story: string): boolean {
 }
 
 export function storyLooksEmployerSeizedKit(story: string): boolean {
+  const s = story || "";
+  const policeTookKit = /\b(police|cops|seized|confiscat|took)\b/i.test(s) &&
+    /\b(laptop|computer|phone|dropbox|work files)\b/i.test(s);
+  if (!policeTookKit) return false;
   return (
-    /\b(work laptop|company laptop|employer(?:'s)? (?:work )?laptop|work (?:computer|pc|phone)|dropbox)\b/i.test(
-      story,
-    ) && /\b(police|seized|took|confiscat)\b/i.test(story)
+    /\b(work laptop|company laptop|employer(?:'s)? (?:work )?laptop|work (?:computer|pc|phone)|belongs to the business|my laptop.{0,40}work laptop|staff (?:member|has been)|member of my staff)\b/i.test(
+      s,
+    ) || /\b(company files|work files|employer(?:'s)? (?:property|kit|equipment))\b/i.test(s)
   );
 }
+
+/** First-person arrest without employer-kit language — the asker is likely the suspect. */
+export function storyLooksAskerIsArrested(story: string): boolean {
+  if (storyLooksEmployerSeizedKit(story)) return false;
+  return /\b(i (?:was|have been|got) arrested|i(?:'m| am) (?:in custody|under arrest)|they arrested me)\b/i.test(
+    story,
+  );
+}
+
+/** Arrest + seized device, but not clearly whose kit / whose case. */
+export function storyLooksAmbiguousSeizedDevice(story: string): boolean {
+  const s = story || "";
+  if (storyLooksEmployerSeizedKit(s) || storyLooksAskerIsArrested(s)) return false;
+  return /\b(arrest|arrested)\b/i.test(s) && /\b(laptop|computer|phone|dropbox)\b/i.test(s);
+}
+
+const WRONG_PARTY_DEFENDANT_TITLE =
+  /interview under caution|duty solicitor|you(?:'ve| have) given a witness statement|if you report child abuse|reporting a hate crime|hate incident|powers of entry|enter and search your property|search your (?:home|property|house)/i;
 
 /** Titles that routinely leak onto the wrong matter because they rank well. */
 export function isNeighbourAttractorTitle(title: string, frame: IssueGraph, story = ""): boolean {
@@ -79,7 +101,25 @@ export function isNeighbourAttractorTitle(title: string, frame: IssueGraph, stor
   ) {
     return true;
   }
+  if (storyLooksEmployerSeizedKit(story) && WRONG_PARTY_DEFENDANT_TITLE.test(t)) {
+    return true;
+  }
   return false;
+}
+
+/** Charities / helplines must match capacity, not just matter=crime. */
+export function freeHelpAdmissibleOnGeometry(title: string, blurb: string, story = ""): boolean {
+  const hay = `${title} ${blurb}`.toLowerCase();
+  if (storyLooksEmployerSeizedKit(story)) {
+    if (/homeless|nowhere to stay|emergency helpline|shelter england#|our free helpline - shelter/i.test(hay)) {
+      return false;
+    }
+    if (/magistrates.? court fines|going to court without a solicitor|you(?:'ve| have) been arrested|duty solicitor|legal aid.{0,40}police station/i.test(hay) &&
+      !/property when you leave|leave a job|company property|work (?:laptop|files)|employer/i.test(hay)) {
+      return false;
+    }
+  }
+  return true;
 }
 
 export function titleAdmissibleOnGeometry(
@@ -122,6 +162,12 @@ export function overviewUsesForbiddenPlaybook(text: string, frame: IssueGraph, s
   if (!housing && /matched housing guidance|use the matched housing/i.test(blob)) return true;
   if (!slugs.has("neighbour_dispute") && /right of way|back garden/i.test(blob)) return true;
   if (storyLooksEmployerSeizedKit(story) && /illegal evict|court-appointed bailiff|homelessness duty/i.test(blob)) {
+    return true;
+  }
+  if (storyLooksEmployerSeizedKit(story) && /progress the .{0,40} using the matched guidance/i.test(blob)) {
+    return true;
+  }
+  if (storyLooksEmployerSeizedKit(story) && WRONG_PARTY_DEFENDANT_TITLE.test(blob)) {
     return true;
   }
   if (

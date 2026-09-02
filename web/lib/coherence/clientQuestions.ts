@@ -3,16 +3,34 @@ export function extractClientQuestions(text: string): string[] {
   const out: string[] = []
   const seen = new Set<string>()
   const raw = String(text || '')
-  const pieces = raw
-    .split(/(?<=[?])/g)
-    .map((p) => p.replace(/\s+/g, ' ').trim())
-    .filter((p) => p.includes('?') && p.length >= 12 && p.length <= 400)
-  for (const p of pieces) {
-    const key = p.toLowerCase().slice(0, 80)
-    if (seen.has(key)) continue
+
+  const push = (q: string) => {
+    const cleaned = q.replace(/\s+/g, ' ').trim().replace(/^[:—\-\s]+/, '')
+    if (cleaned.length < 12 || cleaned.length > 180) return
+    const key = cleaned.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().slice(0, 72)
+    if (!key || seen.has(key)) return
+    // Drop a longer question that already contains a shorter one we kept
+    for (const existing of out) {
+      const a = existing.toLowerCase()
+      const b = cleaned.toLowerCase()
+      if (a.includes(b.slice(0, 40)) || b.includes(a.slice(0, 40))) return
+    }
     seen.add(key)
-    out.push(p)
+    out.push(cleaned.endsWith('?') ? cleaned : `${cleaned}?`)
   }
+
+  const chunks = raw.split('?')
+  for (let i = 0; i < chunks.length - 1; i++) {
+    const piece = chunks[i].replace(/\s+/g, ' ').trim()
+    const last = (piece.split(/(?<=[.!])\s+/).pop() || piece)
+      .replace(/^(my question:|so,?|and|also)\s+/i, '')
+      .trim()
+    if (/in a nutshell|member of my staff has been arrested today/i.test(last) && last.length > 80) {
+      continue
+    }
+    push(last)
+  }
+
   const implied: Array<{ re: RegExp; q: string; need?: RegExp }> = [
     {
       re: /next step|some advice|what (?:can|should) i do/i,
@@ -30,21 +48,22 @@ export function extractClientQuestions(text: string): string[] {
       q: 'Where can I get emergency housing tonight?',
     },
     {
-      re: /work laptop|company laptop|employer(?:'s)? (?:work )?laptop|work (?:computer|pc)/i,
+      re: /work laptop|company laptop|employer(?:'s)? (?:work )?laptop|work (?:computer|pc)|belongs to the business/i,
       q: 'Can the work laptop be returned if nobody is charged?',
     },
     {
-      re: /open.{0,40}(?:work )?files|look (?:at|through).{0,30}files|access.{0,30}(?:dropbox|files)/i,
+      re: /open.{0,40}(?:work )?files|look (?:at|through).{0,30}files|access.{0,30}(?:dropbox|files)|right to (?:go into|open)/i,
       q: 'Can police open work files on a seized laptop?',
+    },
+    {
+      re: /how do i get it back|stop them/i,
+      q: 'How do I get the work laptop back or stop police examining the files?',
     },
   ]
   for (const item of implied) {
     if (!item.re.test(raw)) continue
     if (item.need && !item.need.test(raw)) continue
-    const key = item.q.toLowerCase().slice(0, 80)
-    if (seen.has(key)) continue
-    seen.add(key)
-    out.push(item.q)
+    push(item.q)
   }
-  return out.slice(0, 6)
+  return out.slice(0, 5)
 }
