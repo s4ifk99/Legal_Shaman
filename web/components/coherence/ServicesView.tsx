@@ -11,6 +11,7 @@ import type { HelpMatchResult } from '@/lib/coherence/masterAgent'
 import { buildLawyerBrief, briefToPlainText, placeForSummary } from '@/lib/coherence/brief'
 import { computeProgress } from '@/lib/coherence/slots'
 import { isParkingStoryText } from '@/lib/coherence/signposting'
+import { freeHelpAdmissibleOnGeometry } from '@/lib/matter/graphAdmissibility'
 import {
   isFamilyBelongingsDisputeText,
   isParkingSpecialistService,
@@ -339,6 +340,10 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
   const propertyDamage = isPropertyDamageClaimText(story)
   const familyBelongings = isFamilyBelongingsDisputeText(story)
 
+  if (!freeHelpAdmissibleOnGeometry(row.title, `${row.blurb || ''} ${row.url || ''}`, story)) {
+    return false
+  }
+
   if (/therap|counsell|intercultural|wellbeing|well-being|psycholog/.test(hay) && !/trauma|mental|abuse/.test(story)) {
     return false
   }
@@ -629,6 +634,10 @@ export function ServicesView({
       ...cachedHelp,
     ].filter((resource) => {
       if (!(resource.matterType === helpSession.matterType || resource.matterType === 'unknown')) {
+        return false
+      }
+      const story = [...helpSession.rawInputs, helpSession.whatHappened, helpSession.goal].join(' ')
+      if (!freeHelpAdmissibleOnGeometry(resource.title, `${resource.description} ${resource.url}`, story)) {
         return false
       }
       const key = resource.url.replace(/\/+$/, '').toLowerCase()

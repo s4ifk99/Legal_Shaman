@@ -2,7 +2,7 @@ import { isPcnAppealQuery, isVehicleRepairQuery } from '@/lib/legal/query-signal
 import { resolveTaxonomy } from '@/lib/legal/taxonomy-resolver'
 import type { SessionState } from './types'
 import type { LegalFrame } from './frames'
-import { storyLooksMotoringCrime } from '@/lib/matter/graphAdmissibility'
+import { storyLooksMotoringCrime, storyLooksEmployerSeizedKit } from '@/lib/matter/graphAdmissibility'
 
 export type SraSearchPayload = {
   locationHint: string
@@ -353,7 +353,7 @@ export function sraMatchReason(
   workAreaRaw: string,
   payload: Pick<
     SraSearchPayload,
-    'matterType' | 'wantCar' | 'wantConsumer' | 'wantMotoring' | 'taxonomySlug'
+    'matterType' | 'wantCar' | 'wantConsumer' | 'wantMotoring' | 'taxonomySlug' | 'query'
   >,
 ): string {
   const areas = relevantWorkAreas(
@@ -373,6 +373,11 @@ export function sraMatchReason(
   if (payload.wantMotoring) {
     if (areas.some((a) => /motoring|crime|criminal|road traffic|\brta\b|parking/i.test(a))) {
       return 'Listed for Motoring / RTA work — confirm they take driving / PCN matters'
+    }
+  }
+  if (payload.matterType === 'crime' && storyLooksEmployerSeizedKit(payload.query || '')) {
+    if (areas.some((a) => /crime|criminal/i.test(a))) {
+      return 'Criminal defence listing — for the arrested person (police station / magistrates), not for recovering employer property from the police'
     }
   }
   if (payload.matterType === 'crime' && !payload.wantMotoring) {

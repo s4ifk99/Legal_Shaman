@@ -8,6 +8,7 @@ import {
   extractRelationshipModel,
   preferDisputeIssues,
 } from "./relationships";
+import { storyLooksAmbiguousSeizedDevice, storyLooksEmployerSeizedKit } from "./graphAdmissibility";
 import { buildRetrievalPlan, syncEventIssueLinks } from "./retrieval-plan";
 import {
   GLOBAL_EXCLUSION_LABELS,
@@ -202,6 +203,21 @@ function buildAmbiguities(
         question: u.suggestedAsk,
         whyItMatters: u.whyItMatters || "Brief agent flagged uncertainty.",
         materiality: "medium",
+      }),
+    );
+  }
+  const story = [input.submission, input.clientQuestion, input.brief?.whatHappened]
+    .filter(Boolean)
+    .join("\n");
+  if (storyLooksAmbiguousSeizedDevice(story)) {
+    out.push(
+      withMateriality({
+        question: "Are you the person who was arrested, or the employer whose equipment the police took?",
+        whyItMatters:
+          "Criminal-defence pages and SRA cards assume the asker is the suspect. Return-of-property pages assume they own the kit.",
+        materiality: "high",
+        affectsRetrieval: true,
+        blocking: true,
       }),
     );
   }
@@ -518,6 +534,16 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
     },
     retrievalScope: retrievalScopeForSlugs([...primarySlugs, ...secondarySlugs.slice(0, 2)]),
   };
+
+  if (
+    storyLooksEmployerSeizedKit(storyBlob) &&
+    !frame.capacities.some((c) => c.partyId === "user" && c.capacity === "employer")
+  ) {
+    frame.capacities = [
+      ...frame.capacities,
+      { partyId: "user", capacity: "employer", confidence: 0.82 },
+    ];
+  }
 
   frame = syncEventIssueLinks(frame);
   const { traces } = buildRetrievalPlan(frame);

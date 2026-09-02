@@ -44,17 +44,22 @@ export function liveSituation(story: string, frame: MatterFrame): string {
   const alreadyOut = /had no choice but to comply|leave everything else behind|son in law showed up/i.test(story);
   const homeless = /nowhere else|homeless|tonight|emergency (?:housing|alternative)|sofa to crash/i.test(story);
   const wages = /wages|holiday pay|ssp|statutory sick/i.test(story);
+  const seizedKitSit = storyLooksEmployerSeizedKit(story);
   const parts: string[] = [];
-  if (housing && lockout && !alreadyOut) {
-    parts.push("still occupying after a lock-out / door removed without a court order");
-  } else if (housing && lockout) {
-    parts.push("possible illegal eviction / lock-out or being forced out without a court order");
+  if (seizedKitSit) {
+    parts.push("employer property seized by police from a staff member — not the asker's own arrest");
+  } else {
+    if (housing && lockout && !alreadyOut) {
+      parts.push("still occupying after a lock-out / door removed without a court order");
+    } else if (housing && lockout) {
+      parts.push("possible illegal eviction / lock-out or being forced out without a court order");
+    }
+    if (homeless && alreadyOut) parts.push("immediate homelessness / nowhere safe tonight");
+    else if (homeless && !alreadyOut && lockout) {
+      parts.push("homelessness is a fallback if it becomes unsafe to stay");
+    } else if (homeless) parts.push("immediate homelessness / nowhere safe tonight");
+    if (wages) parts.push("wages or holiday pay withheld or tied to leaving");
   }
-  if (homeless && alreadyOut) parts.push("immediate homelessness / nowhere safe tonight");
-  else if (homeless && !alreadyOut && lockout) {
-    parts.push("homelessness is a fallback if it becomes unsafe to stay");
-  } else if (homeless) parts.push("immediate homelessness / nowhere safe tonight");
-  if (wages) parts.push("wages or holiday pay withheld or tied to leaving");
   if (!parts.length) {
     parts.push(
       frame.primaryIssues[0]
@@ -93,7 +98,9 @@ export function buildCaseLedOverview(opts: {
   const housingMatter = primary === "housing";
   const seizedKit = storyLooksEmployerSeizedKit(story);
   const weakGraph = graphIsWeakForHits(hitTitles, frame, story);
-  const admittedTitles = hitTitles.filter((t) => titleAdmissibleOnGeometry(t, frame, story));
+  const admittedTitles = hitTitles.filter((t) =>
+    titleAdmissibleOnGeometry(t, frame, story, { requireCoverage: true }),
+  );
   const sourcesLine = admittedTitles.slice(0, 6).join("; ") || (weakGraph
     ? "no matching Legal Shaman wiki pages for this geometry"
     : "matched Legal Shaman wiki pages");
@@ -122,8 +129,18 @@ export function buildCaseLedOverview(opts: {
       liveNow.push("treat a lock-out or being forced out without a court-appointed bailiff as a housing emergency (illegal eviction / Protection from Eviction), keep the crime number, and do not abandon belongings if you can safely record what was left");
     }
   }
-  if (wages) later.push("unpaid wages and holiday pay through ACAS — that is a separate employment claim, not a reason you had to leave");
-  if (!liveNow.length) liveNow.push(`progress the ${primary.replace(/_/g, " ")} issue using the matched guidance`);
+  if (wages && !seizedKit) later.push("unpaid wages and holiday pay through ACAS — that is a separate employment claim, not a reason you had to leave");
+  if (seizedKit) {
+    liveNow.push("write to the investigating force for the property reference and whether the laptop is retained as evidence");
+    liveNow.push("whether police may examine employer files or Dropbox is a separate question from the staff member's interview");
+    later.push("criminal defence advice is for the arrested person, not a substitute for recovering company kit");
+  } else if (!liveNow.length) {
+    liveNow.push(
+      weakGraph
+        ? "the library does not yet cover these live questions — do not complete the page with neighbouring wiki topics"
+        : "use only cited pages that answer the live questions",
+    );
+  }
 
   const recs = housingMatter
     ? [
@@ -145,10 +162,10 @@ export function buildCaseLedOverview(opts: {
     : seizedKit
       ? [
           "Treat this as police seizure of employer property, not a housing or motoring matter. Ask the investigating force in writing for the property reference and whether the laptop is retained as evidence.",
-          "A criminal defence solicitor for the arrested person is the usual route on charge/interview; separately, the employer can ask how to recover company kit and whether work files may be examined.",
+          "A criminal defence solicitor is for the arrested person (police station / interview) — that is not the route for recovering your laptop.",
           questions.length
-            ? `Cover the client's live questions: ${questions.join(" ")}`
-            : "Do not fill gaps with neighbouring wiki topics (garden access, tenancy deposits, parking tickets).",
+            ? `Your live questions: ${questions.join(" ")}`
+            : "Do not fill gaps with neighbouring wiki topics (garden access, tenancy deposits, parking tickets, or defendant-only police pages).",
           "This is signposting from Legal Shaman sources — get a Citizens Advice or solicitor check before relying on it.",
         ]
       : [

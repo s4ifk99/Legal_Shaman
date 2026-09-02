@@ -163,11 +163,16 @@ export function critiqueOverviewRecommendation(opts: {
     errors.push("overview: missing LegalShaman.com recommendation note");
   }
 
+  if (overview && /progress the .{0,60} using the matched guidance/i.test(overview)) {
+    errors.push("overview: empty live-now slot filled with matched-guidance boilerplate");
+  }
   if (frame && overview && overviewUsesForbiddenPlaybook(overview, frame, opts.latestText)) {
     errors.push("overview: off-graph playbook (housing/garden/motoring fill)");
   }
   if (frame) {
-    const offGraph = pageTitles.filter((t) => !titleAdmissibleOnGeometry(t, frame, opts.latestText));
+    const offGraph = pageTitles.filter(
+      (t) => !titleAdmissibleOnGeometry(t, frame, opts.latestText, { requireCoverage: true }),
+    );
     if (offGraph.length) {
       errors.push(`overview: off-graph wiki titles: ${offGraph.slice(0, 3).join("; ")}`);
     }
