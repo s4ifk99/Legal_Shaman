@@ -25,7 +25,7 @@ import { normalizeSearchMode, searchModePolicy } from '../lib/coherence/searchMo
 import { canonicalizeResearchBundle, emptyResearchBundle, parseResearchBundle, researchBundlePrompt } from '../lib/coherence/researchBundle'
 import { matchingSessionForHelp } from '../lib/coherence/services'
 import { buildLawyerBrief } from '../lib/coherence/brief'
-import { relevantWorkAreas, scoreSraWorkAreaForMatching } from '../lib/coherence/sraQuery'
+import { relevantWorkAreas, scoreSraWorkAreaForMatching, resolveSraSearchFlags, sraMatchReason } from '../lib/coherence/sraQuery'
 import { attachResolvedMatterFrame } from '../lib/coherence/applyMatterFrame'
 import { preferFrameMatching } from '../lib/coherence/issueRouting'
 import { matchFreeServices } from '../lib/coherence/matchFreeServices'
@@ -42,6 +42,7 @@ import { mergeExaSearchHits, searchOfflineExaIndexForPenumbra } from '../lib/pen
 import { titleAllowedOnGraph } from '../lib/matter/issueGraphHits'
 import { coverageSlotsFrom } from '../lib/matter/coverageSlots'
 import { buildCaseLedOverview } from '../lib/coherence/caseBuilder'
+import { critiqueOverviewRecommendation } from '../lib/coherence/critiqueOverview'
 
 type TrapResult = { id: string; ok: boolean; detail: string }
 
@@ -1464,6 +1465,77 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         ) ||
         assert(ipScore < 20, `IP score too high: ${ipScore}`) ||
         assert(housingScore >= 20, `housing score too low: ${housingScore}`)
+      )
+    },
+  },
+  {
+    id: 'admissible-geometry-laptop-not-housing-or-motoring',
+    run: () => {
+      const story =
+        "Staff member arrested. Police took the employer's work laptop and Dropbox. If they are not charged, can we get the laptop back? Can police open the work files? How do we get it back?"
+      const s = intake([story])
+      const { frame } = attachResolvedMatterFrame(s, story)
+      const cased = buildCaseLedOverview({
+        story,
+        frame,
+        clientQuestion: 'Can we get the laptop back if they are not charged?',
+        hitTitles: ['Rights of way and using a back garden', 'Tenancy deposits'],
+      })
+      const flags = resolveSraSearchFlags({
+        matterType: 'crime',
+        query: story,
+        taxonomySlug: 'criminal_defence',
+      })
+      const brief = buildLawyerBrief(
+        { ...s, whatHappened: story, clientQuestion: 'Can we get the laptop back if they are not charged?' },
+        50,
+      )
+      const offGraph = titleAllowedOnGraph('Rights of way and using a back garden', frame)
+      const deposit = titleAllowedOnGraph('Tenancy deposits', frame)
+      const critique = critiqueOverviewRecommendation({
+        latestText: story,
+        clientQuestion: 'Can we get the laptop back?',
+        answerPackage: {
+          answerOverview: cased.answer,
+          recommendations: cased.recommendations,
+          options: cased.options,
+          followUps: cased.followUpPrompts,
+          wikiPages: [],
+          bullets: [],
+          origin: 'retrieve-deterministic',
+        } as never,
+        matterFrame: frame,
+      })
+      return (
+        assert(!/matched housing guidance/i.test(cased.answer), 'housing playbook on laptop story') ||
+        assert(!/right of way|back garden/i.test(cased.answer), 'garden fill on laptop story') ||
+        assert(/library is thin|police seizure|employer property/i.test(cased.answer), `weak rec missing: ${cased.answer.slice(0, 220)}`) ||
+        assert(!offGraph, 'garden title still allowed on crime graph') ||
+        assert(!deposit, 'tenancy deposit still allowed on crime graph') ||
+        assert(flags.wantMotoring === false, `wantMotoring=${flags.wantMotoring}`) ||
+        assert(!/driving \/ PCN/i.test(sraMatchReason('Motoring, Crime - General', { ...flags, wantCar: false, wantConsumer: false })), 'motoring PCN reason on non-driving crime') ||
+        assert(!/Asking for any police officers|Not yet stated/i.test(`${brief.situationSummary} ${brief.desiredOutcome}`), `brief=${brief.situationSummary} | ${brief.desiredOutcome}`) ||
+        assert(critique.ok || !critique.errors.some((e) => /fewer than 2 wiki/.test(e)), `critic still demands two wiki pages: ${critique.critique}`)
+      )
+    },
+  },
+  {
+    id: 'admissible-geometry-cafe-flat-keeps-housing-drops-garden',
+    run: () => {
+      const story =
+        'Landlord removed the front door of my flat. No tenancy agreement. Wages held until I leave. I am still inside with no door.'
+      const s = intake([story])
+      const { frame } = attachResolvedMatterFrame(s, story)
+      const cased = buildCaseLedOverview({
+        story,
+        frame,
+        hitTitles: ['Illegal Evictions Guide For Tenants', 'Housing And Homelessness'],
+      })
+      return (
+        assert(titleAllowedOnGraph('Illegal Evictions Guide For Tenants', frame), 'housing title blocked') ||
+        assert(!titleAllowedOnGraph('Rights of way and using a back garden', frame), 'garden still on housing graph') ||
+        assert(/still in occupation|missing door/i.test(cased.answer), 'occupying rec missing') ||
+        assert(!/right of way/i.test(cased.answer), 'garden leaked into cafe-flat overview')
       )
     },
   },

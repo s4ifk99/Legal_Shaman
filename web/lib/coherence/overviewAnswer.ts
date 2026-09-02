@@ -39,6 +39,7 @@ import {
 import { formatCaseBrief, buildCaseLedOverview } from "@/lib/coherence/caseBuilder";
 import type { ResearchBundle } from "@/lib/coherence/researchBundle";
 import { coverageSlotsFrom, rankByCoverage, titleCoversGraph } from "@/lib/matter/coverageSlots";
+import { filterAdmissibleTitles, graphIsWeakForHits, isNeighbourAttractorTitle } from "@/lib/matter/graphAdmissibility";
 
 const OVERVIEW_SYSTEM = `You are Legal Shaman's Overview agent — a research agent that builds the client's case from the CASE FILE, WIKI CONTEXT (library), and optional Third Eye notes.
 
@@ -59,9 +60,10 @@ Rules:
 7. Do NOT predict win/lose. Do NOT say "you should definitely".
 8. Keep it concise: about 280–520 words. Short section headings allowed (plain lines, not markdown #).
 9. End with one sentence: this is Legal Shaman signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.
-10. If Master Critic feedback is provided, fix every listed failure before answering.
-11. Give at least two realistic options where the sources support more than one route.
-12. Return JSON only:
+10. If the library titles do not cover the client's live questions, say the library is thin and cite only admitted pages. Never complete the page with housing, garden, right of way, tenancy deposit, package holiday, smart meter, or motoring/PCN guidance unless that issue is on the frozen graph.
+11. If Master Critic feedback is provided, fix every listed failure before answering.
+12. Give at least two realistic options where the sources support more than one route.
+13. Return JSON only:
 {
   "answer": "full recommendation text",
   "wikiPageTitles": ["exact titles used from context"],
@@ -494,6 +496,7 @@ export async function buildOverviewAnswer(opts: {
     hits = matterEvidenceToWikiHits(evidence.hits);
     const slots = coverageSlotsFrom(opts.matterFrame, latestText);
     hits = rankByCoverage(hits, slots, { story: latestText, limit: hits.length || 8 });
+    hits = filterAdmissibleTitles(hits, opts.matterFrame, latestText);
     retrievalMeta = {
       retrievalMode: evidence.mode,
       retrievalIntents: evidence.intents,
@@ -515,11 +518,19 @@ export async function buildOverviewAnswer(opts: {
         retrievalMode: `${evidence.mode}+collectOverviewHits`,
       };
     } else if (hits.length < 2) {
-      // Weak matter intents → fall back to vault collect (same as unscoped path)
-      hits = collectOverviewHits(searchBlob);
+      // Weak matter intents → only fold in vault hits that sit on this graph
+      const curated = collectOverviewHits(searchBlob);
+      const byId = new Map(hits.map((h) => [h.id, h]));
+      for (const hit of filterAdmissibleTitles(curated, opts.matterFrame, latestText, {
+        requireCoverage: true,
+      })) {
+        const existing = byId.get(hit.id);
+        if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+      }
+      hits = [...byId.values()];
       retrievalMeta = {
         ...retrievalMeta,
-        retrievalMode: `${evidence.mode}+legacy-fallback`,
+        retrievalMode: `${evidence.mode}+legacy-admissible-fallback`,
       };
     }
   } else {
@@ -578,7 +589,7 @@ export async function buildOverviewAnswer(opts: {
     .filter(Boolean)
     .join("\n\n");
 
-  if (hits.length >= 2 && llmConfigured() && enableLlmAnswer()) {
+  if (hits.length >= 2 && llmConfigured() && enableLlmAnswer() && !(opts.matterFrame && graphIsWeakForHits(hits.map((h) => h.title), opts.matterFrame, latestText))) {
     const context = buildContext(hits, dworkin);
     const supplementalResearch = opts.researchBundle
       ? `\n\n${formatResearchBundle(opts.researchBundle)}`
@@ -727,12 +738,13 @@ export async function buildOverviewAnswer(opts: {
     };
   }
 
-  // Case-shaped fallback: MatterFrame + wiki hits, not a title dump or generic wiki answer.
-  if (opts.matterFrame && hits.length >= 2) {
+  // Case-shaped fallback: MatterFrame + admitted wiki hits (weak graph → honest short case).
+  if (opts.matterFrame) {
     const slots = coverageSlotsFrom(opts.matterFrame, latestText);
     const supplemental = (opts.researchBundle?.sources || [])
       .filter((s) => s.origin === "external" && s.url)
       .filter((s) => titleCoversGraph(`${s.title} ${s.url} ${s.excerpt || ""}`, slots, latestText))
+      .filter((s) => !isNeighbourAttractorTitle(s.title, opts.matterFrame!, latestText))
       .slice(0, 10)
       .map((s) => ({ title: s.title, url: s.url }));
     const cased = buildCaseLedOverview({

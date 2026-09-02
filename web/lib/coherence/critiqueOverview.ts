@@ -1,4 +1,10 @@
 import type { AnswerPackage } from "@/lib/coherence/answerPackage";
+import type { MatterFrame } from "@/lib/matter/types";
+import {
+  graphIsWeakForHits,
+  overviewUsesForbiddenPlaybook,
+  titleAdmissibleOnGeometry,
+} from "@/lib/matter/graphAdmissibility";
 
 export type OverviewCritique = {
   ok: boolean;
@@ -23,6 +29,7 @@ export function critiqueOverviewRecommendation(opts: {
   clientQuestion?: string;
   understanding?: string;
   answerPackage: AnswerPackage | null | undefined;
+  matterFrame?: MatterFrame | null;
 }): OverviewCritique {
   const errors: string[] = [];
   const pack = opts.answerPackage;
@@ -35,11 +42,21 @@ export function critiqueOverviewRecommendation(opts: {
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
+  const frame = opts.matterFrame;
+  const pageTitles = (pack?.wikiPages || []).map((p) => p.title);
+  const weakGraph = frame ? graphIsWeakForHits(pageTitles, frame, opts.latestText) : false;
+  const thinHonest =
+    weakGraph &&
+    /library is thin|does not yet have enough matching pages|do not (?:switch|complete the page)/i.test(
+      overview,
+    );
 
   if (!pack) {
     errors.push("overview: missing answer package");
-  } else if (overview.length < 160) {
+  } else if (overview.length < 160 && !thinHonest) {
     errors.push("overview: recommendation too short to be practical");
+  } else if (thinHonest && overview.length < 80) {
+    errors.push("overview: weak-graph note too short");
   }
 
   if (overview && SUCCESS_PREDICT.test(overview)) {
@@ -50,7 +67,7 @@ export function critiqueOverviewRecommendation(opts: {
     errors.push("overview: thin pathway boilerplate instead of curated recommendation");
   }
 
-  if (pack && (pack.wikiPages?.length || 0) < 2) {
+  if (pack && (pack.wikiPages?.length || 0) < 2 && !thinHonest) {
     errors.push("overview: fewer than 2 wiki pages grounding the answer");
   }
 
@@ -144,6 +161,16 @@ export function critiqueOverviewRecommendation(opts: {
 
   if (overview && !/legal\s*shaman\.?com/i.test(overview)) {
     errors.push("overview: missing LegalShaman.com recommendation note");
+  }
+
+  if (frame && overview && overviewUsesForbiddenPlaybook(overview, frame, opts.latestText)) {
+    errors.push("overview: off-graph playbook (housing/garden/motoring fill)");
+  }
+  if (frame) {
+    const offGraph = pageTitles.filter((t) => !titleAdmissibleOnGeometry(t, frame, opts.latestText));
+    if (offGraph.length) {
+      errors.push(`overview: off-graph wiki titles: ${offGraph.slice(0, 3).join("; ")}`);
+    }
   }
 
   const origin = (pack as { origin?: string } | null | undefined)?.origin;

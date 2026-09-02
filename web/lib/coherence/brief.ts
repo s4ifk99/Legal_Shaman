@@ -6,6 +6,7 @@ import type { LegalFrame } from './frames'
 import type { LawyerReviewRecord, SolicitorBriefWithReview } from './lawyerLoop'
 import { matterLabel } from './services'
 import { missingSlots } from './slots'
+import { extractClientQuestions } from './clientQuestions'
 import { isMetaCauseLine, sanitizeIntakeNarrative } from './sense'
 import { tidySentence } from './timelineExtract'
 
@@ -110,6 +111,12 @@ export function placeForSummary(session: SessionState): string {
 }
 
 function compactGist(session: SessionState): string {
+  const questions = extractClientQuestions(
+    `${session.clientQuestion || ''}\n${session.whatHappened || ''}\n${session.rawInputs.join('\n')}`,
+  )
+  if (questions.length) {
+    return questions.slice(0, 3).join(' ')
+  }
   const text = (session.whatHappened.trim() || session.rawInputs.find((r) => r.trim().length >= 8) || '')
     .replace(/\s+/g, ' ')
     .trim()
@@ -248,7 +255,10 @@ export function buildLawyerBrief(
     createdAt: new Date().toISOString(),
     situationSummary: buildSituationSummary(session),
     instructionsForLawyer: instructions.map((line) => `• ${line}`).join('\n'),
-    desiredOutcome: session.goal || 'Not yet stated by the client.',
+    desiredOutcome:
+      session.goal ||
+      extractClientQuestions(`${session.clientQuestion || ''}\n${session.whatHappened || ''}`).join(' ') ||
+      'Not yet stated by the client.',
     timeline,
     parties: session.parties.map((p) => (p.role ? `${p.label} (${p.role})` : p.label)),
     documents: session.documents,

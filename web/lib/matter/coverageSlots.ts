@@ -61,7 +61,10 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
   ])
   const slots: CoverageSlot[] = []
 
-  const housingMatter = primary === "housing" || slugs.has("housing") || lockoutStory(story)
+  const housingMatter =
+    primary === "housing" ||
+    slugs.has("housing") ||
+    (lockoutStory(story) && primary !== "criminal_defence" && !slugs.has("criminal_defence"))
 
   if (housingMatter) {
     if (lockoutStory(story)) {
@@ -139,6 +142,24 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
     })
   }
 
+  if (
+    primary === "criminal_defence" ||
+    slugs.has("criminal_defence") ||
+    (/\bpolice\b/i.test(story) &&
+      /\b(seized|took|arrest|charged|laptop|property)\b/i.test(story) &&
+      primary !== "housing")
+  ) {
+    slots.push({
+      id: "police_property",
+      label: "Police seizure / return of property",
+      cover: [
+        /police|seize|seizure|pace|search (?:and )?seizure|return of property|charged|laptop|work (?:computer|files)|duty solicitor/i,
+      ],
+      exaQuery:
+        "England police seized property return if not charged PACE employer laptop work files Citizens Advice",
+    })
+  }
+
   if (!slots.length && primary) {
     const label = primary.replace(/_/g, " ")
     slots.push({
@@ -177,7 +198,8 @@ export function rankByCoverage<T extends { title: string; score?: number }>(
     return { item, n: ids.length, first, score: item.score || 0 }
   })
   const covering = scored.filter((row) => row.n > 0)
-  const pool = covering.length >= 2 ? covering : scored
+  // Never complete the page with off-slot neighbours when the graph has slots.
+  const pool = covering.length > 0 ? covering : []
   return pool
     .sort((a, b) => b.n - a.n || a.first - b.first || b.score - a.score)
     .map((row) => row.item)

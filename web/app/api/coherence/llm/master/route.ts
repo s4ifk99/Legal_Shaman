@@ -353,6 +353,7 @@ export async function POST(req: Request) {
           clientQuestion,
           understanding,
           answerPackage: overviewPack,
+          matterFrame: matterResolved.frame,
         });
         const critiques = Array.isArray(result.critiques) ? [...result.critiques] : [];
         critiques.push({
@@ -393,6 +394,7 @@ export async function POST(req: Request) {
             clientQuestion,
             understanding,
             answerPackage: overviewPack,
+            matterFrame: matterResolved.frame,
           });
           critiques.push({
             step: "overview-retry",

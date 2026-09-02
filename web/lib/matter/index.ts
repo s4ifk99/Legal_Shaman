@@ -51,6 +51,12 @@ export {
   intentAllowedOnGraph,
   titleAllowedOnGraph,
 } from "./issueGraphHits";
+export {
+  filterAdmissibleTitles,
+  graphIsWeakForHits,
+  isNeighbourAttractorTitle,
+  titleAdmissibleOnGeometry,
+} from "./graphAdmissibility";
 export type { MatterGateResult, EvidenceGateResult } from "./types";
 export {
   ISSUE_RETRIEVAL_INTENTS,

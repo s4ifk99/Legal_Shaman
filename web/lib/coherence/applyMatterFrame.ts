@@ -5,46 +5,11 @@ import { toSessionMatterFrame } from './matterFrame'
 import type { MatterFrame } from '@/lib/matter/types'
 import type { Prompt, SessionState, TimelineEvent } from './types'
 import { applyFrameRoutingToSession } from './issueRouting'
+import { extractClientQuestions } from './clientQuestions'
+
+export { extractClientQuestions }
 
 const uid = () => Math.random().toString(36).slice(2, 10)
-
-/** Split a story into the questions the client actually asked, plus implied next-step asks. */
-export function extractClientQuestions(text: string): string[] {
-  const out: string[] = []
-  const seen = new Set<string>()
-  const raw = String(text || '')
-  const pieces = raw
-    .split(/(?<=[?])/g)
-    .map((p) => p.replace(/\s+/g, ' ').trim())
-    .filter((p) => p.includes('?') && p.length >= 12 && p.length <= 400)
-  for (const p of pieces) {
-    const key = p.toLowerCase().slice(0, 80)
-    if (seen.has(key)) continue
-    seen.add(key)
-    out.push(p)
-  }
-  const implied: Array<{ re: RegExp; q: string }> = [
-    { re: /next step|some advice|what (?:can|should) i do/i, q: 'What should I do next to stay safe and housed?' },
-    { re: /right to stay|no tenancy|tied/i, q: 'Do I have a right to stay without a written tenancy?' },
-    {
-      re: /door (?:had been )?removed|changed? (?:the )?locks?|leave immediately|forced .{0,40}(?:leave|vacate)|no front door/i,
-      q: 'What can I do after being locked out or forced to leave without a court order?',
-    },
-    { re: /wages|holiday pay/i, q: 'Can wages or holiday pay be withheld until I leave?' },
-    {
-      re: /nowhere else|homeless|tonight|emergency (?:housing|alternative)|sofa to crash/i,
-      q: 'Where can I get emergency housing tonight?',
-    },
-  ]
-  for (const item of implied) {
-    if (!item.re.test(raw)) continue
-    const key = item.q.toLowerCase().slice(0, 80)
-    if (seen.has(key)) continue
-    seen.add(key)
-    out.push(item.q)
-  }
-  return out.slice(0, 6)
-}
 
 function storyForResolve(session: SessionState, latest = ''): string {
   return [session.whatHappened, ...session.rawInputs.slice(-3), session.goal, latest]

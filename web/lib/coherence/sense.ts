@@ -1,4 +1,4 @@
-import type { Jurisdiction, MatterType, Mode, SessionState, TimelineEvent } from './types'
+import { extractClientQuestions } from './clientQuestions'
 import { foldTypographicPunctuation, normaliseLayText } from './normaliseLay'
 import {
   extractNarrativeEvents,
@@ -508,6 +508,12 @@ export function sanitizeIntakeNarrative(session: SessionState): SessionState {
     ...session.events.map((e) => `${e.label} ${e.rawSpan || ''}`),
   ])) {
     goal = HOUSING_NEXT_STEP_GOAL
+  }
+  if (!goal) {
+    const qs = extractClientQuestions(
+      `${session.clientQuestion || ''}\n${session.whatHappened || ''}\n${session.rawInputs.join('\n')}`,
+    )
+    if (qs.length) goal = qs.slice(0, 3).join(' ')
   }
 
   return { ...session, howCaused, goal }
