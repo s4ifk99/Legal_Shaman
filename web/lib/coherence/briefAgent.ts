@@ -2,7 +2,7 @@
  * Client Brief Agent — understands the live brief and builds timeline (LLM + heuristics).
  */
 import type { MatterType, Mode, Party, SessionState, TimelineEvent, Jurisdiction } from './types'
-import { createInitialSession } from './sense'
+import { createInitialSession, sanitizeIntakeNarrative } from './sense'
 
 export type BriefResult = {
   freshBrief: boolean
@@ -151,7 +151,7 @@ export function applyBriefToSession(
   const matter = asMatter(brief.matterType)
   const jurisdiction = asJurisdiction(brief.jurisdiction)
 
-  return {
+  return sanitizeIntakeNarrative({
     ...base,
     rawInputs: brief.freshBrief
       ? [latestText].filter(Boolean)
@@ -180,5 +180,5 @@ export function applyBriefToSession(
     briefUnderstanding: brief.understanding?.trim() || base.briefUnderstanding || '',
     clientQuestion: brief.clientQuestion?.trim() || base.clientQuestion || '',
     topicId: brief.topicId || '',
-  }
+  })
 }

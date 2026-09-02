@@ -20,7 +20,7 @@ import { PageNavigation } from './PageNavigation'
 import { B2CBillingBanner } from '@/components/billing/b2c-billing-banner'
 import { captureProductEvent } from '@/components/analytics/posthog-provider'
 import type { SearchDestination } from './ReformulationGate'
-import { createInitialSession, senseDetails } from '@/lib/coherence/sense'
+import { createInitialSession, isMetaCauseLine, isPhysicalNeedNotGoal, senseDetails } from '@/lib/coherence/sense'
 import { summariseToLabel } from '@/lib/coherence/timelineExtract'
 import { matterClassifierPrompt, nextPrompt } from '@/lib/coherence/questions'
 import { predictiveOptions } from '@/lib/coherence/options'
@@ -169,6 +169,7 @@ function applyGapAnswer(promptId: string, value: string, next: SessionState): Se
     case 'gap_incident_detail':
       return applyNarrativeAnswer(v, next)
     case 'gap_mechanism':
+      if (isMetaCauseLine(v) || isPhysicalNeedNotGoal(v)) return next
       return {
         ...next,
         howCaused: next.howCaused ? `${next.howCaused}; ${v}` : v,
@@ -176,6 +177,7 @@ function applyGapAnswer(promptId: string, value: string, next: SessionState): Se
       }
     case 'gap_breach':
     case 'gap_refusal_reason':
+      if (isMetaCauseLine(v) || isPhysicalNeedNotGoal(v)) return next
       return {
         ...next,
         howCaused: v,
@@ -715,7 +717,9 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       }
     }
     if (answeredId === 'goal' || answeredId === 'gap_goal' || answeredId === 'constraint_goal') {
-      next = { ...next, goal: next.goal || value.trim() }
+      if (!isPhysicalNeedNotGoal(value) && !isMetaCauseLine(value)) {
+        next = { ...next, goal: next.goal || value.trim() }
+      }
     }
 
     // Fast pack classify (OpenRouter) on first story — before keyword topic lock hardens
