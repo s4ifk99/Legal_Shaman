@@ -185,7 +185,7 @@ async function synthesizeResearchBundle(prompt: string): Promise<string> {
   const client = new OpenAI({
     apiKey,
     baseURL: resolveLlmBaseUrl(),
-    timeout: Number(process.env.PENUMBRA_LLM_TIMEOUT_MS || 55_000),
+    timeout: Number(process.env.PENUMBRA_LLM_TIMEOUT_MS || 40_000),
     maxRetries: 0,
     ...(openRouterDefaultHeaders() ? { defaultHeaders: openRouterDefaultHeaders() } : {}),
   })
@@ -281,7 +281,7 @@ export async function runPenumbraResearch(
     if (liveExaAvailable) {
       const live = await searchExaForPenumbra(exaQuery, {
         numResults,
-        timeoutMs: Number(process.env.PENUMBRA_EXA_TIMEOUT_MS || 25_000),
+        timeoutMs: Number(process.env.PENUMBRA_EXA_TIMEOUT_MS || 20_000),
       })
       exaRequestId = live.requestId
       exaHits = mergeExaSearchHits(offline.hits, live.hits, numResults)

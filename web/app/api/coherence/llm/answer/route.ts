@@ -50,7 +50,7 @@ export async function POST(req: Request) {
   coherenceOpenRouterConfig();
   // Overview synthesis needs headroom — default chat client is 12s locally
   if (!process.env.LLM_TIMEOUT_MS) {
-    process.env.LLM_TIMEOUT_MS = "60000";
+    process.env.LLM_TIMEOUT_MS = "45000";
   }
 
   let body: Body;

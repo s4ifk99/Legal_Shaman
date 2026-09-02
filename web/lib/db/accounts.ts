@@ -3,7 +3,7 @@ import { PrismaNeon } from "@prisma/adapter-neon";
 import { neonConfig, Pool } from "@neondatabase/serverless";
 import ws from "ws";
 
-import { createPrismaClient } from "@/lib/db/prisma";
+import { createPrismaClient, withNeonPoolerIfNeeded, withVerifyFullSsl } from "@/lib/db/prisma";
 
 /**
  * Accounts DB: users, bookmarks, usage, billing.
@@ -19,6 +19,7 @@ function createAccountsPrismaClient(): PrismaClient {
     throw new Error("ACCOUNTS_DATABASE_URL / DATABASE_URL not set (accounts)");
   }
 
+  const prepared = withVerifyFullSsl(withNeonPoolerIfNeeded(connectionString));
   const wsProxy = process.env.ACCOUNTS_WS_PROXY?.trim();
   if (wsProxy) {
     neonConfig.webSocketConstructor = ws;
@@ -27,7 +28,7 @@ function createAccountsPrismaClient(): PrismaClient {
     neonConfig.forceDisablePgSSL = true;
     neonConfig.pipelineConnect = false;
 
-    const pool = new Pool({ connectionString });
+    const pool = new Pool({ connectionString: prepared, max: 1 });
     const adapter = new PrismaNeon(pool);
     return new PrismaClient({
       adapter,
@@ -36,7 +37,7 @@ function createAccountsPrismaClient(): PrismaClient {
   }
 
   return createPrismaClient({
-    connectionString,
+    connectionString: prepared,
     label: "accounts",
   });
 }

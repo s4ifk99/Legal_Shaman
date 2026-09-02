@@ -23,9 +23,9 @@ import type { ResearchSource } from "@/lib/coherence/researchBundle";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-export const maxDuration = 120;
-// Exa search + OpenRouter synthesis — well under the old Aramb 290s wait.
-const ARAMB_REQUEST_TIMEOUT_MS = 90_000;
+export const maxDuration = 90;
+// Finish with a fallback before Vercel's 90s platform kill.
+const ARAMB_REQUEST_TIMEOUT_MS = 70_000;
 
 type Body = {
   latestText?: string;
