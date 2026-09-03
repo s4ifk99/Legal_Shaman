@@ -164,6 +164,14 @@ export function critiqueOverviewRecommendation(opts: {
     errors.push("overview: missing LegalShaman.com recommendation note");
   }
 
+  const recsAndBullets = [
+    ...(pack?.bullets || []).map((b) => b.text),
+    ...(pack?.recommendations || []),
+  ].join(" ");
+  if (/do not paste|cover the client's live questions|Your live questions:/i.test(recsAndBullets)) {
+    errors.push("overview: takeaways contain author instructions or a question dump");
+  }
+
   if (overview && /progress the .{0,60} using the matched guidance/i.test(overview)) {
     errors.push("overview: empty live-now slot filled with matched-guidance boilerplate");
   }
@@ -199,7 +207,10 @@ export function critiqueOverviewRecommendation(opts: {
       ...(pack?.bullets || []).map((b) => b.text),
       ...(pack?.recommendations || []),
     ].join(" ");
-    if (/your live questions:|cover the client's live questions/i.test(recText) || (recText.match(/\?/g) || []).length >= 2) {
+    if (
+      /do not paste|cover the client's live questions|Your live questions:/i.test(recText) ||
+      (recText.match(/\?/g) || []).length >= 2
+    ) {
       errors.push("overview: takeaways dump the client's question list");
     }
     if (

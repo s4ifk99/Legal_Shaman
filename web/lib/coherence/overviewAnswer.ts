@@ -36,7 +36,13 @@ import {
   normalizeSearchMode,
   searchModePolicy,
 } from "@/lib/coherence/searchMode";
-import { formatCaseBrief, buildCaseLedOverview } from "@/lib/coherence/caseBuilder";
+import {
+  AUTHOR_META_TAKEAWAY,
+  formatCaseBrief,
+  buildCaseLedOverview,
+  buildThinHonestOverview,
+  stripAuthorMetaTakeaway,
+} from "@/lib/coherence/caseBuilder";
 import type { ResearchBundle } from "@/lib/coherence/researchBundle";
 import {
   coverageSlotsFrom,
@@ -371,14 +377,31 @@ function cleanList(value: unknown, limit: number, minLength = 12): string[] {
     .slice(0, limit);
 }
 
+export type LlmFallbackReason = "429" | "timeout" | "short_answer" | "disabled" | "error";
+
 function looksLikeQuestionDump(text: string): boolean {
   const s = String(text || "");
-  if (/your live questions:|cover the client's live questions/i.test(s)) return true;
+  if (AUTHOR_META_TAKEAWAY.test(s)) return true;
   return (s.match(/\?/g) || []).length >= 2;
 }
 
 function practicalLines(value: unknown, limit: number): string[] {
-  return cleanList(value, limit).filter((item) => !looksLikeQuestionDump(item));
+  return cleanList(value, limit)
+    .map(stripAuthorMetaTakeaway)
+    .filter((item) => item.length >= 12 && !looksLikeQuestionDump(item));
+}
+
+function classifyLlmFailure(err: unknown): Exclude<LlmFallbackReason, "short_answer" | "disabled"> {
+  const status = (err as { status?: number })?.status;
+  const msg = err instanceof Error ? err.message : String(err);
+  if (status === 429 || /429|rate.?limit/i.test(msg)) return "429";
+  if (
+    status === 408 ||
+    /timeout|timed out|ETIMEDOUT|AbortError|deadline/i.test(msg)
+  ) {
+    return "timeout";
+  }
+  return "error";
 }
 
 function toPackage(
@@ -662,11 +685,31 @@ export async function buildOverviewAnswer(opts: {
     .join("\n\n");
 
   const admittedBundle = admitResearchBundle(opts.researchBundle, opts.matterFrame, latestText);
+  const slotsForAdmit = opts.matterFrame
+    ? coverageSlotsFrom(opts.matterFrame, latestText)
+    : [];
+  const supplemental = (admittedBundle?.sources || [])
+    .filter((s) => s.origin === "external" && s.url)
+    .filter((s) =>
+      opts.matterFrame
+        ? titleCoversGraph(`${s.title} ${s.url} ${s.excerpt || ""}`, slotsForAdmit, latestText) &&
+          !isNeighbourAttractorTitle(s.title, opts.matterFrame, latestText)
+        : true,
+    )
+    .slice(0, 10)
+    .map((s) => ({ title: s.title, url: s.url }));
+  let llmFallbackReason: LlmFallbackReason | undefined;
+  let llmError: string | undefined;
   const wikiContext =
     hits.length > 0
       ? buildContext(hits, dworkin)
       : "No admitted Legal Shaman wiki pages cover the live questions. Say the library is thin. Use only admitted Third Eye notes below, if any.";
-  if (llmConfigured() && enableOverviewSynthesis() && (opts.matterFrame || hits.length >= 2)) {
+  const canWriteLlm =
+    llmConfigured() && enableOverviewSynthesis() && (opts.matterFrame || hits.length >= 2);
+  if (!canWriteLlm) {
+    if (!llmConfigured() || !enableOverviewSynthesis()) llmFallbackReason = "disabled";
+  }
+  if (canWriteLlm) {
     const supplementalResearch = admittedBundle
       ? `\n\n${formatResearchBundle(admittedBundle)}`
       : "";
@@ -736,7 +779,11 @@ export async function buildOverviewAnswer(opts: {
           },
         };
       }
+      llmFallbackReason = "short_answer";
+      llmError = "overview_llm_short_answer";
     } catch (err) {
+      llmFallbackReason = classifyLlmFailure(err);
+      llmError = (err instanceof Error ? err.message : String(err)).slice(0, 300);
       console.warn(
         "[coherence-overview] LLM synthesis failed:",
         err instanceof Error ? err.message : err,
@@ -744,8 +791,21 @@ export async function buildOverviewAnswer(opts: {
     }
   }
 
+  const skipStockEssay =
+    Boolean(llmFallbackReason) &&
+    supplemental.length >= 1 &&
+    (llmFallbackReason === "429" ||
+      llmFallbackReason === "timeout" ||
+      llmFallbackReason === "short_answer" ||
+      llmFallbackReason === "error");
+  const fallbackFlags = {
+    ...(llmFallbackReason ? { llmFallbackReason } : {}),
+    ...(llmError ? { llmError } : {}),
+  };
+
   // Deterministic practical fallback for shared housing (avoid cancel-contract boilerplate)
   if (
+    !skipStockEssay &&
     isSharedHousingQuery(latestText) &&
     hits.length >= 2 &&
     !/illegal evict|door.{0,24}removed|no front door|forced .{0,30}(?:leave|vacate)|homeless/i.test(latestText)
@@ -809,6 +869,7 @@ export async function buildOverviewAnswer(opts: {
         pageTitles: hits.slice(0, 6).map((h) => h.title),
         used: "shared-housing-deterministic",
         arambPilot: Boolean(admittedBundle),
+        ...fallbackFlags,
         ...packMeta,
       },
     };
@@ -816,20 +877,21 @@ export async function buildOverviewAnswer(opts: {
 
   // Case-shaped fallback: MatterFrame + admitted wiki hits (weak graph → honest short case).
   if (opts.matterFrame) {
-    const slots = coverageSlotsFrom(opts.matterFrame, latestText);
-    const supplemental = (admittedBundle?.sources || [])
-      .filter((s) => s.origin === "external" && s.url)
-      .filter((s) => titleCoversGraph(`${s.title} ${s.url} ${s.excerpt || ""}`, slots, latestText))
-      .filter((s) => !isNeighbourAttractorTitle(s.title, opts.matterFrame!, latestText))
-      .slice(0, 10)
-      .map((s) => ({ title: s.title, url: s.url }));
-    const cased = buildCaseLedOverview({
-      story: latestText,
-      frame: opts.matterFrame,
-      clientQuestion: opts.clientQuestion,
-      hitTitles: hits.map((h) => h.title),
-      supplemental,
-    });
+    const preferThin = Boolean(llmFallbackReason) && supplemental.length >= 1;
+    const cased = preferThin
+      ? buildThinHonestOverview({
+          story: latestText,
+          frame: opts.matterFrame,
+          clientQuestion: opts.clientQuestion,
+          supplemental,
+        })
+      : buildCaseLedOverview({
+          story: latestText,
+          frame: opts.matterFrame,
+          clientQuestion: opts.clientQuestion,
+          hitTitles: hits.map((h) => h.title),
+          supplemental,
+        });
     return {
       answerPackage: attachResearchBundle(
         toPackage(cased.answer, hits, cased.takeaways, "retrieve-deterministic", latestText, dworkin, {
@@ -844,8 +906,9 @@ export async function buildOverviewAnswer(opts: {
         mode: "retrieval_only",
         retrievalScore: hits[0]?.score ?? 0,
         pageTitles: hits.slice(0, 6).map((h) => h.title),
-        used: "case-led-deterministic",
+        used: preferThin ? "thin-honest-fallback" : "case-led-deterministic",
         arambPilot: Boolean(admittedBundle),
+        ...fallbackFlags,
         ...packMeta,
       },
     };
@@ -885,6 +948,7 @@ export async function buildOverviewAnswer(opts: {
       pageTitles: (wiki.wikiPages || []).slice(0, 6).map((p) => p.title),
       used: "wiki-fallback",
       arambPilot: Boolean(admittedBundle),
+      ...fallbackFlags,
       ...packMeta,
     },
   };
