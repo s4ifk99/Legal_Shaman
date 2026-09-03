@@ -42,6 +42,7 @@ import { mergeExaSearchHits, searchOfflineExaIndexForPenumbra } from '../lib/pen
 import { titleAllowedOnGraph } from '../lib/matter/issueGraphHits'
 import {
   freeHelpAdmissibleOnGeometry,
+  sraOrganisationAdmissible,
   storyLooksAmbiguousSeizedDevice,
   titleAdmissibleOnGeometry,
 } from '../lib/matter/graphAdmissibility'
@@ -1548,6 +1549,33 @@ const traps: Array<{ id: string; run: () => string | null }> = [
             story,
           ),
           'Shelter homelessness helpline still allowed on employer-kit crime',
+        ) ||
+        assert(
+          !titleAdmissibleOnGeometry(
+            'Check if you can get your money back after a scam',
+            frame,
+            story,
+            { requireCoverage: true },
+          ),
+          'consumer scam wiki still admitted on employer-kit crime',
+        ) ||
+        assert(
+          !titleAdmissibleOnGeometry('If something you ordered hasn\'t arrived', frame, story, {
+            requireCoverage: true,
+          }),
+          'delivery wiki still admitted on employer-kit crime',
+        ) ||
+        assert(
+          !freeHelpAdmissibleOnGeometry(
+            'Citizens Advice consumer helpline',
+            'Help with faulty goods, refunds, traders, contracts and consumer rights.',
+            story,
+          ),
+          'consumer helpline still allowed on employer-kit crime',
+        ) ||
+        assert(
+          !sraOrganisationAdmissible('CROWN PROSECUTION SERVICE HOUNSLOW'),
+          'CPS still treated as an admissible SRA defence match',
         ) ||
         assert(extractClientQuestions(story).every((q) => q.length <= 180), 'questions still dump the narrative') ||
         assert(!/Asking for any police officers|Not yet stated/i.test(`${brief.situationSummary} ${brief.desiredOutcome}`), `brief=${brief.situationSummary} | ${brief.desiredOutcome}`) ||

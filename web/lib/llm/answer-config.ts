@@ -26,6 +26,28 @@ export function resolveSynthesisModel(): string {
   );
 }
 
+/**
+ * Overview is the Cursor-style write step. Allow it on Vercel whenever a key
+ * is present, unless ENABLE_LLM_ANSWER or ENABLE_OVERVIEW_LLM is explicitly off.
+ */
+export function enableOverviewSynthesis(): boolean {
+  const overview = process.env.ENABLE_OVERVIEW_LLM?.trim().toLowerCase();
+  if (overview === "0" || overview === "false" || overview === "no") return false;
+  if (overview === "1" || overview === "true" || overview === "yes") return true;
+  if (enableLlmAnswer()) return true;
+  const answer = process.env.ENABLE_LLM_ANSWER?.trim().toLowerCase();
+  if (answer === "0" || answer === "false" || answer === "no") return false;
+  return Boolean(process.env.LLM_API_KEY?.trim() || process.env.OPENROUTER_API_KEY?.trim());
+}
+
+export function resolveOverviewModel(): string {
+  return (
+    process.env.OVERVIEW_MODEL?.trim() ||
+    process.env.LLM_CHAT_MODEL?.trim() ||
+    resolveSynthesisModel()
+  );
+}
+
 export function llmAnswerEnvIssues(): string[] {
   const issues: string[] = [];
   const key =

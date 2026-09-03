@@ -4,7 +4,7 @@ import { wikiAnchorsForQuery } from "@/lib/wiki/rerank-hits";
 import { buildConceptRetrievalPlan } from "./conceptRetrievalPlan";
 import { buildRetrievalPlan } from "./retrieval-plan";
 import { titleAllowedOnGraph } from "./issueGraphHits";
-import { isNeighbourAttractorTitle } from "./graphAdmissibility";
+import { isNeighbourAttractorTitle, storyLooksEmployerSeizedKit } from "./graphAdmissibility";
 import { gapIntentsForFrame } from "./gapRetrieve";
 import { exclusionPatternsForSlugs } from "./scopes";
 import { coverageSlotsFrom, rankByCoverage } from "./coverageSlots";
@@ -101,6 +101,7 @@ export function retrieveForMatter(opts: {
   const skipTail =
     primarySlugs.includes("consumer_small_claims") ||
     primarySlugs.includes("housing") ||
+    storyLooksEmployerSeizedKit(submission) ||
     /\b(threw|broke|broken|damaged).{0,80}(switch|console|toy|gift|belongings)\b/i.test(submission);
   if (tail.length >= 40 && !skipTail) {
     for (const hit of searchWikiPages(tail, 4)) {

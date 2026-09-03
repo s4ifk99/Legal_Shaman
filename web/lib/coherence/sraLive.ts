@@ -4,6 +4,7 @@
  */
 import type { SessionState } from './types'
 import type { LegalFrame } from './frames'
+import { sraOrganisationAdmissible } from '@/lib/matter/graphAdmissibility'
 import {
   buildSraSearchPayload,
   relevantWorkAreas,
@@ -72,7 +73,7 @@ export async function matchSraFirms(
     if (!res.ok) return []
     const data = (await res.json()) as { hits?: ApiHit[]; error?: string }
     if (!data.hits?.length) return []
-    return data.hits.map((h) => {
+    return data.hits.filter((h) => sraOrganisationAdmissible(h.name)).map((h) => {
       const place = [h.city, h.postcode].filter(Boolean).join(' · ')
       const areas = relevantWorkAreas(
         h.workArea || '',

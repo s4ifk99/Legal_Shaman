@@ -74,7 +74,12 @@ export function isNeighbourAttractorTitle(title: string, frame: IssueGraph, stor
     return true;
   }
   if (/smart meter/i.test(t) && !/smart meter/i.test(story)) return true;
-  if (/scam refund|authorised push payment/i.test(t) && !/scam|refund|app fraud/i.test(story)) {
+  if (
+    /scam refund|authorised push payment|money back after a scam|something you ordered hasn|hasn.?t arrived|faulty goods|consumer helpline/i.test(
+      t,
+    ) &&
+    !/scam|refund|app fraud|parcel|courier|ordered hasn|faulty goods/i.test(story)
+  ) {
     return true;
   }
   if (
@@ -104,6 +109,12 @@ export function isNeighbourAttractorTitle(title: string, frame: IssueGraph, stor
   if (storyLooksEmployerSeizedKit(story) && WRONG_PARTY_DEFENDANT_TITLE.test(t)) {
     return true;
   }
+  if (
+    storyLooksEmployerSeizedKit(story) &&
+    /scam|hasn.?t arrived|ordered hasn|money back after|faulty goods|consumer helpline|package holiday/i.test(t)
+  ) {
+    return true;
+  }
   return false;
 }
 
@@ -114,12 +125,22 @@ export function freeHelpAdmissibleOnGeometry(title: string, blurb: string, story
     if (/homeless|nowhere to stay|emergency helpline|shelter england#|our free helpline - shelter/i.test(hay)) {
       return false;
     }
+    if (/consumer helpline|faulty goods|refunds, traders|consumer rights/i.test(hay)) {
+      return false;
+    }
     if (/magistrates.? court fines|going to court without a solicitor|you(?:'ve| have) been arrested|duty solicitor|legal aid.{0,40}police station/i.test(hay) &&
       !/property when you leave|leave a job|company property|work (?:laptop|files)|employer/i.test(hay)) {
       return false;
     }
   }
   return true;
+}
+
+/** Prosecutors and similar orgs must not appear as criminal-defence matches. */
+export function sraOrganisationAdmissible(name: string): boolean {
+  return !/crown prosecution service|\bcps\b|crown office and procurator|serious fraud office/i.test(
+    name || "",
+  );
 }
 
 export function titleAdmissibleOnGeometry(

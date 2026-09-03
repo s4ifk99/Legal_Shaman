@@ -4,6 +4,7 @@
  */
 import { isParkingStoryText } from './signposting'
 import { buildRetrievalText } from './retrievalText'
+import { freeHelpAdmissibleOnGeometry } from '@/lib/matter/graphAdmissibility'
 import type { MatterType, SessionState } from './types'
 import index from '@/data/coherence/freeServicesIndex.json'
 
@@ -428,5 +429,7 @@ export function matchFreeServices(session: SessionState, limit = 10): FreeServic
     if (out.length >= limit) break
   }
 
-  return pinMatterSpecialists(out, matter, text, bundle.services, limit)
+  return pinMatterSpecialists(out, matter, text, bundle.services, limit).filter((hit) =>
+    freeHelpAdmissibleOnGeometry(hit.title, hit.blurb, text),
+  )
 }

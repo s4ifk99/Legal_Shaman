@@ -1,7 +1,7 @@
 import "server-only";
 
 import { chat, llmConfigured } from "@/lib/llm/client";
-import { enableLlmAnswer, resolveSynthesisModel } from "@/lib/llm/answer-config";
+import { enableOverviewSynthesis, resolveOverviewModel } from "@/lib/llm/answer-config";
 import { sanitizeSignpostingText } from "@/lib/guardrails/validator";
 import {
   clearWikiAnswerCacheForTests,
@@ -39,7 +39,11 @@ import {
 import { formatCaseBrief, buildCaseLedOverview } from "@/lib/coherence/caseBuilder";
 import type { ResearchBundle } from "@/lib/coherence/researchBundle";
 import { coverageSlotsFrom, rankByCoverage, titleCoversGraph } from "@/lib/matter/coverageSlots";
-import { filterAdmissibleTitles, graphIsWeakForHits, isNeighbourAttractorTitle } from "@/lib/matter/graphAdmissibility";
+import {
+  filterAdmissibleTitles,
+  freeHelpAdmissibleOnGeometry,
+  isNeighbourAttractorTitle,
+} from "@/lib/matter/graphAdmissibility";
 
 const OVERVIEW_SYSTEM = `You are Legal Shaman's Overview agent — a research agent that builds the client's case from the CASE FILE, WIKI CONTEXT (library), and optional Third Eye notes.
 
@@ -60,10 +64,12 @@ Rules:
 7. Do NOT predict win/lose. Do NOT say "you should definitely".
 8. Keep it concise: about 280–520 words. Short section headings allowed (plain lines, not markdown #).
 9. End with one sentence: this is Legal Shaman signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.
-10. If the library titles do not cover the client's live questions, say the library is thin and cite only admitted pages. Never complete the page with housing, garden, right of way, tenancy deposit, package holiday, smart meter, or motoring/PCN guidance unless that issue is on the frozen graph.
-11. If Master Critic feedback is provided, fix every listed failure before answering.
-12. Give at least two realistic options where the sources support more than one route.
-13. Return JSON only:
+10. If the library titles do not cover the client's live questions, say the library is thin and cite only admitted pages. Never complete the page with housing, garden, right of way, tenancy deposit, package holiday, smart meter, motoring/PCN, consumer-scam, or “item hasn't arrived” guidance unless that issue is on the frozen graph.
+11. When the asker owns seized work kit (employer / company laptop), do not write as if they are the arrested person. Criminal defence is for the arrested person only; recovering employer property is a separate route.
+12. Only cite titles that appear in WIKI CONTEXT or admitted Third Eye notes. Do not invent pages to fill the list.
+13. If Master Critic feedback is provided, fix every listed failure before answering.
+14. Give at least two realistic options where the sources support more than one route.
+15. Return JSON only:
 {
   "answer": "full recommendation text",
   "wikiPageTitles": ["exact titles used from context"],
@@ -295,6 +301,30 @@ function formatResearchBundle(bundle: ResearchBundle): string {
 
 function attachResearchBundle(pack: AnswerPackage, bundle?: ResearchBundle): AnswerPackage {
   return bundle ? { ...pack, researchBundle: bundle } : pack
+}
+
+function admitResearchBundle(
+  bundle: ResearchBundle | undefined,
+  frame: MatterFrame | null | undefined,
+  story: string,
+): ResearchBundle | undefined {
+  if (!bundle || !frame) return bundle;
+  const slots = coverageSlotsFrom(frame, story);
+  const sources = bundle.sources.filter((source) => {
+    const hay = `${source.title} ${source.url} ${source.excerpt || ""}`;
+    if (isNeighbourAttractorTitle(source.title, frame, story)) return false;
+    if (slots.length && !titleCoversGraph(hay, slots, story)) return false;
+    return true;
+  });
+  const kept = new Set(sources.map((source) => source.id));
+  return {
+    ...bundle,
+    sources,
+    claims: bundle.claims.filter((claim) => claim.sourceIds.some((id) => kept.has(id))),
+    freeResources: bundle.freeResources.filter((resource) =>
+      freeHelpAdmissibleOnGeometry(resource.title, resource.description, story),
+    ),
+  };
 }
 
 type ParsedOverview = {
@@ -589,10 +619,14 @@ export async function buildOverviewAnswer(opts: {
     .filter(Boolean)
     .join("\n\n");
 
-  if (hits.length >= 2 && llmConfigured() && enableLlmAnswer() && !(opts.matterFrame && graphIsWeakForHits(hits.map((h) => h.title), opts.matterFrame, latestText))) {
-    const context = buildContext(hits, dworkin);
-    const supplementalResearch = opts.researchBundle
-      ? `\n\n${formatResearchBundle(opts.researchBundle)}`
+  const admittedBundle = admitResearchBundle(opts.researchBundle, opts.matterFrame, latestText);
+  const wikiContext =
+    hits.length > 0
+      ? buildContext(hits, dworkin)
+      : "No admitted Legal Shaman wiki pages cover the live questions. Say the library is thin. Use only admitted Third Eye notes below, if any.";
+  if (llmConfigured() && enableOverviewSynthesis() && (opts.matterFrame || hits.length >= 2)) {
+    const supplementalResearch = admittedBundle
+      ? `\n\n${formatResearchBundle(admittedBundle)}`
       : "";
     try {
       const raw = await chat(
@@ -600,14 +634,14 @@ export async function buildOverviewAnswer(opts: {
           { role: "system", content: OVERVIEW_SYSTEM },
           {
             role: "user",
-            content: `${storyBlock}\n\nWIKI CONTEXT:\n${context}${supplementalResearch}\n\nRespond with JSON only.`,
+            content: `${storyBlock}\n\nWIKI CONTEXT:\n${wikiContext}${supplementalResearch}\n\nRespond with JSON only.`,
           },
         ],
         {
           jsonMode: true,
           temperature: 0.2,
           maxTokens: 1800,
-          model: resolveSynthesisModel(),
+          model: resolveOverviewModel(),
           purpose: "final_synthesis",
           caller: "overviewAnswer",
         },
@@ -648,14 +682,14 @@ export async function buildOverviewAnswer(opts: {
               missingFacts: cleanList(parsed?.missingFacts, 5),
               followUpPrompts: cleanList(parsed?.followUpPrompts, 3),
             }),
-            opts.researchBundle,
+            admittedBundle,
           ),
           meta: {
             mode: "synthesis",
             retrievalScore: ordered[0]?.score ?? 0,
             pageTitles: ordered.slice(0, 6).map((h) => h.title),
             used: "coherence-overview-llm",
-            arambPilot: Boolean(opts.researchBundle),
+            arambPilot: Boolean(admittedBundle),
             ...packMeta,
           },
         };
@@ -725,14 +759,14 @@ export async function buildOverviewAnswer(opts: {
           latestText,
           dworkin,
         ),
-        opts.researchBundle,
+        admittedBundle,
       ),
       meta: {
         mode: "retrieval_only",
         retrievalScore: hits[0]?.score ?? 0,
         pageTitles: hits.slice(0, 6).map((h) => h.title),
         used: "shared-housing-deterministic",
-        arambPilot: Boolean(opts.researchBundle),
+        arambPilot: Boolean(admittedBundle),
         ...packMeta,
       },
     };
@@ -741,7 +775,7 @@ export async function buildOverviewAnswer(opts: {
   // Case-shaped fallback: MatterFrame + admitted wiki hits (weak graph → honest short case).
   if (opts.matterFrame) {
     const slots = coverageSlotsFrom(opts.matterFrame, latestText);
-    const supplemental = (opts.researchBundle?.sources || [])
+    const supplemental = (admittedBundle?.sources || [])
       .filter((s) => s.origin === "external" && s.url)
       .filter((s) => titleCoversGraph(`${s.title} ${s.url} ${s.excerpt || ""}`, slots, latestText))
       .filter((s) => !isNeighbourAttractorTitle(s.title, opts.matterFrame!, latestText))
@@ -762,14 +796,14 @@ export async function buildOverviewAnswer(opts: {
           missingFacts: cased.missingFacts,
           followUpPrompts: cased.followUpPrompts,
         }),
-        opts.researchBundle,
+        admittedBundle,
       ),
       meta: {
         mode: "retrieval_only",
         retrievalScore: hits[0]?.score ?? 0,
         pageTitles: hits.slice(0, 6).map((h) => h.title),
         used: "case-led-deterministic",
-        arambPilot: Boolean(opts.researchBundle),
+        arambPilot: Boolean(admittedBundle),
         ...packMeta,
       },
     };
@@ -798,7 +832,7 @@ export async function buildOverviewAnswer(opts: {
       latestText,
       dworkin,
     ),
-    opts.researchBundle,
+    admittedBundle,
   );
 
   return {
@@ -808,7 +842,7 @@ export async function buildOverviewAnswer(opts: {
       retrievalScore: wiki.retrievalScore,
       pageTitles: (wiki.wikiPages || []).slice(0, 6).map((p) => p.title),
       used: "wiki-fallback",
-      arambPilot: Boolean(opts.researchBundle),
+      arambPilot: Boolean(admittedBundle),
       ...packMeta,
     },
   };
