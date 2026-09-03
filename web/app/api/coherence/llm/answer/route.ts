@@ -139,8 +139,8 @@ export async function POST(req: Request) {
       matterFrame,
     });
     let retries = 0;
-    const allowRetry =
-      process.env.COHERENCE_OVERVIEW_RETRY !== "0" && !body.skipCritiqueRetry;
+    // Always allow one Overview rewrite on /answer unless the caller skipped it.
+    const allowRetry = !body.skipCritiqueRetry;
 
     if (!critique.ok && allowRetry && retries < 1) {
       retries += 1;
