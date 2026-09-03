@@ -39,6 +39,28 @@ function alreadyForcedOut(story: string): boolean {
   return /had no choice but to comply|leave everything else behind|son in law showed up/i.test(story)
 }
 
+/** Vacated after a family/sale possession ground, then re-let / RRO — not a live lock-out. */
+export function storyLooksVacatedRroRelet(story: string): boolean {
+  const s = story || ""
+  const rental = /tenant|tenancy|landlord|letting agent|rental|renters.? rights|assured/i.test(s)
+  if (!rental) return false
+  const vacated =
+    /moved out|we vacated|vacated (?:our |the )?(?:rental|property|flat|house)|complied and (?:moved|left)|already left|left the (?:rental|property|flat|house)|no longer (?:live|living) (?:there|at)/i.test(
+      s,
+    )
+  if (!vacated) return false
+  const relet =
+    /re-?list(?:ed|ing)?|re-?let|new tenancy.{0,40}agreed|let (?:again|to someone else)|restriction on re-?lett/i.test(
+      s,
+    )
+  const familyOrSaleGround =
+    /family member.{0,80}(?:move|intend|occup)|landlord(?:['’]s)? family|ground\s*1a?\b|occupation as (?:a )?home/i.test(
+      s,
+    )
+  const rro = /rent repayment|\brros?\b|first-tier tribunal|renters.? rights act/i.test(s)
+  return relet || familyOrSaleGround || rro
+}
+
 function homelessStory(story: string): boolean {
   return /nowhere else|homeless|tonight|emergency (?:housing|alternative)|sofa to crash/i.test(story)
 }
@@ -77,10 +99,13 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
   const housingMatter =
     primary === "housing" ||
     slugs.has("housing") ||
+    storyLooksVacatedRroRelet(story) ||
     (lockoutStory(story) && primary !== "criminal_defence" && !slugs.has("criminal_defence"))
 
   if (housingMatter) {
-    if (lockoutStory(story)) {
+    const vacatedRro = storyLooksVacatedRroRelet(story)
+    const liveLockout = lockoutStory(story) && !vacatedRro
+    if (liveLockout) {
       slots.push({
         id: "illegal_eviction",
         label: "Illegal eviction / lock-out",
@@ -91,7 +116,7 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
           "England illegal eviction lock out landlord removed door Protection from Eviction Act Shelter police what to expect",
       })
     }
-    if (lockoutStory(story) && !alreadyForcedOut(story)) {
+    if (liveLockout && !alreadyForcedOut(story)) {
       slots.push({
         id: "occupying_insecure",
         label: "Still occupying without a secure door",
@@ -102,7 +127,7 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
           "England occupier no written tenancy landlord removed door still living there illegal eviction stay without court order Shelter",
       })
     }
-    if (homelessStory(story) || alreadyForcedOut(story)) {
+    if (!vacatedRro && (homelessStory(story) || alreadyForcedOut(story))) {
       slots.push({
         id: "homelessness",
         label: "Homelessness / emergency housing",
@@ -124,13 +149,30 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
           "England occupier no written tenancy agreement service occupancy tied accommodation tenant rights Shelter Citizens Advice",
       })
     }
+    if (vacatedRro) {
+      slots.push({
+        id: "rro_relet_restriction",
+        label: "Rent repayment / re-let restriction after family or sale ground",
+        cover: [
+          /rent repayment|\brros?\b|renters.? rights|re-?lett|ground\s*1a?\b|family.{0,24}occup|restriction on (?:re-?letting|reletting)|first-tier tribunal|assured (?:periodic )?tenancy|possession ground/i,
+        ],
+        exaQuery:
+          "England Renters Rights Act restriction on re-letting after Ground 1 family occupation or Ground 1A sell rent repayment order First-tier Tribunal GOV.UK Shelter",
+      })
+    }
     slots.push({
       id: "housing_core",
       label: "Housing / landlord and tenant",
-      cover: [
-        /landlord.?tenant|private renting|section\s*21|eviction notice|illegal evict|homeless|housing and homelessness|renting/i,
-      ],
-      exaQuery: "England private renting eviction rules GOV.UK Shelter landlord tenant",
+      cover: vacatedRro
+        ? [
+            /landlord.?tenant|private renting|rent repayment|renters.? rights|assured|possession ground|re-?lett|first-tier tribunal/i,
+          ]
+        : [
+            /landlord.?tenant|private renting|section\s*21|eviction notice|illegal evict|homeless|housing and homelessness|renting/i,
+          ],
+      exaQuery: vacatedRro
+        ? "England private renting Renters Rights Act Ground 1 re-letting restriction rent repayment order Shelter GOV.UK"
+        : "England private renting eviction rules GOV.UK Shelter landlord tenant",
     })
   }
 

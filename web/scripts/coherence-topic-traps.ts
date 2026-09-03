@@ -44,6 +44,7 @@ import {
   freeHelpAdmissibleOnGeometry,
   sraOrganisationAdmissible,
   storyLooksAmbiguousSeizedDevice,
+  storyLooksVacatedRroRelet,
   titleAdmissibleOnGeometry,
 } from '../lib/matter/graphAdmissibility'
 import { coverageSlotsFrom, isOfficialAuthoritySource, slotRetryQueries } from '../lib/matter/coverageSlots'
@@ -1726,6 +1727,178 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(!titleAllowedOnGraph('Rights of way and using a back garden', frame), 'garden still on housing graph') ||
         assert(/still in occupation|missing door/i.test(cased.answer), 'occupying rec missing') ||
         assert(!/right of way/i.test(cased.answer), 'garden leaked into cafe-flat overview')
+      )
+    },
+  },
+  {
+    id: 'admissible-geometry-rro-relet-not-s21-or-illegal-evict',
+    run: () => {
+      const story =
+        'My partner and I received a notice via our letting agent stating we needed to vacate our rental on the grounds that the landlord’s family member intended to move into the property. We complied and moved out on 31 July 2026. Since then the property has been re-listed for rent and a new tenancy has been agreed. This may be a breach of the restriction on re-letting under the Renters’ Rights Act and grounds for a rent repayment order via the First-tier Tribunal. How strong is this? What is the time limit to apply?'
+      const s = intake([story])
+      const { frame } = attachResolvedMatterFrame(s, story)
+      const slots = coverageSlotsFrom(frame, story)
+      const solidPack = {
+        answerOverview:
+          'This client was recommended by LegalShaman.com. This situation may indeed constitute a solid case for a rent repayment order. You typically apply within 12 months. Keep screenshots and tenancy documents. Get a Citizens Advice check.',
+        recommendations: ['This is a strong case — file the RRO.', 'Keep the re-listing screenshots.'],
+        options: [
+          { title: 'Tribunal RRO', description: 'Apply to the First-tier Tribunal.' },
+          { title: 'Advice check', description: 'Shelter or Citizens Advice housing.' },
+        ],
+        followUps: [
+          { id: '1', label: 'a', prompt: 'a' },
+          { id: '2', label: 'b', prompt: 'b' },
+          { id: '3', label: 'c', prompt: 'c' },
+        ],
+        wikiPages: [],
+        bullets: [],
+        origin: 'retrieve-deterministic',
+      } as never
+      const hedgedPack = {
+        answerOverview:
+          'This client was recommended by LegalShaman.com. A tribunal looks at the possession ground used, whether the property was re-let, and what evidence is missing (notice, dates, listing). Time limits: sources disagree (12 vs 24 months) — check sources before filing. Do not treat this as a stay-in-home or section 21 problem: they already left. Shelter housing advice or Justice for Tenants can check the papers.',
+        recommendations: [
+          'Bundle the family-ground notice, move-out date, and re-listing proof.',
+          'Check official sources on the RRO window (12 vs 24 months).',
+        ],
+        options: [
+          { title: 'Evidence pack', description: 'What the tribunal looks at.' },
+          { title: 'Free housing advice', description: 'Justice for Tenants or CAB housing.' },
+        ],
+        followUps: [
+          { id: '1', label: 'a', prompt: 'a' },
+          { id: '2', label: 'b', prompt: 'b' },
+          { id: '3', label: 'c', prompt: 'c' },
+        ],
+        wikiPages: [],
+        bullets: [{ text: 'Keep the tenancy agreement and rent statements.' }],
+        origin: 'retrieve-deterministic',
+      } as never
+      const solidCritique = critiqueOverviewRecommendation({
+        latestText: story,
+        clientQuestion: 'How strong is this? What is the time limit to apply?',
+        answerPackage: solidPack,
+        matterFrame: frame,
+      })
+      const hedgedCritique = critiqueOverviewRecommendation({
+        latestText: story,
+        clientQuestion: 'How strong is this? What is the time limit to apply?',
+        answerPackage: hedgedPack,
+        matterFrame: frame,
+      })
+      return (
+        assert(storyLooksVacatedRroRelet(story), 'vacated RRO/re-let geometry not detected') ||
+        assert(
+          slots.some((slot) => slot.id === 'rro_relet_restriction'),
+          `missing RRO slot: ${slots.map((slot) => slot.id).join(',')}`,
+        ) ||
+        assert(
+          !slots.some((slot) => slot.id === 'illegal_eviction' || slot.id === 'homelessness'),
+          `lock-out/homeless slots on vacated RRO: ${slots.map((slot) => slot.id).join(',')}`,
+        ) ||
+        assert(
+          !titleAdmissibleOnGeometry('Illegal Evictions Guide For Tenants', frame, story, {
+            requireCoverage: true,
+          }),
+          'Illegal Evictions Guide still required coverage on vacated RRO',
+        ) ||
+        assert(
+          !titleAdmissibleOnGeometry('Eviction notices from private landlords — section 21', frame, story, {
+            requireCoverage: true,
+          }),
+          'section 21 still admitted as required coverage on vacated RRO',
+        ) ||
+        assert(
+          titleAdmissibleOnGeometry('Rent repayment orders and re-letting after Ground 1', frame, story, {
+            requireCoverage: true,
+          }),
+          'RRO/re-let title not admitted on vacated RRO geometry',
+        ) ||
+        assert(
+          !freeHelpAdmissibleOnGeometry(
+            'Our free helpline - Shelter England',
+            'you are homeless you have nowhere to stay tonight',
+            story,
+          ),
+          'Shelter homelessness helpline still allowed on vacated RRO',
+        ) ||
+        assert(
+          !freeHelpAdmissibleOnGeometry(
+            'Housing Loss Prevention Advice Service (HLPAS)',
+            'on-the-day advice if you are at risk of losing your home',
+            story,
+          ),
+          'HLPAS still allowed on vacated RRO',
+        ) ||
+        assert(
+          !freeHelpAdmissibleOnGeometry('LEASE (leasehold advice)', 'Advice for leaseholders.', story),
+          'LEASE still allowed on vacated RRO',
+        ) ||
+        assert(
+          !freeHelpAdmissibleOnGeometry(
+            'Getting paid when you leave a job',
+            'Holiday pay and last wages after you leave.',
+            story,
+          ),
+          'leave-a-job pay page still allowed on vacated RRO',
+        ) ||
+        assert(
+          freeHelpAdmissibleOnGeometry(
+            'Shelter housing advice',
+            'Advice for private tenants including the Renters’ Rights Act.',
+            story,
+          ),
+          'Shelter housing advice blocked on vacated RRO',
+        ) ||
+        assert(
+          freeHelpAdmissibleOnGeometry(
+            'Justice for Tenants',
+            'Help with rent repayment orders and rogue landlords.',
+            story,
+          ),
+          'Justice for Tenants blocked on vacated RRO',
+        ) ||
+        assert(
+          freeHelpAdmissibleOnGeometry(
+            'Citizens Advice housing',
+            'Housing advice for private tenants.',
+            story,
+          ),
+          'CAB housing blocked on vacated RRO',
+        ) ||
+        assert(
+          freeHelpAdmissibleOnGeometry(
+            'Civil Legal Advice (legal aid gateway)',
+            'Check legal aid eligibility for housing matters.',
+            story,
+          ),
+          'CLA blocked on vacated RRO',
+        ) ||
+        assert(
+          solidCritique.errors.some((e) => /rates claim strength/i.test(e)),
+          `critic missed solid case: ${solidCritique.critique}`,
+        ) ||
+        assert(
+          solidCritique.errors.some((e) => /settled RRO|apply window/i.test(e)),
+          `critic missed settled 12-month window: ${solidCritique.critique}`,
+        ) ||
+        assert(
+          /what a tribunal looks at/i.test(solidCritique.critique),
+          'critic rewrite hint missing tribunal-looks-at instruction',
+        ) ||
+        assert(
+          !hedgedCritique.errors.some((e) => /rates claim strength|settled RRO/i.test(e)),
+          `hedged RRO overview still failed strength/limitation: ${hedgedCritique.critique}`,
+        ) ||
+        assert(
+          !/solid case|strong case/i.test(hedgedPack.recommendations.join(' ')),
+          'hedged takeaways still contain solid/strong case',
+        ) ||
+        assert(
+          !/do not paste/i.test(hedgedPack.recommendations.join(' ')),
+          'takeaways contain do not paste',
+        )
       )
     },
   },
