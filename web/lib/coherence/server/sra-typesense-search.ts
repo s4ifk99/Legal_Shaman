@@ -4,6 +4,7 @@ import { LEGAL_ENTITIES_COLLECTION, typesenseConfigured } from "@/lib/search-ind
 import { searchLegalEntitiesMulti } from "@/lib/search-index/typesense-legal-entities-search";
 import { buildTypesenseListingsClientFromEnv } from "@/lib/search/typesense-listings-client";
 import { sraProfileUrlForId } from "@/lib/search/sra-document";
+import { sraOrganisationAdmissible } from "@/lib/matter/graphAdmissibility";
 import { scoreSraWorkAreaForMatching, type SraSearchPayload } from "@/lib/coherence/sraQuery";
 
 export type CoherenceSraHit = {
@@ -106,9 +107,11 @@ export async function searchSraOrganisationsTypesense(opts: {
     let score = scoreSraWorkAreaForMatching(hay, opts.flags);
     if (String(doc.phone || "").trim()) score += 2;
     if (score < opts.minScore) continue;
+    const name = String(doc.title || `SRA ${sraId}`);
+    if (!sraOrganisationAdmissible(name)) continue;
     ranked.push({
       sraId,
-      name: String(doc.title || `SRA ${sraId}`),
+      name,
       city: String(doc.city || ""),
       postcode: String(doc.postcode || ""),
       phone: String(doc.phone || ""),

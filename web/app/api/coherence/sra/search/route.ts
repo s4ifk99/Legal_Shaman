@@ -12,6 +12,7 @@ import {
   postcodePrefixesForLocation,
   resolveSraSearchFlags,
 } from "@/lib/coherence/sraQuery";
+import { sraOrganisationAdmissible } from "@/lib/matter/graphAdmissibility";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -222,17 +223,19 @@ export async function POST(req: Request) {
     ]);
 
     return NextResponse.json({
-      hits: result.rows.map((r) => ({
-        sraId: r.sra_id,
-        name: r.name,
-        city: r.city,
-        postcode: r.postcode,
-        phone: r.phone,
-        website: r.website,
-        profileUrl: r.profile_url,
-        workArea: r.work_area,
-        score: Number(r.score) || 0,
-      })),
+      hits: result.rows
+        .map((r) => ({
+          sraId: r.sra_id,
+          name: r.name,
+          city: r.city,
+          postcode: r.postcode,
+          phone: r.phone,
+          website: r.website,
+          profileUrl: r.profile_url,
+          workArea: r.work_area,
+          score: Number(r.score) || 0,
+        }))
+        .filter((hit) => sraOrganisationAdmissible(String(hit.name || ""))),
     });
   } catch (err) {
     const hits = await typesenseHits();

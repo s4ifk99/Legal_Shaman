@@ -56,6 +56,7 @@ export {
   freeHelpAdmissibleOnGeometry,
   graphIsWeakForHits,
   isNeighbourAttractorTitle,
+  sraOrganisationAdmissible,
   storyLooksAmbiguousSeizedDevice,
   storyLooksEmployerSeizedKit,
   titleAdmissibleOnGeometry,
