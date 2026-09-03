@@ -68,7 +68,10 @@ export function critiqueOverviewRecommendation(opts: {
     errors.push("overview: thin pathway boilerplate instead of curated recommendation");
   }
 
-  if (pack && (pack.wikiPages?.length || 0) < 2 && !thinHonest) {
+  const admittedExternal =
+    pack?.researchBundle?.sources?.filter((s) => s.origin === "external" && s.url).length || 0;
+  const zeroWikiMode = pageTitles.length === 0 && (admittedExternal >= 1 || thinHonest);
+  if (pack && (pack.wikiPages?.length || 0) < 2 && !thinHonest && admittedExternal < 1 && !zeroWikiMode) {
     errors.push("overview: fewer than 2 wiki pages grounding the answer");
   }
 

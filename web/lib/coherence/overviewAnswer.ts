@@ -57,32 +57,34 @@ import {
   freeHelpAdmissibleOnGeometry,
   isNeighbourAttractorTitle,
 } from "@/lib/matter/graphAdmissibility";
+import { extractClientQuestions, liveQuestionCoverageGaps } from "@/lib/coherence/clientQuestions";
 
 const OVERVIEW_SYSTEM = `You are Legal Shaman's Overview agent — a research agent that builds the client's case from the CASE FILE, WIKI CONTEXT (library), and optional Third Eye notes.
 
-Write a practical UK signposting recommendation that helps the client decide what to do next. Do not merely list search results.
+Write a practical UK signposting recommendation that answers each live Client question in the CASE FILE, in order. If a source is missing for a question, say so and point to an admitted official or Third Eye URL. Never invent statutes, case law, or neighbour topics.
 
 Rules:
 1. Treat the CASE FILE as frozen. Cover every primary and secondary issue on the graph. Never switch the matter to an excluded topic (e.g. discrimination, child arrangements) just because a neighbouring wiki page ranked.
-2. Treat WIKI CONTEXT and DWORKIN AUTHORITY as the curated foundation. A supplemental Third Eye / Penumbra bundle is unverified lead material: use it to fill gaps, name uncertainty, and never treat an unsupported external claim as established law. Do not invent statutes, outcomes, or firm endorsements.
+2. Treat WIKI CONTEXT and DWORKIN AUTHORITY as the curated foundation. A supplemental Third Eye / Penumbra bundle is unverified lead material: use it to fill gaps, name uncertainty, and never treat an unsupported external claim as established law.
 3. Open with one short line: the client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).
 4. Structure the answer as a case, in this order:
    - The matter (what is actually live on these facts)
    - Area of law (primary, then secondary strands such as withheld wages)
-   - What is live now vs later (e.g. homelessness tonight vs ACAS pay)
+   - Direct answers to each live Client question, in order (or an honest "not in the library" plus an admitted URL)
+   - What is live now vs later
    - Next steps in time order, grounded in the sources
    - Facts that would change the route
-5. Answer the client's actual questions. If they were already forced out, do not write as if they still have a quiet week before a notice date.
-6. Prefer concrete next steps grounded in the pages. Prefer rule-tagged sources for what to do, principle-tagged sources for fairness questions, and treat policy-tagged sources as background.
+5. If they were already forced out, do not write as if they still have a quiet week before a notice date.
+6. Prefer concrete next steps grounded in admitted pages or admitted Third Eye / official URLs. Prefer rule-tagged sources for what to do, principle-tagged sources for fairness questions, and treat policy-tagged sources as background.
 7. Do NOT predict win/lose. Do NOT say "you should definitely".
-8. Keep it concise: about 280–520 words. Short section headings allowed (plain lines, not markdown #).
+8. Keep it concise: about 280–520 words. Short section headings allowed (plain lines, not markdown #). Zero wiki pages is allowed when the CASE FILE plus admitted Third Eye or official URLs can answer, or when you must say the library is thin.
 9. End with one sentence: this is Legal Shaman signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.
-10. If the library titles do not cover the client's live questions, say the library is thin and cite only admitted pages. Never complete the page with housing, garden, right of way, tenancy deposit, package holiday, smart meter, motoring/PCN, consumer-scam, or “item hasn't arrived” guidance unless that issue is on the frozen graph.
+10. If the library titles do not cover the client's live questions, say the library is thin and cite only admitted pages and admitted URLs. Never complete the page with housing, garden, right of way, tenancy deposit, package holiday, smart meter, motoring/PCN, consumer-scam, or “item hasn't arrived” guidance unless that issue is on the frozen graph.
 11. When the asker owns seized work kit (employer / company laptop), do not write as if they are the arrested person. Criminal defence is for the arrested person only; recovering employer property is a separate route.
 12. Only cite titles that appear in WIKI CONTEXT or admitted Third Eye notes. Do not invent pages to fill the list.
 13. If Master Critic feedback is provided, fix every listed failure before answering.
 14. Give at least two realistic options where the sources support more than one route.
-15. Takeaways and next steps must be short practical actions. Never paste the client's questions, "Your live questions:", or a string with two or more question marks.
+15. Takeaways and next steps must be short practical actions. Never paste the client's questions, "Your live questions:", "do not paste", or a string with two or more question marks.
 16. Return JSON only:
 {
   "answer": "full recommendation text",
@@ -390,6 +392,25 @@ function practicalLines(value: unknown, limit: number): string[] {
   return cleanList(value, limit)
     .map(stripAuthorMetaTakeaway)
     .filter((item) => item.length >= 12 && !looksLikeQuestionDump(item));
+}
+
+function overviewJsonUsable(
+  parsed: ParsedOverview | null,
+  answer: string,
+  takeaways: string[],
+  recs: string[],
+  latestText: string,
+  clientQuestion?: string,
+): boolean {
+  if (!parsed || !answer) return false;
+  if (takeaways.some((t) => AUTHOR_META_TAKEAWAY.test(t) || looksLikeQuestionDump(t))) return false;
+  if (recs.some((t) => AUTHOR_META_TAKEAWAY.test(t) || looksLikeQuestionDump(t))) return false;
+  const hay = `${answer}\n${takeaways.join("\n")}\n${recs.join("\n")}`;
+  const gaps = liveQuestionCoverageGaps(latestText, hay, clientQuestion);
+  const covers = extractClientQuestions(`${clientQuestion || ""}\n${latestText}`).length === 0 || gaps.length === 0;
+  if (answer.length >= 160) return true;
+  if (covers && takeaways.length >= 2 && recs.length >= 1 && answer.length >= 40) return true;
+  return false;
 }
 
 function classifyLlmFailure(err: unknown): Exclude<LlmFallbackReason, "short_answer" | "disabled"> {
@@ -708,7 +729,11 @@ export async function buildOverviewAnswer(opts: {
       ? buildContext(hits, dworkin)
       : "No admitted Legal Shaman wiki pages cover the live questions. Say the library is thin. Use only admitted Third Eye notes below, if any.";
   const canWriteLlm =
-    llmConfigured() && enableOverviewSynthesis() && (opts.matterFrame || hits.length >= 2);
+    llmConfigured() &&
+    enableOverviewSynthesis() &&
+    (Boolean(opts.matterFrame) ||
+      hits.length >= 2 ||
+      (Boolean(opts.matterFrame) && latestText.length >= 8 && supplemental.length >= 1));
   if (!canWriteLlm) {
     if (!llmConfigured() || !enableOverviewSynthesis()) llmFallbackReason = "disabled";
   }
@@ -736,9 +761,10 @@ export async function buildOverviewAnswer(opts: {
         },
       );
       const parsed = parseJson(raw);
-      let answer = sanitizeSignpostingText((parsed?.answer || "").trim());
-      if (answer.length >= 160) {
-        // Keep wiki page order preferred; optionally reorder by titles LLM used
+      const answer = sanitizeSignpostingText((parsed?.answer || "").trim());
+      const takeaways = practicalLines(parsed?.takeaways, 5);
+      const recs = practicalLines(parsed?.recommendations, 4);
+      if (overviewJsonUsable(parsed, answer, takeaways, recs, latestText, opts.clientQuestion)) {
         const preferredTitles = new Set(
           (parsed?.wikiPageTitles || []).map((t) => t.toLowerCase()),
         );
@@ -749,7 +775,6 @@ export async function buildOverviewAnswer(opts: {
                 ...hits.filter((h) => !preferredTitles.has(h.title.toLowerCase())),
               ]
             : hits;
-        const takeaways = practicalLines(parsed?.takeaways, 5);
         const options = Array.isArray(parsed?.options)
           ? parsed.options
               .map((item) =>
@@ -766,7 +791,7 @@ export async function buildOverviewAnswer(opts: {
         return {
           answerPackage: attachResearchBundle(
             toPackage(answer, ordered, takeaways, "retrieve-llm", latestText, dworkin, {
-              recommendations: practicalLines(parsed?.recommendations, 4),
+              recommendations: recs,
               options,
               missingFacts: cleanList(parsed?.missingFacts, 5),
               followUpPrompts: cleanList(parsed?.followUpPrompts, 3),

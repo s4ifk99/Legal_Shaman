@@ -3,7 +3,7 @@
  * and wiki hits. Used as the product fallback (and as the brief for LLM synthesis).
  */
 import type { MatterFrame } from "@/lib/matter/types";
-import { compressLiveGoal, extractClientQuestions } from "./clientQuestions";
+import { extractClientQuestions } from "./clientQuestions";
 import {
   graphIsWeakForHits,
   storyLooksEmployerSeizedKit,
@@ -29,11 +29,9 @@ export function formatCaseBrief(
     secondary ? `Also in play: ${secondary}.` : "",
     exclusions ? `Do not advise on excluded topics: ${exclusions}.` : "",
     `Live situation: ${live}.`,
-    storyLooksEmployerSeizedKit(story)
-      ? `Client goal: ${compressLiveGoal(`${clientQuestion || ""}\n${story}`)}.`
-      : questions.length
-        ? `Client questions to cover:\n${questions.map((q) => `- ${q}`).join("\n")}`
-        : "",
+    questions.length
+      ? `Client questions to cover (answer each in order; never paste this list into takeaways):\n${questions.map((q) => `- ${q}`).join("\n")}`
+      : "",
     "Write a case: what the matter is, the area of law, what is live now vs later, and next steps in time order.",
   ]
     .filter(Boolean)
@@ -193,7 +191,7 @@ export function buildCaseLedOverview(opts: {
           : "Stay with the frozen issue graph — do not switch the matter to a neighbouring wiki topic."
     }`,
     seizedKit
-      ? `Your goal: ${compressLiveGoal(`${clientQuestion || ""}\n${story}`)}.`
+      ? ""
       : questions.length
         ? `Your questions: ${questions.join(" ")}`
         : "",
