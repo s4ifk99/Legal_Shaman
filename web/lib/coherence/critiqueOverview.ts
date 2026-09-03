@@ -5,6 +5,7 @@ import {
   graphIsWeakForHits,
   overviewUsesForbiddenPlaybook,
   storyLooksEmployerSeizedKit,
+  storyLooksVacatedRroRelet,
   titleAdmissibleOnGeometry,
 } from "@/lib/matter/graphAdmissibility";
 
@@ -18,6 +19,24 @@ export type OverviewCritique = {
 
 const SUCCESS_PREDICT =
   /\b(you will win|likely to (win|succeed)|guaranteed|definitely entitled|strong claim you)\b/i;
+
+/** Soft strength ratings the write model uses instead of hard win-talk. */
+const STRENGTH_RATING =
+  /\b(?:solid|strong|good|meritorious) case\b|\blikely entitled\b|\byou have a claim\b|\bconstitute[sd]? a (?:solid |strong |good |meritorious )?(?:legal )?case for\b|\bwin odds\b/i;
+
+const CRITIC_REWRITE_STRENGTH =
+  "Rewrite: answer how-strong questions as what a tribunal looks at and what evidence is missing — never strength ratings, win odds, solid/strong case, or entitlement conclusions. Prefer evidence checklist, jurisdiction, ground elements, time limits as check sources, and free help.";
+
+function assertsSettledRroLimitation(text: string): boolean {
+  const hedge =
+    /check sources|sources disagree|12 vs 24|12 or 24|24 months|uncertain|not settled|may (?:be|differ)|depending on (?:the )?source/i;
+  const flat =
+    /typically within 12 months/i.test(text) ||
+    /(?:must|need to|have to) apply.{0,50}within 12 months/i.test(text) ||
+    /(?:the |a )?time limit is 12 months/i.test(text) ||
+    /apply within 12 months(?: of| for|\.|$)/i.test(text);
+  return flat && !hedge.test(text);
+}
 
 const PATHWAY_BOILERPLATE =
   /\b(start with the primary linked open source|keep evidence: contracts, receipts|from compiled wiki pathway)\b/i;
@@ -70,6 +89,23 @@ export function critiqueOverviewRecommendation(opts: {
 
   if (overview && SUCCESS_PREDICT.test(overview)) {
     errors.push("overview: predicts legal success / outcome");
+  }
+
+  const recsPreview = [
+    ...(pack?.bullets || []).map((b) => b.text),
+    ...(pack?.recommendations || []),
+  ].join(" ");
+  const strengthBlob = `${overview}\n${recsPreview}`;
+  if (STRENGTH_RATING.test(strengthBlob)) {
+    errors.push(`overview: rates claim strength (solid/strong/good case). ${CRITIC_REWRITE_STRENGTH}`);
+  }
+  if (
+    (storyLooksVacatedRroRelet(opts.latestText) || /rent repayment|\brros?\b/i.test(strengthBlob)) &&
+    assertsSettledRroLimitation(strengthBlob)
+  ) {
+    errors.push(
+      "overview: asserts a single settled RRO / tribunal apply window. Cite uncertainty and dual windows (12 vs 24 months); tell the client to check sources. Never treat one period as settled.",
+    );
   }
 
   if (overview && PATHWAY_BOILERPLATE.test(overview)) {

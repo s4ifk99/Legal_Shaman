@@ -37,6 +37,7 @@ export {
   primaryMatterSlug,
   rankByCoverage,
   slotRetryQueries,
+  storyLooksVacatedRroRelet,
   titleCoversGraph,
   uncoveredSlots,
 } from "./coverageSlots";

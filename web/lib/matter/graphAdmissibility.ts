@@ -4,7 +4,9 @@
  * ranked next to a neighbour wiki attractor.
  */
 import { titleAllowedOnGraph } from "./issueGraphHits";
-import { coverageSlotsFrom, titleCoversGraph } from "./coverageSlots";
+import { coverageSlotsFrom, storyLooksVacatedRroRelet, titleCoversGraph } from "./coverageSlots";
+
+export { storyLooksVacatedRroRelet };
 
 type IssueGraph = {
   primaryIssues: { slug: string }[];
@@ -106,6 +108,15 @@ export function isNeighbourAttractorTitle(title: string, frame: IssueGraph, stor
   ) {
     return true;
   }
+  if (
+    storyLooksVacatedRroRelet(story) &&
+    /illegal evict|section\s*21|homelessness|housing and homelessness|tenant refuses to leave|stay in (?:your |the )?home|eviction notices? from private|protection from eviction/i.test(
+      t,
+    ) &&
+    !/rent repayment|re-?lett|renters.? rights|ground\s*1/i.test(t)
+  ) {
+    return true;
+  }
   if (storyLooksEmployerSeizedKit(story) && WRONG_PARTY_DEFENDANT_TITLE.test(t)) {
     return true;
   }
@@ -129,6 +140,23 @@ export function isNeighbourAttractorTitle(title: string, frame: IssueGraph, stor
 /** Charities / helplines must match capacity, not just matter=crime. */
 export function freeHelpAdmissibleOnGeometry(title: string, blurb: string, story = ""): boolean {
   const hay = `${title} ${blurb}`.toLowerCase();
+  if (storyLooksVacatedRroRelet(story)) {
+    if (/hlpas|housing loss prevention|at risk of losing your home|possession proceedings/i.test(hay)) {
+      return false;
+    }
+    if (
+      /homeless|nowhere to stay|emergency helpline|our free helpline - shelter/i.test(hay) &&
+      !/rent repayment|renters.? rights|re-?lett|housing advice/i.test(hay)
+    ) {
+      return false;
+    }
+    if (/\blease\b|leasehold advice/i.test(hay) && !/leasehold/i.test(story)) {
+      return false;
+    }
+    if (/getting paid when you leave a job/i.test(hay)) {
+      return false;
+    }
+  }
   if (storyLooksEmployerSeizedKit(story)) {
     if (/homeless|nowhere to stay|emergency helpline|shelter england#|our free helpline - shelter/i.test(hay)) {
       return false;
@@ -195,6 +223,23 @@ export function overviewUsesForbiddenPlaybook(text: string, frame: IssueGraph, s
   if (!slugs.has("neighbour_dispute") && /right of way|back garden/i.test(blob)) return true;
   if (storyLooksEmployerSeizedKit(story) && /illegal evict|court-appointed bailiff|homelessness duty/i.test(blob)) {
     return true;
+  }
+  if (storyLooksVacatedRroRelet(story)) {
+    if (/illegal evict(?:ion)?s? guide|protection from eviction act|removed (?:the )?front door/i.test(blob)) {
+      return true;
+    }
+    if (
+      /\bsection\s*21\b/i.test(blob) &&
+      !/not (?:a )?section\s*21|section 21 (?:does not|no longer|abolished)/i.test(blob)
+    ) {
+      return true;
+    }
+    if (
+      /stay in (?:your |the )?(?:home|property)|do not leave|homelessness duty/i.test(blob) &&
+      !/already (?:left|moved out)|no longer live/i.test(blob)
+    ) {
+      return true;
+    }
   }
   if (storyLooksEmployerSeizedKit(story) && /progress the .{0,40} using the matched guidance/i.test(blob)) {
     return true;
