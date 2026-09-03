@@ -4,7 +4,10 @@
  */
 import { isParkingStoryText } from './signposting'
 import { buildRetrievalText } from './retrievalText'
-import { freeHelpAdmissibleOnGeometry } from '@/lib/matter/graphAdmissibility'
+import {
+  freeHelpAdmissibleOnGeometry,
+  storyLooksEmployerSeizedKit,
+} from '@/lib/matter/graphAdmissibility'
 import type { MatterType, SessionState } from './types'
 import index from '@/data/coherence/freeServicesIndex.json'
 
@@ -352,7 +355,11 @@ function pinMatterSpecialists(
     matter === 'housing' || (isHousingStoryText(text) && (matter === 'unknown' || matter === 'other'))
       ? 'housing'
       : matter
-  const specialistIds = effectiveMatter ? MATTER_SPECIALIST_IDS[effectiveMatter] : undefined
+  const specialistIds = storyLooksEmployerSeizedKit(text)
+    ? (['fs-cab-adviceline-england'] as const)
+    : effectiveMatter
+      ? MATTER_SPECIALIST_IDS[effectiveMatter]
+      : undefined
   if (!specialistIds?.length) return ranked
 
   const byId = new Map(services.map((s) => [s.id, s]))

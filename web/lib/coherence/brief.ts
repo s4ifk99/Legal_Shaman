@@ -6,7 +6,7 @@ import type { LegalFrame } from './frames'
 import type { LawyerReviewRecord, SolicitorBriefWithReview } from './lawyerLoop'
 import { matterLabel } from './services'
 import { missingSlots } from './slots'
-import { extractClientQuestions } from './clientQuestions'
+import { compressLiveGoal, extractClientQuestions } from './clientQuestions'
 import { isMetaCauseLine, sanitizeIntakeNarrative } from './sense'
 import { tidySentence } from './timelineExtract'
 
@@ -257,7 +257,8 @@ export function buildLawyerBrief(
     instructionsForLawyer: instructions.map((line) => `• ${line}`).join('\n'),
     desiredOutcome:
       session.goal ||
-      extractClientQuestions(`${session.clientQuestion || ''}\n${session.whatHappened || ''}`).join(' ') ||
+      compressLiveGoal(`${session.clientQuestion || ''}\n${session.whatHappened || ''}`) ||
+      extractClientQuestions(`${session.clientQuestion || ''}\n${session.whatHappened || ''}`)[0] ||
       'Not yet stated by the client.',
     timeline,
     parties: session.parties.map((p) => (p.role ? `${p.label} (${p.role})` : p.label)),

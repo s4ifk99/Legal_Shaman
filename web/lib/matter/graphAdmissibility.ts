@@ -128,6 +128,9 @@ export function freeHelpAdmissibleOnGeometry(title: string, blurb: string, story
     if (/consumer helpline|faulty goods|refunds, traders|consumer rights/i.test(hay)) {
       return false;
     }
+    if (/civil legal advice|legal aid gateway|housing, debt, family/i.test(hay)) {
+      return false;
+    }
     if (/magistrates.? court fines|going to court without a solicitor|you(?:'ve| have) been arrested|duty solicitor|legal aid.{0,40}police station/i.test(hay) &&
       !/property when you leave|leave a job|company property|work (?:laptop|files)|employer/i.test(hay)) {
       return false;

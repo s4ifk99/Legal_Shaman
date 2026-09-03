@@ -31,5 +31,13 @@ export function gapIntentsForFrame(
   if (slugs.has("employment") && /wage|holiday pay|sick pay|ssp/i.test(story) && !/holiday pay|unpaid wage|acas/.test(blob)) {
     out.push("unpaid wages holiday pay ACAS");
   }
+  if (/work laptop|employer(?:'s)? (?:work )?laptop|member of my staff/i.test(story)) {
+    if (!/return of (?:seized )?property|seized property|pace/i.test(blob)) {
+      out.push("police return of seized property PACE section 22 if not charged");
+    }
+    if (!/work files|digital evidence|employer (?:property|data)/i.test(blob)) {
+      out.push("police examine employer work files seized laptop third party data");
+    }
+  }
   return [...new Set(out)];
 }

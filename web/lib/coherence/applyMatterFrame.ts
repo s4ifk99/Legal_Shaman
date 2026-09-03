@@ -5,9 +5,9 @@ import { toSessionMatterFrame } from './matterFrame'
 import type { MatterFrame } from '@/lib/matter/types'
 import type { Prompt, SessionState, TimelineEvent } from './types'
 import { applyFrameRoutingToSession } from './issueRouting'
-import { extractClientQuestions } from './clientQuestions'
+import { compressLiveGoal, extractClientQuestions } from './clientQuestions'
 
-export { extractClientQuestions }
+export { compressLiveGoal, extractClientQuestions }
 
 const uid = () => Math.random().toString(36).slice(2, 10)
 
@@ -78,7 +78,10 @@ export function attachResolvedMatterFrame(
   let next: SessionState = {
     ...session,
     matterFrame: toSessionMatterFrame(frame),
-    clientQuestion: questions.join(' ') || session.clientQuestion,
+    clientQuestion:
+      compressLiveGoal(`${storyForResolve(session, latestText)}\n${session.clientQuestion || ''}`) ||
+      questions[0] ||
+      session.clientQuestion,
     events: eventsFromFrame(frame, session.events),
     confirmedUserRole: role === 'unset' ? session.confirmedUserRole : role,
   }

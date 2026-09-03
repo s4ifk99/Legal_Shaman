@@ -25,7 +25,7 @@ import { normalizeSearchMode, searchModePolicy } from '../lib/coherence/searchMo
 import { canonicalizeResearchBundle, emptyResearchBundle, parseResearchBundle, researchBundlePrompt } from '../lib/coherence/researchBundle'
 import { matchingSessionForHelp } from '../lib/coherence/services'
 import { buildLawyerBrief } from '../lib/coherence/brief'
-import { relevantWorkAreas, scoreSraWorkAreaForMatching, resolveSraSearchFlags, sraMatchReason } from '../lib/coherence/sraQuery'
+import { relevantWorkAreas, scoreSraWorkAreaForMatching, resolveSraSearchFlags, sraMatchReason, matchingHelpLanesForStory, employerPropertySraFlags } from '../lib/coherence/sraQuery'
 import { attachResolvedMatterFrame } from '../lib/coherence/applyMatterFrame'
 import { preferFrameMatching } from '../lib/coherence/issueRouting'
 import { matchFreeServices } from '../lib/coherence/matchFreeServices'
@@ -46,8 +46,8 @@ import {
   storyLooksAmbiguousSeizedDevice,
   titleAdmissibleOnGeometry,
 } from '../lib/matter/graphAdmissibility'
-import { coverageSlotsFrom } from '../lib/matter/coverageSlots'
-import { extractClientQuestions } from '../lib/coherence/clientQuestions'
+import { coverageSlotsFrom, isOfficialAuthoritySource, slotRetryQueries } from '../lib/matter/coverageSlots'
+import { compressLiveGoal, extractClientQuestions } from '../lib/coherence/clientQuestions'
 import { buildCaseLedOverview } from '../lib/coherence/caseBuilder'
 import { critiqueOverviewRecommendation } from '../lib/coherence/critiqueOverview'
 
@@ -1576,6 +1576,65 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(
           !sraOrganisationAdmissible('CROWN PROSECUTION SERVICE HOUNSLOW'),
           'CPS still treated as an admissible SRA defence match',
+        ) ||
+        assert(
+          !freeHelpAdmissibleOnGeometry(
+            'Civil Legal Advice (legal aid gateway)',
+            'Check legal aid eligibility and speak to an adviser for housing, debt, family and other civil matters.',
+            story,
+          ),
+          'CLA housing gateway still allowed on employer-kit crime',
+        ) ||
+        assert(
+          /Recover the work laptop/i.test(compressLiveGoal(story)),
+          `goal not compressed: ${compressLiveGoal(story)}`,
+        ) ||
+        assert(!/\?.*\?/.test(compressLiveGoal(story)), 'compressed goal still concatenates questions') ||
+        assert(
+          matchingHelpLanesForStory(story).join(',') === 'arrested_person,employer_property',
+          `lanes=${matchingHelpLanesForStory(story).join(',')}`,
+        ) ||
+        assert(
+          /employer property/i.test(
+            sraMatchReason('Employment, Commercial', {
+              ...employerPropertySraFlags(story),
+              query: story,
+              wantCar: false,
+              wantConsumer: false,
+            }),
+          ),
+          'employer lane still labelled as defence',
+        ) ||
+        assert(
+          slotRetryQueries(coverageSlotsFrom(frame, story), [], story).some((row) =>
+            /return of seized|work files|PACE/i.test(row.query),
+          ),
+          'slot-retry missing employer-kit queries',
+        ) ||
+        assert(
+          isOfficialAuthoritySource('PACE Code B 2023', 'https://www.gov.uk/government/publications/pace-code-b-2023'),
+          'PACE/GOV.UK not treated as official',
+        ) ||
+        assert(
+          !isOfficialAuthoritySource('If something you ordered hasn\'t arrived', ''),
+          'delivery wiki treated as official',
+        ) ||
+        assert(
+          critiqueOverviewRecommendation({
+            latestText: story,
+            answerPackage: {
+              answerOverview:
+                'This client was recommended by LegalShaman.com. Start with the consumer helpline about faulty goods and a scam refund if the item hasn\'t arrived.',
+              recommendations: ['a', 'b'],
+              options: [{ title: 'One', description: 'x' }, { title: 'Two', description: 'y' }],
+              followUps: [{ id: '1', label: 'a', prompt: 'a' }, { id: '2', label: 'b', prompt: 'b' }, { id: '3', label: 'c', prompt: 'c' }],
+              wikiPages: [],
+              bullets: [],
+              origin: 'retrieve-deterministic',
+            } as never,
+            matterFrame: frame,
+          }).errors.some((e) => /consumer filler/i.test(e)),
+          'critic missed consumer filler on employer-kit overview',
         ) ||
         assert(extractClientQuestions(story).every((q) => q.length <= 180), 'questions still dump the narrative') ||
         assert(!/Asking for any police officers|Not yet stated/i.test(`${brief.situationSummary} ${brief.desiredOutcome}`), `brief=${brief.situationSummary} | ${brief.desiredOutcome}`) ||
