@@ -752,7 +752,7 @@ export async function buildOverviewAnswer(opts: {
         ],
         {
           jsonMode: true,
-          temperature: 0.2,
+          temperature: 0.35,
           maxTokens: 2400,
           timeoutMs: overviewChatTimeoutMs(),
           model: resolveOverviewModel(),
