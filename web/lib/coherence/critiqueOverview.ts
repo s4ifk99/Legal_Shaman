@@ -1,5 +1,6 @@
 import type { AnswerPackage } from "@/lib/coherence/answerPackage";
 import type { MatterFrame } from "@/lib/matter/types";
+import { liveQuestionCoverageGaps } from "@/lib/coherence/clientQuestions";
 import {
   graphIsWeakForHits,
   overviewUsesForbiddenPlaybook,
@@ -20,6 +21,13 @@ const SUCCESS_PREDICT =
 
 const PATHWAY_BOILERPLATE =
   /\b(start with the primary linked open source|keep evidence: contracts, receipts|from compiled wiki pathway)\b/i;
+
+/** Fingerprints of the seized-kit caseBuilder recs — LLM must not parrot the template. */
+const KIT_TEMPLATE_FINGERPRINTS = [
+  /treat this as police seizure of employer property, not a housing or motoring matter/i,
+  /a criminal defence solicitor is for the arrested person \(police station \/ interview\)/i,
+  /write to the force, then get employer-side advice on recovering kit/i,
+];
 
 /**
  * Master Critic for the practical Overview recommendation.
@@ -68,7 +76,10 @@ export function critiqueOverviewRecommendation(opts: {
     errors.push("overview: thin pathway boilerplate instead of curated recommendation");
   }
 
-  if (pack && (pack.wikiPages?.length || 0) < 2 && !thinHonest) {
+  const admittedExternal =
+    pack?.researchBundle?.sources?.filter((s) => s.origin === "external" && s.url).length || 0;
+  const zeroWikiMode = pageTitles.length === 0 && (admittedExternal >= 1 || thinHonest);
+  if (pack && (pack.wikiPages?.length || 0) < 2 && !thinHonest && admittedExternal < 1 && !zeroWikiMode) {
     errors.push("overview: fewer than 2 wiki pages grounding the answer");
   }
 
@@ -164,6 +175,26 @@ export function critiqueOverviewRecommendation(opts: {
     errors.push("overview: missing LegalShaman.com recommendation note");
   }
 
+  const recsAndBullets = [
+    ...(pack?.bullets || []).map((b) => b.text),
+    ...(pack?.recommendations || []),
+  ].join(" ");
+  if (/do not paste|cover the client's live questions|Your live questions:/i.test(recsAndBullets)) {
+    errors.push("overview: takeaways contain author instructions or a question dump");
+  }
+  const kitHits = KIT_TEMPLATE_FINGERPRINTS.filter((re) => re.test(recsAndBullets)).length;
+  if (kitHits >= 2) {
+    errors.push("overview: template-shaped kit recommendations");
+  }
+  const liveGaps = liveQuestionCoverageGaps(
+    opts.latestText,
+    `${overview}\n${recsAndBullets}`,
+    opts.clientQuestion,
+  );
+  if (liveGaps.length) {
+    errors.push(`overview: missing answers to live questions (${liveGaps.join(", ")})`);
+  }
+
   if (overview && /progress the .{0,60} using the matched guidance/i.test(overview)) {
     errors.push("overview: empty live-now slot filled with matched-guidance boilerplate");
   }
@@ -199,7 +230,10 @@ export function critiqueOverviewRecommendation(opts: {
       ...(pack?.bullets || []).map((b) => b.text),
       ...(pack?.recommendations || []),
     ].join(" ");
-    if (/your live questions:|cover the client's live questions/i.test(recText) || (recText.match(/\?/g) || []).length >= 2) {
+    if (
+      /do not paste|cover the client's live questions|Your live questions:/i.test(recText) ||
+      (recText.match(/\?/g) || []).length >= 2
+    ) {
       errors.push("overview: takeaways dump the client's question list");
     }
     if (

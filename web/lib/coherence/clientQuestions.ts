@@ -79,3 +79,27 @@ export function extractClientQuestions(text: string): string[] {
   }
   return out.slice(0, 5)
 }
+
+/**
+ * Live questions the Overview body + takeaways still fail to address.
+ * Used to accept structured JSON that is shorter than 160 chars but complete,
+ * and by the critic without requiring two wiki pages.
+ */
+export function liveQuestionCoverageGaps(story: string, haystack: string, clientQuestion?: string): string[] {
+  const qs = extractClientQuestions(`${clientQuestion || ''}\n${story}`)
+  const h = String(haystack || '').toLowerCase()
+  const gaps: string[] = []
+  for (const q of qs) {
+    const returnOfProperty = /laptop|returned|not charged|property/i.test(q)
+    const fileExam = /files|examine|dropbox|open work/i.test(q)
+    const nextStep = /get it back|stop them|what should i do|next/i.test(q)
+    if (returnOfProperty && !/return|property reference|retained as evidence|get .{0,24}back|not charged/i.test(h)) {
+      gaps.push('return of property')
+    } else if (fileExam && !/files|examine|dropbox|pace|third.?party/i.test(h)) {
+      gaps.push('file examination')
+    } else if (nextStep && !/write to (?:the )?(?:force|police)|solicitor|property reference|next step/i.test(h)) {
+      gaps.push('next step')
+    }
+  }
+  return [...new Set(gaps)]
+}

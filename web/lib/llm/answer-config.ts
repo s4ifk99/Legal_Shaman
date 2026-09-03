@@ -40,11 +40,16 @@ export function enableOverviewSynthesis(): boolean {
   return Boolean(process.env.LLM_API_KEY?.trim() || process.env.OPENROUTER_API_KEY?.trim());
 }
 
+/**
+ * Overview write model. Prefer OVERVIEW_MODEL, then LLM_CHAT_MODEL, then
+ * gpt-4o-mini. Do not use LLM_SMALL_MODEL / resolveSynthesisModel here —
+ * that small model is for classify and rerank, not the Cursor-style write.
+ */
 export function resolveOverviewModel(): string {
   return (
     process.env.OVERVIEW_MODEL?.trim() ||
     process.env.LLM_CHAT_MODEL?.trim() ||
-    resolveSynthesisModel()
+    (isOpenRouterBaseUrl(resolveLlmBaseUrl()) ? "openai/gpt-4o-mini" : "gpt-4o-mini")
   );
 }
 

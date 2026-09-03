@@ -1637,8 +1637,31 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           'critic missed consumer filler on employer-kit overview',
         ) ||
         assert(
-          !/Your live questions:|Are we likely to get it back/i.test(cased.recommendations.join(' ')),
-          'takeaways still dump live questions',
+          !/Your live questions:|Are we likely to get it back|do not paste/i.test(cased.recommendations.join(' ')),
+          'takeaways still dump live questions or author notes',
+        ) ||
+        assert(
+          !/do not paste/i.test(cased.takeaways.join(' ')),
+          'takeaways still contain do not paste',
+        ) ||
+        assert(
+          critiqueOverviewRecommendation({
+            latestText: story,
+            answerPackage: {
+              answerOverview: 'This client was recommended by LegalShaman.com. Write to the force.',
+              recommendations: [
+                'Write to the force — do not paste the client\'s question list into the takeaways.',
+                'Ask about the property reference.',
+              ],
+              options: [{ title: 'One', description: 'x' }, { title: 'Two', description: 'y' }],
+              followUps: [{ id: '1', label: 'a', prompt: 'a' }, { id: '2', label: 'b', prompt: 'b' }, { id: '3', label: 'c', prompt: 'c' }],
+              wikiPages: [],
+              bullets: [],
+              origin: 'retrieve-deterministic',
+            } as never,
+            matterFrame: frame,
+          }).errors.some((e) => /do not paste|author instructions|question dump/i.test(e)),
+          'critic missed do-not-paste author note in takeaways',
         ) ||
         assert(
           !titleAdmissibleOnGeometry('If you are accused', frame, story, { requireCoverage: true }),

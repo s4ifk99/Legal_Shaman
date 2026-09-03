@@ -3,7 +3,7 @@
  * and wiki hits. Used as the product fallback (and as the brief for LLM synthesis).
  */
 import type { MatterFrame } from "@/lib/matter/types";
-import { compressLiveGoal, extractClientQuestions } from "./clientQuestions";
+import { extractClientQuestions } from "./clientQuestions";
 import {
   graphIsWeakForHits,
   storyLooksEmployerSeizedKit,
@@ -29,11 +29,9 @@ export function formatCaseBrief(
     secondary ? `Also in play: ${secondary}.` : "",
     exclusions ? `Do not advise on excluded topics: ${exclusions}.` : "",
     `Live situation: ${live}.`,
-    storyLooksEmployerSeizedKit(story)
-      ? `Client goal: ${compressLiveGoal(`${clientQuestion || ""}\n${story}`)}.`
-      : questions.length
-        ? `Client questions to cover:\n${questions.map((q) => `- ${q}`).join("\n")}`
-        : "",
+    questions.length
+      ? `Client questions to cover (answer each in order; never paste this list into takeaways):\n${questions.map((q) => `- ${q}`).join("\n")}`
+      : "",
     "Write a case: what the matter is, the area of law, what is live now vs later, and next steps in time order.",
   ]
     .filter(Boolean)
@@ -167,7 +165,7 @@ export function buildCaseLedOverview(opts: {
       ? [
           "Treat this as police seizure of employer property, not a housing or motoring matter. Ask the investigating force in writing for the property reference and whether the laptop is retained as evidence.",
           "A criminal defence solicitor is for the arrested person (police station / interview) — that is not the route for recovering your laptop.",
-          "Write to the force, then get employer-side advice on recovering kit and whether work files may be examined — do not paste the client's question list into the takeaways.",
+          "Write to the force, then get employer-side advice on recovering kit and whether work files may be examined.",
           "This is signposting from Legal Shaman sources — get a Citizens Advice or solicitor check before relying on it.",
         ]
       : [
@@ -193,7 +191,7 @@ export function buildCaseLedOverview(opts: {
           : "Stay with the frozen issue graph — do not switch the matter to a neighbouring wiki topic."
     }`,
     seizedKit
-      ? `Your goal: ${compressLiveGoal(`${clientQuestion || ""}\n${story}`)}.`
+      ? ""
       : questions.length
         ? `Your questions: ${questions.join(" ")}`
         : "",
@@ -221,8 +219,8 @@ export function buildCaseLedOverview(opts: {
 
   return {
     answer,
-    takeaways: recs.slice(0, 5),
-    recommendations: recs.slice(0, 4),
+    takeaways: recs.slice(0, 5).map(stripAuthorMetaTakeaway).filter(Boolean),
+    recommendations: recs.slice(0, 4).map(stripAuthorMetaTakeaway).filter(Boolean),
     options: [
       {
         title: "Self-help using official guidance tonight",
@@ -271,5 +269,106 @@ export function buildCaseLedOverview(opts: {
             "Name the other party and what they have already done.",
             "Say which of your questions still needs a source.",
           ],
+  };
+}
+
+/** Author-only notes must never appear as user-facing takeaways. */
+export const AUTHOR_META_TAKEAWAY =
+  /do not paste|cover the client's live questions|Your live questions:/i;
+
+export function stripAuthorMetaTakeaway(text: string): string {
+  return String(text || "")
+    .replace(/\s*[—–-]\s*do not paste[\s\S]*$/i, "")
+    .replace(/\s*do not paste the client's question list into the takeaways\.?/gi, "")
+    .replace(/\s*cover the client's live questions[:.]?/gi, "")
+    .replace(/\s*Your live questions:\s*/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Honest thin Overview when synthesis fails: library-thin note + admitted
+ * Third Eye / official URLs, without instructional author notes in bullets.
+ */
+export function buildThinHonestOverview(opts: {
+  story: string;
+  frame: MatterFrame;
+  clientQuestion?: string;
+  supplemental?: { title: string; url?: string }[];
+}): ReturnType<typeof buildCaseLedOverview> {
+  const urls = (opts.supplemental || []).filter((s) => s.title);
+  const urlLines = urls
+    .slice(0, 8)
+    .map((s) => (s.url ? `- ${s.title} (${s.url})` : `- ${s.title}`))
+    .join("\n");
+  const seizedKit = storyLooksEmployerSeizedKit(opts.story);
+  const takeaways = (
+    seizedKit
+      ? [
+          "The library does not yet have enough matching pages for this geometry — do not complete the page with neighbouring wiki topics.",
+          "Write to the investigating force for the property reference and whether the laptop is retained as evidence.",
+          "Ask whether police may examine employer files on the seized device; that is separate from the arrested person's interview.",
+          "This is signposting from Legal Shaman sources — get a Citizens Advice or solicitor check before relying on it.",
+        ]
+      : [
+          "The library does not yet have enough matching pages for this geometry — do not complete the page with neighbouring wiki topics.",
+          "Use only the admitted official or Third Eye URLs below; do not invent statutes or neighbour topics.",
+          "Gather the documents and the outcome you want, then get a Citizens Advice or solicitor check.",
+          "This is signposting from Legal Shaman sources — not legal advice.",
+        ]
+  ).map(stripAuthorMetaTakeaway);
+
+  const answer = [
+    "This client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).",
+    "",
+    "The library is thin on this geometry — it does not yet have enough matching pages for these live questions. Do not switch to a neighbouring topic to complete the page.",
+    "",
+    urlLines
+      ? `Admitted supplemental sources (Third Eye / official, labelled unverified unless official):\n${urlLines}`
+      : "No matching Legal Shaman wiki pages and no admitted supplemental URLs yet.",
+    seizedKit
+      ? "Write to the investigating force about the property reference. Recovering employer kit is a separate route from criminal defence for the arrested person."
+      : "",
+    "",
+    "This is Legal Shaman signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.",
+  ]
+    .filter((line) => line !== undefined)
+    .join("\n");
+
+  return {
+    answer,
+    takeaways,
+    recommendations: takeaways.slice(0, 4),
+    options: [
+      {
+        title: "Use admitted sources only",
+        description:
+          "Work from the labelled Third Eye and official URLs. Do not fill gaps with housing, garden, motoring, or consumer wiki.",
+      },
+      {
+        title: "Independent review",
+        description: seizedKit
+          ? "Ask a criminal defence solicitor for the arrested person and employer-side advice on recovering company kit."
+          : "Ask Citizens Advice or a solicitor who actually does this kind of work.",
+      },
+    ],
+    missingFacts: [
+      extractClientQuestions(`${opts.clientQuestion || ""}\n${opts.story}`)[0] ||
+        "Exact dates, notices, and the outcome you want.",
+      seizedKit
+        ? "Whether anyone has been charged, and the police property reference for the laptop."
+        : "The documents the other side or the police rely on.",
+    ],
+    followUpPrompts: seizedKit
+      ? [
+          "Add the police force and any property / crime reference.",
+          "Say whether the arrested person has been charged or released.",
+          "Say whether the laptop is company-owned and whether Dropbox is work or personal.",
+        ]
+      : [
+          "Paste the documents or messages that set out what you want next.",
+          "Name the other party and what they have already done.",
+          "Say which of your questions still needs a source.",
+        ],
   };
 }
