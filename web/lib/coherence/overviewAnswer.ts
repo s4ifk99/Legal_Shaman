@@ -1,6 +1,7 @@
 import "server-only";
 
 import { chat, llmConfigured } from "@/lib/llm/client";
+import { isLlmTimeoutError, isRateLimitedOrUnavailableError } from "@/lib/llm/openrouter";
 import { enableOverviewSynthesis, resolveOverviewModel } from "@/lib/llm/answer-config";
 import { sanitizeSignpostingText } from "@/lib/guardrails/validator";
 import {
@@ -392,16 +393,18 @@ function practicalLines(value: unknown, limit: number): string[] {
 }
 
 function classifyLlmFailure(err: unknown): Exclude<LlmFallbackReason, "short_answer" | "disabled"> {
-  const status = (err as { status?: number })?.status;
-  const msg = err instanceof Error ? err.message : String(err);
-  if (status === 429 || /429|rate.?limit/i.test(msg)) return "429";
-  if (
-    status === 408 ||
-    /timeout|timed out|ETIMEDOUT|AbortError|deadline/i.test(msg)
-  ) {
-    return "timeout";
+  if (isRateLimitedOrUnavailableError(err) && !isLlmTimeoutError(err)) {
+    const status = (err as { status?: number })?.status;
+    if (status === 503) return "error";
+    return "429";
   }
+  if (isLlmTimeoutError(err)) return "timeout";
   return "error";
+}
+
+function overviewChatTimeoutMs(): number {
+  const fromEnv = Number(process.env.LLM_TIMEOUT_MS);
+  return Math.max(45_000, Number.isFinite(fromEnv) ? fromEnv : 0);
 }
 
 function toPackage(
@@ -725,7 +728,8 @@ export async function buildOverviewAnswer(opts: {
         {
           jsonMode: true,
           temperature: 0.2,
-          maxTokens: 1800,
+          maxTokens: 2400,
+          timeoutMs: overviewChatTimeoutMs(),
           model: resolveOverviewModel(),
           purpose: "final_synthesis",
           caller: "overviewAnswer",

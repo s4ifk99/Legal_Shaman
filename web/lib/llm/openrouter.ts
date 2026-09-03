@@ -75,4 +75,18 @@ export function isInsufficientCreditsError(err: unknown): boolean {
   return status === 402;
 }
 
+export function isRateLimitedOrUnavailableError(err: unknown): boolean {
+  const status = (err as { status?: number })?.status;
+  if (status === 429 || status === 503) return true;
+  const message = err instanceof Error ? err.message : String(err);
+  return /429|503|rate.?limit|overloaded|service unavailable/i.test(message);
+}
+
+export function isLlmTimeoutError(err: unknown): boolean {
+  const status = (err as { status?: number })?.status;
+  if (status === 408) return true;
+  const message = err instanceof Error ? err.message : String(err);
+  return /timeout|timed out|ETIMEDOUT|AbortError|deadline exceeded/i.test(message);
+}
+
 export { OPENROUTER_DEFAULT_BASE };
