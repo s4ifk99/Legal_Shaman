@@ -7,8 +7,11 @@ import type { LegalFrame } from './frames'
 import { sraOrganisationAdmissible } from '@/lib/matter/graphAdmissibility'
 import {
   buildSraSearchPayload,
+  employerPropertySraFlags,
+  matchingHelpLanesForStory,
   relevantWorkAreas,
   sraMatchReason,
+  type SraSearchPayload,
 } from './sraQuery'
 
 export interface SraFirmHit {
@@ -57,13 +60,7 @@ export async function sraStatus(): Promise<SraSearchMeta> {
   }
 }
 
-/** Query live SRA register (Postgres via /api/sra/search). */
-export async function matchSraFirms(
-  session: SessionState,
-  limit = 5,
-  frames: LegalFrame[] = [],
-): Promise<SraFirmHit[]> {
-  const payload = buildSraSearchPayload(session, frames, limit)
+async function fetchSraLane(payload: SraSearchPayload): Promise<SraFirmHit[]> {
   try {
     const res = await fetch('/api/coherence/sra/search', {
       method: 'POST',
@@ -83,7 +80,7 @@ export async function matchSraFirms(
       )
       const reason = sraMatchReason(h.workArea || '', payload)
       return {
-        id: `sra:${h.sraId}`,
+        id: `sra:${payload.matterType}:${h.sraId}`,
         title: h.name,
         type: 'SRA-regulated firm',
         blurb: [reason, place, areas.length ? `Work areas: ${areas.join(', ')}` : '', h.sraId ? `SRA ${h.sraId}` : '']
@@ -102,4 +99,39 @@ export async function matchSraFirms(
   } catch {
     return []
   }
+}
+
+/** Query live SRA register (Postgres via /api/sra/search). */
+export async function matchSraFirms(
+  session: SessionState,
+  limit = 5,
+  frames: LegalFrame[] = [],
+): Promise<SraFirmHit[]> {
+  const defence = buildSraSearchPayload(session, frames, limit)
+  const story = defence.query || ''
+  if (!matchingHelpLanesForStory(story).includes('employer_property')) {
+    return fetchSraLane(defence)
+  }
+  const perLane = Math.max(3, Math.ceil(limit / 2))
+  const employer: SraSearchPayload = {
+    ...defence,
+    ...employerPropertySraFlags(story),
+    locationHint: defence.locationHint,
+    query: story,
+    limit: perLane,
+  }
+  const [defenceHits, employerHits] = await Promise.all([
+    fetchSraLane({ ...defence, limit: perLane }),
+    fetchSraLane(employer),
+  ])
+  const seen = new Set<string>()
+  const out: SraFirmHit[] = []
+  for (const hit of [...defenceHits, ...employerHits]) {
+    const key = hit.sraId || hit.id
+    if (seen.has(key)) continue
+    seen.add(key)
+    out.push(hit)
+    if (out.length >= limit + 3) break
+  }
+  return out
 }

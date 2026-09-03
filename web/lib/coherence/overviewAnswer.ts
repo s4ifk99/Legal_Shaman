@@ -38,7 +38,13 @@ import {
 } from "@/lib/coherence/searchMode";
 import { formatCaseBrief, buildCaseLedOverview } from "@/lib/coherence/caseBuilder";
 import type { ResearchBundle } from "@/lib/coherence/researchBundle";
-import { coverageSlotsFrom, rankByCoverage, titleCoversGraph } from "@/lib/matter/coverageSlots";
+import {
+  coverageSlotsFrom,
+  isOfficialAuthoritySource,
+  rankByCoverage,
+  slotRetryQueries,
+  titleCoversGraph,
+} from "@/lib/matter/coverageSlots";
 import {
   filterAdmissibleTitles,
   freeHelpAdmissibleOnGeometry,
@@ -317,6 +323,11 @@ function admitResearchBundle(
     return true;
   });
   const kept = new Set(sources.map((source) => source.id));
+  sources.sort((a, b) => {
+    const ao = isOfficialAuthoritySource(a.title, a.url, a.excerpt) ? 1 : 0;
+    const bo = isOfficialAuthoritySource(b.title, b.url, b.excerpt) ? 1 : 0;
+    return bo - ao;
+  });
   return {
     ...bundle,
     sources,
@@ -547,20 +558,39 @@ export async function buildOverviewAnswer(opts: {
         ...retrievalMeta,
         retrievalMode: `${evidence.mode}+collectOverviewHits`,
       };
-    } else if (hits.length < 2) {
-      // Weak matter intents → only fold in vault hits that sit on this graph
-      const curated = collectOverviewHits(searchBlob);
+    } else {
+      const slots = coverageSlotsFrom(opts.matterFrame, latestText);
       const byId = new Map(hits.map((h) => [h.id, h]));
-      for (const hit of filterAdmissibleTitles(curated, opts.matterFrame, latestText, {
-        requireCoverage: true,
-      })) {
-        const existing = byId.get(hit.id);
-        if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+      for (const { query } of slotRetryQueries(
+        slots,
+        hits.map((h) => h.title),
+        latestText,
+      )) {
+        for (const hit of filterAdmissibleTitles(
+          collectOverviewHits(query),
+          opts.matterFrame,
+          latestText,
+          { requireCoverage: true },
+        )) {
+          const existing = byId.get(hit.id);
+          if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+        }
       }
-      hits = [...byId.values()];
+      if (hits.length < 2) {
+        for (const hit of filterAdmissibleTitles(
+          collectOverviewHits(searchBlob),
+          opts.matterFrame,
+          latestText,
+          { requireCoverage: true },
+        )) {
+          const existing = byId.get(hit.id);
+          if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+        }
+      }
+      hits = rankByCoverage([...byId.values()], slots, { story: latestText, limit: 8 });
       retrievalMeta = {
         ...retrievalMeta,
-        retrievalMode: `${evidence.mode}+legacy-admissible-fallback`,
+        retrievalMode: `${evidence.mode}+slot-retry`,
       };
     }
   } else {

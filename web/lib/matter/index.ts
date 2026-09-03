@@ -32,9 +32,11 @@ export type { ConceptRetrievalPlan } from "./conceptRetrievalPlan";
 export {
   coverageSlotsFrom,
   groupBySlot,
+  isOfficialAuthoritySource,
   matchingSlotIds,
   primaryMatterSlug,
   rankByCoverage,
+  slotRetryQueries,
   titleCoversGraph,
   uncoveredSlots,
 } from "./coverageSlots";

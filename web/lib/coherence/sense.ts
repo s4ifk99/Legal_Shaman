@@ -1,4 +1,4 @@
-import { extractClientQuestions } from './clientQuestions'
+import { compressLiveGoal, extractClientQuestions } from './clientQuestions'
 import { foldTypographicPunctuation, normaliseLayText } from './normaliseLay'
 import {
   extractNarrativeEvents,
@@ -502,18 +502,28 @@ export function sanitizeIntakeNarrative(session: SessionState): SessionState {
 
   let goal = foldTypographicPunctuation(session.goal || '').trim()
   if (isPhysicalNeedNotGoal(goal) || isMetaCauseLine(goal)) goal = ''
-  if (!goal && housingNextStepBlob([
+  const storyBlob = [
+    session.clientQuestion,
+    session.whatHappened,
+    ...session.rawInputs,
+    ...session.events.map((e) => `${e.label} ${e.rawSpan || ''}`),
+  ]
+    .filter(Boolean)
+    .join('\n')
+  if (housingNextStepBlob([
     ...session.rawInputs,
     session.whatHappened,
     ...session.events.map((e) => `${e.label} ${e.rawSpan || ''}`),
   ])) {
     goal = HOUSING_NEXT_STEP_GOAL
   }
+  const compressed = compressLiveGoal(storyBlob)
+  if (compressed && /work laptop|employer files/i.test(compressed)) {
+    goal = compressed
+  }
   if (!goal) {
-    const qs = extractClientQuestions(
-      `${session.clientQuestion || ''}\n${session.whatHappened || ''}\n${session.rawInputs.join('\n')}`,
-    )
-    if (qs.length) goal = qs.slice(0, 3).join(' ')
+    const qs = extractClientQuestions(storyBlob)
+    if (qs.length) goal = compressed || qs[0]
   }
 
   return { ...session, howCaused, goal }

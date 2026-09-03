@@ -246,6 +246,25 @@ export function uncoveredSlots(
   return slots.filter((slot) => !covered.has(slot.id))
 }
 
+/** Wiki / Exa queries for slots that still have no admitted hit. */
+export function slotRetryQueries(
+  slots: CoverageSlot[],
+  texts: string[],
+  story = "",
+): Array<{ slot: CoverageSlot; query: string }> {
+  return uncoveredSlots(slots, texts, story).flatMap((slot) => [
+    { slot, query: slot.exaQuery },
+    { slot, query: slot.label },
+  ])
+}
+
+export function isOfficialAuthoritySource(title: string, url = "", excerpt = ""): boolean {
+  const hay = `${title} ${url} ${excerpt}`.toLowerCase()
+  return /gov\.uk|legislation\.gov|pace code|pace.{0,20}(?:s\.?\s*)?22|disclosure manual|attorney general|college of policing|cps\.gov|criminal justice and police act/i.test(
+    hay,
+  )
+}
+
 export function groupBySlot<T extends { title: string }>(
   items: T[],
   slots: CoverageSlot[],

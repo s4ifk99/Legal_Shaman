@@ -3,6 +3,7 @@ import type { MatterFrame } from "@/lib/matter/types";
 import {
   graphIsWeakForHits,
   overviewUsesForbiddenPlaybook,
+  storyLooksEmployerSeizedKit,
   titleAdmissibleOnGeometry,
 } from "@/lib/matter/graphAdmissibility";
 
@@ -175,6 +176,24 @@ export function critiqueOverviewRecommendation(opts: {
     );
     if (offGraph.length) {
       errors.push(`overview: off-graph wiki titles: ${offGraph.slice(0, 3).join("; ")}`);
+    }
+  }
+
+  if (storyLooksEmployerSeizedKit(opts.latestText)) {
+    if (/matched housing|right of way|back garden|penalty charge|\bpcn\b|homelessness duty/i.test(overview)) {
+      errors.push("overview: housing/garden/PCN playbook on employer-kit crime");
+    }
+    if (/scam refund|hasn.?t arrived|faulty goods|consumer helpline/i.test(overview)) {
+      errors.push("overview: consumer filler on employer-kit crime");
+    }
+    if (/crown prosecution service|\bcps\b/i.test(overview) && /solicitor|firm|contact/i.test(overview)) {
+      errors.push("overview: CPS listed as a solicitor to contact");
+    }
+    if (
+      /you (?:are|were) (?:the )?(?:arrested person|defendant|suspect)/i.test(overview) &&
+      !/not (?:the|you)/i.test(overview)
+    ) {
+      errors.push("overview: treats the employer as the arrested person");
     }
   }
 

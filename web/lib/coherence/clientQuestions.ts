@@ -1,3 +1,15 @@
+import { storyLooksEmployerSeizedKit } from '@/lib/matter/graphAdmissibility'
+
+/** One Matching Help / brief goal — not a concatenation of every live question. */
+export function compressLiveGoal(text: string): string {
+  const raw = String(text || '')
+  if (storyLooksEmployerSeizedKit(raw)) {
+    return 'Recover the work laptop and stop police examining employer files'
+  }
+  const qs = extractClientQuestions(raw)
+  return qs[0] || ''
+}
+
 /** Split a story into the questions the client actually asked, plus implied next-step asks. */
 export function extractClientQuestions(text: string): string[] {
   const out: string[] = []

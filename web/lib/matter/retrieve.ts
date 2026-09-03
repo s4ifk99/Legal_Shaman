@@ -7,7 +7,7 @@ import { titleAllowedOnGraph } from "./issueGraphHits";
 import { isNeighbourAttractorTitle, storyLooksEmployerSeizedKit } from "./graphAdmissibility";
 import { gapIntentsForFrame } from "./gapRetrieve";
 import { exclusionPatternsForSlugs } from "./scopes";
-import { coverageSlotsFrom, rankByCoverage } from "./coverageSlots";
+import { coverageSlotsFrom, rankByCoverage, slotRetryQueries, titleCoversGraph } from "./coverageSlots";
 import type { MatterEvidenceSet, MatterFrame } from "./types";
 
 /** Legacy path: raw submission drives search (pre–Matter Engine baseline). */
@@ -145,7 +145,32 @@ export function retrieveForMatter(opts: {
     }
   }
 
-  const hits = rankByCoverage([...byId.values()], coverageSlotsFrom(matterFrame, submission), {
+  const slots = coverageSlotsFrom(matterFrame, submission);
+  for (const { slot, query } of slotRetryQueries(
+    slots,
+    [...byId.values()].map((h) => h.title),
+    submission,
+  )) {
+    if (!intents.includes(query)) intents.push(query);
+    for (const hit of searchWikiPages(query, 6)) {
+      if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
+      if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
+      if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
+      if (!titleCoversGraph(hit.title, [slot], submission)) continue;
+      const existing = byId.get(hit.id);
+      const row = {
+        id: hit.id,
+        title: hit.title,
+        category: hit.category,
+        score: hit.score * 1.2,
+        intent: query,
+        trace: `slot-retry:${slot.id}`,
+      };
+      if (!existing || row.score > existing.score) byId.set(hit.id, row);
+    }
+  }
+
+  const hits = rankByCoverage([...byId.values()], slots, {
     story: submission,
     limit,
   });

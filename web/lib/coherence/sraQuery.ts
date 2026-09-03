@@ -353,7 +353,7 @@ export function sraMatchReason(
   workAreaRaw: string,
   payload: Pick<
     SraSearchPayload,
-    'matterType' | 'wantCar' | 'wantConsumer' | 'wantMotoring' | 'taxonomySlug' | 'query'
+    'matterType' | 'wantCar' | 'wantConsumer' | 'wantMotoring' | 'wantEmployment' | 'taxonomySlug' | 'query'
   >,
 ): string {
   const areas = relevantWorkAreas(
@@ -375,8 +375,11 @@ export function sraMatchReason(
       return 'Listed for Motoring / RTA work — confirm they take driving / PCN matters'
     }
   }
-  if (payload.matterType === 'crime' && storyLooksEmployerSeizedKit(payload.query || '')) {
-    if (areas.some((a) => /crime|criminal/i.test(a))) {
+  if (storyLooksEmployerSeizedKit(payload.query || '')) {
+    if (payload.wantEmployment || payload.matterType === 'employment') {
+      return 'Employment / commercial listing — recovering employer property from the police, not criminal defence for the arrested person'
+    }
+    if (payload.matterType === 'crime' && areas.some((a) => /crime|criminal/i.test(a))) {
       return 'Criminal defence listing — for the arrested person (police station / magistrates), not for recovering employer property from the police'
     }
   }
@@ -393,4 +396,22 @@ export function sraMatchReason(
   }
   if (areas.length) return `Relevant SRA work areas: ${areas.join(', ')}`
   return 'Matched from SRA register — verify specialism on their profile'
+}
+
+export type MatchingHelpLane = 'arrested_person' | 'employer_property'
+
+export function matchingHelpLanesForStory(story: string): MatchingHelpLane[] {
+  return storyLooksEmployerSeizedKit(story) ? ['arrested_person', 'employer_property'] : []
+}
+
+export function employerPropertySraFlags(query: string) {
+  return resolveSraSearchFlags({
+    matterType: 'employment',
+    query,
+    taxonomySlug: 'employment',
+    wantEmployment: true,
+    wantHousing: false,
+    wantConsumer: false,
+    wantMotoring: false,
+  })
 }
