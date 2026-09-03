@@ -3,7 +3,7 @@
  * and wiki hits. Used as the product fallback (and as the brief for LLM synthesis).
  */
 import type { MatterFrame } from "@/lib/matter/types";
-import { extractClientQuestions } from "./applyMatterFrame";
+import { compressLiveGoal, extractClientQuestions } from "./clientQuestions";
 import {
   graphIsWeakForHits,
   storyLooksEmployerSeizedKit,
@@ -29,7 +29,11 @@ export function formatCaseBrief(
     secondary ? `Also in play: ${secondary}.` : "",
     exclusions ? `Do not advise on excluded topics: ${exclusions}.` : "",
     `Live situation: ${live}.`,
-    questions.length ? `Client questions to cover:\n${questions.map((q) => `- ${q}`).join("\n")}` : "",
+    storyLooksEmployerSeizedKit(story)
+      ? `Client goal: ${compressLiveGoal(`${clientQuestion || ""}\n${story}`)}.`
+      : questions.length
+        ? `Client questions to cover:\n${questions.map((q) => `- ${q}`).join("\n")}`
+        : "",
     "Write a case: what the matter is, the area of law, what is live now vs later, and next steps in time order.",
   ]
     .filter(Boolean)
@@ -163,9 +167,7 @@ export function buildCaseLedOverview(opts: {
       ? [
           "Treat this as police seizure of employer property, not a housing or motoring matter. Ask the investigating force in writing for the property reference and whether the laptop is retained as evidence.",
           "A criminal defence solicitor is for the arrested person (police station / interview) — that is not the route for recovering your laptop.",
-          questions.length
-            ? `Your live questions: ${questions.join(" ")}`
-            : "Do not fill gaps with neighbouring wiki topics (garden access, tenancy deposits, parking tickets, or defendant-only police pages).",
+          "Write to the force, then get employer-side advice on recovering kit and whether work files may be examined — do not paste the client's question list into the takeaways.",
           "This is signposting from Legal Shaman sources — get a Citizens Advice or solicitor check before relying on it.",
         ]
       : [
@@ -190,7 +192,11 @@ export function buildCaseLedOverview(opts: {
           ? "The library is thin on this geometry — cite only admitted pages and do not complete the page with neighbour topics."
           : "Stay with the frozen issue graph — do not switch the matter to a neighbouring wiki topic."
     }`,
-    questions.length ? `Your questions: ${questions.join(" ")}` : "",
+    seizedKit
+      ? `Your goal: ${compressLiveGoal(`${clientQuestion || ""}\n${story}`)}.`
+      : questions.length
+        ? `Your questions: ${questions.join(" ")}`
+        : "",
     "",
     "Area of law",
     `${areaBits.join("; ")}. ${

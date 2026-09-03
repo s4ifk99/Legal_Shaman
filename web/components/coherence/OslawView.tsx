@@ -19,7 +19,8 @@ import {
   isFinalOverviewPackage,
 } from '@/lib/coherence/retrieveAnswer'
 import { logSearchEvent } from '@/lib/coherence/searchAnalytics'
-import { coverageSlotsFrom, groupBySlot } from '@/lib/matter/coverageSlots'
+import { coverageSlotsFrom, groupBySlot, isOfficialAuthoritySource } from '@/lib/matter/coverageSlots'
+import { titleAdmissibleOnGeometry } from '@/lib/matter/graphAdmissibility'
 import { SynthesisHourglass } from './SynthesisHourglass'
 import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './OslawView.css'
@@ -59,10 +60,17 @@ function SlotSourceList({
   const story = sessionStory(session)
   const frame = session.matterFrame
   const slots = frame ? coverageSlotsFrom(frame, story) : []
-  const groups = groupBySlot(items, slots, {
+  const admitted = items.filter((item) => {
+    if (!frame) return true
+    const hay = `${item.title} ${item.url || ''} ${item.excerpt || ''}`
+    if (isOfficialAuthoritySource(item.title, item.url, item.excerpt)) return true
+    return titleAdmissibleOnGeometry(item.title, frame, story, { requireCoverage: true }) ||
+      (slots.length > 0 && titleAdmissibleOnGeometry(hay, frame, story, { requireCoverage: true }))
+  })
+  const groups = groupBySlot(admitted, slots, {
     story,
     extraText: (item) => `${item.url || ''} ${item.excerpt || ''}`,
-  })
+  }).filter((group) => group.slot || slots.length === 0)
   if (!groups.length) return null
   return (
     <div className="oslaw__slot-groups">

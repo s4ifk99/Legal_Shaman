@@ -111,6 +111,14 @@ export function isNeighbourAttractorTitle(title: string, frame: IssueGraph, stor
   }
   if (
     storyLooksEmployerSeizedKit(story) &&
+    /if you are accused|disciplinary meeting|accompany you to a disciplinary|grievance procedure|unfair dismiss|rights at work/i.test(
+      t,
+    )
+  ) {
+    return true;
+  }
+  if (
+    storyLooksEmployerSeizedKit(story) &&
     /scam|hasn.?t arrived|ordered hasn|money back after|faulty goods|consumer helpline|package holiday/i.test(t)
   ) {
     return true;
@@ -139,9 +147,9 @@ export function freeHelpAdmissibleOnGeometry(title: string, blurb: string, story
   return true;
 }
 
-/** Prosecutors and similar orgs must not appear as criminal-defence matches. */
+/** Prosecutors, regulators and similar orgs must not appear as solicitor matches. */
 export function sraOrganisationAdmissible(name: string): boolean {
-  return !/crown prosecution service|\bcps\b|crown office and procurator|serious fraud office/i.test(
+  return !/crown prosecution service|\bcps\b|crown office and procurator|serious fraud office|care quality commission|\bcqc\b|ofsted|health and safety executive|\bhse\b|information commissioner|solicitors regulation authority/i.test(
     name || "",
   );
 }
