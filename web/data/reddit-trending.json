@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-02T20:31:40.197Z",
+    "scrapedAt": "2026-09-03T10:28:54.928Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 10,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,18 +38,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w5dv1b",
-          "title": "Facing a disciplinary with absurd allegations (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5dv1b/facing_a_disciplinary_with_absurd_allegations/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5dv1b/facing_a_disciplinary_with_absurd_allegations/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788363474,
-          "snippet": "I’m the last remaining AE/salesperson at a small tech company. For context, we were ~60 people last year. Now we’re 19. They’ve pushed out around 20 people in the last few months.My commission was dropped from 10% to 5% earlier this year. Last week, our COO (who was also my manag",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1w5frby",
           "title": "Landlord letting out spare room when we signed for whole flat",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5frby/landlord_letting_out_spare_room_when_we_signed/",
@@ -62,15 +50,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w5a3g5",
-          "title": "Received a Single Justice Procedure Notice for my 7-year-old’s school absence – what should I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5a3g5/received_a_single_justice_procedure_notice_for_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5a3g5/received_a_single_justice_procedure_notice_for_my/",
+          "id": "1w5dv1b",
+          "title": "Facing a disciplinary with absurd allegations (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5dv1b/facing_a_disciplinary_with_absurd_allegations/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5dv1b/facing_a_disciplinary_with_absurd_allegations/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788355014,
-          "snippet": "Unfortunately, I have just received a Single Justice Procedure (SJP) Notice for failing to ensure regular attendance at school for my 7-year-old child in England My father-in-law sadly passed away in India on 4 February this year after a prolonged illness. We travelled from the U",
+          "createdUtc": 1788363474,
+          "snippet": "I’m the last remaining AE/salesperson at a small tech company. For context, we were ~60 people last year. Now we’re 19. They’ve pushed out around 20 people in the last few months.My commission was dropped from 10% to 5% earlier this year. Last week, our COO (who was also my manag",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w5nwj0",
+          "title": "Inherited London house (no mortgage): 50% owner living rent-free for 15 yrs refuses to sell. Options for US-based 50% minority bloc?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5nwj0/inherited_london_house_no_mortgage_50_owner/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5nwj0/inherited_london_house_no_mortgage_50_owner/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788384736,
+          "snippet": "Hi everyone, looking for some legal perspective on a co-ownership deadlock involving an inherited property in London. The Background: Location: Greater London, England. Property: Inherited from a deceased parent 15+ years ago. The mortgage is fully paid off (100% equity). The par",
           "listingSource": "rss:hot"
         },
         {
@@ -86,27 +86,99 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w57kg9",
-          "title": "ENGLAND - Unsuitable Soil Delivery",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w57kg9/england_unsuitable_soil_delivery/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w57kg9/england_unsuitable_soil_delivery/",
+          "id": "1w60j57",
+          "title": "Evri claim my package is damaged, but I suspect it may have been stolen internally.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w60j57/evri_claim_my_package_is_damaged_but_i_suspect_it/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w60j57/evri_claim_my_package_is_damaged_but_i_suspect_it/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788348227,
-          "snippet": "Hello, I've had 3 tonnes of loose top soil delivered, it was tipped directly on my driveway. It was advertised as weed free and screened to 12mm. It was tipped before I had a chance to look at it (I haven't paid for it yet either). It isn't as described, full of lumps of clay, we",
+          "createdUtc": 1788420857,
+          "snippet": "England. I am the buyer and as I understand it Evri's contract is with the seller, if that's relevant. Not really expecting a solution, I'm mostly curious about the legalities in this situation. I ordered a sealed box of trading cards from an online retailer. The package was disp",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w53d8u",
-          "title": "England- My husband is being charged £1.5K by is ex employer for a course that hasn’t taken place",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53d8u/england_my_husband_is_being_charged_15k_by_is_ex/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53d8u/england_my_husband_is_being_charged_15k_by_is_ex/",
+          "id": "1w62qo3",
+          "title": "Can I get rid of my exes stuff?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w62qo3/can_i_get_rid_of_my_exes_stuff/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w62qo3/can_i_get_rid_of_my_exes_stuff/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788333986,
-          "snippet": "My husband has just finished a job at a countryside management company, he was there for 6 months. He has just finished his 1 month notice period and finished on the 28th of August. He was also paid on this date, but on his payslip was deducted £878 for course fees with the rest ",
+          "createdUtc": 1788428686,
+          "snippet": "My ex partner and I were together for several years. We broke up 16 months ago and she went back to the US 12 months ago after staying at my parents for four months in between. We never legally lived together, it was an LDR where she would stay at each other’s places when we visi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w61lgu",
+          "title": "Business ghosting me after they burnt my bike nearly a year ago (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w61lgu/business_ghosting_me_after_they_burnt_my_bike/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w61lgu/business_ghosting_me_after_they_burnt_my_bike/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788424636,
+          "snippet": "I left my bike for repairs in a local shop I was a regular customer of last year and unfortunately a few days later they had a massive fire and the whole shop burnt down, including my bike. I got in touch with them a few days afterwards and they confirmed my bike burnt down and s",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w5a3g5",
+          "title": "Received a Single Justice Procedure Notice for my 7-year-old’s school absence – what should I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5a3g5/received_a_single_justice_procedure_notice_for_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5a3g5/received_a_single_justice_procedure_notice_for_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788355014,
+          "snippet": "Unfortunately, I have just received a Single Justice Procedure (SJP) Notice for failing to ensure regular attendance at school for my 7-year-old child in England My father-in-law sadly passed away in India on 4 February this year after a prolonged illness. We travelled from the U",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w5u8ng",
+          "title": "Antisocial neighbour has me afraid to go outside.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5u8ng/antisocial_neighbour_has_me_afraid_to_go_outside/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5u8ng/antisocial_neighbour_has_me_afraid_to_go_outside/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788400956,
+          "snippet": "Scotland. Hi Reddit, apologies for the ramble here. It's just coming up to 3am and I'm still pretty on edge, I hope you'll forgive me here. A couple of months ago some new neighbours moved in across the path from me. Immediately something was wrong: rubbish piling up in their gar",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w5k8yp",
+          "title": "Image on blog copywright claim - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5k8yp/image_on_blog_copywright_claim_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5k8yp/image_on_blog_copywright_claim_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788376914,
+          "snippet": "Hi - I have been sent an email from camera press about an image on my blog for a review of a concert I attended. The concert took place 10 years ago and I was provided an image to use via the promoter. Unfortunately this was to the email address of a company i worked for at the t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w5pfj0",
+          "title": "Need advice involving false accusations of pedophilia",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5pfj0/need_advice_involving_false_accusations_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5pfj0/need_advice_involving_false_accusations_of/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788388269,
+          "snippet": "This is in England, and it's also important to mention that my siblings are in care and don't live with my parents So I won't go into a huge backstory but it's important to know that I have never been close to my parents, and when I was maybe 16 years old (I'm 19 now) they began ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w5qlrs",
+          "title": "Employer calling a promotion a “clerical correction” and increasing my notice period – where do I stand? (UK- England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5qlrs/employer_calling_a_promotion_a_clerical/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5qlrs/employer_calling_a_promotion_a_clerical/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788391220,
+          "snippet": "Throwaway for obvious reasons. I’m looking for some general legal advice / thoughts on a situation at work. I work in accountancy and have been with my current employer for a few years. There are different levels/grades internally, and I’ve been sitting at one level for quite a w",
           "listingSource": "rss:hot"
         },
         {
@@ -122,135 +194,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w4ud35",
-          "title": "Passenger in car accident UK -",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w4ud35/passenger_in_car_accident_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w4ud35/passenger_in_car_accident_uk/",
+          "id": "1w57kg9",
+          "title": "ENGLAND - Unsuitable Soil Delivery",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w57kg9/england_unsuitable_soil_delivery/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w57kg9/england_unsuitable_soil_delivery/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788307450,
-          "snippet": "I was in a terrible car accident months ago where my friend was driving and I was the passenger. I ended up in a coma for 2 days and then 3 weeks in hospital. I have many internal injuries and injuries including a torn aorta fractured neck and skull and an injury to my eye where ",
+          "createdUtc": 1788348227,
+          "snippet": "Hello, I've had 3 tonnes of loose top soil delivered, it was tipped directly on my driveway. It was advertised as weed free and screened to 12mm. It was tipped before I had a chance to look at it (I haven't paid for it yet either). It isn't as described, full of lumps of clay, we",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w5538f",
-          "title": "Can work force me into the office after redundancy? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5538f/can_work_force_me_into_the_office_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5538f/can_work_force_me_into_the_office_after/",
+          "id": "1w6140v",
+          "title": "American stationed in England, having issues with a local contractor not completing work.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6140v/american_stationed_in_england_having_issues_with/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6140v/american_stationed_in_england_having_issues_with/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788340083,
-          "snippet": "Update: thanks all, I’ve accepted my fate and will be heading to the office. 😭 Hi all, I’ve been made redundant from my full time role at a London-based charity after two years. Basically they’ve made the people outside of London redundant and offered alternative (pretty much th",
+          "createdUtc": 1788422962,
+          "snippet": "Hello! I am not sure what routes I can take here, and I am literally foreign to this countries legal procedures. A few months ago, a door to door landscaping business knocked on my door with his toddler son with him, and asked if I was interested in a repeat lawn care package. I ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w5aqnt",
-          "title": "Childrens social care has broken the law and I need help understanding what I can do next.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5aqnt/childrens_social_care_has_broken_the_law_and_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5aqnt/childrens_social_care_has_broken_the_law_and_i/",
+          "id": "1w62tp7",
+          "title": "UKPC fine for charging EV - POPLA dispute possible?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w62tp7/ukpc_fine_for_charging_ev_popla_dispute_possible/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w62tp7/ukpc_fine_for_charging_ev_popla_dispute_possible/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788356538,
-          "snippet": "(England)The law states that they must keep in contact with care leavers at least once a year. They completely neglected this and only contacted me when I was 23 and the local offer they give to all care leavers from age 18 and ending at 25 meaning I missed out on 4+ years of hel",
+          "createdUtc": 1788428992,
+          "snippet": "England. I imagine this will be a clear cut no but im wondering if anyone has had any recent success appealing to POPLA for a fine for entering a carpark, using the designated paid EVC station? I fully charged my EV and paid circa £50 for the service. I have then received a fine ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w5jwc9",
-          "title": "Bought a car from a dealer HPI clear – 5 years later it's apparently a Cat D. Who is liable? (Wales)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5jwc9/bought_a_car_from_a_dealer_hpi_clear_5_years/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5jwc9/bought_a_car_from_a_dealer_hpi_clear_5_years/",
+          "id": "1w61vxe",
+          "title": "Scotland: Council tax exemption on inherited second home while estate is being settled?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w61vxe/scotland_council_tax_exemption_on_inherited/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w61vxe/scotland_council_tax_exemption_on_inherited/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788376183,
-          "snippet": "Thanks for reading! Bought a car from a dealer in 2021, paid for using a personal loan. The dealer ran an HPI trade check and it came back completely clear – I still have the original report. I've now tried to sell the car because I desperately need the cash, only to discover HPI",
+          "createdUtc": 1788425702,
+          "snippet": "Hi all, My mum passed away in late 2023, and we are still waiting for her estate to be transferred into mine and my brother's names. We are in Scotland for reference. Confirmation was granted last year, but we only signed the executry accounts last month (lots of disputes due to ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w53333",
-          "title": "Gardner threatening solicitor- need Advice England (vulnerable mum pushed into work)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53333/gardner_threatening_solicitor_need_advice_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53333/gardner_threatening_solicitor_need_advice_england/",
+          "id": "1w53d8u",
+          "title": "England- My husband is being charged £1.5K by is ex employer for a course that hasn’t taken place",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53d8u/england_my_husband_is_being_charged_15k_by_is_ex/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53d8u/england_my_husband_is_being_charged_15k_by_is_ex/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788333045,
-          "snippet": "Hello, need advice please. (I didnt know this was happening until now). Just some important information, my mum is mentally and physically unwell and her husband has just passed in January and shes in her early 60's My mum hired a gardner to do work in her garden. This is after t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w5gf4w",
-          "title": "UPDATE: Employer said PILON in termination letter, now wants me to work 2 weeks and lose 1 week’s pay",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5gf4w/update_employer_said_pilon_in_termination_letter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5gf4w/update_employer_said_pilon_in_termination_letter/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788368946,
-          "snippet": "My termination letter says the company had decided to use PILON, but also says I have to work my 4-week notice until 29 September. I asked my manager to clarify. In our first conversation today, he said once I had completed my handover I would no longer need to come into the offi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w5hf8d",
-          "title": "Company has been struck-off, employees not told",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5hf8d/company_has_been_struckoff_employees_not_told/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5hf8d/company_has_been_struckoff_employees_not_told/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788371014,
-          "snippet": "I work for a small remote-only UK-registered company (5-10 employees). We communicate day-to-day via Slack. I have been employed there for 15+ years. Current owner took over via TUPE 4 years ago. February I happened to discover via Companies House that the company was facing comp",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w4jm00",
-          "title": "£1,500 private parking fine on this road",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w4jm00/1500_private_parking_fine_on_this_road/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w4jm00/1500_private_parking_fine_on_this_road/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788285482,
-          "snippet": "Scotland. I have parked on Marchburn Dr, Paisley PA3 2SJ before with no issues for over a week. I parked here for 14 days while away on holiday. There was no signage saying I couldn't park there and there are always lots of cars parked along the road. I've been given separate pri",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w54mf1",
-          "title": "England: legally can't scrap car as I'm enforcing a CCJ on it - what options do I have?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w54mf1/england_legally_cant_scrap_car_as_im_enforcing_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w54mf1/england_legally_cant_scrap_car_as_im_enforcing_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788338442,
-          "snippet": "(TLDR at end). Hi everyone, I bought a car in January which experienced head gasket failure shortly after purchase and became undriveable. Despite evidence from the garage I had it towed to, the seller refused to refund me, so I sent a letter before action immediately and then fi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w5hnoh",
-          "title": "NHS dentist - root canal issue (Scotland)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5hnoh/nhs_dentist_root_canal_issue_scotland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5hnoh/nhs_dentist_root_canal_issue_scotland/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788371509,
-          "snippet": "I had root canal done a week ago. Immediately after I started to have what I can only describe as a ‘banging’ headache, that would not clear or dull with paracetamol, ibuprofen or paracetamol/codeine tablets. This headache has been continuous all day, everyday for the last week a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w57mfk",
-          "title": "Gumtree buyer threatens a refund or court - Northern Ireland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w57mfk/gumtree_buyer_threatens_a_refund_or_court/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w57mfk/gumtree_buyer_threatens_a_refund_or_court/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788348392,
-          "snippet": "Hello, I recently sold an item on Gumtree, a professional CRT monitor for retro gaming. The item has an issue with something known as a pincushion effect, where the left and right sides of the screen curve inward. Any time I have used the monitor it lasts from a sec to a minute o",
+          "createdUtc": 1788333986,
+          "snippet": "My husband has just finished a job at a countryside management company, he was there for 6 months. He has just finished his 1 month notice period and finished on the 28th of August. He was also paid on this date, but on his payslip was deducted £878 for course fees with the rest ",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 7,
+      "postCount": 11,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,54 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1w5nwj0",
+          "title": "Inherited London house (no mortgage): 50% owner living rent-free for 15 yrs refuses to sell. Options for US-based 50% minority bloc?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5nwj0/inherited_london_house_no_mortgage_50_owner/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5nwj0/inherited_london_house_no_mortgage_50_owner/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788384736,
+          "snippet": "Hi everyone, looking for some legal perspective on a co-ownership deadlock involving an inherited property in London. The Background: Location: Greater London, England. Property: Inherited from a deceased parent 15+ years ago. The mortgage is fully paid off (100% equity). The par",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w60j57",
+          "title": "Evri claim my package is damaged, but I suspect it may have been stolen internally.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w60j57/evri_claim_my_package_is_damaged_but_i_suspect_it/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w60j57/evri_claim_my_package_is_damaged_but_i_suspect_it/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788420857,
+          "snippet": "England. I am the buyer and as I understand it Evri's contract is with the seller, if that's relevant. Not really expecting a solution, I'm mostly curious about the legalities in this situation. I ordered a sealed box of trading cards from an online retailer. The package was disp",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w62qo3",
+          "title": "Can I get rid of my exes stuff?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w62qo3/can_i_get_rid_of_my_exes_stuff/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w62qo3/can_i_get_rid_of_my_exes_stuff/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788428686,
+          "snippet": "My ex partner and I were together for several years. We broke up 16 months ago and she went back to the US 12 months ago after staying at my parents for four months in between. We never legally lived together, it was an LDR where she would stay at each other’s places when we visi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w61lgu",
+          "title": "Business ghosting me after they burnt my bike nearly a year ago (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w61lgu/business_ghosting_me_after_they_burnt_my_bike/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w61lgu/business_ghosting_me_after_they_burnt_my_bike/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788424636,
+          "snippet": "I left my bike for repairs in a local shop I was a regular customer of last year and unfortunately a few days later they had a massive fire and the whole shop burnt down, including my bike. I got in touch with them a few days afterwards and they confirmed my bike burnt down and s",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1w5a3g5",
           "title": "Received a Single Justice Procedure Notice for my 7-year-old’s school absence – what should I do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5a3g5/received_a_single_justice_procedure_notice_for_my/",
@@ -292,63 +340,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w57kg9",
-          "title": "ENGLAND - Unsuitable Soil Delivery",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w57kg9/england_unsuitable_soil_delivery/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w57kg9/england_unsuitable_soil_delivery/",
+          "id": "1w5u8ng",
+          "title": "Antisocial neighbour has me afraid to go outside.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5u8ng/antisocial_neighbour_has_me_afraid_to_go_outside/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5u8ng/antisocial_neighbour_has_me_afraid_to_go_outside/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788348227,
-          "snippet": "Hello, I've had 3 tonnes of loose top soil delivered, it was tipped directly on my driveway. It was advertised as weed free and screened to 12mm. It was tipped before I had a chance to look at it (I haven't paid for it yet either). It isn't as described, full of lumps of clay, we",
+          "createdUtc": 1788400956,
+          "snippet": "Scotland. Hi Reddit, apologies for the ramble here. It's just coming up to 3am and I'm still pretty on edge, I hope you'll forgive me here. A couple of months ago some new neighbours moved in across the path from me. Immediately something was wrong: rubbish piling up in their gar",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w4ud35",
-          "title": "Passenger in car accident UK -",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w4ud35/passenger_in_car_accident_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w4ud35/passenger_in_car_accident_uk/",
+          "id": "1w5k8yp",
+          "title": "Image on blog copywright claim - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5k8yp/image_on_blog_copywright_claim_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5k8yp/image_on_blog_copywright_claim_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788307450,
-          "snippet": "I was in a terrible car accident months ago where my friend was driving and I was the passenger. I ended up in a coma for 2 days and then 3 weeks in hospital. I have many internal injuries and injuries including a torn aorta fractured neck and skull and an injury to my eye where ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w53333",
-          "title": "Gardner threatening solicitor- need Advice England (vulnerable mum pushed into work)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53333/gardner_threatening_solicitor_need_advice_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53333/gardner_threatening_solicitor_need_advice_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788333045,
-          "snippet": "Hello, need advice please. (I didnt know this was happening until now). Just some important information, my mum is mentally and physically unwell and her husband has just passed in January and shes in her early 60's My mum hired a gardner to do work in her garden. This is after t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w5hf8d",
-          "title": "Company has been struck-off, employees not told",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5hf8d/company_has_been_struckoff_employees_not_told/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5hf8d/company_has_been_struckoff_employees_not_told/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788371014,
-          "snippet": "I work for a small remote-only UK-registered company (5-10 employees). We communicate day-to-day via Slack. I have been employed there for 15+ years. Current owner took over via TUPE 4 years ago. February I happened to discover via Companies House that the company was facing comp",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w5hnoh",
-          "title": "NHS dentist - root canal issue (Scotland)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5hnoh/nhs_dentist_root_canal_issue_scotland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5hnoh/nhs_dentist_root_canal_issue_scotland/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788371509,
-          "snippet": "I had root canal done a week ago. Immediately after I started to have what I can only describe as a ‘banging’ headache, that would not clear or dull with paracetamol, ibuprofen or paracetamol/codeine tablets. This headache has been continuous all day, everyday for the last week a",
+          "createdUtc": 1788376914,
+          "snippet": "Hi - I have been sent an email from camera press about an image on my blog for a review of a concert I attended. The concert took place 10 years ago and I was provided an image to use via the promoter. Unfortunately this was to the email address of a company i worked for at the t",
           "listingSource": "rss:hot"
         }
       ]
@@ -436,18 +448,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w53d8u",
-          "title": "England- My husband is being charged £1.5K by is ex employer for a course that hasn’t taken place",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53d8u/england_my_husband_is_being_charged_15k_by_is_ex/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53d8u/england_my_husband_is_being_charged_15k_by_is_ex/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788333986,
-          "snippet": "My husband has just finished a job at a countryside management company, he was there for 6 months. He has just finished his 1 month notice period and finished on the 28th of August. He was also paid on this date, but on his payslip was deducted £878 for course fees with the rest ",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1w5cj5a",
           "title": "A man with a history of severe mental illness, stalking and numerous warnings on his healthcare records has found out exactly who I am and where I live. No crime has been committed yet. What do I do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5cj5a/a_man_with_a_history_of_severe_mental_illness/",
@@ -458,6 +458,18 @@
           "createdUtc": 1788360606,
           "snippet": "I'm in England. I'm a Band 6 nurse, not originally from the UK, but I've lived and worked here since 2021. For the past few years I've had a popular app on my phone that tracks you when you are walking and pays out cash rewards when you collect enough steps. What I didn't realise",
           "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w53d8u",
+          "title": "England- My husband is being charged £1.5K by is ex employer for a course that hasn’t taken place",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53d8u/england_my_husband_is_being_charged_15k_by_is_ex/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w53d8u/england_my_husband_is_being_charged_15k_by_is_ex/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788333986,
+          "snippet": "My husband has just finished a job at a countryside management company, he was there for 6 months. He has just finished his 1 month notice period and finished on the 28th of August. He was also paid on this date, but on his payslip was deducted £878 for course fees with the rest ",
+          "listingSource": "rss:hot"
         }
       ]
     },
@@ -465,42 +477,6 @@
       "slug": "employment-law",
       "label": "Employment Law",
       "legalAreaSlug": "employment",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1w5538f",
-          "title": "Can work force me into the office after redundancy? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5538f/can_work_force_me_into_the_office_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5538f/can_work_force_me_into_the_office_after/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788340083,
-          "snippet": "Update: thanks all, I’ve accepted my fate and will be heading to the office. 😭 Hi all, I’ve been made redundant from my full time role at a London-based charity after two years. Basically they’ve made the people outside of London redundant and offered alternative (pretty much th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w5gf4w",
-          "title": "UPDATE: Employer said PILON in termination letter, now wants me to work 2 weeks and lose 1 week’s pay",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5gf4w/update_employer_said_pilon_in_termination_letter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5gf4w/update_employer_said_pilon_in_termination_letter/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788368946,
-          "snippet": "My termination letter says the company had decided to use PILON, but also says I have to work my 4-week notice until 29 September. I asked my manager to clarify. In our first conversation today, he said once I had completed my handover I would no longer need to come into the offi",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "community-care",
-      "label": "Community Care",
-      "legalAreaSlug": "community_care",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -508,23 +484,23 @@
       ],
       "posts": [
         {
-          "id": "1w5aqnt",
-          "title": "Childrens social care has broken the law and I need help understanding what I can do next.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5aqnt/childrens_social_care_has_broken_the_law_and_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5aqnt/childrens_social_care_has_broken_the_law_and_i/",
+          "id": "1w5qlrs",
+          "title": "Employer calling a promotion a “clerical correction” and increasing my notice period – where do I stand? (UK- England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5qlrs/employer_calling_a_promotion_a_clerical/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5qlrs/employer_calling_a_promotion_a_clerical/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788356538,
-          "snippet": "(England)The law states that they must keep in contact with care leavers at least once a year. They completely neglected this and only contacted me when I was 23 and the local offer they give to all care leavers from age 18 and ending at 25 meaning I missed out on 4+ years of hel",
+          "createdUtc": 1788391220,
+          "snippet": "Throwaway for obvious reasons. I’m looking for some general legal advice / thoughts on a situation at work. I work in accountancy and have been with my current employer for a few years. There are different levels/grades internally, and I’ve been sitting at one level for quite a w",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "garage-and-vehicle-repair-disputes",
-      "label": "Garage and Vehicle Repair Disputes",
-      "legalAreaSlug": "consumer_vehicle_repair",
+      "slug": "poor-services-and-traders",
+      "label": "Poor Services and Traders",
+      "legalAreaSlug": "consumer_services",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -532,15 +508,15 @@
       ],
       "posts": [
         {
-          "id": "1w5jwc9",
-          "title": "Bought a car from a dealer HPI clear – 5 years later it's apparently a Cat D. Who is liable? (Wales)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5jwc9/bought_a_car_from_a_dealer_hpi_clear_5_years/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w5jwc9/bought_a_car_from_a_dealer_hpi_clear_5_years/",
+          "id": "1w6140v",
+          "title": "American stationed in England, having issues with a local contractor not completing work.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6140v/american_stationed_in_england_having_issues_with/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6140v/american_stationed_in_england_having_issues_with/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788376183,
-          "snippet": "Thanks for reading! Bought a car from a dealer in 2021, paid for using a personal loan. The dealer ran an HPI trade check and it came back completely clear – I still have the original report. I've now tried to sell the car because I desperately need the cash, only to discover HPI",
+          "createdUtc": 1788422962,
+          "snippet": "Hello! I am not sure what routes I can take here, and I am literally foreign to this countries legal procedures. A few months ago, a door to door landscaping business knocked on my door with his toddler son with him, and asked if I was interested in a repeat lawn care package. I ",
           "listingSource": "rss:hot"
         }
       ]
@@ -556,63 +532,15 @@
       ],
       "posts": [
         {
-          "id": "1w4jm00",
-          "title": "£1,500 private parking fine on this road",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w4jm00/1500_private_parking_fine_on_this_road/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w4jm00/1500_private_parking_fine_on_this_road/",
+          "id": "1w62tp7",
+          "title": "UKPC fine for charging EV - POPLA dispute possible?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w62tp7/ukpc_fine_for_charging_ev_popla_dispute_possible/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w62tp7/ukpc_fine_for_charging_ev_popla_dispute_possible/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788285482,
-          "snippet": "Scotland. I have parked on Marchburn Dr, Paisley PA3 2SJ before with no issues for over a week. I parked here for 14 days while away on holiday. There was no signage saying I couldn't park there and there are always lots of cars parked along the road. I've been given separate pri",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "debt",
-      "label": "Debt",
-      "legalAreaSlug": "debt",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1w54mf1",
-          "title": "England: legally can't scrap car as I'm enforcing a CCJ on it - what options do I have?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w54mf1/england_legally_cant_scrap_car_as_im_enforcing_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w54mf1/england_legally_cant_scrap_car_as_im_enforcing_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788338442,
-          "snippet": "(TLDR at end). Hi everyone, I bought a car in January which experienced head gasket failure shortly after purchase and became undriveable. Despite evidence from the garage I had it towed to, the seller refused to refund me, so I sent a letter before action immediately and then fi",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "consumer-law",
-      "label": "Consumer Law",
-      "legalAreaSlug": "consumer",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1w57mfk",
-          "title": "Gumtree buyer threatens a refund or court - Northern Ireland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w57mfk/gumtree_buyer_threatens_a_refund_or_court/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w57mfk/gumtree_buyer_threatens_a_refund_or_court/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788348392,
-          "snippet": "Hello, I recently sold an item on Gumtree, a professional CRT monitor for retro gaming. The item has an issue with something known as a pincushion effect, where the left and right sides of the screen curve inward. Any time I have used the monitor it lasts from a sec to a minute o",
+          "createdUtc": 1788428992,
+          "snippet": "England. I imagine this will be a clear cut no but im wondering if anyone has had any recent success appealing to POPLA for a fine for entering a carpark, using the designated paid EVC station? I fully charged my EV and paid circa £50 for the service. I have then received a fine ",
           "listingSource": "rss:hot"
         }
       ]
