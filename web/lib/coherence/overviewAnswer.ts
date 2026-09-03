@@ -75,7 +75,8 @@ Rules:
 12. Only cite titles that appear in WIKI CONTEXT or admitted Third Eye notes. Do not invent pages to fill the list.
 13. If Master Critic feedback is provided, fix every listed failure before answering.
 14. Give at least two realistic options where the sources support more than one route.
-15. Return JSON only:
+15. Takeaways and next steps must be short practical actions. Never paste the client's questions, "Your live questions:", or a string with two or more question marks.
+16. Return JSON only:
 {
   "answer": "full recommendation text",
   "wikiPageTitles": ["exact titles used from context"],
@@ -370,6 +371,16 @@ function cleanList(value: unknown, limit: number, minLength = 12): string[] {
     .slice(0, limit);
 }
 
+function looksLikeQuestionDump(text: string): boolean {
+  const s = String(text || "");
+  if (/your live questions:|cover the client's live questions/i.test(s)) return true;
+  return (s.match(/\?/g) || []).length >= 2;
+}
+
+function practicalLines(value: unknown, limit: number): string[] {
+  return cleanList(value, limit).filter((item) => !looksLikeQuestionDump(item));
+}
+
 function toPackage(
   answer: string,
   hits: ReturnType<typeof searchWikiPages>,
@@ -417,8 +428,9 @@ function toPackage(
     if (sources.length >= 10) break;
   }
 
-  const parsedRecommendations = cleanList(guidance?.recommendations, 4);
-  const recommendations = parsedRecommendations.length ? parsedRecommendations : takeaways.slice(0, 4);
+  const parsedRecommendations = practicalLines(guidance?.recommendations, 4);
+  const recs = practicalLines(takeaways, 5);
+  const recommendations = parsedRecommendations.length ? parsedRecommendations : recs.slice(0, 4);
   const parsedOptions = (guidance?.options || [])
     .map((item) =>
       typeof item === 'string'
@@ -450,7 +462,7 @@ function toPackage(
 
   return {
     answerOverview: answer,
-    bullets: takeaways.slice(0, 5).map((t) => ({
+    bullets: recs.slice(0, 5).map((t) => ({
       text: t,
       sourceTitle: hits[0]?.title || "Legal Shaman wiki",
       sourceUrl: "https://www.citizensadvice.org.uk/",
@@ -690,7 +702,7 @@ export async function buildOverviewAnswer(opts: {
                 ...hits.filter((h) => !preferredTitles.has(h.title.toLowerCase())),
               ]
             : hits;
-        const takeaways = cleanList(parsed?.takeaways, 5);
+        const takeaways = practicalLines(parsed?.takeaways, 5);
         const options = Array.isArray(parsed?.options)
           ? parsed.options
               .map((item) =>
@@ -707,7 +719,7 @@ export async function buildOverviewAnswer(opts: {
         return {
           answerPackage: attachResearchBundle(
             toPackage(answer, ordered, takeaways, "retrieve-llm", latestText, dworkin, {
-              recommendations: cleanList(parsed?.recommendations, 4),
+              recommendations: practicalLines(parsed?.recommendations, 4),
               options,
               missingFacts: cleanList(parsed?.missingFacts, 5),
               followUpPrompts: cleanList(parsed?.followUpPrompts, 3),

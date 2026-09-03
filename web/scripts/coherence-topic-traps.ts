@@ -1636,6 +1636,24 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           }).errors.some((e) => /consumer filler/i.test(e)),
           'critic missed consumer filler on employer-kit overview',
         ) ||
+        assert(
+          !/Your live questions:|Are we likely to get it back/i.test(cased.recommendations.join(' ')),
+          'takeaways still dump live questions',
+        ) ||
+        assert(
+          !titleAdmissibleOnGeometry('If you are accused', frame, story, { requireCoverage: true }),
+          'accused wiki still admitted on employer-kit crime',
+        ) ||
+        assert(
+          !titleAdmissibleOnGeometry('Who can accompany you to a disciplinary meeting', frame, story, {
+            requireCoverage: true,
+          }),
+          'disciplinary wiki still admitted on employer-kit crime',
+        ) ||
+        assert(
+          !sraOrganisationAdmissible('Care Quality Commission'),
+          'CQC still treated as an admissible SRA solicitor match',
+        ) ||
         assert(extractClientQuestions(story).every((q) => q.length <= 180), 'questions still dump the narrative') ||
         assert(!/Asking for any police officers|Not yet stated/i.test(`${brief.situationSummary} ${brief.desiredOutcome}`), `brief=${brief.situationSummary} | ${brief.desiredOutcome}`) ||
         assert(critique.ok || !critique.errors.some((e) => /fewer than 2 wiki/.test(e)), `critic still demands two wiki pages: ${critique.critique}`)

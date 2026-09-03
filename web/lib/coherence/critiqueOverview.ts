@@ -195,6 +195,20 @@ export function critiqueOverviewRecommendation(opts: {
     ) {
       errors.push("overview: treats the employer as the arrested person");
     }
+    const recText = [
+      ...(pack?.bullets || []).map((b) => b.text),
+      ...(pack?.recommendations || []),
+    ].join(" ");
+    if (/your live questions:|cover the client's live questions/i.test(recText) || (recText.match(/\?/g) || []).length >= 2) {
+      errors.push("overview: takeaways dump the client's question list");
+    }
+    if (
+      pageTitles.some((t) =>
+        /if you are accused|disciplinary meeting/i.test(t),
+      )
+    ) {
+      errors.push("overview: neighbour employment/accused wiki on employer-kit crime");
+    }
   }
 
   const origin = (pack as { origin?: string } | null | undefined)?.origin;
