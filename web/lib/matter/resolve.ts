@@ -1,6 +1,10 @@
 import { resolveTaxonomy } from "@/lib/legal/taxonomy-resolver";
 import type { TaxonomyResolution } from "@/lib/legal/taxonomy-resolver";
 import { isFamilyBelongingsPropertyClaim } from "@/lib/legal/query-signals";
+import {
+  storyLooksWorkplaceLeaveOrStaffRules,
+  storyLooksWorkplaceNeurodiversityAdjustments,
+} from "@/lib/coherence/hypothesisProbe";
 import { normaliseLayText } from "@/lib/coherence/normaliseLay";
 
 import { extractStoryKeyphrases } from "./conceptRetrievalPlan";
@@ -53,8 +57,10 @@ function parseJurisdiction(hint?: string): MatterFrame["jurisdiction"] {
 }
 
 function looksProtectedCharacteristicClaim(story: string): boolean {
-  return /\b(discriminat|harass(?:ment|ed)?|bullied|bullying|protected characteristic|reasonable adjustments?|pregnancy discriminat|racist|homophob|sexist|disability discriminat)\b/i.test(
-    story,
+  return (
+    /\b(discriminat|harass(?:ment|ed)?|bullied|bullying|protected characteristic|reasonable adjustments?|pregnancy discriminat|racist|homophob|sexist|disability discriminat)\b/i.test(
+      story,
+    ) || storyLooksWorkplaceNeurodiversityAdjustments(story)
   );
 }
 
@@ -390,6 +396,51 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
       ),
     ].slice(0, 4);
     primaryIssues = [smallClaims];
+  }
+
+  // Contact / school-language bleed: workplace leave or staff rules must not pin primary family.
+  if (storyLooksWorkplaceLeaveOrStaffRules(storyBlob)) {
+    const employmentIssue: MatterIssue = {
+      slug: "employment",
+      confidence: Math.max(0.72, primaryIssues[0]?.confidence ?? 0.72),
+      reason: "workplace leave / staff rules",
+    };
+    const primaryIsFamily =
+      primaryIssues[0]?.slug === "family" ||
+      primaryIssues[0]?.slug?.startsWith("family") ||
+      Boolean(primaryIssues[0]?.slug?.includes("child"));
+
+    if (primaryIsFamily || !primaryIssues.length) {
+      const familyKept = [...primaryIssues, ...secondaryIssues].filter(
+        (i) => i.slug === "family" || i.slug.includes("child"),
+      );
+      secondaryIssues = [
+        ...familyKept.map((i) => ({ ...i, confidence: Math.min(i.confidence, 0.4) })),
+        ...[...primaryIssues, ...secondaryIssues].filter(
+          (i) => i.slug !== "family" && i.slug !== "employment" && !i.slug.includes("child"),
+        ),
+      ].slice(0, 4);
+      primaryIssues = [employmentIssue];
+      if (
+        storyLooksWorkplaceNeurodiversityAdjustments(storyBlob) &&
+        !secondaryIssues.some((s) => s.slug === "discrimination_equality")
+      ) {
+        secondaryIssues.unshift({
+          slug: "discrimination_equality",
+          confidence: 0.55,
+          reason: "workplace neurodiversity / adjustment cues",
+        });
+      }
+    } else if (
+      !primaryIssues.some((i) => i.slug === "employment" || i.slug.startsWith("employment")) &&
+      !secondaryIssues.some((i) => i.slug === "employment")
+    ) {
+      secondaryIssues.unshift({
+        slug: "employment",
+        confidence: 0.62,
+        reason: "workplace leave / staff-rules competitor",
+      });
+    }
   }
 
   if (

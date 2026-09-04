@@ -26,7 +26,13 @@ import { canonicalizeResearchBundle, emptyResearchBundle, parseResearchBundle, r
 import { matchingSessionForHelp } from '../lib/coherence/services'
 import { buildLawyerBrief } from '../lib/coherence/brief'
 import { relevantWorkAreas, scoreSraWorkAreaForMatching, resolveSraSearchFlags, sraMatchReason, matchingHelpLanesForStory, employerPropertySraFlags } from '../lib/coherence/sraQuery'
-import { attachResolvedMatterFrame } from '../lib/coherence/applyMatterFrame'
+import { attachResolvedMatterFrame, commitHypothesisProbeToSession, matterGatePrompt } from '../lib/coherence/applyMatterFrame'
+import {
+  applyHypothesisProbeAnswer,
+  mergeHypothesisEvidence,
+  shouldCommitHypothesisSet,
+  storyLooksWorkplaceLeaveOrStaffRules,
+} from '../lib/coherence/hypothesisProbe'
 import { preferFrameMatching } from '../lib/coherence/issueRouting'
 import { matchFreeServices } from '../lib/coherence/matchFreeServices'
 import { buildExaResearchBrief } from '../lib/penumbra/exaBrief'
@@ -1898,6 +1904,130 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(
           !/do not paste/i.test(hedgedPack.recommendations.join(' ')),
           'takeaways contain do not paste',
+        )
+      )
+    },
+  },
+  {
+    id: 'hypothesis-probe-school-cleaner-not-family-only-gate',
+    run: () => {
+      const story =
+        'I started a job as a school cleaner. Staff are not allowed holidays during school term and contact is only by radios — no phones or earphones. I have autism and severe anxiety so earphones help me. Am I allowed to take holidays in school breaks and use earphones at work?'
+      const s = intake([story])
+      const framed = attachResolvedMatterFrame(s, story)
+      const primary = framed.frame.primaryIssues[0]?.slug || ''
+      const gate = matterGatePrompt(framed.session)
+      const labels = (gate.options || []).map((o) => o.label.toLowerCase()).join(' | ')
+      const hypSlugs = (framed.hypothesisSet.hypotheses || []).map((h) => h.slug)
+      const employmentLive =
+        primary === 'employment' ||
+        hypSlugs.includes('employment') ||
+        /employment|workplace/i.test(labels)
+      const familyOnlyGate =
+        /mainly family/i.test(labels) &&
+        !/employment|workplace/i.test(labels) &&
+        hypSlugs.length <= 1 &&
+        primary === 'family'
+      return (
+        assert(storyLooksWorkplaceLeaveOrStaffRules(story), 'workplace leave detector missed cleaner story') ||
+        assert(s.matterType === 'employment', `sense matterType=${s.matterType}, want employment`) ||
+        assert(employmentLive, `employment missing as competitor/primary; primary=${primary}; hyps=${hypSlugs.join(',')}; gate=${labels}`) ||
+        assert(!familyOnlyGate, `family-only gate: ${labels}`) ||
+        assert(
+          !framed.frame.exclusions.includes('discrimination_equality') ||
+            hypSlugs.includes('employment'),
+          'equality excluded on workplace neurodiversity story',
+        )
+      )
+    },
+  },
+  {
+    id: 'debt-allowed-not-owed-substring',
+    run: () => {
+      const story = 'Am I allowed to take holidays during school breaks as a cleaner?'
+      const s = senseDetails(story, createInitialSession())
+      return assert(s.matterType !== 'debt', `allowed→debt bleed: matterType=${s.matterType}`)
+    },
+  },
+  {
+    id: 'hypothesis-probe-commit-then-prefer-frame-matching',
+    run: () => {
+      const story =
+        'I started a job as a school cleaner. Staff are not allowed holidays during school term. No phones or earphones. Autism and severe anxiety — earphones help. What are my rights?'
+      const s = intake([story])
+      let framed = attachResolvedMatterFrame(s, story)
+      let set = framed.hypothesisSet
+      if (framed.session.hypothesisProbe?.status === 'probing') {
+        set = applyHypothesisProbeAnswer(
+          set,
+          'hyp_probe_employment_vs_family_0',
+          'This is mainly about employment',
+        )
+        framed = {
+          ...commitHypothesisProbeToSession(framed.session, set, story),
+          hypothesisSet: set,
+        }
+      }
+      const committed = framed.session
+      const curated = {
+        matterType: 'family' as const,
+        topicId: 'family-contact',
+        rationale: 'child contact arrangements',
+      }
+      const research = {
+        matterType: 'employment' as const,
+        topicId: 'employment-leave',
+        rationale: 'holiday entitlement at work',
+      }
+      const preferred = preferFrameMatching(curated, research, committed.matterFrame)
+      return (
+        assert(committed.hypothesisProbe?.status === 'committed', 'probe did not commit') ||
+        assert(
+          committed.matterFrame?.primaryIssues?.[0]?.slug === 'employment',
+          `committed primary not employment: ${committed.matterFrame?.primaryIssues?.[0]?.slug}`,
+        ) ||
+        assert(shouldCommitHypothesisSet(set), 'shouldCommit false after user pick') ||
+        assert(
+          preferred?.matterType === 'employment',
+          `preferFrameMatching ignored committed employment: ${preferred?.matterType}`,
+        )
+      )
+    },
+  },
+  {
+    id: 'hypothesis-local-wiki-evidence-merge',
+    run: () => {
+      const set = {
+        hypotheses: [
+          {
+            slug: 'employment',
+            score: 20,
+            why: ['det'],
+            evidence: [] as Array<{ title: string; support: 'support' | 'contradict' | 'neutral' }>,
+          },
+          {
+            slug: 'family',
+            score: 18,
+            why: ['tax'],
+            evidence: [] as Array<{ title: string; support: 'support' | 'contradict' | 'neutral' }>,
+          },
+        ],
+        turns: 0,
+        askedProbeIds: [] as string[],
+      }
+      const next = mergeHypothesisEvidence(set, {
+        employment: [{ title: 'Holiday entitlement', support: 'support' }],
+        family: [{ title: 'Child arrangements orders', support: 'support' }],
+      })
+      return (
+        assert(
+          next.hypotheses[0]!.evidence.some((e) => /Holiday entitlement/i.test(e.title)),
+          'employment evidence missing',
+        ) ||
+        assert(next.hypotheses[0]!.score > 20, 'support did not boost score') ||
+        assert(
+          next.hypotheses.some((h) => h.why.includes('local wiki support')),
+          'wiki support why missing',
         )
       )
     },
