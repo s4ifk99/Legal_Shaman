@@ -6,13 +6,14 @@ import type { MatterFrame } from '@/lib/matter/types'
 import type { Prompt, SessionState, TimelineEvent } from './types'
 import { applyFrameRoutingToSession } from './issueRouting'
 import { compressLiveGoal, extractClientQuestions } from './clientQuestions'
+import { type HypothesisSet, nextHypothesisProbe } from './hypothesisProbe'
 import {
-  applyCommittedHypothesisToFrame,
-  buildHypothesisSet,
-  nextHypothesisProbe,
-  shouldCommitHypothesisSet,
-  type HypothesisSet,
-} from './hypothesisProbe'
+  commitDialogueToFrame,
+  fromHypothesisProbeCompat,
+  seedResearchDialogue,
+  toHypothesisProbeCompat,
+  type ResearchDialogueState,
+} from './researchDialogue'
 
 export { compressLiveGoal, extractClientQuestions }
 
@@ -96,6 +97,17 @@ function sessionFromFrame(
   return next
 }
 
+function syncDialogueFields(
+  session: SessionState,
+  dialogue: ResearchDialogueState,
+): SessionState {
+  return {
+    ...session,
+    researchDialogue: dialogue,
+    hypothesisProbe: toHypothesisProbeCompat(dialogue),
+  }
+}
+
 export function attachResolvedMatterFrame(
   session: SessionState,
   latestText = '',
@@ -104,6 +116,7 @@ export function attachResolvedMatterFrame(
   frame: MatterFrame
   inspector: MatterInspectorView
   hypothesisSet: HypothesisSet
+  researchDialogue: ResearchDialogueState
 } {
   const story = storyForResolve(session, latestText)
   const questions = extractClientQuestions(`${story}\n${session.clientQuestion || ''}`)
@@ -125,79 +138,79 @@ export function attachResolvedMatterFrame(
     },
   })
   const frame = resolveResult.frame
-  const hypothesisSet = buildHypothesisSet(resolveResult, session, story)
-  const alreadyCommitted = session.hypothesisProbe?.status === 'committed'
-  const ready = alreadyCommitted || shouldCommitHypothesisSet(hypothesisSet)
+  const alreadyCommitted =
+    session.researchDialogue?.status === 'committed' ||
+    session.hypothesisProbe?.status === 'committed'
 
-  let next: SessionState
-  if (ready) {
-    const setForCommit = alreadyCommitted && session.hypothesisProbe?.set
-      ? (session.hypothesisProbe.set as HypothesisSet)
-      : hypothesisSet
-    // Auto-commit without a user pick keeps resolve geometry (dual-capacity divorce+PAYE,
-    // workplace flip, etc.). Probe answers / max-turn force use the hypothesis winner.
-    const forceHypothesis =
-      Boolean(setForCommit.selectedSlug) || setForCommit.turns >= 1 || alreadyCommitted
-    const committedFrame = forceHypothesis
-      ? applyCommittedHypothesisToFrame(frame, setForCommit)
-      : frame
-    next = sessionFromFrame(session, committedFrame, latestText)
-    next = {
-      ...next,
-      hypothesisProbe: {
-        set: setForCommit,
-        status: 'committed',
-        turns: setForCommit.turns,
-      },
-    }
+  if (alreadyCommitted) {
+    const prior =
+      session.researchDialogue ||
+      (session.hypothesisProbe
+        ? fromHypothesisProbeCompat(session.hypothesisProbe)
+        : seedResearchDialogue(resolveResult, session, story))
+    const committedFrame = commitDialogueToFrame(frame, { ...prior, status: 'committed' })
+    let next = sessionFromFrame(session, committedFrame, latestText)
+    const dialogue: ResearchDialogueState = { ...prior, status: 'committed' }
+    next = syncDialogueFields(next, dialogue)
     return {
       session: next,
       frame: committedFrame,
       inspector: formatMatterInspector(committedFrame),
-      hypothesisSet: setForCommit,
+      hypothesisSet: dialogue.set,
+      researchDialogue: dialogue,
     }
   }
 
-  // Provisional frame for UI, but keep probe open — do not treat as final freeze yet.
+  // Late freeze: always start/keep active dialogue — never auto-commit on first attach.
+  const dialogue = seedResearchDialogue(resolveResult, session, story)
+  // Soft-route from provisional resolve geometry for Matching Help preview; Penumbra waits.
+  let next = sessionFromFrame(session, frame, latestText)
   next = {
-    ...session,
-    matterFrame: toSessionMatterFrame(frame),
+    ...next,
     clientQuestion:
       compressLiveGoal(`${story}\n${session.clientQuestion || ''}`) ||
       questions[0] ||
       session.clientQuestion,
     events: eventsFromFrame(frame, session.events),
-    hypothesisProbe: {
-      set: hypothesisSet,
-      status: 'probing',
-      turns: hypothesisSet.turns,
-    },
   }
+  next = syncDialogueFields(next, dialogue)
+
   return {
     session: next,
     frame,
     inspector: formatMatterInspector(frame),
-    hypothesisSet,
+    hypothesisSet: dialogue.set,
+    researchDialogue: dialogue,
   }
 }
 
-/** Commit a probed hypothesis set onto the session (one re-freeze before Penumbra). */
+/** Commit research dialogue onto the session (one freeze before Penumbra Exa). */
 export function commitHypothesisProbeToSession(
   session: SessionState,
   set: HypothesisSet,
   latestText = '',
 ): { session: SessionState; frame: MatterFrame; inspector: MatterInspectorView } {
-  const baseFrame = resolveFrameForSession(session, latestText)
-  const frame = applyCommittedHypothesisToFrame(baseFrame, set)
-  let next = sessionFromFrame(session, frame, latestText)
-  next = {
-    ...next,
-    hypothesisProbe: {
-      set,
-      status: 'committed',
-      turns: set.turns,
-    },
+  const dialogue: ResearchDialogueState = {
+    set,
+    status: 'committed',
+    turns: set.turns,
+    transcript: session.researchDialogue?.transcript || [],
+    lastEvidence: session.researchDialogue?.lastEvidence || [],
+    statusNote: session.researchDialogue?.statusNote,
   }
+  return commitResearchDialogueToSession(session, dialogue, latestText)
+}
+
+export function commitResearchDialogueToSession(
+  session: SessionState,
+  dialogue: ResearchDialogueState,
+  latestText = '',
+): { session: SessionState; frame: MatterFrame; inspector: MatterInspectorView } {
+  const baseFrame = resolveFrameForSession(session, latestText)
+  const frame = commitDialogueToFrame(baseFrame, dialogue)
+  let next = sessionFromFrame(session, frame, latestText)
+  const committed: ResearchDialogueState = { ...dialogue, status: 'committed' }
+  next = syncDialogueFields(next, committed)
   return { session: next, frame, inspector: formatMatterInspector(frame) }
 }
 
@@ -226,16 +239,18 @@ const SLUG_LABEL: Record<string, string> = {
 }
 
 export function matterGatePrompt(session: SessionState): Prompt {
+  const dialogue = session.researchDialogue
   const probe = session.hypothesisProbe
-  if (probe?.status === 'probing') {
-    const fromProbe = nextHypothesisProbe(probe.set, session)
+  const set = dialogue?.set || probe?.set
+  if ((dialogue?.status === 'active' || probe?.status === 'probing') && set) {
+    const fromProbe = nextHypothesisProbe(set as HypothesisSet, session)
     if (fromProbe) return fromProbe
   }
 
   const gate = sessionMatterGate(session)
   const blocking = session.matterFrame?.ambiguities?.find((a) => a.blocking)
-  const competitors = probe?.set.hypotheses?.length
-    ? probe.set.hypotheses
+  const competitors = set?.hypotheses?.length
+    ? set.hypotheses
     : [
         ...(session.matterFrame?.primaryIssues || []),
         ...(session.matterFrame?.secondaryIssues || []),

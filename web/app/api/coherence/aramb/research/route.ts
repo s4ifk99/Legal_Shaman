@@ -28,6 +28,29 @@ export const maxDuration = 90;
 // Finish with a fallback before Vercel's 90s platform kill.
 const ARAMB_REQUEST_TIMEOUT_MS = 70_000;
 
+/** Prefer client-committed SessionMatterFrame geometry over a fresh resolve. */
+function coerceCommittedMatterFrame(
+  raw: unknown,
+  fallback: MatterFrame,
+): MatterFrame {
+  if (!raw || typeof raw !== "object") return fallback;
+  const mf = raw as Partial<MatterFrame>;
+  if (!Array.isArray(mf.primaryIssues) || mf.primaryIssues.length === 0) return fallback;
+  return {
+    ...fallback,
+    matterId: typeof mf.matterId === "string" ? mf.matterId : fallback.matterId,
+    primaryIssues: mf.primaryIssues,
+    secondaryIssues: Array.isArray(mf.secondaryIssues) ? mf.secondaryIssues : fallback.secondaryIssues,
+    exclusions: Array.isArray(mf.exclusions) ? mf.exclusions : fallback.exclusions,
+    ambiguities: Array.isArray(mf.ambiguities) ? mf.ambiguities : fallback.ambiguities,
+    retrievalScope: Array.isArray(mf.retrievalScope) ? mf.retrievalScope : fallback.retrievalScope,
+    overallConfidence:
+      typeof mf.overallConfidence === "number" ? mf.overallConfidence : fallback.overallConfidence,
+    resolutionStatus: (mf.resolutionStatus as MatterFrame["resolutionStatus"]) || fallback.resolutionStatus,
+    concepts: Array.isArray(mf.concepts) ? mf.concepts : fallback.concepts,
+  };
+}
+
 type Body = {
   latestText?: string;
   understanding?: string;
@@ -192,12 +215,14 @@ export async function POST(req: Request) {
 
     const understanding = String(body.understanding || "").trim();
     const clientQuestion = String(body.clientQuestion || "").trim();
-    const matterFrame = MatterEngine.resolve({
+    const resolved = MatterEngine.resolve({
       submission,
       clientQuestion,
       understanding,
       jurisdictionHint: "",
     }).frame;
+    // Honor late-freeze commit from the client when present — do not re-resolve over it.
+    const matterFrame = coerceCommittedMatterFrame(body.matterFrame, resolved);
     const evidence = KnowledgeRetriever.forMatter({
       matterFrame,
       submission,
