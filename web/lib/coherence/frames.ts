@@ -2,6 +2,7 @@ import type { MatterType, Mode, SessionState } from './types'
 import { maximiseLocalCoherence, type WikiCandidate } from './coherence'
 import { buildRetrievalText } from './retrievalText'
 import { looksNeighbourDispute, looksVisaRefusalOrChallenge, looksBenefitsRules, looksVictimCommunicationsHarassment, looksLeaseholdFireSafetyAlteration } from './sense'
+import { storyLooksWorkplaceLeaveOrStaffRules } from './hypothesisProbe'
 import { classifyUkTaxonomy, type UkTaxonomyHit } from './ukTaxonomy'
 
 export interface LegalFrame {
@@ -405,12 +406,14 @@ export function proposeLegalFrames(session: SessionState, limit = 3): LegalFrame
       )
     }
     // Only surface child-arrangements when that is actually asked — not for gift/damage stories
+    // and not for school-workplace leave / staff-rules stories (contact radios ≠ child contact).
     if (
-      /custody|contact order|child arrangement|care order|living arrangements|who (?:the child|they) (?:live|lives) with/.test(
+      !storyLooksWorkplaceLeaveOrStaffRules(t) &&
+      (/custody|contact order|child arrangement|care order|living arrangements|who (?:the child|they) (?:live|lives) with/.test(
         t,
       ) ||
-      (/child|year old|son|daughter/.test(t) &&
-        !/\b(threw|broke|broken|taken it off|sue|get (?:it|them) (?:back|fixed)|Switch|console|toy|gift)\b/i.test(t))
+        (/child|year old|son|daughter/.test(t) &&
+          !/\b(threw|broke|broken|taken it off|sue|get (?:it|them) (?:back|fixed)|Switch|console|toy|gift)\b/i.test(t)))
     ) {
       add('fam-children', 'Children / arrangements', 'Child arrangements or care concerns are central.', 86)
     }

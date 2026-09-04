@@ -739,7 +739,17 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
             const next = committed.session
             setMatterInspector(committed.inspector)
             setSession(next)
-            setPrompt(nextPrompt(next))
+            setPrompt(
+              next.penumbraResearch?.bundle
+                ? nextPrompt(next)
+                : {
+                    id: 'penumbra_research_running',
+                    kind: 'closed',
+                    text: 'Researching your matter with the committed geometry…',
+                    reason: 'Matter frozen — Third Eye next.',
+                    options: [],
+                  },
+            )
             if (!next.penumbraResearch?.bundle && next.searchMode === 'penumbra') {
               const launch = () => {
                 void runPenumbraResearch('', next)
@@ -876,7 +886,17 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
             next = committed.session
             setMatterInspector(committed.inspector)
             setSession(next)
-            setPrompt(nextPrompt(next))
+            setPrompt(
+              next.penumbraResearch?.bundle
+                ? nextPrompt(next)
+                : {
+                    id: 'penumbra_research_running',
+                    kind: 'closed',
+                    text: 'Researching your matter with the committed geometry…',
+                    reason: 'Matter frozen — Third Eye next.',
+                    options: [],
+                  },
+            )
             if (!next.penumbraResearch?.bundle && next.searchMode === 'penumbra') {
               const launch = () => {
                 void runPenumbraResearch('', next)

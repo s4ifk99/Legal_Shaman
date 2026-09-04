@@ -228,6 +228,19 @@ export function heuristicSuggestPack(text: string): PackClassification {
     }
   }
 
+  // Workplace leave / staff rules (school cleaner, holiday ban, earphones) — not pack-unclear.
+  if (
+    /\b(job|staff|cleaner|employer|employee|at work|workplace)\b/i.test(t) &&
+    /\b(holiday|annual leave|not allowed|earphones?|headphones?|phones?|staff rules?)\b/i.test(t)
+  ) {
+    return {
+      packId: 'employment-general',
+      confidence: 0.8,
+      reason: 'Workplace leave / staff-rules language',
+      source: 'heuristic',
+    }
+  }
+
   return {
     packId: 'unclear',
     confidence: 0.35,
@@ -270,6 +283,18 @@ export function needsPackClarify(session: SessionState): boolean {
   if (!c) return false
   if (session.answeredPromptIds.includes('pack_clarify')) return false
   if (c.source === 'user') return false
+  // Research dialogue owns matter geometry — do not interrupt with neighbour/visa chips.
+  if (
+    session.researchDialogue?.status === 'active' ||
+    session.researchDialogue?.status === 'committed' ||
+    session.hypothesisProbe?.status === 'probing' ||
+    session.hypothesisProbe?.status === 'committed'
+  ) {
+    return false
+  }
+  // Sense already typed the matter — pack clarify is redundant and often off-topic.
+  if (session.matterType && session.matterType !== 'unknown') return false
+  if (session.matterFrame?.primaryIssues?.length) return false
   return c.packId === 'unclear' || c.confidence < PACK_CLASSIFY_CLARIFY_BELOW
 }
 
@@ -326,17 +351,30 @@ export function packClarifyPrompt(session: SessionState): Prompt {
     },
   ]
   const story = [...session.rawInputs, session.whatHappened, session.goal].join(' ')
+  const allWithEmployment: PredictiveChoice[] = [
+    {
+      id: 'pc-emp',
+      label: 'Job / workplace rules',
+      value: 'pack:employment-general',
+    },
+    ...allOptions,
+  ]
   const options = /\b(university|college|course|tuition|student finance|student loan|sfe|education)\b/i.test(story)
     ? allOptions.filter((option) => ['pc9', 'pc8'].includes(option.id))
+    : /\b(job|staff|cleaner|employer|holiday|earphones?|workplace)\b/i.test(story)
+      ? allWithEmployment.filter((option) => ['pc-emp', 'pc8'].includes(option.id))
     : /\b(neighbour|next door|driveway|car port|access)\b/i.test(story)
       ? allOptions.filter((option) => ['pc1', 'pc2', 'pc5', 'pc8'].includes(option.id))
       : /\b(car|vehicle|dealer|parking|pcn|refund|repair)\b/i.test(story)
         ? allOptions.filter((option) => ['pc3', 'pc4', 'pc8'].includes(option.id))
-        : allOptions
+        : allWithEmployment
   return {
     id: 'pack_clarify',
     kind: 'closed',
-    text,
+    text:
+      /\b(job|staff|cleaner|employer|holiday|earphones?|workplace)\b/i.test(story)
+        ? 'Is this mainly a job / workplace problem, or something else?'
+        : text,
     reason: c
       ? `Pack classifier unsure (${c.packId}, conf ${c.confidence.toFixed(2)}): ${c.reason}`
       : 'Need a pack before questions or retrieval.',
