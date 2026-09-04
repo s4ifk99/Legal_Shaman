@@ -56,6 +56,7 @@ export async function requestPenumbraResearch(
       message: input.message,
       searchMode: session.searchMode,
       caseKey: state.caseKey,
+      conversationId: state.conversationId || undefined,
       matterFrame: session.matterFrame || undefined,
     }),
   })

@@ -33,6 +33,11 @@ import {
   shouldCommitHypothesisSet,
   storyLooksWorkplaceLeaveOrStaffRules,
 } from '../lib/coherence/hypothesisProbe'
+import {
+  RESEARCH_DIALOGUE_MAX_TURNS,
+  shouldForceCommitDialogue,
+  type ResearchDialogueState,
+} from '../lib/coherence/researchDialogue'
 import { preferFrameMatching } from '../lib/coherence/issueRouting'
 import { matchFreeServices } from '../lib/coherence/matchFreeServices'
 import { buildExaResearchBrief } from '../lib/penumbra/exaBrief'
@@ -1931,6 +1936,14 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       return (
         assert(storyLooksWorkplaceLeaveOrStaffRules(story), 'workplace leave detector missed cleaner story') ||
         assert(s.matterType === 'employment', `sense matterType=${s.matterType}, want employment`) ||
+        assert(
+          framed.session.researchDialogue?.status === 'active',
+          `expected late-freeze active dialogue, got ${framed.session.researchDialogue?.status}`,
+        ) ||
+        assert(
+          framed.session.hypothesisProbe?.status !== 'committed',
+          'early commit before dialogue',
+        ) ||
         assert(employmentLive, `employment missing as competitor/primary; primary=${primary}; hyps=${hypSlugs.join(',')}; gate=${labels}`) ||
         assert(!familyOnlyGate, `family-only gate: ${labels}`) ||
         assert(
@@ -1957,7 +1970,7 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       const s = intake([story])
       let framed = attachResolvedMatterFrame(s, story)
       let set = framed.hypothesisSet
-      if (framed.session.hypothesisProbe?.status === 'probing') {
+      if (framed.session.researchDialogue?.status === 'active' || framed.session.hypothesisProbe?.status === 'probing') {
         set = applyHypothesisProbeAnswer(
           set,
           'hyp_probe_employment_vs_family_0',
@@ -1966,6 +1979,7 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         framed = {
           ...commitHypothesisProbeToSession(framed.session, set, story),
           hypothesisSet: set,
+          researchDialogue: framed.researchDialogue,
         }
       }
       const committed = framed.session
@@ -1981,7 +1995,11 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       }
       const preferred = preferFrameMatching(curated, research, committed.matterFrame)
       return (
-        assert(committed.hypothesisProbe?.status === 'committed', 'probe did not commit') ||
+        assert(
+          committed.researchDialogue?.status === 'committed' ||
+            committed.hypothesisProbe?.status === 'committed',
+          'dialogue did not commit',
+        ) ||
         assert(
           committed.matterFrame?.primaryIssues?.[0]?.slug === 'employment',
           `committed primary not employment: ${committed.matterFrame?.primaryIssues?.[0]?.slug}`,
@@ -1992,6 +2010,42 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           `preferFrameMatching ignored committed employment: ${preferred?.matterType}`,
         )
       )
+    },
+  },
+  {
+    id: 'late-freeze-force-commit-budget-keeps-employment',
+    run: () => {
+      const story =
+        'I started a job as a school cleaner. Staff are not allowed holidays during school term. No phones. Autism — earphones help.'
+      const s = intake([story])
+      const framed = attachResolvedMatterFrame(s, story)
+      const dialogue: ResearchDialogueState = {
+        ...(framed.session.researchDialogue as ResearchDialogueState),
+        turns: RESEARCH_DIALOGUE_MAX_TURNS,
+        set: {
+          ...framed.hypothesisSet,
+          turns: RESEARCH_DIALOGUE_MAX_TURNS,
+        },
+      }
+      return (
+        assert(shouldForceCommitDialogue(dialogue), 'force commit false at budget') ||
+        assert(
+          dialogue.set.hypotheses[0]?.slug === 'employment',
+          `top hyp not employment at force: ${dialogue.set.hypotheses[0]?.slug}`,
+        )
+      )
+    },
+  },
+  {
+    id: 'late-freeze-no-overview-without-commit',
+    run: () => {
+      const story =
+        'I started a job as a school cleaner. Staff are not allowed holidays during school term.'
+      const framed = attachResolvedMatterFrame(intake([story]), story)
+      const canLaunchPenumbra =
+        framed.session.researchDialogue?.status === 'committed' ||
+        framed.session.hypothesisProbe?.status === 'committed'
+      return assert(!canLaunchPenumbra, 'Penumbra launch allowed before late commit')
     },
   },
   {

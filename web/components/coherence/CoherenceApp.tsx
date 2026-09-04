@@ -39,18 +39,17 @@ import { proposeCoherentFrames } from '@/lib/coherence/frames'
 import { applyTopicLockToSession } from '@/lib/coherence/topicLock'
 import {
   attachResolvedMatterFrame,
-  commitHypothesisProbeToSession,
+  commitResearchDialogueToSession,
   matterGatePrompt,
   sessionMatterGate,
 } from '@/lib/coherence/applyMatterFrame'
 import {
-  applyHypothesisProbeAnswer,
-  isHypothesisProbePromptId,
-  mergeHypothesisEvidence,
-  nextHypothesisProbe,
-  shouldCommitHypothesisSet,
-  type HypothesisSet,
-} from '@/lib/coherence/hypothesisProbe'
+  applyUserAnswerToDialogue,
+  fromHypothesisProbeCompat,
+  isResearchDialoguePromptId,
+  toHypothesisProbeCompat,
+  type ResearchDialogueState,
+} from '@/lib/coherence/researchDialogue'
 import {
   applyPackClassification,
   classificationFromClarifyAnswer,
@@ -696,56 +695,83 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       return
     }
 
-    // Hypothesis-probe answers: update competitors, optionally light-research, commit once.
-    if (isHypothesisProbePromptId(answeredId) && session.hypothesisProbe?.status === 'probing') {
-      let set = applyHypothesisProbeAnswer(session.hypothesisProbe.set, answeredId, value)
+    // Research dialogue answers: agent ask / wiki / update until late commit.
+    const dialogueActive =
+      session.researchDialogue?.status === 'active' ||
+      session.hypothesisProbe?.status === 'probing'
+    if (isResearchDialoguePromptId(answeredId) && dialogueActive) {
+      let dialogue: ResearchDialogueState =
+        session.researchDialogue ||
+        fromHypothesisProbeCompat(session.hypothesisProbe!)
+      dialogue = applyUserAnswerToDialogue(dialogue, answeredId, value)
+      const story = [session.whatHappened, ...session.rawInputs.slice(-2), value]
+        .filter(Boolean)
+        .join('\n')
       try {
-        const res = await fetch(resolveApiUrl('/api/coherence/hypothesis-research'), {
+        const res = await fetch(resolveApiUrl('/api/coherence/research-dialogue/turn'), {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ set, story: session.whatHappened || value }),
+          body: JSON.stringify({
+            story,
+            dialogue,
+            lastUserMessage: value,
+          }),
         })
         if (res.ok) {
           const data = (await res.json()) as {
-            evidenceBySlug?: Record<string, HypothesisSet['hypotheses'][number]['evidence']>
+            dialogue?: ResearchDialogueState
+            prompt?: Prompt | null
+            committed?: boolean
+            statusNote?: string
           }
-          if (data.evidenceBySlug) set = mergeHypothesisEvidence(set, data.evidenceBySlug)
-        }
-      } catch {
-        // Local research is best-effort; continue probing without wiki titles.
-      }
-
-      if (shouldCommitHypothesisSet(set)) {
-        const committed = commitHypothesisProbeToSession(
-          {
+          if (data.dialogue) dialogue = data.dialogue
+          if (data.committed) {
+            const committed = commitResearchDialogueToSession(
+              {
+                ...session,
+                answeredPromptIds: Array.from(new Set([...session.answeredPromptIds, answeredId])),
+                researchDialogue: dialogue,
+                hypothesisProbe: toHypothesisProbeCompat(dialogue),
+              },
+              dialogue,
+              value,
+            )
+            const next = committed.session
+            setMatterInspector(committed.inspector)
+            setSession(next)
+            setPrompt(nextPrompt(next))
+            if (!next.penumbraResearch?.bundle && next.searchMode === 'penumbra') {
+              const launch = () => {
+                void runPenumbraResearch('', next)
+              }
+              if (authRequired) requireCoherenceAuth(launch)
+              else launch()
+            }
+            return
+          }
+          const probing: SessionState = {
             ...session,
             answeredPromptIds: Array.from(new Set([...session.answeredPromptIds, answeredId])),
-          },
-          set,
-          value,
-        )
-        let next = committed.session
-        setMatterInspector(committed.inspector)
-        setSession(next)
-        setPrompt(nextPrompt(next))
-        if (!session.penumbraResearch?.bundle && next.searchMode === 'penumbra') {
-          const launch = () => {
-            void runPenumbraResearch('', next)
+            researchDialogue: dialogue,
+            hypothesisProbe: toHypothesisProbeCompat(dialogue),
           }
-          if (authRequired) requireCoherenceAuth(launch)
-          else launch()
+          setSession(probing)
+          setSkipEnhance(true)
+          setPrompt(data.prompt || matterGatePrompt(probing))
+          return
         }
-        return
+      } catch {
+        // Fall through to local matter gate if agent turn unavailable.
       }
-
       const probing: SessionState = {
         ...session,
         answeredPromptIds: Array.from(new Set([...session.answeredPromptIds, answeredId])),
-        hypothesisProbe: { set, status: 'probing', turns: set.turns },
+        researchDialogue: dialogue,
+        hypothesisProbe: toHypothesisProbeCompat(dialogue),
       }
       setSession(probing)
       setSkipEnhance(true)
-      setPrompt(nextHypothesisProbe(set, probing) || matterGatePrompt(probing))
+      setPrompt(matterGatePrompt(probing))
       return
     }
 
@@ -814,48 +840,60 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     const framed = attachResolvedMatterFrame(next, value)
     next = framed.session
     setMatterInspector(framed.inspector)
-
-    // Light local wiki evidence while hypotheses are still open (no Exa quota).
-    if (next.hypothesisProbe?.status === 'probing') {
-      try {
-        const res = await fetch(resolveApiUrl('/api/coherence/hypothesis-research'), {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ set: next.hypothesisProbe.set, story: value }),
-        })
-        if (res.ok) {
-          const data = (await res.json()) as {
-            evidenceBySlug?: Record<string, HypothesisSet['hypotheses'][number]['evidence']>
-          }
-          if (data.evidenceBySlug && next.hypothesisProbe) {
-            const enriched = mergeHypothesisEvidence(next.hypothesisProbe.set, data.evidenceBySlug)
-            next = {
-              ...next,
-              hypothesisProbe: {
-                ...next.hypothesisProbe,
-                set: enriched,
-              },
-            }
-            if (shouldCommitHypothesisSet(enriched)) {
-              const committed = commitHypothesisProbeToSession(next, enriched, value)
-              next = committed.session
-              setMatterInspector(committed.inspector)
-            }
-          }
-        }
-      } catch {
-        // Best-effort research; probe continues without wiki titles.
-      }
-    }
-
     setSession(next)
 
-    if (next.hypothesisProbe?.status === 'probing') {
-      setSkipEnhance(true)
-      setPrompt(nextHypothesisProbe(next.hypothesisProbe.set, next) || matterGatePrompt(next))
+    // Late freeze: start research dialogue (wiki + asks) — no Penumbra until commit.
+    if (next.researchDialogue?.status === 'active' || next.hypothesisProbe?.status === 'probing') {
       if (session.rawInputs.length === 0 && value.trim()) {
         captureProductEvent('b2c_search_started', { search_mode: next.searchMode })
       }
+      setSkipEnhance(true)
+      try {
+        const res = await fetch(resolveApiUrl('/api/coherence/research-dialogue/turn'), {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            story: value,
+            dialogue: next.researchDialogue || fromHypothesisProbeCompat(next.hypothesisProbe!),
+            lastUserMessage: value,
+          }),
+        })
+        if (res.ok) {
+          const data = (await res.json()) as {
+            dialogue?: ResearchDialogueState
+            prompt?: Prompt | null
+            committed?: boolean
+          }
+          if (data.dialogue) {
+            next = {
+              ...next,
+              researchDialogue: data.dialogue,
+              hypothesisProbe: toHypothesisProbeCompat(data.dialogue),
+            }
+          }
+          if (data.committed && data.dialogue) {
+            const committed = commitResearchDialogueToSession(next, data.dialogue, value)
+            next = committed.session
+            setMatterInspector(committed.inspector)
+            setSession(next)
+            setPrompt(nextPrompt(next))
+            if (!next.penumbraResearch?.bundle && next.searchMode === 'penumbra') {
+              const launch = () => {
+                void runPenumbraResearch('', next)
+              }
+              if (authRequired) requireCoherenceAuth(launch)
+              else launch()
+            }
+            return
+          }
+          setSession(next)
+          setPrompt(data.prompt || matterGatePrompt(next))
+          return
+        }
+      } catch {
+        // Local gate if agent turn unavailable.
+      }
+      setPrompt(matterGatePrompt(next))
       return
     }
 
@@ -889,12 +927,13 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       }
     }
 
-    // Penumbra only after hypothesis commit (or auto-commit when geometry is clear).
+    // Penumbra only after research dialogue commit (late freeze).
     if (
       !followUp &&
       next.searchMode === 'penumbra' &&
       !next.penumbraResearch?.bundle &&
-      next.hypothesisProbe?.status === 'committed'
+      (next.researchDialogue?.status === 'committed' ||
+        next.hypothesisProbe?.status === 'committed')
     ) {
       const launch = () => {
         void runPenumbraResearch('', next)
@@ -1505,6 +1544,11 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       {agentError ? (
         <p role="alert" className="agent-error">
           {agentError}
+        </p>
+      ) : null}
+      {session.researchDialogue?.statusNote && session.researchDialogue.status === 'active' ? (
+        <p className="research-dialogue-note" aria-live="polite">
+          {session.researchDialogue.statusNote}
         </p>
       ) : null}
 

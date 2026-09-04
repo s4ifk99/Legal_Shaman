@@ -167,8 +167,29 @@ export interface SessionState {
     at: string
   }>
   /**
-   * Hypothesis-probe loop before Penumbra: rank competitors, ask discriminating
-   * questions, then commit exactly one MatterFrame (one re-freeze).
+   * Late-freeze research dialogue: ask / wiki / update until commit,
+   * then one Penumbra Exa pass + Overview.
+   */
+  researchDialogue?: {
+    set: {
+      hypotheses: Array<{
+        slug: string
+        score: number
+        why: string[]
+        evidence: Array<{ title: string; support: 'support' | 'contradict' | 'neutral' }>
+      }>
+      turns: number
+      askedProbeIds: string[]
+      selectedSlug?: string
+    }
+    status: 'active' | 'committed'
+    turns: number
+    transcript: Array<{ role: 'user' | 'agent' | 'system'; text: string; at: string }>
+    lastEvidence: Array<{ title: string; support: 'support' | 'contradict' | 'neutral' }>
+    statusNote?: string
+  }
+  /**
+   * @deprecated Prefer researchDialogue — kept in sync for traps / older UI paths.
    */
   hypothesisProbe?: {
     set: {
