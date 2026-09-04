@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-04T10:23:18.884Z",
+    "scrapedAt": "2026-09-04T20:18:24.260Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 7,
+    "topicCount": 10,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -50,15 +50,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w6kwyl",
-          "title": "Dead body in neighbouring flat - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6kwyl/dead_body_in_neighbouring_flat_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6kwyl/dead_body_in_neighbouring_flat_england/",
+          "id": "1w79lm4",
+          "title": "[England] Ex-employer demanding GF removes portfolio work within 24 hours for \"copyright infringement\" (Retaliation for ACAS certificate)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w79lm4/england_exemployer_demanding_gf_removes_portfolio/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w79lm4/england_exemployer_demanding_gf_removes_portfolio/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788471242,
-          "snippet": "Hi all, Apologies for the depressing topic, I'm hoping you can help me out. I am currently a tenant in a flat within a larger purpose built apartment block in London. Over the past several days there has been a disturbing smell growing from somewhere on this floor of the building",
+          "createdUtc": 1788540110,
+          "snippet": "Hi everyone, Looking for some advice on behalf of my girlfriend. We’re in England. The Background: My girlfriend was employed as a graphic designer for three and a half years with the company in question but is now freelancing full-time. She was recently made \"redundant\" shortly ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w73jwo",
+          "title": "Security guard saved me from being attacked by a protestor in a mask. He has been fired for punching the protestor. Is there anything I can do to help him?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w73jwo/security_guard_saved_me_from_being_attacked_by_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w73jwo/security_guard_saved_me_from_being_attacked_by_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788526322,
+          "snippet": "I can't reveal my job but I work either in or adjacent to the public sector. Our site was targeted by protestors recently one of whom got up in my face while wearing a cloth ovee his face. I'm a 5ft 5 woman. He was easily 6ft. He towered over me started lunging forward and scream",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w75c78",
+          "title": "Ex Employer is refusing my final pay, what can I do? Urgently need it sorting! - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w75c78/ex_employer_is_refusing_my_final_pay_what_can_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w75c78/ex_employer_is_refusing_my_final_pay_what_can_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788530644,
+          "snippet": "Hello, I previously left a job i worked at for 2.5 years. Today I was supposed to recieve my last paycheck but I havent, nor have I recieved a payslip. I contacted upper management and asked them and they told me that due to me not working my 2 weeks notice, I forfeit my final pa",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w70cqg",
+          "title": "Is this a breach of my privacy at a gym and can I do anything about it? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w70cqg/is_this_a_breach_of_my_privacy_at_a_gym_and_can_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w70cqg/is_this_a_breach_of_my_privacy_at_a_gym_and_can_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788517051,
+          "snippet": "Throwaway as I don’t want this on my main. A couple of years ago I had a heart at 42. Very scary and traumatic and I have been on some strong beta blockers since. I’ve slowly reintroduced myself to going back to the gym and have seen my doctor who said it’s fine just take my time",
           "listingSource": "rss:hot"
         },
         {
@@ -74,39 +110,75 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w6ccvy",
-          "title": "Letting Agents won't accept 1 months notice",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6ccvy/letting_agents_wont_accept_1_months_notice/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6ccvy/letting_agents_wont_accept_1_months_notice/",
+          "id": "1w71mnd",
+          "title": "How can I legally have a car dumped outside my house removed? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w71mnd/how_can_i_legally_have_a_car_dumped_outside_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w71mnd/how_can_i_legally_have_a_car_dumped_outside_my/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788453023,
-          "snippet": "Hello, Cross posting from r/TenantsInTheUK I have just come across a post that had a similar issue to me but I wanted to double check that I am in the right. My boyfriend and I have bought a house. Yesterday I tried to give our notice of 1 month to the letting agents. However, th",
+          "createdUtc": 1788521039,
+          "snippet": "About 5 weeks ago, someone broke down outside my house in a 25+ year old car. They didn't say anything to me or the neighbourhood, but rolled the car onto the pavement just outside my house. The car is taxed, MOT'd, and technically not blocking the road or my driveway, but it's *",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w6hjad",
-          "title": "Student halls trying to ban air drying laundry and force us to use their paid tumble dryers (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6hjad/student_halls_trying_to_ban_air_drying_laundry/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6hjad/student_halls_trying_to_ban_air_drying_laundry/",
+          "id": "1w74p3b",
+          "title": "Can I stop my grandma's ashes being buried in my grandad's grave if it's in her will? Based in England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w74p3b/can_i_stop_my_grandmas_ashes_being_buried_in_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w74p3b/can_i_stop_my_grandmas_ashes_being_buried_in_my/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788463901,
-          "snippet": "Basically the title. The accommodation is claiming that we are not allowed to air dry our laundry in the private rooms we are renting, claiming that it will cause humidity issues. They are instead claiming we must use the provided dryers, which are £2.40 a load. Obviously there a",
+          "createdUtc": 1788529150,
+          "snippet": "My grandparents separated before my grandad's death. They lived separately and were not close but they didn't divorce. My grandad died young and because they weren't divorced all his assets went to my grandma. She has now passed away and we just discovered that part of her will a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w6b783",
-          "title": "Student in the house I'm renting has brought their husband and two young children with them. None of us consented to this and they won't leave.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6b783/student_in_the_house_im_renting_has_brought_their/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6b783/student_in_the_house_im_renting_has_brought_their/",
+          "id": "1w7b0fo",
+          "title": "Sold Xbox series X on marketplace - Buyer now claiming it doesnt work 2 days later - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7b0fo/sold_xbox_series_x_on_marketplace_buyer_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7b0fo/sold_xbox_series_x_on_marketplace_buyer_now/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788450574,
-          "snippet": "We're renting a property. There's 4 of us sharing. Contract with the landlord started on the 28th August 2026 and runs through to 27th August 2027. We met on the student portal in July when the original place I was supposed to be renting fell through. One of the four students arr",
+          "createdUtc": 1788543100,
+          "snippet": "As per the title, I sold an Xbox series X on marketplace, 2 days later, the buyer is coming back telling me it isn't working. Before I put it up, I updated and tested the xbox to ensure it was working. I listed it as working in good working order, the buyer didn't ask to see it w",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w7ez97",
+          "title": "City Council Issued Premises licence to a Company They Own, sans Blue Notices or Notice in Newspaper (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7ez97/city_council_issued_premises_licence_to_a_company/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7ez97/city_council_issued_premises_licence_to_a_company/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788551709,
+          "snippet": "City Council formed a company to put on events in a park, close to many residents. They obtained a premises licence, which still appears to be in force. There was a licencing condition limiting the number of events louder than a certain threshold to 3 days per year. Recently ther",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w6kwyl",
+          "title": "Dead body in neighbouring flat - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6kwyl/dead_body_in_neighbouring_flat_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6kwyl/dead_body_in_neighbouring_flat_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788471242,
+          "snippet": "Hi all, Apologies for the depressing topic, I'm hoping you can help me out. I am currently a tenant in a flat within a larger purpose built apartment block in London. Over the past several days there has been a disturbing smell growing from somewhere on this floor of the building",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w78ihn",
+          "title": "Motorbike (stolen) then siezed 4 years later under s165 Road Traffic Act (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w78ihn/motorbike_stolen_then_siezed_4_years_later_under/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w78ihn/motorbike_stolen_then_siezed_4_years_later_under/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788537790,
+          "snippet": "Hi all TLDR: Motorbike was stolen, I didn't claim on insurance so am still the owner. 4 years later it has been impounded and I received notice 41 days later. I understand I am left holding the bag on about £1k of fees to collect it. Do I have any way to avoid paying fees / claim",
           "listingSource": "rss:hot"
         },
         {
@@ -122,135 +194,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w67g7a",
-          "title": "[England] Neighbour removed our fence and is claiming we have to pay for the replacement",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w67g7a/england_neighbour_removed_our_fence_and_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w67g7a/england_neighbour_removed_our_fence_and_is/",
+          "id": "1w6hjad",
+          "title": "Student halls trying to ban air drying laundry and force us to use their paid tumble dryers (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6hjad/student_halls_trying_to_ban_air_drying_laundry/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6hjad/student_halls_trying_to_ban_air_drying_laundry/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788442161,
-          "snippet": "Hi everyone, I'm hoping for some advice regarding a dispute with our next-door neighbour. I live in a shared house in London. The property next door is a care home for two mentally disabled men and their carers (also men). We previously had a large fence and some bushes on our si",
+          "createdUtc": 1788463901,
+          "snippet": "Basically the title. The accommodation is claiming that we are not allowed to air dry our laundry in the private rooms we are renting, claiming that it will cause humidity issues. They are instead claiming we must use the provided dryers, which are £2.40 a load. Obviously there a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w6a0qm",
-          "title": "Fined £100 by Kensington council, any hope for appeal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6a0qm/fined_100_by_kensington_council_any_hope_for/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6a0qm/fined_100_by_kensington_council_any_hope_for/",
+          "id": "1w70udo",
+          "title": "Roofers work falling apart, and now he denies it was him after opening a new business",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w70udo/roofers_work_falling_apart_and_now_he_denies_it/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w70udo/roofers_work_falling_apart_and_now_he_denies_it/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788447984,
-          "snippet": "In England. I was cycling. This happened at the junction of Warwick Road and the A4, near Earl’s Court. As I approached, I quickly realised I’m about to cycle onto what essentially looked like a motorway-esque road so pivoted off to the pavement to stop and check my maps. As soon",
+          "createdUtc": 1788518619,
+          "snippet": "Based in England Hired a roofer and he did some work back in February and it has started leaking again Called the number I had for him at the time, doesn’t go through. Searched the business up, and it now has an extra word. They have opened a new business with a slightly differen",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w6yuh4",
-          "title": "Accessing Family History (adopted) - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6yuh4/accessing_family_history_adopted_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6yuh4/accessing_family_history_adopted_england/",
+          "id": "1w6b783",
+          "title": "Student in the house I'm renting has brought their husband and two young children with them. None of us consented to this and they won't leave.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6b783/student_in_the_house_im_renting_has_brought_their/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6b783/student_in_the_house_im_renting_has_brought_their/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788511864,
-          "snippet": "Am adopted (UK). Accessed my social care records recently. Discovered my birth father spent 10 years in a forensic mental health unit. There is no other information about him and the adoption records I got had almost no info on him. He died in the early 2000s. Is there any way my",
+          "createdUtc": 1788450574,
+          "snippet": "We're renting a property. There's 4 of us sharing. Contract with the landlord started on the 28th August 2026 and runs through to 27th August 2027. We met on the student portal in July when the original place I was supposed to be renting fell through. One of the four students arr",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w64z1o",
-          "title": "Landlord evicted us citing “family member moving in” — property has now been re-let. What are our options? (Location: England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w64z1o/landlord_evicted_us_citing_family_member_moving/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w64z1o/landlord_evicted_us_citing_family_member_moving/",
+          "id": "1w7d0ds",
+          "title": "DPD failed to collect Vodafone trade in. Now outside the 14 day return window",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7d0ds/dpd_failed_to_collect_vodafone_trade_in_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7d0ds/dpd_failed_to_collect_vodafone_trade_in_now/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788435708,
-          "snippet": "Hi all, looking for some guidance on where I stand here. My partner and I received a notice via our letting agent earlier this year (2nd of June 2026) stating we needed to vacate our rental by October 2026, on the grounds that the landlord’s family member intended to move into th",
+          "createdUtc": 1788547431,
+          "snippet": "Hi am in England, I'm at my wits end with Vodafone and DPD. I have submitted a complaint to Vodafone but just want to make sure I'm not missing anything here. I recently upgraded my phone and opted to trade in my old device. The trade in value was a deal too good to refuse and wo",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w6m2i4",
-          "title": "Parcels keep being delivered to my house in error - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6m2i4/parcels_keep_being_delivered_to_my_house_in_error/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6m2i4/parcels_keep_being_delivered_to_my_house_in_error/",
+          "id": "1w6ccvy",
+          "title": "Letting Agents won't accept 1 months notice",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6ccvy/letting_agents_wont_accept_1_months_notice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6ccvy/letting_agents_wont_accept_1_months_notice/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788473930,
-          "snippet": "Earlier this year I returned home to a large parcel on my doorstep which turned out to be a specialist medical item sent by a charity. It was addressed to \"Charity Name\" at my address. It took me a while of searching, but I eventually figured out it was for a house down the road ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w6egu6",
-          "title": "Update on a CICA claim positive England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6egu6/update_on_a_cica_claim_positive_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6egu6/update_on_a_cica_claim_positive_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788457506,
-          "snippet": "Hey, I hope this is ok to post, but when I looked online last year, I could not find many people claiming after the 3 year cut-off. I provided a statement to the police in 2017 along with other women about some horrific childhood abuse. The court case took place a few years later",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w6vq3o",
-          "title": "Next in line Beneficiary after a disclaimer - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6vq3o/next_in_line_beneficiary_after_a_disclaimer/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6vq3o/next_in_line_beneficiary_after_a_disclaimer/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788501086,
-          "snippet": "Hello, after some advice please I was told by my Mum yesterday that after my Dad had legally disclaimed inheritance from his deceased sibling, the solicitor handling the estate is asking for mine and my sibling's contact details. I was told that they'd asked their solicitor to pr",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w62qo3",
-          "title": "Can I get rid of my exes stuff?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w62qo3/can_i_get_rid_of_my_exes_stuff/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w62qo3/can_i_get_rid_of_my_exes_stuff/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788428686,
-          "snippet": "My ex partner and I were together for several years. We broke up 16 months ago and she went back to the US 12 months ago after staying at my parents for four months in between. We never legally lived together, it was an LDR where she would stay at each other’s places when we visi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w64k30",
-          "title": "Prisoners keep faking sickness on Friday nights so they get to go to A and E. Because of how busy it is, there's a very high chance they get to spend a whole weekend in hospital instead. I end up in an understaffed prison and the union won't help me.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w64k30/prisoners_keep_faking_sickness_on_friday_nights/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w64k30/prisoners_keep_faking_sickness_on_friday_nights/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788434475,
-          "snippet": "I've been working as a prison officer for almost a year. In that time I've seen an established pattern from prisoners that a lot of them will fake various ailments on a Friday evening requiring them to be taken to A and E. The whole reason they're doing this is that it gets them ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w6xqbw",
-          "title": "Resigning during Probation - do I have to give full notice? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6xqbw/resigning_during_probation_do_i_have_to_give_full/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6xqbw/resigning_during_probation_do_i_have_to_give_full/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788507918,
-          "snippet": "Hi, I am resigning from my job in my probation period, I'm in month 5 of a 6 month probation period. I’ve been offered another job and want to resign. When I accepted the new job, I told them I had one month’s notice. I’ve now gone back and read my contract carefully and I’m unsu",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w70cqg",
-          "title": "Is this a breach of my privacy at a gym and can I do anything about it? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w70cqg/is_this_a_breach_of_my_privacy_at_a_gym_and_can_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w70cqg/is_this_a_breach_of_my_privacy_at_a_gym_and_can_i/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788517051,
-          "snippet": "Throwaway as I don’t want this on my main. A couple of years ago I had a heart at 42. Very scary and traumatic and I have been on some strong beta blockers since. I’ve slowly reintroduced myself to going back to the gym and have seen my doctor who said it’s fine just take my time",
+          "createdUtc": 1788453023,
+          "snippet": "Hello, Cross posting from r/TenantsInTheUK I have just come across a post that had a similar issue to me but I wanted to double check that I am in the right. My boyfriend and I have bought a house. Yesterday I tried to give our notice of 1 month to the letting agents. However, th",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 12,
+      "postCount": 9,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -292,6 +292,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1w71mnd",
+          "title": "How can I legally have a car dumped outside my house removed? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w71mnd/how_can_i_legally_have_a_car_dumped_outside_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w71mnd/how_can_i_legally_have_a_car_dumped_outside_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788521039,
+          "snippet": "About 5 weeks ago, someone broke down outside my house in a 25+ year old car. They didn't say anything to me or the neighbourhood, but rolled the car onto the pavement just outside my house. The car is taxed, MOT'd, and technically not blocking the road or my driveway, but it's *",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w74p3b",
+          "title": "Can I stop my grandma's ashes being buried in my grandad's grave if it's in her will? Based in England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w74p3b/can_i_stop_my_grandmas_ashes_being_buried_in_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w74p3b/can_i_stop_my_grandmas_ashes_being_buried_in_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788529150,
+          "snippet": "My grandparents separated before my grandad's death. They lived separately and were not close but they didn't divorce. My grandad died young and because they weren't divorced all his assets went to my grandma. She has now passed away and we just discovered that part of her will a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w7ez97",
+          "title": "City Council Issued Premises licence to a Company They Own, sans Blue Notices or Notice in Newspaper (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7ez97/city_council_issued_premises_licence_to_a_company/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7ez97/city_council_issued_premises_licence_to_a_company/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788551709,
+          "snippet": "City Council formed a company to put on events in a park, close to many residents. They obtained a premises licence, which still appears to be in force. There was a licencing condition limiting the number of events louder than a certain threshold to 3 days per year. Recently ther",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1w6kwyl",
           "title": "Dead body in neighbouring flat - England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6kwyl/dead_body_in_neighbouring_flat_england/",
@@ -301,18 +337,6 @@
           "numComments": 0,
           "createdUtc": 1788471242,
           "snippet": "Hi all, Apologies for the depressing topic, I'm hoping you can help me out. I am currently a tenant in a flat within a larger purpose built apartment block in London. Over the past several days there has been a disturbing smell growing from somewhere on this floor of the building",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w6hjad",
-          "title": "Student halls trying to ban air drying laundry and force us to use their paid tumble dryers (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6hjad/student_halls_trying_to_ban_air_drying_laundry/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6hjad/student_halls_trying_to_ban_air_drying_laundry/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788463901,
-          "snippet": "Basically the title. The accommodation is claiming that we are not allowed to air dry our laundry in the private rooms we are renting, claiming that it will cause humidity issues. They are instead claiming we must use the provided dryers, which are £2.40 a load. Obviously there a",
           "listingSource": "rss:hot"
         },
         {
@@ -328,39 +352,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w6yuh4",
-          "title": "Accessing Family History (adopted) - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6yuh4/accessing_family_history_adopted_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6yuh4/accessing_family_history_adopted_england/",
+          "id": "1w6hjad",
+          "title": "Student halls trying to ban air drying laundry and force us to use their paid tumble dryers (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6hjad/student_halls_trying_to_ban_air_drying_laundry/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6hjad/student_halls_trying_to_ban_air_drying_laundry/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788511864,
-          "snippet": "Am adopted (UK). Accessed my social care records recently. Discovered my birth father spent 10 years in a forensic mental health unit. There is no other information about him and the adoption records I got had almost no info on him. He died in the early 2000s. Is there any way my",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w6m2i4",
-          "title": "Parcels keep being delivered to my house in error - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6m2i4/parcels_keep_being_delivered_to_my_house_in_error/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6m2i4/parcels_keep_being_delivered_to_my_house_in_error/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788473930,
-          "snippet": "Earlier this year I returned home to a large parcel on my doorstep which turned out to be a specialist medical item sent by a charity. It was addressed to \"Charity Name\" at my address. It took me a while of searching, but I eventually figured out it was for a house down the road ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w6egu6",
-          "title": "Update on a CICA claim positive England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6egu6/update_on_a_cica_claim_positive_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6egu6/update_on_a_cica_claim_positive_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788457506,
-          "snippet": "Hey, I hope this is ok to post, but when I looked online last year, I could not find many people claiming after the 3 year cut-off. I provided a statement to the police in 2017 along with other women about some horrific childhood abuse. The court case took place a few years later",
+          "createdUtc": 1788463901,
+          "snippet": "Basically the title. The accommodation is claiming that we are not allowed to air dry our laundry in the private rooms we are renting, claiming that it will cause humidity issues. They are instead claiming we must use the provided dryers, which are £2.40 a load. Obviously there a",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 3,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -398,17 +398,101 @@
           "createdUtc": 1788453023,
           "snippet": "Hello, Cross posting from r/TenantsInTheUK I have just come across a post that had a similar issue to me but I wanted to double check that I am in the right. My boyfriend and I have bought a house. Yesterday I tried to give our notice of 1 month to the letting agents. However, th",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "intellectual-property",
+      "label": "Intellectual Property",
+      "legalAreaSlug": "intellectual_property",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1w64z1o",
-          "title": "Landlord evicted us citing “family member moving in” — property has now been re-let. What are our options? (Location: England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w64z1o/landlord_evicted_us_citing_family_member_moving/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w64z1o/landlord_evicted_us_citing_family_member_moving/",
+          "id": "1w79lm4",
+          "title": "[England] Ex-employer demanding GF removes portfolio work within 24 hours for \"copyright infringement\" (Retaliation for ACAS certificate)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w79lm4/england_exemployer_demanding_gf_removes_portfolio/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w79lm4/england_exemployer_demanding_gf_removes_portfolio/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788435708,
-          "snippet": "Hi all, looking for some guidance on where I stand here. My partner and I received a notice via our letting agent earlier this year (2nd of June 2026) stating we needed to vacate our rental by October 2026, on the grounds that the landlord’s family member intended to move into th",
+          "createdUtc": 1788540110,
+          "snippet": "Hi everyone, Looking for some advice on behalf of my girlfriend. We’re in England. The Background: My girlfriend was employed as a graphic designer for three and a half years with the company in question but is now freelancing full-time. She was recently made \"redundant\" shortly ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "banking-and-finance",
+      "label": "Banking and Finance",
+      "legalAreaSlug": "banking_finance",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1w73jwo",
+          "title": "Security guard saved me from being attacked by a protestor in a mask. He has been fired for punching the protestor. Is there anything I can do to help him?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w73jwo/security_guard_saved_me_from_being_attacked_by_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w73jwo/security_guard_saved_me_from_being_attacked_by_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788526322,
+          "snippet": "I can't reveal my job but I work either in or adjacent to the public sector. Our site was targeted by protestors recently one of whom got up in my face while wearing a cloth ovee his face. I'm a 5ft 5 woman. He was easily 6ft. He towered over me started lunging forward and scream",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1w75c78",
+          "title": "Ex Employer is refusing my final pay, what can I do? Urgently need it sorting! - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w75c78/ex_employer_is_refusing_my_final_pay_what_can_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w75c78/ex_employer_is_refusing_my_final_pay_what_can_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788530644,
+          "snippet": "Hello, I previously left a job i worked at for 2.5 years. Today I was supposed to recieve my last paycheck but I havent, nor have I recieved a payslip. I contacted upper management and asked them and they told me that due to me not working my 2 weeks notice, I forfeit my final pa",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "data-protection-and-privacy",
+      "label": "Data Protection and Privacy",
+      "legalAreaSlug": "data_protection",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1w70cqg",
+          "title": "Is this a breach of my privacy at a gym and can I do anything about it? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w70cqg/is_this_a_breach_of_my_privacy_at_a_gym_and_can_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w70cqg/is_this_a_breach_of_my_privacy_at_a_gym_and_can_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788517051,
+          "snippet": "Throwaway as I don’t want this on my main. A couple of years ago I had a heart at 42. Very scary and traumatic and I have been on some strong beta blockers since. I’ve slowly reintroduced myself to going back to the gym and have seen my doctor who said it’s fine just take my time",
           "listingSource": "rss:hot"
         }
       ]
@@ -438,6 +522,66 @@
       ]
     },
     {
+      "slug": "online-shopping-and-distance-selling",
+      "label": "Online Shopping and Distance Selling",
+      "legalAreaSlug": "consumer_online_shopping",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1w7b0fo",
+          "title": "Sold Xbox series X on marketplace - Buyer now claiming it doesnt work 2 days later - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7b0fo/sold_xbox_series_x_on_marketplace_buyer_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7b0fo/sold_xbox_series_x_on_marketplace_buyer_now/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788543100,
+          "snippet": "As per the title, I sold an Xbox series X on marketplace, 2 days later, the buyer is coming back telling me it isn't working. Before I put it up, I updated and tested the xbox to ensure it was working. I listed it as working in good working order, the buyer didn't ask to see it w",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w7d0ds",
+          "title": "DPD failed to collect Vodafone trade in. Now outside the 14 day return window",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7d0ds/dpd_failed_to_collect_vodafone_trade_in_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7d0ds/dpd_failed_to_collect_vodafone_trade_in_now/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788547431,
+          "snippet": "Hi am in England, I'm at my wits end with Vodafone and DPD. I have submitted a complaint to Vodafone but just want to make sure I'm not missing anything here. I recently upgraded my phone and opted to trade in my old device. The trade in value was a deal too good to refuse and wo",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "personal-injury",
+      "label": "Personal Injury",
+      "legalAreaSlug": "personal_injury",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1w78ihn",
+          "title": "Motorbike (stolen) then siezed 4 years later under s165 Road Traffic Act (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w78ihn/motorbike_stolen_then_siezed_4_years_later_under/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w78ihn/motorbike_stolen_then_siezed_4_years_later_under/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788537790,
+          "snippet": "Hi all TLDR: Motorbike was stolen, I didn't claim on insurance so am still the owner. 4 years later it has been impounded and I received notice 41 days later. I understand I am left holding the bag on about £1k of fees to collect it. Do I have any way to avoid paying fees / claim",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "family-law",
       "label": "Family Law",
       "legalAreaSlug": "family",
@@ -457,78 +601,6 @@
           "numComments": 0,
           "createdUtc": 1788450574,
           "snippet": "We're renting a property. There's 4 of us sharing. Contract with the landlord started on the 28th August 2026 and runs through to 27th August 2027. We met on the student portal in July when the original place I was supposed to be renting fell through. One of the four students arr",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1w67g7a",
-          "title": "[England] Neighbour removed our fence and is claiming we have to pay for the replacement",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w67g7a/england_neighbour_removed_our_fence_and_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w67g7a/england_neighbour_removed_our_fence_and_is/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788442161,
-          "snippet": "Hi everyone, I'm hoping for some advice regarding a dispute with our next-door neighbour. I live in a shared house in London. The property next door is a care home for two mentally disabled men and their carers (also men). We previously had a large fence and some bushes on our si",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "prison_law",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1w6a0qm",
-          "title": "Fined £100 by Kensington council, any hope for appeal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6a0qm/fined_100_by_kensington_council_any_hope_for/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w6a0qm/fined_100_by_kensington_council_any_hope_for/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788447984,
-          "snippet": "In England. I was cycling. This happened at the junction of Warwick Road and the A4, near Earl’s Court. As I approached, I quickly realised I’m about to cycle onto what essentially looked like a motorway-esque road so pivoted off to the pavement to stop and check my maps. As soon",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "data-protection-and-privacy",
-      "label": "Data Protection and Privacy",
-      "legalAreaSlug": "data_protection",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1w70cqg",
-          "title": "Is this a breach of my privacy at a gym and can I do anything about it? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w70cqg/is_this_a_breach_of_my_privacy_at_a_gym_and_can_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w70cqg/is_this_a_breach_of_my_privacy_at_a_gym_and_can_i/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788517051,
-          "snippet": "Throwaway as I don’t want this on my main. A couple of years ago I had a heart at 42. Very scary and traumatic and I have been on some strong beta blockers since. I’ve slowly reintroduced myself to going back to the gym and have seen my doctor who said it’s fine just take my time",
           "listingSource": "rss:hot"
         }
       ]
