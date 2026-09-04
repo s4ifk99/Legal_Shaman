@@ -166,6 +166,25 @@ export interface SessionState {
     answerOverview: string
     at: string
   }>
+  /**
+   * Hypothesis-probe loop before Penumbra: rank competitors, ask discriminating
+   * questions, then commit exactly one MatterFrame (one re-freeze).
+   */
+  hypothesisProbe?: {
+    set: {
+      hypotheses: Array<{
+        slug: string
+        score: number
+        why: string[]
+        evidence: Array<{ title: string; support: 'support' | 'contradict' | 'neutral' }>
+      }>
+      turns: number
+      askedProbeIds: string[]
+      selectedSlug?: string
+    }
+    status: 'probing' | 'committed'
+    turns: number
+  }
 }
 
 export interface ServiceCard {

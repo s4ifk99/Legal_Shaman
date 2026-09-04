@@ -39,9 +39,18 @@ import { proposeCoherentFrames } from '@/lib/coherence/frames'
 import { applyTopicLockToSession } from '@/lib/coherence/topicLock'
 import {
   attachResolvedMatterFrame,
+  commitHypothesisProbeToSession,
   matterGatePrompt,
   sessionMatterGate,
 } from '@/lib/coherence/applyMatterFrame'
+import {
+  applyHypothesisProbeAnswer,
+  isHypothesisProbePromptId,
+  mergeHypothesisEvidence,
+  nextHypothesisProbe,
+  shouldCommitHypothesisSet,
+  type HypothesisSet,
+} from '@/lib/coherence/hypothesisProbe'
 import {
   applyPackClassification,
   classificationFromClarifyAnswer,
@@ -687,6 +696,59 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       return
     }
 
+    // Hypothesis-probe answers: update competitors, optionally light-research, commit once.
+    if (isHypothesisProbePromptId(answeredId) && session.hypothesisProbe?.status === 'probing') {
+      let set = applyHypothesisProbeAnswer(session.hypothesisProbe.set, answeredId, value)
+      try {
+        const res = await fetch(resolveApiUrl('/api/coherence/hypothesis-research'), {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ set, story: session.whatHappened || value }),
+        })
+        if (res.ok) {
+          const data = (await res.json()) as {
+            evidenceBySlug?: Record<string, HypothesisSet['hypotheses'][number]['evidence']>
+          }
+          if (data.evidenceBySlug) set = mergeHypothesisEvidence(set, data.evidenceBySlug)
+        }
+      } catch {
+        // Local research is best-effort; continue probing without wiki titles.
+      }
+
+      if (shouldCommitHypothesisSet(set)) {
+        const committed = commitHypothesisProbeToSession(
+          {
+            ...session,
+            answeredPromptIds: Array.from(new Set([...session.answeredPromptIds, answeredId])),
+          },
+          set,
+          value,
+        )
+        let next = committed.session
+        setMatterInspector(committed.inspector)
+        setSession(next)
+        setPrompt(nextPrompt(next))
+        if (!session.penumbraResearch?.bundle && next.searchMode === 'penumbra') {
+          const launch = () => {
+            void runPenumbraResearch('', next)
+          }
+          if (authRequired) requireCoherenceAuth(launch)
+          else launch()
+        }
+        return
+      }
+
+      const probing: SessionState = {
+        ...session,
+        answeredPromptIds: Array.from(new Set([...session.answeredPromptIds, answeredId])),
+        hypothesisProbe: { set, status: 'probing', turns: set.turns },
+      }
+      setSession(probing)
+      setSkipEnhance(true)
+      setPrompt(nextHypothesisProbe(set, probing) || matterGatePrompt(probing))
+      return
+    }
+
     // Heuristic baseline immediately so UI stays responsive
     let next = senseDetails(value, session)
     next = applyGapAnswer(answeredId, value, next)
@@ -752,7 +814,50 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     const framed = attachResolvedMatterFrame(next, value)
     next = framed.session
     setMatterInspector(framed.inspector)
+
+    // Light local wiki evidence while hypotheses are still open (no Exa quota).
+    if (next.hypothesisProbe?.status === 'probing') {
+      try {
+        const res = await fetch(resolveApiUrl('/api/coherence/hypothesis-research'), {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ set: next.hypothesisProbe.set, story: value }),
+        })
+        if (res.ok) {
+          const data = (await res.json()) as {
+            evidenceBySlug?: Record<string, HypothesisSet['hypotheses'][number]['evidence']>
+          }
+          if (data.evidenceBySlug && next.hypothesisProbe) {
+            const enriched = mergeHypothesisEvidence(next.hypothesisProbe.set, data.evidenceBySlug)
+            next = {
+              ...next,
+              hypothesisProbe: {
+                ...next.hypothesisProbe,
+                set: enriched,
+              },
+            }
+            if (shouldCommitHypothesisSet(enriched)) {
+              const committed = commitHypothesisProbeToSession(next, enriched, value)
+              next = committed.session
+              setMatterInspector(committed.inspector)
+            }
+          }
+        }
+      } catch {
+        // Best-effort research; probe continues without wiki titles.
+      }
+    }
+
     setSession(next)
+
+    if (next.hypothesisProbe?.status === 'probing') {
+      setSkipEnhance(true)
+      setPrompt(nextHypothesisProbe(next.hypothesisProbe.set, next) || matterGatePrompt(next))
+      if (session.rawInputs.length === 0 && value.trim()) {
+        captureProductEvent('b2c_search_started', { search_mode: next.searchMode })
+      }
+      return
+    }
 
     const gate = sessionMatterGate(next)
     if (gate.status === 'needs_clarification' && !next.answeredPromptIds.includes('matter_gate')) {
@@ -784,9 +889,13 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       }
     }
 
-    // Penumbra researches only after the matter frame is attached (and the
-    // gate has either passed or already been asked once).
-    if (!followUp && next.searchMode === 'penumbra' && !next.penumbraResearch?.bundle) {
+    // Penumbra only after hypothesis commit (or auto-commit when geometry is clear).
+    if (
+      !followUp &&
+      next.searchMode === 'penumbra' &&
+      !next.penumbraResearch?.bundle &&
+      next.hypothesisProbe?.status === 'committed'
+    ) {
       const launch = () => {
         void runPenumbraResearch('', next)
       }

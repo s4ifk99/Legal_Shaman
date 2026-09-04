@@ -214,11 +214,11 @@ function looksEventTicket(t: string): boolean {
  */
 function looksWorkplaceDisability(t: string): boolean {
   const disability =
-    /\b(disabilit(?:y|ies)|disabled|reasonable adjustments?|equality act|fluctuating (?:health )?conditions?)\b/i.test(
+    /\b(disabilit(?:y|ies)|disabled|reasonable adjustments?|equality act|fluctuating (?:health )?conditions?|autism|autistic|adhd|severe anxiety|neurodivers(?:e|ity))\b/i.test(
       t,
     )
   const workplace =
-    /\b(employer|employee|at work|workplace|retail|hr\b|my (?:job|work)|bradford factor|sickness absence|absence (?:management|procedure|trigger))\b/i.test(
+    /\b(employer|employee|at work|workplace|retail|hr\b|my (?:job|work)|bradford factor|sickness absence|absence (?:management|procedure|trigger)|staff|cleaner|earphones?|headphones?|phones?)\b/i.test(
       t,
     )
   return disability && workplace
@@ -292,17 +292,21 @@ function looksEmployment(t: string): boolean {
   }
 
   const workplaceActor =
-    /\b(manager|supervisor|boss|line manager|\bhr\b|my (?:job|work|shift)|at work|at my work)\b/i.test(t)
+    /\b(manager|supervisor|boss|line manager|\bhr\b|my (?:job|work|shift)|at work|at my work|staff|cleaner|started (?:another |a )?job|job as)\b/i.test(
+      t,
+    )
   const workplaceIssue =
-    /\b(holiday (?:hours|pay|entitlement)|annual leave|shift(?:s)?|overtime|drs?\.? appointment|gp appointment|medical appointment|drinking water|work(?:ing)? hours|hours this year|work up or repay|clock(?:ing)? (?:in|out)|sickness absence|reasonable adjustments?)\b/i.test(
+    /\b(holiday (?:hours|pay|entitlement)|annual leave|not allowed holidays?|holiday(?:s)? during (?:school )?term|term[- ]time.{0,40}holiday|shift(?:s)?|overtime|drs?\.? appointment|gp appointment|medical appointment|drinking water|work(?:ing)? hours|hours this year|work up or repay|clock(?:ing)? (?:in|out)|sickness absence|reasonable adjustments?|no phones?|earphones?|headphones?|staff (?:rules?|handbook)|workplace rules?)\b/i.test(
       t,
     )
   if (workplaceActor && workplaceIssue) return true
 
   // Holiday hours / repay without naming a manager (common Reddit phrasing)
   if (
-    /\b(holiday hours|holiday pay|annual leave)\b/i.test(t) &&
-    /\b(company|shift|employer|repay|work up)\b/i.test(t)
+    /\b(holiday hours|holiday pay|annual leave|not allowed holidays?|holidays? during (?:school )?term)\b/i.test(
+      t,
+    ) &&
+    /\b(company|shift|employer|repay|work up|staff|job|cleaner)\b/i.test(t)
   ) {
     return true
   }
@@ -354,7 +358,10 @@ function detectMatter(text: string): MatterType {
   if (looksHousing(t)) return 'housing'
   if (looksEmployment(t)) return 'employment'
   if (looksFamily(t)) return 'family'
-  if (/debt|bailiff|ccj|creditor|owed|owe money|county court judgment|enforcement/.test(t))
+  // Word-boundary on owed — "allowed" must not classify as debt.
+  if (
+    /\b(debt|bailiff|ccj|creditor|owed|owe money|county court judgment|enforcement)\b/.test(t)
+  )
     return 'debt'
   if (looksConsumer(t)) return 'consumer'
   if (
