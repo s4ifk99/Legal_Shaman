@@ -268,7 +268,13 @@ export function nextPrompt(session: SessionState): Prompt {
     return matterClassifierPrompt(session, 'matter')
   }
 
-  if (needsPackClarify(session)) {
+  // Research dialogue owns clarifying questions while active.
+  if (
+    session.researchDialogue?.status === 'active' ||
+    session.hypothesisProbe?.status === 'probing'
+  ) {
+    // Fall through to causation / complete only after dialogue commits elsewhere.
+  } else if (needsPackClarify(session)) {
     return packClarifyPrompt(session)
   }
 

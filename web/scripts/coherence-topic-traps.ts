@@ -14,7 +14,7 @@ import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causati
 import { resolveTopicLock, packConflictsWithLock, applyTopicLockToSession } from '../lib/coherence/topicLock'
 import { deriveTurnState, mustScopeRetrieval } from '../lib/coherence/turnState'
 import { nextPrompt } from '../lib/coherence/questions'
-import { applyPackClassification, heuristicSuggestPack, packClarifyPrompt } from '../lib/coherence/packClassifier'
+import { applyPackClassification, heuristicSuggestPack, packClarifyPrompt, needsPackClarify } from '../lib/coherence/packClassifier'
 import { applyMasterToSession } from '../lib/coherence/masterAgent'
 import { mergeOrchestratedTimeline } from '../lib/coherence/llmOrchestrate'
 import { buildConceptRetrievalPlan } from '../lib/matter/conceptRetrievalPlan'
@@ -2082,6 +2082,28 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(
           next.hypotheses.some((h) => h.why.includes('local wiki support')),
           'wiki support why missing',
+        )
+      )
+    },
+  },
+  {
+    id: 'pack-clarify-skipped-on-workplace-story',
+    run: () => {
+      const story =
+        'I started a job as a school cleaner. Staff are not allowed holidays during school term. No phones or earphones.'
+      let s = senseDetails(story, createInitialSession())
+      const classification = heuristicSuggestPack(story)
+      s = applyPackClassification(s, classification)
+      s = applyTopicLockToSession(s, proposeCoherentFrames(s, 3))
+      const framed = attachResolvedMatterFrame(s, story)
+      const prompt = nextPrompt(framed.session)
+      return (
+        assert(classification.packId === 'employment-general', `pack=${classification.packId}`) ||
+        assert(!needsPackClarify(framed.session), 'pack clarify still required on workplace story') ||
+        assert(prompt.id !== 'pack_clarify', `got pack_clarify: ${prompt.text}`) ||
+        assert(
+          !proposeCoherentFrames(framed.session, 3).some((f) => f.id === 'fam-children'),
+          'Children/arrangements frame on workplace story',
         )
       )
     },
