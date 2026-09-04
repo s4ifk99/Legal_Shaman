@@ -45,8 +45,11 @@ import {
 } from '@/lib/coherence/applyMatterFrame'
 import {
   applyUserAnswerToDialogue,
+  dialogueFailurePrompt,
+  framesFromHypotheses,
   fromHypothesisProbeCompat,
   isResearchDialoguePromptId,
+  researchingCompetitorLine,
   toHypothesisProbeCompat,
   type ResearchDialogueState,
 } from '@/lib/coherence/researchDialogue'
@@ -640,22 +643,45 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   const progress = useMemo(() => computeProgress(session), [session])
   const serviceConfidence = useMemo(() => computeServiceConfidence(session), [session])
   const frames = useMemo(() => {
-    if (session.matterType === 'unknown' || session.rawInputs.length === 0) return []
-    // Phase 3 local fit (story-only here; wiki enrich happens in notes/services)
+    if (session.rawInputs.length === 0) return []
+    // While research dialogue is active, chips come from hypotheses (dialogue owns display).
+    if (
+      session.researchDialogue?.status === 'active' ||
+      session.hypothesisProbe?.status === 'probing'
+    ) {
+      return framesFromHypotheses(
+        session.researchDialogue?.set || session.hypothesisProbe?.set,
+      ) as ReturnType<typeof proposeCoherentFrames>
+    }
+    if (session.matterType === 'unknown') return []
     return proposeCoherentFrames(session, 3)
   }, [session])
 
-  // Persist topic lock once frames resolve (stops Overview re-inferring used-car etc.)
+  const researchCompetitorNote = useMemo(() => {
+    if (session.researchDialogue?.status !== 'active' && session.hypothesisProbe?.status !== 'probing') {
+      return null
+    }
+    return researchingCompetitorLine(
+      session.researchDialogue?.set || session.hypothesisProbe?.set,
+    )
+  }, [session.researchDialogue, session.hypothesisProbe])
+
+  // Persist topic lock once frames resolve — not while dialogue still owns geometry.
   const frameKey = frames.map((f) => f.id).join('|')
   useEffect(() => {
     if (!frames.length) return
+    if (
+      session.researchDialogue?.status === 'active' ||
+      session.hypothesisProbe?.status === 'probing'
+    ) {
+      return
+    }
     const locked = applyTopicLockToSession(session, frames)
     if (locked.topicId && locked.topicId !== session.topicId) {
       setSession(locked)
     }
-    // frameKey / topicId / story length — avoid looping on every session field
     // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional narrow deps
-  }, [frameKey, session.topicId, session.rawInputs.length])
+  }, [frameKey, session.topicId, session.rawInputs.length, session.researchDialogue?.status])
 
   const notesVisible = session.rawInputs.length > 0 || session.mode === 'dispute'
   const notesReady = isBriefReady(session, progress)
@@ -664,6 +690,22 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   const servicesReady = serviceConfidence >= 0.75
   const overviewReady = isFinalOverviewPackage(answerPackage)
   const overviewLoading = (llmBusy && llmConfigured) || overviewPending
+
+  /** Sole prompt setter while research dialogue is active — never pack clarify / nextPrompt. */
+  function setDialoguePrompt(next: Prompt) {
+    setSkipEnhance(true)
+    setPrompt(next)
+  }
+
+  function penumbraRunningPrompt(): Prompt {
+    return {
+      id: 'penumbra_research_running',
+      kind: 'closed',
+      text: 'Researching your matter with the committed geometry…',
+      reason: 'Matter frozen — Third Eye next.',
+      options: [],
+    }
+  }
 
   async function handleAnswer(value: string) {
     setAddingDetail(false)
@@ -737,22 +779,15 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
               value,
             )
             const next = committed.session
+            const locked = applyTopicLockToSession(next, proposeCoherentFrames(next, 3))
             setMatterInspector(committed.inspector)
-            setSession(next)
-            setPrompt(
-              next.penumbraResearch?.bundle
-                ? nextPrompt(next)
-                : {
-                    id: 'penumbra_research_running',
-                    kind: 'closed',
-                    text: 'Researching your matter with the committed geometry…',
-                    reason: 'Matter frozen — Third Eye next.',
-                    options: [],
-                  },
+            setSession(locked)
+            setDialoguePrompt(
+              locked.penumbraResearch?.bundle ? nextPrompt(locked) : penumbraRunningPrompt(),
             )
-            if (!next.penumbraResearch?.bundle && next.searchMode === 'penumbra') {
+            if (!locked.penumbraResearch?.bundle && locked.searchMode === 'penumbra') {
               const launch = () => {
-                void runPenumbraResearch('', next)
+                void runPenumbraResearch('', locked)
               }
               if (authRequired) requireCoherenceAuth(launch)
               else launch()
@@ -762,16 +797,18 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
           const probing: SessionState = {
             ...session,
             answeredPromptIds: Array.from(new Set([...session.answeredPromptIds, answeredId])),
-            researchDialogue: dialogue,
+            researchDialogue: {
+              ...dialogue,
+              statusNote: data.statusNote || dialogue.statusNote,
+            },
             hypothesisProbe: toHypothesisProbeCompat(dialogue),
           }
           setSession(probing)
-          setSkipEnhance(true)
-          setPrompt(data.prompt || matterGatePrompt(probing))
+          setDialoguePrompt(data.prompt || dialogueFailurePrompt(probing, dialogue))
           return
         }
       } catch {
-        // Fall through to local matter gate if agent turn unavailable.
+        // Agentic recovery — never pack clarify / nextPrompt.
       }
       const probing: SessionState = {
         ...session,
@@ -780,8 +817,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         hypothesisProbe: toHypothesisProbeCompat(dialogue),
       }
       setSession(probing)
-      setSkipEnhance(true)
-      setPrompt(matterGatePrompt(probing))
+      setDialoguePrompt(dialogueFailurePrompt(probing, dialogue))
       return
     }
 
@@ -842,7 +878,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     }
 
     const earlyFrames = proposeCoherentFrames(next, 3)
-    next = applyTopicLockToSession(next, earlyFrames)
+    // Topic lock waits until research dialogue commits — frames must not steal the ask.
     next = {
       ...next,
       answeredPromptIds: Array.from(new Set([...next.answeredPromptIds, answeredId])),
@@ -857,14 +893,15 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       if (session.rawInputs.length === 0 && value.trim()) {
         captureProductEvent('b2c_search_started', { search_mode: next.searchMode })
       }
-      setSkipEnhance(true)
+      const dialogue =
+        next.researchDialogue || fromHypothesisProbeCompat(next.hypothesisProbe!)
       try {
         const res = await fetch(resolveApiUrl('/api/coherence/research-dialogue/turn'), {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify({
             story: value,
-            dialogue: next.researchDialogue || fromHypothesisProbeCompat(next.hypothesisProbe!),
+            dialogue,
             lastUserMessage: value,
           }),
         })
@@ -873,29 +910,26 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
             dialogue?: ResearchDialogueState
             prompt?: Prompt | null
             committed?: boolean
+            statusNote?: string
           }
           if (data.dialogue) {
             next = {
               ...next,
-              researchDialogue: data.dialogue,
+              researchDialogue: {
+                ...data.dialogue,
+                statusNote: data.statusNote || data.dialogue.statusNote,
+              },
               hypothesisProbe: toHypothesisProbeCompat(data.dialogue),
             }
           }
           if (data.committed && data.dialogue) {
             const committed = commitResearchDialogueToSession(next, data.dialogue, value)
             next = committed.session
+            next = applyTopicLockToSession(next, proposeCoherentFrames(next, 3))
             setMatterInspector(committed.inspector)
             setSession(next)
-            setPrompt(
-              next.penumbraResearch?.bundle
-                ? nextPrompt(next)
-                : {
-                    id: 'penumbra_research_running',
-                    kind: 'closed',
-                    text: 'Researching your matter with the committed geometry…',
-                    reason: 'Matter frozen — Third Eye next.',
-                    options: [],
-                  },
+            setDialoguePrompt(
+              next.penumbraResearch?.bundle ? nextPrompt(next) : penumbraRunningPrompt(),
             )
             if (!next.penumbraResearch?.bundle && next.searchMode === 'penumbra') {
               const launch = () => {
@@ -907,20 +941,22 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
             return
           }
           setSession(next)
-          setPrompt(data.prompt || matterGatePrompt(next))
+          setDialoguePrompt(
+            data.prompt ||
+              dialogueFailurePrompt(next, next.researchDialogue || dialogue),
+          )
           return
         }
       } catch {
-        // Local gate if agent turn unavailable.
+        // Agentic recovery — never pack clarify.
       }
-      setPrompt(matterGatePrompt(next))
+      setDialoguePrompt(dialogueFailurePrompt(next, next.researchDialogue || dialogue))
       return
     }
 
     const gate = sessionMatterGate(next)
     if (gate.status === 'needs_clarification' && !next.answeredPromptIds.includes('matter_gate')) {
-      setSkipEnhance(true)
-      setPrompt(matterGatePrompt(next))
+      setDialoguePrompt(matterGatePrompt(next))
       return
     }
 
@@ -1569,6 +1605,11 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       {session.researchDialogue?.statusNote && session.researchDialogue.status === 'active' ? (
         <p className="research-dialogue-note" aria-live="polite">
           {session.researchDialogue.statusNote}
+        </p>
+      ) : null}
+      {researchCompetitorNote ? (
+        <p className="research-dialogue-competitors" aria-live="polite">
+          {researchCompetitorNote}
         </p>
       ) : null}
 
