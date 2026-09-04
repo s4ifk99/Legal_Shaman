@@ -183,3 +183,15 @@
     gap: 0.25rem;
   }
 }
+
+.research-dialogue-note,
+.research-dialogue-competitors {
+  margin: 0.35rem 1.25rem 0;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+.research-dialogue-note {
+  color: var(--ink);
+  font-weight: 500;
+}

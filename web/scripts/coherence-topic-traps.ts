@@ -36,6 +36,8 @@ import {
 import {
   RESEARCH_DIALOGUE_MAX_TURNS,
   shouldForceCommitDialogue,
+  dialogueFailurePrompt,
+  framesFromHypotheses,
   type ResearchDialogueState,
 } from '../lib/coherence/researchDialogue'
 import { preferFrameMatching } from '../lib/coherence/issueRouting'
@@ -2104,6 +2106,57 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(
           !proposeCoherentFrames(framed.session, 3).some((f) => f.id === 'fam-children'),
           'Children/arrangements frame on workplace story',
+        )
+      )
+    },
+  },
+  {
+    id: 'agentic-ownership-hyp-frames-not-pack-clarify',
+    run: () => {
+      const story =
+        'I started a job as a school cleaner. Staff are not allowed holidays during school term and contact is only by radios — no phones or earphones.'
+      const framed = attachResolvedMatterFrame(intake([story]), story)
+      const hypFrames = framesFromHypotheses(framed.session.researchDialogue?.set)
+      const failPrompt = dialogueFailurePrompt(framed.session, framed.session.researchDialogue!)
+      return (
+        assert(framed.session.researchDialogue?.status === 'active', 'dialogue not active') ||
+        assert(!needsPackClarify(framed.session), 'pack clarify still on') ||
+        assert(
+          hypFrames.some((f) => /employment/i.test(f.id) || /employment/i.test(f.label)),
+          `hyp frames missing employment: ${hypFrames.map((f) => f.id).join(',')}`,
+        ) ||
+        assert(failPrompt.id !== 'pack_clarify', `failure path pack_clarify: ${failPrompt.id}`) ||
+        assert(
+          /employment|workplace|family|holiday|phone/i.test(
+            `${failPrompt.text} ${(failPrompt.options || []).map((o) => o.label).join(' ')}`,
+          ),
+          `failure prompt off-topic: ${failPrompt.text}`,
+        )
+      )
+    },
+  },
+  {
+    id: 'agentic-ownership-force-commit-allows-penumbra',
+    run: () => {
+      const story =
+        'I started a job as a school cleaner. Staff are not allowed holidays during school term.'
+      const framed = attachResolvedMatterFrame(intake([story]), story)
+      const dialogue: ResearchDialogueState = {
+        ...(framed.session.researchDialogue as ResearchDialogueState),
+        turns: RESEARCH_DIALOGUE_MAX_TURNS,
+        set: {
+          ...framed.hypothesisSet,
+          turns: RESEARCH_DIALOGUE_MAX_TURNS,
+          selectedSlug: 'employment',
+        },
+      }
+      const committed = commitHypothesisProbeToSession(framed.session, dialogue.set, story)
+      return (
+        assert(shouldForceCommitDialogue(dialogue), 'force commit false') ||
+        assert(committed.session.researchDialogue?.status === 'committed', 'not committed') ||
+        assert(
+          committed.session.matterFrame?.primaryIssues?.[0]?.slug === 'employment',
+          `primary=${committed.session.matterFrame?.primaryIssues?.[0]?.slug}`,
         )
       )
     },

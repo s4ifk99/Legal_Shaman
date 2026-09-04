@@ -1,6 +1,8 @@
 /**
  * Server-side research-dialogue agent turn (OpenRouter JSON + local wiki).
  * Does not call Exa or burn monthly Penumbra search quota.
+ *
+ * One HTTP request = up to INTERNAL_STEP_MAX wiki/update steps, then one ask or commit.
  */
 import { chat, llmConfigured } from '@/lib/llm/client'
 import { attachLocalHypothesisEvidence } from './hypothesisResearch'
@@ -14,6 +16,8 @@ import {
 } from './researchDialogue'
 import { nextHypothesisProbe } from './hypothesisProbe'
 import type { PredictiveChoice, Prompt, SessionState } from './types'
+
+const INTERNAL_STEP_MAX = 3
 
 function parseAction(raw: string): AgentTurnAction | null {
   try {
@@ -50,7 +54,8 @@ function parseAction(raw: string): AgentTurnAction | null {
 async function llmAgentTurn(
   state: ResearchDialogueState,
   story: string,
-  lastUserMessage?: string,
+  lastUserMessage: string | undefined,
+  step: number,
 ): Promise<AgentTurnAction> {
   if (!llmConfigured()) return heuristicAgentTurn(state, story)
 
@@ -65,7 +70,8 @@ Rules:
 - Use "commit" when the top hypothesis is clear OR turn budget is nearly spent — set selectedSlug.
 - Never invent statutes or give case strength advice.
 - Never mention Exa or open-web search.
-- Keep question under 220 characters; 2–4 options for closed asks.`
+- Keep question under 220 characters; 2–4 options for closed asks.
+- Internal step ${step}/${INTERNAL_STEP_MAX}: prefer wiki/update early; ask or commit to finish the beat.`
 
   const hyps = state.set.hypotheses
     .map((h) => `${h.slug}:${Math.round(h.score)} why=[${h.why.slice(0, 3).join('; ')}]`)
@@ -83,6 +89,7 @@ ${hyps || '(none)'}
 
 Turns used: ${state.turns}/8
 Force commit soon: ${shouldForceCommitDialogue(state)}
+Last evidence: ${(state.lastEvidence || []).map((e) => e.title).slice(0, 3).join('; ') || '(none)'}
 Last user message: ${(lastUserMessage || '').slice(0, 500) || '(none)'}
 Recent transcript:
 ${transcript || '(none)'}
@@ -112,6 +119,73 @@ Return the next action JSON.`
   return heuristicAgentTurn(state, story)
 }
 
+function executeWiki(
+  dialogue: ResearchDialogueState,
+  story: string,
+  action: AgentTurnAction,
+): ResearchDialogueState {
+  const enriched = attachLocalHypothesisEvidence(dialogue.set, story)
+  const evidence = enriched.hypotheses.flatMap((h) => h.evidence).slice(0, 8)
+  const titles = evidence.map((e) => e.title).filter(Boolean).slice(0, 3)
+  const note =
+    titles.length > 0 ? `Checked: ${titles.join(' · ')}` : action.transcriptNote || 'Checked local wiki.'
+  return {
+    ...applyAgentPatch(
+      { ...dialogue, set: enriched, lastEvidence: evidence },
+      { ...action, transcriptNote: note },
+    ),
+    set: enriched,
+    lastEvidence: evidence,
+    turns: dialogue.turns + 1,
+    statusNote: titles.length > 0 ? `Checked ${titles.slice(0, 2).join(' · ')}` : 'Checked local wiki',
+  }
+}
+
+function finishAsk(
+  dialogue: ResearchDialogueState,
+  action: AgentTurnAction,
+  session?: SessionState,
+): ResearchDialogueTurnResult {
+  const nextDialogue = {
+    ...dialogue,
+    turns: Math.max(dialogue.turns, dialogue.set.turns),
+    statusNote: action.transcriptNote || dialogue.statusNote || action.question || 'Asking a discriminating question',
+  }
+  const fallback = nextHypothesisProbe(nextDialogue.set, session || ({} as SessionState))
+  const prompt = promptFromAgentAsk(action, nextDialogue.turns, fallback)
+  return {
+    dialogue: nextDialogue,
+    action,
+    prompt,
+    committed: false,
+    statusNote: nextDialogue.statusNote,
+  }
+}
+
+function finishCommit(
+  dialogue: ResearchDialogueState,
+  action: AgentTurnAction,
+): ResearchDialogueTurnResult {
+  let next = dialogue
+  if (action.selectedSlug || action.hypothesisPatch?.length) {
+    next = applyAgentPatch(next, action)
+  }
+  if (!next.set.selectedSlug && next.set.hypotheses[0]) {
+    next = {
+      ...next,
+      set: { ...next.set, selectedSlug: next.set.hypotheses[0].slug },
+    }
+  }
+  next = { ...next, status: 'committed', statusNote: action.transcriptNote || next.statusNote || 'Matter committed.' }
+  return {
+    dialogue: next,
+    action: { ...action, action: 'commit' },
+    prompt: null,
+    committed: true,
+    statusNote: next.statusNote,
+  }
+}
+
 export type ResearchDialogueTurnResult = {
   dialogue: ResearchDialogueState
   action: AgentTurnAction
@@ -121,8 +195,7 @@ export type ResearchDialogueTurnResult = {
 }
 
 /**
- * Run one agent turn: may ask, wiki (local), update, or commit.
- * Wiki steps auto-chain into a follow-up ask/commit without another LLM call when possible.
+ * One user-visible beat: up to INTERNAL_STEP_MAX wiki/update steps, then ask or commit.
  */
 export async function runResearchDialogueTurn(input: {
   story: string
@@ -131,116 +204,67 @@ export async function runResearchDialogueTurn(input: {
   session?: SessionState
 }): Promise<ResearchDialogueTurnResult> {
   let dialogue = input.dialogue
-  let action = await llmAgentTurn(dialogue, input.story, input.lastUserMessage)
+  let lastAction: AgentTurnAction = { action: 'ask' }
 
-  // Execute wiki locally (no Exa)
-  if (action.action === 'wiki') {
-    const enriched = attachLocalHypothesisEvidence(dialogue.set, input.story)
-    const evidence = enriched.hypotheses.flatMap((h) => h.evidence).slice(0, 8)
-    const titles = evidence.map((e) => e.title).filter(Boolean).slice(0, 3)
-    dialogue = {
-      ...applyAgentPatch(
-        { ...dialogue, set: enriched, lastEvidence: evidence },
-        {
-          ...action,
-          transcriptNote:
-            titles.length > 0
-              ? `Checked: ${titles.join('; ')}`
-              : action.transcriptNote || 'Checked local wiki.',
-        },
-      ),
-      set: enriched,
-      lastEvidence: evidence,
-      turns: dialogue.turns + 1,
-      statusNote:
-        titles.length > 0 ? `Checked ${titles[0]}${titles[1] ? ` · ${titles[1]}` : ''}` : 'Checked local wiki',
-    }
-    // Follow with ask or commit without second LLM if budget allows
+  for (let step = 1; step <= INTERNAL_STEP_MAX; step++) {
     if (shouldForceCommitDialogue(dialogue)) {
-      action = {
+      return finishCommit(dialogue, {
         action: 'commit',
         selectedSlug: dialogue.set.selectedSlug || dialogue.set.hypotheses[0]?.slug,
-        why: 'Budget after wiki — commit.',
-        transcriptNote: 'Committing after wiki check.',
-      }
-    } else {
-      const probe = nextHypothesisProbe(dialogue.set, input.session || ({} as SessionState))
-      action = {
-        action: 'ask',
-        question: probe?.text,
-        options: probe?.options,
-        why: probe?.reason || 'Ask after wiki evidence.',
-        transcriptNote: probe?.text,
-      }
+        why: 'Turn budget — commit.',
+        transcriptNote: 'Committing after research dialogue budget.',
+      })
     }
-  }
 
-  if (action.action === 'update') {
-    dialogue = applyAgentPatch(dialogue, action)
-    dialogue = { ...dialogue, turns: dialogue.turns + 1 }
-    if (!shouldForceCommitDialogue(dialogue)) {
-      const probe = nextHypothesisProbe(dialogue.set, input.session || ({} as SessionState))
-      action = {
-        action: probe ? 'ask' : 'commit',
-        question: probe?.text,
-        options: probe?.options,
-        why: probe?.reason || action.why,
-        selectedSlug: probe ? undefined : dialogue.set.hypotheses[0]?.slug,
-        transcriptNote: probe?.text || 'Updated hypotheses.',
-      }
-    } else {
-      action = {
-        action: 'commit',
-        selectedSlug: dialogue.set.selectedSlug || dialogue.set.hypotheses[0]?.slug,
-        why: 'Budget after update — commit.',
-      }
+    const action =
+      step === 1
+        ? await llmAgentTurn(dialogue, input.story, input.lastUserMessage, step)
+        : // After wiki/update, prefer heuristic ask/commit to avoid burning another LLM call.
+          heuristicAgentTurn(dialogue, input.story)
+    lastAction = action
+
+    if (action.action === 'wiki') {
+      dialogue = executeWiki(dialogue, input.story, action)
+      continue
     }
-  }
 
-  if (action.action === 'commit' || shouldForceCommitDialogue(dialogue)) {
-    if (action.selectedSlug) {
+    if (action.action === 'update') {
       dialogue = applyAgentPatch(dialogue, action)
+      dialogue = {
+        ...dialogue,
+        turns: dialogue.turns + 1,
+        statusNote: action.transcriptNote || action.why || 'Updated competing matters',
+      }
+      continue
     }
-    dialogue = { ...dialogue, status: 'committed' }
-    return {
-      dialogue,
-      action: { ...action, action: 'commit' },
-      prompt: null,
-      committed: true,
-      statusNote: dialogue.statusNote || action.transcriptNote || 'Matter committed.',
+
+    if (action.action === 'commit' || shouldForceCommitDialogue(dialogue)) {
+      return finishCommit(dialogue, action)
+    }
+
+    if (action.action === 'ask') {
+      return finishAsk(dialogue, action, input.session)
     }
   }
 
-  if (action.action === 'ask') {
-    dialogue = {
-      ...dialogue,
-      turns: Math.max(dialogue.turns, dialogue.set.turns),
-      statusNote: action.transcriptNote || dialogue.statusNote,
-    }
-    const fallback = nextHypothesisProbe(dialogue.set, input.session || ({} as SessionState))
-    const prompt = promptFromAgentAsk(action, dialogue.turns, fallback)
-    return {
-      dialogue,
-      action,
-      prompt,
-      committed: false,
-      statusNote: dialogue.statusNote,
-    }
+  // Exhausted internal steps without ask/commit — force a user ask or commit.
+  if (shouldForceCommitDialogue(dialogue)) {
+    return finishCommit(dialogue, {
+      action: 'commit',
+      selectedSlug: dialogue.set.hypotheses[0]?.slug,
+      why: 'Internal step budget — commit.',
+    })
   }
-
-  // Fallback: heuristic ask
-  const fallbackAction = heuristicAgentTurn(dialogue, input.story)
-  if (fallbackAction.action === 'commit') {
-    dialogue = applyAgentPatch(dialogue, fallbackAction)
-    dialogue = { ...dialogue, status: 'committed' }
-    return { dialogue, action: fallbackAction, prompt: null, committed: true }
-  }
-  const fallback = nextHypothesisProbe(dialogue.set, input.session || ({} as SessionState))
-  return {
+  const probe = nextHypothesisProbe(dialogue.set, input.session || ({} as SessionState))
+  return finishAsk(
     dialogue,
-    action: fallbackAction,
-    prompt: promptFromAgentAsk(fallbackAction, dialogue.turns, fallback),
-    committed: false,
-    statusNote: dialogue.statusNote,
-  }
+    {
+      action: 'ask',
+      question: probe?.text || lastAction.question,
+      options: probe?.options || lastAction.options,
+      why: probe?.reason || 'Ask after internal research steps.',
+      transcriptNote: dialogue.statusNote || probe?.text,
+    },
+    input.session,
+  )
 }

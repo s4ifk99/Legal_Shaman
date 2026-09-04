@@ -271,3 +271,66 @@ export function fromHypothesisProbeCompat(
 export function commitDialogueToFrame(frame: MatterFrame, state: ResearchDialogueState): MatterFrame {
   return applyCommittedHypothesisToFrame(frame, state.set)
 }
+
+const SLUG_FRAME_LABEL: Record<string, string> = {
+  employment: 'Employment / workplace rules',
+  family: 'Family / children',
+  housing: 'Housing / tenancy',
+  crime: 'Crime / police',
+  debt: 'Debt / money owed',
+  consumer: 'Consumer / goods',
+  immigration: 'Immigration',
+  personal_injury: 'Injury',
+  discrimination_equality: 'Equality / discrimination',
+}
+
+/** Frame chips from the live hypothesis set (dialogue owns display while active). */
+export function framesFromHypotheses(
+  set: HypothesisSet | undefined,
+): Array<{ id: string; label: string; why: string; score: number; fitScore: number }> {
+  if (!set?.hypotheses?.length) return []
+  return set.hypotheses.slice(0, 3).map((h) => {
+    const label = SLUG_FRAME_LABEL[h.slug] || h.slug.replace(/_/g, ' ')
+    const why =
+      h.why.slice(0, 2).join(' · ') ||
+      (h.evidence[0] ? `Evidence: ${h.evidence[0].title}` : 'Competing matter hypothesis')
+    const fit = Math.max(1, Math.min(100, Math.round(h.score)))
+    return {
+      id: `hyp-${h.slug}`,
+      label,
+      why,
+      score: h.score,
+      fitScore: fit,
+    }
+  })
+}
+
+export function researchingCompetitorLine(set: HypothesisSet | undefined): string | null {
+  const top = set?.hypotheses?.slice(0, 2) || []
+  if (top.length < 2) return top[0] ? `Researching: ${SLUG_FRAME_LABEL[top[0].slug] || top[0].slug}` : null
+  const a = SLUG_FRAME_LABEL[top[0]!.slug] || top[0]!.slug
+  const b = SLUG_FRAME_LABEL[top[1]!.slug] || top[1]!.slug
+  return `Researching: ${a} vs ${b}`
+}
+
+/** Recovery prompt when the turn API fails — never pack clarify. */
+export function dialogueFailurePrompt(session: SessionState, dialogue: ResearchDialogueState): Prompt {
+  const probe = nextHypothesisProbe(dialogue.set, session)
+  if (probe) {
+    return {
+      ...probe,
+      reason: probe.reason || 'Research dialogue recovery — pin the live dispute.',
+    }
+  }
+  return {
+    id: `research_ask_${dialogue.turns}`,
+    kind: 'closed',
+    text: 'Which legal area should we research first?',
+    reason: 'Turn API unavailable — local discriminating ask.',
+    options: dialogue.set.hypotheses.slice(0, 3).map((h) => ({
+      id: `hyp-${h.slug}`,
+      label: `Mainly ${SLUG_FRAME_LABEL[h.slug] || h.slug.replace(/_/g, ' ')}`,
+      value: `This is mainly about ${h.slug}`,
+    })),
+  }
+}
