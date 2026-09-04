@@ -401,6 +401,17 @@ function normalizeSession(session: SessionState): SessionState {
   }
 }
 
+function sessionForDeepLinkIntake(): SessionState {
+  // Home search (?q=) skips ModeFork/Third Eye acknowledge — research dialogue owns the next ask.
+  return {
+    ...createInitialSession(),
+    mode: 'dispute',
+    searchMode: 'penumbra',
+    penumbraAcknowledged: true,
+    answeredPromptIds: ['mode_fork'],
+  }
+}
+
 function initialFromStorage(initialStory = ''): {
   session: SessionState
   view: View
@@ -419,7 +430,7 @@ function initialFromStorage(initialStory = ''): {
       return { session: normalizeSession(stored.session), view, shouldAutoRun: false }
     }
     clearPersisted()
-    return { session: createInitialSession(), view: 'intake', shouldAutoRun: true }
+    return { session: sessionForDeepLinkIntake(), view: 'intake', shouldAutoRun: true }
   }
 
   if (stored) {
@@ -469,6 +480,11 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   const [selectedNode, setSelectedNode] = useState<string | undefined>()
   const [llmConfigured, setLlmConfigured] = useState(false)
   const [llmStatusReady, setLlmStatusReady] = useState(false)
+  /** Deep-link ?q= : hide ModeFork until auto-run starts (avoids Third Eye flash → jump). */
+  const [deepLinkBooting, setDeepLinkBooting] = useState(
+    () => Boolean(initialStory.trim()) && boot.shouldAutoRun,
+  )
+  const [clientBootReady, setClientBootReady] = useState(() => !initialStory.trim())
   const [llmBusy, setLlmBusy] = useState(false)
   const [overviewPending, setOverviewPending] = useState(false)
   const [llmEnhancing, setLlmEnhancing] = useState(false)
@@ -544,6 +560,25 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     })
   }, [])
 
+  // Client-only re-boot from localStorage so SSR empty ModeFork does not flash then jump.
+  useEffect(() => {
+    const story = initialStory.trim()
+    if (!story) {
+      setClientBootReady(true)
+      return
+    }
+    const nextBoot = initialFromStorage(story)
+    shouldAutoRunRef.current = nextBoot.shouldAutoRun
+    autoStartedRef.current = false
+    masterRanRef.current = nextBoot.session.rawInputs.length > 0
+    setDeepLinkBooting(nextBoot.shouldAutoRun)
+    setSession(nextBoot.session)
+    resetPageNavigation(nextBoot.view)
+    setPrompt(nextPrompt(nextBoot.session))
+    setClientBootReady(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mount sync for deep-link only
+  }, [])
+
   // New ?q= (or changed q) replaces stale persisted OSLAW / intake.
   useEffect(() => {
     const story = initialStory.trim()
@@ -554,6 +589,8 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     autoStartedRef.current = false
     masterInFlightRef.current = false
     masterRanRef.current = nextBoot.session.rawInputs.length > 0
+    setDeepLinkBooting(Boolean(story) && nextBoot.shouldAutoRun)
+    setClientBootReady(true)
     setSession(nextBoot.session)
     resetPageNavigation(nextBoot.view)
     setPrompt(nextPrompt(nextBoot.session))
@@ -685,11 +722,18 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
 
   const notesVisible = session.rawInputs.length > 0 || session.mode === 'dispute'
   const notesReady = isBriefReady(session, progress)
-  const showModeFork = !session.answeredPromptIds.includes('mode_fork') && session.rawInputs.length === 0
+  // Deep-link search never shows ModeFork/Third Eye acknowledge (avoids flash → jump).
+  const showModeFork =
+    !initialStory.trim() &&
+    !deepLinkBooting &&
+    !session.answeredPromptIds.includes('mode_fork') &&
+    session.rawInputs.length === 0
   const closing = prompt.id === 'complete' && !addingDetail
   const servicesReady = serviceConfidence >= 0.75
   const overviewReady = isFinalOverviewPackage(answerPackage)
   const overviewLoading = (llmBusy && llmConfigured) || overviewPending
+  const showDeepLinkBoot =
+    Boolean(initialStory.trim()) && (!clientBootReady || deepLinkBooting || !llmStatusReady) && view === 'intake'
 
   /** Sole prompt setter while research dialogue is active — never pack clarify / nextPrompt. */
   function setDialoguePrompt(next: Prompt) {
@@ -1180,10 +1224,14 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   // Deep-link: /ask-the-shaman?q=… should run Coherence intake, not sit ignored.
   useEffect(() => {
     const story = initialStory.trim()
-    if (!llmStatusReady || !story || autoStartedRef.current) return
-    if (!shouldAutoRunRef.current) return
+    if (!clientBootReady || !llmStatusReady || !story || autoStartedRef.current) return
+    if (!shouldAutoRunRef.current) {
+      setDeepLinkBooting(false)
+      return
+    }
     autoStartedRef.current = true
     shouldAutoRunRef.current = false
+    setDeepLinkBooting(false)
     resetPageNavigation('intake')
     setHelpMatch(null)
     setMatterInspector(null)
@@ -1191,7 +1239,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     setAgentError(null)
     void handleAnswer(story)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [llmStatusReady, initialStory])
+  }, [clientBootReady, llmStatusReady, initialStory])
 
   function openNotes(download = false) {
     setNotesAutoDownload(download)
@@ -1625,6 +1673,12 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
 
       <FrameChips frames={frames} />
 
+      {showDeepLinkBoot ? (
+        <p className="research-dialogue-note" aria-live="polite">
+          Opening your search — starting research dialogue…
+        </p>
+      ) : null}
+
       {showModeFork && (
         <ModeFork
           onChoose={chooseMode}
@@ -1636,7 +1690,15 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       )}
 
       <main className="shell__main">
-        {closing ? (
+        {showDeepLinkBoot ? (
+          <div className="deep-link-boot" aria-live="polite">
+            <LoadingScreen phase="compiling" />
+            <p className="research-dialogue-note">
+              Opening your search — research dialogue starts next. Third Eye runs after the matter is
+              pinned.
+            </p>
+          </div>
+        ) : closing ? (
           <ClosingNextSteps
             servicesReady={servicesReady}
             preferOslaw={session.mode === 'research'}
