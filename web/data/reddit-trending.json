@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-05T19:57:32.868Z",
+    "scrapedAt": "2026-09-06T10:00:40.764Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 8,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,15 +38,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w7x69j",
-          "title": "Seller refusing to vacate after completion - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7x69j/seller_refusing_to_vacate_after_completion_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7x69j/seller_refusing_to_vacate_after_completion_england/",
+          "id": "1w8repk",
+          "title": "Body buried in the garden of a purchased house..",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8repk/body_buried_in_the_garden_of_a_purchased_house/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8repk/body_buried_in_the_garden_of_a_purchased_house/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788604415,
-          "snippet": "UPDATE 8PM Estate agent called this morning at 10am to say they’d spoken to seller who now had the van and she was saying she’d be out by lunch and was going to call. By midday to 1, I called and emailed solicitors again and no answers, just we’ll pass the message on. Also no ans",
+          "createdUtc": 1788686638,
+          "snippet": "Hi. This is just speculative - i saw a post on UKhousing where the poster was considering buying a property however the previous owner was buried in the garden. I was just wondering what, if anything, can be done in such situations? Does the dead body essentially become your prop",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8q5lr",
+          "title": "Private parking fine advice, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8q5lr/private_parking_fine_advice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8q5lr/private_parking_fine_advice_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788682363,
+          "snippet": "Hi everyone. I've received a £100 parking fine which seems really unfair, and I wonder if an appeal through POPLA would be successful - does anyone have any similar experience? It's for a car park in Felixstowe by the beach. The car park does not have a physical machine and only ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8p4f3",
+          "title": "How do maternity protections work in practice?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8p4f3/how_do_maternity_protections_work_in_practice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8p4f3/how_do_maternity_protections_work_in_practice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788678813,
+          "snippet": "Correct me if I’m wrong but my understanding is that you shouldn’t be treated detrimentally for taking maternity leave. I have a few specific questions on how this would work in practice. A company promotes employees after six years. If one employee works through this time and on",
           "listingSource": "rss:hot"
         },
         {
@@ -62,6 +86,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1w7x69j",
+          "title": "Seller refusing to vacate after completion - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7x69j/seller_refusing_to_vacate_after_completion_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7x69j/seller_refusing_to_vacate_after_completion_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788604415,
+          "snippet": "UPDATE 8PM Estate agent called this morning at 10am to say they’d spoken to seller who now had the van and she was saying she’d be out by lunch and was going to call. By midday to 1, I called and emailed solicitors again and no answers, just we’ll pass the message on. Also no ans",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w85mrg",
+          "title": "A very popular meme profile is using a picture of me.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w85mrg/a_very_popular_meme_profile_is_using_a_picture_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w85mrg/a_very_popular_meme_profile_is_using_a_picture_of/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788626483,
+          "snippet": "England. I've found a twitter page with over 2 million followers but their profile picture is me from about 15 years ago. It's like they using it as a disguise but obviously it's my face on the page so people will assume it's me. It's a meme page and they are posting some pretty ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8obhl",
+          "title": "Builder dispute, threats of Violence.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8obhl/builder_dispute_threats_of_violence/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8obhl/builder_dispute_threats_of_violence/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788676119,
+          "snippet": "Hi all, Looking for advice on the following: I employed a team to carry out a decent amount of exterior works to my property in England. This was external insulation, rendering, fascias, soffits, gutters, flat roof adjustments, adjustments to external services (pipework etc), and",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1w7rhny",
           "title": "Can a small cafe business refuse to serve someone with multiple allergies? (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7rhny/can_a_small_cafe_business_refuse_to_serve_someone/",
@@ -71,6 +131,90 @@
           "numComments": 0,
           "createdUtc": 1788585281,
           "snippet": "My mum’s best friend runs a small beach cafe in a seaside town. It is quite busy in summer so my retired mum has been helping her friend out during the high season. The cafe sells the usual drinks (coffee, milkshakes, tea) along with sandwiches, toasties, cakes, and biscuits. Mos",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8ayj8",
+          "title": "NHS hospital passing on contract details to outside parking company - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8ayj8/nhs_hospital_passing_on_contract_details_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8ayj8/nhs_hospital_passing_on_contract_details_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788638592,
+          "snippet": "I work at a hospital in the midlands. We have roughly 4000 staff &amp; around 500 parking spots. You can NEVER get a parking spot there, but that's besides the point. The car park is run by an outside company, absolutely nothing to do with the hospital (which is what the hospital",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w87mep",
+          "title": "Small claims court, the offender's dogs badly injured another dog. UK.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w87mep/small_claims_court_the_offenders_dogs_badly/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w87mep/small_claims_court_the_offenders_dogs_badly/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788631007,
+          "snippet": "My daughters dog, a cockapoo was attacked by 2 large mastiffs. Vets fees £8000. Dogs owner lives in a nice house, 3 cars in drive, one a 2 Yr old jaguar land rover. Has a FB candle business. She said'Im a single parent on universal credit, you might get £1 per week payment plan. ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8cexn",
+          "title": "Withdrawing from car finance before collecting vehicle – who is responsible for the £6,150?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8cexn/withdrawing_from_car_finance_before_collecting/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8cexn/withdrawing_from_car_finance_before_collecting/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788642039,
+          "snippet": "England. I signed a hire purchase agreement with Autolend/Lendable for a used Peugeot 208. The cash price is £6,650, with £500 shown as an advance payment/deposit and £6,150 financed. However, I have not actually paid the £500 deposit. I am still within the 14-day withdrawal peri",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8682q",
+          "title": "Accused of by police for using a handheld phone when already on the phone through bluetooth handset (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8682q/accused_of_by_police_for_using_a_handheld_phone/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8682q/accused_of_by_police_for_using_a_handheld_phone/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788627805,
+          "snippet": "Advise please!! So I been accused by police saying I picked up my mobile phone while I was driving when I was already on phone through the Bluetooth handset and phone was away, when explained to police when they pulled me over, they said they seen me pick it up and call someone w",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8f77g",
+          "title": "Court Summons for Council Tax Fraud - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8f77g/court_summons_for_council_tax_fraud_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8f77g/court_summons_for_council_tax_fraud_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788649036,
+          "snippet": "My brothers been summonsed for court for not paying full council tax. They keep rejecting his application for single occupancy discount and have now reported him for fraud. He has lived alone the entire tenancy and his whole adult life. His property management company look after ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8qoq0",
+          "title": "Diverting back home after a breakdown on journey to MOT centre. - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8qoq0/diverting_back_home_after_a_breakdown_on_journey/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8qoq0/diverting_back_home_after_a_breakdown_on_journey/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788684200,
+          "snippet": "Me and my friend recently purchased a preserved bus, we were intending on driving it to the MOT centre yesterday utilising the exemption for driving to an MOT centre and afterwards driving it to a new storage location located halfway between, and this was successful until we got ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w81pwf",
+          "title": "Sibling terrorises me in our own home - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w81pwf/sibling_terrorises_me_in_our_own_home_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w81pwf/sibling_terrorises_me_in_our_own_home_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788617238,
+          "snippet": "I am seeking advice here as a young woman currently living with her parents and siblings in England. My sibling has undiagnosed mental illness - I believe it is some sort of personality disorder. She has moments of extreme anger - she has previously ripped my hair out in chunks o",
           "listingSource": "rss:hot"
         },
         {
@@ -98,159 +242,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w85mrg",
-          "title": "A very popular meme profile is using a picture of me.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w85mrg/a_very_popular_meme_profile_is_using_a_picture_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w85mrg/a_very_popular_meme_profile_is_using_a_picture_of/",
+          "id": "1w8rw5m",
+          "title": "If I don’t pay a parking fine and wait to see if they take me to court could I just pay the fine later to avoid a CCJ? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8rw5m/if_i_dont_pay_a_parking_fine_and_wait_to_see_if/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8rw5m/if_i_dont_pay_a_parking_fine_and_wait_to_see_if/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788626483,
-          "snippet": "England. I've found a twitter page with over 2 million followers but their profile picture is me from about 15 years ago. It's like they using it as a disguise but obviously it's my face on the page so people will assume it's me. It's a meme page and they are posting some pretty ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w87mep",
-          "title": "Small claims court, the offender's dogs badly injured another dog. UK.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w87mep/small_claims_court_the_offenders_dogs_badly/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w87mep/small_claims_court_the_offenders_dogs_badly/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788631007,
-          "snippet": "My daughters dog, a cockapoo was attacked by 2 large mastiffs. Vets fees £8000. Dogs owner lives in a nice house, 3 cars in drive, one a 2 Yr old jaguar land rover. Has a FB candle business. She said'Im a single parent on universal credit, you might get £1 per week payment plan. ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w81pwf",
-          "title": "Sibling terrorises me in our own home - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w81pwf/sibling_terrorises_me_in_our_own_home_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w81pwf/sibling_terrorises_me_in_our_own_home_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788617238,
-          "snippet": "I am seeking advice here as a young woman currently living with her parents and siblings in England. My sibling has undiagnosed mental illness - I believe it is some sort of personality disorder. She has moments of extreme anger - she has previously ripped my hair out in chunks o",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w89aur",
-          "title": "UK – England – Step-parent adoption – biological father refusing consent",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w89aur/uk_england_stepparent_adoption_biological_father/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w89aur/uk_england_stepparent_adoption_biological_father/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788634789,
-          "snippet": "I’m looking for some advice please from anyone with experience of family law/step-parent adoption in England. My daughter is 11 and has had no contact whatsoever with her biological father for approximately 7 years. There is currently a no-contact order in place. There is also a ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w7i3s5",
-          "title": "Speeding 70mph in a 50mph average speed check area - Wales",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7i3s5/speeding_70mph_in_a_50mph_average_speed_check/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7i3s5/speeding_70mph_in_a_50mph_average_speed_check/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788558802,
-          "snippet": "My grandfather had a medical emergency last night. I was called at 3am by my grandmother who just shouted down the phone that he’s having a heart attack and come quick. I drove safely the whole 10 minute journey, which mostly consists of a 70mph bypass with a small stretch of roa",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w8682q",
-          "title": "Accused of by police for using a handheld phone when already on the phone through bluetooth handset (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8682q/accused_of_by_police_for_using_a_handheld_phone/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8682q/accused_of_by_police_for_using_a_handheld_phone/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788627805,
-          "snippet": "Advise please!! So I been accused by police saying I picked up my mobile phone while I was driving when I was already on phone through the Bluetooth handset and phone was away, when explained to police when they pulled me over, they said they seen me pick it up and call someone w",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w845pm",
-          "title": "Car has been with a mechanic for 3 months - is there anything I can do? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w845pm/car_has_been_with_a_mechanic_for_3_months_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w845pm/car_has_been_with_a_mechanic_for_3_months_is/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788623058,
-          "snippet": "Hi, I hope this is the right place to ask this question - please let me know if it's not (or where it would be more appropriate). Our car (VW Golf GTE) broke down in late May and was towed to a VW approved workshop in London. It has been there since then - apparently the gear box",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w7e2nr",
-          "title": "Sacked from new company for something that happened 5 years ago and 2 employers ago.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7e2nr/sacked_from_new_company_for_something_that/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7e2nr/sacked_from_new_company_for_something_that/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788549733,
-          "snippet": "I have worked for my new employer for 2 weeks, this is in England. They have found a news article online (God knows how) referring to me being terminated for gross misconduct from an employer 5 years ago for an incident that occurred 8 years ago. I did not do what I was accused o",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w7xoi5",
-          "title": "England - Passports lost in the mail, nobody is taking responsibility",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7xoi5/england_passports_lost_in_the_mail_nobody_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7xoi5/england_passports_lost_in_the_mail_nobody_is/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788606069,
-          "snippet": "Hi all, My mother recently lost her passports and certificates in the mail. The passports were sent out ny HM Passport Office August 27th and she specifically paid for 1st class tracked next day delivery. Sje only received a cover letter and documents were missing. The delivery w",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w7ixv2",
-          "title": "Advice being sought please England car been wrongly impounded. August 2026",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7ixv2/advice_being_sought_please_england_car_been/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7ixv2/advice_being_sought_please_england_car_been/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788560800,
-          "snippet": "Good evening, My 17 year old son was driving back from Leeds recently and was pulled up by the police at 0130 in the morning. They went through the usual spiel and for some reason his car which he got 48hrs earlier was showing as uninsured! He called me and I sent his insurance d",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w8a54a",
-          "title": "Dog bit owner of aggressor dog in scuffle",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8a54a/dog_bit_owner_of_aggressor_dog_in_scuffle/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8a54a/dog_bit_owner_of_aggressor_dog_in_scuffle/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788636696,
-          "snippet": "I was walking my dog and an off lead of dog ran up at her from a garden. They got in a scuffle and when me and the other dogs owner were trying to separate my dog bit her and made her bleed. I did apologise at first but she asked for my details for insurance but I told her she sh",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w7xc7o",
-          "title": "Police attended after neighbour alleged harassment over reciprocal pre-action letters - NFA, what next?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7xc7o/police_attended_after_neighbour_alleged/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7xc7o/police_attended_after_neighbour_alleged/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788604970,
-          "snippet": "I am based in England. I am the claimant in a low-value civil claim against a neighbour. In April we exchanged a series of letters as part of the pre-action protocol. It was a continuous, reciprocal exchange, both of us responding to the other’s correspondence, and all letters we",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w89jei",
-          "title": "What is the legal position on property that is in a building that has been seized by the landowner?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w89jei/what_is_the_legal_position_on_property_that_is_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w89jei/what_is_the_legal_position_on_property_that_is_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788635310,
-          "snippet": "England. I am part of a club that has had their clubhouse seized by the landowner - they confirmed over the phone that it was on the grounds of safety (there's a degrading asbestos roof that they've refused to maintain, permission for us to maintain the roof has also been refused",
+          "createdUtc": 1788688322,
+          "snippet": "I’ve received a parking fine in my work car park for ‘failing to pay for duration of stay’ although the car park is supposed to be free for employees, provided a QR code is scanned within the building. The car park is managed privately and my workplace accepts no responsibility f",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 11,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,15 +280,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w7x69j",
-          "title": "Seller refusing to vacate after completion - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7x69j/seller_refusing_to_vacate_after_completion_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7x69j/seller_refusing_to_vacate_after_completion_england/",
+          "id": "1w8p4f3",
+          "title": "How do maternity protections work in practice?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8p4f3/how_do_maternity_protections_work_in_practice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8p4f3/how_do_maternity_protections_work_in_practice/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788604415,
-          "snippet": "UPDATE 8PM Estate agent called this morning at 10am to say they’d spoken to seller who now had the van and she was saying she’d be out by lunch and was going to call. By midday to 1, I called and emailed solicitors again and no answers, just we’ll pass the message on. Also no ans",
+          "createdUtc": 1788678813,
+          "snippet": "Correct me if I’m wrong but my understanding is that you shouldn’t be treated detrimentally for taking maternity leave. I have a few specific questions on how this would work in practice. A company promotes employees after six years. If one employee works through this time and on",
           "listingSource": "rss:hot"
         },
         {
@@ -304,39 +304,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w7rhny",
-          "title": "Can a small cafe business refuse to serve someone with multiple allergies? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7rhny/can_a_small_cafe_business_refuse_to_serve_someone/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7rhny/can_a_small_cafe_business_refuse_to_serve_someone/",
+          "id": "1w7x69j",
+          "title": "Seller refusing to vacate after completion - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7x69j/seller_refusing_to_vacate_after_completion_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7x69j/seller_refusing_to_vacate_after_completion_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788585281,
-          "snippet": "My mum’s best friend runs a small beach cafe in a seaside town. It is quite busy in summer so my retired mum has been helping her friend out during the high season. The cafe sells the usual drinks (coffee, milkshakes, tea) along with sandwiches, toasties, cakes, and biscuits. Mos",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w7vsl3",
-          "title": "Can a workplace refuse to pay me for an IT issue, that made me unable to work a shift when IT were not available? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7vsl3/can_a_workplace_refuse_to_pay_me_for_an_it_issue/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7vsl3/can_a_workplace_refuse_to_pay_me_for_an_it_issue/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788599735,
-          "snippet": "Worked here with an agency for 4 months now - England Worked a night shift and was unable to log into my work account. Tried resetting my password several times and I kept being told my account had expired. IT are not 24/7 and are now closed as its Saturday. I am also working fro",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1w7xxu7",
-          "title": "Company used third-party social media screening which wrongly attributed posts to me – advice?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7xxu7/company_used_thirdparty_social_media_screening/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7xxu7/company_used_thirdparty_social_media_screening/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788606874,
-          "snippet": "England I was offered a job in July subject to references and online searches. By September I had started and completed around 7 days of induction and mandatory training before my employer said they were withdrawing my offer citing my online search results, almost 2 months after ",
+          "createdUtc": 1788604415,
+          "snippet": "UPDATE 8PM Estate agent called this morning at 10am to say they’d spoken to seller who now had the van and she was saying she’d be out by lunch and was going to call. By midday to 1, I called and emailed solicitors again and no answers, just we’ll pass the message on. Also no ans",
           "listingSource": "rss:hot"
         },
         {
@@ -352,15 +328,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1w81pwf",
-          "title": "Sibling terrorises me in our own home - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w81pwf/sibling_terrorises_me_in_our_own_home_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w81pwf/sibling_terrorises_me_in_our_own_home_england/",
+          "id": "1w7rhny",
+          "title": "Can a small cafe business refuse to serve someone with multiple allergies? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7rhny/can_a_small_cafe_business_refuse_to_serve_someone/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7rhny/can_a_small_cafe_business_refuse_to_serve_someone/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788617238,
-          "snippet": "I am seeking advice here as a young woman currently living with her parents and siblings in England. My sibling has undiagnosed mental illness - I believe it is some sort of personality disorder. She has moments of extreme anger - she has previously ripped my hair out in chunks o",
+          "createdUtc": 1788585281,
+          "snippet": "My mum’s best friend runs a small beach cafe in a seaside town. It is quite busy in summer so my retired mum has been helping her friend out during the high season. The cafe sells the usual drinks (coffee, milkshakes, tea) along with sandwiches, toasties, cakes, and biscuits. Mos",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8ayj8",
+          "title": "NHS hospital passing on contract details to outside parking company - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8ayj8/nhs_hospital_passing_on_contract_details_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8ayj8/nhs_hospital_passing_on_contract_details_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788638592,
+          "snippet": "I work at a hospital in the midlands. We have roughly 4000 staff &amp; around 500 parking spots. You can NEVER get a parking spot there, but that's besides the point. The car park is run by an outside company, absolutely nothing to do with the hospital (which is what the hospital",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8682q",
+          "title": "Accused of by police for using a handheld phone when already on the phone through bluetooth handset (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8682q/accused_of_by_police_for_using_a_handheld_phone/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8682q/accused_of_by_police_for_using_a_handheld_phone/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788627805,
+          "snippet": "Advise please!! So I been accused by police saying I picked up my mobile phone while I was driving when I was already on phone through the Bluetooth handset and phone was away, when explained to police when they pulled me over, they said they seen me pick it up and call someone w",
           "listingSource": "rss:hot"
         }
       ]
@@ -390,6 +390,90 @@
       ]
     },
     {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1w8repk",
+          "title": "Body buried in the garden of a purchased house..",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8repk/body_buried_in_the_garden_of_a_purchased_house/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8repk/body_buried_in_the_garden_of_a_purchased_house/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788686638,
+          "snippet": "Hi. This is just speculative - i saw a post on UKhousing where the poster was considering buying a property however the previous owner was buried in the garden. I was just wondering what, if anything, can be done in such situations? Does the dead body essentially become your prop",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1w8q5lr",
+          "title": "Private parking fine advice, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8q5lr/private_parking_fine_advice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8q5lr/private_parking_fine_advice_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788682363,
+          "snippet": "Hi everyone. I've received a £100 parking fine which seems really unfair, and I wonder if an appeal through POPLA would be successful - does anyone have any similar experience? It's for a car park in Felixstowe by the beach. The car park does not have a physical machine and only ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1w8rw5m",
+          "title": "If I don’t pay a parking fine and wait to see if they take me to court could I just pay the fine later to avoid a CCJ? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8rw5m/if_i_dont_pay_a_parking_fine_and_wait_to_see_if/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8rw5m/if_i_dont_pay_a_parking_fine_and_wait_to_see_if/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788688322,
+          "snippet": "I’ve received a parking fine in my work car park for ‘failing to pay for duration of stay’ although the car park is supposed to be free for employees, provided a QR code is scanned within the building. The car park is managed privately and my workplace accepts no responsibility f",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "poor-services-and-traders",
+      "label": "Poor Services and Traders",
+      "legalAreaSlug": "consumer_services",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1w8obhl",
+          "title": "Builder dispute, threats of Violence.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8obhl/builder_dispute_threats_of_violence/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8obhl/builder_dispute_threats_of_violence/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788676119,
+          "snippet": "Hi all, Looking for advice on the following: I employed a team to carry out a decent amount of exterior works to my property in England. This was external insulation, rendering, fascias, soffits, gutters, flat roof adjustments, adjustments to external services (pipework etc), and",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "small-claims-and-county-court",
       "label": "Small Claims and County Court",
       "legalAreaSlug": "consumer_small_claims",
@@ -414,9 +498,9 @@
       ]
     },
     {
-      "slug": "clinical-negligence",
-      "label": "Clinical Negligence",
-      "legalAreaSlug": "clinical_negligence",
+      "slug": "car-finance-and-pcp-disputes",
+      "label": "Car Finance and PCP Disputes",
+      "legalAreaSlug": "consumer_car_finance",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -424,23 +508,23 @@
       ],
       "posts": [
         {
-          "id": "1w89aur",
-          "title": "UK – England – Step-parent adoption – biological father refusing consent",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w89aur/uk_england_stepparent_adoption_biological_father/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w89aur/uk_england_stepparent_adoption_biological_father/",
+          "id": "1w8cexn",
+          "title": "Withdrawing from car finance before collecting vehicle – who is responsible for the £6,150?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8cexn/withdrawing_from_car_finance_before_collecting/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8cexn/withdrawing_from_car_finance_before_collecting/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788634789,
-          "snippet": "I’m looking for some advice please from anyone with experience of family law/step-parent adoption in England. My daughter is 11 and has had no contact whatsoever with her biological father for approximately 7 years. There is currently a no-contact order in place. There is also a ",
+          "createdUtc": 1788642039,
+          "snippet": "England. I signed a hire purchase agreement with Autolend/Lendable for a used Peugeot 208. The cash price is £6,650, with £500 shown as an advance payment/deposit and £6,150 financed. However, I have not actually paid the £500 deposit. I am still within the 14-day withdrawal peri",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "motoring-offences",
-      "label": "Motoring Offences",
-      "legalAreaSlug": "motoring_offences",
+      "slug": "fraud-and-financial-crime",
+      "label": "Fraud and Financial Crime",
+      "legalAreaSlug": "fraud_financial_crime",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -448,15 +532,15 @@
       ],
       "posts": [
         {
-          "id": "1w7i3s5",
-          "title": "Speeding 70mph in a 50mph average speed check area - Wales",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7i3s5/speeding_70mph_in_a_50mph_average_speed_check/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7i3s5/speeding_70mph_in_a_50mph_average_speed_check/",
+          "id": "1w8f77g",
+          "title": "Court Summons for Council Tax Fraud - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8f77g/court_summons_for_council_tax_fraud_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8f77g/court_summons_for_council_tax_fraud_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788558802,
-          "snippet": "My grandfather had a medical emergency last night. I was called at 3am by my grandmother who just shouted down the phone that he’s having a heart attack and come quick. I drove safely the whole 10 minute journey, which mostly consists of a 70mph bypass with a small stretch of roa",
+          "createdUtc": 1788649036,
+          "snippet": "My brothers been summonsed for court for not paying full council tax. They keep rejecting his application for single occupancy discount and have now reported him for fraud. He has lived alone the entire tenancy and his whole adult life. His property management company look after ",
           "listingSource": "rss:hot"
         }
       ]
@@ -472,63 +556,15 @@
       ],
       "posts": [
         {
-          "id": "1w845pm",
-          "title": "Car has been with a mechanic for 3 months - is there anything I can do? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w845pm/car_has_been_with_a_mechanic_for_3_months_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w845pm/car_has_been_with_a_mechanic_for_3_months_is/",
+          "id": "1w8qoq0",
+          "title": "Diverting back home after a breakdown on journey to MOT centre. - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8qoq0/diverting_back_home_after_a_breakdown_on_journey/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w8qoq0/diverting_back_home_after_a_breakdown_on_journey/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788623058,
-          "snippet": "Hi, I hope this is the right place to ask this question - please let me know if it's not (or where it would be more appropriate). Our car (VW Golf GTE) broke down in late May and was towed to a VW approved workshop in London. It has been there since then - apparently the gear box",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1w7e2nr",
-          "title": "Sacked from new company for something that happened 5 years ago and 2 employers ago.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7e2nr/sacked_from_new_company_for_something_that/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7e2nr/sacked_from_new_company_for_something_that/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788549733,
-          "snippet": "I have worked for my new employer for 2 weeks, this is in England. They have found a news article online (God knows how) referring to me being terminated for gross misconduct from an employer 5 years ago for an incident that occurred 8 years ago. I did not do what I was accused o",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "neighbour-disputes",
-      "label": "Neighbour Disputes",
-      "legalAreaSlug": "neighbour_dispute",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1w7xc7o",
-          "title": "Police attended after neighbour alleged harassment over reciprocal pre-action letters - NFA, what next?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7xc7o/police_attended_after_neighbour_alleged/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1w7xc7o/police_attended_after_neighbour_alleged/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788604970,
-          "snippet": "I am based in England. I am the claimant in a low-value civil claim against a neighbour. In April we exchanged a series of letters as part of the pre-action protocol. It was a continuous, reciprocal exchange, both of us responding to the other’s correspondence, and all letters we",
+          "createdUtc": 1788684200,
+          "snippet": "Me and my friend recently purchased a preserved bus, we were intending on driving it to the MOT centre yesterday utilising the exemption for driving to an MOT centre and afterwards driving it to a new storage location located halfway between, and this was successful until we got ",
           "listingSource": "rss:hot"
         }
       ]
