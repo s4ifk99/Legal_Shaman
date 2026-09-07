@@ -5,6 +5,7 @@ import {
   storyLooksWorkplaceLeaveOrStaffRules,
   storyLooksWorkplaceNeurodiversityAdjustments,
 } from "@/lib/coherence/hypothesisProbe";
+import { liveAskFromStory } from "@/lib/coherence/clientQuestions";
 import { normaliseLayText } from "@/lib/coherence/normaliseLay";
 
 import { extractStoryKeyphrases } from "./conceptRetrievalPlan";
@@ -453,6 +454,32 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
       confidence: 0.45,
       reason: "dual-capacity:landlord also employer",
     });
+  }
+
+  // Live ask is solicitor conduct / LeO / SRA — demote bare employment primary from workplace history.
+  const liveAsk = liveAskFromStory(storyBlob, input.clientQuestion || "");
+  if (
+    liveAsk.solicitorConduct &&
+    primaryIssues[0]?.slug === "employment" &&
+    !liveAsk.themes.includes("employment_wages") &&
+    !liveAsk.themes.includes("employment_rights")
+  ) {
+    const employmentKept = primaryIssues.filter((i) => i.slug === "employment").map((i) => ({
+      ...i,
+      confidence: Math.min(i.confidence, 0.42),
+      reason: `${i.reason}; backdrop — live ask is solicitor conduct`,
+    }));
+    secondaryIssues = [
+      ...employmentKept,
+      ...secondaryIssues.filter((i) => i.slug !== "employment"),
+    ].slice(0, 4);
+    primaryIssues = [
+      {
+        slug: "other",
+        confidence: Math.max(0.72, primaryIssues[0]?.confidence ?? 0.72),
+        reason: "live ask: Legal Ombudsman / SRA / solicitor fees or supervision",
+      },
+    ];
   }
 
   const disputedSupports = new Set(

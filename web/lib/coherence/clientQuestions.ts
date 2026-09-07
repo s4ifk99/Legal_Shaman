@@ -1,10 +1,112 @@
 import { storyLooksEmployerSeizedKit } from '@/lib/matter/graphAdmissibility'
 
+/** Operative dispute themes derived from the client's live ask — not the full narrative. */
+export type LiveAskTheme =
+  | 'solicitor_ombudsman'
+  | 'sra_conduct'
+  | 'solicitor_costs'
+  | 'employment_wages'
+  | 'employment_rights'
+  | 'housing_lockout'
+  | 'housing_homeless'
+  | 'housing_tenancy'
+  | 'criminal_police'
+  | 'seized_property'
+
+export type LiveAsk = {
+  questions: string[]
+  goal: string
+  themes: LiveAskTheme[]
+  /** True when the live dispute is about the client's solicitors / LeO / SRA / fees. */
+  solicitorConduct: boolean
+}
+
+/**
+ * Live ask is about the client's solicitors / LeO / SRA / fees — not the
+ * underlying employment dispute. Incidental "holiday pay" must not become the ask.
+ */
+export function storyLooksSolicitorConductComplaint(story: string): boolean {
+  const s = story || ''
+  const firmConduct =
+    /\b(legal ombudsman|\bleo\b|solicitors?\s+regulation\s+authority|\bsra\b|complain(?:t|ing|ed)?\s+(?:about\s+)?(?:my\s+)?(?:solicitor|law\s+firm|legal\s+adviser)|trainee\s+solicitor|without\s+prejudice\s+letter|success\s+fee|conditional\s+fee|\bcfa\b|stage\s+two\s+complaint|supervision\s+records?|subject\s+access\s+request)\b/i.test(
+      s,
+    )
+  if (!firmConduct) return false
+  const askingAboutFirm =
+    /\b(legal ombudsman|\bleo\b|\bsra\b|refund(?:s)?\s+of\s+fees|recover(?:ed|ing)?\s+fees|strongest\s+limb|report(?:ing)?\s+to\s+the\s+sra|complain(?:t|ing)\s+(?:about|to)|invoice\s+remained\s+payable|bot[- ]?like|posing\s+as\s+[“"]?clients)\b/i.test(
+      s,
+    )
+  return (
+    askingAboutFirm ||
+    (firmConduct && /\b(my\s+(?:solicitor|firm)|the\s+firm\s+(?:sent|charged|advised))\b/i.test(s))
+  )
+}
+
+function themesFromAskBlob(blob: string): LiveAskTheme[] {
+  const themes: LiveAskTheme[] = []
+  const push = (t: LiveAskTheme) => {
+    if (!themes.includes(t)) themes.push(t)
+  }
+  if (
+    /\b(legal ombudsman|\bleo\b|complain(?:t|ing)?\s+(?:about\s+)?(?:a\s+)?(?:legal adviser|solicitor)|refund(?:s)?\s+of\s+fees|fee refund)\b/i.test(
+      blob,
+    )
+  ) {
+    push('solicitor_ombudsman')
+  }
+  if (
+    /\b(\bsra\b|solicitors?\s+regulation|report(?:ing)?\s+(?:to\s+)?(?:the\s+)?sra|supervision|trainee\s+solicitor|fake reviews|integrity)\b/i.test(
+      blob,
+    )
+  ) {
+    push('sra_conduct')
+  }
+  if (/\b(success\s+fee|conditional\s+fee|\bcfa\b|solicitor\s+(?:bill|invoice|fees|costs)|costs complaint)\b/i.test(blob)) {
+    push('solicitor_costs')
+  }
+  if (
+    /\b(wages?|holiday pay|ssp|statutory sick|last pay|withheld until|getting paid when you leave)\b/i.test(blob)
+  ) {
+    push('employment_wages')
+  }
+  if (
+    /\b(unfair dismiss|redundan|employment (?:rights|tribunal)|notice pay|acas|discrimination at work)\b/i.test(
+      blob,
+    )
+  ) {
+    push('employment_rights')
+  }
+  if (/\b(lock(?:ed)?\s*out|illegal evict|front door|changed? (?:the )?locks?|forced .{0,40}(?:leave|vacate))\b/i.test(blob)) {
+    push('housing_lockout')
+  }
+  if (/\b(homeless|emergency (?:housing|accommodation)|nowhere to stay|tonight)\b/i.test(blob)) {
+    push('housing_homeless')
+  }
+  if (/\b(tenancy|occup(?:ier|ancy)|right to stay|section\s*21|landlord|tenant)\b/i.test(blob)) {
+    push('housing_tenancy')
+  }
+  if (/\b(police station|arrest|criminal|charged with|duty solicitor)\b/i.test(blob)) {
+    push('criminal_police')
+  }
+  if (/\b(laptop|seized|return of property|work files|dropbox)\b/i.test(blob)) {
+    push('seized_property')
+  }
+  return themes
+}
+
 /** One Matching Help / brief goal — not a concatenation of every live question. */
 export function compressLiveGoal(text: string): string {
   const raw = String(text || '')
   if (storyLooksEmployerSeizedKit(raw)) {
     return 'Recover the work laptop and stop police examining employer files'
+  }
+  if (storyLooksSolicitorConductComplaint(raw)) {
+    const qs = extractClientQuestions(raw)
+    const firmQ = qs.find((q) =>
+      /legal ombudsman|\bleo\b|\bsra\b|refund|fee|solicitor|supervision|strongest/i.test(q),
+    )
+    if (firmQ) return firmQ.replace(/\?$/, '')
+    return 'Complain about my solicitors to the Legal Ombudsman / SRA'
   }
   const qs = extractClientQuestions(raw)
   return qs[0] || ''
@@ -15,6 +117,7 @@ export function extractClientQuestions(text: string): string[] {
   const out: string[] = []
   const seen = new Set<string>()
   const raw = String(text || '')
+  const solicitorConduct = storyLooksSolicitorConductComplaint(raw)
 
   const push = (q: string) => {
     const cleaned = q.replace(/\s+/g, ' ').trim().replace(/^[:—\-\s]+/, '')
@@ -43,7 +146,7 @@ export function extractClientQuestions(text: string): string[] {
     push(last)
   }
 
-  const implied: Array<{ re: RegExp; q: string; need?: RegExp }> = [
+  const implied: Array<{ re: RegExp; q: string; need?: RegExp; skipIfSolicitor?: boolean }> = [
     {
       re: /next step|some advice|what (?:can|should) i do/i,
       q: 'What should I do next to stay safe and housed?',
@@ -54,7 +157,13 @@ export function extractClientQuestions(text: string): string[] {
       re: /door (?:had been )?removed|changed? (?:the )?locks?|leave immediately|forced .{0,40}(?:leave|vacate)|no front door/i,
       q: 'What can I do after being locked out or forced to leave without a court order?',
     },
-    { re: /wages|holiday pay/i, q: 'Can wages or holiday pay be withheld until I leave?' },
+    {
+      re: /wages|holiday pay/i,
+      q: 'Can wages or holiday pay be withheld until I leave?',
+      // Do not invent a wages ask when holiday pay is only solicitor-fee backdrop
+      skipIfSolicitor: true,
+      need: /withheld|until (?:i |you )?leave|last wages|vacating|upon vacating|getting paid when you leave/i,
+    },
     {
       re: /nowhere else|homeless|tonight|emergency (?:housing|alternative)|sofa to crash/i,
       q: 'Where can I get emergency housing tonight?',
@@ -73,11 +182,68 @@ export function extractClientQuestions(text: string): string[] {
     },
   ]
   for (const item of implied) {
+    if (item.skipIfSolicitor && solicitorConduct) continue
     if (!item.re.test(raw)) continue
     if (item.need && !item.need.test(raw)) continue
     push(item.q)
   }
   return out.slice(0, 5)
+}
+
+/**
+ * Operative dispute from the client's questions / live goal.
+ * Downstream slots and retrieval must prefer this over narrative keywords.
+ */
+export function liveAskFromStory(story: string, clientQuestion = ''): LiveAsk {
+  const combined = `${clientQuestion || ''}\n${story || ''}`.trim()
+  const questions = extractClientQuestions(combined)
+  const goal = compressLiveGoal(combined)
+  const askBlob = [goal, ...questions, clientQuestion].filter(Boolean).join('\n')
+  const solicitorConduct = storyLooksSolicitorConductComplaint(combined)
+  let themes = themesFromAskBlob(askBlob)
+
+  // When the client asked explicit LeO/SRA/fee questions, those themes win even if
+  // narrative keywords also appear in the ask blob.
+  if (solicitorConduct) {
+    if (!themes.includes('solicitor_ombudsman') && /legal ombudsman|\bleo\b|refund/i.test(askBlob + combined)) {
+      themes = ['solicitor_ombudsman', ...themes]
+    }
+    if (!themes.includes('sra_conduct') && /\bsra\b|supervision|trainee/i.test(askBlob + combined)) {
+      themes = [...themes, 'sra_conduct']
+    }
+    if (!themes.includes('solicitor_costs') && /success fee|conditional fee|\bcfa\b|fees?/i.test(askBlob + combined)) {
+      themes = [...themes, 'solicitor_costs']
+    }
+    // Strip wages/employment-rights themes unless the live ask itself is about withheld pay
+    const wagesLive =
+      /withheld|until (?:i |you )?leave|last wages|vacating|getting paid when you leave|can wages/i.test(
+        askBlob,
+      )
+    if (!wagesLive) {
+      themes = themes.filter((t) => t !== 'employment_wages' && t !== 'employment_rights')
+    }
+  }
+
+  // Cafe-flat style: narrative + housing dispute implies wages when pay is withheld until leave
+  if (
+    !solicitorConduct &&
+    !themes.includes('employment_wages') &&
+    /wages|holiday pay/i.test(combined) &&
+    /withheld|until .{0,20}leave|upon vacating|vacating the property/i.test(combined)
+  ) {
+    themes.push('employment_wages')
+  }
+
+  return {
+    questions,
+    goal,
+    themes: [...new Set(themes)],
+    solicitorConduct,
+  }
+}
+
+export function liveAskHasTheme(ask: LiveAsk, theme: LiveAskTheme): boolean {
+  return ask.themes.includes(theme)
 }
 
 /**

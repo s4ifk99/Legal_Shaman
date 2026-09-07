@@ -1,5 +1,6 @@
 import { searchWikiPages, getWikiPageById } from "@/lib/wiki/search";
 import { wikiAnchorsForQuery } from "@/lib/wiki/rerank-hits";
+import { liveAskFromStory } from "@/lib/coherence/clientQuestions";
 
 import { buildConceptRetrievalPlan } from "./conceptRetrievalPlan";
 import { buildRetrievalPlan } from "./retrieval-plan";
@@ -9,6 +10,23 @@ import { gapIntentsForFrame } from "./gapRetrieve";
 import { exclusionPatternsForSlugs } from "./scopes";
 import { coverageSlotsFrom, rankByCoverage, slotRetryQueries, titleCoversGraph } from "./coverageSlots";
 import type { MatterEvidenceSet, MatterFrame } from "./types";
+
+function titleBoostForLiveAsk(title: string, submission: string): number {
+  const ask = liveAskFromStory(submission);
+  if (ask.solicitorConduct || ask.themes.includes("solicitor_ombudsman")) {
+    if (/legal ombudsman|complain about a legal|solicitors regulation|\bsra\b|success fee|conditional fee/i.test(title)) {
+      return 1.35;
+    }
+    if (/holiday pay|unpaid wage|working time|rest break/i.test(title) && !ask.themes.includes("employment_wages")) {
+      return 0.55;
+    }
+    return 1;
+  }
+  if (/illegal evict|homeless|occupi|service occup|tied accommodation|no tenancy|holiday pay|unpaid wage/i.test(title)) {
+    return 1.3;
+  }
+  return 1;
+}
 
 /** Legacy path: raw submission drives search (pre–Matter Engine baseline). */
 export function retrieveBaseline(submission: string, limit = 8): MatterEvidenceSet {
@@ -79,23 +97,7 @@ export function retrieveForMatter(opts: {
       if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
       if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
       const existing = byId.get(hit.id);
-      const solicitorConduct =
-        /\b(legal ombudsman|\bleo\b|\bsra\b|success\s+fee|complain(?:t|ing)\s+(?:about\s+)?(?:my\s+)?solicitor|trainee\s+solicitor)\b/i.test(
-          submission,
-        )
-      const boost = solicitorConduct
-        ? /legal ombudsman|complain about a legal|solicitors regulation|\bsra\b|success fee|conditional fee/i.test(
-            hit.title,
-          )
-          ? 1.35
-          : /holiday pay|unpaid wage|working time|rest break/i.test(hit.title)
-            ? 0.55
-            : 1
-        : /illegal evict|homeless|occupi|service occup|tied accommodation|no tenancy|holiday pay|unpaid wage/i.test(
-              hit.title,
-            )
-          ? 1.3
-          : 1
+      const boost = titleBoostForLiveAsk(hit.title, submission);
       const row = {
         id: hit.id,
         title: hit.title,
@@ -144,21 +146,8 @@ export function retrieveForMatter(opts: {
       if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
       if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
       const existing = byId.get(hit.id);
-      const solicitorConduct =
-        /\b(legal ombudsman|\bleo\b|\bsra\b|success\s+fee|complain(?:t|ing)\s+(?:about\s+)?(?:my\s+)?solicitor|trainee\s+solicitor)\b/i.test(
-          submission,
-        );
-      const boost = solicitorConduct
-        ? /legal ombudsman|complain about a legal|solicitors regulation|\bsra\b|success fee|conditional fee/i.test(
-            hit.title,
-          )
-          ? 1.35
-          : /holiday pay|unpaid wage|working time|rest break/i.test(hit.title)
-            ? 0.55
-            : 1.15
-        : /illegal evict|homeless|occupi|holiday pay|unpaid wage/i.test(hit.title)
-          ? 1.35
-          : 1.15;
+      const liveBoost = titleBoostForLiveAsk(hit.title, submission);
+      const boost = liveBoost >= 1.3 ? 1.35 : liveBoost <= 0.6 ? 0.55 : 1.15;
       const row = {
         id: hit.id,
         title: hit.title,

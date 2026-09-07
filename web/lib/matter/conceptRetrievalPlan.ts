@@ -14,6 +14,7 @@
 import type { MatterFrame } from "./types";
 import { ISSUE_RETRIEVAL_INTENTS } from "./scopes";
 import { intentAllowedOnGraph } from "./issueGraphHits";
+import { liveAskFromStory } from "../coherence/clientQuestions";
 import { normaliseLayText } from "../coherence/normaliseLay";
 
 export type ConceptRetrievalPlan = {
@@ -1332,10 +1333,16 @@ export function buildConceptRetrievalPlan(
   }
 
   // Always add keyphrase / agent-concept intents (MuISQA / LexKeyPlan)
-  const solicitorConduct = clusterIds.includes("solicitor_conduct_leo_sra");
+  const liveAsk = liveAskFromStory(story);
+  const dropBackdropWages =
+    liveAsk.solicitorConduct ||
+    clusterIds.includes("solicitor_conduct_leo_sra") ||
+    (liveAsk.themes.length > 0 &&
+      !liveAsk.themes.includes("employment_wages") &&
+      !liveAsk.themes.includes("employment_rights"));
   for (const kp of keyphraseIntents(concepts, clusterIds.length ? 4 : 6)) {
     if (
-      solicitorConduct &&
+      dropBackdropWages &&
       /\b(holiday pay|working time|rest breaks?|national minimum wage|unfair dismissal)\b/i.test(kp)
     ) {
       continue;
