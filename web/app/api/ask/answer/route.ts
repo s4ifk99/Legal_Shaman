@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 
-import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
+import {
+  completeSearchEntitlement,
+  requireSearchEntitlement,
+} from "@/lib/billing/require-search-entitlement";
 import {
   MAX_SEARCH_QUERY_CHARS,
   searchQueryTooLongMessage,
@@ -15,9 +18,6 @@ type AnswerRequestBody = {
 };
 
 export async function POST(req: Request) {
-  const authBlock = await requireSearchAuthResponse();
-  if (authBlock) return authBlock;
-
   let body: AnswerRequestBody;
   try {
     body = (await req.json()) as AnswerRequestBody;
@@ -36,27 +36,39 @@ export async function POST(req: Request) {
     );
   }
 
-  const payload = await generateWikiAnswer(query);
-  const index = getWikiIndex();
-
-  console.info(
-    JSON.stringify({
-      event: "wiki_answer",
-      query: query.slice(0, 200),
-      mode: payload.mode,
-      retrievalScore: payload.retrievalScore,
-      wikiPageIds: payload.wikiPages.map((p) => p.id).slice(0, 8),
-      firmCount: payload.recommendedFirms.length,
-      latencyMs: payload.latencyMs,
-      pageCount: index.meta.pageCount,
-    }),
-  );
-
-  return NextResponse.json({
-    ...payload,
-    meta: {
-      pageCount: index.meta.pageCount,
-      indexedAt: index.meta.indexedAt,
-    },
+  const entitlement = await requireSearchEntitlement({
+    endpoint: "/api/ask/answer",
+    searchKey: query,
   });
+  if (entitlement instanceof NextResponse) return entitlement;
+
+  try {
+    const payload = await generateWikiAnswer(query);
+    const index = getWikiIndex();
+    await completeSearchEntitlement(entitlement, "completed", query);
+
+    console.info(
+      JSON.stringify({
+        event: "wiki_answer",
+        query: query.slice(0, 200),
+        mode: payload.mode,
+        retrievalScore: payload.retrievalScore,
+        wikiPageIds: payload.wikiPages.map((p) => p.id).slice(0, 8),
+        firmCount: payload.recommendedFirms.length,
+        latencyMs: payload.latencyMs,
+        pageCount: index.meta.pageCount,
+      }),
+    );
+
+    return NextResponse.json({
+      ...payload,
+      meta: {
+        pageCount: index.meta.pageCount,
+        indexedAt: index.meta.indexedAt,
+      },
+    });
+  } catch (err) {
+    await completeSearchEntitlement(entitlement, "failed", query);
+    throw err;
+  }
 }

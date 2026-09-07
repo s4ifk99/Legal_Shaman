@@ -23,6 +23,7 @@ import {
 import { formatMatterInspector } from "@/lib/matter/inspector";
 import { MatterEngine } from "@/lib/matter/resolve";
 import type { AnswerPackage } from "@/lib/coherence/answerPackage";
+import { resolveFreeSearchKey } from "@/lib/billing/free-search-key";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -115,10 +116,10 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ error: "invalid_json", fallback: true }, { status: 400 });
   }
-  const searchKey =
-    Array.isArray(body.session?.rawInputs) && typeof body.session.rawInputs[0] === "string"
-      ? body.session.rawInputs[0]
-      : body.latestText;
+  const searchKey = resolveFreeSearchKey({
+    rawInputs: body.session?.rawInputs,
+    latestText: body.latestText,
+  });
 
   const access = await requireCoherenceAccess(req, {
     endpoint: "/api/coherence/llm/master",

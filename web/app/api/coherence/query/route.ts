@@ -33,6 +33,7 @@ import {
 } from "@/lib/auth/quota-rate-limit";
 import { verifyTurnstileToken, clientIpFromRequest } from "@/lib/auth/turnstile";
 import { accountsPrisma } from "@/lib/db/accounts";
+import { resolveFreeSearchKey } from "@/lib/billing/free-search-key";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -176,11 +177,17 @@ export async function POST(req: Request) {
     }
   }
 
+  const searchKey = resolveFreeSearchKey({
+    rawInputs: (body.session as { rawInputs?: unknown } | undefined)?.rawInputs,
+    latestText: body.latestText,
+  });
   const allowance = await canStartCoherenceUsage({
     userId,
     requestId: idempotencyKey,
     endpoint: ENDPOINT,
     expectedFrontierCalls: 2,
+    countSearch: Boolean(searchKey),
+    searchKey,
   });
   if (!allowance.allowed) {
     if (allowance.reason !== "concurrent") {
@@ -263,6 +270,7 @@ export async function POST(req: Request) {
       requestId: idempotencyKey,
       endpoint: ENDPOINT,
       status: "started",
+      searchKey,
     });
     const summary = summarizeLlmTrace(
       (llmTrace?.records as Parameters<typeof summarizeLlmTrace>[0]) || [],
@@ -272,6 +280,7 @@ export async function POST(req: Request) {
       requestId: idempotencyKey,
       endpoint: ENDPOINT,
       status: "completed",
+      searchKey,
       ...summary,
     });
   } else {

@@ -3,12 +3,14 @@ import { NextResponse } from "next/server";
 import { coherenceOpenRouterConfig, ensureCoherenceServerEnv } from "@/lib/coherence/config";
 import { critiqueOverviewRecommendation } from "@/lib/coherence/critiqueOverview";
 import { buildOverviewAnswer } from "@/lib/coherence/overviewAnswer";
-import { coherenceApiGuard } from "@/lib/coherence/server/guard";
+import { coherenceApiGuard, requireCoherenceAccess } from "@/lib/coherence/server/guard";
 import { MatterEngine } from "@/lib/matter";
 import { KnowledgeRetriever, matterEvidenceToWikiHits } from "@/lib/matter/retrieve";
 import { retrieveDworkinSnippetsForOverview } from "@/lib/coherence/overviewDworkinPack";
 import { canonicalizeResearchBundle, type ResearchBundle } from "@/lib/coherence/researchBundle";
 import { runScopedResearchTools } from "@/lib/aramb/tools";
+import { resolveFreeSearchKey } from "@/lib/billing/free-search-key";
+import { recordUsageEvent } from "@/lib/coherence/usage";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -27,7 +29,7 @@ type Body = {
   goal?: string;
   /** Prior LexKeyPlan concepts from master / session. */
   concepts?: string[];
-  session?: { matterFrame?: { concepts?: string[] } };
+  session?: { matterFrame?: { concepts?: string[] }; rawInputs?: unknown };
   followUp?: {
     kind?: "clarify" | "add_detail" | "refine";
     text?: string;
@@ -35,6 +37,7 @@ type Body = {
   };
   /** Optional: skip critic retry (tests / diagnostics). */
   skipCritiqueRetry?: boolean;
+  captchaToken?: string;
 };
 
 /** Overview: MatterEngine-scoped wiki retrieve → practical recommendation (matches local master path). */
@@ -46,13 +49,6 @@ export async function POST(req: Request) {
   const blocked = coherenceApiGuard();
   if (blocked) return blocked;
 
-  ensureCoherenceServerEnv();
-  coherenceOpenRouterConfig();
-  // Overview synthesis needs headroom — default chat client is 12s locally
-  if (!process.env.LLM_TIMEOUT_MS) {
-    process.env.LLM_TIMEOUT_MS = "45000";
-  }
-
   let body: Body;
   try {
     body = (await req.json()) as Body;
@@ -63,6 +59,27 @@ export async function POST(req: Request) {
   const latestText = String(body.latestText || body.whatHappened || "").trim();
   if (latestText.length < 8) {
     return NextResponse.json({ error: "query_too_short" }, { status: 400 });
+  }
+
+  const isFollowUp = Boolean(body.followUp?.kind);
+  const searchKey = resolveFreeSearchKey({
+    rawInputs: body.session?.rawInputs,
+    latestText,
+    whatHappened: body.whatHappened,
+  });
+  const access = await requireCoherenceAccess(req, {
+    endpoint: "/api/coherence/llm/answer",
+    captchaToken: body.captchaToken,
+    countSearch: !isFollowUp,
+    searchKey,
+  });
+  if (access instanceof NextResponse) return access;
+
+  ensureCoherenceServerEnv();
+  coherenceOpenRouterConfig();
+  // Overview synthesis needs headroom — default chat client is 12s locally
+  if (!process.env.LLM_TIMEOUT_MS) {
+    process.env.LLM_TIMEOUT_MS = "45000";
   }
 
   const understanding = body.understanding ? String(body.understanding) : undefined;
@@ -179,6 +196,15 @@ export async function POST(req: Request) {
       });
     }
 
+    if (access.usageTracked) {
+      await recordUsageEvent({
+        userId: access.user.id,
+        requestId: access.requestId,
+        endpoint: "/api/coherence/llm/answer",
+        status: "completed",
+        searchKey,
+      });
+    }
     return NextResponse.json({
       answerPackage,
       wiki: {
@@ -192,6 +218,15 @@ export async function POST(req: Request) {
       origin: (answerPackage as { origin?: string }).origin || "wiki",
     });
   } catch (err) {
+    if (access.usageTracked) {
+      await recordUsageEvent({
+        userId: access.user.id,
+        requestId: access.requestId,
+        endpoint: "/api/coherence/llm/answer",
+        status: "failed",
+        searchKey,
+      });
+    }
     return NextResponse.json(
       {
         error: err instanceof Error ? err.message : "Answer synthesis error",
