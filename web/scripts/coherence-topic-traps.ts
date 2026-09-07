@@ -43,6 +43,7 @@ import {
 import { preferFrameMatching } from '../lib/coherence/issueRouting'
 import { matchFreeServices } from '../lib/coherence/matchFreeServices'
 import { buildExaResearchBrief } from '../lib/penumbra/exaBrief'
+import { resolveLiveDispute } from '../lib/matter/liveDispute'
 import { discoverHelpFromExaHits } from '../lib/penumbra/helpDiscover'
 import {
   buildPenumbraCacheKey,
@@ -1251,6 +1252,54 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         ) ||
         assert(planned.queries.some((q) => q.id === 'help-free'), 'missing free-help Exa query') ||
         assert(planned.queries.some((q) => q.id === 'help-paid'), 'missing paid-directory Exa query')
+      )
+    },
+  },
+  {
+    id: 'third-eye-neighbour-camera-not-eviction',
+    run: () => {
+      const story = 'neighbours camera is facing my door'
+      const ask = liveAskFromStory(story)
+      const { frame } = attachResolvedMatterFrame(intake([story]), story)
+      const slots = coverageSlotsFrom(frame, story)
+      const planned = buildExaResearchBrief({ story, frame, clientQuestion: ask.goal })
+      const dispute = resolveLiveDispute(story)
+      const qblob = planned.queries.map((q) => q.query).join(' ').toLowerCase()
+      const slotIds = slots.map((s) => s.id).join(',')
+      const offline = searchOfflineExaIndexForPenumbra(planned.queries[0]?.query || story, {
+        matterSlug: frame.primaryIssues[0]?.slug,
+        slots,
+        story,
+        limit: 10,
+      })
+      const hitBlob = offline.hits.map((h) => `${h.title} ${h.url}`).join('\n').toLowerCase()
+      return (
+        assert(ask.neighbourSurveillance, 'neighbourSurveillance false') ||
+        assert(dispute?.kind === 'neighbour_surveillance', `dispute=${dispute?.kind}`) ||
+        assert(/neighbours camera is facing my door/.test(qblob), `utterance missing from Exa query: ${qblob.slice(0, 220)}`) ||
+        assert(
+          ask.themes.includes('neighbour_surveillance'),
+          `missing neighbour_surveillance theme: ${ask.themes.join(',')}`,
+        ) ||
+        assert(
+          frame.primaryIssues[0]?.slug === 'neighbour_dispute',
+          `primary=${frame.primaryIssues[0]?.slug}`,
+        ) ||
+        assert(slots.some((s) => s.id === 'neighbour_cctv'), `missing cctv slot: ${slotIds}`) ||
+        assert(!slots.some((s) => s.id === 'housing_core'), `housing_core still open: ${slotIds}`) ||
+        assert(/cctv|ico|privacy/.test(qblob), `queries not steered to CCTV: ${qblob.slice(0, 220)}`) ||
+        assert(
+          !/private renting eviction|homelessness duty/.test(qblob),
+          `eviction still in Exa queries: ${qblob.slice(0, 220)}`,
+        ) ||
+        assert(
+          offline.hits.some((h) => /ico|cctv/i.test(`${h.title} ${h.url}`)),
+          `offline index missed ICO/CCTV: ${offline.hits.map((h) => h.title).join(' | ')}`,
+        ) ||
+        assert(
+          !/illegal evict|section 21|homelessness|notices of possession/i.test(hitBlob),
+          `eviction pages still in offline hits: ${offline.hits.map((h) => h.title).join(' | ')}`,
+        )
       )
     },
   },

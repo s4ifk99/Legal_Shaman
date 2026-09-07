@@ -608,6 +608,22 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     suppressSlugDefaults: ["neighbour_dispute", "employment", "consumer"],
   },
   {
+    id: "neighbour_cctv",
+    matchAll: [
+      /\b(neighbours?|neighbors?)\b/i,
+      /\b(camera|cctv|doorbell|filming|recording me|surveillance)\b/i,
+    ],
+    intents: [
+      "neighbour CCTV camera pointing at door ICO",
+      "domestic CCTV privacy neighbour",
+      "complaints about home CCTV systems ICO",
+      "problems with neighbours harassment camera",
+    ],
+    titleExclusion:
+      /used car|Consumer Rights Act|section\s*21|tenancy deposit|illegal eviction|homelessness|unfair dismissal/i,
+    suppressSlugDefaults: ["housing", "consumer", "employment"],
+  },
+  {
     id: "neighbour_noise_asb",
     matchAll: [
       /\b(neighbour|neighbor)\b/i,

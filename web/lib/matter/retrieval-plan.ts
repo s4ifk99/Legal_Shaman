@@ -42,7 +42,7 @@ export const EVENT_TYPE_RETRIEVAL_INTENTS: Record<string, string[]> = {
     "occupier no tenancy agreement service occupancy",
     "landlord tenant disrepair section 21 deposit",
   ],
-  neighbour_dispute: ["neighbour noise nuisance barking dog"],
+  neighbour_dispute: ["neighbour noise nuisance barking dog", "neighbour CCTV camera pointing at home ICO"],
   parking_pcn: ["appealing parking ticket penalty charge notice"],
   consumer_services: ["builder poor workmanship consumer services trader"],
   collision: ["vehicle insurance claim collision lift home work"],

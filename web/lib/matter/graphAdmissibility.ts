@@ -7,6 +7,7 @@ import { titleAllowedOnGraph } from "./issueGraphHits";
 import { coverageSlotsFrom, storyLooksVacatedRroRelet, titleCoversGraph } from "./coverageSlots";
 import { storyLooksSolicitorConductComplaint } from "@/lib/coherence/clientQuestions";
 import { looksPolicePursuitVehicleClaim } from "@/lib/legal/query-signals";
+import { titleBlockedByLiveDispute } from "@/lib/matter/liveDispute";
 
 export { storyLooksVacatedRroRelet };
 
@@ -127,6 +128,9 @@ export function isNeighbourAttractorTitle(title: string, frame: IssueGraph, stor
     ) {
       return true;
     }
+  }
+  if (titleBlockedByLiveDispute(t, story)) {
+    return true;
   }
   if (
     storyLooksEmployerSeizedKit(story) &&

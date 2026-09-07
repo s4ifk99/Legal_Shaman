@@ -43,6 +43,8 @@ export {
   uncoveredSlots,
 } from "./coverageSlots";
 export type { CoverageSlot } from "./coverageSlots";
+export { resolveLiveDispute, titleBlockedByLiveDispute } from "./liveDispute";
+export type { LiveDispute, LiveDisputeKind } from "./liveDispute";
 export {
   liveAskFromStory,
   liveAskHasTheme,

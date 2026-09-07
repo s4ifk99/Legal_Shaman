@@ -105,9 +105,9 @@ export function looksNeighbourDispute(text: string): boolean {
     /\b(landlord|tenant|tenancy|section\s*21|section\s*8|disrepair|mould|mold|\brents?\b|evict|flatmate|housemate)\b/.test(
       t,
     )
-  const neighbour = /\b(neighbour|neighbor)\b/.test(t)
+  const neighbour = /\b(neighbours?|neighbors?)\b/.test(t)
   const accessCue =
-    /\b(car\s*port|carport|parking|park(?:ed|ing)|boundary|fence|hedge|noise|nuisance|access|right of way|easement|blocking|party wall|extension|tree)\b/.test(
+    /\b(car\s*port|carport|parking|park(?:ed|ing)|boundary|fence|hedge|noise|nuisance|access|right of way|easement|blocking|party wall|extension|tree|camera|cctv|doorbell|filming)\b/.test(
       t,
     )
   // Driveway alone is not enough — need conflict / third-party use of the drive

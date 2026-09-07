@@ -8,6 +8,8 @@ import {
   storyLooksSolicitorConductComplaint,
   type LiveAsk,
 } from '@/lib/coherence/clientQuestions'
+import { storyLooksNeighbourSurveillance } from '@/lib/legal/query-signals'
+import { resolveLiveDispute, titleBlockedByLiveDispute } from '@/lib/matter/liveDispute'
 
 export { storyLooksSolicitorConductComplaint }
 
@@ -113,13 +115,51 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
     ...frame.secondaryIssues.map((i) => i.slug),
   ])
   const ask = liveAskFromStory(story)
+  const dispute = resolveLiveDispute(story)
   const slots: CoverageSlot[] = []
+  const neighbourCamera =
+    dispute?.kind === 'neighbour_surveillance' ||
+    ask.neighbourSurveillance ||
+    ask.themes.includes('neighbour_surveillance') ||
+    storyLooksNeighbourSurveillance(story)
+
+  if (neighbourCamera) {
+    slots.push({
+      id: 'neighbour_cctv',
+      label: 'Neighbour CCTV / camera pointing at your home',
+      cover: [
+        /cctv|home camera|doorbell|domestic cctv|video surveillance|point(?:ing|ed).{0,24}(?:camera|cctv)|camera.{0,40}(?:door|window|garden|driveway|property)|facing.{0,24}(?:door|window|garden)/i,
+      ],
+      exaQuery:
+        'England neighbour CCTV camera pointing at my door domestic CCTV privacy ICO GOV.UK Citizens Advice',
+    })
+    slots.push({
+      id: 'ico_cctv_complaint',
+      label: 'ICO complaint about domestic CCTV',
+      cover: [
+        /ico|information commissioner|complaints? about home cctv|data protection fee|household.{0,20}cctv/i,
+      ],
+      exaQuery:
+        'England ICO complain about neighbour home CCTV systems Information Commissioner domestic CCTV',
+    })
+    slots.push({
+      id: 'neighbour_harassment_privacy',
+      label: 'Neighbour harassment / privacy',
+      cover: [
+        /harassment|protection from harassment|stalk|nuisance neighbour|antisocial behaviour|community trigger|problems with neighbours/i,
+      ],
+      exaQuery:
+        'England neighbour harassment camera pointing at home Protection from Harassment Act Citizens Advice police',
+    })
+  }
 
   const housingMatter =
-    primary === "housing" ||
-    slugs.has("housing") ||
-    storyLooksVacatedRroRelet(story) ||
-    (lockoutStory(story) && primary !== "criminal_defence" && !slugs.has("criminal_defence"))
+    !dispute?.suppressSlugPlaybook &&
+    !neighbourCamera &&
+    (primary === "housing" ||
+      slugs.has("housing") ||
+      storyLooksVacatedRroRelet(story) ||
+      (lockoutStory(story) && primary !== "criminal_defence" && !slugs.has("criminal_defence")))
 
   if (housingMatter) {
     const vacatedRro = storyLooksVacatedRroRelet(story)
@@ -329,6 +369,7 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
 export function matchingSlotIds(text: string, slots: CoverageSlot[], story = ""): string[] {
   if (textOffJurisdiction(text, story)) return []
   const blob = text.replace(/\s+/g, " ")
+  if (titleBlockedByLiveDispute(blob, story)) return []
   return slots.filter((slot) => slot.cover.some((re) => re.test(blob))).map((slot) => slot.id)
 }
 

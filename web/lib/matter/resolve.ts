@@ -509,6 +509,38 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
     ];
   }
 
+  if (
+    liveAsk.neighbourSurveillance &&
+    primaryIssues[0]?.slug === "housing" &&
+    !/\b(landlord|tenant|tenancy|section\s*21|illegal evict)\b/i.test(storyBlob)
+  ) {
+    const housingKept = primaryIssues
+      .filter((i) => i.slug === "housing")
+      .map((i) => ({
+        ...i,
+        confidence: Math.min(i.confidence, 0.4),
+        reason: `${i.reason}; backdrop — live ask is neighbour CCTV / privacy`,
+      }));
+    secondaryIssues = [
+      ...housingKept,
+      ...secondaryIssues.filter((i) => i.slug !== "housing" && i.slug !== "neighbour_dispute"),
+    ].slice(0, 4);
+    if (!secondaryIssues.some((i) => i.slug === "data_protection")) {
+      secondaryIssues.unshift({
+        slug: "data_protection",
+        confidence: 0.55,
+        reason: "live ask: domestic CCTV / ICO",
+      });
+    }
+    primaryIssues = [
+      {
+        slug: "neighbour_dispute",
+        confidence: Math.max(0.78, primaryIssues[0]?.confidence ?? 0.78),
+        reason: "live ask: neighbour camera / CCTV pointing at the home",
+      },
+    ];
+  }
+
   const disputedSupports = new Set(
     relationshipModel.events.filter((e) => e.disputed).flatMap((e) => e.supportsIssues),
   );
