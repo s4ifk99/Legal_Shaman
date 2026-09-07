@@ -16,7 +16,12 @@ export function stripeClient(): Stripe | null {
 }
 
 export function paidPriceId(): string {
-  return process.env.STRIPE_PRICE_PAID_4_WEEK?.trim() || "";
+  // Prefer weekly unlimited; fall back to legacy 4-week price during migration.
+  return (
+    process.env.STRIPE_PRICE_PAID_WEEKLY?.trim() ||
+    process.env.STRIPE_PRICE_PAID_4_WEEK?.trim() ||
+    ""
+  );
 }
 
 export function billingConfigured(): boolean {

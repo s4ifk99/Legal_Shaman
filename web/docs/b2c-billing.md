@@ -2,15 +2,17 @@
 
 The B2C plans are:
 
-- `free`: five distinct new case searches per UTC calendar month. Follow-up
+- `free`: one distinct new case search per account (lifetime). Follow-up
   questions and internal agent calls do not consume additional searches.
-- `paid`: £3.49 every four weeks with unlimited product searches, subject to
-  abuse and transport rate limits.
+- `paid`: £3.49 per week with unlimited product searches, subject to
+  abuse and transport rate limits. Entitlement is tied to the signed-in
+  account (`users.plan`).
 
 ## Provider setup
 
 1. In Stripe, create a GBP 3.49 recurring Price with a weekly interval and
-   `interval_count=4`. Put its ID in `STRIPE_PRICE_PAID_4_WEEK`.
+   `interval_count=1`. Put its ID in `STRIPE_PRICE_PAID_WEEKLY`
+   (legacy `STRIPE_PRICE_PAID_4_WEEK` is still read as a fallback).
 2. Configure Stripe Checkout and send subscription events to
    `/api/billing/stripe-webhook`. Set `STRIPE_WEBHOOK_SECRET`.
 3. In RevenueCat, connect the Stripe account, configure the web billing
