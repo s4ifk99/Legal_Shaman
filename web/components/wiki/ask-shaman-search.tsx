@@ -331,7 +331,7 @@ export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: Ask
                         Source excerpts
                       </span>
                     )}
-                    <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:text-emerald-300">
+                    <span className="text-xs text-muted-foreground">
                       {guidanceConfidenceLabel(guidance.confidence)}
                     </span>
                   </div>

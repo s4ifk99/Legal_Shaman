@@ -222,18 +222,24 @@ function deterministicUnsafeProductAnswer(
   query: string,
   hits: ReturnType<typeof searchWikiPages>,
 ): string {
+  const blocks: string[] = [];
+
   if (useCursorStyleAnswers()) {
-    const blocks: string[] = [
-      "What the sources say\nUnsafe or non-compliant consumer products bought online can be reported as product-safety issues. Trading Standards is the main enforcement route, usually via the Citizens Advice consumer service.",
-      "Practical route\n• Stop using the taps for drinking water if they may contaminate supply.\n• Keep the product, packaging, order details, listing screenshots, and your lead test results.\n• Report through Citizens Advice consumer service and to the marketplace as an unsafe product.",
-    ];
+    blocks.push(
+      "What the sources say",
+      "Unsafe or non-compliant consumer products bought online can be reported as product-safety issues. Trading Standards is the main enforcement route, usually via the Citizens Advice consumer service.",
+      "Practical route",
+      "Stop using the taps for drinking water if they may contaminate supply. Keep the product, packaging, order details, listing screenshots, and your lead test results. Report through Citizens Advice consumer service and to the marketplace as an unsafe product.",
+    );
     if (/\b(water fitting|water supply|drinking water|contamination|tap[s]?)\b/i.test(query)) {
       blocks.push(
-        "Who to report to\nBecause this involves a domestic water fitting, you can also contact your local water company or water undertaker’s water regulations team. They may ask for photos or samples.",
+        "Who to report to",
+        "Because this involves a domestic water fitting, you can also contact your local water company or water undertaker’s water regulations team. They may ask for photos or samples.",
       );
     }
     blocks.push(
-      "Limits / missing facts\nA home lead test is useful evidence but may not be treated as final lab proof. This is general signposting only — not legal advice.",
+      "Limits / missing facts",
+      "A home lead test is useful evidence but may not be treated as final lab proof. This is general signposting only — not legal advice.",
     );
     return sanitizeWikiAnswer(blocks.join("\n\n"));
   }
@@ -486,27 +492,37 @@ function deterministicAnswerFromHits(
   const secondary = hits.find((h) => h.id !== primary?.id);
 
   if (useCursorStyleAnswers()) {
-    const sourcesSay = primary?.summary?.trim()
-      ? `The matching guidance on “${primary.title}” explains that ${truncate(cleanSnippet(primary.summary), 360)}`
-      : primary
-        ? `Matching wiki guidance includes “${primary.title}”.`
-        : "No closely matching wiki page was found for this query.";
+    const blocks: string[] = ["What the sources say"];
+    if (primary?.summary?.trim()) {
+      blocks.push(
+        `The matching guidance on “${primary.title}” explains that ${truncate(cleanSnippet(primary.summary), 360)}`,
+      );
+    } else if (primary) {
+      blocks.push(`Matching wiki guidance includes “${primary.title}”.`);
+    }
 
-    const steps = (primary?.practicalGuidance ?? []).slice(0, 3).map((s) => cleanSnippet(s)).filter(Boolean);
-    const keys = (primary?.keyInformation ?? []).slice(0, 2).map((k) => cleanSnippet(k)).filter(Boolean);
-    const practicalLines = [
-      ...keys.map((k) => `• ${k}`),
-      ...steps.map((s) => `• ${s}`),
-    ];
+    const steps = (primary?.practicalGuidance ?? []).slice(0, 3);
+    const keys = (primary?.keyInformation ?? []).slice(0, 2);
+    if (steps.length || keys.length) {
+      blocks.push("Practical route");
+      if (keys.length) {
+        blocks.push(keys.map((k) => cleanSnippet(k)).filter(Boolean).join(" "));
+      }
+      if (steps.length) {
+        blocks.push(steps.map((s) => cleanSnippet(s)).filter(Boolean).join(" "));
+      }
+    }
 
-    const blocks = [
-      `What the sources say\n${sourcesSay}`,
-      practicalLines.length ? `Practical route\n${practicalLines.join("\n")}` : "",
-      secondary?.summary?.trim()
-        ? `${secondary.title}\n${truncate(cleanSnippet(secondary.summary), 240)}`
-        : "",
-      `Limits / missing facts\nThis is general signposting from the Legal Shaman wiki — not legal advice. Check the cited pages or Citizens Advice for personalised help. Firms with indexed commentary below are signposts, not endorsements.`,
-    ];
+    if (secondary?.summary?.trim()) {
+      blocks.push(
+        `Related page “${secondary.title}”: ${truncate(cleanSnippet(secondary.summary), 240)}`,
+      );
+    }
+
+    blocks.push(
+      "Limits / missing facts",
+      "This is general signposting from the Legal Shaman wiki — not legal advice. Check the cited pages or Citizens Advice for personalised help.",
+    );
     return sanitizeWikiAnswer(blocks.filter(Boolean).join("\n\n"));
   }
 
