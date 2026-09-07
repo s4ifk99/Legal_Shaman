@@ -56,6 +56,7 @@ import { mergeExaSearchHits, searchOfflineExaIndexForPenumbra } from '../lib/pen
 import { titleAllowedOnGraph } from '../lib/matter/issueGraphHits'
 import {
   freeHelpAdmissibleOnGeometry,
+  overviewUsesForbiddenPlaybook,
   sraOrganisationAdmissible,
   storyLooksAmbiguousSeizedDevice,
   storyLooksVacatedRroRelet,
@@ -2300,6 +2301,58 @@ Complaint went to stage two. Questions: does the Legal Ombudsman order fee refun
         assert(
           plan.titleExclusions.some((re) => re.test('Holiday pay rights')),
           'titleExclusion does not drop holiday pay pages',
+        )
+      )
+    },
+  },
+  {
+    id: 'solicitor-overview-shaman-format-not-employment-playbook',
+    run: () => {
+      const story = `
+The firm sent a without prejudice letter valuing my claim at over £51,944. They then advised low merits and a £10k settlement.
+They charged their success fee including statutory holiday pay that was never in dispute. Matter run by a trainee solicitor; SAR showed no supervision records.
+Complaint went to stage two. Questions: does the Legal Ombudsman order fee refunds? Strongest limb? Is trainee supervision LeO or SRA? Downside to reporting to the SRA at the same time?
+`.trim()
+      const frame: MatterFrame = {
+        matterId: 'trap-leo-overview',
+        primaryIssues: [{ slug: 'employment', confidence: 0.8, reason: 'trap' }],
+        secondaryIssues: [],
+        parties: [],
+        capacities: [],
+        relationships: [],
+        events: [],
+        objectives: ['Recover solicitor fees via Legal Ombudsman'],
+        concepts: ['legal ombudsman', 'success fee', 'trainee solicitor'],
+        exclusions: [],
+        ambiguities: [],
+        overallConfidence: 0.8,
+        resolutionStatus: 'resolved',
+        provenance: {},
+        retrievalScope: ['employment'],
+      }
+      const cased = buildCaseLedOverview({
+        story,
+        frame,
+        hitTitles: [
+          'How To Tackle Problems At Work Like An Employment Lawyer',
+          'Holiday pay rights',
+          'Complain about a legal adviser',
+          'Legal Ombudsman complaints',
+        ],
+      })
+      const blob = `${cased.answer}\n${cased.recommendations.join('\n')}`.toLowerCase()
+      return (
+        assert(/what the sources say/i.test(cased.answer), 'missing What the sources say') ||
+        assert(/practical route/i.test(cased.answer), 'missing Practical route') ||
+        assert(/limits\s*\/\s*missing facts/i.test(cased.answer), 'missing Limits section') ||
+        assert(/legal ombudsman|\bleo\b|sra/i.test(blob), 'missing LeO/SRA guidance') ||
+        assert(
+          !/tackle problems at work|arrange for a formal meeting|explain your grievance/i.test(blob),
+          `employment playbook leaked: ${cased.answer.slice(0, 280)}`,
+        ) ||
+        assert(
+          !overviewUsesForbiddenPlaybook(cased.answer, frame, story),
+          'overviewUsesForbiddenPlaybook true on solicitor overview',
         )
       )
     },

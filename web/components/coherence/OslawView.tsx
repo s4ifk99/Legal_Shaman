@@ -23,6 +23,7 @@ import { coverageSlotsFrom, groupBySlot, isOfficialAuthoritySource } from '@/lib
 import { titleAdmissibleOnGeometry } from '@/lib/matter/graphAdmissibility'
 import { SynthesisHourglass } from './SynthesisHourglass'
 import { PageNavigation, type PageNavigationProps } from './PageNavigation'
+import { ShamanRecommends } from '@/components/legal-search/shaman-recommends'
 import './OslawView.css'
 
 /** Wiki `path` is a page id (sometimes still ends in `.md` from spines). */
@@ -116,22 +117,55 @@ function Recommendation({
   const pages = pack.wikiPages.slice(0, 6)
   const sources = pack.sources.slice(0, 6)
   const firms = pack.recommendedFirms.slice(0, 3)
+  const sectioned = /What the sources say/i.test(pack.answerOverview)
+  const shamanSources = [
+    ...pages.map((p, i) => ({
+      title: p.title,
+      url: p.path ? wikiArticleHref(p.path) : `#wiki-${i + 1}`,
+      source: 'Legal Shaman wiki',
+      snippet: '',
+      score: 1,
+    })),
+    ...sources.map((s, i) => ({
+      title: s.title || s.url || `Source ${i + 1}`,
+      url: s.url || `#source-${i + 1}`,
+      source: s.kind || 'source',
+      snippet: '',
+      score: 1,
+    })),
+  ]
 
   return (
-    <article className="oslaw__rec" aria-label="Recommendation">
+    <article className="oslaw__rec" aria-label="Shaman Recommends">
       <header className="oslaw__rec-head">
-        <h2 className="oslaw__rec-title">Recommendation</h2>
-        <p className="oslaw__rec-origin">
-          {pack.researchBundle
-            ? 'Legal Shaman wiki + Third Eye research · signposting only'
-            : 'Legal Shaman wiki · signposting only'}
-        </p>
+        <div className="oslaw__rec-head-main">
+          <h2 className="oslaw__rec-title">Shaman Recommends</h2>
+          <div className="oslaw__rec-badges">
+            <span className="oslaw__rec-badge oslaw__rec-badge--synth">
+              {pack.researchBundle ? 'AI synthesised' : 'Grounded overview'}
+            </span>
+            <span className="oslaw__rec-badge oslaw__rec-badge--conf">
+              {pack.researchBundle ? 'High confidence' : 'Signposting only'}
+            </span>
+          </div>
+        </div>
       </header>
 
-      <section className="oslaw__rec-section">
-        <h3 className="oslaw__rec-h">What the sources say</h3>
-        <div className="oslaw__rec-body">{pack.answerOverview}</div>
-      </section>
+      <p className="oslaw__rec-disclaimer-top">
+        Signposting only, not legal advice. This summary is drawn from indexed public guidance. For
+        personalised help, contact Citizens Advice or use Find a Lawyer.
+      </p>
+
+      {sectioned ? (
+        <div className="oslaw__rec-stack">
+          <ShamanRecommends answer={pack.answerOverview} sources={shamanSources} />
+        </div>
+      ) : (
+        <div className="oslaw__rec-card">
+          <h3 className="oslaw__rec-h">What the sources say</h3>
+          <div className="oslaw__rec-body">{pack.answerOverview}</div>
+        </div>
+      )}
 
       {preflightNote ? (
         <p className="oslaw__rec-note" role="status">
@@ -140,7 +174,7 @@ function Recommendation({
       ) : null}
 
       {authorityHits && authorityHits.length > 0 ? (
-        <section className="oslaw__rec-section">
+        <section className="oslaw__rec-card">
           <h3 className="oslaw__rec-h">Authority pages</h3>
           <ul className="oslaw__rec-list oslaw__rec-list--links">
             {authorityHits.slice(0, 6).map((h) => (
@@ -161,8 +195,8 @@ function Recommendation({
         </section>
       ) : null}
 
-      {takeaways.length > 0 && (
-        <section className="oslaw__rec-section">
+      {!sectioned && takeaways.length > 0 && (
+        <section className="oslaw__rec-card">
           <h3 className="oslaw__rec-h">Key takeaways</h3>
           <ul className="oslaw__rec-list">
             {takeaways.map((b, i) => (
@@ -182,9 +216,9 @@ function Recommendation({
         </section>
       )}
 
-      {pack.recommendations.length > 0 && (
-        <section className="oslaw__rec-section">
-          <h3 className="oslaw__rec-h">Recommended next steps</h3>
+      {!sectioned && pack.recommendations.length > 0 && (
+        <section className="oslaw__rec-card">
+          <h3 className="oslaw__rec-h">Practical route</h3>
           <ul className="oslaw__rec-list">
             {pack.recommendations.map((recommendation) => (
               <li key={recommendation}>{recommendation}</li>
@@ -194,7 +228,7 @@ function Recommendation({
       )}
 
       {pack.options.length > 0 && (
-        <section className="oslaw__rec-section">
+        <section className="oslaw__rec-card">
           <h3 className="oslaw__rec-h">Your options</h3>
           <div className="oslaw__options">
             {pack.options.map((option) => (
@@ -207,9 +241,9 @@ function Recommendation({
         </section>
       )}
 
-      {pack.missingFacts.length > 0 && (
-        <section className="oslaw__rec-section">
-          <h3 className="oslaw__rec-h">What could change the guidance</h3>
+      {!sectioned && pack.missingFacts.length > 0 && (
+        <section className="oslaw__rec-card">
+          <h3 className="oslaw__rec-h">Limits / missing facts</h3>
           <ul className="oslaw__rec-list">
             {pack.missingFacts.map((fact) => (
               <li key={fact}>{fact}</li>
@@ -219,7 +253,7 @@ function Recommendation({
       )}
 
       {pack.followUps.length > 0 && (
-        <section className="oslaw__rec-section oslaw__follow-up" aria-label="Improve this result">
+        <section className="oslaw__rec-card oslaw__follow-up" aria-label="Improve this result">
           <h3 className="oslaw__rec-h">Ask/refine this result</h3>
           <p className="oslaw__rec-note">
             Add context or tell us what you want to focus on. We’ll use it to refine the guidance.
@@ -240,7 +274,7 @@ function Recommendation({
       )}
 
       {pages.length > 0 && (
-        <section className="oslaw__rec-section">
+        <section className="oslaw__rec-card">
           <h3 className="oslaw__rec-h">Sources by issue</h3>
           <SlotSourceList
             session={session}
@@ -258,7 +292,7 @@ function Recommendation({
         </section>
       )}
 
-      <section className="oslaw__rec-section">
+      <section className="oslaw__rec-card">
         <h3 className="oslaw__rec-h">Free help first</h3>
         <ul className="oslaw__rec-list oslaw__rec-list--links">
           {(pack.freeHelp.length
@@ -282,7 +316,7 @@ function Recommendation({
       </section>
 
       {firms.length > 0 && (
-        <section className="oslaw__rec-section">
+        <section className="oslaw__rec-card">
           <h3 className="oslaw__rec-h">Firms with indexed commentary</h3>
           <p className="oslaw__rec-note">Optional signposting — not endorsements.</p>
           <ul className="oslaw__rec-list oslaw__rec-list--links">
