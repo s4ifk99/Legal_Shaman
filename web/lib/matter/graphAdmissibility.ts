@@ -6,8 +6,13 @@
 import { titleAllowedOnGraph } from "./issueGraphHits";
 import { coverageSlotsFrom, storyLooksVacatedRroRelet, titleCoversGraph } from "./coverageSlots";
 import { storyLooksSolicitorConductComplaint } from "@/lib/coherence/clientQuestions";
+import { looksPolicePursuitVehicleClaim } from "@/lib/legal/query-signals";
 
 export { storyLooksVacatedRroRelet };
+
+function storyLooksPolicePursuitVehicleClaim(story: string): boolean {
+  return looksPolicePursuitVehicleClaim(story);
+}
 
 type IssueGraph = {
   primaryIssues: { slug: string }[];
@@ -107,6 +112,16 @@ export function isNeighbourAttractorTitle(title: string, frame: IssueGraph, stor
   if (storyLooksSolicitorConductComplaint(story)) {
     if (
       /tackle problems at work|rights at work|holiday (?:pay|entitlement)|getting paid when you leave|working time|rest breaks?|unfair dismissal|schedule of loss|value a claim for employment/i.test(
+        t,
+      )
+    ) {
+      return true;
+    }
+  }
+  // Police pursuit damaged parked car — do not admit garage workmanship / housing-consumer attractors
+  if (storyLooksPolicePursuitVehicleClaim(story)) {
+    if (
+      /problem with a car repair|buying or repairing a car|poor workmanship|quote before the garage|consumer standards code of practice|tenant remedies for unfair trading|regulatory standards for landlords|unfair trading practices|renting homes|section\s*21/i.test(
         t,
       )
     ) {
@@ -261,6 +276,15 @@ export function overviewUsesForbiddenPlaybook(text: string, frame: IssueGraph, s
   if (storyLooksSolicitorConductComplaint(story)) {
     if (
       /tackle problems at work|rights at work|arrange for a formal meeting|explain your grievance|holiday (?:pay|entitlement)|getting paid when you leave/i.test(
+        blob,
+      )
+    ) {
+      return true;
+    }
+  }
+  if (storyLooksPolicePursuitVehicleClaim(story)) {
+    if (
+      /problem with a car repair|quote before the garage|pay the full bill|poor workmanship|buying or repairing a car|consumer standards code of practice|tenant remedies for unfair trading/i.test(
         blob,
       )
     ) {

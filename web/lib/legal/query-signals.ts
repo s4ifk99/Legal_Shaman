@@ -1,7 +1,36 @@
 /** Shared query-shape detectors for wiki retrieve + taxonomy (leaf module). */
 
+/**
+ * Police pursuit / emergency vehicle damaged a stationary parked car —
+ * live ask is a claim against the force, not a garage workmanship dispute.
+ * Garage may appear only as the place the car was left.
+ */
+export function looksPolicePursuitVehicleClaim(text: string): boolean {
+  const s = String(text || "");
+  if (!s.trim()) return false;
+  const policeHit =
+    /\bpolice (?:car|vehicle|van)\b.{0,100}\b(hit|struck|damaged|collided|crash(?:ed)?|ran into)\b/i.test(s) ||
+    /\b(hit|struck|damaged|collided|crash(?:ed)?|ran into)\b.{0,100}\bpolice (?:car|vehicle|van)\b/i.test(s) ||
+    /\b(police|officer).{0,60}(?:left|gave).{0,40}(?:contact )?details\b/i.test(s) ||
+    /\bclaim against (?:the )?police\b/i.test(s) ||
+    /\bpolice.{0,40}(?:expecting|expect) a claim\b/i.test(s);
+  if (!policeHit) return false;
+  const vehicleDamaged =
+    /\b(car|vehicle|van)\b/i.test(s) &&
+    /\b(hit|struck|damaged|collided|crash|parked|stationary)\b/i.test(s);
+  if (!vehicleDamaged && !/\bclaim against (?:the )?police\b/i.test(s)) return false;
+  // Pure garage workmanship / quote disputes without police collision stay garage
+  const garageWorkmanshipOnly =
+    /\b(workmanship|coolant|expansion tank|charged (?:too )?much|poor (?:repair|service)|invoice (?:from|for) (?:the )?garage)\b/i.test(
+      s,
+    ) && !/\bpolice (?:car|vehicle|van)\b/i.test(s);
+  if (garageWorkmanshipOnly) return false;
+  return true;
+}
+
 /** Garage / van / car repair — not landlord housing repairs, not employment. */
 export function isVehicleRepairQuery(query: string): boolean {
+  if (looksPolicePursuitVehicleClaim(query)) return false;
   const q = query.toLowerCase();
   if (/\b(works?\s+van|company van|hire van|works vehicle)\b/i.test(q)) return true;
   if (/\b(mechanic|main dealer|motor ombudsman|mot)\b/i.test(q)) return true;

@@ -34,6 +34,9 @@ export function formatCaseBrief(
     ask.solicitorConduct
       ? "Operative dispute: solicitor conduct / Legal Ombudsman / SRA / fees — not the underlying employment claim."
       : "",
+    ask.policeVehicleClaim
+      ? "Operative dispute: claim against the police for damage to a parked vehicle — garage is location/contact only, not a workmanship claim."
+      : "",
     questions.length
       ? `Client questions to cover (answer each in order; never paste this list into takeaways):\n${questions.map((q) => `- ${q}`).join("\n")}`
       : "",
@@ -51,6 +54,9 @@ export function liveSituation(story: string, frame: MatterFrame): string {
     if (ask.themes.includes("sra_conduct")) bits.push("SRA / supervision or conduct");
     if (ask.themes.includes("solicitor_costs")) bits.push("success fee / costs dispute");
     return bits.join("; ");
+  }
+  if (ask.policeVehicleClaim || ask.themes.includes("police_vehicle_claim")) {
+    return "claim against police for damage to a parked / stationary vehicle (garage is location only)";
   }
   const housing = frame.primaryIssues[0]?.slug === "housing";
   const lockout = /door.{0,24}removed|removed.{0,24}(?:the )?(?:front )?door|no front door|changed? (?:the )?locks?|forced .{0,40}(?:leave|vacate)|leave immediately|illegal evict/i.test(
@@ -192,6 +198,67 @@ export function buildCaseLedOverview(opts: {
         "Paste the stage-two complaints response and the invoice breakdown.",
         "Say whether the employment tribunal claim was withdrawn in writing.",
         "Add the SAR extract showing no supervision records.",
+      ],
+    };
+  }
+
+  if (ask.policeVehicleClaim || ask.themes.includes("police_vehicle_claim")) {
+    const claimTitles = admittedTitles.filter((t) =>
+      /police|claim|insurance|collision|IOPC|complain about (?:the )?police|accident/i.test(t),
+    );
+    const sourcesSay = claimTitles.length
+      ? `Matched guidance points at claiming for vehicle damage caused by another party (here: a police vehicle in pursuit) and using the force’s claims process. Your live questions are about ${questions.slice(0, 3).join(" ")} — not garage workmanship, quotes, or repair bills.`
+      : weakGraph
+        ? `The library is thin on police-vehicle damage claim pages. Your live questions concern claiming against the police after a pursuit hit a parked car — not a garage repair dispute.`
+        : `On these facts the live dispute is a claim against the police for damaging a stationary parked car. Use only sources about police claims / vehicle damage / insurance — not “problem with a car repair” quote pages.`;
+
+    const practical = [
+      "Contact the police using the details they left and ask for the claims / insurance handler and any incident or crime reference.",
+      "Photograph the damage, keep the garage’s account of what happened, and get a written repair estimate.",
+      "Check the owner’s motor insurance and whether to claim through the insurer or direct against the force — Citizens Advice can help map the route.",
+      "If the force’s response is inadequate, ask about their formal complaints route (Professional Standards / IOPC) as well as a civil claim.",
+    ];
+
+    const related =
+      claimTitles[0] ||
+      admittedTitles.find((t) => /police|insurance|claim|accident/i.test(t)) ||
+      "Claim against the police for vehicle damage";
+
+    const answer = shamanFormatAnswer({
+      sourcesSay,
+      practical,
+      relatedTitle: related,
+      relatedBody: `Related guidance: ${related}. Cross-check Citizens Advice vehicle-damage / insurance pages and the force’s published claims information.${
+        supplementalLine ? ` Supplemental (unverified): ${supplementalLine}.` : ""
+      }`,
+      limits: `This is general signposting from LegalShaman.com — not legal advice and not a prediction of liability. Sources used: ${sourcesLine}. Missing facts often include the incident date, force name, reference number, and insurance policy details.`,
+    });
+
+    return {
+      answer,
+      takeaways: practical.slice(0, 5),
+      recommendations: practical.slice(0, 4),
+      options: [
+        {
+          title: "Claim via the police force",
+          description:
+            "Use the contact details left at the scene, ask for the claims handler, and lodge a property-damage claim against the force.",
+        },
+        {
+          title: "Insurance and free advice",
+          description:
+            "Speak to the motor insurer and Citizens Advice about whether to claim through insurance or direct against the police.",
+        },
+      ],
+      missingFacts: [
+        questions[0] || "The police force name and incident / crime reference.",
+        "Whether the owner has comprehensive motor insurance and an excess.",
+        "Written repair estimate and photos of the damage.",
+      ],
+      followUpPrompts: [
+        "Paste the police contact details and any reference number.",
+        "Say whether the car is comprehensively insured.",
+        "Add the garage’s written note of what they saw.",
       ],
     };
   }

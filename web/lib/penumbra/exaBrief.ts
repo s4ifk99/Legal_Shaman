@@ -1,5 +1,6 @@
 import type { MatterFrame } from "@/lib/matter/types";
 import { formatCaseBrief, liveSituation } from "@/lib/coherence/caseBuilder";
+import { liveAskFromStory } from "@/lib/coherence/clientQuestions";
 import { coverageSlotsFrom, type CoverageSlot } from "@/lib/matter/coverageSlots";
 
 export type ExaSearchScope = "open" | "allowlist";
@@ -17,6 +18,7 @@ export function buildExaResearchBrief(opts: {
   clientQuestion?: string;
 }): { brief: string; queries: ExaResearchQuery[]; slots: CoverageSlot[] } {
   const { story, frame, clientQuestion } = opts;
+  const ask = liveAskFromStory(story, clientQuestion);
   const primary = frame.primaryIssues[0]?.slug?.replace(/_/g, " ") || "uncertain";
   const secondary = frame.secondaryIssues
     .slice(0, 3)
@@ -33,6 +35,9 @@ export function buildExaResearchBrief(opts: {
     `Research this client's situation from scratch. Primary area of law: ${primary}.`,
     secondary ? `Also in play: ${secondary}.` : "",
     `Live situation: ${live}.`,
+    ask.policeVehicleClaim
+      ? "Operative dispute: claim against the police for damaging a parked vehicle. Do not research garage workmanship, quotes, or repair bills unless the sources are about collision damage estimates."
+      : "",
     exclusions
       ? `Do not treat this as ${exclusions.replace(/_/g, " ")} unless the sources clearly support it.`
       : "",
@@ -55,16 +60,19 @@ export function buildExaResearchBrief(opts: {
     .slice(0, 2)
     .map((s) => s.label)
     .join("; ");
+  const openPrimary = ask.policeVehicleClaim
+    ? `claim against police parked car damaged by police vehicle. ${openFocus || live}. England official guidance GOV.UK Citizens Advice legislation.`
+    : `${primary}. ${openFocus || live}. England official guidance Shelter GOV.UK legislation.`;
   const queries: ExaResearchQuery[] = [
     {
       id: "open-primary",
-      query: `${primary}. ${openFocus || live}. England official guidance Shelter GOV.UK legislation.`.slice(0, 400),
+      query: openPrimary.slice(0, 400),
       scope: "open",
     },
     ...slotQueries,
     {
       id: "help-free",
-      query: `${primary} ${live} England free advice helpline Shelter Citizens Advice law centre legal aid get help contact`.slice(
+      query: `${ask.policeVehicleClaim ? "police vehicle damage claim" : primary} ${live} England free advice helpline Citizens Advice law centre legal aid get help contact`.slice(
         0,
         400,
       ),
@@ -72,7 +80,7 @@ export function buildExaResearchBrief(opts: {
     },
     {
       id: "help-paid",
-      query: `${primary} England find a solicitor SRA register Law Society find a solicitor housing possession regulated directory`.slice(
+      query: `${ask.policeVehicleClaim ? "police civil claim vehicle damage" : primary} England find a solicitor SRA register Law Society find a solicitor regulated directory`.slice(
         0,
         400,
       ),

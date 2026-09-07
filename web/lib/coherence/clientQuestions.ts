@@ -1,4 +1,5 @@
 import { storyLooksEmployerSeizedKit } from '@/lib/matter/graphAdmissibility'
+import { looksPolicePursuitVehicleClaim } from '@/lib/legal/query-signals'
 
 /** Operative dispute themes derived from the client's live ask — not the full narrative. */
 export type LiveAskTheme =
@@ -12,6 +13,7 @@ export type LiveAskTheme =
   | 'housing_tenancy'
   | 'criminal_police'
   | 'seized_property'
+  | 'police_vehicle_claim'
 
 export type LiveAsk = {
   questions: string[]
@@ -19,7 +21,11 @@ export type LiveAsk = {
   themes: LiveAskTheme[]
   /** True when the live dispute is about the client's solicitors / LeO / SRA / fees. */
   solicitorConduct: boolean
+  /** True when the live dispute is a claim after police damaged a parked vehicle. */
+  policeVehicleClaim: boolean
 }
+
+export { looksPolicePursuitVehicleClaim as storyLooksPolicePursuitVehicleClaim }
 
 /**
  * Live ask is about the client's solicitors / LeO / SRA / fees — not the
@@ -91,6 +97,14 @@ function themesFromAskBlob(blob: string): LiveAskTheme[] {
   if (/\b(laptop|seized|return of property|work files|dropbox)\b/i.test(blob)) {
     push('seized_property')
   }
+  if (
+    looksPolicePursuitVehicleClaim(blob) ||
+    /\b(claim against (?:the )?police|police (?:car|vehicle).{0,40}(?:hit|damaged)|police claims? (?:process|department))\b/i.test(
+      blob,
+    )
+  ) {
+    push('police_vehicle_claim')
+  }
   return themes
 }
 
@@ -107,6 +121,9 @@ export function compressLiveGoal(text: string): string {
     )
     if (firmQ) return firmQ.replace(/\?$/, '')
     return 'Complain about my solicitors to the Legal Ombudsman / SRA'
+  }
+  if (looksPolicePursuitVehicleClaim(raw)) {
+    return 'Claim against the police for damage to a parked car'
   }
   const qs = extractClientQuestions(raw)
   return qs[0] || ''
@@ -187,6 +204,10 @@ export function extractClientQuestions(text: string): string[] {
     if (item.need && !item.need.test(raw)) continue
     push(item.q)
   }
+  if (looksPolicePursuitVehicleClaim(raw)) {
+    push('How do I claim against the police for damage to a parked car?')
+    push('What evidence should I keep after a police vehicle hit my parked car?')
+  }
   return out.slice(0, 5)
 }
 
@@ -200,6 +221,7 @@ export function liveAskFromStory(story: string, clientQuestion = ''): LiveAsk {
   const goal = compressLiveGoal(combined)
   const askBlob = [goal, ...questions, clientQuestion].filter(Boolean).join('\n')
   const solicitorConduct = storyLooksSolicitorConductComplaint(combined)
+  const policeVehicleClaim = looksPolicePursuitVehicleClaim(combined)
   let themes = themesFromAskBlob(askBlob)
 
   // When the client asked explicit LeO/SRA/fee questions, those themes win even if
@@ -224,6 +246,16 @@ export function liveAskFromStory(story: string, clientQuestion = ''): LiveAsk {
     }
   }
 
+  if (policeVehicleClaim) {
+    if (!themes.includes('police_vehicle_claim')) {
+      themes = ['police_vehicle_claim', ...themes]
+    }
+    // Strip criminal-defence arrest themes — asker is the vehicle owner, not the suspect
+    if (!/\b(arrest(?:ed)?|charged with|duty solicitor|police station interview)\b/i.test(askBlob)) {
+      themes = themes.filter((t) => t !== 'criminal_police')
+    }
+  }
+
   // Cafe-flat style: narrative + housing dispute implies wages when pay is withheld until leave
   if (
     !solicitorConduct &&
@@ -239,6 +271,7 @@ export function liveAskFromStory(story: string, clientQuestion = ''): LiveAsk {
     goal,
     themes: [...new Set(themes)],
     solicitorConduct,
+    policeVehicleClaim,
   }
 }
 

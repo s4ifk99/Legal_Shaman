@@ -223,6 +223,34 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
       exaQuery:
         "England solicitor success fee conditional fee agreement challenge bill Legal Ombudsman costs",
     })
+  } else if (ask.policeVehicleClaim || ask.themes.includes('police_vehicle_claim')) {
+    slots.push({
+      id: "police_vehicle_claim",
+      label: "Claim against police for vehicle damage",
+      cover: [
+        /claim against (?:the )?police|police (?:vehicle|car).{0,40}(?:damage|hit|collision)|compensation.{0,40}police|civil claim.{0,40}police|police insurance|force claims? (?:process|handler)/i,
+      ],
+      exaQuery:
+        "England claim against police damage to parked car police vehicle collision compensation civil claim GOV.UK Citizens Advice",
+    })
+    slots.push({
+      id: "vehicle_damage_evidence",
+      label: "Evidence and insurance after vehicle damage",
+      cover: [
+        /insurance claim|motor insurance|collision damage|accident report|crime reference|photos|estimate|repair quote|uninsured/i,
+      ],
+      exaQuery:
+        "England car damaged by another vehicle what to do insurance claim evidence photos Citizens Advice",
+    })
+    slots.push({
+      id: "police_complaints_iopc",
+      label: "Complaining about police conduct (if needed)",
+      cover: [
+        /complain about (?:the )?police|IOPC|police complaints|Professional Standards Department/i,
+      ],
+      exaQuery:
+        "England complain about police IOPC Professional Standards Department vehicle damage incident GOV.UK",
+    })
   } else if (wagesLiveAsk(ask, story, primary, slugs)) {
     slots.push({
       id: "wages_pay",

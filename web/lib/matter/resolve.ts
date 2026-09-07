@@ -482,6 +482,33 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
     ];
   }
 
+  // Live ask is police pursuit damage claim — demote garage / vehicle-repair primary.
+  if (
+    liveAsk.policeVehicleClaim &&
+    (primaryIssues[0]?.slug === "consumer_vehicle_repair" || primaryIssues[0]?.slug === "consumer")
+  ) {
+    const repairKept = primaryIssues
+      .filter((i) => i.slug === "consumer_vehicle_repair" || i.slug === "consumer")
+      .map((i) => ({
+        ...i,
+        confidence: Math.min(i.confidence, 0.4),
+        reason: `${i.reason}; backdrop — live ask is police vehicle claim`,
+      }));
+    secondaryIssues = [
+      ...repairKept,
+      ...secondaryIssues.filter(
+        (i) => i.slug !== "consumer_vehicle_repair" && i.slug !== "consumer",
+      ),
+    ].slice(0, 4);
+    primaryIssues = [
+      {
+        slug: "other",
+        confidence: Math.max(0.74, primaryIssues[0]?.confidence ?? 0.74),
+        reason: "live ask: claim against police for damage to a parked vehicle",
+      },
+    ];
+  }
+
   const disputedSupports = new Set(
     relationshipModel.events.filter((e) => e.disputed).flatMap((e) => e.supportsIssues),
   );
