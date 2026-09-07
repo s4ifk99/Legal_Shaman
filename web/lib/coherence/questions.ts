@@ -278,6 +278,43 @@ export function nextPrompt(session: SessionState): Prompt {
     return packClarifyPrompt(session)
   }
 
+  // After late-freeze commit, discriminating asks already ran — do not grill with
+  // generic causation templates (especially once Penumbra research is done).
+  const dialogueCommitted =
+    session.researchDialogue?.status === 'committed' ||
+    session.hypothesisProbe?.status === 'committed'
+  if (dialogueCommitted) {
+    const needPlace =
+      !session.locationHint &&
+      session.jurisdiction === 'Unknown' &&
+      !session.answeredPromptIds.includes('gap_where')
+    if (needPlace) {
+      return {
+        id: 'gap_where',
+        kind: 'closed',
+        text: 'Where is this — England, Wales, Scotland, Northern Ireland, or a city?',
+        reason: 'Place unlocks jurisdiction-safe pathways after the matter frame is frozen.',
+        options: [
+          { id: 'w1', label: 'England', value: 'England' },
+          { id: 'w2', label: 'Wales', value: 'Wales' },
+          { id: 'w3', label: 'Scotland', value: 'Scotland' },
+          { id: 'w4', label: 'Northern Ireland', value: 'Northern Ireland' },
+          { id: 'w5', label: 'London', value: 'London' },
+        ],
+      }
+    }
+    return {
+      id: 'complete',
+      kind: 'closed',
+      text:
+        session.penumbraResearch?.bundle || session.penumbraResearch?.status === 'complete'
+          ? 'Research is ready for review — open Overview when you want the grounded answer.'
+          : 'You’re ready for the next step.',
+      reason:
+        'Matter frame committed — skip vague post-freeze causation; hand off to research / Overview.',
+    }
+  }
+
   // Browse / info / OSLAW research: skip deep causation once matter (+ place when possible) is known
   if (session.mode === 'browse' || session.mode === 'info' || session.mode === 'research') {
     if (

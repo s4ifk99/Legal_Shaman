@@ -130,9 +130,9 @@ export function looksNeighbourDispute(text: string): boolean {
 }
 
 /** Strong housing signals — never bare "rent" or "her house" (family disputes often say that). */
-function looksHousing(t: string): boolean {
+export function looksHousing(t: string): boolean {
   if (looksOwnDrivewayActivityQuestion(t)) return false
-  return /landlord|tenant|evict|lock(?:ed)?(?:\s+\w+){0,2}\s*out|mould|mold|\brents?\b|section\s*21|section\s*8|homeless|disrepair|tenancy|neighbour|neighbor|car\s*port|carport|easement|right of way|blocking access|planning permission|shared (?:drive|access)/.test(
+  return /landlord|tenant|evict|lock(?:ed)?(?:\s+\w+){0,2}\s*out|mould|mold|\brents?\b|section\s*21|section\s*8|homeless|disrepair|tenancy|neighbour|neighbor|car\s*port|carport|easement|right of way|blocking access|planning permission|shared (?:drive|access)|fixed[-\s]?term|assured\s+shorthold|\bast\b|renters?\s+rights?|letting\s+agent|real\s+estate\s+compan|estate\s+agent|(?:residential\s+)?lease(?:hold)?|possession\s+notice/.test(
     t,
   ) || looksNeighbourDispute(t)
 }
@@ -371,7 +371,9 @@ function detectMatter(text: string): MatterType {
     )
   )
     return 'crime'
+  // Commercial contract disputes — not residential tenancy / lease stories.
   if (
+    !looksHousing(t) &&
     /\b(business|commercial|company|supplier|customer|shop|retail|partnership|sole trader)\b/.test(t) &&
     /\b(contract|agreement|terms|lease|licen[cs]e|invoice|unpaid|dispute|breach)\b/.test(t)
   )

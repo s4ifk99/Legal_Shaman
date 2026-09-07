@@ -2161,6 +2161,84 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       )
     },
   },
+  {
+    id: 'lease-company-story-is-housing-not-other',
+    run: () => {
+      const story =
+        'My original contract was a 1 year fixed term lease. Does the Renters Rights Act overturn it? The real estate company wants to change the tenancy.'
+      const s = intake([story])
+      return assert(s.matterType === 'housing', `matterType=${s.matterType}`)
+    },
+  },
+  {
+    id: 'housing-breach-asks-concrete-not-vague-chips',
+    run: () => {
+      const story =
+        'I rent a flat and the agent is treating me badly about the property.'
+      let s = intake([story])
+      s = {
+        ...s,
+        matterType: 'other',
+        howCaused: '',
+        parties: [],
+        answeredPromptIds: [],
+      }
+      const q = buildQuestionForGap(s, {
+        id: 'gap_breach',
+        label: 'What they failed to do',
+        priority: 85,
+        kind: 'open',
+        reason: 'test',
+        filled: false,
+      })
+      const labels = (q.options || []).map((o) => o.label).join(' | ')
+      return (
+        assert(!/They failed to act|They caused it directly/i.test(labels), `vague chips: ${labels}`) ||
+        assert(
+          /landlord|agent|tenancy|notice|repair|fixed/i.test(`${q.text} ${labels}`),
+          `not housing-specific: ${q.text} / ${labels}`,
+        ) ||
+        assert(!/Another company on site/i.test(labels), `workplace chip on housing: ${labels}`)
+      )
+    },
+  },
+  {
+    id: 'committed-dialogue-skips-vague-causation',
+    run: () => {
+      const story =
+        'My original contract was a 1 year fixed term lease. The real estate company wants to change terms. Renters Rights Act — England.'
+      const framed = attachResolvedMatterFrame(intake([story]), story)
+      const dialogue: ResearchDialogueState = {
+        ...(framed.session.researchDialogue as ResearchDialogueState),
+        turns: RESEARCH_DIALOGUE_MAX_TURNS,
+        set: {
+          ...framed.hypothesisSet,
+          turns: RESEARCH_DIALOGUE_MAX_TURNS,
+          selectedSlug: 'housing',
+        },
+      }
+      const committed = commitHypothesisProbeToSession(framed.session, dialogue.set, story)
+      const withResearch: SessionState = {
+        ...committed.session,
+        jurisdiction: 'EnglandWales',
+        locationHint: 'England',
+        penumbraResearch: {
+          status: 'complete',
+          caseKey: 'trap-lease',
+          updatedAt: new Date().toISOString(),
+          bundle: emptyResearchBundle(),
+        },
+      }
+      const p = nextPrompt(withResearch)
+      return (
+        assert(p.id === 'complete', `expected complete after commit, got ${p.id}: ${p.text}`) ||
+        assert(
+          !/failed to do|who do you say may be responsible|They failed to act/i.test(p.text),
+          `still asking vague causation: ${p.text}`,
+        )
+      )
+    },
+  },
 ]
 
 async function main() {
