@@ -9,6 +9,7 @@ import {
   storyLooksEmployerSeizedKit,
   titleAdmissibleOnGeometry,
 } from "@/lib/matter/graphAdmissibility";
+import { shamanFormatAnswer } from "./shamanRecFormat";
 
 export function formatCaseBrief(
   frame: MatterFrame,
@@ -36,7 +37,7 @@ export function formatCaseBrief(
     questions.length
       ? `Client questions to cover (answer each in order; never paste this list into takeaways):\n${questions.map((q) => `- ${q}`).join("\n")}`
       : "",
-    "Write a case: what the matter is, the area of law, what is live now vs later, and next steps in time order.",
+    "Write sections exactly titled: What the sources say; Practical route; Limits / missing facts. Put next steps as bullet lines under Practical route. Do not use markdown # headings or raw [text](url) links — plain URLs only if needed.",
   ]
     .filter(Boolean)
     .join("\n");
@@ -156,30 +157,15 @@ export function buildCaseLedOverview(opts: {
       admittedTitles.find((t) => /ombudsman|sra|complain/i.test(t)) ||
       "Complain about a legal adviser";
 
-    const answer = [
-      "This client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).",
-      "",
-      "The matter",
+    const answer = shamanFormatAnswer({
       sourcesSay,
-      questions.length ? `Your questions: ${questions.join(" ")}` : "",
-      "",
-      "Area of law",
-      "Professional regulation / solicitor complaints (Legal Ombudsman and SRA) — not the underlying employment claim.",
-      "",
-      "What is live now vs later",
-      "Now: finish the firm complaints route and prepare a LeO / SRA pack. In parallel: keep evidence of fees, supervision gaps, and any fake-review screenshots.",
-      "",
-      "Next steps",
-      practical.map((r, i) => `${i + 1}. ${r}`).join("\n"),
-      "",
-      "Sources used from the library",
-      sourcesLine || related,
-      supplementalLine ? `\nSupplemental (Third Eye, labelled unverified)\n${supplementalLine}` : "",
-      "",
-      "This is Legal Shaman signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.",
-    ]
-      .filter((line) => line !== undefined)
-      .join("\n");
+      practical,
+      relatedTitle: related,
+      relatedBody: `Related guidance: ${related}. Cross-check GOV.UK “Complain about a legal adviser”, Legal Ombudsman, and SRA “Problems with law firms” against your stage-two pack.${
+        supplementalLine ? ` Supplemental (unverified): ${supplementalLine}.` : ""
+      }`,
+      limits: `This is general signposting from LegalShaman.com — not legal advice and not a prediction of a LeO or SRA outcome. Sources used: ${sourcesLine}. Check Citizens Advice or a costs/professional-negligence solicitor before relying on it.`,
+    });
 
     return {
       answer,
@@ -278,43 +264,29 @@ export function buildCaseLedOverview(opts: {
           "This is signposting from Legal Shaman sources — not legal advice.",
         ];
 
-  const answer = [
-    "This client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).",
-    "",
-    "The matter",
-    `The live problem is ${liveSituation(story, frame)}. ${
-      alreadyOut && housingMatter
-        ? "On these facts you have already been made to leave, so the case is homelessness and recovering the home/belongings, not a polite dispute about a future notice date."
-        : weakGraph
-          ? "The library is thin on this geometry — cite only admitted pages and do not complete the page with neighbour topics."
-          : "Stay with the frozen issue graph — do not switch the matter to a neighbouring wiki topic."
-    }`,
-    seizedKit
-      ? ""
-      : questions.length
-        ? `Your questions: ${questions.join(" ")}`
+  const answer = shamanFormatAnswer({
+    sourcesSay: [
+      weakGraph
+        ? "The library is thin on this geometry — it does not yet have enough matching pages for these live questions."
         : "",
-    "",
-    "Area of law",
-    `${areaBits.join("; ")}. ${
-      frame.exclusions?.includes("discrimination_equality")
-        ? "This is not a workplace equality claim unless you clearly allege a protected characteristic."
-        : ""
-    }`.trim(),
-    "",
-    "What is live now vs later",
-    `Now: ${liveNow.join("; ")}.`,
-    later.length ? `In parallel / next: ${later.join("; ")}.` : "",
-    "",
-    "Next steps",
-    recs.map((r, i) => `${i + 1}. ${r}`).join("\n"),
-    "",
-    "Sources used from the library",
-    sourcesLine,
-    supplementalLine ? `\nSupplemental (Third Eye, labelled unverified)\n${supplementalLine}` : "",
-    "",
-    "This is Legal Shaman signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.",
-  ].join("\n");
+      `The live problem is ${liveSituation(story, frame)}.`,
+      questions.length ? `Your questions: ${questions.join(" ")}` : "",
+      `Area of law: ${areaBits.join("; ")}.`,
+      `Now: ${liveNow.join("; ")}.`,
+      later.length ? `In parallel / next: ${later.join("; ")}.` : "",
+    ]
+      .filter(Boolean)
+      .join(" "),
+    practical: recs,
+    relatedTitle: admittedTitles[0],
+    relatedBody: admittedTitles[0]
+      ? `Matched page “${admittedTitles[0]}”. Sources used: ${sourcesLine}.${
+          supplementalLine ? ` Supplemental (unverified): ${supplementalLine}.` : ""
+        }`
+      : `Sources used: ${sourcesLine}.${supplementalLine ? ` Supplemental (unverified): ${supplementalLine}.` : ""}`,
+    limits:
+      "This is LegalShaman.com signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.",
+  });
 
   return {
     answer,
@@ -417,27 +389,24 @@ export function buildThinHonestOverview(opts: {
         ]
   ).map(stripAuthorMetaTakeaway);
 
-  const answer = [
-    "This client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).",
-    "",
-    "The library is thin on this geometry — it does not yet have enough matching pages for these live questions. Do not switch to a neighbouring topic to complete the page.",
-    "",
-    urlLines
-      ? `Admitted supplemental sources (Third Eye / official, labelled unverified unless official):\n${urlLines}`
+  const practical = takeaways.slice(0, 4);
+  const answer = shamanFormatAnswer({
+    sourcesSay:
+      "The library is thin on this geometry — it does not yet have enough matching pages for these live questions. Do not switch to a neighbouring topic to complete the page.",
+    practical,
+    relatedTitle: urls[0]?.title,
+    relatedBody: urlLines
+      ? `Admitted supplemental sources (Third Eye / official, labelled unverified unless official):
+${urlLines}`
       : "No matching Legal Shaman wiki pages and no admitted supplemental URLs yet.",
-    seizedKit
-      ? "Write to the investigating force about the property reference. Recovering employer kit is a separate route from criminal defence for the arrested person."
-      : "",
-    "",
-    "This is Legal Shaman signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.",
-  ]
-    .filter((line) => line !== undefined)
-    .join("\n");
+    limits:
+      "This is LegalShaman.com signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.",
+  });
 
   return {
     answer,
     takeaways,
-    recommendations: takeaways.slice(0, 4),
+    recommendations: practical,
     options: [
       {
         title: "Use admitted sources only",
