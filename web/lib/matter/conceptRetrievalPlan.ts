@@ -51,6 +51,27 @@ type ConceptCluster = {
  * Order: more specific shapes first. Prefer adding a cluster here over `looksX` + frames.
  */
 const CONCEPT_CLUSTERS: ConceptCluster[] = [
+  // —— Solicitor conduct / LeO / SRA (before employment wages bleed) ——
+  {
+    id: "solicitor_conduct_leo_sra",
+    matchAll: [
+      /\b(legal ombudsman|\bleo\b|solicitors?\s+regulation\s+authority|\bsra\b|complain(?:t|ing|ed)?\s+(?:about\s+)?(?:my\s+)?(?:solicitor|law\s+firm|legal\s+adviser)|trainee\s+solicitor|success\s+fee|conditional\s+fee|\bcfa\b)\b/i,
+    ],
+    matchAny: [
+      /\b(legal ombudsman|\bleo\b|\bsra\b|refund(?:s)?\s+of\s+fees|recover(?:ed|ing)?\s+fees|strongest\s+limb|report(?:ing)?\s+to\s+the\s+sra|supervision\s+records?|without\s+prejudice\s+letter|invoice\s+remained\s+payable|stage\s+two\s+complaint|posing\s+as\s+[“"]?clients|bot[- ]?like)\b/i,
+    ],
+    intents: [
+      "complain about a legal adviser Legal Ombudsman GOV.UK",
+      "Legal Ombudsman complaint refund fees compensation",
+      "report solicitor to SRA Solicitors Regulation Authority",
+      "solicitor success fee conditional fee costs complaint",
+      "solicitor supervision trainee solicitor professional standards",
+    ],
+    titleExclusion:
+      /holiday (?:pay|entitlement)|getting paid when you leave|working time|rest breaks?|national minimum wage|unfair dismissal|bradford factor|used car|parking ticket|section\s*21|neighbour driveway/i,
+    suppressSlugDefaults: ["employment"],
+  },
+
   // —— Employment leaves (before bare employment defaults) ——
   {
     id: "disability_absence_adjustments",
@@ -123,7 +144,11 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
       /\b(employer|job|work|manager|shift|hr\b)\b/i,
       /\b(unpaid (?:wage|overtime|holiday)|holiday (?:pay|hours)|national minimum wage|working time|rest breaks?|wage|wages)\b/i,
     ],
-    rejectIf: [/\b(dismissed|sacked|fired|bradford factor)\b/i],
+    rejectIf: [
+      /\b(dismissed|sacked|fired|bradford factor)\b/i,
+      // Holiday pay only as solicitor fee / LeO backdrop — not a live wages claim
+      /\b(legal ombudsman|\bleo\b|\bsra\b|success\s+fee|complain(?:t|ing)\s+(?:about\s+)?(?:my\s+)?solicitor|trainee\s+solicitor)\b/i,
+    ],
     intents: [
       "unpaid wages holiday pay ACAS",
       "working time rest breaks employment",
@@ -1307,7 +1332,14 @@ export function buildConceptRetrievalPlan(
   }
 
   // Always add keyphrase / agent-concept intents (MuISQA / LexKeyPlan)
+  const solicitorConduct = clusterIds.includes("solicitor_conduct_leo_sra");
   for (const kp of keyphraseIntents(concepts, clusterIds.length ? 4 : 6)) {
+    if (
+      solicitorConduct &&
+      /\b(holiday pay|working time|rest breaks?|national minimum wage|unfair dismissal)\b/i.test(kp)
+    ) {
+      continue;
+    }
     if (intentAllowedOnGraph(kp, frame)) intents.add(kp);
   }
 

@@ -37,6 +37,7 @@ export {
   primaryMatterSlug,
   rankByCoverage,
   slotRetryQueries,
+  storyLooksSolicitorConductComplaint,
   storyLooksVacatedRroRelet,
   titleCoversGraph,
   uncoveredSlots,
