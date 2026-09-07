@@ -20,7 +20,8 @@ export function paidPriceId(): string {
   return (
     process.env.STRIPE_PRICE_PAID_WEEKLY?.trim() ||
     process.env.STRIPE_PRICE_PAID_4_WEEK?.trim() ||
-    ""
+    // Live catalogue defaults (Legal Shaman Stripe account).
+    "price_1UD4FAJl7fZiwYvchpPomyJm" // £3.49 / week
   );
 }
 

@@ -10,16 +10,18 @@ The B2C plans are:
 
 ## Provider setup
 
-1. In Stripe, create a GBP 3.49 recurring Price with a weekly interval and
-   `interval_count=1`. Put its ID in `STRIPE_PRICE_PAID_WEEKLY`
-   (legacy `STRIPE_PRICE_PAID_4_WEEK` is still read as a fallback).
-2. Configure Stripe Checkout and send subscription events to
-   `/api/billing/stripe-webhook`. Set `STRIPE_WEBHOOK_SECRET`.
-3. In RevenueCat, connect the Stripe account, configure the web billing
+1. Live weekly price: `price_1UD4FAJl7fZiwYvchpPomyJm` (GBP 3.49 / week) on product
+   `prod_VAGys64vAPjN6O`. Env: `STRIPE_PRICE_PAID_WEEKLY` (legacy 4-week
+   `price_1U9wQcJl7fZiwYvcl8LsjbWq` via `STRIPE_PRICE_PAID_4_WEEK`).
+2. Set `STRIPE_SECRET_KEY` (Dashboard → Developers → API keys, live secret).
+3. Webhook endpoint: `https://www.legalshaman.com/api/billing/stripe-webhook`
+   for `checkout.session.completed` and `customer.subscription.*`.
+   Set `STRIPE_WEBHOOK_SECRET` to the endpoint signing secret.
+4. In RevenueCat, connect the Stripe account, configure the web billing
    entitlement for the paid product, and use the same Legal Shaman user ID as
    the RevenueCat app user ID. Configure RevenueCat webhooks to
    `/api/billing/revenuecat-webhook` and set `REVENUECAT_WEBHOOK_SECRET`.
-4. Add `NEXT_PUBLIC_POSTHOG_KEY`. Autocapture and session recording are
+5. Add `NEXT_PUBLIC_POSTHOG_KEY`. Autocapture and session recording are
    disabled because legal-intake text can be sensitive; only explicit product
    funnel events are sent.
 
