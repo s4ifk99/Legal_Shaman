@@ -25,6 +25,23 @@ export const LoginSchema = z.object({
   captchaToken: z.string().optional(),
 });
 
+export const ForgotPasswordSchema = z.object({
+  email: z.string().trim().email("Enter a valid email").max(255),
+  captchaToken: z.string().optional(),
+});
+
+export const ResetPasswordSchema = z
+  .object({
+    token: z.string().trim().min(1, "Reset link is missing or invalid"),
+    password: passwordField,
+    confirmPassword: z.string().min(1, "Confirm your password"),
+    captchaToken: z.string().optional(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"],
+  });
+
 export const BookmarkSchema = z.object({
   entityId: z.string().trim().min(1).max(128),
   resultSource: z.enum(RESULT_SOURCES),

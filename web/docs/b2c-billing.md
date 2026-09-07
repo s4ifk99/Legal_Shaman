@@ -25,6 +25,26 @@ The B2C plans are:
    disabled because legal-intake text can be sensitive; only explicit product
    funnel events are sent.
 
+## Customer receipts
+
+Stripe sends payment / paid-invoice emails from the Dashboard, not from this
+app:
+
+1. Open [Customer emails](https://dashboard.stripe.com/settings/emails) and
+   enable **Successful payments** (and **Refunds** if desired).
+2. Open [Subscriptions and emails](https://dashboard.stripe.com/settings/billing/automatic)
+   and enable finalized invoice / receipt notifications under
+   **Email notifications and customer management**.
+
+Checkout already passes `customer_email`, so receipts have a destination once
+those toggles are on.
+
+## Password reset
+
+Accounts can request a reset link from the Sign in dialog (`Forgot password?`).
+Links are emailed via Resend (`RESEND_API_KEY`) and open `/reset-password?token=…`.
+Tokens are hashed at rest (`password_reset_tokens`) and expire after one hour.
+
 Stripe processes payment. RevenueCat provides entitlement synchronisation and
 cross-platform subscription visibility. Legal Shaman mirrors the result into
 the local `users.plan` field, which is enforced server-side.

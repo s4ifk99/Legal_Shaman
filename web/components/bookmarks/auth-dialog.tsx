@@ -68,9 +68,13 @@ function copyForReason(reason: AuthDialogReason, pendingFirmName?: string) {
 }
 
 async function postAuth(
-  path: "/api/auth/login" | "/api/auth/register",
+  path: "/api/auth/login" | "/api/auth/register" | "/api/auth/forgot-password",
   body: Record<string, unknown>,
-): Promise<{ ok: boolean; status: number; data: { user?: PublicUser; error?: string } }> {
+): Promise<{
+  ok: boolean;
+  status: number;
+  data: { user?: PublicUser; error?: string; message?: string };
+}> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), AUTH_FETCH_TIMEOUT_MS);
   try {
@@ -106,7 +110,7 @@ async function postAuth(
       }
     }
     const error = data.error ?? data.message;
-    return { ok: res.ok, status: res.status, data: { user: data.user, error } };
+    return { ok: res.ok, status: res.status, data: { user: data.user, error, message: data.message } };
   } catch (err) {
     if (err instanceof Error && err.name === "AbortError") {
       return { ok: false, status: 0, data: { error: "Request timed out. Try again." } };
@@ -124,13 +128,14 @@ export function AuthDialog({
   reason = "bookmark",
   pendingFirmName,
 }: AuthDialogProps) {
-  const [tab, setTab] = useState<"register" | "login">(() => defaultTabForReason(reason));
+  const [tab, setTab] = useState<"register" | "login" | "forgot">(() => defaultTabForReason(reason));
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [captchaResetKey, setCaptchaResetKey] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [info, setInfo] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const turnstileRef = useRef<TurnstileHandle>(null);
 
@@ -141,6 +146,7 @@ export function AuthDialog({
     if (open) {
       setTab(defaultTabForReason(reason));
       setError(null);
+      setInfo(null);
       setCaptchaResetKey((k) => k + 1);
     }
   }, [open, reason]);
@@ -182,6 +188,7 @@ export function AuthDialog({
 
     setSubmitting(true);
     setError(null);
+    setInfo(null);
     try {
       const { ok, status, data } = await postAuth("/api/auth/register", {
         name: name.trim() || undefined,
@@ -216,6 +223,7 @@ export function AuthDialog({
 
     setSubmitting(true);
     setError(null);
+    setInfo(null);
     try {
       const { ok, data } = await postAuth("/api/auth/login", {
         email,
@@ -239,19 +247,89 @@ export function AuthDialog({
     }
   }
 
+  async function submitForgot(e: React.FormEvent) {
+    e.preventDefault();
+    const captchaToken = resolveCaptchaToken();
+    if (turnstileRequired && !captchaToken) return;
+
+    setSubmitting(true);
+    setError(null);
+    setInfo(null);
+    try {
+      const { ok, data } = await postAuth("/api/auth/forgot-password", {
+        email,
+        captchaToken: captchaToken ?? undefined,
+      });
+      if (!ok) {
+        setError(data.error ?? "Could not send reset email");
+        bumpCaptcha();
+        return;
+      }
+      setInfo(data.message ?? "If an account exists for that email, we sent a reset link.");
+      bumpCaptcha();
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogDescription>{description}</DialogDescription>
+          <DialogTitle>
+            {tab === "forgot" ? "Reset your password" : title}
+          </DialogTitle>
+          <DialogDescription>
+            {tab === "forgot"
+              ? "Enter your account email. If it matches an account, we will send a reset link."
+              : description}
+          </DialogDescription>
         </DialogHeader>
 
+        {tab === "forgot" ? (
+          <form onSubmit={submitForgot} className="space-y-4 pt-2">
+            <div className="space-y-2">
+              <Label htmlFor="forgot-email">Email</Label>
+              <Input
+                id="forgot-email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                autoComplete="email"
+                required
+              />
+            </div>
+            <TurnstileField
+              ref={turnstileRef}
+              key={`forgot-captcha-${captchaResetKey}`}
+              resetKey={captchaResetKey}
+            />
+            {error ? <p className="text-sm text-destructive">{error}</p> : null}
+            {info ? <p className="text-sm text-muted-foreground">{info}</p> : null}
+            <Button type="submit" className="w-full" disabled={submitting}>
+              {submitting ? "Sending…" : "Send reset link"}
+            </Button>
+            <button
+              type="button"
+              className="w-full text-center text-xs text-muted-foreground underline"
+              onClick={() => {
+                setTab("login");
+                setError(null);
+                setInfo(null);
+                bumpCaptcha();
+              }}
+            >
+              Back to sign in
+            </button>
+          </form>
+        ) : (
         <Tabs
           value={tab}
           onValueChange={(v) => {
             setTab(v as "register" | "login");
             setError(null);
+            setInfo(null);
             bumpCaptcha();
           }}
         >
@@ -360,9 +438,23 @@ export function AuthDialog({
               <Button type="submit" className="w-full" disabled={submitting}>
                 {submitting ? "Signing in…" : "Sign in"}
               </Button>
+              <button
+                type="button"
+                className="w-full text-center text-xs text-muted-foreground underline"
+                onClick={() => {
+                  setTab("forgot");
+                  setError(null);
+                  setInfo(null);
+                  setPassword("");
+                  bumpCaptcha();
+                }}
+              >
+                Forgot password?
+              </button>
             </form>
           </TabsContent>
         </Tabs>
+        )}
       </DialogContent>
     </Dialog>
   );

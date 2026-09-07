@@ -53,6 +53,8 @@ export async function createPaidCheckout(input: {
         revenueCatAppUserId: input.userId,
       },
     },
+    // Stripe emails paid invoices when Customer emails / Billing notifications are on.
+    // Checkout still needs a customer email for receipts to have a destination.
     success_url: `${input.origin}/ask-the-shaman?billing=success`,
     cancel_url: `${input.origin}/ask-the-shaman?billing=cancelled`,
     allow_promotion_codes: true,

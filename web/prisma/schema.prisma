@@ -652,6 +652,7 @@ model User {
   bookmarks         Bookmark[]
   usageEvents       UsageEvent[]
   verificationTokens EmailVerificationToken[]
+  passwordResetTokens PasswordResetToken[]
   billingSubscription BillingSubscription?
 
   @@map("users")
@@ -668,6 +669,19 @@ model EmailVerificationToken {
   @@index([userId])
   @@index([expiresAt])
   @@map("email_verification_tokens")
+}
+
+/// Single-use password reset token (hashed at rest).
+model PasswordResetToken {
+  tokenHash String   @id @map("token_hash") @db.VarChar(128)
+  userId    String   @map("user_id")
+  expiresAt DateTime @map("expires_at") @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("password_reset_tokens")
 }
 
 /// Per-user LLM / expensive endpoint usage for quota enforcement.
