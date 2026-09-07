@@ -14,6 +14,7 @@ import {
   recordUsageEvent,
   type UsageAllowance,
 } from "@/lib/coherence/usage";
+import { getCoherenceInternalSecret } from "@/lib/coherence/server/internal-auth";
 
 export type CoherenceAccessContext = {
   user: AuthenticatedUser;
@@ -73,6 +74,12 @@ export async function requireCoherenceAccess(
     req.headers.get("x-coherence-trusted-internal") === "1" &&
     Boolean(req.headers.get("x-coherence-trusted-user-id")?.trim());
   if (trustedGateway) {
+    const expected = getCoherenceInternalSecret();
+    const got = req.headers.get("x-coherence-internal-secret")?.trim();
+    // Never honour forgeable trusted headers without the internal tunnel secret.
+    if (!expected || got !== expected) {
+      return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+    }
     const trustedUserId = req.headers.get("x-coherence-trusted-user-id")!.trim();
     return {
       user: {

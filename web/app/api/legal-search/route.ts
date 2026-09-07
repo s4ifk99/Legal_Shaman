@@ -6,6 +6,10 @@ import { runLegalKnowledgeSearch } from "@/lib/legal-knowledge/search";
 import { LEGAL_SEARCH_DISCLAIMER } from "@/lib/legal-knowledge/types";
 import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 import {
+  completeSearchEntitlement,
+  requireSearchEntitlement,
+} from "@/lib/billing/require-search-entitlement";
+import {
   MAX_SEARCH_QUERY_CHARS,
   processSearchQuery,
   searchQueryTooLongMessage,
@@ -74,6 +78,12 @@ export async function POST(req: Request) {
     );
   }
 
+  const entitlement = await requireSearchEntitlement({
+    endpoint: "/api/legal-search",
+    searchKey: parsed.data.query,
+  });
+  if (entitlement instanceof NextResponse) return entitlement;
+
   try {
     const t0 = Date.now();
     const result = await withDeadline(
@@ -84,6 +94,7 @@ export async function POST(req: Request) {
       SEARCH_DEADLINE_MS,
       "legal-search",
     );
+    await completeSearchEntitlement(entitlement, "completed", parsed.data.query);
     void logLegalKnowledgeInteraction({
       query: parsed.data.query,
       issueClassification: result.issueClassification,
@@ -121,6 +132,7 @@ export async function POST(req: Request) {
     });
     return NextResponse.json(result);
   } catch (err) {
+    await completeSearchEntitlement(entitlement, "failed", parsed.data.query);
     console.error("[api/legal-search]", err);
     const message = err instanceof Error ? err.message : "Legal search failed";
     const timedOut = /timed out/i.test(message);

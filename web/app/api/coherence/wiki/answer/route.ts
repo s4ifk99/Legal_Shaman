@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 
+import {
+  completeSearchEntitlement,
+  requireSearchEntitlement,
+} from "@/lib/billing/require-search-entitlement";
 import { coherenceApiGuard } from "@/lib/coherence/server/guard";
 import {
   MAX_SEARCH_QUERY_CHARS,
@@ -41,15 +45,27 @@ export async function POST(req: Request) {
     );
   }
 
-  const payload = await generateWikiAnswer(query);
-  const index = getWikiIndex();
-
-  return NextResponse.json({
-    ...payload,
-    meta: {
-      pageCount: index.meta.pageCount,
-      indexedAt: index.meta.indexedAt,
-      wikiRoot: index.meta.wikiRoot,
-    },
+  const entitlement = await requireSearchEntitlement({
+    endpoint: "/api/coherence/wiki/answer",
+    searchKey: query,
   });
+  if (entitlement instanceof NextResponse) return entitlement;
+
+  try {
+    const payload = await generateWikiAnswer(query);
+    const index = getWikiIndex();
+    await completeSearchEntitlement(entitlement, "completed", query);
+
+    return NextResponse.json({
+      ...payload,
+      meta: {
+        pageCount: index.meta.pageCount,
+        indexedAt: index.meta.indexedAt,
+        wikiRoot: index.meta.wikiRoot,
+      },
+    });
+  } catch (err) {
+    await completeSearchEntitlement(entitlement, "failed", query);
+    throw err;
+  }
 }

@@ -207,6 +207,9 @@ export async function POST(req: Request) {
         extraHeaders: {
           "x-coherence-trusted-internal": "1",
           "x-coherence-trusted-user-id": access.user.id,
+          ...(process.env.COHERENCE_INTERNAL_SECRET?.trim()
+            ? { "x-coherence-internal-secret": process.env.COHERENCE_INTERNAL_SECRET.trim() }
+            : {}),
         },
       });
       await finishUsage("completed");
