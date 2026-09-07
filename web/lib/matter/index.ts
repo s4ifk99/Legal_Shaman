@@ -44,6 +44,12 @@ export {
 } from "./coverageSlots";
 export type { CoverageSlot } from "./coverageSlots";
 export {
+  liveAskFromStory,
+  liveAskHasTheme,
+  storyLooksSolicitorConductComplaint as storyLooksSolicitorConductFromAsk,
+} from "../coherence/clientQuestions";
+export type { LiveAsk, LiveAskTheme } from "../coherence/clientQuestions";
+export {
   WIKI_AREA_INTENT_DEFAULTS,
   areaForSlug,
   listWikiAreas,

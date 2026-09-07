@@ -3,6 +3,14 @@
  * Hits compete to fill slots on the frozen MatterFrame — not to win a second rec.
  */
 
+import {
+  liveAskFromStory,
+  storyLooksSolicitorConductComplaint,
+  type LiveAsk,
+} from '@/lib/coherence/clientQuestions'
+
+export { storyLooksSolicitorConductComplaint }
+
 export type CoverageSlot = {
   id: string
   label: string
@@ -65,26 +73,17 @@ function homelessStory(story: string): boolean {
   return /nowhere else|homeless|tonight|emergency (?:housing|alternative)|sofa to crash/i.test(story)
 }
 
-/**
- * Live ask is about the client's solicitors / LeO / SRA / fees — not the
- * underlying employment dispute. Incidental "holiday pay" must not open wages slots.
- */
-export function storyLooksSolicitorConductComplaint(story: string): boolean {
-  const s = story || ""
-  const firmConduct =
-    /\b(legal ombudsman|\bleo\b|solicitors?\s+regulation\s+authority|\bsra\b|complain(?:t|ing|ed)?\s+(?:about\s+)?(?:my\s+)?(?:solicitor|law\s+firm|legal\s+adviser)|trainee\s+solicitor|without\s+prejudice\s+letter|success\s+fee|conditional\s+fee|\bcfa\b|stage\s+two\s+complaint|supervision\s+records?|subject\s+access\s+request)\b/i.test(
-      s,
-    )
-  if (!firmConduct) return false
-  const askingAboutFirm =
-    /\b(legal ombudsman|\bleo\b|\bsra\b|refund(?:s)?\s+of\s+fees|recover(?:ed|ing)?\s+fees|strongest\s+limb|report(?:ing)?\s+to\s+the\s+sra|complain(?:t|ing)\s+(?:about|to)|invoice\s+remained\s+payable|bot[- ]?like|posing\s+as\s+[“"]?clients)\b/i.test(
-      s,
-    )
-  return askingAboutFirm || (firmConduct && /\b(my\s+(?:solicitor|firm)|the\s+firm\s+(?:sent|charged|advised))\b/i.test(s))
-}
-
-function wagesStory(story: string): boolean {
-  if (storyLooksSolicitorConductComplaint(story)) return false
+/** Open wages slot only when the live ask (or housing+withheld-pay story) needs it. */
+function wagesLiveAsk(ask: LiveAsk, story: string, primary: string, slugs: Set<string>): boolean {
+  if (ask.solicitorConduct && !ask.themes.includes('employment_wages')) return false
+  if (ask.themes.includes('employment_wages')) return true
+  // Housing + withheld pay until leave (cafe-flat) — still open even without a ? question
+  if (slugs.has('employment') && primary === 'housing') {
+    return /wages|holiday pay|ssp|statutory sick|last pay/i.test(story)
+  }
+  if (ask.themes.length > 0) return false
+  // No extracted themes: fall back to narrative wages only when not solicitor-conduct
+  if (ask.solicitorConduct) return false
   return /wages|holiday pay|ssp|statutory sick|last pay/i.test(story)
 }
 
@@ -113,6 +112,7 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
     ...frame.primaryIssues.map((i) => i.slug),
     ...frame.secondaryIssues.map((i) => i.slug),
   ])
+  const ask = liveAskFromStory(story)
   const slots: CoverageSlot[] = []
 
   const housingMatter =
@@ -195,7 +195,7 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
     })
   }
 
-  if (storyLooksSolicitorConductComplaint(story)) {
+  if (ask.solicitorConduct || ask.themes.includes('solicitor_ombudsman') || ask.themes.includes('sra_conduct')) {
     slots.push({
       id: "solicitor_complaint_leo",
       label: "Complaining about a solicitor / Legal Ombudsman",
@@ -223,7 +223,7 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
       exaQuery:
         "England solicitor success fee conditional fee agreement challenge bill Legal Ombudsman costs",
     })
-  } else if (wagesStory(story) || (slugs.has("employment") && primary === "housing")) {
+  } else if (wagesLiveAsk(ask, story, primary, slugs)) {
     slots.push({
       id: "wages_pay",
       label: "Last wages / holiday pay",
@@ -235,7 +235,15 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
     })
   }
 
-  if (primary === "employment" && !slugs.has("housing") && !storyLooksSolicitorConductComplaint(story)) {
+  const employmentCoreLive =
+    primary === 'employment' &&
+    !slugs.has('housing') &&
+    !ask.solicitorConduct &&
+    (ask.themes.includes('employment_rights') ||
+      ask.themes.includes('employment_wages') ||
+      ask.themes.length === 0)
+
+  if (employmentCoreLive) {
     slots.push({
       id: "employment_core",
       label: "Employment rights",
@@ -244,7 +252,7 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
     })
   }
 
-  if (employerSeizedKitStory(story)) {
+  if (employerSeizedKitStory(story) || ask.themes.includes('seized_property')) {
     slots.push({
       id: "return_seized_property",
       label: "Return of seized employer property",

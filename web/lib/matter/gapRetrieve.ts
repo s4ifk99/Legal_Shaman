@@ -1,4 +1,5 @@
 import type { MatterFrame } from "./types";
+import { liveAskFromStory } from "../coherence/clientQuestions";
 
 function slugSet(frame: MatterFrame): Set<string> {
   return new Set([
@@ -15,6 +16,7 @@ export function gapIntentsForFrame(
 ): string[] {
   const blob = hitTitles.join(" ").toLowerCase();
   const slugs = slugSet(frame);
+  const ask = liveAskFromStory(story);
   const out: string[] = [];
   if (slugs.has("housing") && !/illegal evict/.test(blob)) {
     out.push("illegal eviction lock out without court order");
@@ -28,14 +30,15 @@ export function gapIntentsForFrame(
   ) {
     out.push("occupier no written tenancy service occupancy");
   }
+  const wagesLive =
+    ask.themes.includes("employment_wages") ||
+    (!ask.solicitorConduct &&
+      ask.themes.length === 0 &&
+      /wage|holiday pay|sick pay|ssp/i.test(story));
   if (
     slugs.has("employment") &&
-    /wage|holiday pay|sick pay|ssp/i.test(story) &&
-    !/holiday pay|unpaid wage|acas/.test(blob) &&
-    // Do not gap-fill holiday pay when the live dispute is solicitor conduct / LeO / SRA
-    !/\b(legal ombudsman|\bleo\b|\bsra\b|success\s+fee|complain(?:t|ing)\s+(?:about\s+)?(?:my\s+)?solicitor|trainee\s+solicitor)\b/i.test(
-      story,
-    )
+    wagesLive &&
+    !/holiday pay|unpaid wage|acas/.test(blob)
   ) {
     out.push("unpaid wages holiday pay ACAS");
   }

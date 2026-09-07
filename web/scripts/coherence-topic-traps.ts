@@ -8,6 +8,7 @@
  * docs/product-decisions/coherence-turn-state.md
  */
 import { createInitialSession, senseDetails, looksNeighbourDispute, sanitizeIntakeNarrative } from '../lib/coherence/sense'
+import { extractClientQuestions, liveAskFromStory } from '../lib/coherence/clientQuestions'
 import { proposeCoherentFrames } from '../lib/coherence/frames'
 import { buildAnswerPackage, enrichAnswerPackageWithOslaw } from '../lib/coherence/answerPackage'
 import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causation'
@@ -2299,6 +2300,72 @@ Complaint went to stage two. Questions: does the Legal Ombudsman order fee refun
         assert(
           plan.titleExclusions.some((re) => re.test('Holiday pay rights')),
           'titleExclusion does not drop holiday pay pages',
+        )
+      )
+    },
+  },
+  {
+    id: 'live-ask-leo-does-not-invent-holiday-pay-question',
+    run: () => {
+      const story = `
+They charged their success fee including statutory holiday pay that was never in dispute.
+Questions: does the Legal Ombudsman order fee refunds? Is trainee supervision LeO or SRA?
+`.trim()
+      const qs = extractClientQuestions(story)
+      const ask = liveAskFromStory(story)
+      return (
+        assert(
+          !qs.some((q) => /wages or holiday pay be withheld/i.test(q)),
+          `invented wages ask: ${qs.join(' | ')}`,
+        ) ||
+        assert(ask.solicitorConduct, 'solicitorConduct false') ||
+        assert(
+          !ask.themes.includes('employment_wages'),
+          `wages theme on LeO ask: ${ask.themes.join(',')}`,
+        ) ||
+        assert(
+          ask.themes.includes('solicitor_ombudsman') || ask.themes.includes('sra_conduct'),
+          `missing firm themes: ${ask.themes.join(',')}`,
+        )
+      )
+    },
+  },
+  {
+    id: 'live-ask-cafe-flat-still-opens-wages-slot',
+    run: () => {
+      const story =
+        'Landlord removed the front door. No tenancy. He said I get last wages and outstanding holiday pay upon vacating the property. I am still inside.'
+      const frame: MatterFrame = {
+        matterId: 'trap-cafe',
+        primaryIssues: [{ slug: 'housing', confidence: 0.85, reason: 'trap' }],
+        secondaryIssues: [{ slug: 'employment', confidence: 0.45, reason: 'dual' }],
+        parties: [],
+        capacities: [],
+        relationships: [],
+        events: [],
+        objectives: [],
+        concepts: [],
+        exclusions: [],
+        ambiguities: [],
+        overallConfidence: 0.85,
+        resolutionStatus: 'resolved',
+        provenance: {},
+        retrievalScope: ['housing', 'employment'],
+      }
+      const ask = liveAskFromStory(story)
+      const slots = coverageSlotsFrom(frame, story)
+      return (
+        assert(
+          ask.themes.includes('employment_wages') || /holiday pay|wages/i.test(ask.goal + ask.questions.join(' ')),
+          `cafe-flat missing wages live ask: themes=${ask.themes.join(',')}`,
+        ) ||
+        assert(
+          slots.some((s) => s.id === 'wages_pay'),
+          `cafe-flat missing wages_pay slot: ${slots.map((s) => s.id).join(',')}`,
+        ) ||
+        assert(
+          slots.some((s) => s.id === 'illegal_eviction'),
+          `cafe-flat missing illegal_eviction: ${slots.map((s) => s.id).join(',')}`,
         )
       )
     },
