@@ -1,5 +1,10 @@
 import type { MatterType, PredictiveChoice, QuestionKind, SessionState } from './types'
-import { looksNeighbourDispute, looksProspectiveVisaApplication, looksVisaRefusalOrChallenge } from './sense'
+import {
+  looksHousing,
+  looksNeighbourDispute,
+  looksProspectiveVisaApplication,
+  looksVisaRefusalOrChallenge,
+} from './sense'
 import { clipPhrase } from './timelineExtract'
 
 export type { QuestionKind, PredictiveChoice }
@@ -43,7 +48,30 @@ function isWeakCite(text: string): boolean {
   if (/\(information only\)\s*$/i.test(t)) return true
   if (/^i want to (?:find|speak|understand|see if)\b/i.test(t) && t.length < 80) return true
   if (/^(yes|no|not sure|someone else|both)\b/i.test(t) && t.length < 40) return true
+  // Background tenancy facts without a dispute — poor anchors for "what went wrong"
+  if (
+    /^(?:my |the )?(?:original )?contract was a .{0,40}(?:fixed[-\s]?term|lease|tenancy)\b/i.test(t) &&
+    !/\b(failed|refus|evict|notice|dispute|wrong|problem|want|overturn|assign|end|terminat)\b/i.test(t)
+  ) {
+    return true
+  }
   return false
+}
+
+function citeScore(text: string): number {
+  let score = Math.min(text.length, 120)
+  if (
+    /\b(failed|refus|evict|notice|dispute|wrong|problem|want|overturn|assign|complain|ignored|lock(?:ed)?\s*out|deposit|arrears|mould|disrepair)\b/i.test(
+      text,
+    )
+  ) {
+    score += 80
+  }
+  if (/\b(renters?\s+rights?|section\s*21|section\s*8|letting\s+agent|landlord|real\s+estate)\b/i.test(text)) {
+    score += 40
+  }
+  if (/^(?:my |the )?(?:original )?contract was a\b/i.test(text)) score -= 60
+  return score
 }
 
 /** Prefer the richest client story phrase — never bare jurisdiction / chip answers / system goals. */
@@ -65,7 +93,7 @@ function cite(session: SessionState): string {
   }
   // Do not cite session.goal — brief goals are internal ("Find lawful routes…")
 
-  candidates.sort((a, b) => b.length - a.length)
+  candidates.sort((a, b) => citeScore(b) - citeScore(a))
   const best = candidates.find((c) => !isWeakCite(c))
   if (best) return clip(best, 64)
 
@@ -303,7 +331,9 @@ function housingGaps(session: SessionState): CausationGap[] {
         answered(session, 'gap_housing_trigger') ||
         (neighbour
           ? /neighbour|neighbor|driveway|parking|park(?:ed|ing)|boundary|noise|access|blocking/.test(c)
-          : /mould|mold|\brepairs?\b|\brents?\b|notice|lock|evict|section\s*21|section\s*8/.test(c)),
+          : /mould|mold|\brepairs?\b|\brents?\b|notice|lock|evict|section\s*21|section\s*8|fixed[-\s]?term|lease|renters?\s+rights?|tenancy|assign|possession/.test(
+              c,
+            )),
     },
     {
       id: 'gap_responsible',
@@ -317,7 +347,8 @@ function housingGaps(session: SessionState): CausationGap[] {
         answered(session, 'gap_responsible') ||
         (neighbour
           ? hasPartyRole(session, 'neighbour') || /neighbour|neighbor/.test(c)
-          : hasPartyRole(session, 'landlord') || /landlord|agent/.test(c)),
+          : hasPartyRole(session, 'landlord') ||
+            /landlord|agent|real\s+estate|letting/.test(c)),
     },
     {
       id: 'gap_breach',
@@ -329,7 +360,8 @@ function housingGaps(session: SessionState): CausationGap[] {
         answered(session, 'gap_breach') ||
         session.howCaused.trim().length >= 20 ||
         (neighbour &&
-          /park(?:ed|ing)|driveway|blocking|boundary|noise|nuisance|ignored|won'?t (?:move|stop)/.test(c)),
+          /park(?:ed|ing)|driveway|blocking|boundary|noise|nuisance|ignored|won'?t (?:move|stop)/.test(c)) ||
+        /renters?\s+rights?|section\s*21|section\s*8|evict|lock(?:ed)?\s*out|disrepair|deposit|assign/.test(c),
     },
     {
       id: 'gap_aftermath',
@@ -810,7 +842,14 @@ export function listCausationGaps(session: SessionState): CausationGap[] {
     ]
   }
 
-  switch (session.matterType) {
+  // Residential lease / renters stories must not fall into injury-style generic gaps
+  // when sense briefly mistypes matter (e.g. "company" + "lease" → other).
+  const effectiveMatter: MatterType =
+    session.matterType === 'housing' || looksHousing(corpus(session))
+      ? 'housing'
+      : session.matterType
+
+  switch (effectiveMatter) {
     case 'personal_injury':
       return piGaps(session)
     case 'housing':
@@ -838,8 +877,11 @@ export function openCausationGaps(session: SessionState): CausationGap[] {
 
 export function buildQuestionForGap(session: SessionState, gap: CausationGap): CausationQuestion {
   const ref = cite(session)
-  const matter: MatterType = session.matterType
   const c = corpus(session)
+  // Prefer housing question templates when the story is clearly residential tenancy,
+  // even if matterType briefly landed on other/crime.
+  const matter: MatterType =
+    session.matterType === 'housing' || looksHousing(c) ? 'housing' : session.matterType
   const who = partyLabel(session)
   const cause = causeSnippet(session)
   const place = session.locationHint
@@ -936,9 +978,13 @@ export function buildQuestionForGap(session: SessionState, gap: CausationGap): C
           ? ref
             ? `For “${ref}” — who do you say mainly caused or allowed this: landlord, letting agent, both, or someone else?`
             : 'Who do you say mainly caused or allowed this housing problem: landlord, letting agent, both, or someone else?'
-          : ref
-            ? `For “${ref}”${cause ? ` (you mentioned “${cause}”)` : ''} — who do you say may be responsible?`
-            : 'Who do you say may be responsible for what happened?'
+          : matter === 'employment' || /work|employer|job|workplace/.test(c)
+            ? ref
+              ? `For “${ref}” — who do you say is responsible: your employer, another company, a named person, or not sure?`
+              : 'Who do you say is responsible at work: your employer, another company, a named person, or not sure?'
+            : ref
+              ? `For “${ref}”${cause ? ` (you mentioned “${cause}”)` : ''} — who do you say may be responsible?`
+              : 'Who do you say may be responsible for what happened?'
 
       const options: PredictiveChoice[] = neighbourHousing
         ? [
@@ -966,10 +1012,24 @@ export function buildQuestionForGap(session: SessionState, gap: CausationGap): C
               { id: 'r4', label: 'Someone else / not sure', value: 'Someone else may be responsible — or I am not sure yet' },
             ]
           : [
-              ...(/work|employer|job|workplace/.test(c) || matter === 'personal_injury'
-                ? [{ id: 'r1', label: 'My employer', value: `My employer may be responsible for “${clip(ref || 'the injury', 40)}”` }]
+              ...(/work|employer|job|workplace/.test(c) || matter === 'personal_injury' || matter === 'employment'
+                ? [{ id: 'r1', label: 'My employer', value: `My employer may be responsible for “${clip(ref || 'what happened', 40)}”` }]
                 : []),
-              { id: 'r2', label: 'Another company on site', value: `Another company on site may be responsible for “${clip(ref || 'the injury', 40)}”` },
+              ...(/work|employer|job|workplace|site|contractor/.test(c) || matter === 'personal_injury'
+                ? [
+                    {
+                      id: 'r2',
+                      label: 'Another company on site',
+                      value: `Another company on site may be responsible for “${clip(ref || 'what happened', 40)}”`,
+                    },
+                  ]
+                : [
+                    {
+                      id: 'r2',
+                      label: 'An organisation',
+                      value: `An organisation may be responsible for “${clip(ref || 'what happened', 40)}”`,
+                    },
+                  ]),
               ...(who
                 ? [{ id: 'r3', label: `Not ${who}`, value: `Someone other than ${who} may be responsible` }]
                 : [{ id: 'r3', label: 'A named person', value: 'A particular person may be responsible — I can name them' }]),
@@ -984,9 +1044,22 @@ export function buildQuestionForGap(session: SessionState, gap: CausationGap): C
         matter === 'housing'
           ? housingActor(session)
           : who || (/employer|work/.test(c) ? 'my employer' : 'they')
-      const text = ref
-        ? `You described “${ref}”. What exactly do you say ${actor} failed to do — or did wrong — that led to this?`
-        : `What exactly do you say ${actor} failed to do — or did wrong — that led to this?`
+      const text =
+        matter === 'housing'
+          ? neighbourHousing
+            ? ref
+              ? `About “${ref}” — what exactly is your neighbour doing (or refusing to stop) that is the problem?`
+              : 'What exactly is your neighbour doing (or refusing to stop) that is the problem?'
+            : ref
+              ? `About “${ref}” — what do you say the landlord or agent did wrong, or failed to do (repairs, notice, ending the tenancy, something else)?`
+              : 'What do you say the landlord or agent did wrong, or failed to do (repairs, notice, ending the tenancy, something else)?'
+          : matter === 'employment'
+            ? ref
+              ? `About “${ref}” — what exactly did your employer do, or fail to do, that you say is unlawful?`
+              : 'What exactly did your employer do, or fail to do, that you say is unlawful?'
+            : ref
+              ? `About “${ref}” — what specific step or failure are you challenging (not just who was involved)?`
+              : 'What specific step or failure are you challenging (not just who was involved)?'
       const options: PredictiveChoice[] =
         matter === 'personal_injury'
           ? [
@@ -1015,13 +1088,34 @@ export function buildQuestionForGap(session: SessionState, gap: CausationGap): C
             : matter === 'housing'
               ? [
                   { id: 'b1', label: 'Failed to repair', value: `${actor} failed to repair the problem after I raised it` },
-                  { id: 'b2', label: 'Ignored my complaints', value: `${actor} ignored my complaints about “${clip(ref || 'the property', 36)}”` },
-                  { id: 'b3', label: 'Unlawful lockout / pressure', value: `${actor} locked me out or pressured me unlawfully` },
+                  { id: 'b2', label: 'Wrong / invalid notice', value: `${actor} served a wrong or invalid notice about ending my tenancy` },
+                  { id: 'b3', label: 'Trying to end fixed term early', value: `${actor} is trying to end or change my fixed-term tenancy unlawfully` },
+                  { id: 'b4', label: 'Ignored my complaints', value: `${actor} ignored my complaints about “${clip(ref || 'the property', 36)}”` },
+                  { id: 'b5', label: 'Unlawful lockout / pressure', value: `${actor} locked me out or pressured me unlawfully` },
                 ]
-              : [
-                  { id: 'b1', label: 'They failed to act', value: `${actor} failed to act when they should have about “${clip(ref || 'this', 36)}”` },
-                  { id: 'b2', label: 'They caused it directly', value: `${actor} directly caused “${clip(ref || 'this', 36)}”` },
-                ]
+              : matter === 'employment'
+                ? [
+                    { id: 'b1', label: 'Unfair process / dismissal', value: `${actor} used an unfair process or dismissal about “${clip(ref || 'my job', 36)}”` },
+                    { id: 'b2', label: 'Withheld pay / hours', value: `${actor} withheld pay, hours, or contractual benefits` },
+                    { id: 'b3', label: 'Ignored a complaint', value: `${actor} ignored a workplace complaint about “${clip(ref || 'this', 36)}”` },
+                  ]
+                : [
+                    {
+                      id: 'b1',
+                      label: 'Broken a duty / promise',
+                      value: `${actor} broke a duty or promise about “${clip(ref || 'this', 36)}”`,
+                    },
+                    {
+                      id: 'b2',
+                      label: 'Took a specific step against me',
+                      value: `${actor} took a specific step against me about “${clip(ref || 'this', 36)}” — I will name it`,
+                    },
+                    {
+                      id: 'b3',
+                      label: 'I’ll spell out what went wrong',
+                      value: `I will explain exactly what went wrong about “${clip(ref || 'this', 36)}”`,
+                    },
+                  ]
       return { id: gap.id, gapId: gap.id, kind: 'open', reason: gap.reason, text, options }
     }
 
@@ -1104,7 +1198,12 @@ export function buildQuestionForGap(session: SessionState, gap: CausationGap): C
               { id: 't1', label: 'Disrepair / mould', value: `“${clip(ref || 'The problem', 36)}” started with disrepair or mould` },
               { id: 't2', label: 'Rent / money dispute', value: `“${clip(ref || 'The problem', 36)}” started with a rent or money dispute` },
               { id: 't3', label: 'Eviction / notice', value: `“${clip(ref || 'The problem', 36)}” started with an eviction or possession notice` },
-              { id: 't4', label: 'Lockout', value: `“${clip(ref || 'The problem', 36)}” started when I was locked out or forced out` },
+              {
+                id: 't4',
+                label: 'Ending / changing the tenancy',
+                value: `“${clip(ref || 'The problem', 36)}” started with someone trying to end or change my fixed-term tenancy or lease`,
+              },
+              { id: 't5', label: 'Lockout', value: `“${clip(ref || 'The problem', 36)}” started when I was locked out or forced out` },
             ],
       }
     }
