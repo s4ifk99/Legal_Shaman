@@ -1,5 +1,6 @@
 import React from "react"
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Libre_Baskerville, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AppProviders } from '@/components/app-providers'
@@ -101,6 +102,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${libreBaskerville.variable} ${playfairDisplay.variable} font-sans antialiased`}>
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          strategy="afterInteractive"
+          data-key="5ar5K5mpXwwkcFGOTKH51Q"
+        />
         <AppProviders>
           {children}
         </AppProviders>
