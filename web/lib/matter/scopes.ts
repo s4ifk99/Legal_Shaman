@@ -54,6 +54,8 @@ const BASE_INTENTS: Record<string, string[]> = {
   neighbour_dispute: [
     "neighbour dispute boundary planning",
     "right of way driveway access",
+    "neighbour CCTV camera privacy ICO",
+    "problems with neighbours Citizens Advice",
   ],
   employment: [
     "unfair dismissal employment tribunal ACAS",

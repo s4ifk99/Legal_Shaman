@@ -42,6 +42,7 @@ import {
 } from '@/lib/penumbra/researchCache'
 import type { ExaResearchQuery } from '@/lib/penumbra/exaBrief'
 import { groupBySlot, matchingSlotIds, primaryMatterSlug, type CoverageSlot } from '@/lib/matter/coverageSlots'
+import { resolveLiveDispute } from '@/lib/matter/liveDispute'
 import { discoverHelpFromExaHits } from '@/lib/penumbra/helpDiscover'
 
 export type PenumbraResearchInput = {
@@ -124,7 +125,10 @@ function filterHitsBySlots(
 ) {
   if (!slots.length) return hits
   const good = hits.filter((hit) => matchingSlotIds(`${hit.title} ${hit.url} ${hit.excerpt}`, slots, story).length)
-  return good.length ? good : hits.slice(0, 3)
+  if (good.length) return good
+  // Live dispute has first-class negatives: empty is better than padding the graph with neighbours.
+  if (resolveLiveDispute(story)?.suppressSlugPlaybook) return []
+  return hits.slice(0, 3)
 }
 
 function filterCanonicalBySlots(sources: ResearchSource[], slots: CoverageSlot[], story: string): ResearchSource[] {

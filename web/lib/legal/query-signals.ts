@@ -51,9 +51,28 @@ export function isVehicleRepairQuery(query: string): boolean {
 
 /** Filming / CCTV / consent — not “I have a record of the invoice”. */
 export function isRecordingLawQuery(query: string): boolean {
-  return /\b(film(ing)?|photograph|cctv|privacy|record(ing|ed)? (someone|me|without)|without .{0,20}consent|illegal to record)\b/i.test(
-    query,
-  );
+  const q = String(query || "");
+  return /\b(film(ing)?|photograph|cctv|nanny cam|doorbell cam(?:era)?|ring (?:doorbell|camera)|home (?:security )?camera|(?:security|surveillance) camera|privacy|record(ing|ed)? (someone|me|without)|without .{0,20}consent|illegal to record)\b/i.test(
+    q,
+  ) || /\b(neighbours?|neighbors?).{0,48}camera\b/i.test(q) || /\bcamera.{0,48}(neighbours?|neighbors?|facing|point(?:ing|ed)|my door|window|garden)\b/i.test(q);
+}
+
+/**
+ * Neighbour pointed a camera / CCTV / doorbell cam at the client's home —
+ * privacy / ICO / harassment, not landlord–tenant eviction.
+ */
+export function storyLooksNeighbourSurveillance(text: string): boolean {
+  const s = String(text || "");
+  if (!s.trim()) return false;
+  const neighbour = /\b(neighbours?|neighbors?|next[- ]door)\b/i.test(s);
+  const camera =
+    /\b(cctv|cameras?|doorbell|nanny cam|filming|recording me|surveillance)\b/i.test(s) ||
+    isRecordingLawQuery(s);
+  if (!neighbour || !camera) return false;
+  const tenancyLockout =
+    /\b(landlord|tenant|tenancy|section\s*21|section\s*8|illegal evict|changed? (?:the )?locks?)\b/i.test(s) &&
+    !/\b(camera|cctv|doorbell|filming)\b/i.test(s);
+  return !tenancyLockout;
 }
 
 /**

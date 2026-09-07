@@ -402,8 +402,8 @@ export function extractRelationshipModel(input: MatterResolveInput): Relationshi
   }
 
   if (
-    /\b(neighbour|neighbor)\b/.test(blob) &&
-    /\b(bark|noise|nuisance|dog|loud|boundary|driveway)\b/.test(blob)
+    /\b(neighbours?|neighbors?)\b/.test(blob) &&
+    /\b(bark|noise|nuisance|dog|loud|boundary|driveway|camera|cctv|doorbell|filming)\b/.test(blob)
   ) {
     const neighbourId = eventId("neighbour", 1);
     ensureParty("user", "resident", "user");

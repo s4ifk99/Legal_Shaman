@@ -17,6 +17,7 @@ const FREE_HOST: Array<{ re: RegExp; resourceType: FreeResourceCandidate["resour
   { re: /lawcentres\.org\.uk/i, resourceType: "law-centre" },
   { re: /lease-advice\.org/i, resourceType: "helpline" },
   { re: /housing-ombudsman\.org\.uk/i, resourceType: "ombudsman" },
+  { re: /ico\.org\.uk/i, resourceType: "ombudsman" },
   { re: /legalombudsman\.org\.uk/i, resourceType: "ombudsman" },
   { re: /moneyhelper\.org\.uk/i, resourceType: "helpline" },
   { re: /gov\.uk\/legal-aid/i, resourceType: "legal-aid" },

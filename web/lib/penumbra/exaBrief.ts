@@ -2,6 +2,7 @@ import type { MatterFrame } from "@/lib/matter/types";
 import { formatCaseBrief, liveSituation } from "@/lib/coherence/caseBuilder";
 import { liveAskFromStory } from "@/lib/coherence/clientQuestions";
 import { coverageSlotsFrom, type CoverageSlot } from "@/lib/matter/coverageSlots";
+import { resolveLiveDispute } from "@/lib/matter/liveDispute";
 
 export type ExaSearchScope = "open" | "allowlist";
 
@@ -19,6 +20,7 @@ export function buildExaResearchBrief(opts: {
 }): { brief: string; queries: ExaResearchQuery[]; slots: CoverageSlot[] } {
   const { story, frame, clientQuestion } = opts;
   const ask = liveAskFromStory(story, clientQuestion);
+  const dispute = resolveLiveDispute(story, clientQuestion);
   const primary = frame.primaryIssues[0]?.slug?.replace(/_/g, " ") || "uncertain";
   const secondary = frame.secondaryIssues
     .slice(0, 3)
@@ -28,23 +30,29 @@ export function buildExaResearchBrief(opts: {
   const live = liveSituation(story, frame);
   const caseFile = formatCaseBrief(frame, story, clientQuestion);
   const storySlice = story.replace(/\s+/g, " ").trim().slice(0, 1600);
+  const utterance = story.replace(/\s+/g, " ").trim().slice(0, 180);
   const slots = coverageSlotsFrom(frame, story);
+  const officialOrgs =
+    dispute?.officialOrgs ||
+    (ask.themes.includes("housing_lockout") ||
+    ask.themes.includes("housing_homeless") ||
+    ask.themes.includes("housing_tenancy")
+      ? "Shelter GOV.UK Citizens Advice"
+      : "GOV.UK Citizens Advice legislation");
 
   const brief = [
     "UK legal research brief for England and Wales.",
     `Research this client's situation from scratch. Primary area of law: ${primary}.`,
     secondary ? `Also in play: ${secondary}.` : "",
     `Live situation: ${live}.`,
-    ask.policeVehicleClaim
-      ? "Operative dispute: claim against the police for damaging a parked vehicle. Do not research garage workmanship, quotes, or repair bills unless the sources are about collision damage estimates."
-      : "",
+    dispute ? dispute.briefConstraint : "",
     exclusions
       ? `Do not treat this as ${exclusions.replace(/_/g, " ")} unless the sources clearly support it.`
       : "",
     clientQuestion ? `Client questions: ${clientQuestion}` : "",
     slots.length
       ? `Cover these issue slots: ${slots.map((s) => s.label).join("; ")}.`
-      : "Find official and trusted public sources: statutes, GOV.UK, Shelter, Citizens Advice, ACAS.",
+      : "Find official and trusted public sources: statutes, GOV.UK, Citizens Advice, ACAS.",
     `Facts:\n${storySlice}`,
     caseFile,
   ]
@@ -60,9 +68,9 @@ export function buildExaResearchBrief(opts: {
     .slice(0, 2)
     .map((s) => s.label)
     .join("; ");
-  const openPrimary = ask.policeVehicleClaim
-    ? `claim against police parked car damaged by police vehicle. ${openFocus || live}. England official guidance GOV.UK Citizens Advice legislation.`
-    : `${primary}. ${openFocus || live}. England official guidance Shelter GOV.UK legislation.`;
+  const openPrimary = dispute
+    ? dispute.openQuery
+    : `${utterance}. ${primary}. ${openFocus || live}. England official guidance ${officialOrgs}.`;
   const queries: ExaResearchQuery[] = [
     {
       id: "open-primary",
@@ -72,25 +80,23 @@ export function buildExaResearchBrief(opts: {
     ...slotQueries,
     {
       id: "help-free",
-      query: `${ask.policeVehicleClaim ? "police vehicle damage claim" : primary} ${live} England free advice helpline Citizens Advice law centre legal aid get help contact`.slice(
-        0,
-        400,
-      ),
+      query: (dispute?.helpFreeQuery ||
+        `${primary} ${live} England free advice helpline Citizens Advice law centre legal aid get help contact`
+      ).slice(0, 400),
       scope: "open",
     },
     {
       id: "help-paid",
-      query: `${ask.policeVehicleClaim ? "police civil claim vehicle damage" : primary} England find a solicitor SRA register Law Society find a solicitor regulated directory`.slice(
-        0,
-        400,
-      ),
+      query: (dispute?.helpPaidQuery ||
+        `${primary} England find a solicitor SRA register Law Society find a solicitor regulated directory`
+      ).slice(0, 400),
       scope: "open",
     },
   ];
   if (!queries.some((q) => q.scope === "allowlist")) {
     queries.push({
       id: "official",
-      query: `${primary} ${live} official UK guidance Shelter GOV.UK ACAS Citizens Advice`.slice(0, 400),
+      query: `${utterance} ${primary} official UK guidance ${officialOrgs}`.slice(0, 400),
       scope: "allowlist",
     });
   }

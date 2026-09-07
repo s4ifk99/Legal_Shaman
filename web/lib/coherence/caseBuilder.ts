@@ -58,6 +58,9 @@ export function liveSituation(story: string, frame: MatterFrame): string {
   if (ask.policeVehicleClaim || ask.themes.includes("police_vehicle_claim")) {
     return "claim against police for damage to a parked / stationary vehicle (garage is location only)";
   }
+  if (ask.neighbourSurveillance || ask.themes.includes("neighbour_surveillance")) {
+    return "neighbour camera / CCTV pointing at the client's door or home (privacy / ICO, not eviction)";
+  }
   const housing = frame.primaryIssues[0]?.slug === "housing";
   const lockout = /door.{0,24}removed|removed.{0,24}(?:the )?(?:front )?door|no front door|changed? (?:the )?locks?|forced .{0,40}(?:leave|vacate)|leave immediately|illegal evict/i.test(
     story,

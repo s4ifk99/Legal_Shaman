@@ -328,6 +328,9 @@ const LEGAL_ISSUE_TAXONOMY_CORE: LegalIssueTaxonomyEntry[] = [
     userPhrases: [
       "noisy neighbour",
       "neighbour harassment",
+      "neighbour camera",
+      "neighbour CCTV",
+      "camera facing my door",
       "boundary dispute",
       "anti-social neighbour",
       "neighbour loud noise",

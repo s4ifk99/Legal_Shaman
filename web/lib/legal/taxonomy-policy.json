@@ -77,6 +77,11 @@
       "over": ["consumer", "employment", "consumer_vehicle_repair"]
     },
     {
+      "when": "neighbour_cctv",
+      "prefer": "neighbour_dispute",
+      "over": ["housing", "consumer", "employment", "consumer_vehicle_repair"]
+    },
+    {
       "when": "motoring_ban",
       "prefer": "criminal_defence",
       "over": ["consumer", "housing", "employment"]

@@ -1,5 +1,5 @@
 import { storyLooksEmployerSeizedKit } from '@/lib/matter/graphAdmissibility'
-import { looksPolicePursuitVehicleClaim } from '@/lib/legal/query-signals'
+import { looksPolicePursuitVehicleClaim, storyLooksNeighbourSurveillance } from '@/lib/legal/query-signals'
 
 /** Operative dispute themes derived from the client's live ask — not the full narrative. */
 export type LiveAskTheme =
@@ -14,6 +14,7 @@ export type LiveAskTheme =
   | 'criminal_police'
   | 'seized_property'
   | 'police_vehicle_claim'
+  | 'neighbour_surveillance'
 
 export type LiveAsk = {
   questions: string[]
@@ -23,6 +24,8 @@ export type LiveAsk = {
   solicitorConduct: boolean
   /** True when the live dispute is a claim after police damaged a parked vehicle. */
   policeVehicleClaim: boolean
+  /** True when the live dispute is a neighbour camera / CCTV / privacy issue. */
+  neighbourSurveillance: boolean
 }
 
 export { looksPolicePursuitVehicleClaim as storyLooksPolicePursuitVehicleClaim }
@@ -82,7 +85,11 @@ function themesFromAskBlob(blob: string): LiveAskTheme[] {
   ) {
     push('employment_rights')
   }
-  if (/\b(lock(?:ed)?\s*out|illegal evict|front door|changed? (?:the )?locks?|forced .{0,40}(?:leave|vacate))\b/i.test(blob)) {
+  if (
+    /\b(lock(?:ed)?\s*out|illegal evict|changed? (?:the )?locks?|forced .{0,40}(?:leave|vacate)|door.{0,24}removed|no front door)\b/i.test(
+      blob,
+    )
+  ) {
     push('housing_lockout')
   }
   if (/\b(homeless|emergency (?:housing|accommodation)|nowhere to stay|tonight)\b/i.test(blob)) {
@@ -105,6 +112,9 @@ function themesFromAskBlob(blob: string): LiveAskTheme[] {
   ) {
     push('police_vehicle_claim')
   }
+  if (storyLooksNeighbourSurveillance(blob)) {
+    push('neighbour_surveillance')
+  }
   return themes
 }
 
@@ -124,6 +134,9 @@ export function compressLiveGoal(text: string): string {
   }
   if (looksPolicePursuitVehicleClaim(raw)) {
     return 'Claim against the police for damage to a parked car'
+  }
+  if (storyLooksNeighbourSurveillance(raw)) {
+    return 'Stop a neighbour camera pointing at my door / complain to the ICO'
   }
   const qs = extractClientQuestions(raw)
   return qs[0] || ''
@@ -167,7 +180,12 @@ export function extractClientQuestions(text: string): string[] {
     {
       re: /next step|some advice|what (?:can|should) i do/i,
       q: 'What should I do next to stay safe and housed?',
-      need: /door|lock|homeless|tenancy|landlord|evict/i,
+      need: /lock(?:ed)? out|homeless|tenancy|landlord|evict|door (?:removed|off)|no front door/i,
+    },
+    {
+      re: /camera|cctv|doorbell|filming|recording/i,
+      q: 'What can I do about a neighbour camera pointing at my home?',
+      need: /\b(neighbours?|neighbors?|next[- ]door)\b/i,
     },
     { re: /right to stay|no tenancy|tied/i, q: 'Do I have a right to stay without a written tenancy?' },
     {
@@ -208,6 +226,10 @@ export function extractClientQuestions(text: string): string[] {
     push('How do I claim against the police for damage to a parked car?')
     push('What evidence should I keep after a police vehicle hit my parked car?')
   }
+  if (storyLooksNeighbourSurveillance(raw)) {
+    push('What can I do about a neighbour camera pointing at my home?')
+    push('Can I complain to the ICO about domestic CCTV?')
+  }
   return out.slice(0, 5)
 }
 
@@ -222,7 +244,8 @@ export function liveAskFromStory(story: string, clientQuestion = ''): LiveAsk {
   const askBlob = [goal, ...questions, clientQuestion].filter(Boolean).join('\n')
   const solicitorConduct = storyLooksSolicitorConductComplaint(combined)
   const policeVehicleClaim = looksPolicePursuitVehicleClaim(combined)
-  let themes = themesFromAskBlob(askBlob)
+  const neighbourSurveillance = storyLooksNeighbourSurveillance(combined)
+  let themes = themesFromAskBlob(`${askBlob}\n${combined}`)
 
   // When the client asked explicit LeO/SRA/fee questions, those themes win even if
   // narrative keywords also appear in the ask blob.
@@ -256,6 +279,13 @@ export function liveAskFromStory(story: string, clientQuestion = ''): LiveAsk {
     }
   }
 
+  if (neighbourSurveillance) {
+    if (!themes.includes('neighbour_surveillance')) {
+      themes = ['neighbour_surveillance', ...themes]
+    }
+    themes = themes.filter((t) => t !== 'housing_lockout' && t !== 'housing_homeless' && t !== 'housing_tenancy')
+  }
+
   // Cafe-flat style: narrative + housing dispute implies wages when pay is withheld until leave
   if (
     !solicitorConduct &&
@@ -272,6 +302,7 @@ export function liveAskFromStory(story: string, clientQuestion = ''): LiveAsk {
     themes: [...new Set(themes)],
     solicitorConduct,
     policeVehicleClaim,
+    neighbourSurveillance,
   }
 }
 
