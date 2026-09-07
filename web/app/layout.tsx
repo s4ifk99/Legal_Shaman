@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Libre_Baskerville, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AppProviders } from '@/components/app-providers'
+import { AhrefsAnalytics } from '@/components/analytics/ahrefs-analytics'
 import './globals.css'
 
 // Declare the Geist and Geist_Mono variables before using them
@@ -101,12 +102,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Ahrefs Web Analytics — must be a real <script> in <head> for their verifier */}
-        <script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="5ar5K5mpXwwkcFGOTKH51Q"
-          async
-        />
+        <AhrefsAnalytics />
       </head>
       <body className={`${libreBaskerville.variable} ${playfairDisplay.variable} font-sans antialiased`}>
         <AppProviders>
