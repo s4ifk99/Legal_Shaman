@@ -5,6 +5,7 @@
  */
 import { titleAllowedOnGraph } from "./issueGraphHits";
 import { coverageSlotsFrom, storyLooksVacatedRroRelet, titleCoversGraph } from "./coverageSlots";
+import { storyLooksSolicitorConductComplaint } from "@/lib/coherence/clientQuestions";
 
 export { storyLooksVacatedRroRelet };
 
@@ -101,6 +102,16 @@ export function isNeighbourAttractorTitle(title: string, frame: IssueGraph, stor
   }
   if (/used car bought|repairing a car|problem with a car/i.test(t) && primary !== "consumer_vehicle_repair") {
     return true;
+  }
+  // Solicitor / LeO / SRA live ask — do not admit employment-rights or holiday-pay attractors
+  if (storyLooksSolicitorConductComplaint(story)) {
+    if (
+      /tackle problems at work|rights at work|holiday (?:pay|entitlement)|getting paid when you leave|working time|rest breaks?|unfair dismissal|schedule of loss|value a claim for employment/i.test(
+        t,
+      )
+    ) {
+      return true;
+    }
   }
   if (
     storyLooksEmployerSeizedKit(story) &&
@@ -246,6 +257,15 @@ export function overviewUsesForbiddenPlaybook(text: string, frame: IssueGraph, s
   }
   if (storyLooksEmployerSeizedKit(story) && WRONG_PARTY_DEFENDANT_TITLE.test(blob)) {
     return true;
+  }
+  if (storyLooksSolicitorConductComplaint(story)) {
+    if (
+      /tackle problems at work|rights at work|arrange for a formal meeting|explain your grievance|holiday (?:pay|entitlement)|getting paid when you leave/i.test(
+        blob,
+      )
+    ) {
+      return true;
+    }
   }
   if (
     storyLooksEmployerSeizedKit(story) &&
