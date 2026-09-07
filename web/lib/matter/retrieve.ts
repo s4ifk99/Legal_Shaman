@@ -22,6 +22,15 @@ function titleBoostForLiveAsk(title: string, submission: string): number {
     }
     return 1;
   }
+  if (ask.policeVehicleClaim || ask.themes.includes("police_vehicle_claim")) {
+    if (/claim against (?:the )?police|police (?:vehicle|car).{0,40}damage|IOPC|complain about (?:the )?police|insurance claim|collision/i.test(title)) {
+      return 1.4;
+    }
+    if (/problem with a car repair|buying or repairing a car|poor workmanship|quote/i.test(title)) {
+      return 0.45;
+    }
+    return 1;
+  }
   if (/illegal evict|homeless|occupi|service occup|tied accommodation|no tenancy|holiday pay|unpaid wage/i.test(title)) {
     return 1.3;
   }

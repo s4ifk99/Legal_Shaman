@@ -8,7 +8,6 @@
  * docs/product-decisions/coherence-turn-state.md
  */
 import { createInitialSession, senseDetails, looksNeighbourDispute, sanitizeIntakeNarrative } from '../lib/coherence/sense'
-import { extractClientQuestions, liveAskFromStory } from '../lib/coherence/clientQuestions'
 import { proposeCoherentFrames } from '../lib/coherence/frames'
 import { buildAnswerPackage, enrichAnswerPackageWithOslaw } from '../lib/coherence/answerPackage'
 import { buildQuestionForGap, openCausationGaps } from '../lib/coherence/causation'
@@ -56,6 +55,7 @@ import { mergeExaSearchHits, searchOfflineExaIndexForPenumbra } from '../lib/pen
 import { titleAllowedOnGraph } from '../lib/matter/issueGraphHits'
 import {
   freeHelpAdmissibleOnGeometry,
+  isNeighbourAttractorTitle,
   overviewUsesForbiddenPlaybook,
   sraOrganisationAdmissible,
   storyLooksAmbiguousSeizedDevice,
@@ -63,10 +63,11 @@ import {
   titleAdmissibleOnGeometry,
 } from '../lib/matter/graphAdmissibility'
 import { coverageSlotsFrom, isOfficialAuthoritySource, slotRetryQueries } from '../lib/matter/coverageSlots'
-import { compressLiveGoal, extractClientQuestions } from '../lib/coherence/clientQuestions'
+import { compressLiveGoal, extractClientQuestions, liveAskFromStory } from '../lib/coherence/clientQuestions'
 import { buildCaseLedOverview } from '../lib/coherence/caseBuilder'
 import { ensureShamanRecAnswer } from '../lib/coherence/shamanRecFormat'
 import { critiqueOverviewRecommendation } from '../lib/coherence/critiqueOverview'
+import { isVehicleRepairQuery } from '../lib/legal/query-signals'
 
 type TrapResult = { id: string; ok: boolean; detail: string }
 
@@ -2303,6 +2304,81 @@ Complaint went to stage two. Questions: does the Legal Ombudsman order fee refun
           plan.titleExclusions.some((re) => re.test('Holiday pay rights')),
           'titleExclusion does not drop holiday pay pages',
         )
+      )
+    },
+  },
+  {
+    id: 'police-pursuit-car-not-garage-repair-geometry',
+    run: () => {
+      const story = `
+Hi All, England. A friend has asked me to help her sort this out. Her car was dropped off at a garage for repair work and parked outside. While it was sitting there, a police car chasing a suspect hit it. The garage called to say the police had left their contact details and she'd need to get in touch.
+The car was stationary and legally parked, and she wasn't there. The police left their details, so I'm assuming they're expecting a claim.
+Has anybody dealt with a situation like this before? Any dos and donts would be much appreciated.
+`.trim()
+      const ask = liveAskFromStory(story)
+      const { frame } = attachResolvedMatterFrame(intake([story]), story)
+      const slots = coverageSlotsFrom(frame, story)
+      const plan = buildConceptRetrievalPlan(frame, story)
+      const brief = buildExaResearchBrief({ story, frame, clientQuestion: ask.goal })
+      const slotIds = slots.map((s) => s.id).join(',')
+      const cased = buildCaseLedOverview({
+        story,
+        frame,
+        hitTitles: [
+          'Problem with a car repair',
+          'Buying or repairing a car',
+          'Consumer standards Code of Practice - GOV.UK',
+          'Claim against the police',
+        ],
+      })
+      const blob = cased.answer.toLowerCase()
+      return (
+        assert(ask.policeVehicleClaim, 'policeVehicleClaim false') ||
+        assert(
+          ask.themes.includes('police_vehicle_claim'),
+          `missing police_vehicle_claim theme: ${ask.themes.join(',')}`,
+        ) ||
+        assert(
+          frame.primaryIssues[0]?.slug !== 'consumer_vehicle_repair',
+          `still garage primary: ${frame.primaryIssues[0]?.slug}`,
+        ) ||
+        assert(
+          slots.some((s) => s.id === 'police_vehicle_claim'),
+          `missing police claim slot: ${slotIds}`,
+        ) ||
+        assert(
+          plan.clusterIds.includes('police_pursuit_vehicle_claim'),
+          `cluster missing: ${plan.clusterIds.join(',')}`,
+        ) ||
+        assert(
+          !plan.clusterIds.includes('garage_vehicle_repair'),
+          `garage cluster still fired: ${plan.clusterIds.join(',')}`,
+        ) ||
+        assert(
+          plan.intents.some((i) => /claim against police|police vehicle/i.test(i)),
+          `missing police intents: ${plan.intents.join(' | ')}`,
+        ) ||
+        assert(
+          !plan.intents.some((i) => /problem with a car repair|poor workmanship/i.test(i)),
+          `garage intents still present: ${plan.intents.join(' | ')}`,
+        ) ||
+        assert(
+          /claim against police|police vehicle/i.test(brief.queries.map((q) => q.query).join(' ')),
+          `Exa brief still garage-shaped: ${brief.queries.map((q) => q.query).join(' | ')}`,
+        ) ||
+        assert(
+          isNeighbourAttractorTitle('Problem with a car repair', frame, story),
+          'garage title not treated as neighbour attractor',
+        ) ||
+        assert(
+          /claim against (?:the )?police|police/i.test(blob),
+          `overview missing police claim: ${cased.answer.slice(0, 280)}`,
+        ) ||
+        assert(
+          !/quote before the garage|pay the full bill|poor workmanship/i.test(blob),
+          `garage playbook leaked: ${cased.answer.slice(0, 280)}`,
+        ) ||
+        assert(!isVehicleRepairQuery(story), 'isVehicleRepairQuery still true for police claim story')
       )
     },
   },

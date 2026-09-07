@@ -283,12 +283,36 @@ const CONCEPT_CLUSTERS: ConceptCluster[] = [
     suppressSlugDefaults: ["employment", "housing", "neighbour_dispute"],
   },
   {
+    id: "police_pursuit_vehicle_claim",
+    matchAll: [
+      /\bpolice (?:car|vehicle|van)\b/i,
+      /\b(hit|struck|damaged|collided|crash|parked|stationary|claim)\b/i,
+    ],
+    rejectIf: [
+      /\b(workmanship|coolant|expansion tank|charged (?:too )?much|poor (?:repair|service))\b/i,
+    ],
+    intents: [
+      "claim against police damage to parked car",
+      "police vehicle collision compensation England",
+      "car damaged by another vehicle insurance claim Citizens Advice",
+      "complain about police IOPC Professional Standards",
+    ],
+    titleExclusion:
+      /problem with a car repair|poor workmanship|buying or repairing a car|quote before the garage|unfair dismissal|section\s*21|consumer standards code of practice|tenant remedies for unfair trading|regulatory standards for landlords/i,
+    suppressSlugDefaults: ["consumer_vehicle_repair", "consumer", "housing", "employment"],
+  },
+  {
     id: "garage_vehicle_repair",
     matchAll: [
       /\b(garage|mechanic|main dealer|MOT|works? van)\b/i,
       /\b(repair|repaired|workmanship|poor (?:service|work)|charged|invoice|coolant|engine)\b/i,
     ],
-    rejectIf: [/\b(bought .{0,20}(?:used )?car|reject the car|short.?term right to reject)\b/i],
+    rejectIf: [
+      /\b(bought .{0,20}(?:used )?car|reject the car|short.?term right to reject)\b/i,
+      /\bpolice (?:car|vehicle|van)\b.{0,100}\b(hit|struck|damaged|collided)\b/i,
+      /\b(hit|struck|damaged|collided)\b.{0,100}\bpolice (?:car|vehicle|van)\b/i,
+      /\bclaim against (?:the )?police\b/i,
+    ],
     intents: [
       "problem with a car repair garage consumer",
       "poor workmanship reasonable skill and care",
@@ -1334,6 +1358,26 @@ export function buildConceptRetrievalPlan(
 
   // Always add keyphrase / agent-concept intents (MuISQA / LexKeyPlan)
   const liveAsk = liveAskFromStory(story);
+  if (liveAsk.policeVehicleClaim || liveAsk.themes.includes("police_vehicle_claim")) {
+    // Drop garage-repair cluster if both matched on shared "garage" nouns
+    const garageIdx = clusterIds.indexOf("garage_vehicle_repair");
+    if (garageIdx >= 0) clusterIds.splice(garageIdx, 1);
+    if (!clusterIds.includes("police_pursuit_vehicle_claim")) {
+      clusterIds.unshift("police_pursuit_vehicle_claim");
+    }
+    for (const intent of [
+      "claim against police damage to parked car",
+      "police vehicle collision compensation England",
+      "car damaged by another vehicle insurance claim Citizens Advice",
+    ]) {
+      if (intentAllowedOnGraph(intent, frame)) intents.add(intent);
+    }
+    titleExclusions.push(
+      /problem with a car repair|poor workmanship|buying or repairing a car|quote before the garage|consumer standards code of practice|tenant remedies for unfair trading|regulatory standards for landlords/i,
+    );
+    suppress.add("consumer_vehicle_repair");
+    suppress.add("consumer");
+  }
   const dropBackdropWages =
     liveAsk.solicitorConduct ||
     clusterIds.includes("solicitor_conduct_leo_sra") ||
@@ -1344,6 +1388,12 @@ export function buildConceptRetrievalPlan(
     if (
       dropBackdropWages &&
       /\b(holiday pay|working time|rest breaks?|national minimum wage|unfair dismissal)\b/i.test(kp)
+    ) {
+      continue;
+    }
+    if (
+      (liveAsk.policeVehicleClaim || liveAsk.themes.includes("police_vehicle_claim")) &&
+      /\b(problem with a car repair|poor workmanship|garage consumer|buying or repairing a car)\b/i.test(kp)
     ) {
       continue;
     }
