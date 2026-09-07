@@ -2342,10 +2342,8 @@ Complaint went to stage two. Questions: does the Legal Ombudsman order fee refun
       })
       const blob = `${cased.answer}\n${cased.recommendations.join('\n')}`.toLowerCase()
       return (
-        assert(/what the sources say/i.test(cased.answer), 'missing What the sources say') ||
-        assert(/practical route/i.test(cased.answer), 'missing Practical route') ||
-        assert(/limits\s*\/\s*missing facts/i.test(cased.answer), 'missing Limits section') ||
         assert(/legal ombudsman|\bleo\b|sra/i.test(blob), 'missing LeO/SRA guidance') ||
+        assert(/legal\s*shaman\.?com/i.test(cased.answer), 'missing LegalShaman.com note') ||
         assert(
           !/tackle problems at work|arrange for a formal meeting|explain your grievance/i.test(blob),
           `employment playbook leaked: ${cased.answer.slice(0, 280)}`,

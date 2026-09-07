@@ -56,48 +56,12 @@ type AnswerBlock =
 
 function isSectionLabel(line: string): boolean {
   const cleaned = line.replace(/^\*\*|\*\*$/g, "").replace(/^#+\s*/, "").trim();
-  if (!cleaned || cleaned.length > 100) return false;
+  if (!cleaned || cleaned.length > 80) return false;
   if (SECTION_LABEL_RE.test(cleaned)) return true;
-  // Related source titles (e.g. wiki page names) — Title Case, no terminal punctuation.
-  const words = cleaned.split(/\s+/).length;
-  if (
-    /^[A-Z]/.test(cleaned) &&
-    !/[.!?]$/.test(cleaned) &&
-    !/^The |^This |^Your |^On |^Matched /i.test(cleaned) &&
-    words >= 2 &&
-    words <= 14
-  ) {
+  if (/^[A-Z][a-z].{0,60}$/.test(cleaned) && !/[.!?]$/.test(cleaned) && cleaned.split(/\s+/).length <= 8) {
     return true;
   }
   return false;
-}
-
-function bulletLines(body: string): string[] | null {
-  const lines = body
-    .split("\n")
-    .map((l) => l.trim())
-    .filter(Boolean);
-  if (lines.length < 1) return null;
-  if (!lines.every((l) => /^[•\-*]\s+/.test(l))) return null;
-  return lines.map((l) => l.replace(/^[•\-*]\s+/, "").trim());
-}
-
-function renderBody(body: string, sources: LegalSearchSourceHit[]) {
-  const bullets = bulletLines(body);
-  if (bullets) {
-    return (
-      <ul className="list-disc space-y-1.5 pl-5 text-[15px] leading-7 text-foreground">
-        {bullets.map((item, i) => (
-          <li key={`${i}-${item.slice(0, 24)}`}>{renderTextWithCitations(item, sources)}</li>
-        ))}
-      </ul>
-    );
-  }
-  return (
-    <p className="whitespace-pre-wrap text-[15px] leading-7 text-foreground">
-      {renderTextWithCitations(body, sources)}
-    </p>
-  );
 }
 
 /** Normalise answer text into structured blocks (sections + paragraphs). */
@@ -139,7 +103,7 @@ function toBlocks(answer: string): { blocks: AnswerBlock[]; lowNote: string | nu
       blocks.push({
         kind: "section",
         title: lines[0]!.replace(/^\*\*|\*\*$/g, "").replace(/^#+\s*/, "").trim(),
-        body: lines.slice(1).join("\n"),
+        body: lines.slice(1).join(" "),
       });
       continue;
     }
@@ -163,32 +127,7 @@ function toBlocks(answer: string): { blocks: AnswerBlock[]; lowNote: string | nu
     blocks.push({ kind: "paragraph", text: block });
   }
 
-  // Pair empty section labels with the following paragraph (legacy `\n\n` between label and body).
-  const paired: AnswerBlock[] = [];
-  for (let i = 0; i < blocks.length; i++) {
-    const cur = blocks[i]!;
-    const next = blocks[i + 1];
-    if (cur.kind === "section" && !cur.body && next?.kind === "paragraph") {
-      paired.push({ kind: "section", title: cur.title, body: next.text });
-      i += 1;
-      continue;
-    }
-    if (
-      cur.kind === "section" &&
-      !cur.body &&
-      next?.kind === "section" &&
-      next.title &&
-      !SECTION_LABEL_RE.test(next.title) &&
-      next.body
-    ) {
-      // Rare: empty known label followed by titled related block — keep as-is.
-      paired.push(cur);
-      continue;
-    }
-    paired.push(cur);
-  }
-
-  return { blocks: paired, lowNote };
+  return { blocks, lowNote };
 }
 
 export function ShamanRecommends({
@@ -200,30 +139,33 @@ export function ShamanRecommends({
   const { blocks, lowNote } = toBlocks(answer);
 
   return (
-    <div className={cn("space-y-3", className)}>
-      {blocks.map((block, i) => {
-        if (block.kind === "section") {
+    <div className={cn("space-y-4", className)}>
+      <div className="space-y-4">
+        {blocks.map((block, i) => {
+          if (block.kind === "section") {
+            return (
+              <div key={`section-${i}-${block.title}`} className="space-y-2">
+                <h4 className="text-sm font-semibold tracking-tight text-foreground">
+                  {block.title}
+                </h4>
+                {block.body ? (
+                  <p className="text-[15px] leading-7 text-foreground">
+                    {renderTextWithCitations(block.body, sources)}
+                  </p>
+                ) : null}
+              </div>
+            );
+          }
           return (
-            <div
-              key={`section-${i}-${block.title}`}
-              className="rounded-xl border border-border/70 bg-background px-4 py-3.5 shadow-sm"
+            <p
+              key={`para-${i}-${block.text.slice(0, 48)}`}
+              className="text-[15px] leading-7 text-foreground"
             >
-              <h4 className="text-sm font-semibold tracking-tight text-foreground">{block.title}</h4>
-              {block.body ? <div className="mt-2">{renderBody(block.body, sources)}</div> : null}
-            </div>
-          );
-        }
-        return (
-          <div
-            key={`para-${i}-${block.text.slice(0, 48)}`}
-            className="rounded-xl border border-border/70 bg-background px-4 py-3.5 shadow-sm"
-          >
-            <p className="text-[15px] leading-7 text-foreground">
               {renderTextWithCitations(block.text, sources)}
             </p>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
 
       {lowNote ? (
         <p className="rounded-md border border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs text-amber-900 dark:text-amber-200">
