@@ -18,6 +18,7 @@ import { SraOrganisationView } from './SraOrganisationView'
 import { LoadingScreen } from './LoadingScreen'
 import { PageNavigation } from './PageNavigation'
 import { B2CBillingBanner } from '@/components/billing/b2c-billing-banner'
+import { B2C_PAID_PRICE_LABEL } from '@/lib/billing/plan'
 import { captureProductEvent } from '@/components/analytics/posthog-provider'
 import type { SearchDestination } from './ReformulationGate'
 import { createInitialSession, isMetaCauseLine, isPhysicalNeedNotGoal, senseDetails } from '@/lib/coherence/sense'
@@ -1108,7 +1109,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
           ) {
             setAgentError(
               master.error === 'monthly_search_quota'
-                ? 'You have used your 5 free searches this month. Upgrade to The Shaman Unlimited for £3.49 every 4 weeks.'
+                ? `You have used your free search. Upgrade to The Shaman Unlimited for ${B2C_PAID_PRICE_LABEL}.`
                 : 'Daily or per-minute search limit reached. Try again later.',
             )
             return
@@ -1400,7 +1401,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'aramb_research_failed'
       if (error instanceof Error && error.message === 'monthly_search_quota') {
-        setAgentError('You have used your 5 free searches this month. Upgrade to The Shaman Unlimited for £3.49 every 4 weeks.')
+        setAgentError(`You have used your free search. Upgrade to The Shaman Unlimited for ${B2C_PAID_PRICE_LABEL}.`)
       }
       setSession((prev) => ({
         ...prev,

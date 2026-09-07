@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TurnstileField, type TurnstileHandle } from "@/components/auth/turnstile-field";
+import { B2C_PAID_PRICE_LABEL } from "@/lib/billing/plan";
 import { resolveApiUrl } from "@/lib/site/api-url";
 
 export type AuthDialogReason = "bookmark" | "search" | "login" | "coherence";
@@ -37,14 +38,18 @@ function copyForReason(reason: AuthDialogReason, pendingFirmName?: string) {
     return {
       title: "Create a free account to analyse your matter",
       description:
-        "Sign up to save your story securely, continue your legal timeline, and receive matching help and guidance.",
+        "Your first search is free. After that, unlock unlimited Ask the Shaman for " +
+        B2C_PAID_PRICE_LABEL +
+        " on this account.",
     };
   }
   if (reason === "search") {
     return {
       title: "Create a free account to view results",
       description:
-        "Sign up with your email and password to see lawyer matches, guidance, and directory results.",
+        "Sign up for one free search. Then unlock unlimited searches for " +
+        B2C_PAID_PRICE_LABEL +
+        ", tied to your account.",
     };
   }
   if (reason === "login") {

@@ -8,6 +8,7 @@ import {
   releaseConcurrent,
   tryAcquireConcurrent,
 } from "@/lib/auth/quota-rate-limit";
+import { B2C_FREE_SEARCH_LIMIT_DEFAULT } from "@/lib/billing/plan";
 
 export type UsageAllowance = {
   allowed: boolean;
@@ -48,15 +49,12 @@ function startOfUtcDay(d = new Date()): Date {
   return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
 }
 
-function startOfUtcMonth(d = new Date()): Date {
-  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1));
-}
-
 function stableSearchKey(value?: string): string | null {
   const text = value?.trim();
   return text ? createHash("sha256").update(`legal-shaman-search:${text}`).digest("hex") : null;
 }
 
+/** Distinct free searches used on this account (lifetime — not calendar month). */
 export async function monthlySearchUsage(userId: string): Promise<number> {
   await ensureBillingSchema();
   const rows = await accountsPrisma.$queryRaw<Array<{ n: bigint | number }>>`
@@ -65,10 +63,11 @@ export async function monthlySearchUsage(userId: string): Promise<number> {
     WHERE "user_id" = ${userId}
       AND "search_key" IS NOT NULL
       AND "status" IN ('started', 'completed')
-      AND "created_at" >= ${startOfUtcMonth()}
   `;
   return Number(rows[0]?.n ?? 0);
 }
+
+export const freeSearchUsage = monthlySearchUsage;
 
 export async function canStartCoherenceUsage(opts: {
   userId: string;
@@ -136,7 +135,10 @@ export async function canStartCoherenceUsage(opts: {
     };
   }
 
-  const monthlySearchLimit = numEnv("COHERENCE_FREE_MONTHLY_SEARCH_LIMIT", 5);
+  const monthlySearchLimit = numEnv(
+    "COHERENCE_FREE_MONTHLY_SEARCH_LIMIT",
+    B2C_FREE_SEARCH_LIMIT_DEFAULT,
+  );
   if (user.plan !== "paid" && opts.countSearch && stableSearchKey(opts.searchKey)) {
     const monthlySearchUsed = await monthlySearchUsage(opts.userId);
     if (monthlySearchUsed >= monthlySearchLimit) {
