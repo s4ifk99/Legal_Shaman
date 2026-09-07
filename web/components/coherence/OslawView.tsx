@@ -22,6 +22,8 @@ import { logSearchEvent } from '@/lib/coherence/searchAnalytics'
 import { coverageSlotsFrom, groupBySlot, isOfficialAuthoritySource } from '@/lib/matter/coverageSlots'
 import { titleAdmissibleOnGeometry } from '@/lib/matter/graphAdmissibility'
 import { SynthesisHourglass } from './SynthesisHourglass'
+import { ShamanRecommends } from '@/components/legal-search/shaman-recommends'
+import { ensureShamanRecAnswer } from '@/lib/coherence/shamanRecFormat'
 import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './OslawView.css'
 
@@ -112,26 +114,69 @@ function Recommendation({
   authorityHits?: SessionState['authorityHits']
   onFollowUp: (followUp: AnswerFollowUp) => void
 }) {
-  const takeaways = pack.bullets.filter((b) => b.text.trim().length >= 12).slice(0, 5)
   const pages = pack.wikiPages.slice(0, 6)
   const sources = pack.sources.slice(0, 6)
   const firms = pack.recommendedFirms.slice(0, 3)
+  const relatedTitle = pages[0]?.title
+  const shamanAnswer = ensureShamanRecAnswer({
+    answer: pack.answerOverview,
+    recommendations: pack.recommendations,
+    missingFacts: pack.missingFacts,
+    relatedTitle,
+    relatedBody: relatedTitle
+      ? `Related guidance from “${relatedTitle}”. Cross-check the Sources by issue list below.`
+      : undefined,
+  })
+  const shamanSources = [
+    ...pages.map((p, i) => ({
+      title: p.title,
+      url: p.path ? wikiArticleHref(p.path) : `#wiki-${i + 1}`,
+      source: 'Legal Shaman wiki',
+      snippet: '',
+      score: 1,
+    })),
+    ...sources.map((s, i) => ({
+      title: s.title || s.url || `Source ${i + 1}`,
+      url: s.url || `#source-${i + 1}`,
+      source: s.kind || 'source',
+      snippet: '',
+      score: 1,
+    })),
+  ]
+  const synthesised = Boolean(pack.researchBundle)
 
   return (
-    <article className="oslaw__rec" aria-label="Recommendation">
-      <header className="oslaw__rec-head">
-        <h2 className="oslaw__rec-title">Recommendation</h2>
-        <p className="oslaw__rec-origin">
-          {pack.researchBundle
-            ? 'Legal Shaman wiki + Third Eye research · signposting only'
-            : 'Legal Shaman wiki · signposting only'}
+    <article className="oslaw__rec" aria-label="Shaman Recommends">
+      <header className="oslaw__rec-hero">
+        <h2 className="oslaw__rec-hero-title">Shaman Recommends</h2>
+        <p className="oslaw__rec-hero-sub">
+          {synthesised
+            ? 'AI synthesised guidance with high confidence, drawn from indexed public guidance.'
+            : 'Grounded overview drawn from indexed Legal Shaman wiki guidance.'}
         </p>
       </header>
 
-      <section className="oslaw__rec-section">
-        <h3 className="oslaw__rec-h">What the sources say</h3>
-        <div className="oslaw__rec-body">{pack.answerOverview}</div>
-      </section>
+      <div className="oslaw__rec-panel">
+        <div className="oslaw__rec-card oslaw__rec-card--status">
+          <div className="oslaw__rec-status-row">
+            <h3 className="oslaw__rec-status-title">Shaman Recommends</h3>
+            <div className="oslaw__rec-badges">
+              <span className="oslaw__rec-badge oslaw__rec-badge--synth">
+                {synthesised ? 'AI synthesised' : 'Grounded overview'}
+              </span>
+              <span className="oslaw__rec-badge oslaw__rec-badge--conf">
+                {synthesised ? 'High confidence' : 'Signposting only'}
+              </span>
+            </div>
+          </div>
+          <p className="oslaw__rec-disclaimer-top">
+            Signposting only, not legal advice. This summary is drawn from indexed public guidance. For
+            personalised help, contact Citizens Advice or use Find a Lawyer.
+          </p>
+        </div>
+
+        <ShamanRecommends answer={shamanAnswer} sources={shamanSources} />
+      </div>
 
       {preflightNote ? (
         <p className="oslaw__rec-note" role="status">
@@ -161,38 +206,6 @@ function Recommendation({
         </section>
       ) : null}
 
-      {takeaways.length > 0 && (
-        <section className="oslaw__rec-section">
-          <h3 className="oslaw__rec-h">Key takeaways</h3>
-          <ul className="oslaw__rec-list">
-            {takeaways.map((b, i) => (
-              <li key={`${i}-${b.text.slice(0, 24)}`}>
-                {b.text}
-                {b.sourceUrl ? (
-                  <>
-                    {' '}
-                    <a href={b.sourceUrl} target="_blank" rel="noreferrer">
-                      {b.sourceTitle || 'source'} →
-                    </a>
-                  </>
-                ) : null}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {pack.recommendations.length > 0 && (
-        <section className="oslaw__rec-section">
-          <h3 className="oslaw__rec-h">Recommended next steps</h3>
-          <ul className="oslaw__rec-list">
-            {pack.recommendations.map((recommendation) => (
-              <li key={recommendation}>{recommendation}</li>
-            ))}
-          </ul>
-        </section>
-      )}
-
       {pack.options.length > 0 && (
         <section className="oslaw__rec-section">
           <h3 className="oslaw__rec-h">Your options</h3>
@@ -204,17 +217,6 @@ function Recommendation({
               </div>
             ))}
           </div>
-        </section>
-      )}
-
-      {pack.missingFacts.length > 0 && (
-        <section className="oslaw__rec-section">
-          <h3 className="oslaw__rec-h">What could change the guidance</h3>
-          <ul className="oslaw__rec-list">
-            {pack.missingFacts.map((fact) => (
-              <li key={fact}>{fact}</li>
-            ))}
-          </ul>
         </section>
       )}
 

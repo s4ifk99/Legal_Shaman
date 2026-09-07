@@ -125,6 +125,94 @@
   gap: 1.15rem;
 }
 
+.oslaw__rec-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.oslaw__rec-hero-title {
+  margin: 0;
+  font-family: var(--font-serif, Georgia, "Times New Roman", serif);
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.oslaw__rec-hero-sub {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+.oslaw__rec-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--ink-muted) 28%, transparent);
+}
+
+.oslaw__rec-card {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: 0.85rem;
+  background: var(--surface, #fff);
+}
+
+.oslaw__rec-card--status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.oslaw__rec-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.65rem;
+}
+
+.oslaw__rec-status-title {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 650;
+  color: var(--ink);
+}
+
+.oslaw__rec-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.oslaw__rec-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.oslaw__rec-badge--synth,
+.oslaw__rec-badge--conf {
+  background: color-mix(in srgb, #059669 14%, transparent);
+  color: #065f46;
+}
+
+.oslaw__rec-disclaimer-top {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
 .oslaw__rec-head {
   display: flex;
   flex-wrap: wrap;

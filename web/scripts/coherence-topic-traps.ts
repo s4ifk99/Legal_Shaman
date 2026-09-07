@@ -65,6 +65,7 @@ import {
 import { coverageSlotsFrom, isOfficialAuthoritySource, slotRetryQueries } from '../lib/matter/coverageSlots'
 import { compressLiveGoal, extractClientQuestions } from '../lib/coherence/clientQuestions'
 import { buildCaseLedOverview } from '../lib/coherence/caseBuilder'
+import { ensureShamanRecAnswer } from '../lib/coherence/shamanRecFormat'
 import { critiqueOverviewRecommendation } from '../lib/coherence/critiqueOverview'
 
 type TrapResult = { id: string; ok: boolean; detail: string }
@@ -2342,6 +2343,9 @@ Complaint went to stage two. Questions: does the Legal Ombudsman order fee refun
       })
       const blob = `${cased.answer}\n${cased.recommendations.join('\n')}`.toLowerCase()
       return (
+        assert(/what the sources say/i.test(cased.answer), 'missing What the sources say') ||
+        assert(/practical route/i.test(cased.answer), 'missing Practical route') ||
+        assert(/limits\s*\/\s*missing facts/i.test(cased.answer), 'missing Limits section') ||
         assert(/legal ombudsman|\bleo\b|sra/i.test(blob), 'missing LeO/SRA guidance') ||
         assert(/legal\s*shaman\.?com/i.test(cased.answer), 'missing LegalShaman.com note') ||
         assert(
@@ -2352,6 +2356,32 @@ Complaint went to stage two. Questions: does the Legal Ombudsman order fee refun
           !overviewUsesForbiddenPlaybook(cased.answer, frame, story),
           'overviewUsesForbiddenPlaybook true on solicitor overview',
         )
+      )
+    },
+  },
+  {
+    id: 'ensure-shaman-rec-formats-freeform-numbered-overview',
+    run: () => {
+      const freeform = `
+Your car was damaged by a police vehicle while at a garage. This is a consumer vehicle repair dispute.
+
+1. **Contact the Police**: Report the incident.
+2. **Document Everything**: Photos and estimates.
+3. **Consult Citizens Advice**: See [Consumer - Citizens Advice](https://www.citizensadvice.org.uk/consumer/).
+4. **Consider Legal Help**: Find a Lawyer if needed.
+`.trim()
+      const out = ensureShamanRecAnswer({
+        answer: freeform,
+        recommendations: ['Ask the garage for a written estimate'],
+        relatedTitle: 'Problem with a car repair',
+        relatedBody: 'Matched page on car repairs.',
+      })
+      return (
+        assert(/what the sources say/i.test(out), 'missing sources section') ||
+        assert(/practical route/i.test(out), 'missing practical section') ||
+        assert(/limits\s*\/\s*missing facts/i.test(out), 'missing limits') ||
+        assert(/•\s*Contact the Police/i.test(out), `numbered steps not bulleted: ${out.slice(0, 300)}`) ||
+        assert(/Problem with a car repair/i.test(out), 'missing related title')
       )
     },
   },

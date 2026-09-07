@@ -25,6 +25,7 @@ import {
 import { pickRecommendedFirms } from "@/lib/wiki/firm-recommendations";
 import { applyDworkinBoostToWikiHits } from "@/lib/wiki/dworkin-tags";
 import { retrieveDworkinSnippetsForOverview } from "@/lib/coherence/overviewDworkinPack";
+import { ensureShamanRecAnswer } from "@/lib/coherence/shamanRecFormat";
 import { KnowledgeRetriever, matterEvidenceToWikiHits } from "@/lib/matter/retrieve";
 import { titleAllowedOnGraph } from "@/lib/matter/issueGraphHits";
 import type { MatterFrame } from "@/lib/matter/types";
@@ -67,13 +68,12 @@ Rules:
 1. Treat the CASE FILE as frozen. Cover every primary and secondary issue on the graph. Never switch the matter to an excluded topic (e.g. discrimination, child arrangements) just because a neighbouring wiki page ranked.
 2. Treat WIKI CONTEXT and DWORKIN AUTHORITY as the curated foundation. A supplemental Third Eye / Penumbra bundle is unverified lead material: use it to fill gaps, name uncertainty, and never treat an unsupported external claim as established law.
 3. Open with one short line: the client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).
-4. Structure the answer as a case, in this order:
-   - The matter (what is actually live on these facts)
-   - Area of law (primary, then secondary strands such as withheld wages)
-   - Direct answers to each live Client question, in order (or an honest "not in the library" plus an admitted URL)
-   - What is live now vs later
-   - Next steps in time order, grounded in the sources
-   - Facts that would change the route
+4. Structure the answer with these exact plain-line section titles (no markdown #):
+   - What the sources say — short prose on what admitted sources cover for the live facts
+   - Practical route — 2–5 bullet lines (• ) with concrete next steps in time order
+   - Optional: a related wiki page title as its own section heading, then one short paragraph
+   - Limits / missing facts — signposting disclaimer and material unknowns
+   Do not dump a single numbered essay. Do not use markdown [text](url) links — write plain source names; URLs go in the JSON sources / freeHelp fields only.
 5. If they were already forced out, do not write as if they still have a quiet week before a notice date. If they have already left, do not pivot to stay-in-home, section 21, or illegal-eviction playbooks unless lock-out, still-in-occupation, or illegal eviction facts are live.
 6. Prefer concrete next steps grounded in admitted pages or admitted Third Eye / official URLs. Prefer rule-tagged sources for what to do, principle-tagged sources for fairness questions, and treat policy-tagged sources as background.
 7. Do NOT predict win/lose, entitlement, or claim strength. Do not say solid case, strong case, good case, meritorious, likely entitled, or "you have a claim". Frame how-strong questions as factors, evidence gaps, and next documents — not prospects. Do NOT say "you should definitely".
@@ -507,9 +507,19 @@ function toPackage(
     ? parsedMissingFacts
     : ['Exact dates, documents, contract or notice wording, and the outcome you want.'];
   const followUpPrompts = cleanList(guidance?.followUpPrompts, 3);
+  const relatedTitle = hits[0]?.title;
+  const structuredAnswer = ensureShamanRecAnswer({
+    answer,
+    recommendations,
+    missingFacts,
+    relatedTitle,
+    relatedBody: relatedTitle
+      ? `Related guidance from “${relatedTitle}”. Cross-check the cited Sources by issue list.`
+      : undefined,
+  });
 
   return {
-    answerOverview: answer,
+    answerOverview: structuredAnswer,
     bullets: recs.slice(0, 5).map((t) => ({
       text: t,
       sourceTitle: hits[0]?.title || "Legal Shaman wiki",
