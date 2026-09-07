@@ -65,7 +65,26 @@ function homelessStory(story: string): boolean {
   return /nowhere else|homeless|tonight|emergency (?:housing|alternative)|sofa to crash/i.test(story)
 }
 
+/**
+ * Live ask is about the client's solicitors / LeO / SRA / fees — not the
+ * underlying employment dispute. Incidental "holiday pay" must not open wages slots.
+ */
+export function storyLooksSolicitorConductComplaint(story: string): boolean {
+  const s = story || ""
+  const firmConduct =
+    /\b(legal ombudsman|\bleo\b|solicitors?\s+regulation\s+authority|\bsra\b|complain(?:t|ing|ed)?\s+(?:about\s+)?(?:my\s+)?(?:solicitor|law\s+firm|legal\s+adviser)|trainee\s+solicitor|without\s+prejudice\s+letter|success\s+fee|conditional\s+fee|\bcfa\b|stage\s+two\s+complaint|supervision\s+records?|subject\s+access\s+request)\b/i.test(
+      s,
+    )
+  if (!firmConduct) return false
+  const askingAboutFirm =
+    /\b(legal ombudsman|\bleo\b|\bsra\b|refund(?:s)?\s+of\s+fees|recover(?:ed|ing)?\s+fees|strongest\s+limb|report(?:ing)?\s+to\s+the\s+sra|complain(?:t|ing)\s+(?:about|to)|invoice\s+remained\s+payable|bot[- ]?like|posing\s+as\s+[“"]?clients)\b/i.test(
+      s,
+    )
+  return askingAboutFirm || (firmConduct && /\b(my\s+(?:solicitor|firm)|the\s+firm\s+(?:sent|charged|advised))\b/i.test(s))
+}
+
 function wagesStory(story: string): boolean {
+  if (storyLooksSolicitorConductComplaint(story)) return false
   return /wages|holiday pay|ssp|statutory sick|last pay/i.test(story)
 }
 
@@ -176,7 +195,35 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
     })
   }
 
-  if (wagesStory(story) || (slugs.has("employment") && primary === "housing")) {
+  if (storyLooksSolicitorConductComplaint(story)) {
+    slots.push({
+      id: "solicitor_complaint_leo",
+      label: "Complaining about a solicitor / Legal Ombudsman",
+      cover: [
+        /legal ombudsman|complain(?:t|ing)? about (?:a )?(?:legal adviser|solicitor)|solicitor (?:complaint|fees|costs|service)|refund(?:s)? of fees|poor service|billing/i,
+      ],
+      exaQuery:
+        "England complain about a legal adviser Legal Ombudsman refund fees compensation GOV.UK Citizens Advice",
+    })
+    slots.push({
+      id: "sra_conduct",
+      label: "SRA / solicitor conduct and supervision",
+      cover: [
+        /\bsra\b|solicitors regulation|report (?:a )?solicitor|supervision|trainee solicitor|integrity|dishonest|fake reviews|professional standards/i,
+      ],
+      exaQuery:
+        "England report solicitor to SRA Solicitors Regulation Authority supervision trainee solicitor Professional Standards",
+    })
+    slots.push({
+      id: "solicitor_costs_fees",
+      label: "Solicitor costs / success fees",
+      cover: [
+        /success fee|conditional fee|\bcfa\b|solicitor (?:bill|invoice|fees|costs)|costs complaint|charging order on settlement/i,
+      ],
+      exaQuery:
+        "England solicitor success fee conditional fee agreement challenge bill Legal Ombudsman costs",
+    })
+  } else if (wagesStory(story) || (slugs.has("employment") && primary === "housing")) {
     slots.push({
       id: "wages_pay",
       label: "Last wages / holiday pay",
@@ -188,7 +235,7 @@ export function coverageSlotsFrom(frame: IssueGraph, story: string): CoverageSlo
     })
   }
 
-  if (primary === "employment" && !slugs.has("housing")) {
+  if (primary === "employment" && !slugs.has("housing") && !storyLooksSolicitorConductComplaint(story)) {
     slots.push({
       id: "employment_core",
       label: "Employment rights",

@@ -28,7 +28,15 @@ export function gapIntentsForFrame(
   ) {
     out.push("occupier no written tenancy service occupancy");
   }
-  if (slugs.has("employment") && /wage|holiday pay|sick pay|ssp/i.test(story) && !/holiday pay|unpaid wage|acas/.test(blob)) {
+  if (
+    slugs.has("employment") &&
+    /wage|holiday pay|sick pay|ssp/i.test(story) &&
+    !/holiday pay|unpaid wage|acas/.test(blob) &&
+    // Do not gap-fill holiday pay when the live dispute is solicitor conduct / LeO / SRA
+    !/\b(legal ombudsman|\bleo\b|\bsra\b|success\s+fee|complain(?:t|ing)\s+(?:about\s+)?(?:my\s+)?solicitor|trainee\s+solicitor)\b/i.test(
+      story,
+    )
+  ) {
     out.push("unpaid wages holiday pay ACAS");
   }
   if (/work laptop|employer(?:'s)? (?:work )?laptop|member of my staff/i.test(story)) {

@@ -2239,6 +2239,70 @@ const traps: Array<{ id: string; run: () => string | null }> = [
       )
     },
   },
+  {
+    id: 'solicitor-leo-sra-not-holiday-pay-sources',
+    run: () => {
+      const story = `
+The firm sent a without prejudice letter valuing my claim at over £51,944. They then advised low merits and a £10k settlement.
+They charged their success fee including statutory holiday pay that was never in dispute. Matter run by a trainee solicitor; SAR showed no supervision records.
+Complaint went to stage two. Questions: does the Legal Ombudsman order fee refunds? Strongest limb? Is trainee supervision LeO or SRA? Downside to reporting to the SRA at the same time?
+`.trim()
+      const frame: MatterFrame = {
+        matterId: 'trap-leo',
+        primaryIssues: [{ slug: 'employment', confidence: 0.8, reason: 'trap' }],
+        secondaryIssues: [],
+        parties: [],
+        capacities: [],
+        relationships: [],
+        events: [],
+        objectives: ['Recover solicitor fees via Legal Ombudsman'],
+        concepts: ['legal ombudsman', 'success fee', 'trainee solicitor'],
+        exclusions: [],
+        ambiguities: [],
+        overallConfidence: 0.8,
+        resolutionStatus: 'resolved',
+        provenance: {},
+        retrievalScope: ['employment'],
+      }
+      const slots = coverageSlotsFrom(frame, story)
+      const plan = buildConceptRetrievalPlan(frame, story)
+      const slotIds = slots.map((s) => s.id).join(',')
+      return (
+        assert(
+          !slots.some((s) => s.id === 'wages_pay' || s.id === 'employment_core'),
+          `holiday/employment slots still open: ${slotIds}`,
+        ) ||
+        assert(
+          slots.some((s) => s.id === 'solicitor_complaint_leo'),
+          `missing LeO slot: ${slotIds}`,
+        ) ||
+        assert(
+          slots.some((s) => s.id === 'sra_conduct'),
+          `missing SRA slot: ${slotIds}`,
+        ) ||
+        assert(
+          plan.clusterIds.includes('solicitor_conduct_leo_sra'),
+          `cluster missing: ${plan.clusterIds.join(',')}`,
+        ) ||
+        assert(
+          !plan.clusterIds.includes('employment_wages_hours'),
+          `wages cluster still fired: ${plan.clusterIds.join(',')}`,
+        ) ||
+        assert(
+          plan.intents.some((i) => /legal ombudsman|complain about a legal|sra/i.test(i)),
+          `missing LeO/SRA intents: ${plan.intents.join(' | ')}`,
+        ) ||
+        assert(
+          !plan.intents.some((i) => /holiday pay|working time|rest breaks/i.test(i)),
+          `holiday intents still present: ${plan.intents.join(' | ')}`,
+        ) ||
+        assert(
+          plan.titleExclusions.some((re) => re.test('Holiday pay rights')),
+          'titleExclusion does not drop holiday pay pages',
+        )
+      )
+    },
+  },
 ]
 
 async function main() {

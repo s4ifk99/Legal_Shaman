@@ -79,11 +79,23 @@ export function retrieveForMatter(opts: {
       if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
       if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
       const existing = byId.get(hit.id);
-      const boost = /illegal evict|homeless|occupi|service occup|tied accommodation|no tenancy|holiday pay|unpaid wage/i.test(
-        hit.title,
-      )
-        ? 1.3
-        : 1;
+      const solicitorConduct =
+        /\b(legal ombudsman|\bleo\b|\bsra\b|success\s+fee|complain(?:t|ing)\s+(?:about\s+)?(?:my\s+)?solicitor|trainee\s+solicitor)\b/i.test(
+          submission,
+        )
+      const boost = solicitorConduct
+        ? /legal ombudsman|complain about a legal|solicitors regulation|\bsra\b|success fee|conditional fee/i.test(
+            hit.title,
+          )
+          ? 1.35
+          : /holiday pay|unpaid wage|working time|rest break/i.test(hit.title)
+            ? 0.55
+            : 1
+        : /illegal evict|homeless|occupi|service occup|tied accommodation|no tenancy|holiday pay|unpaid wage/i.test(
+              hit.title,
+            )
+          ? 1.3
+          : 1
       const row = {
         id: hit.id,
         title: hit.title,
@@ -132,7 +144,21 @@ export function retrieveForMatter(opts: {
       if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
       if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
       const existing = byId.get(hit.id);
-      const boost = /illegal evict|homeless|occupi|holiday pay|unpaid wage/i.test(hit.title) ? 1.35 : 1.15;
+      const solicitorConduct =
+        /\b(legal ombudsman|\bleo\b|\bsra\b|success\s+fee|complain(?:t|ing)\s+(?:about\s+)?(?:my\s+)?solicitor|trainee\s+solicitor)\b/i.test(
+          submission,
+        );
+      const boost = solicitorConduct
+        ? /legal ombudsman|complain about a legal|solicitors regulation|\bsra\b|success fee|conditional fee/i.test(
+            hit.title,
+          )
+          ? 1.35
+          : /holiday pay|unpaid wage|working time|rest break/i.test(hit.title)
+            ? 0.55
+            : 1.15
+        : /illegal evict|homeless|occupi|holiday pay|unpaid wage/i.test(hit.title)
+          ? 1.35
+          : 1.15;
       const row = {
         id: hit.id,
         title: hit.title,
