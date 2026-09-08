@@ -18,7 +18,8 @@ import {
   isPropertyDamageClaimText,
 } from '@/lib/coherence/matchFreeServices'
 import { SraAttribution } from '@/components/sra-attribution'
-import { sraRegisterFootnote } from '@/lib/coherence/sraRegisterFootnote'
+import { sraLaneAlert, sraRegisterFootnote } from '@/lib/coherence/sraRegisterFootnote'
+import { captureProductEvent } from '@/components/analytics/posthog-provider'
 import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './ServicesView.css'
 
@@ -687,16 +688,33 @@ export function ServicesView({
 
   // Prefer live SRA register hits from HelpPack. Agent solicitors only win when they
   // actually include live SRA rows — never hide pack firms behind an empty agent list.
-  const solicitorRows: Row[] =
+  const solicitorRows: Row[] = (
     helpMatchHasLiveSra && agentSolRows.length > 0
       ? agentSolRows
       : sraRows.length > 0
         ? sraRows
         : agentSolRows
+  ).slice().sort(
+    (a, b) =>
+      (b.phone ? 1 : 0) - (a.phone ? 1 : 0) ||
+      (b.score || 0) - (a.score || 0) ||
+      a.title.localeCompare(b.title),
+  )
 
   const directoryRows: Row[] = agentDirRows.length > 0 ? agentDirRows : dirRows
 
   const showSraSolicitors = solicitorRows.some((r) => r.sraId) || sraRows.length > 0
+  const sraAlert = !loading ? sraLaneAlert(pack?.meta.sra, solicitorRows.length) : null
+
+  useEffect(() => {
+    if (loading || !pack || solicitorRows.length > 0) return
+    captureProductEvent('matching_help_sra_empty', {
+      matter_type: helpSession.matterType,
+      taxonomy_slug: helpSession.taxonomySlug || '',
+      empty_reason: pack.meta.sra?.emptyReason || 'unknown',
+      sra_reachable: Boolean(pack.meta.sra?.reachable),
+    })
+  }, [loading, pack, solicitorRows.length, helpSession.matterType, helpSession.taxonomySlug])
 
   const empty = !loading && !freeRows.length && !solicitorRows.length && !directoryRows.length
 
@@ -721,7 +739,7 @@ export function ServicesView({
           <div className="services__matches">
             <h2 className="services__band-title">Who to contact</h2>
             <p className="services__band-lead">
-              Curated contacts for this dispute — free help, then SRA-regulated firms.
+              Curated contacts for this dispute — SRA-regulated firms and matched free help.
             </p>
 
             {loading ? (
@@ -730,13 +748,19 @@ export function ServicesView({
               <p className="services__blurb">No matches yet — try adding a place or more detail.</p>
             ) : (
               <>
-                <Section
-                  title="Free help"
-                  lead="Charities and helplines matched to this dispute type."
-                  rows={freeRows}
-                  variant="free"
-                  onOpenSraFirm={onOpenSraFirm}
-                />
+                {sraAlert ? (
+                  <div
+                    className={
+                      sraAlert.tone === 'alert'
+                        ? 'services__sra-banner services__sra-banner--alert'
+                        : 'services__sra-banner'
+                    }
+                    role={sraAlert.tone === 'alert' ? 'alert' : 'status'}
+                  >
+                    <p className="services__sra-banner-title">{sraAlert.title}</p>
+                    <p className="services__sra-banner-detail">{sraAlert.detail}</p>
+                  </div>
+                ) : null}
                 <Section
                   title="SRA-regulated solicitors"
                   lead={
@@ -744,23 +768,27 @@ export function ServicesView({
                       ? session.locationHint
                         ? `Firms for ${session.locationHint} and your dispute type — confirm they take your matter.`
                         : 'Firms from the SRA register for this dispute type — add a town or postcode to rank nearby.'
-                      : pack?.meta.sra && !pack.meta.sra.reachable
-                        ? 'SRA directory is temporarily unavailable — use the official search links below, or try again shortly.'
-                        : 'No named firms matched yet — add a town or postcode, or use the official directories below.'
+                      : undefined
                   }
                   rows={solicitorRows}
                   onOpenSraFirm={onOpenSraFirm}
                 />
-                {!loading && !solicitorRows.length ? (
+                {!solicitorRows.length && !sraAlert ? (
                   <p className="services__empty-solicitors" role="status">
-                    SRA firm contacts will appear here when the register returns a match for this dispute
-                    type.
+                    No named SRA firms matched this dispute yet.
                   </p>
                 ) : null}
+                <Section
+                  title="Free help"
+                  lead="Charities and helplines matched to this dispute type."
+                  rows={freeRows}
+                  variant="free"
+                  onOpenSraFirm={onOpenSraFirm}
+                />
                 {directoryRows.length > 0 && (
                   <Section
                     title="Official directories"
-                    lead="Search the registers yourself if you want a wider list."
+                    lead="Secondary — search the registers yourself if you need a wider list. Not a substitute for named SRA firms above."
                     rows={directoryRows}
                     onOpenSraFirm={onOpenSraFirm}
                   />
