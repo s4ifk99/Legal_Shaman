@@ -537,9 +537,6 @@ export function ServicesView({
   pageNavigation,
 }: Props) {
   const [pack, setPack] = useState<HelpPack | null>(null)
-  const [cachedHelp, setCachedHelp] = useState<
-    NonNullable<SessionState['penumbraResearch']>['bundle']['freeResources']
-  >([])
   const [loading, setLoading] = useState(true)
   const helpSession = useMemo(() => matchingSessionForHelp(session), [session])
   const helpFrames = useMemo(
@@ -560,27 +557,6 @@ export function ServicesView({
       cancelled = true
     }
   }, [helpFrames, helpSession])
-
-  useEffect(() => {
-    let cancelled = false
-    const matterType = helpSession.matterType || 'unknown'
-    void (async () => {
-      try {
-        const res = await fetch(
-          `/api/coherence/help-candidates?matterType=${encodeURIComponent(matterType)}`,
-        )
-        if (!res.ok) return
-        const data = (await res.json()) as { resources?: typeof cachedHelp }
-        if (cancelled || !Array.isArray(data.resources)) return
-        setCachedHelp(data.resources)
-      } catch {
-        /* Matching Help still works from indexed SRA + session bundle */
-      }
-    })()
-    return () => {
-      cancelled = true
-    }
-  }, [helpSession.matterType])
 
   const signRows: Row[] =
     pack?.signposts.map((s) => ({
@@ -673,42 +649,6 @@ export function ServicesView({
       phone: s.phone,
     })) ?? []
 
-  const thirdEyeHelp = (() => {
-    const seen = new Set<string>()
-    const merged = [
-      ...(helpSession.penumbraResearch?.bundle?.freeResources || []),
-      ...cachedHelp,
-    ].filter((resource) => {
-      if (!(resource.matterType === helpSession.matterType || resource.matterType === 'unknown')) {
-        return false
-      }
-      const story = [...helpSession.rawInputs, helpSession.whatHappened, helpSession.goal].join(' ')
-      if (!freeHelpAdmissibleOnGeometry(resource.title, `${resource.description} ${resource.url}`, story)) {
-        return false
-      }
-      const key = resource.url.replace(/\/+$/, '').toLowerCase()
-      if (seen.has(key)) return false
-      seen.add(key)
-      return true
-    })
-    const toRow = (
-      resource: (typeof merged)[number],
-      band: 'free' | 'paid',
-    ): Row => ({
-      id: `aramb-resource:${band}:${resource.id}`,
-      type: band === 'paid' ? 'Directory · unverified' : 'Free help · pending review',
-      title: resource.title,
-      blurb: compactBlurb(resource.description || '', 120),
-      relevance: band === 'free' ? 'Cached lead — verify before you rely on it' : 'Directory page — not a named firm',
-      url: resource.url,
-      phone: resource.phone,
-    })
-    return {
-      free: merged.filter((r) => r.costBand !== 'paid').map((r) => toRow(r, 'free')),
-      paid: merged.filter((r) => r.costBand === 'paid').map((r) => toRow(r, 'paid')),
-    }
-  })()
-
   const agentDirRows: Row[] =
     helpMatch?.directories.map((s) => ({
       id: s.id,
@@ -758,13 +698,7 @@ export function ServicesView({
 
   const showSraSolicitors = solicitorRows.some((r) => r.sraId) || sraRows.length > 0
 
-  const empty =
-    !loading &&
-    !freeRows.length &&
-    !solicitorRows.length &&
-    !directoryRows.length &&
-    !thirdEyeHelp.free.length &&
-    !thirdEyeHelp.paid.length
+  const empty = !loading && !freeRows.length && !solicitorRows.length && !directoryRows.length
 
   return (
     <div className="services">
@@ -787,7 +721,7 @@ export function ServicesView({
           <div className="services__matches">
             <h2 className="services__band-title">Who to contact</h2>
             <p className="services__band-lead">
-              Name, phone and relevance — verify each organisation before you rely on it.
+              Curated contacts for this dispute — free help, then SRA-regulated firms.
             </p>
 
             {loading ? (
@@ -798,7 +732,7 @@ export function ServicesView({
               <>
                 <Section
                   title="Free help"
-                  lead="Charities and helplines you can call first."
+                  lead="Charities and helplines matched to this dispute type."
                   rows={freeRows}
                   variant="free"
                   onOpenSraFirm={onOpenSraFirm}
@@ -823,28 +757,11 @@ export function ServicesView({
                     type.
                   </p>
                 ) : null}
-                {thirdEyeHelp.free.length > 0 && (
-                  <Section
-                    title="Extra free leads"
-                    lead="Cached charity and helpline pages — not yet verified."
-                    rows={thirdEyeHelp.free}
-                    variant="free"
-                    onOpenSraFirm={onOpenSraFirm}
-                  />
-                )}
                 {directoryRows.length > 0 && (
                   <Section
                     title="Official directories"
                     lead="Search the registers yourself if you want a wider list."
                     rows={directoryRows}
-                    onOpenSraFirm={onOpenSraFirm}
-                  />
-                )}
-                {thirdEyeHelp.paid.length > 0 && (
-                  <Section
-                    title="More find-a-solicitor links"
-                    lead="Unverified directory pages — they do not replace the SRA firms above."
-                    rows={thirdEyeHelp.paid}
                     onOpenSraFirm={onOpenSraFirm}
                   />
                 )}
