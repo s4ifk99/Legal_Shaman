@@ -32,6 +32,7 @@ export async function POST(req: Request) {
     wantEmployment?: boolean;
     wantImmigration?: boolean;
     wantMotoring?: boolean;
+    wantDefamation?: boolean;
     taxonomySlug?: string | null;
   };
   try {
@@ -52,6 +53,7 @@ export async function POST(req: Request) {
     wantEmployment: body.wantEmployment,
     wantImmigration: body.wantImmigration,
     wantMotoring: body.wantMotoring,
+    wantDefamation: body.wantDefamation,
   });
   const {
     wantImmigration,
@@ -60,6 +62,7 @@ export async function POST(req: Request) {
     wantHousing,
     wantEmployment,
     wantMotoring,
+    wantDefamation,
   } = flags;
   const london = /\blondon\b/i.test(hint);
   const countyPrefixes = postcodePrefixesForLocation(hint);
@@ -72,17 +75,19 @@ export async function POST(req: Request) {
       ? countyPrefixes.join("|")
       : hint.toUpperCase().match(/\b([A-Z]{1,2}\d{1,2}[A-Z]?)\b/)?.[1] || null;
   const parkingConsumer = wantConsumer && !wantMotoring;
-  const minScore = wantMotoring
+  const minScore = wantDefamation
     ? 16
-    : parkingConsumer
+    : wantMotoring
       ? 16
-      : wantConsumer || wantCar
-        ? 18
-        : wantImmigration
-          ? 16
-          : wantHousing && !hint
-            ? 20
-            : 12;
+      : parkingConsumer
+        ? 16
+        : wantConsumer || wantCar
+          ? 18
+          : wantImmigration
+            ? 16
+            : wantHousing && !hint
+              ? 20
+              : 12;
 
   async function typesenseHits() {
     return searchSraOrganisationsTypesense({ flags, limit, minScore });
@@ -148,6 +153,16 @@ export async function POST(req: Request) {
               OR search_text ILIKE '%pcn%'
             ) THEN 32 ELSE 0 END
             + CASE WHEN $11::boolean AND work_area::text ILIKE '%Consumer%' THEN 12 ELSE 0 END
+            + CASE WHEN $12::boolean AND (
+              work_area::text ILIKE '%Defamation%'
+              OR work_area::text ILIKE '%Libel%'
+              OR work_area::text ILIKE '%Slander%'
+            ) THEN 36 ELSE 0 END
+            + CASE WHEN $12::boolean AND (
+              work_area::text ILIKE '%Media and Entertainment%'
+              OR work_area::text ILIKE '%"Media"%'
+            ) THEN 24 ELSE 0 END
+            + CASE WHEN $12::boolean AND work_area::text ILIKE '%"Litigation%' THEN 12 ELSE 0 END
             + CASE WHEN $2::boolean AND postcode ~* '^(E|EC|N|NW|SE|SW|W|WC)[0-9]' THEN 12 ELSE 0 END
             + CASE WHEN $2::boolean AND postcode ~* '^(BR|CR|DA|EN|HA|IG|KT|RM|SM|TW|UB|WD)[0-9]' THEN 8 ELSE 0 END
             + CASE WHEN $3::text <> '' AND city ILIKE '%' || $3 || '%' THEN 12 ELSE 0 END
@@ -197,6 +212,13 @@ export async function POST(req: Request) {
             OR search_text ILIKE '%road traffic%'
             OR search_text ILIKE '%parking ticket%'
           ))
+          OR ($12::boolean AND (
+            work_area::text ILIKE '%Defamation%'
+            OR work_area::text ILIKE '%Libel%'
+            OR work_area::text ILIKE '%Slander%'
+            OR work_area::text ILIKE '%Media and Entertainment%'
+            OR work_area::text ILIKE '%"Litigation%'
+          ))
           OR ($3::text <> '' AND city ILIKE '%' || $3 || '%')
           OR ($4::text IS NOT NULL AND $4::text <> '' AND upper(postcode) ~ ('^(' || $4 || ')[0-9A-Z]?'))
       ) ranked
@@ -220,6 +242,7 @@ export async function POST(req: Request) {
       wantCar,
       minScore,
       wantMotoring,
+      wantDefamation,
     ]);
 
     return NextResponse.json({

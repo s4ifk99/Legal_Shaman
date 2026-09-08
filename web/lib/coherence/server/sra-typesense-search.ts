@@ -22,9 +22,18 @@ export type CoherenceSraHit = {
 function typesenseQueryForFlags(
   flags: Pick<
     SraSearchPayload,
-    "wantHousing" | "wantEmployment" | "wantImmigration" | "wantConsumer" | "wantCar" | "wantMotoring" | "query" | "matterType"
+    | "wantHousing"
+    | "wantEmployment"
+    | "wantImmigration"
+    | "wantConsumer"
+    | "wantCar"
+    | "wantMotoring"
+    | "wantDefamation"
+    | "query"
+    | "matterType"
   >,
 ): string {
+  if (flags.wantDefamation) return "defamation libel media litigation reputation";
   if (flags.wantHousing) return "housing landlord tenant eviction residential property";
   if (flags.wantEmployment) return "employment workplace tribunal wages";
   if (flags.wantImmigration) return "immigration asylum nationality visa";
@@ -82,6 +91,7 @@ export async function searchSraOrganisationsTypesense(opts: {
     | "wantConsumer"
     | "wantCar"
     | "wantMotoring"
+    | "wantDefamation"
     | "query"
     | "matterType"
   >;
