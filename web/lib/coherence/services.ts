@@ -210,7 +210,7 @@ export async function buildHelpPack(
     v1Wiki,
     signposts,
     legalAid,
-    sraFirms,
+    sraMatch,
     probono,
     directories,
     phase2Info,
@@ -230,6 +230,18 @@ export async function buildHelpPack(
     v1WikiInfo(),
     sraStatus(),
   ])
+
+  const sraFirms = sraMatch.firms
+  const sraLaneMeta: SraSearchMeta = {
+    ...sraMeta,
+    hitsReturned: sraMatch.search.hitsReturned ?? sraFirms.length,
+    emptyReason: sraMatch.search.emptyReason,
+    error: sraMatch.search.error || sraMeta.error,
+    reachable:
+      sraMatch.search.emptyReason === 'unavailable' || sraMatch.search.emptyReason === 'http_error'
+        ? false
+        : sraMeta.reachable,
+  }
 
   return {
     phase2Wiki,
@@ -252,7 +264,7 @@ export async function buildHelpPack(
           }
         : undefined,
       v1: v1Meta,
-      sra: sraMeta,
+      sra: sraLaneMeta,
     },
   }
 }

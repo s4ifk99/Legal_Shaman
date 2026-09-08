@@ -9,6 +9,7 @@ import {
 import { sraQuery } from "@/lib/coherence/server/sra-db";
 import { searchSraOrganisationsTypesense } from "@/lib/coherence/server/sra-typesense-search";
 import {
+  hasPracticeRoute,
   postcodePrefixesForLocation,
   resolveSraSearchFlags,
 } from "@/lib/coherence/sraQuery";
@@ -33,6 +34,11 @@ export async function POST(req: Request) {
     wantImmigration?: boolean;
     wantMotoring?: boolean;
     wantDefamation?: boolean;
+    wantFamily?: boolean;
+    wantDebt?: boolean;
+    wantPersonalInjury?: boolean;
+    wantLitigation?: boolean;
+    wantCrime?: boolean;
     taxonomySlug?: string | null;
   };
   try {
@@ -54,6 +60,11 @@ export async function POST(req: Request) {
     wantImmigration: body.wantImmigration,
     wantMotoring: body.wantMotoring,
     wantDefamation: body.wantDefamation,
+    wantFamily: body.wantFamily,
+    wantDebt: body.wantDebt,
+    wantPersonalInjury: body.wantPersonalInjury,
+    wantLitigation: body.wantLitigation,
+    wantCrime: body.wantCrime,
   });
   const {
     wantImmigration,
@@ -63,7 +74,21 @@ export async function POST(req: Request) {
     wantEmployment,
     wantMotoring,
     wantDefamation,
+    wantFamily,
+    wantDebt,
+    wantPersonalInjury,
+    wantLitigation,
+    wantCrime,
   } = flags;
+
+  if (!hasPracticeRoute(flags) && !hint) {
+    return NextResponse.json({
+      hits: [],
+      error: "no_practice_route",
+      emptyReason: "no_practice_route",
+    });
+  }
+
   const london = /\blondon\b/i.test(hint);
   const countyPrefixes = postcodePrefixesForLocation(hint);
   const cityNeedle =
@@ -75,19 +100,21 @@ export async function POST(req: Request) {
       ? countyPrefixes.join("|")
       : hint.toUpperCase().match(/\b([A-Z]{1,2}\d{1,2}[A-Z]?)\b/)?.[1] || null;
   const parkingConsumer = wantConsumer && !wantMotoring;
-  const minScore = wantDefamation
-    ? 16
-    : wantMotoring
+  const minScore = wantDefamation || wantFamily || wantDebt || wantPersonalInjury || wantLitigation
+    ? 14
+    : wantCrime && !wantMotoring
       ? 16
-      : parkingConsumer
+      : wantMotoring
         ? 16
-        : wantConsumer || wantCar
-          ? 18
-          : wantImmigration
-            ? 16
-            : wantHousing && !hint
-              ? 20
-              : 12;
+        : parkingConsumer
+          ? 16
+          : wantConsumer || wantCar
+            ? 18
+            : wantImmigration
+              ? 16
+              : wantHousing && !hint
+                ? 20
+                : 12;
 
   async function typesenseHits() {
     return searchSraOrganisationsTypesense({ flags, limit, minScore });
@@ -104,10 +131,17 @@ export async function POST(req: Request) {
         timeoutMs: 15_000,
       });
     }
-    return NextResponse.json({ hits: [], error: "sra_directory_unavailable" });
+    return NextResponse.json({
+      hits: [],
+      error: "sra_directory_unavailable",
+      emptyReason: "unavailable",
+    });
   }
 
   try {
+    // $1 immigration $2 london $3 city $4 postcode $5 limit
+    // $6 consumer $7 housing $8 employment $9 car $10 minScore $11 motoring
+    // $12 defamation $13 family $14 debt $15 PI $16 litigation $17 crime
     const sql = `
       SELECT * FROM (
         SELECT
@@ -163,11 +197,32 @@ export async function POST(req: Request) {
               OR work_area::text ILIKE '%"Media"%'
             ) THEN 24 ELSE 0 END
             + CASE WHEN $12::boolean AND work_area::text ILIKE '%"Litigation%' THEN 12 ELSE 0 END
+            + CASE WHEN $13::boolean AND (
+              work_area::text ILIKE '%Family%'
+              OR work_area::text ILIKE '%Children%'
+              OR work_area::text ILIKE '%Matrimonial%'
+              OR work_area::text ILIKE '%Divorce%'
+            ) THEN 28 ELSE 0 END
+            + CASE WHEN $14::boolean AND (
+              work_area::text ILIKE '%Debt%'
+              OR work_area::text ILIKE '%Insolvency%'
+              OR work_area::text ILIKE '%Bankruptcy%'
+            ) THEN 28 ELSE 0 END
+            + CASE WHEN $15::boolean AND (
+              work_area::text ILIKE '%Personal Injury%'
+              OR work_area::text ILIKE '%Clinical Negligence%'
+              OR work_area::text ILIKE '%Medical Negligence%'
+            ) THEN 28 ELSE 0 END
+            + CASE WHEN $16::boolean AND work_area::text ILIKE '%"Litigation%' THEN 22 ELSE 0 END
+            + CASE WHEN $17::boolean AND NOT $11::boolean AND (
+              work_area::text ILIKE '%"Criminal"%'
+              OR work_area::text ILIKE '%Crime -%'
+            ) THEN 32 ELSE 0 END
             + CASE WHEN $2::boolean AND postcode ~* '^(E|EC|N|NW|SE|SW|W|WC)[0-9]' THEN 12 ELSE 0 END
             + CASE WHEN $2::boolean AND postcode ~* '^(BR|CR|DA|EN|HA|IG|KT|RM|SM|TW|UB|WD)[0-9]' THEN 8 ELSE 0 END
             + CASE WHEN $3::text <> '' AND city ILIKE '%' || $3 || '%' THEN 12 ELSE 0 END
             + CASE WHEN $4::text IS NOT NULL AND $4::text <> '' AND upper(postcode) ~ ('^(' || $4 || ')[0-9A-Z]?') THEN 18 ELSE 0 END
-            + CASE WHEN COALESCE(phone, '') <> '' THEN 2 ELSE 0 END
+            + CASE WHEN COALESCE(phone, '') <> '' THEN 8 ELSE 0 END
             + CASE WHEN authorisation_status IS NULL OR authorisation_status ILIKE '%authoris%' THEN 1 ELSE 0 END
             - CASE WHEN NOT $1::boolean AND work_area::text ILIKE '%Immigration%' THEN 14 ELSE 0 END
             - CASE WHEN $6::boolean AND NOT $11::boolean AND work_area::text NOT ILIKE '%Consumer%'
@@ -219,13 +274,34 @@ export async function POST(req: Request) {
             OR work_area::text ILIKE '%Media and Entertainment%'
             OR work_area::text ILIKE '%"Litigation%'
           ))
+          OR ($13::boolean AND (
+            work_area::text ILIKE '%Family%'
+            OR work_area::text ILIKE '%Children%'
+            OR work_area::text ILIKE '%Matrimonial%'
+            OR work_area::text ILIKE '%Divorce%'
+          ))
+          OR ($14::boolean AND (
+            work_area::text ILIKE '%Debt%'
+            OR work_area::text ILIKE '%Insolvency%'
+            OR work_area::text ILIKE '%Bankruptcy%'
+          ))
+          OR ($15::boolean AND (
+            work_area::text ILIKE '%Personal Injury%'
+            OR work_area::text ILIKE '%Clinical Negligence%'
+            OR work_area::text ILIKE '%Medical Negligence%'
+          ))
+          OR ($16::boolean AND work_area::text ILIKE '%"Litigation%')
+          OR ($17::boolean AND (
+            work_area::text ILIKE '%"Criminal"%'
+            OR work_area::text ILIKE '%Crime -%'
+          ))
           OR ($3::text <> '' AND city ILIKE '%' || $3 || '%')
           OR ($4::text IS NOT NULL AND $4::text <> '' AND upper(postcode) ~ ('^(' || $4 || ')[0-9A-Z]?'))
       ) ranked
       WHERE score >= $10::int
       ORDER BY score DESC,
-        work_area_count ASC,
         CASE WHEN COALESCE(phone, '') <> '' THEN 0 ELSE 1 END,
+        work_area_count ASC,
         name ASC
       LIMIT $5
     `;
@@ -243,22 +319,30 @@ export async function POST(req: Request) {
       minScore,
       wantMotoring,
       wantDefamation,
+      wantFamily,
+      wantDebt,
+      wantPersonalInjury,
+      wantLitigation,
+      wantCrime,
     ]);
 
+    const hits = result.rows
+      .map((r) => ({
+        sraId: r.sra_id,
+        name: r.name,
+        city: r.city,
+        postcode: r.postcode,
+        phone: r.phone,
+        website: r.website,
+        profileUrl: r.profile_url,
+        workArea: r.work_area,
+        score: Number(r.score) || 0,
+      }))
+      .filter((hit) => sraOrganisationAdmissible(String(hit.name || "")));
+
     return NextResponse.json({
-      hits: result.rows
-        .map((r) => ({
-          sraId: r.sra_id,
-          name: r.name,
-          city: r.city,
-          postcode: r.postcode,
-          phone: r.phone,
-          website: r.website,
-          profileUrl: r.profile_url,
-          workArea: r.work_area,
-          score: Number(r.score) || 0,
-        }))
-        .filter((hit) => sraOrganisationAdmissible(String(hit.name || ""))),
+      hits,
+      emptyReason: hits.length ? undefined : "no_matches",
     });
   } catch (err) {
     const hits = await typesenseHits();
@@ -275,6 +359,7 @@ export async function POST(req: Request) {
       {
         hits: [],
         error: err instanceof Error ? err.message : "search failed",
+        emptyReason: "unavailable",
       },
       { status: 500 },
     );

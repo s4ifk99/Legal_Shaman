@@ -18,13 +18,82 @@ export type SraSearchPayload = {
   wantMotoring: boolean
   /** Libel / slander / reputation / media demand letters */
   wantDefamation: boolean
+  wantFamily: boolean
+  wantDebt: boolean
+  wantPersonalInjury: boolean
+  /** General civil litigation catch-all when no narrower lane applies */
+  wantLitigation: boolean
+  /** Criminal defence (non-motoring or with motoring) */
+  wantCrime: boolean
 }
+
+export type SraPracticeFlags = Omit<SraSearchPayload, 'locationHint' | 'limit' | 'matterType' | 'query' | 'taxonomySlug'>
 
 const EMPLOYMENT_DISPUTE =
   /\b(unfair dismiss|sacked|fired|redundan|acas|grievance|unpaid wages|holiday pay|settlement agreement|employment tribunal|rights at work)\b/i
 
 const DEFAMATION_STORY =
   /\b(defamation|libell?|slander|reputation|take.?down|cease and desist|letter before (?:action|claim)|media law|online (?:post|review|comment)|damages.{0,40}(?:online|post|article|publication))\b/i
+
+const FAMILY_STORY =
+  /\b(divorce|separation|child (?:arrangements?|contact|custody)|spouse|matrimonial|domestic abuse|family court|parental responsibility)\b/i
+
+const DEBT_STORY =
+  /\b(debt|bailiff|county court judgment|\bccj\b|insolvency|bankrupt|creditor|money claim|unpaid bill|enforcement)\b/i
+
+const PI_STORY =
+  /\b(personal injury|accident claim|whiplash|medical negligence|clinical negligence|slip and fall|rta claim|injury claim)\b/i
+
+function off(): SraPracticeFlags {
+  return {
+    wantCar: false,
+    wantConsumer: false,
+    wantHousing: false,
+    wantEmployment: false,
+    wantImmigration: false,
+    wantMotoring: false,
+    wantDefamation: false,
+    wantFamily: false,
+    wantDebt: false,
+    wantPersonalInjury: false,
+    wantLitigation: false,
+    wantCrime: false,
+  }
+}
+
+/** True when at least one practice-area lane can hit the SRA register. */
+export function hasPracticeRoute(
+  flags: Pick<
+    SraSearchPayload,
+    | 'wantCar'
+    | 'wantConsumer'
+    | 'wantHousing'
+    | 'wantEmployment'
+    | 'wantImmigration'
+    | 'wantMotoring'
+    | 'wantDefamation'
+    | 'wantFamily'
+    | 'wantDebt'
+    | 'wantPersonalInjury'
+    | 'wantLitigation'
+    | 'wantCrime'
+  >,
+): boolean {
+  return Boolean(
+    flags.wantCar ||
+      flags.wantConsumer ||
+      flags.wantHousing ||
+      flags.wantEmployment ||
+      flags.wantImmigration ||
+      flags.wantMotoring ||
+      flags.wantDefamation ||
+      flags.wantFamily ||
+      flags.wantDebt ||
+      flags.wantPersonalInjury ||
+      flags.wantLitigation ||
+      flags.wantCrime,
+  )
+}
 
 export function resolveSraSearchFlags(opts: {
   matterType?: string
@@ -37,6 +106,11 @@ export function resolveSraSearchFlags(opts: {
   wantImmigration?: boolean
   wantMotoring?: boolean
   wantDefamation?: boolean
+  wantFamily?: boolean
+  wantDebt?: boolean
+  wantPersonalInjury?: boolean
+  wantLitigation?: boolean
+  wantCrime?: boolean
 }): Omit<SraSearchPayload, 'locationHint' | 'limit'> {
   const query = String(opts.query || '')
   const taxonomySlug =
@@ -44,20 +118,12 @@ export function resolveSraSearchFlags(opts: {
   let matter = String(opts.matterType || 'unknown').toLowerCase()
 
   if (taxonomySlug === 'parking_pcn' || isPcnAppealQuery(query)) {
-    // Private / council parking is a consumer (civil) dispute on the SRA register.
-    // Do NOT set wantMotoring — the DB has almost no "Motoring" labels, and
-    // ILIKE '%Crime%' wrongly matches "Criminal" and empties/pollutes parking matches.
     return {
       matterType: 'consumer',
       query,
       taxonomySlug: taxonomySlug || 'parking_pcn',
-      wantCar: false,
+      ...off(),
       wantConsumer: true,
-      wantHousing: false,
-      wantEmployment: false,
-      wantImmigration: false,
-      wantMotoring: false,
-      wantDefamation: false,
     }
   }
   if (taxonomySlug === 'criminal_defence' || matter === 'crime') {
@@ -66,13 +132,9 @@ export function resolveSraSearchFlags(opts: {
       matterType: 'crime',
       query,
       taxonomySlug: taxonomySlug || 'criminal_defence',
-      wantCar: false,
-      wantConsumer: false,
-      wantHousing: false,
-      wantEmployment: false,
-      wantImmigration: false,
+      ...off(),
       wantMotoring: motoring,
-      wantDefamation: false,
+      wantCrime: true,
     }
   }
   if (taxonomySlug === 'consumer_vehicle_repair' || isVehicleRepairQuery(query)) {
@@ -80,13 +142,9 @@ export function resolveSraSearchFlags(opts: {
       matterType: 'consumer',
       query,
       taxonomySlug: taxonomySlug || 'consumer_vehicle_repair',
+      ...off(),
       wantCar: true,
       wantConsumer: true,
-      wantHousing: false,
-      wantEmployment: false,
-      wantImmigration: false,
-      wantMotoring: false,
-      wantDefamation: false,
     }
   }
   if (taxonomySlug === 'housing' || taxonomySlug === 'neighbour_dispute') {
@@ -94,13 +152,8 @@ export function resolveSraSearchFlags(opts: {
       matterType: 'housing',
       query,
       taxonomySlug,
-      wantCar: false,
-      wantConsumer: false,
+      ...off(),
       wantHousing: true,
-      wantEmployment: false,
-      wantImmigration: false,
-      wantMotoring: false,
-      wantDefamation: false,
     }
   }
   if (taxonomySlug === 'conveyancing') {
@@ -108,13 +161,8 @@ export function resolveSraSearchFlags(opts: {
       matterType: 'conveyancing',
       query,
       taxonomySlug,
-      wantCar: false,
-      wantConsumer: false,
+      ...off(),
       wantHousing: true,
-      wantEmployment: false,
-      wantImmigration: false,
-      wantMotoring: false,
-      wantDefamation: false,
     }
   }
   if (taxonomySlug === 'employment') {
@@ -122,13 +170,8 @@ export function resolveSraSearchFlags(opts: {
       matterType: 'employment',
       query,
       taxonomySlug,
-      wantCar: false,
-      wantConsumer: false,
-      wantHousing: false,
+      ...off(),
       wantEmployment: true,
-      wantImmigration: false,
-      wantMotoring: false,
-      wantDefamation: false,
     }
   }
   if (taxonomySlug === 'immigration') {
@@ -136,13 +179,8 @@ export function resolveSraSearchFlags(opts: {
       matterType: 'immigration',
       query,
       taxonomySlug,
-      wantCar: false,
-      wantConsumer: false,
-      wantHousing: false,
-      wantEmployment: false,
+      ...off(),
       wantImmigration: true,
-      wantMotoring: false,
-      wantDefamation: false,
     }
   }
   if (taxonomySlug === 'defamation_media' || DEFAMATION_STORY.test(query)) {
@@ -150,13 +188,39 @@ export function resolveSraSearchFlags(opts: {
       matterType: matter === 'unknown' || matter === 'other' ? 'other' : matter,
       query,
       taxonomySlug: taxonomySlug || 'defamation_media',
-      wantCar: false,
-      wantConsumer: false,
-      wantHousing: false,
-      wantEmployment: false,
-      wantImmigration: false,
-      wantMotoring: false,
+      ...off(),
       wantDefamation: true,
+    }
+  }
+  if (taxonomySlug === 'family' || matter === 'family' || FAMILY_STORY.test(query)) {
+    return {
+      matterType: 'family',
+      query,
+      taxonomySlug: taxonomySlug || 'family',
+      ...off(),
+      wantFamily: true,
+    }
+  }
+  if (taxonomySlug === 'debt' || matter === 'debt' || DEBT_STORY.test(query)) {
+    return {
+      matterType: 'debt',
+      query,
+      taxonomySlug: taxonomySlug || 'debt',
+      ...off(),
+      wantDebt: true,
+    }
+  }
+  if (
+    taxonomySlug === 'personal_injury' ||
+    matter === 'personal_injury' ||
+    PI_STORY.test(query)
+  ) {
+    return {
+      matterType: 'personal_injury',
+      query,
+      taxonomySlug: taxonomySlug || 'personal_injury',
+      ...off(),
+      wantPersonalInjury: true,
     }
   }
 
@@ -184,18 +248,54 @@ export function resolveSraSearchFlags(opts: {
     (matter === 'employment' || EMPLOYMENT_DISPUTE.test(query))
   const wantDefamation =
     opts.wantDefamation ?? (taxonomySlug === 'defamation_media' || DEFAMATION_STORY.test(query))
+  const wantFamily =
+    opts.wantFamily ?? (matter === 'family' || taxonomySlug === 'family' || FAMILY_STORY.test(query))
+  const wantDebt =
+    opts.wantDebt ?? (matter === 'debt' || taxonomySlug === 'debt' || DEBT_STORY.test(query))
+  const wantPersonalInjury =
+    opts.wantPersonalInjury ??
+    (matter === 'personal_injury' || taxonomySlug === 'personal_injury' || PI_STORY.test(query))
+  const wantCrime =
+    opts.wantCrime ?? (matter === 'crime' || taxonomySlug === 'criminal_defence')
+  const wantMotoring = Boolean(opts.wantMotoring)
+
+  // Catch-all: classified-but-unmapped or long civil stories still hit Litigation firms.
+  const wantLitigation =
+    opts.wantLitigation ??
+    (!(
+      wantImmigration ||
+      wantConsumer ||
+      wantCar ||
+      wantHousing ||
+      wantEmployment ||
+      wantDefamation ||
+      wantFamily ||
+      wantDebt ||
+      wantPersonalInjury ||
+      wantCrime ||
+      wantMotoring
+    ) &&
+      (matter === 'other' ||
+        matter === 'unknown' ||
+        Boolean(taxonomySlug) ||
+        query.trim().length >= 40))
 
   return {
     matterType: matter,
     query,
     taxonomySlug,
-    wantCar,
-    wantConsumer,
-    wantHousing,
-    wantEmployment,
-    wantImmigration,
-    wantMotoring: Boolean(opts.wantMotoring),
+    wantCar: Boolean(wantCar),
+    wantConsumer: Boolean(wantConsumer),
+    wantHousing: Boolean(wantHousing),
+    wantEmployment: Boolean(wantEmployment),
+    wantImmigration: Boolean(wantImmigration),
+    wantMotoring,
     wantDefamation: Boolean(wantDefamation),
+    wantFamily: Boolean(wantFamily),
+    wantDebt: Boolean(wantDebt),
+    wantPersonalInjury: Boolean(wantPersonalInjury),
+    wantLitigation: Boolean(wantLitigation),
+    wantCrime: Boolean(wantCrime),
   }
 }
 
@@ -257,18 +357,6 @@ export function buildSraSearchPayload(
   }
 }
 
-const RELEVANT_AREA_HINTS: Record<string, RegExp> = {
-  consumer: /consumer|sale of goods|trader|commercial(?!.*corporate)/i,
-  car: /consumer|motor|vehicle|litigation|dispute/i,
-  // Prefer civil consumer / litigation over Criminal (SRA has no reliable Motoring label).
-  parking: /consumer|litigation|dispute|parking|motoring|road traffic|\brta\b/i,
-  housing: /housing|landlord|tenant|property.residential|disrepair/i,
-  employment: /employment|workplace|tribunal|discriminat/i,
-  immigration: /immigration|asylum|nationality/i,
-  crime: /criminal|crime|police|magistrates|defence/i,
-  defamation: /defamation|libel|slander|media|reputation|litigation/i,
-}
-
 /** County / nation names → outward postcode areas for SRA geo ranking. */
 const COUNTY_OUTWARD_CODES: Record<string, string[]> = {
   cornwall: ['TR', 'PL'],
@@ -299,6 +387,21 @@ export function postcodePrefixesForLocation(hint: string): string[] {
   return area ? [area] : []
 }
 
+const RELEVANT_AREA_HINTS: Record<string, RegExp> = {
+  consumer: /consumer|sale of goods|trader|commercial(?!.*corporate)/i,
+  car: /consumer|motor|vehicle|litigation|dispute/i,
+  parking: /consumer|litigation|dispute|parking|motoring|road traffic|\brta\b/i,
+  housing: /housing|landlord|tenant|property.residential|disrepair/i,
+  employment: /employment|workplace|tribunal|discriminat/i,
+  immigration: /immigration|asylum|nationality/i,
+  crime: /criminal|crime|police|magistrates|defence/i,
+  defamation: /defamation|libel|slander|media|reputation|litigation/i,
+  family: /family|children|matrimonial|divorce|domestic/i,
+  debt: /debt|insolvency|bankrupt|money|enforcement/i,
+  personal_injury: /personal injury|clinical|medical negligence|accident/i,
+  litigation: /litigation|dispute|civil/i,
+}
+
 /** Score a register work-area blob the same way Matching Help ranks housing vs IP. */
 export function scoreSraWorkAreaForMatching(
   workArea: string,
@@ -311,6 +414,11 @@ export function scoreSraWorkAreaForMatching(
     | 'wantCar'
     | 'wantMotoring'
     | 'wantDefamation'
+    | 'wantFamily'
+    | 'wantDebt'
+    | 'wantPersonalInjury'
+    | 'wantLitigation'
+    | 'wantCrime'
     | 'matterType'
   >,
 ): number {
@@ -327,9 +435,15 @@ export function scoreSraWorkAreaForMatching(
   if (flags.wantDefamation && /Defamation|Libel|Slander/i.test(w)) score += 36
   if (flags.wantDefamation && /Media and Entertainment|Media\b/i.test(w)) score += 24
   if (flags.wantDefamation && /Litigation/i.test(w)) score += 12
+  if (flags.wantFamily && /Family|Children|Matrimonial|Divorce/i.test(w)) score += 28
+  if (flags.wantDebt && /Debt|Insolvency|Bankruptcy/i.test(w)) score += 28
+  if (flags.wantPersonalInjury && /Personal Injury|Clinical Negligence|Medical Negligence/i.test(w)) {
+    score += 28
+  }
+  if (flags.wantLitigation && /Litigation/i.test(w)) score += 22
+  if (flags.wantCrime && /Criminal|Crime -/i.test(w) && !/Motoring|Road Traffic/i.test(w)) score += 32
   if (flags.wantMotoring && /Motoring|Road Traffic/i.test(w)) score += 32
   if (flags.matterType === 'crime' && !flags.wantMotoring) {
-    if (/Criminal|Crime -/i.test(w) && !/Motoring|Road Traffic/i.test(w)) score += 32
     if (/Motoring|Road Traffic|\bPCN\b|parking/i.test(w) && !/Criminal/i.test(w)) score -= 24
   }
   if (flags.wantMotoring && /Criminal|Crime -/i.test(w)) score += 24
@@ -362,17 +476,23 @@ export function relevantWorkAreas(
       ? RELEVANT_AREA_HINTS.parking
       : taxonomySlug === 'defamation_media'
         ? RELEVANT_AREA_HINTS.defamation
-        : wantCar || matterType === 'consumer'
-          ? RELEVANT_AREA_HINTS.car
-          : matterType === 'housing'
-            ? RELEVANT_AREA_HINTS.housing
-            : matterType === 'employment'
-              ? RELEVANT_AREA_HINTS.employment
-              : matterType === 'immigration'
-                ? RELEVANT_AREA_HINTS.immigration
-                : matterType === 'crime'
-                  ? RELEVANT_AREA_HINTS.crime
-                  : RELEVANT_AREA_HINTS.consumer
+        : taxonomySlug === 'family' || matterType === 'family'
+          ? RELEVANT_AREA_HINTS.family
+          : taxonomySlug === 'debt' || matterType === 'debt'
+            ? RELEVANT_AREA_HINTS.debt
+            : taxonomySlug === 'personal_injury' || matterType === 'personal_injury'
+              ? RELEVANT_AREA_HINTS.personal_injury
+              : wantCar || matterType === 'consumer'
+                ? RELEVANT_AREA_HINTS.car
+                : matterType === 'housing'
+                  ? RELEVANT_AREA_HINTS.housing
+                  : matterType === 'employment'
+                    ? RELEVANT_AREA_HINTS.employment
+                    : matterType === 'immigration'
+                      ? RELEVANT_AREA_HINTS.immigration
+                      : matterType === 'crime'
+                        ? RELEVANT_AREA_HINTS.crime
+                        : RELEVANT_AREA_HINTS.litigation
 
   const matched = areas.filter((a) => hint.test(a))
   const pool =
@@ -402,6 +522,11 @@ export function sraMatchReason(
     | 'wantMotoring'
     | 'wantEmployment'
     | 'wantDefamation'
+    | 'wantFamily'
+    | 'wantDebt'
+    | 'wantPersonalInjury'
+    | 'wantLitigation'
+    | 'wantCrime'
     | 'taxonomySlug'
     | 'query'
   >,
@@ -422,6 +547,21 @@ export function sraMatchReason(
     if (areas.some((a) => /litigation/i.test(a))) {
       return 'Civil litigation practice — confirm they take defamation or publication disputes'
     }
+  }
+  if (payload.wantFamily && areas.some((a) => /family|children|matrimonial|divorce/i.test(a))) {
+    return 'Listed for family work — confirm they take your type of family matter'
+  }
+  if (payload.wantDebt && areas.some((a) => /debt|insolvency|bankrupt/i.test(a))) {
+    return 'Listed for debt / insolvency work — confirm they advise individuals'
+  }
+  if (
+    payload.wantPersonalInjury &&
+    areas.some((a) => /personal injury|clinical|medical negligence|accident/i.test(a))
+  ) {
+    return 'Listed for personal injury — confirm they take your type of claim'
+  }
+  if (payload.wantLitigation && areas.some((a) => /litigation/i.test(a))) {
+    return 'Civil litigation practice — confirm they take this kind of dispute'
   }
   if (payload.taxonomySlug === 'parking_pcn') {
     if (areas.some((a) => /consumer/i.test(a))) {
@@ -444,7 +584,7 @@ export function sraMatchReason(
       return 'Criminal defence listing — for the arrested person (police station / magistrates), not for recovering employer property from the police'
     }
   }
-  if (payload.matterType === 'crime' && !payload.wantMotoring) {
+  if ((payload.wantCrime || payload.matterType === 'crime') && !payload.wantMotoring) {
     if (areas.some((a) => /crime|criminal/i.test(a))) {
       return 'Listed for criminal defence — confirm they take police station / magistrates work'
     }
@@ -475,5 +615,10 @@ export function employerPropertySraFlags(query: string) {
     wantConsumer: false,
     wantMotoring: false,
     wantDefamation: false,
+    wantFamily: false,
+    wantDebt: false,
+    wantPersonalInjury: false,
+    wantLitigation: false,
+    wantCrime: false,
   })
 }

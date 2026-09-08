@@ -29,17 +29,28 @@ function typesenseQueryForFlags(
     | "wantCar"
     | "wantMotoring"
     | "wantDefamation"
+    | "wantFamily"
+    | "wantDebt"
+    | "wantPersonalInjury"
+    | "wantLitigation"
+    | "wantCrime"
     | "query"
     | "matterType"
   >,
 ): string {
   if (flags.wantDefamation) return "defamation libel media litigation reputation";
+  if (flags.wantFamily) return "family divorce children matrimonial domestic";
+  if (flags.wantDebt) return "debt insolvency bankruptcy creditor bailiff";
+  if (flags.wantPersonalInjury) return "personal injury clinical negligence accident claim";
   if (flags.wantHousing) return "housing landlord tenant eviction residential property";
   if (flags.wantEmployment) return "employment workplace tribunal wages";
   if (flags.wantImmigration) return "immigration asylum nationality visa";
   if (flags.wantMotoring) return "motoring criminal road traffic";
-  if (flags.matterType === "crime") return "criminal defence police station magistrates duty solicitor";
+  if (flags.wantCrime || flags.matterType === "crime") {
+    return "criminal defence police station magistrates duty solicitor";
+  }
   if (flags.wantConsumer || flags.wantCar) return "consumer litigation goods trader";
+  if (flags.wantLitigation) return "civil litigation dispute solicitor";
   return String(flags.query || "solicitor").slice(0, 80);
 }
 
@@ -92,6 +103,11 @@ export async function searchSraOrganisationsTypesense(opts: {
     | "wantCar"
     | "wantMotoring"
     | "wantDefamation"
+    | "wantFamily"
+    | "wantDebt"
+    | "wantPersonalInjury"
+    | "wantLitigation"
+    | "wantCrime"
     | "query"
     | "matterType"
   >;
@@ -115,7 +131,8 @@ export async function searchSraOrganisationsTypesense(opts: {
     const workArea = workAreaFromDoc(doc);
     const hay = `${workArea} ${String(doc.title || "")} ${String(doc.searchText || "")}`;
     let score = scoreSraWorkAreaForMatching(hay, opts.flags);
-    if (String(doc.phone || "").trim()) score += 2;
+    const phone = String(doc.phone || "").trim();
+    if (phone) score += 8;
     if (score < opts.minScore) continue;
     const name = String(doc.title || `SRA ${sraId}`);
     if (!sraOrganisationAdmissible(name)) continue;
@@ -124,7 +141,7 @@ export async function searchSraOrganisationsTypesense(opts: {
       name,
       city: String(doc.city || ""),
       postcode: String(doc.postcode || ""),
-      phone: String(doc.phone || ""),
+      phone,
       website: String(doc.website || ""),
       profileUrl: String(doc.profileUrl || doc.contactPageUrl || sraProfileUrlForId(sraId)),
       workArea,
@@ -132,7 +149,12 @@ export async function searchSraOrganisationsTypesense(opts: {
     });
   }
 
-  ranked.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
+  ranked.sort(
+    (a, b) =>
+      b.score - a.score ||
+      (b.phone ? 1 : 0) - (a.phone ? 1 : 0) ||
+      a.name.localeCompare(b.name),
+  );
   const seen = new Set<string>();
   const out: CoherenceSraHit[] = [];
   for (const row of ranked) {
