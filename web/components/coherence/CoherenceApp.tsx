@@ -1232,7 +1232,8 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     }
     autoStartedRef.current = true
     shouldAutoRunRef.current = false
-    setDeepLinkBooting(false)
+    // Keep deepLinkBooting true until the story is compiled — clearing it here
+    // flashes the empty OPEN QUESTION screen before handleAnswer updates UI.
     resetPageNavigation('intake')
     setHelpMatch(null)
     setMatterInspector(null)
@@ -1241,6 +1242,27 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     void handleAnswer(story)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clientBootReady, llmStatusReady, initialStory])
+
+  // Drop the deep-link loading cover only once intake has moved past the empty opener.
+  useEffect(() => {
+    if (!deepLinkBooting) return
+    const progressed =
+      session.rawInputs.length > 0 ||
+      llmBusy ||
+      overviewPending ||
+      view !== 'intake' ||
+      Boolean(agentError) ||
+      (prompt.id !== 'open' && prompt.id !== 'mode_fork')
+    if (progressed) setDeepLinkBooting(false)
+  }, [
+    deepLinkBooting,
+    session.rawInputs.length,
+    llmBusy,
+    overviewPending,
+    view,
+    agentError,
+    prompt.id,
+  ])
 
   function openNotes(download = false) {
     setNotesAutoDownload(download)
