@@ -109,7 +109,7 @@ function exaHitsToSources(hits: Awaited<ReturnType<typeof searchExaForPenumbra>>
 }
 
 function formatExaContext(sources: ResearchSource[]): string {
-  if (!sources.length) return 'No additional open-web sources were returned by Exa.'
+  if (!sources.length) return 'No additional open-web sources were returned.'
   return sources
     .map(
       (source, index) =>
@@ -165,7 +165,7 @@ function memoFromExaSources(
     '',
     query.replace(/\s+/g, ' ').trim().slice(0, 280),
     '',
-    'What Exa found (by issue):',
+    'What the search found (by issue):',
     ...found,
   ]
   if (canonicalSources.length) {

@@ -184,7 +184,7 @@ export function enrichAnswerPackageWithOslaw(
       freeHelp.push({
         title: h.title,
         url: h.url,
-        blurb: 'Trusted UK guidance (authority seed / Exa cache).',
+        blurb: 'Trusted UK guidance from curated official sources.',
       })
     }
   }

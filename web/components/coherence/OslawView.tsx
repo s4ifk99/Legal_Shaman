@@ -398,7 +398,8 @@ function PenumbraResearchPanel({
       ) : null}
       {busy ? (
         <p className="oslaw__rec-note" role="status">
-        The Shaman is running a full Exa search from your case brief. Repeat visits use a cache so we do not call Exa or a model again for the same brief.
+          The Shaman is searching official and trusted sources from your case brief. Repeat visits use a
+          cache so the same brief is not researched again from scratch.
         </p>
       ) : null}
 
@@ -449,8 +450,7 @@ function PenumbraResearchPanel({
           <p className="oslaw__rec-note">
             {research?.bundle?.sources.length || 0} sources · {research?.bundle?.claims.length || 0} claims
             {' '}· {research?.bundle?.freeResources.length || 0} free-help leads for review
-            {research?.cacheHit ? ' · cached (no new Exa or model call)' : ''}
-            {research?.exaSource ? ` · Exa ${research.exaSource}` : ''}
+            {research?.cacheHit ? ' · cached' : ''}
           </p>
           {research?.bundle?.sources.length ? (
             <div className="oslaw__research-findings-sources">
@@ -468,7 +468,7 @@ function PenumbraResearchPanel({
           ) : null}
           {research?.bundle?.answerDraft ? (
             <details className="oslaw__rec-sources">
-              <summary>Exa notes</summary>
+              <summary>Research notes</summary>
               <div className="oslaw__research-memo">{research.bundle.answerDraft}</div>
             </details>
           ) : null}
