@@ -58,7 +58,7 @@ export function B2CBillingBanner() {
   if (!user) {
     return (
       <button type="button" className="text-xs text-muted-foreground underline" onClick={() => openAuth("search")}>
-        Sign in — 1 free search, then {B2C_PAID_PRICE_LABEL} unlimited
+        Sign in — {B2C_FREE_SEARCH_LIMIT_DEFAULT} free searches, then {B2C_PAID_PRICE_LABEL} unlimited
       </button>
     );
   }
