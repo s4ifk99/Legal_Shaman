@@ -47,7 +47,7 @@ function copyForReason(reason: AuthDialogReason, pendingFirmName?: string) {
     return {
       title: "Create a free account to view results",
       description:
-        "Sign up for one free search. Then unlock unlimited searches for " +
+        "Sign up for three free searches. Then unlock unlimited searches for " +
         B2C_PAID_PRICE_LABEL +
         ", tied to your account.",
     };

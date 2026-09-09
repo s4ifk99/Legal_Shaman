@@ -1109,7 +1109,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
           ) {
             setAgentError(
               master.error === 'monthly_search_quota'
-                ? `You have used your free search. Upgrade to The Shaman Unlimited for ${B2C_PAID_PRICE_LABEL}.`
+                ? `You have used your free searches. Upgrade to The Shaman Unlimited for ${B2C_PAID_PRICE_LABEL}.`
                 : 'Daily or per-minute search limit reached. Try again later.',
             )
             return
@@ -1423,7 +1423,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'aramb_research_failed'
       if (error instanceof Error && error.message === 'monthly_search_quota') {
-        setAgentError(`You have used your free search. Upgrade to The Shaman Unlimited for ${B2C_PAID_PRICE_LABEL}.`)
+        setAgentError(`You have used your free searches. Upgrade to The Shaman Unlimited for ${B2C_PAID_PRICE_LABEL}.`)
       }
       setSession((prev) => ({
         ...prev,
