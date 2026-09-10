@@ -1,0 +1,259 @@
+.share-notes {
+  --paper: var(--background);
+  --ink: var(--foreground);
+  --ink-muted: var(--border);
+  --ink-faint: var(--muted-foreground);
+  --action: var(--primary);
+  --action-fg: var(--primary-foreground);
+  --brand-gold: var(--gold);
+  min-height: 100dvh;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), "Libre Baskerville", Georgia, serif;
+}
+
+.share-notes__masthead {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 -1.25rem 1.5rem;
+  padding: 1rem 1.25rem 1.1rem;
+  border-bottom: 2px solid color-mix(in oklab, var(--brand-gold) 45%, transparent);
+  background: var(--card);
+}
+
+.share-notes__spiral {
+  position: absolute;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.share-notes__spiral--right {
+  right: -2.5rem;
+  top: -2.5rem;
+}
+
+.share-notes__spiral--left {
+  left: -2rem;
+  bottom: -2.25rem;
+}
+
+.share-notes__wordmark {
+  position: relative;
+  display: block;
+  line-height: 0;
+}
+
+.share-notes__wordmark img {
+  height: auto;
+  width: min(22rem, 58vw);
+  max-width: 100%;
+}
+
+.share-notes__actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.share-notes__actions button {
+  appearance: none;
+  border: 1.5px solid color-mix(in oklab, var(--action) 55%, var(--border));
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.share-notes__solid {
+  background: var(--action) !important;
+  border-color: var(--action) !important;
+  color: var(--action-fg) !important;
+}
+
+.share-notes__identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-bottom: 0.85rem;
+}
+
+.share-notes__logo {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 999px;
+  border: 2px solid color-mix(in oklab, var(--brand-gold) 55%, transparent);
+  object-fit: cover;
+}
+
+.share-notes__logo--small {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.share-notes__kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.share-notes h1 {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-serif), "Playfair Display", Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.share-notes__tagline {
+  margin: 0;
+  font-family: var(--font-serif), "Playfair Display", Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--brand-gold);
+}
+
+.share-notes__meta {
+  margin: 0 0 1.25rem;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+.share-notes__flags {
+  margin: 0 0 1.25rem;
+  padding: 0.7rem 0.85rem;
+  list-style: none;
+  border: 1.5px solid color-mix(in oklab, var(--brand-gold) 50%, var(--border));
+  font-size: 0.85rem;
+}
+
+.share-notes section {
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in oklab, var(--brand-gold) 28%, var(--border));
+}
+
+.share-notes h2 {
+  margin: 0 0 0.55rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--action) 70%, var(--foreground));
+}
+
+.share-notes__pre {
+  white-space: pre-wrap;
+}
+
+.share-notes__table-wrap {
+  overflow-x: auto;
+}
+
+.share-notes__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.share-notes__table th,
+.share-notes__table td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.55rem 0.4rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.share-notes__quiet {
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+}
+
+.share-notes__event {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.share-notes__quote {
+  margin: 0.4rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted-foreground);
+}
+
+.share-notes__disclaimer,
+.share-notes__urgent {
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+
+.share-notes__urgent {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.share-notes__colophon {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid color-mix(in oklab, var(--brand-gold) 45%, transparent);
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+}
+
+.share-notes__colophon-brand {
+  margin: 0 0 0.15rem;
+  font-family: var(--font-serif), "Playfair Display", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.share-notes__colophon a {
+  color: var(--action);
+  text-decoration: none;
+}
+
+.share-notes__colophon-brand a {
+  color: inherit;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .share-notes {
+    max-width: none;
+    padding: 0;
+  }
+  .share-notes__masthead {
+    margin: 0 0 1rem;
+    padding: 0 0 0.75rem;
+    background: transparent;
+  }
+  .share-notes__wordmark img {
+    width: 16rem;
+  }
+}

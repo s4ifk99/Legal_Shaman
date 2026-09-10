@@ -7,6 +7,7 @@ import type { Prompt, SessionState, TimelineEvent } from './types'
 import { applyFrameRoutingToSession } from './issueRouting'
 import { compressLiveGoal, extractClientQuestions } from './clientQuestions'
 import { type HypothesisSet, nextHypothesisProbe } from './hypothesisProbe'
+import { inferredTimelineEvent } from './timelineExtract'
 import {
   commitDialogueToFrame,
   fromHypothesisProbeCompat,
@@ -39,13 +40,15 @@ function userCapacityRole(frame: MatterFrame): SessionState['confirmedUserRole']
 function eventsFromFrame(frame: MatterFrame, existing: TimelineEvent[]): TimelineEvent[] {
   const fromFrame: TimelineEvent[] = frame.events
     .filter((e) => e.description?.trim())
-    .map((e) => ({
-      id: e.id || uid(),
-      label: e.description.slice(0, 78),
-      rawSpan: e.fact || e.description,
-      dateApprox: e.dateApprox,
-      kind: 'event' as const,
-    }))
+    .map((e) =>
+      inferredTimelineEvent({
+        id: e.id || uid(),
+        label: e.description.slice(0, 78),
+        rawSpan: e.fact || e.description,
+        dateApprox: e.dateApprox,
+        actors: e.participants,
+      }),
+    )
   if (fromFrame.length < 2) return existing
   if (existing.filter((e) => e.kind === 'event').length >= fromFrame.length) return existing
   const start = existing.find((e) => e.kind === 'start')

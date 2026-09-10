@@ -909,3 +909,23 @@ model KnowledgeIntegrationRun {
   @@index([startedAt])
   @@map("knowledge_integration_runs")
 }
+
+/// Consented snapshot of Notes for your Lawyer / chronology, behind an unguessable URL.
+model ChronologyShare {
+  id              String    @id @default(cuid())
+  tokenHash       String    @unique @map("token_hash") @db.VarChar(128)
+  updateTokenHash String    @map("update_token_hash") @db.VarChar(128)
+  briefId         String    @map("brief_id") @db.VarChar(128)
+  expiresAt       DateTime  @map("expires_at") @db.Timestamptz(3)
+  revokedAt       DateTime? @map("revoked_at") @db.Timestamptz(3)
+  consentAt       DateTime  @map("consent_at") @db.Timestamptz(3)
+  publishedAt     DateTime  @map("published_at") @db.Timestamptz(3)
+  payload         Json
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@index([expiresAt])
+  @@index([briefId])
+  @@index([updateTokenHash])
+  @@map("chronology_shares")
+}

@@ -14,6 +14,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  allowedDevOrigins: ["127.0.0.1", "localhost", "192.168.0.12"],
   // Keep serverless functions under Vercel's 250mb uncompressed limit.
   // Keys match route paths and (for Turbopack/Webpack NFT) app/ prefixed entry names.
   outputFileTracingExcludes: {

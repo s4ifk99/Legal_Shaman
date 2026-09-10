@@ -9,6 +9,7 @@ import { missingSlots } from './slots'
 import { compressLiveGoal, extractClientQuestions } from './clientQuestions'
 import { isMetaCauseLine, sanitizeIntakeNarrative } from './sense'
 import { tidySentence } from './timelineExtract'
+import { guessDatePrecision } from './timelineDates'
 
 export type { SolicitorBriefV0 } from './briefSchema'
 export { validateSolicitorBriefShape, SOLICITOR_BRIEF_REQUIRED_KEYS } from './briefSchema'
@@ -21,7 +22,18 @@ export interface LawyerBrief {
   situationSummary: string
   instructionsForLawyer: string
   desiredOutcome: string
-  timeline: { order: number; when: string; event: string }[]
+  /** Client's own words, unprocessed — for the solicitor to read first. */
+  clientNarrativeRaw: string
+  timeline: {
+    order: number
+    when: string
+    event: string
+    actors: string[]
+    documents: string[]
+    sourceSpan?: string
+    datePrecision: SolicitorBriefV0['timeline'][number]['date_precision']
+    clientConfirmed: boolean
+  }[]
   parties: string[]
   documents: string[]
   jurisdiction: string
@@ -61,17 +73,37 @@ function sessionTextBlob(session: SessionState): string {
   ].join(' ')
 }
 
-function guessDatePrecision(dateApprox: string | undefined): 'day' | 'month' | 'year' | 'unknown' {
-  if (!dateApprox) return 'unknown'
-  if (/\d{1,2}\s+\w+\s+\d{4}|\d{4}-\d{2}-\d{2}/.test(dateApprox)) return 'day'
-  if (/\w+\s+\d{4}|\d{4}-\d{2}/.test(dateApprox)) return 'month'
-  if (/\d{4}/.test(dateApprox)) return 'year'
-  return 'unknown'
-}
-
 function newBriefId(): string {
   if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) return crypto.randomUUID()
   return `brief-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`
+}
+
+/** Verbatim client story for a solicitor — not the processed situation summary. */
+export function buildClientNarrativeRaw(session: SessionState): string {
+  const seen = new Set<string>()
+  const parts: string[] = []
+
+  function push(text: string) {
+    const trimmed = text.replace(/\s+/g, ' ').trim()
+    if (!trimmed) return
+    const key = trimmed.toLowerCase()
+    if (seen.has(key)) return
+    if ([...seen].some((s) => s.includes(key) || key.includes(s))) {
+      if (key.length <= 40) return
+    }
+    seen.add(key)
+    parts.push(text.trim())
+  }
+
+  for (const input of session.rawInputs) push(input)
+  push(session.whatHappened)
+  const cause = session.howCaused.trim()
+  if (cause && !isMetaCauseLine(cause)) push(cause)
+  if (session.clientQuestion?.trim()) {
+    const q = session.clientQuestion.trim()
+    if (!parts.some((p) => p.includes(q))) push(q)
+  }
+  return parts.join('\n\n')
 }
 
 /** Core slots filled + enough progress. Jurisdiction required before solicitor-ready. */
@@ -203,7 +235,12 @@ export function buildLawyerBrief(
   const timeline = session.events.map((e, i) => ({
     order: i + 1,
     when: e.dateApprox || 'Date not given',
-    event: e.rawSpan ? tidySentence(e.rawSpan, 220) : e.label,
+    event: e.label || (e.rawSpan ? tidySentence(e.rawSpan, 220) : ''),
+    actors: e.actors?.filter(Boolean) ?? [],
+    documents: e.documentLabels?.filter(Boolean) ?? [],
+    sourceSpan: e.rawSpan && e.rawSpan !== e.label ? e.rawSpan : undefined,
+    datePrecision: e.datePrecision ?? guessDatePrecision(e.dateApprox),
+    clientConfirmed: e.clientConfirmed === true,
   }))
 
   const gaps = missingSlots(session).map((s) => s.label)
@@ -260,6 +297,7 @@ export function buildLawyerBrief(
       compressLiveGoal(`${session.clientQuestion || ''}\n${session.whatHappened || ''}`) ||
       extractClientQuestions(`${session.clientQuestion || ''}\n${session.whatHappened || ''}`)[0] ||
       'Not yet stated by the client.',
+    clientNarrativeRaw: buildClientNarrativeRaw(session),
     timeline,
     parties: session.parties.map((p) => (p.role ? `${p.label} (${p.role})` : p.label)),
     documents: session.documents,
@@ -299,6 +337,7 @@ export function buildSolicitorBrief(
     /** Phase 3 local fit per frame — unmet_constraints come from here, not intake gaps */
     frameFits?: FrameFit[]
     conflictsDetected?: SolicitorBriefV0['conflicts_detected']
+    consentToShare?: boolean
   },
 ): SolicitorBriefV0 {
   const display = buildLawyerBrief(session, progress, frames)
@@ -376,14 +415,17 @@ export function buildSolicitorBrief(
       success_looks_like: session.goal || '',
       source: session.goal ? 'client' : 'inferred_unconfirmed',
     },
+    client_narrative_raw: display.clientNarrativeRaw || undefined,
     timeline: session.events.map((e, i) => ({
       order: i + 1,
       date_approx: e.dateApprox || '',
-      date_precision: guessDatePrecision(e.dateApprox),
-      event: e.rawSpan ? tidySentence(e.rawSpan, 220) : e.label,
-      actors: [],
+      date_precision: e.datePrecision ?? guessDatePrecision(e.dateApprox),
+      event: e.label || (e.rawSpan ? tidySentence(e.rawSpan, 220) : ''),
+      actors: e.actors?.filter(Boolean) ?? [],
+      documents: e.documentLabels?.filter(Boolean) ?? [],
+      source_span: e.rawSpan && e.rawSpan !== e.label ? e.rawSpan : undefined,
       source: 'client' as const,
-      client_confirmed: true,
+      client_confirmed: e.clientConfirmed === true,
     })),
     matter_summary_plain: display.situationSummary,
     matter_type: session.matterType,
@@ -409,7 +451,7 @@ export function buildSolicitorBrief(
     },
     handoff: {
       ready_for_solicitor: display.readyForSolicitor,
-      consent_to_share: false,
+      consent_to_share: opts?.consentToShare === true,
       attachments: [],
     },
     system_boundaries: {
@@ -430,26 +472,27 @@ export function briefToPlainText(brief: LawyerBrief): string {
       : 'Handoff: Not yet solicitor-ready',
     `Risk routing: ${brief.riskRouting}`,
     '',
-    '— SITUATION SUMMARY —',
-    brief.situationSummary,
-    '',
     '— DESIRED OUTCOME —',
     brief.desiredOutcome,
     '',
-    '— INSTRUCTIONS FOR THE LAWYER —',
-    brief.instructionsForLawyer,
-    '',
-    '— TIMELINE —',
+    ...(brief.clientNarrativeRaw
+      ? ['— IN THE CLIENT’S WORDS —', brief.clientNarrativeRaw, '']
+      : []),
+    '— CHRONOLOGY —',
   ]
 
   if (brief.timeline.length === 0) {
     lines.push('(No timeline events captured yet.)')
   } else {
     for (const row of brief.timeline) {
-      lines.push(`${row.order}. [${row.when}] ${row.event}`)
+      const who = row.actors.length ? ` (${row.actors.join(', ')})` : ''
+      const status = row.clientConfirmed ? '' : ' [inferred]'
+      lines.push(`${row.order}. [${row.when}] ${row.event}${who}${status}`)
     }
   }
 
+  lines.push('', '— SITUATION SUMMARY —', brief.situationSummary)
+  lines.push('', '— INSTRUCTIONS FOR THE LAWYER —', brief.instructionsForLawyer)
   lines.push('', '— DETAILS —')
   lines.push(`Matter type: ${brief.matterType}`)
   lines.push(`Jurisdiction: ${brief.jurisdiction}`)

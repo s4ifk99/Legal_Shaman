@@ -33,12 +33,16 @@ export interface SolicitorBriefV0 {
     success_looks_like: string
     source: 'client' | 'inferred_unconfirmed'
   }
+  /** Verbatim intake text. Optional so older gold fixtures still validate. */
+  client_narrative_raw?: string
   timeline: {
     order: number
     date_approx: string
     date_precision: DatePrecision
     event: string
     actors: string[]
+    documents?: string[]
+    source_span?: string
     source: 'client'
     client_confirmed: boolean
   }[]
