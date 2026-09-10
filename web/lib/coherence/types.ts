@@ -37,12 +37,19 @@ export type Mode = 'browse' | 'dispute' | 'info' | 'research' | 'urgent' | 'unkn
 export type SearchMode = 'umbra' | 'penumbra'
 export type PenumbraResearchStatus = 'idle' | 'starting' | 'awaiting_input' | 'complete' | 'error'
 
+export type DatePrecision = 'day' | 'month' | 'year' | 'unknown'
+
 export interface TimelineEvent {
   id: string
   label: string
   rawSpan?: string
   dateApprox?: string
+  datePrecision?: DatePrecision
   kind: 'start' | 'event' | 'goal'
+  actors?: string[]
+  documentLabels?: string[]
+  /** Extracted beats start false; client edits set true. */
+  clientConfirmed?: boolean
 }
 
 export interface Party {

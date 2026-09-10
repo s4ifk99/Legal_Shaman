@@ -1,20 +1,20 @@
 import { compressLiveGoal, extractClientQuestions } from './clientQuestions'
 import { foldTypographicPunctuation, normaliseLayText } from './normaliseLay'
+import type { Jurisdiction, MatterType, Mode, SessionState, TimelineEvent } from './types'
 import {
   extractNarrativeEvents,
+  inferredTimelineEvent,
   looksLikeMultiBeatNarrative,
   mergeTimelineEvents,
   summariseToLabel,
 } from './timelineExtract'
-
-const uid = () => Math.random().toString(36).slice(2, 10)
 
 function pushEvent(events: TimelineEvent[], label: string, rawSpan?: string, dateApprox?: string) {
   const exists = events.some(
     (e) => e.kind === 'event' && e.label.toLowerCase() === label.toLowerCase(),
   )
   if (exists) return
-  events.push({ id: uid(), label, rawSpan, dateApprox, kind: 'event' })
+  events.push(inferredTimelineEvent({ label, rawSpan, dateApprox }))
 }
 
 /** Immigration only on clear immigration signals — not bare "refused". */

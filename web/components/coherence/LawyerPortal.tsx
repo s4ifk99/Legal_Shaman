@@ -274,8 +274,13 @@ function briefToSession(brief: SolicitorBriefV0): SessionState {
     events: brief.timeline.map((t, i) => ({
       id: `t-${i}`,
       label: t.event,
+      rawSpan: t.source_span,
       dateApprox: t.date_approx,
+      datePrecision: t.date_precision,
       kind: 'event' as const,
+      actors: t.actors,
+      documentLabels: t.documents,
+      clientConfirmed: t.client_confirmed,
     })),
     whatHappened: brief.matter_summary_plain,
     howCaused: '',

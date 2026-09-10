@@ -29,5 +29,5 @@ yarn-error.log*
 # Generated for local embedding pipeline (large)
 /data/all-listings-embed-input.json
 
-# External fallback link-check cache
-/.cache/
+# Local chronology share fallback when accounts DB is down
+/.data/

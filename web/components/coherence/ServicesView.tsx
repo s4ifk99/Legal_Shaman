@@ -307,9 +307,9 @@ function CaseContext({
     [session, progress, frames],
   )
 
-  const timelineRows =
+  const timelineRows: { order: number; when: string; event: string }[] =
     brief.timeline.length > 0
-      ? brief.timeline
+      ? brief.timeline.map((row) => ({ order: row.order, when: row.when, event: row.event }))
       : session.whatHappened
         ? [{ order: 1, when: 'Account', event: session.whatHappened }]
         : []

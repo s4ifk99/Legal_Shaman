@@ -3,6 +3,7 @@
  */
 import type { MatterType, Mode, Party, Prompt, SessionState, TimelineEvent, Jurisdiction } from './types'
 import { createInitialSession, sanitizeIntakeNarrative } from './sense'
+import { inferredTimelineEvent } from './timelineExtract'
 import type { AnswerPackage } from './answerPackage'
 import type { SessionMatterFrame } from './matterFrame'
 import { coherenceMasterEndpoint } from '@/lib/coherence/client-gateway'
@@ -18,7 +19,7 @@ export type MasterResult = {
     matterType?: string
     goal?: string
     mode?: string
-    events?: { label: string; rawSpan: string; dateApprox?: string }[]
+    events?: { label: string; rawSpan: string; dateApprox?: string; actors?: string[] }[]
     whatHappened?: string
     parties?: Party[]
     documents?: string[]
@@ -85,8 +86,6 @@ export type HelpMatchResult = {
     error?: string | null
   }
 }
-
-const uid = () => Math.random().toString(36).slice(2, 10)
 
 const MATTERS = new Set<MatterType>([
   'immigration',
@@ -230,13 +229,14 @@ export function applyMasterToSession(
       }
     : { ...session }
 
-  const events: TimelineEvent[] = (brief.events || []).map((e) => ({
-    id: uid(),
-    kind: 'event' as const,
-    label: (e.label || '').trim().slice(0, 78),
-    rawSpan: e.rawSpan?.trim() || e.label?.trim() || '',
-    dateApprox: e.dateApprox?.trim() || undefined,
-  }))
+  const events: TimelineEvent[] = (brief.events || []).map((e) =>
+    inferredTimelineEvent({
+      label: (e.label || '').trim().slice(0, 78),
+      rawSpan: e.rawSpan?.trim() || e.label?.trim() || '',
+      dateApprox: e.dateApprox?.trim() || undefined,
+      actors: e.actors,
+    }),
+  )
 
   const parties: Party[] = fresh ? [] : [...base.parties]
   for (const p of brief.parties || []) {

@@ -20,6 +20,15 @@ import {
   type LawyerReviewRecord,
 } from '@/lib/coherence/lawyerLoop'
 import { queueHandoff } from '@/lib/coherence/lawyerInbox'
+import {
+  clearShareHandle,
+  loadShareHandle,
+  saveShareHandle,
+  shareNotesUrl,
+  shareNotesPath,
+  tokenFromShareUrl,
+  type ChronologyShareHandle,
+} from '@/lib/coherence/share/local'
 import { sourcesByFrame, wikiHitsToSignposts, matchImmigrationWiki } from '@/lib/coherence/wiki'
 import { isImmigrationSession } from '@/lib/coherence/services'
 import { LawyerReview } from './LawyerReview'
@@ -76,6 +85,10 @@ export function LawyerNotes({
   const [review, setReview] = useState<LawyerReviewRecord | null>(null)
   const [goldSavedAt, setGoldSavedAt] = useState<string | null>(null)
   const [sharedAt, setSharedAt] = useState<string | null>(null)
+  const [consentToShare, setConsentToShare] = useState(false)
+  const [shareHandle, setShareHandle] = useState<ChronologyShareHandle | null>(null)
+  const [shareBusy, setShareBusy] = useState(false)
+  const [shareMessage, setShareMessage] = useState<string | null>(null)
 
   const displayFrames = wikiOpts.rankedFrames?.length ? wikiOpts.rankedFrames : frames
 
@@ -92,8 +105,9 @@ export function LawyerNotes({
       frameFits: wikiOpts.frameFits,
       conflictsDetected: wikiOpts.conflictsDetected,
       corpusVersion: 'immigrationWiki.json',
+      consentToShare,
     })
-  }, [session, progress, displayFrames, wikiOpts, importedBrief])
+  }, [session, progress, displayFrames, wikiOpts, importedBrief, consentToShare])
   const plain = useMemo(() => briefToPlainText(brief), [brief])
 
   const reviewedBrief = useMemo(
@@ -206,9 +220,92 @@ export function LawyerNotes({
     URL.revokeObjectURL(url)
   }
 
+  useEffect(() => {
+    setShareHandle(loadShareHandle(briefIdRef.current))
+  }, [])
+
   function shareToInbox() {
     queueHandoff(solicitorBrief, 'client_share', 'Shared from client notes')
     setSharedAt(new Date().toISOString())
+  }
+
+  async function publishShare() {
+    if (!consentToShare) {
+      setShareMessage('Confirm consent before creating a shareable link.')
+      return
+    }
+    setShareBusy(true)
+    setShareMessage(null)
+    try {
+      const res = await fetch('/api/coherence/share', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          consent: true,
+          brief: solicitorBrief,
+          updateSecret: shareHandle?.updateSecret,
+          knownPathToken: shareHandle?.token || (shareHandle ? tokenFromShareUrl(shareHandle.url) : undefined),
+        }),
+      })
+      const data = (await res.json()) as {
+        error?: string
+        url?: string
+        updateSecret?: string
+        expiresAt?: string
+        publishedAt?: string
+      }
+      if (!res.ok || !data.url || !data.updateSecret || !data.expiresAt || !data.publishedAt) {
+        setShareMessage(data.error || 'Could not create a shareable link.')
+        return
+      }
+      const token = tokenFromShareUrl(data.url) || shareHandle?.token || ''
+      if (!token) {
+        setShareMessage('Could not create a shareable link.')
+        return
+      }
+      const handle: ChronologyShareHandle = {
+        briefId: solicitorBrief.brief_id,
+        url: shareNotesUrl(window.location.origin, token),
+        token,
+        updateSecret: data.updateSecret,
+        expiresAt: data.expiresAt,
+        publishedAt: data.publishedAt,
+      }
+      saveShareHandle(handle)
+      setShareHandle(handle)
+      await navigator.clipboard?.writeText(handle.url)
+      setShareMessage('Link copied. Anyone with the URL can view these notes until you revoke it or it expires.')
+    } catch {
+      setShareMessage('Could not create a shareable link.')
+    } finally {
+      setShareBusy(false)
+    }
+  }
+
+  async function revokePublishedShare() {
+    if (!shareHandle) return
+    setShareBusy(true)
+    setShareMessage(null)
+    try {
+      const token = tokenFromShareUrl(shareHandle.url) || shareHandle.token
+      const res = await fetch(`/api/coherence/share/${encodeURIComponent(token)}/revoke`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ updateSecret: shareHandle.updateSecret }),
+      })
+      if (!res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { error?: string }
+        setShareMessage(data.error || 'Could not revoke the link.')
+        return
+      }
+      clearShareHandle(shareHandle.briefId)
+      setShareHandle(null)
+      setShareMessage('Share link revoked.')
+    } catch {
+      setShareMessage('Could not revoke the link.')
+    } finally {
+      setShareBusy(false)
+    }
   }
 
   useEffect(() => {
@@ -250,12 +347,23 @@ export function LawyerNotes({
         order: row.order,
         when: row.date_approx || 'Date not given',
         event: row.event,
+        inferred: !row.client_confirmed,
+        actors: row.actors,
       }))
-    : brief.timeline
+    : brief.timeline.map((row) => ({
+        order: row.order,
+        when: row.when,
+        event: row.event,
+        inferred: !row.clientConfirmed,
+        actors: row.actors,
+      }))
   const displaySources = isLawyer ? reviewedBrief.issues : solicitorBrief.issues
   const displayConflicts = isLawyer
     ? reviewedBrief.conflicts_detected
     : solicitorBrief.conflicts_detected
+  const displayNarrative = (
+    isLawyer ? reviewedBrief.client_narrative_raw || brief.clientNarrativeRaw : brief.clientNarrativeRaw
+  ).trim()
 
   return (
     <div className="notes">
@@ -273,7 +381,7 @@ export function LawyerNotes({
           </button>
           {!isLawyer && (
             <button type="button" className="notes__btn" onClick={shareToInbox}>
-              Share to solicitor inbox
+              Local inbox (this browser)
             </button>
           )}
           {isLawyer && (
@@ -319,8 +427,70 @@ export function LawyerNotes({
       )}
       {sharedAt && !isLawyer && (
         <p className="notes__draft-banner no-print" role="status">
-          Queued for solicitors signed into Legal Shaman ({new Date(sharedAt).toLocaleString('en-GB')}).
+          Queued in this browser for solicitors signed into Legal Shaman (
+          {new Date(sharedAt).toLocaleString('en-GB')}).
         </p>
+      )}
+      {!isLawyer && (
+        <section className="notes__share no-print" aria-label="Shareable lawyer link">
+          <h2>Shareable link for a lawyer</h2>
+          {session.events.filter((e) => e.kind === 'event').length < 2 && (
+            <p className="notes__share-warn">
+              Chronology is thin. Add more dated events before sending this to a solicitor if you can.
+            </p>
+          )}
+          <label className="notes__consent">
+            <input
+              type="checkbox"
+              checked={consentToShare}
+              onChange={(e) => setConsentToShare(e.target.checked)}
+            />
+            <span>
+              I understand this link lets anyone with the URL see my notes until it expires or I
+              revoke it.
+            </span>
+          </label>
+          <div className="notes__share-actions">
+            <button
+              type="button"
+              className="notes__btn notes__btn--solid"
+              onClick={() => void publishShare()}
+              disabled={shareBusy || !consentToShare}
+            >
+              {shareHandle ? 'Update shared view' : 'Create shareable link'}
+            </button>
+            {shareHandle && (
+              <button
+                type="button"
+                className="notes__btn"
+                onClick={() => void navigator.clipboard?.writeText(shareHandle.url)}
+              >
+                Copy link
+              </button>
+            )}
+            {shareHandle && (
+              <button
+                type="button"
+                className="notes__btn"
+                onClick={() => void revokePublishedShare()}
+                disabled={shareBusy}
+              >
+                Revoke
+              </button>
+            )}
+          </div>
+          {shareHandle && (
+            <p className="notes__share-url">
+              <a href={shareNotesPath(shareHandle.token)} target="_blank" rel="noreferrer">
+                {shareHandle.url}
+              </a>
+              <br />
+              Expires {new Date(shareHandle.expiresAt).toLocaleString('en-GB')} · last published{' '}
+              {new Date(shareHandle.publishedAt).toLocaleString('en-GB')}
+            </p>
+          )}
+          {shareMessage && <p className="notes__share-status">{shareMessage}</p>}
+        </section>
       )}
       {isLawyer && goldSavedAt && (
         <p className="notes__draft-banner no-print" role="status">
@@ -355,27 +525,36 @@ export function LawyerNotes({
         </p>
 
         <section className="notes__section">
-          <h2>Situation summary</h2>
-          <p>{displaySummary}</p>
-        </section>
-
-        {session.whatHappened && (
-          <section className="notes__section">
-            <h2>What happened (client narrative)</h2>
-            <p>{session.whatHappened}</p>
-          </section>
-        )}
-
-        {session.howCaused && (
-          <section className="notes__section">
-            <h2>How it was caused (client account)</h2>
-            <p>{session.howCaused}</p>
-          </section>
-        )}
-
-        <section className="notes__section">
           <h2>Desired outcome</h2>
           <p>{displayGoal}</p>
+        </section>
+
+        {displayNarrative ? (
+          <section className="notes__section">
+            <h2>In the client’s words</h2>
+            <p className="notes__raw">{displayNarrative}</p>
+          </section>
+        ) : null}
+
+        <section className="notes__section">
+          <h2>Chronology</h2>
+          {displayTimeline.length === 0 ? (
+            <p className="notes__empty">No timeline events captured yet.</p>
+          ) : (
+            <ol className="notes__timeline">
+              {displayTimeline.map((row) => (
+                <li key={row.order}>
+                  <span className="notes__when">{row.when}</span>
+                  <span className="notes__event">{row.event}</span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </section>
+
+        <section className="notes__section">
+          <h2>Situation summary</h2>
+          <p>{displaySummary}</p>
         </section>
 
         {displayIssues.length > 0 && (
@@ -437,22 +616,6 @@ export function LawyerNotes({
         <section className="notes__section">
           <h2>Instructions for the lawyer</h2>
           <p>{brief.instructionsForLawyer}</p>
-        </section>
-
-        <section className="notes__section">
-          <h2>Timeline</h2>
-          {displayTimeline.length === 0 ? (
-            <p className="notes__empty">No timeline events captured yet.</p>
-          ) : (
-            <ol className="notes__timeline">
-              {displayTimeline.map((row) => (
-                <li key={row.order}>
-                  <span className="notes__when">{row.when}</span>
-                  <span className="notes__event">{row.event}</span>
-                </li>
-              ))}
-            </ol>
-          )}
         </section>
 
         {(brief.parties.length > 0 || brief.documents.length > 0) && (

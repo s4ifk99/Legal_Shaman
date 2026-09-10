@@ -22,7 +22,8 @@ import { B2C_PAID_PRICE_LABEL } from '@/lib/billing/plan'
 import { captureProductEvent } from '@/components/analytics/posthog-provider'
 import type { SearchDestination } from './ReformulationGate'
 import { createInitialSession, isMetaCauseLine, isPhysicalNeedNotGoal, senseDetails } from '@/lib/coherence/sense'
-import { summariseToLabel } from '@/lib/coherence/timelineExtract'
+import { inferredTimelineEvent, summariseToLabel } from '@/lib/coherence/timelineExtract'
+import { guessDatePrecision, sortTimelineEventsByDate } from '@/lib/coherence/timelineDates'
 import { matterClassifierPrompt, nextPrompt } from '@/lib/coherence/questions'
 import { predictiveOptions } from '@/lib/coherence/options'
 import { computeProgress, computeServiceConfidence } from '@/lib/coherence/slots'
@@ -679,6 +680,23 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     return predictiveOptions(prompt, session)
   }, [penumbraBusy, prompt, session])
   const progress = useMemo(() => computeProgress(session), [session])
+  const timelineBanners = useMemo(() => {
+    const banners: string[] = []
+    const mid = session.events.filter((e) => e.kind === 'event')
+    if (mid.length === 1) {
+      banners.push('Chronology is thin — add at least one more event before sharing with a lawyer.')
+    }
+    const undated = mid.filter((e) => !e.dateApprox?.trim()).length
+    if (undated > 0) {
+      banners.push(
+        `${undated} event${undated === 1 ? '' : 's'} ${undated === 1 ? 'has' : 'have'} no date. Month or year still helps with time limits.`,
+      )
+    }
+    if (session.safetyRisk) {
+      banners.push('Safety or urgency was flagged during intake — this will show on the lawyer notes.')
+    }
+    return banners
+  }, [session])
   const serviceConfidence = useMemo(() => computeServiceConfidence(session), [session])
   const frames = useMemo(() => {
     if (session.rawInputs.length === 0) return []
@@ -1468,11 +1486,49 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     }
   }
 
-  function updateEvent(id: string, patch: Partial<Pick<TimelineEvent, 'label' | 'dateApprox'>>) {
+  function updateEvent(
+    id: string,
+    patch: Partial<
+      Pick<
+        TimelineEvent,
+        | 'label'
+        | 'dateApprox'
+        | 'datePrecision'
+        | 'actors'
+        | 'documentLabels'
+        | 'clientConfirmed'
+        | 'rawSpan'
+      >
+    >,
+  ) {
     setSession((prev) => ({
       ...prev,
-      events: prev.events.map((e) => (e.id === id ? { ...e, ...patch } : e)),
+      events: prev.events.map((e) => {
+        if (e.id !== id) return e
+        const next = { ...e, ...patch }
+        if (patch.dateApprox !== undefined && patch.datePrecision === undefined) {
+          next.datePrecision = guessDatePrecision(patch.dateApprox)
+        }
+        if (patch.label !== undefined || patch.dateApprox !== undefined) {
+          next.clientConfirmed = true
+        }
+        return next
+      }),
     }))
+  }
+
+  function addEvent(input: { label: string; dateApprox?: string }) {
+    const event = inferredTimelineEvent({
+      label: input.label,
+      dateApprox: input.dateApprox,
+      clientConfirmed: true,
+    })
+    setSession((prev) => ({ ...prev, events: [...prev.events, event] }))
+    setSelectedNode(event.id)
+  }
+
+  function sortEventsByDate() {
+    setSession((prev) => ({ ...prev, events: sortTimelineEventsByDate(prev.events) }))
   }
 
   function deleteEvent(id: string) {
@@ -1687,10 +1743,13 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       <Timeline
         session={session}
         activeId={selectedNode}
+        banners={timelineBanners}
         onSelect={setSelectedNode}
         onUpdateEvent={updateEvent}
         onDeleteEvent={deleteEvent}
         onMoveEvent={moveEvent}
+        onAddEvent={addEvent}
+        onSortByDate={sortEventsByDate}
         onUpdateGoal={(goal) => setSession((prev) => ({ ...prev, goal }))}
       />
 

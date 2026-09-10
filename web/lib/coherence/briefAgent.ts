@@ -3,6 +3,7 @@
  */
 import type { MatterType, Mode, Party, SessionState, TimelineEvent, Jurisdiction } from './types'
 import { createInitialSession, sanitizeIntakeNarrative } from './sense'
+import { inferredTimelineEvent } from './timelineExtract'
 
 export type BriefResult = {
   freshBrief: boolean
@@ -24,8 +25,6 @@ export type BriefResult = {
   openUncertainties?: { id: string; whyItMatters: string; suggestedAsk: string }[]
   source?: string
 }
-
-const uid = () => Math.random().toString(36).slice(2, 10)
 
 const MATTERS = new Set<MatterType>([
   'immigration',
@@ -127,13 +126,14 @@ export function applyBriefToSession(
       }
     : { ...session }
 
-  const events: TimelineEvent[] = (brief.events || []).map((e) => ({
-    id: uid(),
-    kind: 'event' as const,
-    label: e.label.trim().slice(0, 78),
-    rawSpan: e.rawSpan?.trim() || e.label.trim(),
-    dateApprox: e.dateApprox?.trim() || undefined,
-  }))
+  const events: TimelineEvent[] = (brief.events || []).map((e) =>
+    inferredTimelineEvent({
+      label: e.label.trim().slice(0, 78),
+      rawSpan: e.rawSpan?.trim() || e.label.trim(),
+      dateApprox: e.dateApprox?.trim() || undefined,
+      actors: e.actors,
+    }),
+  )
 
   const parties: Party[] = brief.freshBrief ? [] : [...base.parties]
   for (const p of brief.parties || []) {
