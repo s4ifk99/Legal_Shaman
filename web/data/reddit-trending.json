@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-09T20:27:08.175Z",
-    "subredditCount": 2,
-    "postCount": 40,
-    "topicCount": 10,
+    "scrapedAt": "2026-09-10T10:20:42.358Z",
+    "subredditCount": 1,
+    "postCount": 20,
+    "topicCount": 5,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -50,15 +50,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wbdwpl",
-          "title": "Neighbour causing a ruckus about parking. Can they legally do anything?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbdwpl/neighbour_causing_a_ruckus_about_parking_can_they/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbdwpl/neighbour_causing_a_ruckus_about_parking_can_they/",
+          "id": "1wc3ic7",
+          "title": "International Student sent r@pe threats towards me",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wc3ic7/international_student_sent_rpe_threats_towards_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wc3ic7/international_student_sent_rpe_threats_towards_me/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788936250,
-          "snippet": "England btw. Basically, I'm being asked by a literal next-door neighbour for parking near my house, given that I can't park anywhere else apart from way down my street given its layout and how many cars there are. submitted by /u/Imperial_nugget [link] [comments]",
+          "createdUtc": 1789000268,
+          "snippet": "Hello. I would like to ask advice on what I can do with an international student from France whom I known personally and he’s basically ruined somewhat of my mental health. He sent me basically r&amp;pe threats to me and minors of my family members. Should I send this to the univ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wbx0n0",
+          "title": "Elderly neighbour being charged £3,000 for an out of hours electrician visit.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbx0n0/elderly_neighbour_being_charged_3000_for_an_out/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbx0n0/elderly_neighbour_being_charged_3000_for_an_out/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788985080,
+          "snippet": "Update Thank you all so much! I went round and told him what you have put there. While I was explaining his daughter arrived and we discussed it. She is not.... Happy. She'll be calling the spark now and tell him that he can send an invoice via email, and not to come back tomorro",
           "listingSource": "rss:hot"
         },
         {
@@ -71,6 +83,66 @@
           "numComments": 0,
           "createdUtc": 1788981025,
           "snippet": "I broke up with my ex in November last year. On the same day, I blocked his number and his accounts on social media as I did not want to be contacted by him because of how he treated me. A few months ago, he tried to follow me on tiktok, I declined this request and continued to m",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wbdwpl",
+          "title": "Neighbour causing a ruckus about parking. Can they legally do anything?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbdwpl/neighbour_causing_a_ruckus_about_parking_can_they/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbdwpl/neighbour_causing_a_ruckus_about_parking_can_they/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788936250,
+          "snippet": "England btw. Basically, I'm being asked by a literal next-door neighbour for parking near my house, given that I can't park anywhere else apart from way down my street given its layout and how many cars there are. submitted by /u/Imperial_nugget [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wcb6bw",
+          "title": "Was told I wasn’t going to need accommodation in uni since I was part time. Found out at last second I was going to need accommodation and don’t know what to do(Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcb6bw/was_told_i_wasnt_going_to_need_accommodation_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcb6bw/was_told_i_wasnt_going_to_need_accommodation_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789022145,
+          "snippet": "I applied for a course at a uni using the part time option they offered since it would’ve meant less days per week. I chose this option because I wanted to keep my job back at home(2-3 hours away) and still experience the last of what my area has to offer. Last week we had induct",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wbxm64",
+          "title": "Being made redundant and found out I am pregnant",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbxm64/being_made_redundant_and_found_out_i_am_pregnant/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbxm64/being_made_redundant_and_found_out_i_am_pregnant/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788986351,
+          "snippet": "I am being made redundant and displaced on 30th December and then am being put on garden leave until 31st March 2027. I have also just found out I am pregnant and will be due roughly mid-May 2027. As I understand it, as long as I reach my 15th week of pregnancy whilst still under",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wcb5ja",
+          "title": "Ended tenancy under duress, friend now facing homelessness — what legal options remain",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcb5ja/ended_tenancy_under_duress_friend_now_facing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcb5ja/ended_tenancy_under_duress_friend_now_facing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789022066,
+          "snippet": "Hi, I'm from England, UK, I’m 23M and lost my mum to metastatic breast cancer in May 2025. Before she passed, my friend (also 23) moved in because they were escaping an abusive family. It was meant to be temporary, but they have severe ADHD, trauma, self‑neglect issues, and a phy",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wc0v2z",
+          "title": "House mates accused me of stealing their things and are now telling me I need to send them £550.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wc0v2z/house_mates_accused_me_of_stealing_their_things/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wc0v2z/house_mates_accused_me_of_stealing_their_things/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788993688,
+          "snippet": "Asking for advice really on behalf of my sister. We are in England. For context, she lives in a house share while at uni and their move out date is 13/09. The day I’m writing this the two people accusing her have now both moved out. I get a call today from my sister saying that t",
           "listingSource": "rss:hot"
         },
         {
@@ -95,6 +167,54 @@
           "numComments": 0,
           "createdUtc": 1788975284,
           "snippet": "Hi! I’m not sure if this is the correct subreddit to put this in so please redirect me if necessary. Both mine and my husbands cars keep getting damaged outside our property (communal parking area.) Several of my tyres were punctured and my husbands car brakes were cut about a mo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wcdo9p",
+          "title": "Aironb host has made a £1,400 damage claim FOUR MONTHS after my stay - where do I stand? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdo9p/aironb_host_has_made_a_1400_damage_claim_four/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdo9p/aironb_host_has_made_a_1400_damage_claim_four/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789030780,
+          "snippet": "I'm looking for some advice from people who have dealt with Airbn damage claims before. I stayed in an Airbnb for 10 days back in April 2026. During the stay, a tap became loose. I immediately reported it to the host through Airbnb, and the host arranged for someone to come out a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wbx55l",
+          "title": "130k debt due to my property and previous subsidence!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbx55l/130k_debt_due_to_my_property_and_previous/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbx55l/130k_debt_due_to_my_property_and_previous/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788985344,
+          "snippet": "Hello, Any advice would be deeply appreciated. Tbh im not in the best frame of mind and constantly anxious about this. So 2 years ago, myself and my partner bought a property for 190k. Everything was fine, the property had been heavily renovated, with a estimated cost of 90k spen",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wcdv0u",
+          "title": "Residential home accidentally trapped in a commercial energy database for decades—now facing massive bills and commercial renewal lock-ins.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdv0u/residential_home_accidentally_trapped_in_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdv0u/residential_home_accidentally_trapped_in_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789031409,
+          "snippet": "I used AI to help me format and sum this up just as an FYI. Looking for some guidance on a deeply frustrating energy classification nightmare involving a residential property and a major UK supplier/broker network. The Background The Property: A 100% private residential family ho",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wca7at",
+          "title": "Separation House Advice, Wales",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wca7at/separation_house_advice_wales/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wca7at/separation_house_advice_wales/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789018992,
+          "snippet": "My partner of 13 years left me 1 month ago. We've got 2 kids, youngest being 2. The house is in both our names, he put in £180,000 as he had inherited a house, I only put in £40,000. I'm still in the house with the children as I am the primary care giver. He asked me to buy him o",
           "listingSource": "rss:hot"
         },
         {
@@ -110,395 +230,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wbnzyi",
-          "title": "House Guest stole money from my house and because I have no proof, police wont help - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbnzyi/house_guest_stole_money_from_my_house_and_because/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbnzyi/house_guest_stole_money_from_my_house_and_because/",
+          "id": "1wccetp",
+          "title": "UK consultancy contract – client now disputing monthly hours and rate months after agreeing/paying",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wccetp/uk_consultancy_contract_client_now_disputing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wccetp/uk_consultancy_contract_client_now_disputing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788966006,
-          "snippet": "Hello all, Please help me here because im stressing like crazy about this and a friend told me to join reddit and post here because its a good place for free legal advice. Last week, I had a \"friend\" stay over a few days because he was struggling, so i let him stay on my sofa. He",
+          "createdUtc": 1789026333,
+          "snippet": "I’m a UK sole-trader consultant and entered into a written consultancy agreement with a UK Ltd company in March 2026. The signed agreement states that I will perform 10 hours of maintenance work per month, billed at the agreed hourly rate. It’s an indefinite agreement, and I’m al",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wbt0dm",
-          "title": "Parking eye escalated ticket - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbt0dm/parking_eye_escalated_ticket_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbt0dm/parking_eye_escalated_ticket_england/",
+          "id": "1wce2tn",
+          "title": "EBay simple postage vs. Royal Mail, wrong address attached to parcel. Where do I go next? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wce2tn/ebay_simple_postage_vs_royal_mail_wrong_address/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wce2tn/ebay_simple_postage_vs_royal_mail_wrong_address/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788976742,
-          "snippet": "Parking eye have been sending letters and court orders for a parking ticket at the range Wigan which I was working that day on site and even have a copy visitor log as proof which I got recently. The staffnever entered my reg plate even though that was the first thing I asked the",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbtmyq",
-          "title": "Can my landlord take all my spare keys?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbtmyq/can_my_landlord_take_all_my_spare_keys/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbtmyq/can_my_landlord_take_all_my_spare_keys/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788978033,
-          "snippet": "Hi all - I’m in Wales looking for a bit of advice. My landlord was supposed to be at my rented flat today as the letting agency were carrying out a property check - they cleared this in advance and all was OK with us. Upon arriving they called my flatmate (called FM here for clar",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbvmhe",
-          "title": "Letting agent admitted giving someone keys after I refused a viewing. Police treated it as civil because the person claimed to be my landlord. I now suspect he wasn't. [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbvmhe/letting_agent_admitted_giving_someone_keys_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbvmhe/letting_agent_admitted_giving_someone_keys_after/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788982154,
-          "snippet": "This happened almost a year ago at a flat I rented in England. An agent called at 11:45am asking to arrange a viewing the following day because the owners were selling the whole building. I refused. The next morning, the day of the viewing, the lettings manager called and pressur",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wakv00",
-          "title": "£600 laptop left unattended outside my house by DHL – Argos says it was delivered",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wakv00/600_laptop_left_unattended_outside_my_house_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wakv00/600_laptop_left_unattended_outside_my_house_by/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788864171,
-          "snippet": "I want to share my experience with Argos because I think other customers should be aware of what happened. I ordered a laptop from Argos worth around £600. The order stated that someone needed to be at home to receive the delivery. DHL delivered it at approximately 11:41 AM while",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbew7o",
-          "title": "My ex-wife is refusing to let our son apply for a good school because she is ideologically opposed to grammar schools.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbew7o/my_exwife_is_refusing_to_let_our_son_apply_for_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbew7o/my_exwife_is_refusing_to_let_our_son_apply_for_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788939680,
-          "snippet": "Northern Ireland. I have two children with my ex-wife. My eldest is going to be finishing Primary School this year and should be able to sit those transfer tests. For those who dont know Northern Ireland has two schools: comprehensives(secondary) and voluntary gramamar. Grammar s",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbuood",
-          "title": "Received a letter of claim for something that wasn’t me - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbuood/received_a_letter_of_claim_for_something_that/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbuood/received_a_letter_of_claim_for_something_that/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788980207,
-          "snippet": "Hello. DPD has dropped off what I assumed was a parcel but it was a letter of claim. Apparently a social media account in my name (first name and last initial) has been recking havoc online against someone and making some serious defaming comments against a private individual (we",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbx0n0",
-          "title": "Elderly neighbour being charged £3,000 for an out of hours electrician visit.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbx0n0/elderly_neighbour_being_charged_3000_for_an_out/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbx0n0/elderly_neighbour_being_charged_3000_for_an_out/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788985080,
-          "snippet": "Hi When I got home from work today at about 18:30, our next door neighbour opened his door as half of his house didn't have electricity. I had a look as his consumer unit, and found one of his RCDs seemed to have a dodgy connection to the busbar. Given the fire risk of this, I re",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wayfpd",
-          "title": "I sold my car through motorway and now dealership is claiming repairs to fix it 5 months since the sale",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wayfpd/i_sold_my_car_through_motorway_and_now_dealership/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wayfpd/i_sold_my_car_through_motorway_and_now_dealership/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788895719,
-          "snippet": "I sold my car through the auction site motorway. It was bid for my a dealership and now they’re saying I need to over £10k for it to have been fixed 3 times. They’re saying on the service history it stated ‘engine slightly noisy’ back in 2024 and they weren’t aware of this at the",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbn6s9",
-          "title": "I think my work are discriminating against me due to my disability",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbn6s9/i_think_my_work_are_discriminating_against_me_due/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbn6s9/i_think_my_work_are_discriminating_against_me_due/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788964160,
-          "snippet": "I should give some background/context first, I’m 26 F from Scotland and I have epilepsy. I was diagnosed in 2019 with absent seizures and refused medication because i had bad side effects to it. Last year in march i started a job with an outsourcing company. The job itself was ex",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbww0z",
-          "title": "Retaining part of refund (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbww0z/retaining_part_of_refund_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbww0z/retaining_part_of_refund_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788984806,
-          "snippet": "I paid £80 upfront for a consultation. The terms say a fee only applies if I cancel with less than 24 hours’ notice. I cancelled well in advance, but they only refunded £40 and kept £40 because they had already reviewed my medical form. There’s nothing in the terms saying form re",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbplgk",
-          "title": "I feel like companies are calling us “self-employed” so they can avoid employer tax and worker rights?.... Wecasa",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbplgk/i_feel_like_companies_are_calling_us_selfemployed/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbplgk/i_feel_like_companies_are_calling_us_selfemployed/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788969493,
-          "snippet": "(England) I am so frustrated, like how can Wecasa call people “self-employed”?! They have to sort out their own tax, get no holiday pay, no employer pension contributions etc, while if they are genuinely self-employed the company also does not have the same employer NI and employ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "name": "UKPersonalFinance",
-      "displayName": "r/UKPersonalFinance",
-      "description": "Debt, benefits, tax disputes, and consumer rights with legal crossover.",
-      "subscribers": null,
-      "posts": [
-        {
-          "id": "1wbk5t5",
-          "title": "Finally Paid off the mortgage 11 years early.",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbk5t5/finally_paid_off_the_mortgage_11_years_early/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbk5t5/finally_paid_off_the_mortgage_11_years_early/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788956812,
-          "snippet": "Today was a pretty big one for me. Paid off the mortgage, technically for a 2nd time I overpaid my last one and paid it off about 15 years ago, then we decided we wanted a bigger house!. Re mortgaged and its taken me just over 8 years to pay off 130k. Very happy with that, it sav",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbhox7",
-          "title": "How much does the possibility of no work after 55 affect your financial planning?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbhox7/how_much_does_the_possibility_of_no_work_after_55/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbhox7/how_much_does_the_possibility_of_no_work_after_55/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788949452,
-          "snippet": "I'm 46M. Something very odd about getting older is that you don't really realise it's happening to you. Only a few years ago I was trying to work out where I was going with my life, what career I was going to do and what that was going to look like. Suddenly, I'm a middle-aged ma",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbtbg4",
-          "title": "Was it a mistake to enter into a DMP?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbtbg4/was_it_a_mistake_to_enter_into_a_dmp/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbtbg4/was_it_a_mistake_to_enter_into_a_dmp/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788977375,
-          "snippet": "Hi all, some context: I’m 33, F, married, a teacher and I’m in around 50K of debt, not including my mortgage. My partner isn’t aware (I’m working on this). The debt accumulated over years of bad choices at uni, loans to cover loans etc. I’m embarrassingly financially illiterate a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbntoz",
-          "title": "What is the next step after Bonds if I need the money in a year?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbntoz/what_is_the_next_step_after_bonds_if_i_need_the/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbntoz/what_is_the_next_step_after_bonds_if_i_need_the/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788965622,
-          "snippet": "Hi all, I've just sold my property and I need to figure out the most efficient way to store the proceeds. I was supposed to buy an onward purchase but that fell through. My intention is still to buy in about 12 - 18 months when my partner's income goes up. So, S&amp;S/GIA is out ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbw23e",
-          "title": "Self Assessment Capital Gains Tax Report",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbw23e/self_assessment_capital_gains_tax_report/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbw23e/self_assessment_capital_gains_tax_report/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788983069,
-          "snippet": "Hi all, I am really confused at the moment so have come here to get some help. I sold a property in the UK last April before the end of the tax year. Around a month later I filed a self assessment report and did a separate Capital Gains Tax report and paid both individually. I di",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbwk9a",
-          "title": "ISA options advice for beginner?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbwk9a/isa_options_advice_for_beginner/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbwk9a/isa_options_advice_for_beginner/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788984124,
-          "snippet": "Hi guys, apologies for asking any silly questions in advance! I’m 24 &amp; wanting to properly start my investing journey, and after a bit of research I’m struggling to choose between a few options of what is best in the long-term - any advice would be much appreciated! I current",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbw9ki",
-          "title": "Can I still pay my Barclaycard Platinum credit card through my own online bank?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbw9ki/can_i_still_pay_my_barclaycard_platinum_credit/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbw9ki/can_i_still_pay_my_barclaycard_platinum_credit/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788983518,
-          "snippet": "Barclays have announced that their online payment site will be closing on 16th September. They have now said I must use either their app, or pay in any Barclays branch. I don't want to use yet another app for something, and there's no Barclays bank near or far as they've closed s",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbv3wn",
-          "title": "I have three debts right now. Should I be trying to close them?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbv3wn/i_have_three_debts_right_now_should_i_be_trying/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbv3wn/i_have_three_debts_right_now_should_i_be_trying/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788981069,
-          "snippet": "I have 3 debts right now. Mortgage 187000 @ 4.35% interest, 29 years remaining Car loan 19300 @ 4.90% interest, 4.75 years remaining EV charger 970 @ 0% interest, 4 payments remaining Being relatively low interest debts I’m not actively trying to close any of them. I make the nor",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wb1q4e",
-          "title": "Lloyds Ultra 1% cashback card ending. Options?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wb1q4e/lloyds_ultra_1_cashback_card_ending_options/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wb1q4e/lloyds_ultra_1_cashback_card_ending_options/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788902818,
-          "snippet": "I have had the Lloyds ultra cashback credit card for year and it has been fantastic. You get 1% cashback on every transaction which has earned me hundreds of pounds. Unfortunately 1% cashback was only for the first year, then it drops to 0.25%. I can’t see any other 1% cashback c",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbs1b6",
-          "title": "salary sacrifice vs relief at source for me?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbs1b6/salary_sacrifice_vs_relief_at_source_for_me/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbs1b6/salary_sacrifice_vs_relief_at_source_for_me/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788974664,
-          "snippet": "I don't fully understand the difference, but I will be making 26,357.5 per year and my employer offers a scheme where they match my pension contribution up to 10% I want to contribute 10% which my employer match and so which will be a better option for me to choose? submitted by ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbrzqp",
-          "title": "ISAs, leftover money and student loans",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbrzqp/isas_leftover_money_and_student_loans/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbrzqp/isas_leftover_money_and_student_loans/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788974572,
-          "snippet": "Graduated in 2020, now working as a data engineer in London earning 70k a year. Managed to be due to max out my S&amp;S ISA by December since I got my bonus in May. Never been in this position before and not sure what to do with the rest of the money until the allowance resets. I",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbh0np",
-          "title": "When do I start using my savings?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbh0np/when_do_i_start_using_my_savings/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbh0np/when_do_i_start_using_my_savings/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788947208,
-          "snippet": "This might be a silly question but basically I’m likely facing redundancy soon. I have savings that can cover a few months but I also have the money in my actual bank account where my income currently goes into and what I use to pay for everything. How do I know when to move from",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbqjm8",
-          "title": "Can a lifetime ISA and help to buy ISA be used together?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbqjm8/can_a_lifetime_isa_and_help_to_buy_isa_be_used/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbqjm8/can_a_lifetime_isa_and_help_to_buy_isa_be_used/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788971491,
-          "snippet": "I currently have a lifetime isa as that’s what was available to me when I started saving for a house, however I’ve also now got a lifetime isa which I fill every year, can these two ISA’s be put together for one house? Or can I not use both for the same mortgage? submitted by /u/",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbk2v0",
-          "title": "Pension contributions using carry forward allowance",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbk2v0/pension_contributions_using_carry_forward/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbk2v0/pension_contributions_using_carry_forward/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788956587,
-          "snippet": "Hoping for a bit of advice before I go to a financial advisor please! I’m based in the UK and very fortunately I’m going to be making over £300k this year and understand my pension allowance will be tapered. I want to use my allowance from the last couple of years to put more int",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1waxllq",
-          "title": "Wrong spouse applied for marriage allowance, now worse off",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1waxllq/wrong_spouse_applied_for_marriage_allowance_now/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1waxllq/wrong_spouse_applied_for_marriage_allowance_now/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788893976,
-          "snippet": "I feel like such an idiot, I recently got married and applied for marriage allowance as my wife doesn't pay income tax. However, I've got a letter updating tax codes and I have somehow gone the wrong way, transferring my personal allowance to her. I've managed to cancel online bu",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbiuar",
-          "title": "First Post - 33 UK with 26k in Cash ISA - have I done it wrong?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbiuar/first_post_33_uk_with_26k_in_cash_isa_have_i_done/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbiuar/first_post_33_uk_with_26k_in_cash_isa_have_i_done/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788953064,
-          "snippet": "Hi all, first ever post here, so please let me know if I’ve missed anything. I’m 33, own my own home and have no debts other than the mortgage, which I try to overpay when I can. I’ve always been encouraged by my family to prioritise saving into a Cash ISA, so that’s what I’ve do",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbi6kt",
-          "title": "Accessing UK Barclays Bank Account From Overseas?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbi6kt/accessing_uk_barclays_bank_account_from_overseas/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbi6kt/accessing_uk_barclays_bank_account_from_overseas/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788951076,
-          "snippet": "Hi All, My mum has two Barclays accounts which she could once access through her phone using mobile banking. to get that far she actually had to travel to the UK from Australia and sort it out in person. She has since upgraded her phone and is facing the original issue again. All",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbth0u",
-          "title": "Will I be taxed if I work at my temporary job?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbth0u/will_i_be_taxed_if_i_work_at_my_temporary_job/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbth0u/will_i_be_taxed_if_i_work_at_my_temporary_job/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788977691,
-          "snippet": "I am 18 and will earn £434 per week, this temp job so I will have around at the end £7000, will I be taxed on this? I googled it and it says I won’t be, just to be sure I will not be right? And how can I get my tax money back if possible? submitted by /u/Agitated-Salt-5039 [link]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1waudgn",
-          "title": "Redundancy payout - paying tax?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1waudgn/redundancy_payout_paying_tax/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1waudgn/redundancy_payout_paying_tax/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788887278,
-          "snippet": "Hi, I earn £33,000 a year salary before tax/deductions. I am paid monthly. I am being made redundant but they have offered me an “enhanced package” to remain with the business a little longer than my redundancy date to help transition. I am not entitled to a statutory redundancy ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wawta8",
-          "title": "Salary Sacrifice (Car) Payments Maternity",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wawta8/salary_sacrifice_car_payments_maternity/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wawta8/salary_sacrifice_car_payments_maternity/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788892354,
-          "snippet": "We are in the midst of organising a car through a salary sacrifice scheme (Tusker) however it is my partner who is doing it and she is pregnant. The gross monthly payment for the car is £680 however when tax savings etc are included it goes to £380. My question is regarding payme",
+          "createdUtc": 1789032128,
+          "snippet": "I sold an item on eBay on Friday, where the buyer purchased a prepaid label for Royal Mail via eBay’s simple postage. I dropped it off at the post office the day after on Saturday 5th September. After getting a message on eBay from the buyer yesterday to ask where their item was,",
           "listingSource": "rss:hot"
         }
       ]
@@ -509,11 +261,10 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 25,
+      "postCount": 14,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK",
-        "UKPersonalFinance"
+        "LegalAdviceUK"
       ],
       "posts": [
         {
@@ -529,15 +280,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wbdwpl",
-          "title": "Neighbour causing a ruckus about parking. Can they legally do anything?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbdwpl/neighbour_causing_a_ruckus_about_parking_can_they/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbdwpl/neighbour_causing_a_ruckus_about_parking_can_they/",
+          "id": "1wc3ic7",
+          "title": "International Student sent r@pe threats towards me",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wc3ic7/international_student_sent_rpe_threats_towards_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wc3ic7/international_student_sent_rpe_threats_towards_me/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788936250,
-          "snippet": "England btw. Basically, I'm being asked by a literal next-door neighbour for parking near my house, given that I can't park anywhere else apart from way down my street given its layout and how many cars there are. submitted by /u/Imperial_nugget [link] [comments]",
+          "createdUtc": 1789000268,
+          "snippet": "Hello. I would like to ask advice on what I can do with an international student from France whom I known personally and he’s basically ruined somewhat of my mental health. He sent me basically r&amp;pe threats to me and minors of my family members. Should I send this to the univ",
           "listingSource": "rss:hot"
         },
         {
@@ -553,6 +304,54 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wbdwpl",
+          "title": "Neighbour causing a ruckus about parking. Can they legally do anything?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbdwpl/neighbour_causing_a_ruckus_about_parking_can_they/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbdwpl/neighbour_causing_a_ruckus_about_parking_can_they/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788936250,
+          "snippet": "England btw. Basically, I'm being asked by a literal next-door neighbour for parking near my house, given that I can't park anywhere else apart from way down my street given its layout and how many cars there are. submitted by /u/Imperial_nugget [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wcb6bw",
+          "title": "Was told I wasn’t going to need accommodation in uni since I was part time. Found out at last second I was going to need accommodation and don’t know what to do(Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcb6bw/was_told_i_wasnt_going_to_need_accommodation_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcb6bw/was_told_i_wasnt_going_to_need_accommodation_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789022145,
+          "snippet": "I applied for a course at a uni using the part time option they offered since it would’ve meant less days per week. I chose this option because I wanted to keep my job back at home(2-3 hours away) and still experience the last of what my area has to offer. Last week we had induct",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wbxm64",
+          "title": "Being made redundant and found out I am pregnant",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbxm64/being_made_redundant_and_found_out_i_am_pregnant/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbxm64/being_made_redundant_and_found_out_i_am_pregnant/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788986351,
+          "snippet": "I am being made redundant and displaced on 30th December and then am being put on garden leave until 31st March 2027. I have also just found out I am pregnant and will be due roughly mid-May 2027. As I understand it, as long as I reach my 15th week of pregnancy whilst still under",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wc0v2z",
+          "title": "House mates accused me of stealing their things and are now telling me I need to send them £550.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wc0v2z/house_mates_accused_me_of_stealing_their_things/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wc0v2z/house_mates_accused_me_of_stealing_their_things/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1788993688,
+          "snippet": "Asking for advice really on behalf of my sister. We are in England. For context, she lives in a house share while at uni and their move out date is 13/09. The day I’m writing this the two people accusing her have now both moved out. I get a call today from my sister saying that t",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wbr66c",
           "title": "Mum in a care home under a DOLS, now she has a solicitor and might be allowed home even though it’s not safe?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbr66c/mum_in_a_care_home_under_a_dols_now_she_has_a/",
@@ -563,54 +362,6 @@
           "createdUtc": 1788972839,
           "snippet": "I’m hoping someone has knowledge of this. I know it’s long and I’m sorry. My mum (82 years) has dementia, diagnosed about 5 years ago. She lived alone, with worsening mobility over the last 10 years or so. She was always stubbornly independent and even after the diagnosis was in ",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbsbmb",
-          "title": "Someone keeps cutting our cars brakes",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbsbmb/someone_keeps_cutting_our_cars_brakes/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbsbmb/someone_keeps_cutting_our_cars_brakes/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788975284,
-          "snippet": "Hi! I’m not sure if this is the correct subreddit to put this in so please redirect me if necessary. Both mine and my husbands cars keep getting damaged outside our property (communal parking area.) Several of my tyres were punctured and my husbands car brakes were cut about a mo",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbnzyi",
-          "title": "House Guest stole money from my house and because I have no proof, police wont help - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbnzyi/house_guest_stole_money_from_my_house_and_because/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbnzyi/house_guest_stole_money_from_my_house_and_because/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788966006,
-          "snippet": "Hello all, Please help me here because im stressing like crazy about this and a friend told me to join reddit and post here because its a good place for free legal advice. Last week, I had a \"friend\" stay over a few days because he was struggling, so i let him stay on my sofa. He",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbt0dm",
-          "title": "Parking eye escalated ticket - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbt0dm/parking_eye_escalated_ticket_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbt0dm/parking_eye_escalated_ticket_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788976742,
-          "snippet": "Parking eye have been sending letters and court orders for a parking ticket at the range Wigan which I was working that day on site and even have a copy visitor log as proof which I got recently. The staffnever entered my reg plate even though that was the first thing I asked the",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wakv00",
-          "title": "£600 laptop left unattended outside my house by DHL – Argos says it was delivered",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wakv00/600_laptop_left_unattended_outside_my_house_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wakv00/600_laptop_left_unattended_outside_my_house_by/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788864171,
-          "snippet": "I want to share my experience with Argos because I think other customers should be aware of what happened. I ordered a laptop from Argos worth around £600. The order stated that someone needed to be at home to receive the delivery. DHL delivered it at approximately 11:41 AM while",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -618,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 4,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -637,6 +388,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wcb5ja",
+          "title": "Ended tenancy under duress, friend now facing homelessness — what legal options remain",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcb5ja/ended_tenancy_under_duress_friend_now_facing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcb5ja/ended_tenancy_under_duress_friend_now_facing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789022066,
+          "snippet": "Hi, I'm from England, UK, I’m 23M and lost my mum to metastatic breast cancer in May 2025. Before she passed, my friend (also 23) moved in because they were escaping an abusive family. It was meant to be temporary, but they have severe ADHD, trauma, self‑neglect issues, and a phy",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wbg4cf",
           "title": "My hmo housemate is going out of his way to stop me from sleeping (UK)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbg4cf/my_hmo_housemate_is_going_out_of_his_way_to_stop/",
@@ -646,30 +409,6 @@
           "numComments": 0,
           "createdUtc": 1788944130,
           "snippet": "I had to call 999 recently because he specifically played incredibly loud music at 1am as \"revenge\" for me asking him to be quieter at night. I've asked him to stop slamming doors and he was good for a while, but after that incident hes started slamming them way more, including a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbtmyq",
-          "title": "Can my landlord take all my spare keys?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbtmyq/can_my_landlord_take_all_my_spare_keys/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbtmyq/can_my_landlord_take_all_my_spare_keys/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788978033,
-          "snippet": "Hi all - I’m in Wales looking for a bit of advice. My landlord was supposed to be at my rented flat today as the letting agency were carrying out a property check - they cleared this in advance and all was OK with us. Upon arriving they called my flatmate (called FM here for clar",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbvmhe",
-          "title": "Letting agent admitted giving someone keys after I refused a viewing. Police treated it as civil because the person claimed to be my landlord. I now suspect he wasn't. [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbvmhe/letting_agent_admitted_giving_someone_keys_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbvmhe/letting_agent_admitted_giving_someone_keys_after/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788982154,
-          "snippet": "This happened almost a year ago at a flat I rented in England. An agent called at 11:45am asking to arrange a viewing the following day because the owners were selling the whole building. I refused. The next morning, the day of the viewing, the lettings manager called and pressur",
           "listingSource": "rss:hot"
         }
       ]
@@ -717,15 +456,15 @@
           "score": 0,
           "numComments": 0,
           "createdUtc": 1788985080,
-          "snippet": "Hi When I got home from work today at about 18:30, our next door neighbour opened his door as half of his house didn't have electricity. I had a look as his consumer unit, and found one of his RCDs seemed to have a dodgy connection to the busbar. Given the fire risk of this, I re",
+          "snippet": "Update Thank you all so much! I went round and told him what you have put there. While I was explaining his daughter arrived and we discussed it. She is not.... Happy. She'll be calling the spark now and tell him that he can send an invoice via email, and not to come back tomorro",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -733,172 +472,15 @@
       ],
       "posts": [
         {
-          "id": "1wayfpd",
-          "title": "I sold my car through motorway and now dealership is claiming repairs to fix it 5 months since the sale",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wayfpd/i_sold_my_car_through_motorway_and_now_dealership/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wayfpd/i_sold_my_car_through_motorway_and_now_dealership/",
+          "id": "1wbx55l",
+          "title": "130k debt due to my property and previous subsidence!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbx55l/130k_debt_due_to_my_property_and_previous/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbx55l/130k_debt_due_to_my_property_and_previous/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1788895719,
-          "snippet": "I sold my car through the auction site motorway. It was bid for my a dealership and now they’re saying I need to over £10k for it to have been fixed 3 times. They’re saying on the service history it stated ‘engine slightly noisy’ back in 2024 and they weren’t aware of this at the",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "discrimination-and-equality",
-      "label": "Discrimination and Equality",
-      "legalAreaSlug": "discrimination_equality",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wbn6s9",
-          "title": "I think my work are discriminating against me due to my disability",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbn6s9/i_think_my_work_are_discriminating_against_me_due/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbn6s9/i_think_my_work_are_discriminating_against_me_due/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788964160,
-          "snippet": "I should give some background/context first, I’m 26 F from Scotland and I have epilepsy. I was diagnosed in 2019 with absent seizures and refused medication because i had bad side effects to it. Last year in march i started a job with an outsourcing company. The job itself was ex",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "consumer-law",
-      "label": "Consumer Law",
-      "legalAreaSlug": "consumer",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wbww0z",
-          "title": "Retaining part of refund (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbww0z/retaining_part_of_refund_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbww0z/retaining_part_of_refund_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788984806,
-          "snippet": "I paid £80 upfront for a consultation. The terms say a fee only applies if I cancel with less than 24 hours’ notice. I cancelled well in advance, but they only refunded £40 and kept £40 because they had already reviewed my medical form. There’s nothing in the terms saying form re",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 4,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK",
-        "UKPersonalFinance"
-      ],
-      "posts": [
-        {
-          "id": "1wbplgk",
-          "title": "I feel like companies are calling us “self-employed” so they can avoid employer tax and worker rights?.... Wecasa",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbplgk/i_feel_like_companies_are_calling_us_selfemployed/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wbplgk/i_feel_like_companies_are_calling_us_selfemployed/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788969493,
-          "snippet": "(England) I am so frustrated, like how can Wecasa call people “self-employed”?! They have to sort out their own tax, get no holiday pay, no employer pension contributions etc, while if they are genuinely self-employed the company also does not have the same employer NI and employ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wbs1b6",
-          "title": "salary sacrifice vs relief at source for me?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbs1b6/salary_sacrifice_vs_relief_at_source_for_me/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbs1b6/salary_sacrifice_vs_relief_at_source_for_me/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788974664,
-          "snippet": "I don't fully understand the difference, but I will be making 26,357.5 per year and my employer offers a scheme where they match my pension contribution up to 10% I want to contribute 10% which my employer match and so which will be a better option for me to choose? submitted by ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1waudgn",
-          "title": "Redundancy payout - paying tax?",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1waudgn/redundancy_payout_paying_tax/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1waudgn/redundancy_payout_paying_tax/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788887278,
-          "snippet": "Hi, I earn £33,000 a year salary before tax/deductions. I am paid monthly. I am being made redundant but they have offered me an “enhanced package” to remain with the business a little longer than my redundancy date to help transition. I am not entitled to a statutory redundancy ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wawta8",
-          "title": "Salary Sacrifice (Car) Payments Maternity",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wawta8/salary_sacrifice_car_payments_maternity/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wawta8/salary_sacrifice_car_payments_maternity/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788892354,
-          "snippet": "We are in the midst of organising a car through a salary sacrifice scheme (Tusker) however it is my partner who is doing it and she is pregnant. The gross monthly payment for the car is £680 however when tax savings etc are included it goes to £380. My question is regarding payme",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "tax-law",
-      "label": "Tax Law",
-      "legalAreaSlug": "tax_law",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "UKPersonalFinance"
-      ],
-      "posts": [
-        {
-          "id": "1wbw23e",
-          "title": "Self Assessment Capital Gains Tax Report",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbw23e/self_assessment_capital_gains_tax_report/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1wbw23e/self_assessment_capital_gains_tax_report/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788983069,
-          "snippet": "Hi all, I am really confused at the moment so have come here to get some help. I sold a property in the UK last April before the end of the tax year. Around a month later I filed a self assessment report and did a separate Capital Gains Tax report and paid both individually. I di",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "UKPersonalFinance"
-      ],
-      "posts": [
-        {
-          "id": "1waxllq",
-          "title": "Wrong spouse applied for marriage allowance, now worse off",
-          "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1waxllq/wrong_spouse_applied_for_marriage_allowance_now/",
-          "permalink": "https://www.reddit.com/r/UKPersonalFinance/comments/1waxllq/wrong_spouse_applied_for_marriage_allowance_now/",
-          "subreddit": "UKPersonalFinance",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1788893976,
-          "snippet": "I feel like such an idiot, I recently got married and applied for marriage allowance as my wife doesn't pay income tax. However, I've got a letter updating tax codes and I have somehow gone the wrong way, transferring my personal allowance to her. I've managed to cancel online bu",
+          "createdUtc": 1788985344,
+          "snippet": "Hello, Any advice would be deeply appreciated. Tbh im not in the best frame of mind and constantly anxious about this. So 2 years ago, myself and my partner bought a property for 190k. Everything was fine, the property had been heavily renovated, with a estimated cost of 90k spen",
           "listingSource": "rss:hot"
         }
       ]
