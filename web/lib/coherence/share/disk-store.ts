@@ -15,7 +15,8 @@ export type DiskShareRow = {
 };
 
 function storePath(): string {
-  return path.join(process.cwd(), ".data", "chronology-shares.json");
+  const root = process.env.VERCEL ? "/tmp" : path.join(process.cwd(), ".data");
+  return path.join(root, "chronology-shares.json");
 }
 
 function readRows(): DiskShareRow[] {
