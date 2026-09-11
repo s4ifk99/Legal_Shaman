@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-11T10:20:54.235Z",
+    "scrapedAt": "2026-09-11T20:28:57.733Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 9,
+    "topicCount": 10,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wddmpl",
+          "title": "Tenants on our street tried to sabotage their landlord's plumbing by pouring, what we suspect to be, concrete down the sink. It's buggered up the whole street's connection to the public sewers.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wddmpl/tenants_on_our_street_tried_to_sabotage_their/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wddmpl/tenants_on_our_street_tried_to_sabotage_their/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789126271,
+          "snippet": "Row of 12 houses on a private lane in England. The sewerage system is unadopted to the point where it connects to the main sewer line on the main road. House 3 in the row is being rented out by a housing assoiciation. The tenants here had to be evicted by the housing assoication.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdkafz",
+          "title": "FtM transgender facing two different issues at work? England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkafz/ftm_transgender_facing_two_different_issues_at/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkafz/ftm_transgender_facing_two_different_issues_at/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789142343,
+          "snippet": "Brother in law is trans FtM and presents fully as a man. He’s now facing an impossible situation at work with his employer telling him that due to recent legislation he must use the toilet of his birth gender. BUT several female colleagues have raised a grievance about him using ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdofv9",
+          "title": "Update: I hiding from my social worker and am fearful I could be sectioned",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdofv9/update_i_hiding_from_my_social_worker_and_am/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdofv9/update_i_hiding_from_my_social_worker_and_am/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789151286,
+          "snippet": "https://www.reddit.com/r/LegalAdviceUK/comments/1watywa/england_i_hiding_from_my_social_worker_and_am/ I haven't been able to update in a few days, as I got my phone taken away, but here are now. Long story short, I did get sectioned. I got picked up by the police and driven to A",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wdb293",
           "title": "Landlord claims my children were home alone when they were actually at school",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdb293/landlord_claims_my_children_were_home_alone_when/",
@@ -47,6 +83,30 @@
           "numComments": 0,
           "createdUtc": 1789118059,
           "snippet": "My landlord arranged to come to my property at around 10am to carry out some repairs. I was out doing some shopping at the time. While I was away, my landlord sent me a WhatsApp message saying that one of my children had opened the door, told him they were alone, and that he ther",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdjrtw",
+          "title": "Yellow Box PCN: appeal successful - thank you all. X",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdjrtw/yellow_box_pcn_appeal_successful_thank_you_all_x/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdjrtw/yellow_box_pcn_appeal_successful_thank_you_all_x/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789141183,
+          "snippet": "UPDATE: Just wanted to update everyone on the PCN I posted about last month… I appealed as the majority of the community advised, and TfL have cancelled the PCN. Buzzing! For reference this was a yellow box PCN via TFL in Central London, England. Link to the original post (almost",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wde085",
+          "title": "Update 2: Just found out the Freehold Bungalow I am buying has a Service Charge. Anything I can do to challenge it?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wde085/update_2_just_found_out_the_freehold_bungalow_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wde085/update_2_just_found_out_the_freehold_bungalow_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789127354,
+          "snippet": "&#x200B; Here is my first post: [ https://www.reddit.com/r/LegalAdviceUK/s/9Yk39PHarH\\](https://www.reddit.com/r/LegalAdviceUK/s/9Yk39PHarH) And the first update: [ https://www.reddit.com/r/LegalAdviceUK/s/FV7Qt8vu6x\\](https://www.reddit.com/r/LegalAdviceUK/s/FV7Qt8vu6x) Tl;dr we",
           "listingSource": "rss:hot"
         },
         {
@@ -62,6 +122,78 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wdkkx2",
+          "title": "How to get a UK PLC company into insolvency",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkkx2/how_to_get_a_uk_plc_company_into_insolvency/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkkx2/how_to_get_a_uk_plc_company_into_insolvency/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789142962,
+          "snippet": "Long story short. The MD has left the country having spent all the money that should have been paid to creditors. There is no money left and all sales stopped last year so there won't be any more. There are no assets at all. The two remaining employees (that's me and the Finance ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdr4qc",
+          "title": "My neighbour threatened to kill me what can I do",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdr4qc/my_neighbour_threatened_to_kill_me_what_can_i_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdr4qc/my_neighbour_threatened_to_kill_me_what_can_i_do/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789157040,
+          "snippet": "She screams non stop, she purposely has flooded my bathroom (I’m the flat below her) by over running her Bath at least 7 times. She said she would kill me the only time I reported her, the council have said they won’t do anything other than send her letters. She makes my life hel",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdil74",
+          "title": "Mechanic left car in unsafe condition-England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdil74/mechanic_left_car_in_unsafe_conditionengland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdil74/mechanic_left_car_in_unsafe_conditionengland/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789138573,
+          "snippet": "My boyfriend took our car to the garage today to get the MOT, service and brake pads+discs done. The car was dropped off at 9:00 this morning and the garage called around 14:25 to say they didn't order the correct discs and pads but the service was completed. We decided to take t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdkh7d",
+          "title": "Uni housemate moved her partner into her room without asking us or the landlords (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkh7d/uni_housemate_moved_her_partner_into_her_room/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkh7d/uni_housemate_moved_her_partner_into_her_room/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789142732,
+          "snippet": "Going to try and keep this brief. Me (20F) and my close friend (20F - call her R) are going into our second year of university and were planning to move into a house for the year with our other friend, who decided to drop out in early July. We found another student (23F) on the i",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdritu",
+          "title": "Motor dealer closing down limited company to avoid liabilities England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdritu/motor_dealer_closing_down_limited_company_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdritu/motor_dealer_closing_down_limited_company_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789157926,
+          "snippet": "I currently have a small claims case awaiting a hearing date against a limited company motor dealer (value of claim £1,200) and a named director. The company failed to respond at the mediation stage. I'm seeing evidence that the sole director may be winding up the company. By the",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdone4",
+          "title": "What is our best course of action? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdone4/what_is_our_best_course_of_action_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdone4/what_is_our_best_course_of_action_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789151730,
+          "snippet": "I'll keep this as vague as possible given the circumstances but I was just wondering what action as a person, and as a family that could be taken. Basically a family member recently visited a popular cinema chain, a family member who is not young , late 60s. They were alone , whi",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wctkb4",
           "title": "£4,165 Breitling disappeared after I returned it to Authorized retailer what would you do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wctkb4/4165_breitling_disappeared_after_i_returned_it_to/",
@@ -71,18 +203,6 @@
           "numComments": 0,
           "createdUtc": 1789069290,
           "snippet": "I bought a brand-new Breitling watch from authorized retailer for £4,165. The watch was faulty, so I returned it using Retail ’ authorised Royal Mail Tracked 48 return service. I posted the parcel at my local Post Office. I have proof of postage showing a weight of 500g. Royal Ma",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wcn5vt",
-          "title": "Gatwick Airport, England UK Parking fine | ANPR mistake | Read V as Y | Times24/Trace/MoorsideLegal still doubled down!!",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcn5vt/gatwick_airport_england_uk_parking_fine_anpr/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcn5vt/gatwick_airport_england_uk_parking_fine_anpr/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789055741,
-          "snippet": "I can live with a camera getting a letter wrong. I cannot live with a person looking at the photo, being told it is a V, and still saying it is a Y because someone has already bought the debt - hoping I'll just pay. What happened... Received a parking fine from Times24 for Gatwic",
           "listingSource": "rss:hot"
         },
         {
@@ -98,159 +218,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wcvly4",
-          "title": "Downstairs neighbour refusing access to garden",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcvly4/downstairs_neighbour_refusing_access_to_garden/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcvly4/downstairs_neighbour_refusing_access_to_garden/",
+          "id": "1wcn5vt",
+          "title": "Gatwick Airport, England UK Parking fine | ANPR mistake | Read V as Y | Times24/Trace/MoorsideLegal still doubled down!!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcn5vt/gatwick_airport_england_uk_parking_fine_anpr/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcn5vt/gatwick_airport_england_uk_parking_fine_anpr/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789073806,
-          "snippet": "I live in England. Purchased a 1st floor maisonette 2 years ago. Downstairs have been prickly from the start. My lease states I have legal access to the garden for maintenance and repairs. Its been 10 months since they have allowed me access to the back to get my windows cleaned ",
+          "createdUtc": 1789055741,
+          "snippet": "I can live with a camera getting a letter wrong. I cannot live with a person looking at the photo, being told it is a V, and still saying it is a Y because someone has already bought the debt - hoping I'll just pay. What happened... Received a parking fine from Times24 for Gatwic",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wdan5s",
-          "title": "Ex wants money for \"jointly owned\" household items months after transfer of equity (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdan5s/ex_wants_money_for_jointly_owned_household_items/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdan5s/ex_wants_money_for_jointly_owned_household_items/",
+          "id": "1wdl07r",
+          "title": "Client non-compete for a cleaner",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdl07r/client_noncompete_for_a_cleaner/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdl07r/client_noncompete_for_a_cleaner/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789116639,
-          "snippet": "Unmarried, no civil partnership. We bought a house together and split in October 2025. I bought her out via a transfer of equity, which ran from November 2025 to May 2026. It dragged on because she stopped engaging, first with me and my family (used as intermediaries), then with ",
+          "createdUtc": 1789143883,
+          "snippet": "This is in the terms and conditions for a cleaning firm in England. How enforceable is this on a client? Seems a bit excessive as a non-compete type clause for a self-employed cleaner, especially as it feels like like it'd be unnecessarily restrictive to trade. We've recently ter",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wcmn3e",
-          "title": "Accused of theft and banned from supermarket (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcmn3e/accused_of_theft_and_banned_from_supermarket/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcmn3e/accused_of_theft_and_banned_from_supermarket/",
+          "id": "1wdfskl",
+          "title": "Employer saying they are considering ‘moving me on’ (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdfskl/employer_saying_they_are_considering_moving_me_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdfskl/employer_saying_they_are_considering_moving_me_on/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789054598,
-          "snippet": "A supermarket which I won’t name, has accused me of theft. I was approached by a security guard who told me to leave, I asked him why and he said “You were seen in the store several weeks ago, your face flagged up on the system and you walked out without paying for your shopping”",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wcijgw",
-          "title": "Learner with no L plates or qualified supervisor collided with my named driver - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcijgw/learner_with_no_l_plates_or_qualified_supervisor/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcijgw/learner_with_no_l_plates_or_qualified_supervisor/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789045213,
-          "snippet": "Incident on friday where my father drove my car, fully established in the lane, a car to the right suddenly indicates left and immediately turns into him. Have dashcam footage of front and rear, no CCTV around. Father took pictures of the 3rd party's provisional licence (18 years",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wdbwzi",
-          "title": "Warrant of control officer has just come round demanding money?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdbwzi/warrant_of_control_officer_has_just_come_round/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdbwzi/warrant_of_control_officer_has_just_come_round/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789121002,
-          "snippet": "I have just had a man at the door saying he has a warrant of control for £441 for a missed parking ticket. My husband drives the car as I am disabled. He did not pay the original fine which he should have done but the council say they sent multiple reminders to me which I am 100%",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wclszq",
-          "title": "Does having right of way allow you to make alterations the property?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wclszq/does_having_right_of_way_allow_you_to_make/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wclszq/does_having_right_of_way_allow_you_to_make/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789052728,
-          "snippet": "My neighbour has right of way through my gates and across the friveway into a field between us. He mentioned he wants to get planning permission for 2 houses in the field and sell it. He wants to widen my gates as they're barely wide enough for one vehicle. I said no, but now he ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wcdo9p",
-          "title": "Aironb host has made a £1,400 damage claim FOUR MONTHS after my stay - where do I stand? [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdo9p/aironb_host_has_made_a_1400_damage_claim_four/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdo9p/aironb_host_has_made_a_1400_damage_claim_four/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789030780,
-          "snippet": "I'm looking for some advice from people who have dealt with Airbn damage claims before. I stayed in an Airbnb for 10 days back in April 2026. During the stay, a tap became loose. I immediately reported it to the host through Airbnb, and the host arranged for someone to come out a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wcdgu3",
-          "title": "[I actually won my case!!! The government was acting unlawfully!] Update: Unemployed people on benefits are being given priority nursery school placements over single-working mothers.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdgu3/i_actually_won_my_case_the_government_was_acting/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdgu3/i_actually_won_my_case_the_government_was_acting/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789030052,
-          "snippet": "Quick recap: I'm a single working mother. However, nursery school places are awarded on a priority based system in Northern Ireland that is linked to the benefits system. This means that even though I live near a nursery school, parents who were unemployed or on benefits on the o",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wckpml",
-          "title": "Received a £100 fine + 3 points on a Lime Bike in England London - Met Police administrative error?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wckpml/received_a_100_fine_3_points_on_a_lime_bike_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wckpml/received_a_100_fine_3_points_on_a_lime_bike_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789050306,
-          "snippet": "Hi everyone, posting for some reassurance and advice regarding a ticket from the Met Police I was recently caught by a police officers failing to stop at a red light while riding rental lime e-bike. The officers were clear that i would receive £50 fine and i was fine with that. T",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wdbt5m",
-          "title": "Finders international - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdbt5m/finders_international_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdbt5m/finders_international_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789120664,
-          "snippet": "Hello, I’ve recently received a letter and a phone call from Finders International. They stated a distant relative of mine has passed away, never been married or had children, therefore making me and everyone else in the family tree entitled. They were able to recall my parents n",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wcuebk",
-          "title": "Was the 101 operator right in that nothing can be done? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcuebk/was_the_101_operator_right_in_that_nothing_can_be/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcuebk/was_the_101_operator_right_in_that_nothing_can_be/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789071113,
-          "snippet": "Hello, today I called 101 because completely out of the blue (we’ve had no contact for a while), my ex boyfriend who has quite severe mental health issues called me 46 times within 17 minutes, texted my mother calling me a “sex toy”, sent me hundreds of text messages (all of an a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wcqjlh",
-          "title": "Wedding venue owes us £5,700 refund, admits it is due but still hasn’t paid – County Court claim or another route?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcqjlh/wedding_venue_owes_us_5700_refund_admits_it_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcqjlh/wedding_venue_owes_us_5700_refund_admits_it_is/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789062947,
-          "snippet": "Hi all, Looking for advice on the best route to recover £5,700 from a wedding venue in England . My partner and I booked a London venue for our wedding reception and paid a £5,700 deposit. I unexpectedly lost my job, so we made the difficult decision to cancel the wedding. We not",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wc3ic7",
-          "title": "International Student sent r@pe threats towards me",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wc3ic7/international_student_sent_rpe_threats_towards_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wc3ic7/international_student_sent_rpe_threats_towards_me/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789000268,
-          "snippet": "Hello. I would like to ask advice on what I can do with an international student from France whom I known personally and he’s basically ruined somewhat of my mental health. He sent me basically r&amp;pe threats to me and minors of my family members. Should I send this to the univ",
+          "createdUtc": 1789131988,
+          "snippet": "Worked for the same public sector organisation for four years. Two years ago my manager said that my data analysis ability wasn’t good enough; I wasn’t asking the right questions of my team, I wasn’t scrutinising it enough, and sending senior leadership dud information. I took th",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 11,
+      "postCount": 8,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wdkafz",
+          "title": "FtM transgender facing two different issues at work? England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkafz/ftm_transgender_facing_two_different_issues_at/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkafz/ftm_transgender_facing_two_different_issues_at/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789142343,
+          "snippet": "Brother in law is trans FtM and presents fully as a man. He’s now facing an impossible situation at work with his employer telling him that due to recent legislation he must use the toilet of his birth gender. BUT several female colleagues have raised a grievance about him using ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wd24nk",
           "title": "Car accident 2 years ago and lady is going full twat mode",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wd24nk/car_accident_2_years_ago_and_lady_is_going_full/",
@@ -289,6 +301,42 @@
           "numComments": 0,
           "createdUtc": 1789089986,
           "snippet": "Need advice on next steps please. Civil accident knock for knock on some old farm lanes near my parents house. The woman i bumped into has created a few facebook posts making our accident look like a hit and run. I was at the scene for 45 mins but she was impossible to deal with.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdr4qc",
+          "title": "My neighbour threatened to kill me what can I do",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdr4qc/my_neighbour_threatened_to_kill_me_what_can_i_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdr4qc/my_neighbour_threatened_to_kill_me_what_can_i_do/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789157040,
+          "snippet": "She screams non stop, she purposely has flooded my bathroom (I’m the flat below her) by over running her Bath at least 7 times. She said she would kill me the only time I reported her, the council have said they won’t do anything other than send her letters. She makes my life hel",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdritu",
+          "title": "Motor dealer closing down limited company to avoid liabilities England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdritu/motor_dealer_closing_down_limited_company_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdritu/motor_dealer_closing_down_limited_company_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789157926,
+          "snippet": "I currently have a small claims case awaiting a hearing date against a limited company motor dealer (value of claim £1,200) and a named director. The company failed to respond at the mediation stage. I'm seeing evidence that the sole director may be winding up the company. By the",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdone4",
+          "title": "What is our best course of action? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdone4/what_is_our_best_course_of_action_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdone4/what_is_our_best_course_of_action_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789151730,
+          "snippet": "I'll keep this as vague as possible given the circumstances but I was just wondering what action as a person, and as a family that could be taken. Basically a family member recently visited a popular cinema chain, a family member who is not young , late 60s. They were alone , whi",
           "listingSource": "rss:hot"
         },
         {
@@ -304,63 +352,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wcmn3e",
-          "title": "Accused of theft and banned from supermarket (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcmn3e/accused_of_theft_and_banned_from_supermarket/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcmn3e/accused_of_theft_and_banned_from_supermarket/",
+          "id": "1wdl07r",
+          "title": "Client non-compete for a cleaner",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdl07r/client_noncompete_for_a_cleaner/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdl07r/client_noncompete_for_a_cleaner/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789054598,
-          "snippet": "A supermarket which I won’t name, has accused me of theft. I was approached by a security guard who told me to leave, I asked him why and he said “You were seen in the store several weeks ago, your face flagged up on the system and you walked out without paying for your shopping”",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wcijgw",
-          "title": "Learner with no L plates or qualified supervisor collided with my named driver - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcijgw/learner_with_no_l_plates_or_qualified_supervisor/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcijgw/learner_with_no_l_plates_or_qualified_supervisor/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789045213,
-          "snippet": "Incident on friday where my father drove my car, fully established in the lane, a car to the right suddenly indicates left and immediately turns into him. Have dashcam footage of front and rear, no CCTV around. Father took pictures of the 3rd party's provisional licence (18 years",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wdbwzi",
-          "title": "Warrant of control officer has just come round demanding money?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdbwzi/warrant_of_control_officer_has_just_come_round/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdbwzi/warrant_of_control_officer_has_just_come_round/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789121002,
-          "snippet": "I have just had a man at the door saying he has a warrant of control for £441 for a missed parking ticket. My husband drives the car as I am disabled. He did not pay the original fine which he should have done but the council say they sent multiple reminders to me which I am 100%",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wcdo9p",
-          "title": "Aironb host has made a £1,400 damage claim FOUR MONTHS after my stay - where do I stand? [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdo9p/aironb_host_has_made_a_1400_damage_claim_four/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdo9p/aironb_host_has_made_a_1400_damage_claim_four/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789030780,
-          "snippet": "I'm looking for some advice from people who have dealt with Airbn damage claims before. I stayed in an Airbnb for 10 days back in April 2026. During the stay, a tap became loose. I immediately reported it to the host through Airbnb, and the host arranged for someone to come out a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wckpml",
-          "title": "Received a £100 fine + 3 points on a Lime Bike in England London - Met Police administrative error?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wckpml/received_a_100_fine_3_points_on_a_lime_bike_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wckpml/received_a_100_fine_3_points_on_a_lime_bike_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789050306,
-          "snippet": "Hi everyone, posting for some reassurance and advice regarding a ticket from the Met Police I was recently caught by a police officers failing to stop at a red light while riding rental lime e-bike. The officers were clear that i would receive £50 fine and i was fine with that. T",
+          "createdUtc": 1789143883,
+          "snippet": "This is in the terms and conditions for a cleaning firm in England. How enforceable is this on a client? Seems a bit excessive as a non-compete type clause for a self-employed cleaner, especially as it feels like like it'd be unnecessarily restrictive to trade. We've recently ter",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -385,6 +385,54 @@
           "numComments": 0,
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wddmpl",
+          "title": "Tenants on our street tried to sabotage their landlord's plumbing by pouring, what we suspect to be, concrete down the sink. It's buggered up the whole street's connection to the public sewers.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wddmpl/tenants_on_our_street_tried_to_sabotage_their/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wddmpl/tenants_on_our_street_tried_to_sabotage_their/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789126271,
+          "snippet": "Row of 12 houses on a private lane in England. The sewerage system is unadopted to the point where it connects to the main sewer line on the main road. House 3 in the row is being rented out by a housing assoiciation. The tenants here had to be evicted by the housing assoication.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wdkh7d",
+          "title": "Uni housemate moved her partner into her room without asking us or the landlords (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkh7d/uni_housemate_moved_her_partner_into_her_room/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkh7d/uni_housemate_moved_her_partner_into_her_room/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789142732,
+          "snippet": "Going to try and keep this brief. Me (20F) and my close friend (20F - call her R) are going into our second year of university and were planning to move into a house for the year with our other friend, who decided to drop out in early July. We found another student (23F) on the i",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "mental-health-law",
+      "label": "Mental Health Law",
+      "legalAreaSlug": "mental_health",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wdofv9",
+          "title": "Update: I hiding from my social worker and am fearful I could be sectioned",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdofv9/update_i_hiding_from_my_social_worker_and_am/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdofv9/update_i_hiding_from_my_social_worker_and_am/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789151286,
+          "snippet": "https://www.reddit.com/r/LegalAdviceUK/comments/1watywa/england_i_hiding_from_my_social_worker_and_am/ I haven't been able to update in a few days, as I got my phone taken away, but here are now. Long story short, I did get sectioned. I got picked up by the police and driven to A",
           "listingSource": "rss:hot"
         }
       ]
@@ -414,6 +462,114 @@
       ]
     },
     {
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wdjrtw",
+          "title": "Yellow Box PCN: appeal successful - thank you all. X",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdjrtw/yellow_box_pcn_appeal_successful_thank_you_all_x/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdjrtw/yellow_box_pcn_appeal_successful_thank_you_all_x/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789141183,
+          "snippet": "UPDATE: Just wanted to update everyone on the PCN I posted about last month… I appealed as the majority of the community advised, and TfL have cancelled the PCN. Buzzing! For reference this was a yellow box PCN via TFL in Central London, England. Link to the original post (almost",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wcn5vt",
+          "title": "Gatwick Airport, England UK Parking fine | ANPR mistake | Read V as Y | Times24/Trace/MoorsideLegal still doubled down!!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcn5vt/gatwick_airport_england_uk_parking_fine_anpr/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcn5vt/gatwick_airport_england_uk_parking_fine_anpr/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789055741,
+          "snippet": "I can live with a camera getting a letter wrong. I cannot live with a person looking at the photo, being told it is a V, and still saying it is a Y because someone has already bought the debt - hoping I'll just pay. What happened... Received a parking fine from Times24 for Gatwic",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wde085",
+          "title": "Update 2: Just found out the Freehold Bungalow I am buying has a Service Charge. Anything I can do to challenge it?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wde085/update_2_just_found_out_the_freehold_bungalow_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wde085/update_2_just_found_out_the_freehold_bungalow_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789127354,
+          "snippet": "&#x200B; Here is my first post: [ https://www.reddit.com/r/LegalAdviceUK/s/9Yk39PHarH\\](https://www.reddit.com/r/LegalAdviceUK/s/9Yk39PHarH) And the first update: [ https://www.reddit.com/r/LegalAdviceUK/s/FV7Qt8vu6x\\](https://www.reddit.com/r/LegalAdviceUK/s/FV7Qt8vu6x) Tl;dr we",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "insolvency",
+      "label": "Insolvency",
+      "legalAreaSlug": "insolvency",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wdkkx2",
+          "title": "How to get a UK PLC company into insolvency",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkkx2/how_to_get_a_uk_plc_company_into_insolvency/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdkkx2/how_to_get_a_uk_plc_company_into_insolvency/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789142962,
+          "snippet": "Long story short. The MD has left the country having spent all the money that should have been paid to creditors. There is no money left and all sales stopped last year so there won't be any more. There are no assets at all. The two remaining employees (that's me and the Finance ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "garage-and-vehicle-repair-disputes",
+      "label": "Garage and Vehicle Repair Disputes",
+      "legalAreaSlug": "consumer_vehicle_repair",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wdil74",
+          "title": "Mechanic left car in unsafe condition-England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdil74/mechanic_left_car_in_unsafe_conditionengland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdil74/mechanic_left_car_in_unsafe_conditionengland/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789138573,
+          "snippet": "My boyfriend took our car to the garage today to get the MOT, service and brake pads+discs done. The car was dropped off at 9:00 this morning and the garage called around 14:25 to say they didn't order the correct discs and pads but the service was completed. We decided to take t",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "consumer-law",
       "label": "Consumer Law",
       "legalAreaSlug": "consumer",
@@ -438,9 +594,9 @@
       ]
     },
     {
-      "slug": "parking-and-pcns",
-      "label": "Parking and PCNs",
-      "legalAreaSlug": "parking_pcn",
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -448,123 +604,15 @@
       ],
       "posts": [
         {
-          "id": "1wcn5vt",
-          "title": "Gatwick Airport, England UK Parking fine | ANPR mistake | Read V as Y | Times24/Trace/MoorsideLegal still doubled down!!",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcn5vt/gatwick_airport_england_uk_parking_fine_anpr/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcn5vt/gatwick_airport_england_uk_parking_fine_anpr/",
+          "id": "1wdfskl",
+          "title": "Employer saying they are considering ‘moving me on’ (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdfskl/employer_saying_they_are_considering_moving_me_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdfskl/employer_saying_they_are_considering_moving_me_on/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789055741,
-          "snippet": "I can live with a camera getting a letter wrong. I cannot live with a person looking at the photo, being told it is a V, and still saying it is a Y because someone has already bought the debt - hoping I'll just pay. What happened... Received a parking fine from Times24 for Gatwic",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "neighbour-disputes",
-      "label": "Neighbour Disputes",
-      "legalAreaSlug": "neighbour_dispute",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wcvly4",
-          "title": "Downstairs neighbour refusing access to garden",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcvly4/downstairs_neighbour_refusing_access_to_garden/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcvly4/downstairs_neighbour_refusing_access_to_garden/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789073806,
-          "snippet": "I live in England. Purchased a 1st floor maisonette 2 years ago. Downstairs have been prickly from the start. My lease states I have legal access to the garden for maintenance and repairs. Its been 10 months since they have allowed me access to the back to get my windows cleaned ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wclszq",
-          "title": "Does having right of way allow you to make alterations the property?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wclszq/does_having_right_of_way_allow_you_to_make/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wclszq/does_having_right_of_way_allow_you_to_make/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789052728,
-          "snippet": "My neighbour has right of way through my gates and across the friveway into a field between us. He mentioned he wants to get planning permission for 2 houses in the field and sell it. He wants to widen my gates as they're barely wide enough for one vehicle. I said no, but now he ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wdan5s",
-          "title": "Ex wants money for \"jointly owned\" household items months after transfer of equity (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdan5s/ex_wants_money_for_jointly_owned_household_items/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wdan5s/ex_wants_money_for_jointly_owned_household_items/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789116639,
-          "snippet": "Unmarried, no civil partnership. We bought a house together and split in October 2025. I bought her out via a transfer of equity, which ran from November 2025 to May 2026. It dragged on because she stopped engaging, first with me and my family (used as intermediaries), then with ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "welfare-benefits",
-      "label": "Welfare Benefits",
-      "legalAreaSlug": "welfare_benefits",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wcdgu3",
-          "title": "[I actually won my case!!! The government was acting unlawfully!] Update: Unemployed people on benefits are being given priority nursery school placements over single-working mothers.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdgu3/i_actually_won_my_case_the_government_was_acting/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcdgu3/i_actually_won_my_case_the_government_was_acting/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789030052,
-          "snippet": "Quick recap: I'm a single working mother. However, nursery school places are awarded on a priority based system in Northern Ireland that is linked to the benefits system. This means that even though I live near a nursery school, parents who were unemployed or on benefits on the o",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "small-claims-and-county-court",
-      "label": "Small Claims and County Court",
-      "legalAreaSlug": "consumer_small_claims",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wcqjlh",
-          "title": "Wedding venue owes us £5,700 refund, admits it is due but still hasn’t paid – County Court claim or another route?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcqjlh/wedding_venue_owes_us_5700_refund_admits_it_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wcqjlh/wedding_venue_owes_us_5700_refund_admits_it_is/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789062947,
-          "snippet": "Hi all, Looking for advice on the best route to recover £5,700 from a wedding venue in England . My partner and I booked a London venue for our wedding reception and paid a £5,700 deposit. I unexpectedly lost my job, so we made the difficult decision to cancel the wedding. We not",
+          "createdUtc": 1789131988,
+          "snippet": "Worked for the same public sector organisation for four years. Two years ago my manager said that my data analysis ability wasn’t good enough; I wasn’t asking the right questions of my team, I wasn’t scrutinising it enough, and sending senior leadership dud information. I took th",
           "listingSource": "rss:hot"
         }
       ]
