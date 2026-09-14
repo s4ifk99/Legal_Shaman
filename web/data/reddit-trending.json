@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-13T20:21:30.973Z",
-    "subredditCount": 1,
-    "postCount": 20,
-    "topicCount": 7,
+    "scrapedAt": "2026-09-14T11:22:16.633Z",
+    "subredditCount": 2,
+    "postCount": 40,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wfxip7",
+          "title": "England. Keyholder told that he’s stealing from the company.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfxip7/england_keyholder_told_that_hes_stealing_from_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfxip7/england_keyholder_told_that_hes_stealing_from_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789374058,
+          "snippet": "So, I work at a national gambling retailer with multiple establishments around the UK, that stay open till 11 PM and 1 AM on weekends. One of the keyholders last week was basically told by the general manager that he’s stealing from the company as it is not compliance to stay bac",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfj1yc",
+          "title": "28.6% concert booking fee - how is this legal",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfj1yc/286_concert_booking_fee_how_is_this_legal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfj1yc/286_concert_booking_fee_how_is_this_legal/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789331968,
+          "snippet": "A concert advertised at 25 pounds can only be bought at 32.14 pounds. This is the recommended route by the venue: https://electricbristol.com/events/the-skints-2/ How is this even legal and where do the 7 pounds go? submitted by /u/Ok-Chapter4804 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfy5o4",
+          "title": "Neighbor Building Significant (and possibly illegal) Outhouse up to Party Wall with no Planning or Agreement - London, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfy5o4/neighbor_building_significant_and_possibly/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfy5o4/neighbor_building_significant_and_possibly/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789376449,
+          "snippet": "Hi all, as you can probably tell from my use of US English, not that familiar with UK law. Our neighbors began construction in their garden recently, expanding what used to be a small brick garage into a structure over three times its original size. They did not notify us in adva",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wf8y4j",
           "title": "wall broke on leaning- am i liable? London, England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf8y4j/wall_broke_on_leaning_am_i_liable_london_england/",
@@ -50,6 +86,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wfzxjp",
+          "title": "My husband and I were divorcing. Three separate solicitors encouraged me to fabricate false allegations of domestic violence. My husband's solicitor pointed him to a dodgy accountant to hide his pension.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfzxjp/my_husband_and_i_were_divorcing_three_separate/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfzxjp/my_husband_and_i_were_divorcing_three_separate/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789382670,
+          "snippet": "Husband and I were in the process of divorcing for about 7 months. We've since reconnected and worked through our issues. However, while talking with each other we've both come to realise that our solicitors were both encouraging us to do stuff which was obviously highly illegal.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfl27f",
+          "title": "Bouncy castle hire, company cancelled and refusing return of deposit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfl27f/bouncy_castle_hire_company_cancelled_and_refusing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfl27f/bouncy_castle_hire_company_cancelled_and_refusing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789336818,
+          "snippet": "I apologise if this comes off as frivolous middle class problems but I’m here now so… We hired a bouncy castle for a kids party, the night before they contacted us to inform us that as the weather was bad they may be unable to deliver. Further email on the morning of the booking ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wfermc",
           "title": "Pub next door has recently changed hands and has gone from an “old man” pub to trying to be a “trendy” one with loud music and karaoke, installing speaker on the shared walls etc (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfermc/pub_next_door_has_recently_changed_hands_and_has/",
@@ -59,6 +119,18 @@
           "numComments": 0,
           "createdUtc": 1789322425,
           "snippet": "Hi all, posting on behalf of my girlfriend here. So essentially, she’s lived in a terraced house that she owns for going on about 5 years, with the building on the adjoining wall being a pub. This was no issue until about 7 months ago where it changed hands, and it went from bein",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfhk3z",
+          "title": "The council want to charge me £7100 for some stairs.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfhk3z/the_council_want_to_charge_me_7100_for_some_stairs/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfhk3z/the_council_want_to_charge_me_7100_for_some_stairs/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789328577,
+          "snippet": "I own a leasehold flat and pay an annual service charge to the council as they own the building. Generally this has been pretty cheap and last year the service charge only costed me about £400. There's a set of stairs that lead up to my flat that due to a lack of maintenance has ",
           "listingSource": "rss:hot"
         },
         {
@@ -74,123 +146,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1welcgc",
-          "title": "At what point do I need to report/contact someone?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1welcgc/at_what_point_do_i_need_to_reportcontact_someone/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1welcgc/at_what_point_do_i_need_to_reportcontact_someone/",
+          "id": "1wfyy0d",
+          "title": "Neighbour makes noise and keeps dumping mess down our shared alleyway",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfyy0d/neighbour_makes_noise_and_keeps_dumping_mess_down/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfyy0d/neighbour_makes_noise_and_keeps_dumping_mess_down/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789240321,
-          "snippet": "Uk england based - my kiddo has a friend round to play. At drop off parent said to text when their kid was ready to come home. I text at 6pm asking if they could pick up at 7pm. it was read within a few mins and no reply. I message at 7.35pm asking if everything is ok, and what t",
+          "createdUtc": 1789379321,
+          "snippet": "Me, partner + her kid live in a terraced house that shares an alleyway with the neighbours. Their gate is a bit further up than ours and it slopes downwards. On the other side of their gate is a brick coal store, same as ours that I think one of the neighbours uses as an office, ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wffsey",
-          "title": "Builder is taking too long, kitchen extension has taken a year",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wffsey/builder_is_taking_too_long_kitchen_extension_has/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wffsey/builder_is_taking_too_long_kitchen_extension_has/",
+          "id": "1wfrnau",
+          "title": "[Wales] Neighbour harassing parents. Police said a crime hasnt been comitted so cant act. Is taking him to court for a criminal behaviour order even an option?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfrnau/wales_neighbour_harassing_parents_police_said_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfrnau/wales_neighbour_harassing_parents_police_said_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789324661,
-          "snippet": "We picked a builder with excellent reviews. They're mostly 5 star reviews and the work looks great. Not sure what's going on with ours. He's very friendly when he's actually on the job at ours. But all his guys leave everything partially finished before jumping to another job. So",
+          "createdUtc": 1789354827,
+          "snippet": "Neighbour has been harassing my parents and neither councillors nor the police are doing anything. Added wrinkle is that it is a shared lane thay the properties border with no real owner. Only drawings with some very vague numbers on them are from the 40s. He inherited the place ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wf1gy1",
-          "title": "Being harassed by Law firm Solaris Law. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf1gy1/being_harassed_by_law_firm_solaris_law_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf1gy1/being_harassed_by_law_firm_solaris_law_england/",
+          "id": "1wfjriu",
+          "title": "Plumber claims \"30-day limit\" on £600 failed bath repair causing severe ceiling leak/black mold (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfjriu/plumber_claims_30day_limit_on_600_failed_bath/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfjriu/plumber_claims_30day_limit_on_600_failed_bath/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789286168,
-          "snippet": "Hello, I need some advice regarding the law firm Solaris Law regarding an alleged outstanding Checkatrade membership fee. I'll try and keep this short. 3 years ago I emailed checkatrade before my membership renewal to request the contract not be renewed. I didn't get a response. ",
+          "createdUtc": 1789333665,
+          "snippet": "Hi everyone,I'm looking for advice on recovering costs and taking next steps with a plumber/contractor. So back in February 2026, I paid £600 to a plumbing company (Areema Group LTD/ George the Plumber) to fix an active bath leak and secure defective waste pipe connections. The i",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wfehd2",
-          "title": "Builders left some stuff behind, what are my rights? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfehd2/builders_left_some_stuff_behind_what_are_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfehd2/builders_left_some_stuff_behind_what_are_my/",
+          "id": "1wg0hxt",
+          "title": "Europcar Malaga - stole my money!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg0hxt/europcar_malaga_stole_my_money/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg0hxt/europcar_malaga_stole_my_money/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789321786,
-          "snippet": "I had some work done in the property and the builder left a bag of ballast and some other small stuff back saying hed come pack to pick them up. Now the guy is not responding to My msgs nor answering my calls. Removing all garbage was part of the quote and I have made the grave m",
+          "createdUtc": 1789384452,
+          "snippet": "We rented a car from them and they pushed some extra packages, without fully explaining what they are - partially due to poor communication in English. We have specifically asked if the money we are paying will only be RESERVED and then RETURNED to my credit card, to which she sa",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wf34rx",
-          "title": "Found a Ladbrokes account set up in my name by someone else. They have closed the account, but are refusing to provide more details. Scotland.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf34rx/found_a_ladbrokes_account_set_up_in_my_name_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf34rx/found_a_ladbrokes_account_set_up_in_my_name_by/",
+          "id": "1wg05ql",
+          "title": "England contract law: is removing an indemnity and capping liability at total fees a reasonable ask?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg05ql/england_contract_law_is_removing_an_indemnity_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg05ql/england_contract_law_is_removing_an_indemnity_and/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789292073,
-          "snippet": "I found a Ladbrokes account in my name the other night. It seems that my name, address and DOB has been used, but not my email address or phone number. I spoke to Ladbrokes about it, and they closed the account pretty much instantly. However, they will not provide any further det",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wf613o",
-          "title": "Wales - How to help my parents with abusive neighbours?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf613o/wales_how_to_help_my_parents_with_abusive/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf613o/wales_how_to_help_my_parents_with_abusive/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789301564,
-          "snippet": "Hello, just got off the phone with my mother and it she was really upset. A few years ago new neighbours bought a house next to theirs and have been nothing but trouble. They started building work which resulted in scaffolding on my parents property; they started leaving stuff in",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wf4fh0",
-          "title": "ULEZ fine London UK but my car is Petrol Euro4…",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf4fh0/ulez_fine_london_uk_but_my_car_is_petrol_euro4/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf4fh0/ulez_fine_london_uk_but_my_car_is_petrol_euro4/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789296588,
-          "snippet": "Hi all, I got a fine through the door for not paying ULEZ going to Heathrow in July for my 2004 Volvo V70R that I had imported from Japan. I double checked the V5 for my own sanity but the DVLA left that part blank so I did some research… all Volvo V70R’s 2004-2007 are Euro4 whic",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wf9l0n",
-          "title": "Reasonable Adjustments - is it?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf9l0n/reasonable_adjustments_is_it/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf9l0n/reasonable_adjustments_is_it/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789310624,
-          "snippet": "For the past 4 years I have been working from home in the morning and coming onsite from 11am. This is to allow for me to toilet at home because I have bowel dysfunction that makes it extremely painful to pass a stool (usually takes me about 30mins of deep breathing, using a squa",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wfa3ar",
-          "title": "England - Car insurer says I had a fault accident I never had and will charge me £200 unless I prove otherwise",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfa3ar/england_car_insurer_says_i_had_a_fault_accident_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfa3ar/england_car_insurer_says_i_had_a_fault_accident_i/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789311812,
-          "snippet": "I recently took out car insurance with 1st Central in England. They have contacted me after checking my details and are saying their database shows that I was involved in a fault accident on 10 August 2024 . I have never had an accident on that date and I genuinely do not know wh",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wfdwhu",
-          "title": "Broken toilet at work for weeks now - england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfdwhu/broken_toilet_at_work_for_weeks_now_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfdwhu/broken_toilet_at_work_for_weeks_now_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789320491,
-          "snippet": "So I work in a food service place that’s inside a larger building. There is no toilet in the shop itself but we have a food prep unit that’s further away inside the building that there’s a toilet in. However the toilet has been out of order for weeks now. This isn’t much of a pro",
+          "createdUtc": 1789383410,
+          "snippet": "I am a contractor in a European country but I just received a contract from a UK company. I would be remotely working on a small specialised part of their overall core infrastructure and I'd be working on a team with two other contractors. The contract includes a broad indemnity ",
           "listingSource": "rss:hot"
         },
         {
@@ -206,51 +218,287 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1werid2",
-          "title": "Solicitors using chatgpt to write legal documents?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1werid2/solicitors_using_chatgpt_to_write_legal_documents/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1werid2/solicitors_using_chatgpt_to_write_legal_documents/",
+          "id": "1wfr40e",
+          "title": "Am I insured to drive to work locations I don't usually work at?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfr40e/am_i_insured_to_drive_to_work_locations_i_dont/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfr40e/am_i_insured_to_drive_to_work_locations_i_dont/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789255454,
-          "snippet": "Recently had to employ a solicitor in a particularly stressful housing dispute regarding a lodger refusing to leave. The solicitor has been very professional throughout I have been happy to pay the fees. After reviewing all the documents, they produced a document stating they agr",
+          "createdUtc": 1789353245,
+          "snippet": "I was talking to another colleague who said that if my contracted place of work is at location A, and I travel to location B or location C from time-to-time either on a voluntary basis (overtime) or under order, then I am not insured for this, since my insurance policy will only ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1weo3p5",
-          "title": "Required to attended court as witness",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1weo3p5/required_to_attended_court_as_witness/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1weo3p5/required_to_attended_court_as_witness/",
+          "id": "1wfehd2",
+          "title": "Builders left some stuff behind, what are my rights? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfehd2/builders_left_some_stuff_behind_what_are_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfehd2/builders_left_some_stuff_behind_what_are_my/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789246794,
-          "snippet": "England: Required to attend court as a witness after submitting dashcam footage. What will I actually be expected to do? I submitted dashcam footage via Operation Snap in August 2025 showing a driver going through a red light. It appears the defendant has pleaded not guilty, and ",
+          "createdUtc": 1789321786,
+          "snippet": "I had some work done in the property and the builder left a bag of ballast and some other small stuff back saying hed come pack to pick them up. Now the guy is not responding to My msgs nor answering my calls. Removing all garbage was part of the quote and I have made the grave m",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wf3ikg",
-          "title": "Tech company system glitch created an unauthorised second subscription using my bank details from a different account",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf3ikg/tech_company_system_glitch_created_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf3ikg/tech_company_system_glitch_created_an/",
+          "id": "1wg0ebx",
+          "title": "England - Third party car insurance",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg0ebx/england_third_party_car_insurance/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg0ebx/england_third_party_car_insurance/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789293464,
-          "snippet": "[England] On the 29th Aug, I used my correct email address to initially sign up to buy a £1 report. At the payment page I realised it was actually a 7-day trial for a £19.99 monthly subscription. I retyped my email at checkout, but unknowingly spelt my email domain wrong, so I ne",
+          "createdUtc": 1789384134,
+          "snippet": "Had a non-fault accident and then toyota covered the other driver reached out to me and said they will cover me without putting in a claim through my own insurance saying that it would avoid me putting a claim on my own policy. They kept telling me that if i'm not happy i could r",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "name": "uklaw",
+      "displayName": "r/uklaw",
+      "description": "UK law students and practitioners — statute, case law, and professional practice.",
+      "subscribers": null,
+      "posts": [
+        {
+          "id": "k2kvzd",
+          "title": "Help Post: List of Legal Recruitment Agencies",
+          "url": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1606555862,
+          "snippet": "Hey, since everyone is struggling to find work, here is a list of all of the legal recruitment agencies and legal job sites I have bookmarked. Across the whole list, you can find everything from temp/paralegal work to associate roles. https://www.lawsupport.co.uk/ https://lodlaw.",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wfeb25",
-          "title": "A hotel in Llandudno (Wales) refused to let me book a room for my brother because he has an assistance dog.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfeb25/a_hotel_in_llandudno_wales_refused_to_let_me_book/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfeb25/a_hotel_in_llandudno_wales_refused_to_let_me_book/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1l8oqj7",
+          "title": "WEEKLY general chat/support post",
+          "url": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789321392,
-          "snippet": "Is this allowed? If not, who do I complain to? It’s a small independent hotel and I spoke to the owner who was firm about his decision. submitted by /u/corickle [link] [comments]",
+          "createdUtc": 1749636086,
+          "snippet": "General chat/support post - how are you all doing? :) submitted by /u/AutoModerator [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfmbcy",
+          "title": "I used a Spanish computer at uni and they told me I was exempt from the SQE",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wfmbcy/i_used_a_spanish_computer_at_uni_and_they_told_me/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wfmbcy/i_used_a_spanish_computer_at_uni_and_they_told_me/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789339999,
+          "snippet": "That’s the benefit of El PC submitted by /u/RealRedditUser217 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wg04ka",
+          "title": "I feel like ive messed up",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wg04ka/i_feel_like_ive_messed_up/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wg04ka/i_feel_like_ive_messed_up/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789383307,
+          "snippet": "So in my A levels, I did really bad: a D,E,E. I was ill for 2 months but I also didnt focus as much as I should've. Now im on final year of university, at wolverhampton, which is obviously a very low tier university. Im in track for a 2:1. I know training contracts are almost imp",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfvz6w",
+          "title": "Struggling with Bar course",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wfvz6w/struggling_with_bar_course/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wfvz6w/struggling_with_bar_course/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789368488,
+          "snippet": "Hi everyone, I’m currently studying at the ICCA and I’m looking for some advice/reassurance from people who have done the Bar Course, particularly those who have studied at the ICCA. I’m finding the reality of it quite difficult. A typical topic seems to be that we get a very sho",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfynxh",
+          "title": "paralegal job Interview support for medical council FtP",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wfynxh/paralegal_job_interview_support_for_medical/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wfynxh/paralegal_job_interview_support_for_medical/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789378298,
+          "snippet": "Hello! idk if anyone can help, but I thought I would try my luck here! (Also, I have searched all the subreddits and couldn't find my answer) I have an interview coming up for a paralegal role within a regulatory medical council handling fitness-to-practice. The interview questio",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfa7fd",
+          "title": "Biglaw partners London vs Paris",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wfa7fd/biglaw_partners_london_vs_paris/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wfa7fd/biglaw_partners_london_vs_paris/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789312080,
+          "snippet": "submitted by /u/Duzac_Radcliffw [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfd4yc",
+          "title": "I am an Irish corporate solicitor, just got an offer in a MC firm in London. What employer references are required?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wfd4yc/i_am_an_irish_corporate_solicitor_just_got_an/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wfd4yc/i_am_an_irish_corporate_solicitor_just_got_an/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789318782,
+          "snippet": "Hi all I am an Irish corporate solicitor, working in one of the big firms in the Irish market. I just got an offer for an associate role from a Magic Circle firm in London. I am quite keen to take it, given the learning opportunities it offers. On a personal level, my mother is E",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wf99q6",
+          "title": "What to expect at a lower tier US firm (m&a/PE)",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wf99q6/what_to_expect_at_a_lower_tier_us_firm_mape/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wf99q6/what_to_expect_at_a_lower_tier_us_firm_mape/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789309895,
+          "snippet": "I’m 2pqe interviewing for a US firm that pays slightly less than cravath and seems to be on the smaller side. I was just wondering what the work flow / deals look like, compared to say international / silver circle firms? I assume it’s not the biggest deals in the market, but bec",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wf9v73",
+          "title": "Vacation scheme location",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wf9v73/vacation_scheme_location/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wf9v73/vacation_scheme_location/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789311302,
+          "snippet": "I'm going into my 2nd year of uni and looking to apply for vacation schemes in London, however I'm worried about not being able to accept a training contract offer if I get one due to being too far once I graduate since it seems that you should choose the office you want to compl",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfeojb",
+          "title": "How did firms used to approach the LPC?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wfeojb/how_did_firms_used_to_approach_the_lpc/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wfeojb/how_did_firms_used_to_approach_the_lpc/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789322236,
+          "snippet": "I'm curious about what it was like before the SQE. Did firms fund the LPC for you if you got a training contract? Did they make you do it whilst working or before you started your TC- or was this firm dependant? I'm also wondering did a lot of people self fund the LPC and how muc",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wf7gmf",
+          "title": "Freezing a year of my degree",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wf7gmf/freezing_a_year_of_my_degree/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wf7gmf/freezing_a_year_of_my_degree/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789305476,
+          "snippet": "Hello everyone, I am an international uni of london 2nd year law student and want to pause my degree temporarily due to some personal circumstances. I just want to ask is it easy to do so? And if anyone has taken a gap year in the middle of their course, how did it work out for y",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wf422s",
+          "title": "Starting the GDL late — what should I prioritise for the Bar?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wf422s/starting_the_gdl_late_what_should_i_prioritise/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wf422s/starting_the_gdl_late_what_should_i_prioritise/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789295292,
+          "snippet": "I graduated from KCL with a 1st in English, and after taking a year out I decided I want to pursue a career at the Bar. I’m starting my GDL at City in a few weeks. I’m very aware that because I made this decision a bit later, I might be quite behind my peers in terms of legal exp",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wf2um8",
+          "title": "Advice for first seat trainee in disputes?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wf2um8/advice_for_first_seat_trainee_in_disputes/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wf2um8/advice_for_first_seat_trainee_in_disputes/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789291050,
+          "snippet": "Starting at a large City firm soon and wanted to make the best impression as it’s an area I enjoyed during my studies. Any sort of advice would be much appreciated! submitted by /u/project2028baleba [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wf8lwt",
+          "title": "Application deadlines for January 2027 law conversion with SQE 1 cohort.",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wf8lwt/application_deadlines_for_january_2027_law/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wf8lwt/application_deadlines_for_january_2027_law/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789308386,
+          "snippet": "So I want to apply for law conversion courses that end with me taking the SQE1 exam and I'm very unsure of when the application deadline is for a January 2027 start. When is the specific end point? submitted by /u/Eurovision1234 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wf3hee",
+          "title": "do I quit corporate life for a bit or will it jeopardise my career?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wf3hee/do_i_quit_corporate_life_for_a_bit_or_will_it/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wf3hee/do_i_quit_corporate_life_for_a_bit_or_will_it/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789293345,
+          "snippet": "submitted by /u/throwawaypillows53 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wf4l57",
+          "title": "Chronological or relevance for work experience in VS applications?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wf4l57/chronological_or_relevance_for_work_experience_in/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wf4l57/chronological_or_relevance_for_work_experience_in/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789297113,
+          "snippet": "I have relevant legal work experience from before university and multiple less relevant positions gained while studying such as competition wins, open days, crappy summer jobs etc. Is it worth ordering this stuff chronologically or in terms of relevancy on my applications? Thanks",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfac0l",
+          "title": "Qualifying Work Experience",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wfac0l/qualifying_work_experience/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wfac0l/qualifying_work_experience/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789312382,
+          "snippet": "Hi, completely new to Reddit so please pardon me if this is not how this platform should be used. By way of background, I’m Australian by nationality and is employed by an AU law firm. The exact post I hold is that of a Paralegal, though we use the term Legal Executive interchang",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfaqug",
+          "title": "How are the hours at magic circle firms like?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wfaqug/how_are_the_hours_at_magic_circle_firms_like/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wfaqug/how_are_the_hours_at_magic_circle_firms_like/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789313360,
+          "snippet": "We've all heard the horror stories but can someone give me more detail? Like department wise etc. submitted by /u/Last-Dark9521 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wf0452",
+          "title": "Is a two piece suit absolutely necessary for uni students (male)?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wf0452/is_a_two_piece_suit_absolutely_necessary_for_uni/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wf0452/is_a_two_piece_suit_absolutely_necessary_for_uni/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789281414,
+          "snippet": "Context: I'm going to be studying at one of the london unis. Probably going to attend open days, first year insight schemes and maybe vac schemes. Right now, I have a very nice grey blazer (from my dad, barely worn and fits me), but I don't have a pair of pants that matches it. S",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,10 +509,11 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 29,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "uklaw"
       ],
       "posts": [
         {
@@ -277,6 +526,42 @@
           "numComments": 0,
           "createdUtc": 1781046142,
           "snippet": "If OP wanted advice from AI, they would have asked AI, rather than posted on a forum containing humans. The AI advice that we see here is more often than not one (or more) of the following: completely lacking in nuance, fails to appreciate that there is no such thing as \"UK law\",",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfxip7",
+          "title": "England. Keyholder told that he’s stealing from the company.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfxip7/england_keyholder_told_that_hes_stealing_from_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfxip7/england_keyholder_told_that_hes_stealing_from_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789374058,
+          "snippet": "So, I work at a national gambling retailer with multiple establishments around the UK, that stay open till 11 PM and 1 AM on weekends. One of the keyholders last week was basically told by the general manager that he’s stealing from the company as it is not compliance to stay bac",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfj1yc",
+          "title": "28.6% concert booking fee - how is this legal",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfj1yc/286_concert_booking_fee_how_is_this_legal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfj1yc/286_concert_booking_fee_how_is_this_legal/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789331968,
+          "snippet": "A concert advertised at 25 pounds can only be bought at 32.14 pounds. This is the recommended route by the venue: https://electricbristol.com/events/the-skints-2/ How is this even legal and where do the 7 pounds go? submitted by /u/Ok-Chapter4804 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfy5o4",
+          "title": "Neighbor Building Significant (and possibly illegal) Outhouse up to Party Wall with no Planning or Agreement - London, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfy5o4/neighbor_building_significant_and_possibly/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfy5o4/neighbor_building_significant_and_possibly/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789376449,
+          "snippet": "Hi all, as you can probably tell from my use of US English, not that familiar with UK law. Our neighbors began construction in their garden recently, expanding what used to be a small brick garage into a structure over three times its original size. They did not notify us in adva",
           "listingSource": "rss:hot"
         },
         {
@@ -304,63 +589,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wf1gy1",
-          "title": "Being harassed by Law firm Solaris Law. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf1gy1/being_harassed_by_law_firm_solaris_law_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf1gy1/being_harassed_by_law_firm_solaris_law_england/",
+          "id": "1wfyy0d",
+          "title": "Neighbour makes noise and keeps dumping mess down our shared alleyway",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfyy0d/neighbour_makes_noise_and_keeps_dumping_mess_down/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfyy0d/neighbour_makes_noise_and_keeps_dumping_mess_down/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789286168,
-          "snippet": "Hello, I need some advice regarding the law firm Solaris Law regarding an alleged outstanding Checkatrade membership fee. I'll try and keep this short. 3 years ago I emailed checkatrade before my membership renewal to request the contract not be renewed. I didn't get a response. ",
+          "createdUtc": 1789379321,
+          "snippet": "Me, partner + her kid live in a terraced house that shares an alleyway with the neighbours. Their gate is a bit further up than ours and it slopes downwards. On the other side of their gate is a brick coal store, same as ours that I think one of the neighbours uses as an office, ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wf34rx",
-          "title": "Found a Ladbrokes account set up in my name by someone else. They have closed the account, but are refusing to provide more details. Scotland.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf34rx/found_a_ladbrokes_account_set_up_in_my_name_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf34rx/found_a_ladbrokes_account_set_up_in_my_name_by/",
+          "id": "1wg0hxt",
+          "title": "Europcar Malaga - stole my money!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg0hxt/europcar_malaga_stole_my_money/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg0hxt/europcar_malaga_stole_my_money/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789292073,
-          "snippet": "I found a Ladbrokes account in my name the other night. It seems that my name, address and DOB has been used, but not my email address or phone number. I spoke to Ladbrokes about it, and they closed the account pretty much instantly. However, they will not provide any further det",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wf613o",
-          "title": "Wales - How to help my parents with abusive neighbours?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf613o/wales_how_to_help_my_parents_with_abusive/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf613o/wales_how_to_help_my_parents_with_abusive/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789301564,
-          "snippet": "Hello, just got off the phone with my mother and it she was really upset. A few years ago new neighbours bought a house next to theirs and have been nothing but trouble. They started building work which resulted in scaffolding on my parents property; they started leaving stuff in",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wf4fh0",
-          "title": "ULEZ fine London UK but my car is Petrol Euro4…",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf4fh0/ulez_fine_london_uk_but_my_car_is_petrol_euro4/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf4fh0/ulez_fine_london_uk_but_my_car_is_petrol_euro4/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789296588,
-          "snippet": "Hi all, I got a fine through the door for not paying ULEZ going to Heathrow in July for my 2004 Volvo V70R that I had imported from Japan. I double checked the V5 for my own sanity but the DVLA left that part blank so I did some research… all Volvo V70R’s 2004-2007 are Euro4 whic",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wf9l0n",
-          "title": "Reasonable Adjustments - is it?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf9l0n/reasonable_adjustments_is_it/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf9l0n/reasonable_adjustments_is_it/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789310624,
-          "snippet": "For the past 4 years I have been working from home in the morning and coming onsite from 11am. This is to allow for me to toilet at home because I have bowel dysfunction that makes it extremely painful to pass a stool (usually takes me about 30mins of deep breathing, using a squa",
+          "createdUtc": 1789384452,
+          "snippet": "We rented a car from them and they pushed some extra packages, without fully explaining what they are - partially due to poor communication in English. We have specifically asked if the money we are paying will only be RESERVED and then RETURNED to my credit card, to which she sa",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +618,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -385,6 +634,90 @@
           "numComments": 0,
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfl27f",
+          "title": "Bouncy castle hire, company cancelled and refusing return of deposit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfl27f/bouncy_castle_hire_company_cancelled_and_refusing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfl27f/bouncy_castle_hire_company_cancelled_and_refusing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789336818,
+          "snippet": "I apologise if this comes off as frivolous middle class problems but I’m here now so… We hired a bouncy castle for a kids party, the night before they contacted us to inform us that as the weather was bad they may be unable to deliver. Further email on the morning of the booking ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfjriu",
+          "title": "Plumber claims \"30-day limit\" on £600 failed bath repair causing severe ceiling leak/black mold (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfjriu/plumber_claims_30day_limit_on_600_failed_bath/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfjriu/plumber_claims_30day_limit_on_600_failed_bath/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789333665,
+          "snippet": "Hi everyone,I'm looking for advice on recovering costs and taking next steps with a plumber/contractor. So back in February 2026, I paid £600 to a plumbing company (Areema Group LTD/ George the Plumber) to fix an active bath leak and secure defective waste pipe connections. The i",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wfzxjp",
+          "title": "My husband and I were divorcing. Three separate solicitors encouraged me to fabricate false allegations of domestic violence. My husband's solicitor pointed him to a dodgy accountant to hide his pension.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfzxjp/my_husband_and_i_were_divorcing_three_separate/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfzxjp/my_husband_and_i_were_divorcing_three_separate/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789382670,
+          "snippet": "Husband and I were in the process of divorcing for about 7 months. We've since reconnected and worked through our issues. However, while talking with each other we've both come to realise that our solicitors were both encouraging us to do stuff which was obviously highly illegal.",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wfhk3z",
+          "title": "The council want to charge me £7100 for some stairs.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfhk3z/the_council_want_to_charge_me_7100_for_some_stairs/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfhk3z/the_council_want_to_charge_me_7100_for_some_stairs/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789328577,
+          "snippet": "I own a leasehold flat and pay an annual service charge to the council as they own the building. Generally this has been pretty cheap and last year the service charge only costed me about £400. There's a set of stairs that lead up to my flat that due to a lack of maintenance has ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wfrnau",
+          "title": "[Wales] Neighbour harassing parents. Police said a crime hasnt been comitted so cant act. Is taking him to court for a criminal behaviour order even an option?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfrnau/wales_neighbour_harassing_parents_police_said_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfrnau/wales_neighbour_harassing_parents_police_said_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789354827,
+          "snippet": "Neighbour has been harassing my parents and neither councillors nor the police are doing anything. Added wrinkle is that it is a shared lane thay the properties border with no real owner. Only drawings with some very vague numbers on them are from the 40s. He inherited the place ",
           "listingSource": "rss:hot"
         }
       ]
@@ -414,51 +747,15 @@
       ]
     },
     {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
+      "slug": "poor-services-and-traders",
+      "label": "Poor Services and Traders",
+      "legalAreaSlug": "consumer_services",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
-        {
-          "id": "1welcgc",
-          "title": "At what point do I need to report/contact someone?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1welcgc/at_what_point_do_i_need_to_reportcontact_someone/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1welcgc/at_what_point_do_i_need_to_reportcontact_someone/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789240321,
-          "snippet": "Uk england based - my kiddo has a friend round to play. At drop off parent said to text when their kid was ready to come home. I text at 6pm asking if they could pick up at 7pm. it was read within a few mins and no reply. I message at 7.35pm asking if everything is ok, and what t",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "poor-services-and-traders",
-      "label": "Poor Services and Traders",
-      "legalAreaSlug": "consumer_services",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wffsey",
-          "title": "Builder is taking too long, kitchen extension has taken a year",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wffsey/builder_is_taking_too_long_kitchen_extension_has/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wffsey/builder_is_taking_too_long_kitchen_extension_has/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789324661,
-          "snippet": "We picked a builder with excellent reviews. They're mostly 5 star reviews and the work looks great. Not sure what's going on with ours. He's very friendly when he's actually on the job at ours. But all his guys leave everything partially finished before jumping to another job. So",
-          "listingSource": "rss:hot"
-        },
         {
           "id": "1wfehd2",
           "title": "Builders left some stuff behind, what are my rights? England",
@@ -474,9 +771,9 @@
       ]
     },
     {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -484,39 +781,63 @@
       ],
       "posts": [
         {
-          "id": "1wfa3ar",
-          "title": "England - Car insurer says I had a fault accident I never had and will charge me £200 unless I prove otherwise",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfa3ar/england_car_insurer_says_i_had_a_fault_accident_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfa3ar/england_car_insurer_says_i_had_a_fault_accident_i/",
+          "id": "1wg0ebx",
+          "title": "England - Third party car insurance",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg0ebx/england_third_party_car_insurance/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg0ebx/england_third_party_car_insurance/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789311812,
-          "snippet": "I recently took out car insurance with 1st Central in England. They have contacted me after checking my details and are saying their database shows that I was involved in a fault accident on 10 August 2024 . I have never had an accident on that date and I genuinely do not know wh",
+          "createdUtc": 1789384134,
+          "snippet": "Had a non-fault accident and then toyota covered the other driver reached out to me and said they will cover me without putting in a claim through my own insurance saying that it would avoid me putting a claim on my own policy. They kept telling me that if i'm not happy i could r",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "subscriptions-and-memberships",
-      "label": "Subscriptions and Memberships",
-      "legalAreaSlug": "consumer_subscriptions",
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "uklaw"
       ],
       "posts": [
         {
-          "id": "1wf3ikg",
-          "title": "Tech company system glitch created an unauthorised second subscription using my bank details from a different account",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf3ikg/tech_company_system_glitch_created_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wf3ikg/tech_company_system_glitch_created_an/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wfd4yc",
+          "title": "I am an Irish corporate solicitor, just got an offer in a MC firm in London. What employer references are required?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wfd4yc/i_am_an_irish_corporate_solicitor_just_got_an/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wfd4yc/i_am_an_irish_corporate_solicitor_just_got_an/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789293464,
-          "snippet": "[England] On the 29th Aug, I used my correct email address to initially sign up to buy a £1 report. At the payment page I realised it was actually a 7-day trial for a £19.99 monthly subscription. I retyped my email at checkout, but unknowingly spelt my email domain wrong, so I ne",
+          "createdUtc": 1789318782,
+          "snippet": "Hi all I am an Irish corporate solicitor, working in one of the big firms in the Irish market. I just got an offer for an associate role from a Magic Circle firm in London. I am quite keen to take it, given the learning opportunities it offers. On a personal level, my mother is E",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "planning-law",
+      "label": "Planning Law",
+      "legalAreaSlug": "planning_law",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "uklaw"
+      ],
+      "posts": [
+        {
+          "id": "1wf4l57",
+          "title": "Chronological or relevance for work experience in VS applications?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wf4l57/chronological_or_relevance_for_work_experience_in/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wf4l57/chronological_or_relevance_for_work_experience_in/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789297113,
+          "snippet": "I have relevant legal work experience from before university and multiple less relevant positions gained while studying such as competition wins, open days, crappy summer jobs etc. Is it worth ordering this stuff chronologically or in terms of relevancy on my applications? Thanks",
           "listingSource": "rss:hot"
         }
       ]
