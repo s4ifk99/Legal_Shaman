@@ -1,0 +1,14 @@
+# Legal Shaman
+
+> UK legal navigation. Not a solicitor. Not legal advice.
+
+We do not give legal advice, recommend a named solicitor as counsel, or assess a case. Matches come from stored register data.
+
+## Routes
+
+- [Find a lawyer](https://www.legalshaman.com/find-a-lawyer): Canonical matcher (redirects to `/ask-the-shaman?guided=1`).
+- [Signpost](https://www.legalshaman.com/signposting): Free help, legal aid, and national resources by area of law.
+- [For firms](https://www.legalshaman.com/for-firms): Overflow routing for UK practices and advice agencies.
+- [Embed install](https://www.legalshaman.com/embed/install): Paste-ready Signpost iframe.
+
+Sitemap: https://www.legalshaman.com/sitemap.xml
