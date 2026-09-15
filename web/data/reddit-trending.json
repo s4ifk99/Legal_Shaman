@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-15T10:46:46.207Z",
+    "scrapedAt": "2026-09-15T20:53:24.023Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 7,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,27 +38,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wg9qpu",
-          "title": "Refused sale of alcohol as two year old daughter tried to “pay” for it. Purely curious.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
+          "id": "1wh18zj",
+          "title": "UPDATE - FtM transgender facing two different issues at work?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh18zj/update_ftm_transgender_facing_two_different/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh18zj/update_ftm_transgender_facing_two_different/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789406451,
-          "snippet": "Hello, not after any genuine legal advice, but curious on something that happened earlier today. I have a two year old daughter and she likes to “pay” for shopping where I give her my card and she taps to pay for it. I was buying a few beers with her and as is the case, she wante",
+          "createdUtc": 1789480885,
+          "snippet": "BiL met the head of HR and CEO yesterday. They were super apologetic and said this should never have arisen, and that local HR and management had overstepped the mark by some way. CEO said in her view the court rulings were wrong and created a untenable position for employees, ma",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgq9kq",
-          "title": "Stuck in a living hell. Historic abuse/Incestuous relationships - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
+          "id": "1wh0xgr",
+          "title": "Grandparent wanting to secure access to seeing grandchildren against parents wishes (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0xgr/grandparent_wanting_to_secure_access_to_seeing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0xgr/grandparent_wanting_to_secure_access_to_seeing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789446684,
-          "snippet": "My wife &amp; I are separating. It was releaved to me by my then wife that her father had sexually abused her eldest 2 female siblings over a prolonged period of time &amp; her mother knew of the abuse. It seems that she (the mother) encouraged or ‘allowed’ the abuse of her daugh",
+          "createdUtc": 1789480130,
+          "snippet": "Posting on behalf of a friend (the Parent), who has received a letter from her parent (the Grandparent) asking for access to the grandchildren, offering mediation and threatening going to court otherwise. For context, the Parent and the Grandparent had an argument over a year ago",
           "listingSource": "rss:hot"
         },
         {
@@ -74,63 +74,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgk5y1",
-          "title": "A tenant has moved in 4 other adults to the property who aren't on the tenancy agreement. They have refused and ignored my requests for a right to rent check. What do I do now?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgk5y1/a_tenant_has_moved_in_4_other_adults_to_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgk5y1/a_tenant_has_moved_in_4_other_adults_to_the/",
+          "id": "1whalcm",
+          "title": "Bank closed deceased dad's account and sent funds to his partner's son (unrelated third party) - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whalcm/bank_closed_deceased_dads_account_and_sent_funds/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whalcm/bank_closed_deceased_dads_account_and_sent_funds/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789429802,
-          "snippet": "Tenant \"Mr A.\" signed their rental agreement on the 12th June 2026. On 1st July I went over to drop off a spare set of keys at the tenant's request. When I was there I noticed a lot of other adults in the property with suitcases. I did an unscheduled visit on the 18th August and ",
+          "createdUtc": 1789501235,
+          "snippet": "TL;DR Santander sent cheque to Dad's partners son when he tells me he advised them I'd be sorting out the estate and that they already had my details. My 76 year old father passed away at the beginning of August. We weren't close, but I am the nearest next of kin as his biologica",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgmv8f",
-          "title": "Ceiling collapsed on me in HMO after 3 months of ignored leak reports; ENGLAND. what are my options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgmv8f/ceiling_collapsed_on_me_in_hmo_after_3_months_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgmv8f/ceiling_collapsed_on_me_in_hmo_after_3_months_of/",
+          "id": "1wgx10z",
+          "title": "Formal grievance has been filed against me but I’m self employed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgx10z/formal_grievance_has_been_filed_against_me_but_im/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgx10z/formal_grievance_has_been_filed_against_me_but_im/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789437079,
-          "snippet": "I live in an HMO supplied to my local council by a property management company. Timeline of the leak that led to my ceiling collapsing on me and i’m writing this from hospital right now. • 15/6 — Reported bathroom leak/mould by phone (to my housing officer’s manager, as he was of",
+          "createdUtc": 1789469624,
+          "snippet": "Scotland based I am self employed and the facility that I work through never gave me terms and conditions/code of conduct to sign as it’s all very informal. The person who has raised the grievance is also self employed under the same conditions. My main question is can they file ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgkqf7",
-          "title": "Dad passed away and some trouble with my uncle",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgkqf7/dad_passed_away_and_some_trouble_with_my_uncle/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgkqf7/dad_passed_away_and_some_trouble_with_my_uncle/",
+          "id": "1wgwmhs",
+          "title": "Being sued by landlord despite major disrepair",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwmhs/being_sued_by_landlord_despite_major_disrepair/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwmhs/being_sued_by_landlord_despite_major_disrepair/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789431273,
-          "snippet": "My dad passed away recently and I (20) have been left to organise the funeral and all matters following the death. I’m looking for advice as my uncle and my dad’s finances were rather problematic. My dad had sold his house following his divorce from my mum, and then a few years l",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wggl5g",
-          "title": "Paid someone to make a birthday cake and they are now ghosting me - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wggl5g/paid_someone_to_make_a_birthday_cake_and_they_are/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wggl5g/paid_someone_to_make_a_birthday_cake_and_they_are/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789421003,
-          "snippet": "Hi everyone, Need some help quite urgently. Tomorrow is my daughters 7th birthday. 2 weeks ago, I contacted a Facebook page that made and sold really good looking custom cakes, including a really good Frozen themed one. I contacted the page and asked how much it would cost and if",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wgcup2",
-          "title": "Ex wife’s girlfriend in the property",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgcup2/ex_wifes_girlfriend_in_the_property/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgcup2/ex_wifes_girlfriend_in_the_property/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789412889,
-          "snippet": "My ex-wife and I are recently divorced and are currently still living in our jointly owned home in England while it is being prepared for sale. There is now a financial order in place requiring the property to be sold. My ex-wife’s girlfriend has effectively been living at the pr",
+          "createdUtc": 1789468319,
+          "snippet": "My landlord is suing me for rent arrears. I have counterclaimed because I lived in the property with my young child while he carried out major construction works throughout the building for almost a year. See the photo. This is how my entire building looks. He’s done this whilst ",
           "listingSource": "rss:hot"
         },
         {
@@ -146,111 +122,135 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgvr31",
-          "title": "University withholding enrolment because of accommodation fees.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgvr31/university_withholding_enrolment_because_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgvr31/university_withholding_enrolment_because_of/",
+          "id": "1wgq9kq",
+          "title": "Stuck in a living hell. Historic abuse/Incestuous relationships - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789465469,
-          "snippet": "Title! If anyone has any experience with this, please help me out. I've done a bit of background research and from what I can gather, it's not legal as it isn't tuition fees. Can anyone advise? I can'r get student loan without it which I need to survive atm. I'm in england. submi",
+          "createdUtc": 1789446684,
+          "snippet": "My wife &amp; I are separating. It was releaved to me by my then wife that her father had sexually abused her eldest 2 female siblings over a prolonged period of time &amp; her mother knew of the abuse. It seems that she (the mother) encouraged or ‘allowed’ the abuse of her daugh",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgvpf2",
-          "title": "[England] Upstairs leak - second time around",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgvpf2/england_upstairs_leak_second_time_around/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgvpf2/england_upstairs_leak_second_time_around/",
+          "id": "1wgyyq5",
+          "title": "Sharing English office space with a dying business",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyyq5/sharing_english_office_space_with_a_dying_business/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyyq5/sharing_english_office_space_with_a_dying_business/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789465319,
-          "snippet": "Hey folks, In the middle of a frustrating situation. I am a leaseholder of a ground-floor flat. The upstairs flat is also owned by the freeholder, and rented out via a third party agency. (An extra fact: the named freeholder is in his late 80s and very unwell, so his daughter is ",
+          "createdUtc": 1789475181,
+          "snippet": "My friend has a business in England that is, if not exactly experiencing death throes, is looking pretty unhealthy. I am starting a business, and looking for a space to rent to store/distribute stock. This is a new move for me, as previously I have only ever worked and sold from ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wfzxjp",
-          "title": "My husband and I were divorcing. Three separate solicitors encouraged me to fabricate false allegations of domestic violence. My husband's solicitor pointed him to a dodgy accountant to hide his pension.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfzxjp/my_husband_and_i_were_divorcing_three_separate/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfzxjp/my_husband_and_i_were_divorcing_three_separate/",
+          "id": "1wg9qpu",
+          "title": "Refused sale of alcohol as two year old daughter tried to “pay” for it. Purely curious.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789382670,
-          "snippet": "Husband and I were in the process of divorcing for about 7 months. We've since reconnected and worked through our issues. However, while talking with each other we've both come to realise that our solicitors were both encouraging us to do stuff which was obviously highly illegal.",
+          "createdUtc": 1789406451,
+          "snippet": "Hello, not after any genuine legal advice, but curious on something that happened earlier today. I have a two year old daughter and she likes to “pay” for shopping where I give her my card and she taps to pay for it. I was buying a few beers with her and as is the case, she wante",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgwmkg",
-          "title": "Phone case kiosk damaged mums phone - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwmkg/phone_case_kiosk_damaged_mums_phone_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwmkg/phone_case_kiosk_damaged_mums_phone_england/",
+          "id": "1wh96bd",
+          "title": "Twice in my life I have been asked about another matter when dealing with the police about something else…Is this admin error?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh96bd/twice_in_my_life_i_have_been_asked_about_another/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh96bd/twice_in_my_life_i_have_been_asked_about_another/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789468325,
-          "snippet": "**Not employment related, I don't know how to change that tag on what to do regarding my mum's phone. (I was not present, she has told me what happened over the phone). She bought a new phone case at a shopping centre kiosk a few days ago. It was a flip case where the inside adhe",
+          "createdUtc": 1789498192,
+          "snippet": "England, Male, 39 years old Hi all, So in 2009 my ex gf reported me for harassment. We had broken up and we were both ringing each other over the course of a couple of days and arguing. On my final phone call with her I was at my friend’s house and he picked up a dog toy and sque",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wg9zxt",
-          "title": "Two young daughters live with me, Dad. All contact from Mum is to be supervised but having issues with supervisors. Just looking for some advise moving forward. North Wales.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9zxt/two_young_daughters_live_with_me_dad_all_contact/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9zxt/two_young_daughters_live_with_me_dad_all_contact/",
+          "id": "1wgyzjy",
+          "title": "How long do I have to be followed before police will treat it as a crime? Police didn't arrest the man who followed me around the city and called me \"his lovely girlfriend.\"",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyzjy/how_long_do_i_have_to_be_followed_before_police/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyzjy/how_long_do_i_have_to_be_followed_before_police/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789406989,
-          "snippet": "Sorry in advance if I miss anything out of this, there has been a lot to this but trying to keep it concise. I have two daughters, five and seven. Their mum and I have been separated for around three years now. Care of the girls has been shared, roughly 50/50. Mid last year socia",
+          "createdUtc": 1789475245,
+          "snippet": "I was walking through the city centre on Saturday evening. I'd just left my friends off at the busstation when I noticed a man following me. I did a few twists and turns to try and confirm it and sure enough he was following me. I ended up cutting into a shop and he followed me t",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wg3jsl",
-          "title": "Advice needed regarding cemetery mixup! England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg3jsl/advice_needed_regarding_cemetery_mixup_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg3jsl/advice_needed_regarding_cemetery_mixup_england/",
+          "id": "1wh6cem",
+          "title": "Debt I have disputed however a CCJ has been placed but I am only just in discovery of the matter.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh6cem/debt_i_have_disputed_however_a_ccj_has_been/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh6cem/debt_i_have_disputed_however_a_ccj_has_been/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789392746,
-          "snippet": "Writing this on behalf of my mum. This may be a bit long winded but we need legal advice regarding a cemetery. I have 2 baby sisters buried in a cemetery in Blackpool. They died in 1995 and 1996 a year apart. We haven’t had any issues until this year when one headstone was damage",
+          "createdUtc": 1789492186,
+          "snippet": "England - Lowell contacted me regarding a debt with o2 (contract SIM only) This sim only contract was entered in 2018, I was 15 at the time however the document seemed to have my DOB as 1997 &amp; not 2002. A CCJ was issued in 2019 when I was 16. I have yet to see the CCJ documen",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgv535",
-          "title": "Scottish personal injury claim – how much longer until settlement?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgv535/scottish_personal_injury_claim_how_much_longer/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgv535/scottish_personal_injury_claim_how_much_longer/",
+          "id": "1whblzm",
+          "title": "I work in hospitality in England, and I worked at this organisation for just abover 1 year. There was change in management recently, and the new manager is being physically and otherwise aggressive towards me, and I don’t know if I should report it or not.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whblzm/i_work_in_hospitality_in_england_and_i_worked_at/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whblzm/i_work_in_hospitality_in_england_and_i_worked_at/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789463363,
-          "snippet": "Location: Scotland. Hi everyone, I’m currently pursuing a personal injury claim in Scotland following a road traffic accident in 2022. My solicitor has recently sent a counter-proposal to the Defenders, and I’m now waiting for their response. It’s been two weeks so far, and I’m w",
+          "createdUtc": 1789503437,
+          "snippet": "All this started since the day we arrived. She made some racist statements as well, but I can’t prove them since it did not happen on camera or infront of others. Two weeks ago we had a small arguement because she wouldn’t let me know before any of the shifts started how long I w",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wge09a",
-          "title": "Festival cancelled and not returning money",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wge09a/festival_cancelled_and_not_returning_money/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wge09a/festival_cancelled_and_not_returning_money/",
+          "id": "1wh59l6",
+          "title": "Scottish Power Recorded Delivery UK advice needed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh59l6/scottish_power_recorded_delivery_uk_advice_needed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh59l6/scottish_power_recorded_delivery_uk_advice_needed/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789415333,
-          "snippet": "England. Submitting on behalf of a friend. The festival \"Flow in the forest\" was due to take place this weekend. Not content with failing to pay artists last year, they've pulled out all the stops and entirely cancelled the festival this year. The smoke around refunds has become ",
+          "createdUtc": 1789489874,
+          "snippet": "Hi looking for some advice, not sure if this is the right group. My previous employer (UK Based) has received a recorded delivery letter claiming to be from ‘Fraser Irving Sheriff Officers LLP’. It is addressed to my first name and my mother’s maiden name as a last name. This las",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wg1e43",
-          "title": "my boss is withholding everyone’s wages and we are all struggling with it",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg1e43/my_boss_is_withholding_everyones_wages_and_we_are/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg1e43/my_boss_is_withholding_everyones_wages_and_we_are/",
+          "id": "1wgmv8f",
+          "title": "Ceiling collapsed on me in HMO after 3 months of ignored leak reports; ENGLAND. what are my options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgmv8f/ceiling_collapsed_on_me_in_hmo_after_3_months_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgmv8f/ceiling_collapsed_on_me_in_hmo_after_3_months_of/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789387143,
-          "snippet": "there have been financial issues at my previous workplace since last December. apparently, my boss had a winding up petition served against the company by the landlord. since then he’s been paying employees partially (the second part of the pay taking up to 3 weeks sometimes). I’",
+          "createdUtc": 1789437079,
+          "snippet": "I live in an HMO supplied to my local council by a property management company. Timeline of the leak that led to my ceiling collapsing on me and i’m writing this from hospital right now. • 15/6 — Reported bathroom leak/mould by phone (to my housing officer’s manager, as he was of",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wh0v1i",
+          "title": "Car hit by lorry - How to get CCTV released?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0v1i/car_hit_by_lorry_how_to_get_cctv_released/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0v1i/car_hit_by_lorry_how_to_get_cctv_released/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789479969,
+          "snippet": "I left my car parked on a street and an HGV drove into causing damage without leaving details. I contacted a business across the road and they have confirmed they have CCTV of the incident and the vehicles reg but they say they can't release it to me due to GDPR. They have said t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wgk5y1",
+          "title": "A tenant has moved in 4 other adults to the property who aren't on the tenancy agreement. They have refused and ignored my requests for a right to rent check. What do I do now?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgk5y1/a_tenant_has_moved_in_4_other_adults_to_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgk5y1/a_tenant_has_moved_in_4_other_adults_to_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789429802,
+          "snippet": "Tenant \"Mr A.\" signed their rental agreement on the 12th June 2026. On 1st July I went over to drop off a spare set of keys at the tenant's request. When I was there I noticed a lot of other adults in the property with suitcases. I did an unscheduled visit on the 18th August and ",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 12,
+      "postCount": 11,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,63 +280,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgq9kq",
-          "title": "Stuck in a living hell. Historic abuse/Incestuous relationships - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
+          "id": "1wh18zj",
+          "title": "UPDATE - FtM transgender facing two different issues at work?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh18zj/update_ftm_transgender_facing_two_different/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh18zj/update_ftm_transgender_facing_two_different/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789446684,
-          "snippet": "My wife &amp; I are separating. It was releaved to me by my then wife that her father had sexually abused her eldest 2 female siblings over a prolonged period of time &amp; her mother knew of the abuse. It seems that she (the mother) encouraged or ‘allowed’ the abuse of her daugh",
+          "createdUtc": 1789480885,
+          "snippet": "BiL met the head of HR and CEO yesterday. They were super apologetic and said this should never have arisen, and that local HR and management had overstepped the mark by some way. CEO said in her view the court rulings were wrong and created a untenable position for employees, ma",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgmv8f",
-          "title": "Ceiling collapsed on me in HMO after 3 months of ignored leak reports; ENGLAND. what are my options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgmv8f/ceiling_collapsed_on_me_in_hmo_after_3_months_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgmv8f/ceiling_collapsed_on_me_in_hmo_after_3_months_of/",
+          "id": "1whalcm",
+          "title": "Bank closed deceased dad's account and sent funds to his partner's son (unrelated third party) - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whalcm/bank_closed_deceased_dads_account_and_sent_funds/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whalcm/bank_closed_deceased_dads_account_and_sent_funds/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789437079,
-          "snippet": "I live in an HMO supplied to my local council by a property management company. Timeline of the leak that led to my ceiling collapsing on me and i’m writing this from hospital right now. • 15/6 — Reported bathroom leak/mould by phone (to my housing officer’s manager, as he was of",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wgkqf7",
-          "title": "Dad passed away and some trouble with my uncle",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgkqf7/dad_passed_away_and_some_trouble_with_my_uncle/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgkqf7/dad_passed_away_and_some_trouble_with_my_uncle/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789431273,
-          "snippet": "My dad passed away recently and I (20) have been left to organise the funeral and all matters following the death. I’m looking for advice as my uncle and my dad’s finances were rather problematic. My dad had sold his house following his divorce from my mum, and then a few years l",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wggl5g",
-          "title": "Paid someone to make a birthday cake and they are now ghosting me - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wggl5g/paid_someone_to_make_a_birthday_cake_and_they_are/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wggl5g/paid_someone_to_make_a_birthday_cake_and_they_are/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789421003,
-          "snippet": "Hi everyone, Need some help quite urgently. Tomorrow is my daughters 7th birthday. 2 weeks ago, I contacted a Facebook page that made and sold really good looking custom cakes, including a really good Frozen themed one. I contacted the page and asked how much it would cost and if",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wgcup2",
-          "title": "Ex wife’s girlfriend in the property",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgcup2/ex_wifes_girlfriend_in_the_property/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgcup2/ex_wifes_girlfriend_in_the_property/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789412889,
-          "snippet": "My ex-wife and I are recently divorced and are currently still living in our jointly owned home in England while it is being prepared for sale. There is now a financial order in place requiring the property to be sold. My ex-wife’s girlfriend has effectively been living at the pr",
+          "createdUtc": 1789501235,
+          "snippet": "TL;DR Santander sent cheque to Dad's partners son when he tells me he advised them I'd be sorting out the estate and that they already had my details. My 76 year old father passed away at the beginning of August. We weren't close, but I am the nearest next of kin as his biologica",
           "listingSource": "rss:hot"
         },
         {
@@ -352,15 +316,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgvr31",
-          "title": "University withholding enrolment because of accommodation fees.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgvr31/university_withholding_enrolment_because_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgvr31/university_withholding_enrolment_because_of/",
+          "id": "1wgq9kq",
+          "title": "Stuck in a living hell. Historic abuse/Incestuous relationships - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789465469,
-          "snippet": "Title! If anyone has any experience with this, please help me out. I've done a bit of background research and from what I can gather, it's not legal as it isn't tuition fees. Can anyone advise? I can'r get student loan without it which I need to survive atm. I'm in england. submi",
+          "createdUtc": 1789446684,
+          "snippet": "My wife &amp; I are separating. It was releaved to me by my then wife that her father had sexually abused her eldest 2 female siblings over a prolonged period of time &amp; her mother knew of the abuse. It seems that she (the mother) encouraged or ‘allowed’ the abuse of her daugh",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wgyyq5",
+          "title": "Sharing English office space with a dying business",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyyq5/sharing_english_office_space_with_a_dying_business/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyyq5/sharing_english_office_space_with_a_dying_business/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789475181,
+          "snippet": "My friend has a business in England that is, if not exactly experiencing death throes, is looking pretty unhealthy. I am starting a business, and looking for a space to rent to store/distribute stock. This is a new move for me, as previously I have only ever worked and sold from ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wh96bd",
+          "title": "Twice in my life I have been asked about another matter when dealing with the police about something else…Is this admin error?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh96bd/twice_in_my_life_i_have_been_asked_about_another/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh96bd/twice_in_my_life_i_have_been_asked_about_another/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789498192,
+          "snippet": "England, Male, 39 years old Hi all, So in 2009 my ex gf reported me for harassment. We had broken up and we were both ringing each other over the course of a couple of days and arguing. On my final phone call with her I was at my friend’s house and he picked up a dog toy and sque",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whblzm",
+          "title": "I work in hospitality in England, and I worked at this organisation for just abover 1 year. There was change in management recently, and the new manager is being physically and otherwise aggressive towards me, and I don’t know if I should report it or not.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whblzm/i_work_in_hospitality_in_england_and_i_worked_at/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whblzm/i_work_in_hospitality_in_england_and_i_worked_at/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789503437,
+          "snippet": "All this started since the day we arrived. She made some racist statements as well, but I can’t prove them since it did not happen on camera or infront of others. Two weeks ago we had a small arguement because she wouldn’t let me know before any of the shifts started how long I w",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 2,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -388,6 +388,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wgwmhs",
+          "title": "Being sued by landlord despite major disrepair",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwmhs/being_sued_by_landlord_despite_major_disrepair/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwmhs/being_sued_by_landlord_despite_major_disrepair/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789468319,
+          "snippet": "My landlord is suing me for rent arrears. I have counterclaimed because I lived in the property with my young child while he carried out major construction works throughout the building for almost a year. See the photo. This is how my entire building looks. He’s done this whilst ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wgk5y1",
           "title": "A tenant has moved in 4 other adults to the property who aren't on the tenancy agreement. They have refused and ignored my requests for a right to rent check. What do I do now?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgk5y1/a_tenant_has_moved_in_4_other_adults_to_the/",
@@ -402,9 +414,9 @@
       ]
     },
     {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -412,15 +424,15 @@
       ],
       "posts": [
         {
-          "id": "1wg9qpu",
-          "title": "Refused sale of alcohol as two year old daughter tried to “pay” for it. Purely curious.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
+          "id": "1wh0xgr",
+          "title": "Grandparent wanting to secure access to seeing grandchildren against parents wishes (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0xgr/grandparent_wanting_to_secure_access_to_seeing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0xgr/grandparent_wanting_to_secure_access_to_seeing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789406451,
-          "snippet": "Hello, not after any genuine legal advice, but curious on something that happened earlier today. I have a two year old daughter and she likes to “pay” for shopping where I give her my card and she taps to pay for it. I was buying a few beers with her and as is the case, she wante",
+          "createdUtc": 1789480130,
+          "snippet": "Posting on behalf of a friend (the Parent), who has received a letter from her parent (the Grandparent) asking for access to the grandchildren, offering mediation and threatening going to court otherwise. For context, the Parent and the Grandparent had an argument over a year ago",
           "listingSource": "rss:hot"
         }
       ]
@@ -450,66 +462,6 @@
       ]
     },
     {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wfzxjp",
-          "title": "My husband and I were divorcing. Three separate solicitors encouraged me to fabricate false allegations of domestic violence. My husband's solicitor pointed him to a dodgy accountant to hide his pension.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfzxjp/my_husband_and_i_were_divorcing_three_separate/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wfzxjp/my_husband_and_i_were_divorcing_three_separate/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789382670,
-          "snippet": "Husband and I were in the process of divorcing for about 7 months. We've since reconnected and worked through our issues. However, while talking with each other we've both come to realise that our solicitors were both encouraging us to do stuff which was obviously highly illegal.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wg9zxt",
-          "title": "Two young daughters live with me, Dad. All contact from Mum is to be supervised but having issues with supervisors. Just looking for some advise moving forward. North Wales.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9zxt/two_young_daughters_live_with_me_dad_all_contact/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9zxt/two_young_daughters_live_with_me_dad_all_contact/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789406989,
-          "snippet": "Sorry in advance if I miss anything out of this, there has been a lot to this but trying to keep it concise. I have two daughters, five and seven. Their mum and I have been separated for around three years now. Care of the girls has been shared, roughly 50/50. Mid last year socia",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "personal-injury",
-      "label": "Personal Injury",
-      "legalAreaSlug": "personal_injury",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wgv535",
-          "title": "Scottish personal injury claim – how much longer until settlement?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgv535/scottish_personal_injury_claim_how_much_longer/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgv535/scottish_personal_injury_claim_how_much_longer/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789463363,
-          "snippet": "Location: Scotland. Hi everyone, I’m currently pursuing a personal injury claim in Scotland following a road traffic accident in 2022. My solicitor has recently sent a counter-proposal to the Defenders, and I’m now waiting for their response. It’s been two weeks so far, and I’m w",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
       "slug": "employment-law",
       "label": "Employment Law",
       "legalAreaSlug": "employment",
@@ -520,15 +472,87 @@
       ],
       "posts": [
         {
-          "id": "1wg1e43",
-          "title": "my boss is withholding everyone’s wages and we are all struggling with it",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg1e43/my_boss_is_withholding_everyones_wages_and_we_are/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg1e43/my_boss_is_withholding_everyones_wages_and_we_are/",
+          "id": "1wgx10z",
+          "title": "Formal grievance has been filed against me but I’m self employed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgx10z/formal_grievance_has_been_filed_against_me_but_im/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgx10z/formal_grievance_has_been_filed_against_me_but_im/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789387143,
-          "snippet": "there have been financial issues at my previous workplace since last December. apparently, my boss had a winding up petition served against the company by the landlord. since then he’s been paying employees partially (the second part of the pay taking up to 3 weeks sometimes). I’",
+          "createdUtc": 1789469624,
+          "snippet": "Scotland based I am self employed and the facility that I work through never gave me terms and conditions/code of conduct to sign as it’s all very informal. The person who has raised the grievance is also self employed under the same conditions. My main question is can they file ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wg9qpu",
+          "title": "Refused sale of alcohol as two year old daughter tried to “pay” for it. Purely curious.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789406451,
+          "snippet": "Hello, not after any genuine legal advice, but curious on something that happened earlier today. I have a two year old daughter and she likes to “pay” for shopping where I give her my card and she taps to pay for it. I was buying a few beers with her and as is the case, she wante",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wgyzjy",
+          "title": "How long do I have to be followed before police will treat it as a crime? Police didn't arrest the man who followed me around the city and called me \"his lovely girlfriend.\"",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyzjy/how_long_do_i_have_to_be_followed_before_police/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyzjy/how_long_do_i_have_to_be_followed_before_police/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789475245,
+          "snippet": "I was walking through the city centre on Saturday evening. I'd just left my friends off at the busstation when I noticed a man following me. I did a few twists and turns to try and confirm it and sure enough he was following me. I ended up cutting into a shop and he followed me t",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wh6cem",
+          "title": "Debt I have disputed however a CCJ has been placed but I am only just in discovery of the matter.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh6cem/debt_i_have_disputed_however_a_ccj_has_been/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh6cem/debt_i_have_disputed_however_a_ccj_has_been/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789492186,
+          "snippet": "England - Lowell contacted me regarding a debt with o2 (contract SIM only) This sim only contract was entered in 2018, I was 15 at the time however the document seemed to have my DOB as 1997 &amp; not 2002. A CCJ was issued in 2019 when I was 16. I have yet to see the CCJ documen",
           "listingSource": "rss:hot"
         }
       ]
