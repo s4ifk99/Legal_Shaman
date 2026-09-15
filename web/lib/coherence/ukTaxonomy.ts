@@ -112,7 +112,10 @@ const RULES: Rule[] = [
     reason: 'Police seized / confiscated property',
     test: (t) =>
       /\bpolice\b/.test(t) &&
-      /\b(confiscat\w*|seiz(?:e|ed|ure)|took\s+(my|the)\s+\w+|retain(?:ed|ing)\s+(my|the))\b/.test(t),
+      /\b(confiscat\w*|seiz(?:e|ed|ure)|took\s+(my|the)\s+\w+|retain(?:ed|ing)\s+(my|the))\b/.test(t) &&
+      !/\b(section\s*21|section\s*8|evict|lock(?:ed)?\s*out|changed?\s+the\s+locks|tenancy|landlord)\b/.test(
+        t,
+      ),
   },
   {
     l1: 'private_client',
@@ -192,8 +195,9 @@ const RULES: Rule[] = [
     weight: 0.9,
     reason: 'Possession / eviction',
     test: (t) =>
-      /\b(section\s*21|section\s*8|evict|possession\s+order|bailiff|lock(?:ed)?\s*out)\b/.test(t) &&
-      !/\bmortgage\b/.test(t),
+      /\b(section\s*21|section\s*8|evict|possession\s+order|bailiff|lock(?:ed)?\s*out|changed?\s+the\s+locks)\b/.test(
+        t,
+      ) && !/\bmortgage\b/.test(t),
   },
   {
     l1: 'property',
@@ -321,8 +325,21 @@ const RULES: Rule[] = [
     weight: 0.78,
     reason: 'Criminal / police general',
     test: (t) =>
-      /\b(arrest|charg(?:ed|e)\b|magistrates|criminal|offence|cps|assault|theft|fraud)\b/.test(t) &&
+      /\b(arrest(?:ed)?|charg(?:ed|e)\b|magistrates|criminal|offence|cps|assault|theft|fraud)\b/.test(t) &&
       !/\bconfiscat|seiz/.test(t),
+  },
+  {
+    l1: 'crime_public',
+    l2: 'criminal_general',
+    packId: 'general',
+    matterType: 'crime',
+    frameIds: ['crime-police', 'crime-general'],
+    wikiDomains: ['crime'],
+    weight: 0.7,
+    reason: 'Police attendance',
+    test: (t) =>
+      /\bpolice\b/.test(t) &&
+      !/\b(parking (?:fine|ticket|charge)|pcn|popla)\b/.test(t),
   },
 ]
 

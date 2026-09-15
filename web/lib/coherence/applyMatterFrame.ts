@@ -155,6 +155,7 @@ export function attachResolvedMatterFrame(
     let next = sessionFromFrame(session, committedFrame, latestText)
     const dialogue: ResearchDialogueState = { ...prior, status: 'committed' }
     next = syncDialogueFields(next, dialogue)
+    next = { ...next, issueGraphFrozen: true }
     return {
       session: next,
       frame: committedFrame,
@@ -214,6 +215,7 @@ export function commitResearchDialogueToSession(
   let next = sessionFromFrame(session, frame, latestText)
   const committed: ResearchDialogueState = { ...dialogue, status: 'committed' }
   next = syncDialogueFields(next, committed)
+  next = { ...next, issueGraphFrozen: true }
   return { session: next, frame, inspector: formatMatterInspector(frame) }
 }
 

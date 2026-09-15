@@ -22,6 +22,7 @@
     "embed:dump": "tsx scripts/dump-merged-listings.ts",
     "test:search-golden": "tsx scripts/search-golden-check.ts",
     "test:coherence-traps": "tsx scripts/coherence-topic-traps.ts",
+    "test:messy-disputes": "tsx scripts/messy-dispute-eval.ts",
     "test:interactive-penumbra": "tsx scripts/interactive-penumbra-regression.ts",
     "test:reddit-audit": "tsx scripts/reddit-coherence-full-audit.ts",
     "matter:eval": "tsx scripts/matter-eval.ts",

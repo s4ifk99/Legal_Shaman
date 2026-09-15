@@ -7,6 +7,8 @@ import {
   matchingSessionForHelp,
   type HelpPack,
 } from '@/lib/coherence/services'
+import { freezeIssueGraph } from '@/lib/coherence/freezeIssueGraph'
+import { classifyHelpDoorKind, rankPeopleFirst } from '@/lib/coherence/peopleFirst'
 import type { HelpMatchResult } from '@/lib/coherence/masterAgent'
 import { buildLawyerBrief, briefToPlainText, placeForSummary } from '@/lib/coherence/brief'
 import { computeProgress } from '@/lib/coherence/slots'
@@ -539,7 +541,10 @@ export function ServicesView({
 }: Props) {
   const [pack, setPack] = useState<HelpPack | null>(null)
   const [loading, setLoading] = useState(true)
-  const helpSession = useMemo(() => matchingSessionForHelp(session), [session])
+  const helpSession = useMemo(
+    () => matchingSessionForHelp(freezeIssueGraph(session)),
+    [session],
+  )
   const helpFrames = useMemo(
     () => (helpSession === session ? frames : proposeLegalFrames(helpSession, 5)),
     [frames, helpSession, session],
@@ -671,7 +676,7 @@ export function ServicesView({
       relevance: compactBlurb(s.blurb, 110),
     })) ?? []
 
-  const freeRows = mergeFreeHelp(
+  const freeRowsUnsorted = mergeFreeHelp(
     freeServiceRows,
     authorityOfficialRows,
     agentFreeRows,
@@ -680,6 +685,22 @@ export function ServicesView({
     proRows,
     session,
     12,
+  )
+  const peopleOrder = new Map(
+    rankPeopleFirst(
+      freeRowsUnsorted.map((r) => ({
+        id: r.id,
+        title: r.title,
+        kind: classifyHelpDoorKind(r.title, r.type, 'match_free_help'),
+        blurb: r.blurb,
+        url: r.url,
+        phone: r.phone,
+        tool: 'match_free_help' as const,
+      })),
+    ).map((d, i) => [d.id, i]),
+  )
+  const freeRows = [...freeRowsUnsorted].sort(
+    (a, b) => (peopleOrder.get(a.id) ?? 99) - (peopleOrder.get(b.id) ?? 99),
   )
 
   const helpMatchHasLiveSra = (helpMatch?.solicitors || []).some(

@@ -24,6 +24,8 @@ import type { SessionState } from '../lib/coherence/types'
 import { normalizeSearchMode, searchModePolicy } from '../lib/coherence/searchMode'
 import { canonicalizeResearchBundle, emptyResearchBundle, parseResearchBundle, researchBundlePrompt } from '../lib/coherence/researchBundle'
 import { matchingSessionForHelp } from '../lib/coherence/services'
+import { freezeIssueGraph } from '../lib/coherence/freezeIssueGraph'
+import { recordHelpOutcome } from '../lib/coherence/helpTools'
 import { buildLawyerBrief } from '../lib/coherence/brief'
 import { relevantWorkAreas, scoreSraWorkAreaForMatching, resolveSraSearchFlags, sraMatchReason, matchingHelpLanesForStory, employerPropertySraFlags } from '../lib/coherence/sraQuery'
 import { attachResolvedMatterFrame, commitHypothesisProbeToSession, matterGatePrompt } from '../lib/coherence/applyMatterFrame'
@@ -86,6 +88,27 @@ function assert(cond: boolean, detail: string): string | null {
 }
 
 const traps: Array<{ id: string; run: () => string | null }> = [
+  {
+    id: 'frozen-issue-graph-ignores-garage-follow-up',
+    run: () => {
+      const story =
+        'My landlord changed the locks yesterday while I was at work. Police came, said it is a civil matter. I slept in the car. England.'
+      let s = senseDetails(story, createInitialSession())
+      s = freezeIssueGraph(s)
+      const after = senseDetails(
+        'The garage said the clutch is fine and wants £400. Neighbour mentioned parking.',
+        s,
+      )
+      const refused = recordHelpOutcome(after, { consent: false, result: 'instructed' })
+      return (
+        assert(s.issueGraphFrozen === true, 'did not freeze') ||
+        assert(s.matterType === 'housing', `frozen matter=${s.matterType}`) ||
+        assert(after.matterType === 'housing', `follow-up matter=${after.matterType}`) ||
+        assert(after.issueGraphFrozen === true, 'follow-up unfroze') ||
+        assert(!refused.helpOutcome?.result, 'recorded outcome without consent')
+      )
+    },
+  },
   {
     id: 'matching-help-prefers-employment-over-stray-criminal-label',
     run: () => {
