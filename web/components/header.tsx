@@ -100,6 +100,7 @@ export function Header() {
   const onShaman =
     pathname === "/ask-the-shaman" || pathname.startsWith("/ask-the-shaman/");
   const onSignpost = pathname === "/signposting" || pathname.startsWith("/signposting");
+  const onForFirms = pathname === "/for-firms" || pathname === "/signpost";
 
   return (
     <header className="relative overflow-hidden border-b-2 border-gold/30 bg-card">
@@ -152,6 +153,9 @@ export function Header() {
               <NavBoxLink href="/signposting" active={onSignpost}>
                 Signpost
               </NavBoxLink>
+              <NavBoxLink href="/for-firms" active={onForFirms}>
+                For firms
+              </NavBoxLink>
               <NavBoxLink href="/bookmarks">
                 <Bookmark className="h-4 w-4" />
                 Bookmarks
@@ -193,6 +197,14 @@ export function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Signpost
+            </NavBoxLink>
+            <NavBoxLink
+              href="/for-firms"
+              active={onForFirms}
+              className="w-full"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              For firms
             </NavBoxLink>
             <NavBoxLink
               href="/bookmarks"
