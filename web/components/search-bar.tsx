@@ -157,7 +157,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
               <span className="text-secondary">Shaman</span>
             </h1>
             <p className="mb-1 text-base font-medium text-foreground md:text-lg">
-              Justice through Search
+              Signposting, not legal advice
             </p>
           </>
         ) : (
@@ -176,13 +176,13 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
               <span className="text-secondary">Shaman</span>
             </h1>
             <p className="mb-2 text-base font-medium text-foreground md:text-lg">
-              Justice through Search
+              Signposting, not legal advice
             </p>
           </>
         )}
         <p className={cn("text-muted-foreground", compact ? "mb-6 md:text-lg" : "mb-8")}>
-          Tell us your problem and we&apos;ll point you in the right direction — solicitors, legal
-          aid, free advice, and more.
+          Describe your situation. We point you to legal aid, free services, and solicitors. We do
+          not advise on your case.
         </p>
 
         <form
@@ -209,7 +209,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
                   if (q.trim()) goSearch(q, false);
                 }
               }}
-              placeholder="Describe your situation in your own words — or search solicitors and charities…"
+              placeholder="Describe your situation — we signpost, we do not advise…"
               className="min-h-14 max-h-[220px] resize-none overflow-y-auto border-2 border-gold/30 bg-card py-3.5 pl-12 pr-4 text-base leading-relaxed placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-gold/30"
               autoComplete="off"
               aria-autocomplete="list"

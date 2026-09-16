@@ -24,8 +24,8 @@ export default function Home() {
               How can we help?
             </h2>
             <p className="mt-3 mx-auto max-w-2xl text-muted-foreground md:text-lg">
-              Ask the Shaman for wiki guidance, lawyer matching, and live discussions — or browse
-              Signpost for trusted national resources.
+              Guided matching or Signpost for trusted national resources. Signposting only — we are
+              not a solicitor and we do not give legal advice.
             </p>
           </div>
           <ProductEntryCards />
