@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-15T20:53:24.023Z",
-    "subredditCount": 1,
-    "postCount": 20,
-    "topicCount": 8,
+    "scrapedAt": "2026-09-16T10:35:07.859Z",
+    "subredditCount": 2,
+    "postCount": 40,
+    "topicCount": 10,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -50,27 +50,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wh0xgr",
-          "title": "Grandparent wanting to secure access to seeing grandchildren against parents wishes (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0xgr/grandparent_wanting_to_secure_access_to_seeing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0xgr/grandparent_wanting_to_secure_access_to_seeing/",
+          "id": "1whrgb6",
+          "title": "False Fixed Penalty Notice (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrgb6/false_fixed_penalty_notice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrgb6/false_fixed_penalty_notice_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789480130,
-          "snippet": "Posting on behalf of a friend (the Parent), who has received a letter from her parent (the Grandparent) asking for access to the grandchildren, offering mediation and threatening going to court otherwise. For context, the Parent and the Grandparent had an argument over a year ago",
+          "createdUtc": 1789547780,
+          "snippet": "Got approached by two men in blue with body-cam while I was sitting and waiting for an appointment outside Wolverhampton Library. They came up to me and said they were checking identification because of suspicious activity and they just walked off and didn't give any notice of gi",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgwc9b",
-          "title": "[UK] Bought a Jaguar XKR with \"full main dealer history\" - turns out the service book is fabricated. Dealer now stonewalling.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwc9b/uk_bought_a_jaguar_xkr_with_full_main_dealer/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwc9b/uk_bought_a_jaguar_xkr_with_full_main_dealer/",
+          "id": "1whnxx2",
+          "title": "Employer refusing expenses claims",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whnxx2/employer_refusing_expenses_claims/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whnxx2/employer_refusing_expenses_claims/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789467423,
-          "snippet": "Long one, but I've tried to keep it tight. Would appreciate any thoughts from people who've been through similar. The purchase Bought a 2011 Jaguar XKR for £17,000 from a dealer, collected 29 August. Before buying, he told me on camera (his statement is audible in the background ",
+          "createdUtc": 1789535905,
+          "snippet": "My contract states \" ˜we will reimburse your travel from your home to any site away from home at the applicable HMRC mileage rate™ I've been there in this job 3 weeks. Submitted my expenses for personal mileage of 350 miles and I get this email from the CEO. : \"We pay you a great",
           "listingSource": "rss:hot"
         },
         {
@@ -86,6 +86,102 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1whr3j1",
+          "title": "Feel like my employer is throwing me under the bus but what are my rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whr3j1/feel_like_my_employer_is_throwing_me_under_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whr3j1/feel_like_my_employer_is_throwing_me_under_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789546502,
+          "snippet": "Hi, work as a project engineer for an IT provider. I dont want to go into specifics because it would out me or my company, but the client I work on is very high profile and constantly celebrated as a big win so they are always eager to keep them happy. My role is supposed to be p",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wh0xgr",
+          "title": "Grandparent wanting to secure access to seeing grandchildren against parents wishes (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0xgr/grandparent_wanting_to_secure_access_to_seeing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0xgr/grandparent_wanting_to_secure_access_to_seeing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789480130,
+          "snippet": "Posting on behalf of a friend (the Parent), who has received a letter from her parent (the Grandparent) asking for access to the grandchildren, offering mediation and threatening going to court otherwise. For context, the Parent and the Grandparent had an argument over a year ago",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whsj2d",
+          "title": "How much force am I allowed to use against shoplifters?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whsj2d/how_much_force_am_i_allowed_to_use_against/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whsj2d/how_much_force_am_i_allowed_to_use_against/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789551590,
+          "snippet": "Small business in Birmingham. We're getting increasingly belligerent shoplifters. Police never attend when called. They usually show up 4-5 hours later, take the footage, then go. There's been zero convictions. It's gotten to the point that men in balaclavas just hop the counter,",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whcpv3",
+          "title": "Family court thinks child should stay with dad despite social services concerns in his care",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whcpv3/family_court_thinks_child_should_stay_with_dad/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whcpv3/family_court_thinks_child_should_stay_with_dad/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789505925,
+          "snippet": "I am currently in family court proceedings due to my 7yo’s father wanting her to live with him, we live in England. In August 2025 I suffered a Post-partum depression crisis 10 weeks after my second child was born. As a result my daughter went to live with her dad out of the area",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whs3g8",
+          "title": "Potentially unfair redundancy (England)– advice needed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whs3g8/potentially_unfair_redundancy_england_advice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whs3g8/potentially_unfair_redundancy_england_advice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789550059,
+          "snippet": "I've worked for my employer since 2021 with no performance issues. I've now been selected for redundancy, but they hired someone into a new “senior” role shortly beforehand which appears almost identical to my existing role, in the same pay band. I believe its senior in title onl",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whs2pj",
+          "title": "New parents wanting to put relevant protections in place for child.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whs2pj/new_parents_wanting_to_put_relevant_protections/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whs2pj/new_parents_wanting_to_put_relevant_protections/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789549990,
+          "snippet": "Hi, I have a 7, almost 8 month old and I’m looking at ways to protect him in case the worst would ever happen to us. I’ve written a small list of things I think I should do, but I’m wondering if there is anything else you did for your kids, or your family more generally to protec",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wgwc9b",
+          "title": "[UK] Bought a Jaguar XKR with \"full main dealer history\" - turns out the service book is fabricated. Dealer now stonewalling.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwc9b/uk_bought_a_jaguar_xkr_with_full_main_dealer/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwc9b/uk_bought_a_jaguar_xkr_with_full_main_dealer/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789467423,
+          "snippet": "Long one, but I've tried to keep it tight. Would appreciate any thoughts from people who've been through similar. The purchase Bought a 2011 Jaguar XKR for £17,000 from a dealer, collected 29 August. Before buying, he told me on camera (his statement is audible in the background ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whspyf",
+          "title": "England - My ex could be going to jail today. Does this mean I can get my cats back due to the official owner not being able to look after them anymore?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whspyf/england_my_ex_could_be_going_to_jail_today_does/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whspyf/england_my_ex_could_be_going_to_jail_today_does/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789552248,
+          "snippet": "My ex is possibly going to jail today for drug dealing and to get my cats back what is the possible way to do it? Do I call the rspca and the police? Or just one? I haven’t seen them in over a year now and I don’t wanna go anywhere near his family. I also live in Ireland now but ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wgx10z",
           "title": "Formal grievance has been filed against me but I’m self employed",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgx10z/formal_grievance_has_been_filed_against_me_but_im/",
@@ -95,6 +191,42 @@
           "numComments": 0,
           "createdUtc": 1789469624,
           "snippet": "Scotland based I am self employed and the facility that I work through never gave me terms and conditions/code of conduct to sign as it’s all very informal. The person who has raised the grievance is also self employed under the same conditions. My main question is can they file ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whp9s3",
+          "title": "Child arrangements order - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whp9s3/child_arrangements_order_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whp9s3/child_arrangements_order_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789540272,
+          "snippet": "My ex partner has decided to spring mediation on me after refusing to meet up with him and his partner to discuss arrangements. I had offered on multiple occasions to meet with just himself although even with this I felt very uncomfortable. I'm now booked in for my initial assess",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whrj6y",
+          "title": "Representing myself in family court and breastfeeding infant England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrj6y/representing_myself_in_family_court_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrj6y/representing_myself_in_family_court_and/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789548056,
+          "snippet": "I am representing myself (Litigant in Person) in family court regarding arrangements for my daughter from my first marriage. There is a history of domestic abuse from my ex-husband. I am currently remarried and exclusively breastfeeding my 6-month-old son. He relies entirely on m",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whrci5",
+          "title": "Redundancy England- selection pool of one",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrci5/redundancy_england_selection_pool_of_one/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrci5/redundancy_england_selection_pool_of_one/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789547406,
+          "snippet": "I have been employed for 2 years and 8 months fully remotely. There have been no issues with performance since I started and have consistently achieved goals and targets set for me. We have a team of 6 people consisting of 2 senior staff and 4 regular staff, split into 2 teams th",
           "listingSource": "rss:hot"
         },
         {
@@ -110,147 +242,263 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgwozx",
-          "title": "Workplace restricting elevator use – Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwozx/workplace_restricting_elevator_use_scotland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwozx/workplace_restricting_elevator_use_scotland/",
+          "id": "1whptfa",
+          "title": "DVLA Arrears due to post arriving late - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whptfa/dvla_arrears_due_to_post_arriving_late_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whptfa/dvla_arrears_due_to_post_arriving_late_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789468547,
-          "snippet": "My workplace has different floors with different uses, but the company owns the full building. Some floors are offices, some are rentable spaces (often meetings for other businesses) and 1 is a customer-facing clinic. They have sent out rules that staff shouldn't get in the lift ",
+          "createdUtc": 1789542082,
+          "snippet": "Hi everyone, I'm in a bit of a predicament and currently waiting for a call back from someone in the know with advice, but thought I'd ask on here to see if anyone else has had this issue and what the outcome was. I sorned my vehicle at the end of July and cancelled the direct de",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "name": "HousingUK",
+      "displayName": "r/HousingUK",
+      "description": "Renting, landlords, deposits, eviction, and housing rights in the UK.",
+      "subscribers": null,
+      "posts": [
+        {
+          "id": "1wh9mjk",
+          "title": "Imagine applying to rent your own flat because it’s cheaper than renewing.",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1wh9mjk/imagine_applying_to_rent_your_own_flat_because/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1wh9mjk/imagine_applying_to_rent_your_own_flat_because/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789499135,
+          "snippet": "Imagine being told your rent will go from £1,300 to £1,450. You say you can’t afford it. The agent says that’s the market, so you give notice. Your flat goes online. A few weeks later, the asking rent drops to £1,250. Your table is in the photograph. The plant you’ve already wrap",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgq9kq",
-          "title": "Stuck in a living hell. Historic abuse/Incestuous relationships - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wharho",
+          "title": "On market for year and a half. Want to give up.",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1wharho/on_market_for_year_and_a_half_want_to_give_up/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1wharho/on_market_for_year_and_a_half_want_to_give_up/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789446684,
-          "snippet": "My wife &amp; I are separating. It was releaved to me by my then wife that her father had sexually abused her eldest 2 female siblings over a prolonged period of time &amp; her mother knew of the abuse. It seems that she (the mother) encouraged or ‘allowed’ the abuse of her daugh",
+          "createdUtc": 1789501610,
+          "snippet": "I know. Nearly a year and a half on the market and no offers is pretty bad. We initially put it up for 245,000 from the advice of our EA (actually chose them because they seemed really realistic compared to others we had value it at more). Now it’s at 199. We’ve had very few view",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgyyq5",
-          "title": "Sharing English office space with a dying business",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyyq5/sharing_english_office_space_with_a_dying_business/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyyq5/sharing_english_office_space_with_a_dying_business/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1whf20j",
+          "title": "Rant: English house sale situation",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whf20j/rant_english_house_sale_situation/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whf20j/rant_english_house_sale_situation/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789475181,
-          "snippet": "My friend has a business in England that is, if not exactly experiencing death throes, is looking pretty unhealthy. I am starting a business, and looking for a space to rent to store/distribute stock. This is a new move for me, as previously I have only ever worked and sold from ",
+          "createdUtc": 1789511427,
+          "snippet": "Our vendor (3 house chain with us in the middle) just decided to pull out at the last minute. Money is spent, our buyer is ready and lovely and we have a baby due in months that we have no space for. Obviously, being England they can do this and walk away merrily with no loss or ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wg9qpu",
-          "title": "Refused sale of alcohol as two year old daughter tried to “pay” for it. Purely curious.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1whrby4",
+          "title": "Can EA do a better job?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whrby4/can_ea_do_a_better_job/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whrby4/can_ea_do_a_better_job/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789406451,
-          "snippet": "Hello, not after any genuine legal advice, but curious on something that happened earlier today. I have a two year old daughter and she likes to “pay” for shopping where I give her my card and she taps to pay for it. I was buying a few beers with her and as is the case, she wante",
+          "createdUtc": 1789547347,
+          "snippet": "Technically I am not FTB but going to purchase my first home in the UK. I found that EA here are not professional. Back to my home country EA are well prepared for viewings, able to answer simple questions such as head lease restrictions (pet allowed?), service charge details, co",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wh96bd",
-          "title": "Twice in my life I have been asked about another matter when dealing with the police about something else…Is this admin error?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh96bd/twice_in_my_life_i_have_been_asked_about_another/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh96bd/twice_in_my_life_i_have_been_asked_about_another/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1whq64c",
+          "title": "Skip woes",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whq64c/skip_woes/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whq64c/skip_woes/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789498192,
-          "snippet": "England, Male, 39 years old Hi all, So in 2009 my ex gf reported me for harassment. We had broken up and we were both ringing each other over the course of a couple of days and arguing. On my final phone call with her I was at my friend’s house and he picked up a dog toy and sque",
+          "createdUtc": 1789543254,
+          "snippet": "Moving house. Buyers insisting on completion Friday (we wanted next week). Desperately trying to get out, booked skip which came same day (yesterday). When I booked I asked when collection would be and they said 'just let us know when it's full.' Great! Nope. Rang just now and it",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgyzjy",
-          "title": "How long do I have to be followed before police will treat it as a crime? Police didn't arrest the man who followed me around the city and called me \"his lovely girlfriend.\"",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyzjy/how_long_do_i_have_to_be_followed_before_police/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyzjy/how_long_do_i_have_to_be_followed_before_police/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wh3j02",
+          "title": "Note to FTBs - you will never budget for everything",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1wh3j02/note_to_ftbs_you_will_never_budget_for_everything/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1wh3j02/note_to_ftbs_you_will_never_budget_for_everything/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789475245,
-          "snippet": "I was walking through the city centre on Saturday evening. I'd just left my friends off at the busstation when I noticed a man following me. I did a few twists and turns to try and confirm it and sure enough he was following me. I ended up cutting into a shop and he followed me t",
+          "createdUtc": 1789486059,
+          "snippet": "I thought I cracked it and planned for everything but how catastrophically wrong was I Fridge - £400 Old fridge from family I was supposed to have was too heavy to transport Car insurance - £600 New build address not found, so had to cancel and pay for a whole year elsewhere and ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wh6cem",
-          "title": "Debt I have disputed however a CCJ has been placed but I am only just in discovery of the matter.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh6cem/debt_i_have_disputed_however_a_ccj_has_been/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh6cem/debt_i_have_disputed_however_a_ccj_has_been/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wht80i",
+          "title": "Damaged an old induction hob and landlord wants to bill me for a brand new replacement",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1wht80i/damaged_an_old_induction_hob_and_landlord_wants/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1wht80i/damaged_an_old_induction_hob_and_landlord_wants/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789492186,
-          "snippet": "England - Lowell contacted me regarding a debt with o2 (contract SIM only) This sim only contract was entered in 2018, I was 15 at the time however the document seemed to have my DOB as 1997 &amp; not 2002. A CCJ was issued in 2019 when I was 16. I have yet to see the CCJ documen",
+          "createdUtc": 1789553878,
+          "snippet": "I accidentally dropped an object on an induction hob in my kitchen and now there’s a big crack on the side of the ceramic glass. I've been checking how much it would cost to repair it but it's an old model and it's not produced anymore, and I’ve been in the property for 5 years. ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1whblzm",
-          "title": "I work in hospitality in England, and I worked at this organisation for just abover 1 year. There was change in management recently, and the new manager is being physically and otherwise aggressive towards me, and I don’t know if I should report it or not.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whblzm/i_work_in_hospitality_in_england_and_i_worked_at/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whblzm/i_work_in_hospitality_in_england_and_i_worked_at/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1whszzb",
+          "title": "Paying rent on a flat we no longer occupy",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whszzb/paying_rent_on_a_flat_we_no_longer_occupy/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whszzb/paying_rent_on_a_flat_we_no_longer_occupy/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789503437,
-          "snippet": "All this started since the day we arrived. She made some racist statements as well, but I can’t prove them since it did not happen on camera or infront of others. Two weeks ago we had a small arguement because she wouldn’t let me know before any of the shifts started how long I w",
+          "createdUtc": 1789553149,
+          "snippet": "My partner and I have just purchased a flat after months of lengthy solicitor process, however we are still paying rental on our previous tenancy at the same time, and I am wondering if there is any way out of this, or at least to reduce the cost. We completed on our flat purchas",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wh59l6",
-          "title": "Scottish Power Recorded Delivery UK advice needed",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh59l6/scottish_power_recorded_delivery_uk_advice_needed/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh59l6/scottish_power_recorded_delivery_uk_advice_needed/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1whdkua",
+          "title": "coliving!! is it worth it?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whdkua/coliving_is_it_worth_it/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whdkua/coliving_is_it_worth_it/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789489874,
-          "snippet": "Hi looking for some advice, not sure if this is the right group. My previous employer (UK Based) has received a recorded delivery letter claiming to be from ‘Fraser Irving Sheriff Officers LLP’. It is addressed to my first name and my mother’s maiden name as a last name. This las",
+          "createdUtc": 1789507886,
+          "snippet": "so I am looking to move around London and came across this coliving thing. i had a call with one of the managers and they told me it was a house with 18 people I would have my own room and own bathroom but the rest was shared which tbf is okay but 18 people just sounds pretty fuc",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgmv8f",
-          "title": "Ceiling collapsed on me in HMO after 3 months of ignored leak reports; ENGLAND. what are my options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgmv8f/ceiling_collapsed_on_me_in_hmo_after_3_months_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgmv8f/ceiling_collapsed_on_me_in_hmo_after_3_months_of/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1whrxut",
+          "title": "Partner has reservations about house",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whrxut/partner_has_reservations_about_house/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whrxut/partner_has_reservations_about_house/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789437079,
-          "snippet": "I live in an HMO supplied to my local council by a property management company. Timeline of the leak that led to my ceiling collapsing on me and i’m writing this from hospital right now. • 15/6 — Reported bathroom leak/mould by phone (to my housing officer’s manager, as he was of",
+          "createdUtc": 1789549523,
+          "snippet": "submitted by /u/definitelynotlarge [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wh0v1i",
-          "title": "Car hit by lorry - How to get CCTV released?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0v1i/car_hit_by_lorry_how_to_get_cctv_released/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh0v1i/car_hit_by_lorry_how_to_get_cctv_released/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1whrwzk",
+          "title": "Short term pain or sensible purchase?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whrwzk/short_term_pain_or_sensible_purchase/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whrwzk/short_term_pain_or_sensible_purchase/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789479969,
-          "snippet": "I left my car parked on a street and an HGV drove into causing damage without leaving details. I contacted a business across the road and they have confirmed they have CCTV of the incident and the vehicles reg but they say they can't release it to me due to GDPR. They have said t",
+          "createdUtc": 1789549437,
+          "snippet": "How do you all decide between whether the stretch the budget on a purchase so you have a home you’re happy with and will stay in for longer, vs compromising and being sensible? For context, myself and partner are looking to buy a home in London. We’ve been hunting for a while and",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgk5y1",
-          "title": "A tenant has moved in 4 other adults to the property who aren't on the tenancy agreement. They have refused and ignored my requests for a right to rent check. What do I do now?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgk5y1/a_tenant_has_moved_in_4_other_adults_to_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgk5y1/a_tenant_has_moved_in_4_other_adults_to_the/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1whrw10",
+          "title": "Buying the house we are renting - report shows structural issues",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whrw10/buying_the_house_we_are_renting_report_shows/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whrw10/buying_the_house_we_are_renting_report_shows/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789429802,
-          "snippet": "Tenant \"Mr A.\" signed their rental agreement on the 12th June 2026. On 1st July I went over to drop off a spare set of keys at the tenant's request. When I was there I noticed a lot of other adults in the property with suitcases. I did an unscheduled visit on the 18th August and ",
+          "createdUtc": 1789549344,
+          "snippet": "We are in the process of buying the house we are renting and got a structural report on the brickwork in the attic. It has been recommended it is fixed immediately as it is a structural issue and any snowfall could cause the roof to fall in. The neighbours we share the wall with ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whro3i",
+          "title": "Roofing works greatly exceeding time frame. Where do we stand?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whro3i/roofing_works_greatly_exceeding_time_frame_where/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whro3i/roofing_works_greatly_exceeding_time_frame_where/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789548536,
+          "snippet": "Hi all, I live in social housing in an area designated predominantly for elderly, disabled and vulnerable residents in England. In early May, we were advised that the roofing on every home in our sheltered area was going to be replaced, with each property expected to take approxi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whr4d1",
+          "title": "Council tax confusion in joint tenancy where bill is already in place?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whr4d1/council_tax_confusion_in_joint_tenancy_where_bill/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whr4d1/council_tax_confusion_in_joint_tenancy_where_bill/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789546578,
+          "snippet": "I’ve recently moved from one joint tenancy to another (England) The previous joint tenancy has involved all people leaving the flat so the council tax needs to just end and i need to change my address. The place I’ve just moved into is another flat share but with people who have ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whcfy4",
+          "title": "Mortgage Advisor Errors Advice",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whcfy4/mortgage_advisor_errors_advice/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whcfy4/mortgage_advisor_errors_advice/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789505306,
+          "snippet": "Hello all. First Time Buyer here. I’ve met with my mortgage advisor last Friday at 2pm who showed me all my options and suggested a product from NatWest for a 5 year fixed contract at a 4.93%. I’ve accepted this product promptly, got my Mortgage In Principle confirmed and expecte",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whq6kh",
+          "title": "Risk of buying house with private garden that may be shared(?)",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whq6kh/risk_of_buying_house_with_private_garden_that_may/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whq6kh/risk_of_buying_house_with_private_garden_that_may/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789543296,
+          "snippet": "I’m a FTB looking at buying a ground floor, share of freehold flat in London. The building is split into 3 flats. There is a small garden which is only accessible from the ground floor flat, however the estate agent has said that it is technically a shared garden with the other f",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whe3cr",
+          "title": "Two collapses, do we go back in for the first house again?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whe3cr/two_collapses_do_we_go_back_in_for_the_first/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whe3cr/two_collapses_do_we_go_back_in_for_the_first/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789509123,
+          "snippet": "We need a sense check: In April my wife and I had an offer accepted on a house not far from where we currently rent. We knew the sellers, as renters we had no chain and they were moving to a new build, all sounded straightforward. However, as this house was on an unadopted estate",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whsd7a",
+          "title": "Service charge worries",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whsd7a/service_charge_worries/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whsd7a/service_charge_worries/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789551016,
+          "snippet": "My partner and I are both 27 we earn around £110,000 a year and about £15,000 on top of this in bonuses. We’re considering putting an offer in on a £450,000 flat with share of freehold in an area in zone 2 East London that we really like. We know that there is a service charge of",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wgtijp",
+          "title": "Am I being overcharged by partner? Advice needed",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1wgtijp/am_i_being_overcharged_by_partner_advice_needed/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1wgtijp/am_i_being_overcharged_by_partner_advice_needed/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789457406,
+          "snippet": "Apologies if wrong subreddit. I’ve (27F) been with my boyfriend (27M) for quite a while now and have been discussing buying a house in the future together. At the moment, he is a homeowner earning around £6-£8k a month on average, he is self-employed so it can vary, but does well",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whqdtb",
+          "title": "I’m trying to pick a valuation for my home. What reference point should I pick?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whqdtb/im_trying_to_pick_a_valuation_for_my_home_what/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whqdtb/im_trying_to_pick_a_valuation_for_my_home_what/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789543992,
+          "snippet": "Say we go with HPI appreciation/depreciation. I found a nationwide site where I could input the last valuation and quarter and get the HPI (based on postcode) adjusted value. Only I had a question. Our house was advertised for 230k in Feb 2025. We bought it for 225k in June 2025 ",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,10 +509,11 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 11,
+      "postCount": 21,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "HousingUK"
       ],
       "posts": [
         {
@@ -292,6 +541,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1whrgb6",
+          "title": "False Fixed Penalty Notice (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrgb6/false_fixed_penalty_notice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrgb6/false_fixed_penalty_notice_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789547780,
+          "snippet": "Got approached by two men in blue with body-cam while I was sitting and waiting for an appointment outside Wolverhampton Library. They came up to me and said they were checking identification because of suspicious activity and they just walked off and didn't give any notice of gi",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1whalcm",
           "title": "Bank closed deceased dad's account and sent funds to his partner's son (unrelated third party) - England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whalcm/bank_closed_deceased_dads_account_and_sent_funds/",
@@ -304,63 +565,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgwozx",
-          "title": "Workplace restricting elevator use – Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwozx/workplace_restricting_elevator_use_scotland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgwozx/workplace_restricting_elevator_use_scotland/",
+          "id": "1whsj2d",
+          "title": "How much force am I allowed to use against shoplifters?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whsj2d/how_much_force_am_i_allowed_to_use_against/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whsj2d/how_much_force_am_i_allowed_to_use_against/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789468547,
-          "snippet": "My workplace has different floors with different uses, but the company owns the full building. Some floors are offices, some are rentable spaces (often meetings for other businesses) and 1 is a customer-facing clinic. They have sent out rules that staff shouldn't get in the lift ",
+          "createdUtc": 1789551590,
+          "snippet": "Small business in Birmingham. We're getting increasingly belligerent shoplifters. Police never attend when called. They usually show up 4-5 hours later, take the footage, then go. There's been zero convictions. It's gotten to the point that men in balaclavas just hop the counter,",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgq9kq",
-          "title": "Stuck in a living hell. Historic abuse/Incestuous relationships - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgq9kq/stuck_in_a_living_hell_historic_abuseincestuous/",
+          "id": "1whs2pj",
+          "title": "New parents wanting to put relevant protections in place for child.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whs2pj/new_parents_wanting_to_put_relevant_protections/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whs2pj/new_parents_wanting_to_put_relevant_protections/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789446684,
-          "snippet": "My wife &amp; I are separating. It was releaved to me by my then wife that her father had sexually abused her eldest 2 female siblings over a prolonged period of time &amp; her mother knew of the abuse. It seems that she (the mother) encouraged or ‘allowed’ the abuse of her daugh",
+          "createdUtc": 1789549990,
+          "snippet": "Hi, I have a 7, almost 8 month old and I’m looking at ways to protect him in case the worst would ever happen to us. I’ve written a small list of things I think I should do, but I’m wondering if there is anything else you did for your kids, or your family more generally to protec",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgyyq5",
-          "title": "Sharing English office space with a dying business",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyyq5/sharing_english_office_space_with_a_dying_business/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyyq5/sharing_english_office_space_with_a_dying_business/",
+          "id": "1whspyf",
+          "title": "England - My ex could be going to jail today. Does this mean I can get my cats back due to the official owner not being able to look after them anymore?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whspyf/england_my_ex_could_be_going_to_jail_today_does/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whspyf/england_my_ex_could_be_going_to_jail_today_does/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789475181,
-          "snippet": "My friend has a business in England that is, if not exactly experiencing death throes, is looking pretty unhealthy. I am starting a business, and looking for a space to rent to store/distribute stock. This is a new move for me, as previously I have only ever worked and sold from ",
+          "createdUtc": 1789552248,
+          "snippet": "My ex is possibly going to jail today for drug dealing and to get my cats back what is the possible way to do it? Do I call the rspca and the police? Or just one? I haven’t seen them in over a year now and I don’t wanna go anywhere near his family. I also live in Ireland now but ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wh96bd",
-          "title": "Twice in my life I have been asked about another matter when dealing with the police about something else…Is this admin error?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh96bd/twice_in_my_life_i_have_been_asked_about_another/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh96bd/twice_in_my_life_i_have_been_asked_about_another/",
+          "id": "1whrj6y",
+          "title": "Representing myself in family court and breastfeeding infant England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrj6y/representing_myself_in_family_court_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrj6y/representing_myself_in_family_court_and/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789498192,
-          "snippet": "England, Male, 39 years old Hi all, So in 2009 my ex gf reported me for harassment. We had broken up and we were both ringing each other over the course of a couple of days and arguing. On my final phone call with her I was at my friend’s house and he picked up a dog toy and sque",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1whblzm",
-          "title": "I work in hospitality in England, and I worked at this organisation for just abover 1 year. There was change in management recently, and the new manager is being physically and otherwise aggressive towards me, and I don’t know if I should report it or not.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whblzm/i_work_in_hospitality_in_england_and_i_worked_at/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whblzm/i_work_in_hospitality_in_england_and_i_worked_at/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789503437,
-          "snippet": "All this started since the day we arrived. She made some racist statements as well, but I can’t prove them since it did not happen on camera or infront of others. Two weeks ago we had a small arguement because she wouldn’t let me know before any of the shifts started how long I w",
+          "createdUtc": 1789548056,
+          "snippet": "I am representing myself (Litigant in Person) in family court regarding arrangements for my daughter from my first marriage. There is a history of domestic abuse from my ex-husband. I am currently remarried and exclusively breastfeeding my 6-month-old son. He relies entirely on m",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,10 +618,11 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 3,
+      "postCount": 4,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "HousingUK"
       ],
       "posts": [
         {
@@ -400,15 +650,99 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wgk5y1",
-          "title": "A tenant has moved in 4 other adults to the property who aren't on the tenancy agreement. They have refused and ignored my requests for a right to rent check. What do I do now?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgk5y1/a_tenant_has_moved_in_4_other_adults_to_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgk5y1/a_tenant_has_moved_in_4_other_adults_to_the/",
+          "id": "1whrw10",
+          "title": "Buying the house we are renting - report shows structural issues",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whrw10/buying_the_house_we_are_renting_report_shows/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whrw10/buying_the_house_we_are_renting_report_shows/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789549344,
+          "snippet": "We are in the process of buying the house we are renting and got a structural report on the brickwork in the attic. It has been recommended it is fixed immediately as it is a structural issue and any snowfall could cause the roof to fall in. The neighbours we share the wall with ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whr4d1",
+          "title": "Council tax confusion in joint tenancy where bill is already in place?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whr4d1/council_tax_confusion_in_joint_tenancy_where_bill/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whr4d1/council_tax_confusion_in_joint_tenancy_where_bill/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789546578,
+          "snippet": "I’ve recently moved from one joint tenancy to another (England) The previous joint tenancy has involved all people leaving the flat so the council tax needs to just end and i need to change my address. The place I’ve just moved into is another flat share but with people who have ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 5,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1whnxx2",
+          "title": "Employer refusing expenses claims",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whnxx2/employer_refusing_expenses_claims/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whnxx2/employer_refusing_expenses_claims/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789429802,
-          "snippet": "Tenant \"Mr A.\" signed their rental agreement on the 12th June 2026. On 1st July I went over to drop off a spare set of keys at the tenant's request. When I was there I noticed a lot of other adults in the property with suitcases. I did an unscheduled visit on the 18th August and ",
+          "createdUtc": 1789535905,
+          "snippet": "My contract states \" ˜we will reimburse your travel from your home to any site away from home at the applicable HMRC mileage rate™ I've been there in this job 3 weeks. Submitted my expenses for personal mileage of 350 miles and I get this email from the CEO. : \"We pay you a great",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whr3j1",
+          "title": "Feel like my employer is throwing me under the bus but what are my rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whr3j1/feel_like_my_employer_is_throwing_me_under_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whr3j1/feel_like_my_employer_is_throwing_me_under_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789546502,
+          "snippet": "Hi, work as a project engineer for an IT provider. I dont want to go into specifics because it would out me or my company, but the client I work on is very high profile and constantly celebrated as a big win so they are always eager to keep them happy. My role is supposed to be p",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whs3g8",
+          "title": "Potentially unfair redundancy (England)– advice needed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whs3g8/potentially_unfair_redundancy_england_advice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whs3g8/potentially_unfair_redundancy_england_advice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789550059,
+          "snippet": "I've worked for my employer since 2021 with no performance issues. I've now been selected for redundancy, but they hired someone into a new “senior” role shortly beforehand which appears almost identical to my existing role, in the same pay band. I believe its senior in title onl",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wgx10z",
+          "title": "Formal grievance has been filed against me but I’m self employed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgx10z/formal_grievance_has_been_filed_against_me_but_im/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgx10z/formal_grievance_has_been_filed_against_me_but_im/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789469624,
+          "snippet": "Scotland based I am self employed and the facility that I work through never gave me terms and conditions/code of conduct to sign as it’s all very informal. The person who has raised the grievance is also self employed under the same conditions. My main question is can they file ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whrci5",
+          "title": "Redundancy England- selection pool of one",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrci5/redundancy_england_selection_pool_of_one/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrci5/redundancy_england_selection_pool_of_one/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789547406,
+          "snippet": "I have been employed for 2 years and 8 months fully remotely. There have been no issues with performance since I started and have consistently achieved goals and targets set for me. We have a team of 6 people consisting of 2 senior staff and 4 regular staff, split into 2 teams th",
           "listingSource": "rss:hot"
         }
       ]
@@ -417,7 +751,7 @@
       "slug": "family-law",
       "label": "Family Law",
       "legalAreaSlug": "family",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -433,6 +767,42 @@
           "numComments": 0,
           "createdUtc": 1789480130,
           "snippet": "Posting on behalf of a friend (the Parent), who has received a letter from her parent (the Grandparent) asking for access to the grandchildren, offering mediation and threatening going to court otherwise. For context, the Parent and the Grandparent had an argument over a year ago",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whp9s3",
+          "title": "Child arrangements order - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whp9s3/child_arrangements_order_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whp9s3/child_arrangements_order_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789540272,
+          "snippet": "My ex partner has decided to spring mediation on me after refusing to meet up with him and his partner to discuss arrangements. I had offered on multiple occasions to meet with just himself although even with this I felt very uncomfortable. I'm now booked in for my initial assess",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "community-care",
+      "label": "Community Care",
+      "legalAreaSlug": "community_care",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1whcpv3",
+          "title": "Family court thinks child should stay with dad despite social services concerns in his care",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whcpv3/family_court_thinks_child_should_stay_with_dad/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whcpv3/family_court_thinks_child_should_stay_with_dad/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789505925,
+          "snippet": "I am currently in family court proceedings due to my 7yo’s father wanting her to live with him, we live in England. In August 2025 I suffered a Post-partum depression crisis 10 weeks after my second child was born. As a result my daughter went to live with her dad out of the area",
           "listingSource": "rss:hot"
         }
       ]
@@ -462,9 +832,9 @@
       ]
     },
     {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
+      "slug": "motoring-offences",
+      "label": "Motoring Offences",
+      "legalAreaSlug": "motoring_offences",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -472,15 +842,15 @@
       ],
       "posts": [
         {
-          "id": "1wgx10z",
-          "title": "Formal grievance has been filed against me but I’m self employed",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgx10z/formal_grievance_has_been_filed_against_me_but_im/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgx10z/formal_grievance_has_been_filed_against_me_but_im/",
+          "id": "1whptfa",
+          "title": "DVLA Arrears due to post arriving late - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whptfa/dvla_arrears_due_to_post_arriving_late_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whptfa/dvla_arrears_due_to_post_arriving_late_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789469624,
-          "snippet": "Scotland based I am self employed and the facility that I work through never gave me terms and conditions/code of conduct to sign as it’s all very informal. The person who has raised the grievance is also self employed under the same conditions. My main question is can they file ",
+          "createdUtc": 1789542082,
+          "snippet": "Hi everyone, I'm in a bit of a predicament and currently waiting for a call back from someone in the know with advice, but thought I'd ask on here to see if anyone else has had this issue and what the outcome was. I sorned my vehicle at the end of July and cancelled the direct de",
           "listingSource": "rss:hot"
         }
       ]
@@ -489,22 +859,58 @@
       "slug": "conveyancing",
       "label": "Conveyancing",
       "legalAreaSlug": "conveyancing",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "HousingUK"
       ],
       "posts": [
         {
-          "id": "1wg9qpu",
-          "title": "Refused sale of alcohol as two year old daughter tried to “pay” for it. Purely curious.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wg9qpu/refused_sale_of_alcohol_as_two_year_old_daughter/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1whf20j",
+          "title": "Rant: English house sale situation",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whf20j/rant_english_house_sale_situation/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whf20j/rant_english_house_sale_situation/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789406451,
-          "snippet": "Hello, not after any genuine legal advice, but curious on something that happened earlier today. I have a two year old daughter and she likes to “pay” for shopping where I give her my card and she taps to pay for it. I was buying a few beers with her and as is the case, she wante",
+          "createdUtc": 1789511427,
+          "snippet": "Our vendor (3 house chain with us in the middle) just decided to pull out at the last minute. Money is spent, our buyer is ready and lovely and we have a baby due in months that we have no space for. Obviously, being England they can do this and walk away merrily with no loss or ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1whrwzk",
+          "title": "Short term pain or sensible purchase?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whrwzk/short_term_pain_or_sensible_purchase/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whrwzk/short_term_pain_or_sensible_purchase/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789549437,
+          "snippet": "How do you all decide between whether the stretch the budget on a purchase so you have a home you’re happy with and will stay in for longer, vs compromising and being sensible? For context, myself and partner are looking to buy a home in London. We’ve been hunting for a while and",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "faulty-goods-and-refunds",
+      "label": "Faulty Goods and Refunds",
+      "legalAreaSlug": "consumer_goods",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "HousingUK"
+      ],
+      "posts": [
+        {
+          "id": "1wht80i",
+          "title": "Damaged an old induction hob and landlord wants to bill me for a brand new replacement",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1wht80i/damaged_an_old_induction_hob_and_landlord_wants/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1wht80i/damaged_an_old_induction_hob_and_landlord_wants/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789553878,
+          "snippet": "I accidentally dropped an object on an induction hob in my kitchen and now there’s a big crack on the side of the ceramic glass. I've been checking how much it would cost to repair it but it's an old model and it's not produced anymore, and I’ve been in the property for 5 years. ",
           "listingSource": "rss:hot"
         }
       ]
@@ -513,46 +919,34 @@
       "slug": "prison-law",
       "label": "Prison Law",
       "legalAreaSlug": "criminal_defence",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "HousingUK"
       ],
       "posts": [
         {
-          "id": "1wgyzjy",
-          "title": "How long do I have to be followed before police will treat it as a crime? Police didn't arrest the man who followed me around the city and called me \"his lovely girlfriend.\"",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyzjy/how_long_do_i_have_to_be_followed_before_police/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wgyzjy/how_long_do_i_have_to_be_followed_before_police/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1whsd7a",
+          "title": "Service charge worries",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1whsd7a/service_charge_worries/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1whsd7a/service_charge_worries/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789475245,
-          "snippet": "I was walking through the city centre on Saturday evening. I'd just left my friends off at the busstation when I noticed a man following me. I did a few twists and turns to try and confirm it and sure enough he was following me. I ended up cutting into a shop and he followed me t",
+          "createdUtc": 1789551016,
+          "snippet": "My partner and I are both 27 we earn around £110,000 a year and about £15,000 on top of this in bonuses. We’re considering putting an offer in on a £450,000 flat with share of freehold in an area in zone 2 East London that we really like. We know that there is a service charge of",
           "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "debt",
-      "label": "Debt",
-      "legalAreaSlug": "debt",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
+        },
         {
-          "id": "1wh6cem",
-          "title": "Debt I have disputed however a CCJ has been placed but I am only just in discovery of the matter.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh6cem/debt_i_have_disputed_however_a_ccj_has_been/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh6cem/debt_i_have_disputed_however_a_ccj_has_been/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wgtijp",
+          "title": "Am I being overcharged by partner? Advice needed",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1wgtijp/am_i_being_overcharged_by_partner_advice_needed/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1wgtijp/am_i_being_overcharged_by_partner_advice_needed/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789492186,
-          "snippet": "England - Lowell contacted me regarding a debt with o2 (contract SIM only) This sim only contract was entered in 2018, I was 15 at the time however the document seemed to have my DOB as 1997 &amp; not 2002. A CCJ was issued in 2019 when I was 16. I have yet to see the CCJ documen",
+          "createdUtc": 1789457406,
+          "snippet": "Apologies if wrong subreddit. I’ve (27F) been with my boyfriend (27M) for quite a while now and have been discussing buying a house in the future together. At the moment, he is a homeowner earning around £6-£8k a month on average, he is self-employed so it can vary, but does well",
           "listingSource": "rss:hot"
         }
       ]
