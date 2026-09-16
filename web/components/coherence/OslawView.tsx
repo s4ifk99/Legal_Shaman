@@ -55,9 +55,11 @@ function sessionStory(session: SessionState): string {
 function SlotSourceList({
   session,
   items,
+  heading = 'Sources',
 }: {
   session: SessionState
   items: Array<{ title: string; url?: string; origin?: string; excerpt?: string }>
+  heading?: string
 }) {
   const story = sessionStory(session)
   const frame = session.matterFrame
@@ -76,27 +78,40 @@ function SlotSourceList({
   if (!groups.length) return null
   return (
     <div className="oslaw__slot-groups">
-      {groups.map((group) => (
-        <div key={group.slot?.id || 'other'} className="oslaw__slot-group">
-          <h4 className="oslaw__slot-label">{group.slot?.label || 'Other sources'}</h4>
-          <ul className="oslaw__rec-list--links">
-            {group.items.map((item) => (
-              <li key={`${item.title}-${item.url || ''}`}>
-                {item.url?.startsWith('/') ? (
-                  <Link href={item.url}>{item.title}</Link>
-                ) : item.url ? (
-                  <a href={item.url} target="_blank" rel="noreferrer">
-                    {item.title}
-                  </a>
-                ) : (
-                  item.title
-                )}
-                {item.origin === 'external' ? <span> — supplemental · unverified</span> : <span> — library</span>}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {groups.map((group) => {
+        const label = group.slot?.label || (groups.length === 1 ? heading : 'Other sources')
+        const count = group.items.length
+        return (
+          <details key={group.slot?.id || 'other'} className="oslaw__source-drop">
+            <summary>
+              {label}
+              <span className="oslaw__source-drop-count">
+                {count} {count === 1 ? 'source' : 'sources'} — open for the full list
+              </span>
+            </summary>
+            <ul className="oslaw__rec-list--links">
+              {group.items.map((item) => (
+                <li key={`${item.title}-${item.url || ''}`}>
+                  {item.url?.startsWith('/') ? (
+                    <Link href={item.url}>{item.title}</Link>
+                  ) : item.url ? (
+                    <a href={item.url} target="_blank" rel="noreferrer">
+                      {item.title}
+                    </a>
+                  ) : (
+                    item.title
+                  )}
+                  {item.origin === 'external' ? (
+                    <span> — supplemental · unverified</span>
+                  ) : (
+                    <span> — library</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </details>
+        )
+      })}
     </div>
   )
 }
@@ -243,9 +258,9 @@ function Recommendation({
 
       {pages.length > 0 && (
         <section className="oslaw__rec-section">
-          <h3 className="oslaw__rec-h">Sources by issue</h3>
           <SlotSourceList
             session={session}
+            heading="Sources by issue"
             items={[
               ...pages.map((w) => ({
                 title: w.title,
@@ -301,8 +316,13 @@ function Recommendation({
       )}
 
       {sources.length > 0 && (
-        <details className="oslaw__rec-sources">
-          <summary>Sources ({sources.length})</summary>
+        <details className="oslaw__source-drop">
+          <summary>
+            Sources
+            <span className="oslaw__source-drop-count">
+              {sources.length} — open for the full list
+            </span>
+          </summary>
           <ul className="oslaw__rec-list--links">
             {sources.map((s) => (
               <li key={s.title + (s.url || '')}>
@@ -453,18 +473,16 @@ function PenumbraResearchPanel({
             {research?.cacheHit ? ' · cached' : ''}
           </p>
           {research?.bundle?.sources.length ? (
-            <div className="oslaw__research-findings-sources">
-              <h3 className="oslaw__rec-h">Supplemental sources by issue</h3>
-              <SlotSourceList
-                session={session}
-                items={research.bundle.sources.map((s) => ({
-                  title: s.title,
-                  url: s.url,
-                  origin: s.origin,
-                  excerpt: s.excerpt,
-                }))}
-              />
-            </div>
+            <SlotSourceList
+              session={session}
+              heading="Supplemental sources"
+              items={research.bundle.sources.map((s) => ({
+                title: s.title,
+                url: s.url,
+                origin: s.origin,
+                excerpt: s.excerpt,
+              }))}
+            />
           ) : null}
           {research?.bundle?.answerDraft ? (
             <details className="oslaw__rec-sources">
@@ -479,8 +497,13 @@ function PenumbraResearchPanel({
             </p>
           ) : null}
           {research?.bundle?.sources.length ? (
-            <details className="oslaw__rec-sources">
-              <summary>Sources, provenance and tiers</summary>
+            <details className="oslaw__source-drop">
+              <summary>
+                Provenance and tiers
+                <span className="oslaw__source-drop-count">
+                  {research.bundle.sources.length} — open for the full list
+                </span>
+              </summary>
               <ul className="oslaw__rec-list--links">
                 {research.bundle.sources.map((source) => (
                   <li key={source.id}>
@@ -496,13 +519,21 @@ function PenumbraResearchPanel({
             </details>
           ) : null}
           {research?.bundle?.claims.length ? (
-            <ul className="oslaw__rec-list">
-            {research.bundle.claims.map((claim) => (
-                <li key={claim.claim}>
-                  {claim.claim} <span>({claim.confidence}; {claim.sourceIds.join(', ')})</span>
-                </li>
-              ))}
-            </ul>
+            <details className="oslaw__source-drop">
+              <summary>
+                Claims
+                <span className="oslaw__source-drop-count">
+                  {research.bundle.claims.length} — open for the full list
+                </span>
+              </summary>
+              <ul className="oslaw__rec-list">
+                {research.bundle.claims.map((claim) => (
+                  <li key={claim.claim}>
+                    {claim.claim} <span>({claim.confidence}; {claim.sourceIds.join(', ')})</span>
+                  </li>
+                ))}
+              </ul>
+            </details>
           ) : null}
           {research?.bundle?.conflicts.length ? (
             <p className="oslaw__rec-note">Conflicts to check: {research.bundle.conflicts.join(' · ')}</p>
