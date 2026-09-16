@@ -467,6 +467,8 @@ export function createInitialSession(): SessionState {
     authorityAnswers: [],
     authorityHits: [],
     authorityAuditOk: false,
+    issueGraphFrozen: false,
+    helpOutcome: { consentToRecord: false },
   }
 }
 
@@ -550,7 +552,11 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
   const softFlags = [...prev.softFlags]
 
   const matterType =
-    prev.matterType === 'unknown' ? detectMatter(text) : detectMatter(`${prev.rawInputs.join(' ')} ${text}`)
+    prev.issueGraphFrozen && prev.matterType !== 'unknown'
+      ? prev.matterType
+      : prev.matterType === 'unknown'
+        ? detectMatter(text)
+        : detectMatter(`${prev.rawInputs.join(' ')} ${text}`)
   // Honour explicit mode fork; otherwise sense from text
   const modeLocked = prev.answeredPromptIds.includes('mode_fork')
   const mode = modeLocked
@@ -721,8 +727,9 @@ export function senseDetails(rawInput: string, prev: SessionState): SessionState
     jurisdiction,
     locationHint,
     mode: mode === 'unknown' ? prev.mode : mode,
-    taxonomySlug:
-      looksParking(`${prev.whatHappened} ${text} ${prev.rawInputs.join(' ')}`)
+    taxonomySlug: prev.issueGraphFrozen
+      ? prev.taxonomySlug
+      : looksParking(`${prev.whatHappened} ${text} ${prev.rawInputs.join(' ')}`)
         ? 'parking_pcn'
         : prev.taxonomySlug,
     softFlags,

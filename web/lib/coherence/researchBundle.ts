@@ -36,7 +36,7 @@ export type FreeResourceCandidate = {
   topicId: string
   phone?: string
   sourceIds: string[]
-  reviewStatus: 'pending_review'
+  reviewStatus: 'pending_review' | 'approved' | 'rejected'
 }
 
 export type ResearchBundle = {

@@ -18,7 +18,8 @@
         "area-debt-bailiffs-finance",
         "area-housing-landlord-tenant",
         "area-employment-workplace",
-        "area-motoring-parking-rta"
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
       ],
       "matterTypes": [
         "consumer",
@@ -205,18 +206,21 @@
       "website": "https://www.moneyhelper.org.uk/en/contact-us",
       "topicKeys": [
         "area-benefits-council-tax",
-        "area-debt-bailiffs-finance"
+        "area-debt-bailiffs-finance",
+        "area-insurance-financial-ombudsman"
       ],
       "matterTypes": [
         "debt",
-        "other"
+        "other",
+        "consumer"
       ],
       "keywords": [
         "moneyhelper",
         "debt",
         "pension",
         "benefits",
-        "money"
+        "money",
+        "insurance"
       ],
       "source": "seed",
       "indexedAt": "2026-08-23"
@@ -1253,27 +1257,31 @@
       "id": "signpost-financial-ombudsman-org-uk-financial-ombudsman-service",
       "entityType": "ombudsman",
       "title": "Financial Ombudsman Service",
-      "description": "consumer helpline",
+      "description": "Free complaints service if an insurer or other financial firm will not settle a dispute — including motor claims.",
       "phone": "0800 023 4567",
       "website": "https://www.financial-ombudsman.org.uk/",
       "topicKeys": [
         "area-benefits-council-tax",
-        "area-debt-bailiffs-finance"
+        "area-debt-bailiffs-finance",
+        "area-insurance-financial-ombudsman"
       ],
       "matterTypes": [
         "other",
         "housing",
-        "debt"
+        "debt",
+        "consumer"
       ],
       "keywords": [
         "financial",
         "ombudsman",
         "service",
+        "insurance",
+        "claim",
+        "motor",
+        "insurer",
+        "cover",
         "consumer",
-        "helpline",
-        "money",
-        "benefits",
-        "debt"
+        "helpline"
       ],
       "source": "signpost-import",
       "indexedAt": "2026-08-23",

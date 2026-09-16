@@ -7,6 +7,25 @@ import {
   matchingSessionForHelp,
   type HelpPack,
 } from '@/lib/coherence/services'
+import { freezeIssueGraph } from '@/lib/coherence/freezeIssueGraph'
+import { classifyHelpDoorKind, rankPeopleFirst } from '@/lib/coherence/peopleFirst'
+import {
+  SEARCH_MAG_DEFAULT,
+  SEARCH_MAG_MAX,
+  SEARCH_MAG_META,
+  SEARCH_MAG_MIN,
+  filterFreeHelpByMag,
+  magBlurbMax,
+  magShowRawUrl,
+  magShowScores,
+  parseSearchMagLevel,
+  showDirectoriesAtMag,
+  showRawSourcesAtMag,
+  showSolicitorsAtMag,
+  showThirdEyeHelpAtMag,
+  type SearchMagLevel,
+} from '@/lib/coherence/searchMagnification'
+import { visibleThirdEyeHelp } from '@/lib/coherence/thirdEyeMatchingHelp'
 import type { HelpMatchResult } from '@/lib/coherence/masterAgent'
 import { buildLawyerBrief, briefToPlainText, placeForSummary } from '@/lib/coherence/brief'
 import { computeProgress } from '@/lib/coherence/slots'
@@ -14,6 +33,7 @@ import { isParkingStoryText } from '@/lib/coherence/signposting'
 import { freeHelpAdmissibleOnGeometry } from '@/lib/matter/graphAdmissibility'
 import {
   isFamilyBelongingsDisputeText,
+  isInsuranceComplaintStoryText,
   isParkingSpecialistService,
   isPropertyDamageClaimText,
 } from '@/lib/coherence/matchFreeServices'
@@ -43,6 +63,7 @@ type Row = {
   section?: string
   score?: number
   relevance?: string
+  rawSource?: boolean
 }
 
 function formatPhoneDisplay(phone: string): string {
@@ -90,6 +111,7 @@ function relevanceLabel(score?: number, fallback?: string): string {
 
 function shortTypeLabel(type: string): string {
   const t = type.toLowerCase()
+  if (t.includes('raw search')) return 'Raw search'
   if (t.includes('sra')) return 'SRA firm'
   if (t.includes('third eye') && t.includes('free')) return 'Free help'
   if (t.includes('third eye')) return 'Directory'
@@ -147,17 +169,30 @@ function disputeTypeLabel(session: SessionState): string {
   return session.matterType === 'unknown' ? 'General legal matter — still being classified' : matterLabel(session.matterType)
 }
 
-function Item({ s, onOpenSraFirm }: { s: Row; onOpenSraFirm?: (sraId: string) => void }) {
+function Item({
+  s,
+  onOpenSraFirm,
+  mag,
+}: {
+  s: Row
+  onOpenSraFirm?: (sraId: string) => void
+  mag: SearchMagLevel
+}) {
   const phone = (s.phone || '').trim()
   const tel = phone ? telHref(phone) : ''
   const relevance = relevanceLabel(s.score, s.relevance || (s.sraId ? s.blurb.split(' — ')[0] : ''))
-  const blurb = s.sraId ? '' : compactBlurb(s.blurb, 120)
+  const blurb = s.sraId && mag < 5 ? '' : compactBlurb(s.blurb, magBlurbMax(mag))
+  const showScore = magShowScores(mag) && s.score != null && s.score > 0
 
   return (
-    <li className="services__item">
+    <li className={s.rawSource ? 'services__item services__item--raw' : 'services__item'}>
       <div className="services__item-top">
         <span className="services__type">{shortTypeLabel(s.type)}</span>
-        {s.score != null && s.score > 0 ? (
+        {showScore ? (
+          <span className="services__relevance-score" title="Match strength">
+            Relevance {Math.min(99, Math.round(s.score!))}
+          </span>
+        ) : s.score != null && s.score > 0 && mag >= 3 ? (
           <span className="services__relevance-score" title="Match strength from the SRA register">
             Relevance {Math.min(99, Math.round(s.score))}
           </span>
@@ -175,13 +210,18 @@ function Item({ s, onOpenSraFirm }: { s: Row; onOpenSraFirm?: (sraId: string) =>
             <span className="services__phone-link">{formatPhoneDisplay(phone)}</span>
           )}
         </p>
-      ) : s.sraId ? (
+      ) : s.sraId && mag >= 3 ? (
         <p className="services__phone services__phone--missing">Phone not listed on SRA register</p>
       ) : null}
-      {relevance ? <p className="services__relevance">{relevance}</p> : null}
-      {!relevance && blurb ? <p className="services__blurb">{blurb}</p> : null}
+      {relevance && mag >= 3 ? <p className="services__relevance">{relevance}</p> : null}
+      {(!relevance || mag >= 4) && blurb ? <p className="services__blurb">{blurb}</p> : null}
+      {magShowRawUrl(mag) && s.url ? (
+        <p className="services__raw-url">
+          <span className="services__phone-label">Source</span> {s.url}
+        </p>
+      ) : null}
       <div className="services__actions">
-        {s.sraId && onOpenSraFirm ? (
+        {s.sraId && onOpenSraFirm && mag >= 3 ? (
           <button
             type="button"
             className="services__link services__link--button"
@@ -206,12 +246,14 @@ function Section({
   rows,
   onOpenSraFirm,
   variant,
+  mag,
 }: {
   title: string
   lead?: string
   rows: Row[]
   onOpenSraFirm?: (sraId: string) => void
   variant?: 'free' | 'read'
+  mag: SearchMagLevel
 }) {
   if (!rows.length) return null
   return (
@@ -228,10 +270,62 @@ function Section({
       {lead ? <p className="services__section-lead">{lead}</p> : null}
       <ul className="services__list">
         {rows.map((s) => (
-          <Item key={s.id} s={s} onOpenSraFirm={onOpenSraFirm} />
+          <Item key={s.id} s={s} onOpenSraFirm={onOpenSraFirm} mag={mag} />
         ))}
       </ul>
     </section>
+  )
+}
+
+const MAG_STORAGE_KEY = 'ls-matching-help-search-mag'
+
+function SearchMagnificationSlider({
+  value,
+  onChange,
+}: {
+  value: SearchMagLevel
+  onChange: (level: SearchMagLevel) => void
+}) {
+  const meta = SEARCH_MAG_META[value]
+  return (
+    <div className="services__mag">
+      <div className="services__mag-head">
+        <label className="services__mag-label" htmlFor="search-magnification">
+          Search magnification
+        </label>
+        <p className="services__mag-value">
+          {value} · {meta.name}
+        </p>
+      </div>
+      <input
+        id="search-magnification"
+        className="services__mag-range"
+        type="range"
+        min={SEARCH_MAG_MIN}
+        max={SEARCH_MAG_MAX}
+        step={1}
+        value={value}
+        aria-valuemin={SEARCH_MAG_MIN}
+        aria-valuemax={SEARCH_MAG_MAX}
+        aria-valuenow={value}
+        aria-valuetext={`${value}, ${meta.name}`}
+        onChange={(e) => onChange(parseSearchMagLevel(e.target.value))}
+      />
+      <ol className="services__mag-ticks">
+        {([1, 2, 3, 4, 5] as const).map((n) => (
+          <li key={n}>
+            <button
+              type="button"
+              className={n === value ? 'services__mag-tick services__mag-tick--on' : 'services__mag-tick'}
+              onClick={() => onChange(n)}
+            >
+              {n} {SEARCH_MAG_META[n].name}
+            </button>
+          </li>
+        ))}
+      </ol>
+      <p className="services__mag-hint">{meta.hint}</p>
+    </div>
   )
 }
 
@@ -388,6 +482,19 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
     return false
   }
 
+  if (isInsuranceComplaintStoryText(story)) {
+    if (/legal aid agency|civil legal advice|check if you are eligible for legal aid/i.test(hay)) {
+      return false
+    }
+    if (/consumer helpline|which\?|resolver/i.test(hay) && !/financial ombudsman/i.test(hay)) {
+      return false
+    }
+    return (
+      /financial ombudsman|moneyhelper|money advice/i.test(hay) ||
+      (/citizens advice/i.test(hay) && !/consumer helpline|consumer service/i.test(hay))
+    )
+  }
+
   if (/therap|counsell|intercultural|wellbeing|well-being|psycholog/.test(hay) && !/trauma|mental|abuse/.test(story)) {
     return false
   }
@@ -522,8 +629,19 @@ function mergeFreeHelp(
     if (aPref !== bPref) return bPref - aPref
     return (b.score || 0) - (a.score || 0)
   })
-  for (const row of rankedSign) push(row)
-  for (const row of legalAid) push(row)
+  for (const row of rankedSign) {
+    if (
+      isInsuranceComplaintStoryText(story) &&
+      /legal aid|which\?|resolver|consumer helpline/i.test(`${row.title} ${row.blurb}`) &&
+      !/financial ombudsman/i.test(row.title)
+    ) {
+      continue
+    }
+    push(row)
+  }
+  if (!isInsuranceComplaintStoryText(story)) {
+    for (const row of legalAid) push(row)
+  }
   for (const row of probono) push(row)
 
   return out.slice(0, limit)
@@ -538,8 +656,33 @@ export function ServicesView({
   pageNavigation,
 }: Props) {
   const [pack, setPack] = useState<HelpPack | null>(null)
+  const [cachedHelp, setCachedHelp] = useState<
+    NonNullable<SessionState['penumbraResearch']>['bundle']['freeResources']
+  >([])
   const [loading, setLoading] = useState(true)
-  const helpSession = useMemo(() => matchingSessionForHelp(session), [session])
+  const [mag, setMag] = useState<SearchMagLevel>(SEARCH_MAG_DEFAULT)
+
+  useEffect(() => {
+    try {
+      setMag(parseSearchMagLevel(sessionStorage.getItem(MAG_STORAGE_KEY)))
+    } catch {
+      setMag(SEARCH_MAG_DEFAULT)
+    }
+  }, [])
+
+  function onMagChange(level: SearchMagLevel) {
+    setMag(level)
+    try {
+      sessionStorage.setItem(MAG_STORAGE_KEY, String(level))
+    } catch {
+      /* ignore */
+    }
+    captureProductEvent('matching_help_search_mag', { level, name: SEARCH_MAG_META[level].name })
+  }
+  const helpSession = useMemo(
+    () => matchingSessionForHelp(freezeIssueGraph(session)),
+    [session],
+  )
   const helpFrames = useMemo(
     () => (helpSession === session ? frames : proposeLegalFrames(helpSession, 5)),
     [frames, helpSession, session],
@@ -558,6 +701,27 @@ export function ServicesView({
       cancelled = true
     }
   }, [helpFrames, helpSession])
+
+  useEffect(() => {
+    let cancelled = false
+    const matterType = helpSession.matterType || 'unknown'
+    void (async () => {
+      try {
+        const res = await fetch(
+          `/api/coherence/help-candidates?matterType=${encodeURIComponent(matterType)}`,
+        )
+        if (!res.ok) return
+        const data = (await res.json()) as { resources?: typeof cachedHelp }
+        if (cancelled || !Array.isArray(data.resources)) return
+        setCachedHelp(data.resources)
+      } catch {
+        /* Matching Help still works from indexed services + this session's Third Eye bundle */
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [helpSession.matterType])
 
   const signRows: Row[] =
     pack?.signposts.map((s) => ({
@@ -650,6 +814,32 @@ export function ServicesView({
       phone: s.phone,
     })) ?? []
 
+  const thirdEyeStory = [...helpSession.rawInputs, helpSession.whatHappened, helpSession.goal].join(' ')
+  const thirdEyeHelp = visibleThirdEyeHelp({
+    sessionResources: helpSession.penumbraResearch?.bundle?.freeResources || [],
+    cachedResources: cachedHelp,
+    matterType: helpSession.matterType,
+    story: thirdEyeStory,
+  })
+  const thirdEyeFreeRows: Row[] = thirdEyeHelp.free.map((resource) => ({
+    id: `third-eye-free:${resource.id}`,
+    type: 'Third Eye · free help',
+    title: resource.title,
+    blurb: `${resource.description} Verify this organisation before you rely on it.`,
+    url: resource.url,
+    phone: resource.phone,
+  }))
+  const thirdEyePaidRows: Row[] = thirdEyeHelp.paid.map((resource) => ({
+    id: `third-eye-paid:${resource.id}`,
+    type: 'Third Eye · directory',
+    title: resource.title,
+    blurb: `${resource.description} Official directory lead from Third Eye — not a named firm recommendation.`,
+    url: resource.url,
+    phone: resource.phone,
+  }))
+  const visibleThirdEyeFree = showThirdEyeHelpAtMag(mag) ? thirdEyeFreeRows : []
+  const visibleThirdEyePaid = showThirdEyeHelpAtMag(mag) ? thirdEyePaidRows : []
+
   const agentDirRows: Row[] =
     helpMatch?.directories.map((s) => ({
       id: s.id,
@@ -671,7 +861,7 @@ export function ServicesView({
       relevance: compactBlurb(s.blurb, 110),
     })) ?? []
 
-  const freeRows = mergeFreeHelp(
+  const freeRowsUnsorted = mergeFreeHelp(
     freeServiceRows,
     authorityOfficialRows,
     agentFreeRows,
@@ -680,6 +870,25 @@ export function ServicesView({
     proRows,
     session,
     12,
+  )
+  const peopleOrder = new Map(
+    rankPeopleFirst(
+      freeRowsUnsorted.map((r) => ({
+        id: r.id,
+        title: r.title,
+        kind: classifyHelpDoorKind(r.title, r.type, 'match_free_help'),
+        blurb: r.blurb,
+        url: r.url,
+        phone: r.phone,
+        tool: 'match_free_help' as const,
+      })),
+    ).map((d, i) => [d.id, i]),
+  )
+  const freeRows = filterFreeHelpByMag(
+    [...freeRowsUnsorted].sort(
+      (a, b) => (peopleOrder.get(a.id) ?? 99) - (peopleOrder.get(b.id) ?? 99),
+    ),
+    mag,
   )
 
   const helpMatchHasLiveSra = (helpMatch?.solicitors || []).some(
@@ -703,8 +912,43 @@ export function ServicesView({
 
   const directoryRows: Row[] = agentDirRows.length > 0 ? agentDirRows : dirRows
 
-  const showSraSolicitors = solicitorRows.some((r) => r.sraId) || sraRows.length > 0
-  const sraAlert = !loading ? sraLaneAlert(pack?.meta.sra, solicitorRows.length) : null
+  const visibleSolicitorRows = showSolicitorsAtMag(mag) ? solicitorRows : []
+  const visibleDirectoryRows = showDirectoriesAtMag(mag) ? directoryRows : []
+  const rawSourceRows: Row[] = showRawSourcesAtMag(mag)
+    ? [
+        ...(pack?.phase2Wiki || []).map((s) => ({
+          id: `raw-wiki-${s.id}`,
+          type: 'Raw search · wiki',
+          title: s.title,
+          blurb: s.description,
+          url: s.sourceUrl,
+          score: s.score,
+          rawSource: true,
+        })),
+        ...(pack?.v1Wiki || []).map((s) => ({
+          id: `raw-v1-${s.id}`,
+          type: 'Raw search · knowledge',
+          title: s.title,
+          blurb: s.description,
+          url: s.sourceUrl,
+          score: s.score,
+          rawSource: true,
+        })),
+        ...(helpMatch?.ranked || []).map((s, i) => ({
+          id: s.id || `raw-ranked-${i}`,
+          type: `Raw search · ${s.type || 'hit'}`,
+          title: s.title,
+          blurb: s.blurb,
+          url: s.url,
+          phone: s.phone,
+          sraId: s.sraId,
+          rawSource: true,
+        })),
+      ]
+    : []
+
+  const showSraSolicitors = visibleSolicitorRows.some((r) => r.sraId) || (showSolicitorsAtMag(mag) && sraRows.length > 0)
+  const sraAlert = !loading && showSolicitorsAtMag(mag) ? sraLaneAlert(pack?.meta.sra, visibleSolicitorRows.length) : null
 
   useEffect(() => {
     if (loading || !pack || solicitorRows.length > 0) return
@@ -716,7 +960,14 @@ export function ServicesView({
     })
   }, [loading, pack, solicitorRows.length, helpSession.matterType, helpSession.taxonomySlug])
 
-  const empty = !loading && !freeRows.length && !solicitorRows.length && !directoryRows.length
+  const empty =
+    !loading &&
+    !freeRows.length &&
+    !visibleSolicitorRows.length &&
+    !visibleDirectoryRows.length &&
+    !rawSourceRows.length &&
+    !visibleThirdEyeFree.length &&
+    !visibleThirdEyePaid.length
 
   return (
     <div className="services">
@@ -727,7 +978,7 @@ export function ServicesView({
         </button>
         <h1 className="services__title">Matching help</h1>
         <p className="services__sub">
-          Firm names and numbers first — free help, then SRA-regulated solicitors.
+          {SEARCH_MAG_META[mag].hint} Not legal advice.
         </p>
       </header>
 
@@ -738,8 +989,13 @@ export function ServicesView({
 
           <div className="services__matches">
             <h2 className="services__band-title">Who to contact</h2>
+            <SearchMagnificationSlider value={mag} onChange={onMagChange} />
             <p className="services__band-lead">
-              Curated contacts for this dispute — SRA-regulated firms and matched free help.
+              {mag <= 2
+                ? 'People and official doors first. Slide toward Matched to include SRA firms.'
+                : mag === 5
+                  ? 'Raw retrieved sources are listed below the admitted doors. Verify every page yourself.'
+                  : 'Curated contacts for this dispute — free help and SRA-regulated firms.'}
             </p>
 
             {loading ? (
@@ -761,19 +1017,22 @@ export function ServicesView({
                     <p className="services__sra-banner-detail">{sraAlert.detail}</p>
                   </div>
                 ) : null}
-                <Section
-                  title="SRA-regulated solicitors"
-                  lead={
-                    solicitorRows.length
-                      ? session.locationHint
-                        ? `Firms for ${session.locationHint} and your dispute type — confirm they take your matter.`
-                        : 'Firms from the SRA register for this dispute type — add a town or postcode to rank nearby.'
-                      : undefined
-                  }
-                  rows={solicitorRows}
-                  onOpenSraFirm={onOpenSraFirm}
-                />
-                {!solicitorRows.length && !sraAlert ? (
+                {showSolicitorsAtMag(mag) ? (
+                  <Section
+                    title="SRA-regulated solicitors"
+                    lead={
+                      visibleSolicitorRows.length
+                        ? session.locationHint
+                          ? `Firms for ${session.locationHint} and your dispute type — confirm they take your matter.`
+                          : 'Firms from the SRA register for this dispute type — add a town or postcode to rank nearby.'
+                        : undefined
+                    }
+                    rows={visibleSolicitorRows}
+                    mag={mag}
+                    onOpenSraFirm={onOpenSraFirm}
+                  />
+                ) : null}
+                {showSolicitorsAtMag(mag) && !visibleSolicitorRows.length && !sraAlert ? (
                   <p className="services__empty-solicitors" role="status">
                     No named SRA firms matched this dispute yet.
                   </p>
@@ -783,13 +1042,43 @@ export function ServicesView({
                   lead="Charities and helplines matched to this dispute type."
                   rows={freeRows}
                   variant="free"
+                  mag={mag}
                   onOpenSraFirm={onOpenSraFirm}
                 />
-                {directoryRows.length > 0 && (
+                {visibleThirdEyeFree.length > 0 && (
+                  <Section
+                    title="Third Eye · free help found"
+                    lead="Helplines and charities Third Eye found for this matter. Shown whether or not they have been approved into the trusted index. Verify before you contact them."
+                    rows={visibleThirdEyeFree}
+                    variant="free"
+                    mag={mag}
+                    onOpenSraFirm={onOpenSraFirm}
+                  />
+                )}
+                {visibleThirdEyePaid.length > 0 && (
+                  <Section
+                    title="Third Eye · paid / regulated directories"
+                    lead="Find-a-solicitor directories Third Eye found. They do not replace the live SRA matches above."
+                    rows={visibleThirdEyePaid}
+                    mag={mag}
+                    onOpenSraFirm={onOpenSraFirm}
+                  />
+                )}
+                {visibleDirectoryRows.length > 0 && (
                   <Section
                     title="Official directories"
                     lead="Secondary — search the registers yourself if you need a wider list. Not a substitute for named SRA firms above."
-                    rows={directoryRows}
+                    rows={visibleDirectoryRows}
+                    mag={mag}
+                    onOpenSraFirm={onOpenSraFirm}
+                  />
+                )}
+                {rawSourceRows.length > 0 && (
+                  <Section
+                    title="Raw search results"
+                    lead="What retrieval returned before people-first ranking. Signposting only — not advice."
+                    rows={rawSourceRows}
+                    mag={mag}
                     onOpenSraFirm={onOpenSraFirm}
                   />
                 )}

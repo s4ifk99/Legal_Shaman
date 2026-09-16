@@ -42,7 +42,7 @@ async function ensureResourceBank(): Promise<void> {
 
 /**
  * Store open-web free-help discoveries as reviewable candidates.
- * They are deliberately not promoted into the trusted service index.
+ * Matching Help still shows pending leads from the live Third Eye bundle.
  */
 export async function saveArambFreeResourceCandidates(
   resources: FreeResourceCandidate[],
@@ -179,7 +179,7 @@ export async function listArambHelpCandidates(opts: {
           FROM coherence_resource_candidates
           WHERE resource_type = ANY($1::text[])
             AND (matter_type = $2 OR matter_type = 'unknown')
-            AND review_status IN ('pending_review', 'approved')
+            AND review_status <> 'rejected'
           ORDER BY last_seen_at DESC
           LIMIT $3
         `,
@@ -204,7 +204,7 @@ export async function listArambHelpCandidates(opts: {
           SELECT id, canonical_url, title, description, resource_type, matter_type, topic_id, phone, source_ids, cost_band, review_status
           FROM coherence_resource_candidates
           WHERE resource_type = ANY($1::text[])
-            AND review_status IN ('pending_review', 'approved')
+            AND review_status <> 'rejected'
           ORDER BY last_seen_at DESC
           LIMIT $2
         `,
@@ -225,7 +225,9 @@ export async function listArambHelpCandidates(opts: {
         topicId: row.topic_id,
         phone: row.phone || undefined,
         sourceIds,
-        reviewStatus: 'pending_review' as const,
+        reviewStatus: (row.review_status === 'approved' || row.review_status === 'rejected'
+          ? row.review_status
+          : 'pending_review') as FreeResourceCandidate['reviewStatus'],
       }
     })
   } catch (error) {

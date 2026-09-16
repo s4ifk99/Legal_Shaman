@@ -60,6 +60,26 @@ const MATTER_SPECIALIST_IDS: Partial<Record<MatterType, readonly string[]>> = {
   consumer: ['fs-cab-adviceline-england', 'fs-cab-consumer-helpline'],
 }
 
+const INSURANCE_SPECIALIST_IDS = [
+  'signpost-financial-ombudsman-org-uk-financial-ombudsman-service',
+  'fs-cab-adviceline-england',
+  'fs-moneyhelper',
+] as const
+
+const INSURANCE_TOPIC = 'area-insurance-financial-ombudsman'
+
+/** Motor / general insurer disputes a claim, cover, or non-disclosure — not faulty-goods CAB. */
+export function isInsuranceComplaintStoryText(text: string): boolean {
+  const t = (text || '').toLowerCase()
+  if (isParkingStoryText(t)) return false
+  const insurer =
+    /\binsurer\b|\binsurance (?:compan(?:y|ies)|claim|policy|premium)\b|\b(?:car|motor|home|travel) insurance\b/.test(
+      t,
+    )
+  if (!insurer) return false
+  return /\b(claim|cover|reject|refuse|declin|declared|disclose|non-?disclosure|policy|premium|ombudsman)\b/.test(t)
+}
+
 const HOUSING_STORY_RE =
   /\b(tenant|tenancy|landlord|rental|rent\b|deposit|eviction|homeless|disrepair|letting|inventory|assignment|wear and tear|section\s*21|assured shorthold)\b/i
 
@@ -133,6 +153,8 @@ function specialistBoost(svc: FreeServiceRecord, matter: MatterType, text: strin
   }
   if (matter === 'employment' && svc.id === 'fs-acas') boost += 8
   if (matter === 'debt' && /stepchange|national debtline/i.test(svc.title)) boost += 6
+  if (isInsuranceComplaintStoryText(text) && /financial ombudsman/i.test(svc.title)) boost += 16
+  if (isInsuranceComplaintStoryText(text) && svc.id === 'fs-moneyhelper') boost += 8
   return boost
 }
 
@@ -146,6 +168,12 @@ export function topicKeysForSession(session: SessionState): string[] {
     .filter(Boolean)
 
   const keys = new Set<string>(fromAuthority || [])
+
+  if (isInsuranceComplaintStoryText(text)) {
+    keys.add(INSURANCE_TOPIC)
+    keys.add('area-debt-bailiffs-finance')
+    return [...keys]
+  }
 
   const matterMap: Partial<Record<MatterType, string[]>> = {
     housing: ['area-housing-landlord-tenant', 'area-leasehold-service-charge'],
@@ -243,7 +271,17 @@ function scoreService(
     if (/traffic penalty tribunal|london tribunals/i.test(svc.title)) score -= 12
   }
 
-  if (propertyDamage || familyBelongings) {
+  if (isInsuranceComplaintStoryText(text)) {
+    if (/financial ombudsman/i.test(svc.title)) score += 22
+    if (svc.id === 'fs-cab-adviceline-england') score += 6
+    if (svc.id === 'fs-moneyhelper') score += 10
+    if (/legal aid agency|civil legal advice/i.test(hay)) score -= 40
+    if (/consumer helpline|which\?|resolver/i.test(hay) && !/financial ombudsman/i.test(svc.title)) {
+      score -= 35
+    }
+  }
+
+  if ((propertyDamage || familyBelongings) && !isInsuranceComplaintStoryText(text)) {
     if (/citizens advice|consumer helpline|advicenow|small claims|money claim|civil legal advice|legal aid agency/i.test(hay)) {
       score += 14
     }
@@ -306,6 +344,18 @@ function allowNonParkingHit(
     return false
   }
 
+  if (isInsuranceComplaintStoryText(text)) {
+    if (/legal aid agency|civil legal advice/i.test(hay)) return false
+    if (/consumer helpline|which\? consumer|resolver/i.test(hay) && !/financial ombudsman/i.test(hay)) {
+      return false
+    }
+    if (/financial ombudsman|moneyhelper|money advice service|citizens advice adviceline/i.test(hay)) {
+      return true
+    }
+    if (topicHit && /financial ombudsman|insurance|moneyhelper/i.test(hay) && score >= 8) return true
+    return false
+  }
+
   // For belongings / small-claims path: require consumer topic or seed CAB — not family matter alone
   if (propertyDamage || familyBelongings) {
     const consumerTopic = s.topicKeys.includes('area-consumer-goods-traders')
@@ -357,6 +407,8 @@ function pinMatterSpecialists(
       : matter
   const specialistIds = storyLooksEmployerSeizedKit(text)
     ? (['fs-cab-adviceline-england'] as const)
+    : isInsuranceComplaintStoryText(text)
+      ? INSURANCE_SPECIALIST_IDS
     : effectiveMatter
       ? MATTER_SPECIALIST_IDS[effectiveMatter]
       : undefined

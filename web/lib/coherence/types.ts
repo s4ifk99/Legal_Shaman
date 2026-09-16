@@ -98,6 +98,17 @@ export interface SessionState {
   taxonomySlug?: string | null
   /** Canonical matter understanding — downstream agents must not re-classify raw prose */
   matterFrame?: SessionMatterFrame | null
+  /** Search consumes this snapshot; later turns must not rewrite the primary issue from new asides. */
+  issueGraphFrozen?: boolean
+  /**
+   * Consented help outcomes (appointment / adviser / instruct). Session-only.
+   * Never persist without consentToRecord — does not write the public knowledge graph.
+   */
+  helpOutcome?: {
+    consentToRecord: boolean
+    result?: 'got_appointment' | 'reached_adviser' | 'instructed' | 'no_help'
+    recordedAt?: string
+  }
   /** User-confirmed reformulated search question (Atwell-style expert arm). */
   confirmedSearchQuery: string
   /** none = not yet gated; confirmed = used reformulation; refused = safety refuse; skipped = original words */

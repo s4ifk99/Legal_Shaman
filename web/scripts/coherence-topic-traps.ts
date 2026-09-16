@@ -24,6 +24,10 @@ import type { SessionState } from '../lib/coherence/types'
 import { normalizeSearchMode, searchModePolicy } from '../lib/coherence/searchMode'
 import { canonicalizeResearchBundle, emptyResearchBundle, parseResearchBundle, researchBundlePrompt } from '../lib/coherence/researchBundle'
 import { matchingSessionForHelp } from '../lib/coherence/services'
+import { freezeIssueGraph } from '../lib/coherence/freezeIssueGraph'
+import { recordHelpOutcome } from '../lib/coherence/helpTools'
+import { admitHitSync, crawlQueriesFromFrozenSession, queryLeaksClientStory } from '../lib/graph-ingest/admitCompiler'
+import { filterFreeHelpByMag, showRawSourcesAtMag, showSolicitorsAtMag } from '../lib/coherence/searchMagnification'
 import { buildLawyerBrief } from '../lib/coherence/brief'
 import { relevantWorkAreas, scoreSraWorkAreaForMatching, resolveSraSearchFlags, sraMatchReason, matchingHelpLanesForStory, employerPropertySraFlags } from '../lib/coherence/sraQuery'
 import { attachResolvedMatterFrame, commitHypothesisProbeToSession, matterGatePrompt } from '../lib/coherence/applyMatterFrame'
@@ -45,6 +49,7 @@ import { matchFreeServices } from '../lib/coherence/matchFreeServices'
 import { buildExaResearchBrief } from '../lib/penumbra/exaBrief'
 import { resolveLiveDispute } from '../lib/matter/liveDispute'
 import { discoverHelpFromExaHits } from '../lib/penumbra/helpDiscover'
+import { visibleThirdEyeHelp } from '../lib/coherence/thirdEyeMatchingHelp'
 import {
   buildPenumbraCacheKey,
   clearPenumbraResearchMemoryCacheForTests,
@@ -86,6 +91,103 @@ function assert(cond: boolean, detail: string): string | null {
 }
 
 const traps: Array<{ id: string; run: () => string | null }> = [
+  {
+    id: 'frozen-issue-graph-ignores-garage-follow-up',
+    run: () => {
+      const story =
+        'My landlord changed the locks yesterday while I was at work. Police came, said it is a civil matter. I slept in the car. England.'
+      let s = senseDetails(story, createInitialSession())
+      s = freezeIssueGraph(s)
+      const after = senseDetails(
+        'The garage said the clutch is fine and wants £400. Neighbour mentioned parking.',
+        s,
+      )
+      const refused = recordHelpOutcome(after, { consent: false, result: 'instructed' })
+      return (
+        assert(s.issueGraphFrozen === true, 'did not freeze') ||
+        assert(s.matterType === 'housing', `frozen matter=${s.matterType}`) ||
+        assert(after.matterType === 'housing', `follow-up matter=${after.matterType}`) ||
+        assert(after.issueGraphFrozen === true, 'follow-up unfroze') ||
+        assert(!refused.helpOutcome?.result, 'recorded outcome without consent')
+      )
+    },
+  },
+  {
+    id: 'admit-compiler-self-allow-deny-and-no-story-in-crawl-query',
+    run: () => {
+      const reddit = admitHitSync(
+        {
+          url: 'https://www.reddit.com/r/LegalAdviceUK/x',
+          title: 'Call Shelter',
+          excerpt: 'Housing lockout',
+        },
+        {
+          vote: 'allow',
+          confidence: 0.99,
+          doorKind: 'specialist',
+          looksLikeLegalAdvice: false,
+          ukPublicHelp: true,
+          reasons: ['ai wanted allow'],
+        },
+      )
+      const gov = admitHitSync({
+        url: 'https://www.gov.uk/legal-aid',
+        title: 'Legal aid',
+        excerpt: 'Check if you can get legal aid.',
+      })
+      const mill = admitHitSync(
+        {
+          url: 'https://cheap-claims.example/chat',
+          title: 'AI lawyer',
+          excerpt: 'Instant answers',
+        },
+        {
+          vote: 'deny',
+          confidence: 0.9,
+          doorKind: null,
+          looksLikeLegalAdvice: true,
+          ukPublicHelp: false,
+          reasons: ['unregulated'],
+        },
+      )
+      const story =
+        'My landlord changed the locks yesterday while I was at work. Police came, said it is a civil matter. I slept in the car. England.'
+      let s = senseDetails(story, createInitialSession())
+      s = freezeIssueGraph(s)
+      const plan = crawlQueriesFromFrozenSession(s)
+      const leak = plan.queries.some((q) => queryLeaksClientStory(q.query, s))
+      return (
+        assert(reddit.status === 'denied', `reddit=${reddit.status}`) ||
+        assert(reddit.hardDenyWins === true, 'ai overrode reddit deny') ||
+        assert(gov.status === 'admitted' && gov.clientVisible, `gov=${gov.status}`) ||
+        assert(mill.status === 'denied', `mill=${mill.status}`) ||
+        assert(plan.ok === true, plan.reason || 'no crawl plan') ||
+        assert(!leak, 'crawl query contained client story')
+      )
+    },
+  },
+  {
+    id: 'search-magnification-five-stages-hides-firms-until-matched',
+    run: () => {
+      const rows = [
+        { title: 'Citizens Advice', type: 'Free advice · charity' },
+        { title: 'Shelter', type: 'Free advice · charity' },
+        { title: 'A solicitor LLP', type: 'SRA-regulated firm' },
+      ]
+      const signpost = filterFreeHelpByMag(rows, 1)
+      const people = filterFreeHelpByMag(rows, 2)
+      const matched = filterFreeHelpByMag(rows, 3)
+      return (
+        assert(signpost.some((r) => r.title === 'Citizens Advice'), 'CAB missing at 1') ||
+        assert(!signpost.some((r) => /solicitor/i.test(r.title)), 'firm leaked at 1') ||
+        assert(people.some((r) => r.title === 'Shelter'), 'Shelter missing at 2') ||
+        assert(matched.length === rows.length, `matched=${matched.length}`) ||
+        assert(!showSolicitorsAtMag(1) && !showSolicitorsAtMag(2), 'SRA visible too early') ||
+        assert(showSolicitorsAtMag(3), 'SRA hidden at matched') ||
+        assert(showRawSourcesAtMag(5) && !showRawSourcesAtMag(4), 'raw band wrong')
+      )
+    },
+  },
   {
     id: 'matching-help-prefers-employment-over-stray-criminal-label',
     run: () => {
@@ -1227,6 +1329,35 @@ const traps: Array<{ id: string; run: () => string | null }> = [
           !free.some((f) => /contact us - shelter england/i.test(f.title)),
           'weak Shelter Exa duplicate still present',
         )
+        )
+    },
+  },
+  {
+    id: 'insurance-claim-pins-financial-ombudsman-not-laa',
+    run: () => {
+      const story =
+        'Bit of a strange one, but I’m wondering where I stand legally with my car insurer. A spider appeared inside the car, I freaked out and hit a parked car. I reported everything honestly. They’ve suggested that because I have a fear of spiders and hadn’t declared this, it could affect whether they cover the claim. England.'
+      const s = intake([story])
+      const helpSession = matchingSessionForHelp(s)
+      const free = matchFreeServices(helpSession, 6)
+      const titles = free.map((f) => f.title).join(' | ')
+      return (
+        assert(
+          free[0] && /financial ombudsman/i.test(free[0].title),
+          `FOS not first: ${titles}`,
+        ) ||
+        assert(
+          free.some((f) => /citizens advice adviceline/i.test(f.title)),
+          `missing CAB Adviceline: ${titles}`,
+        ) ||
+        assert(
+          !free.some((f) => /legal aid agency/i.test(f.title)),
+          `LAA leaked: ${titles}`,
+        ) ||
+        assert(
+          !free.some((f) => /which\?|resolver|consumer helpline/i.test(f.title)),
+          `goods helplines leaked: ${titles}`,
+        )
       )
     },
   },
@@ -1333,6 +1464,52 @@ const traps: Array<{ id: string; run: () => string | null }> = [
         assert(leads.some((r) => r.costBand === 'free' && /shelter/i.test(r.url)), 'missing Shelter free lead') ||
         assert(leads.some((r) => r.costBand === 'paid' && /sra\.org/i.test(r.url)), 'missing SRA paid directory lead') ||
         assert(!leads.some((r) => /taylor-rose/i.test(r.url)), 'marketing firm should not be a Matching Help lead')
+      )
+    },
+  },
+  {
+    id: 'third-eye-matching-help-visible-without-approval',
+    run: () => {
+      const pending = {
+        id: 'help-fos',
+        title: 'Financial Ombudsman Service',
+        description: 'Complain about an insurance claim decision.',
+        url: 'https://www.financial-ombudsman.org.uk/consumers/how-to-complain',
+        resourceType: 'ombudsman' as const,
+        costBand: 'free' as const,
+        matterType: 'consumer' as const,
+        topicId: 'insurance',
+        sourceIds: ['web-fos'],
+        reviewStatus: 'pending_review' as const,
+      }
+      const rejected = {
+        ...pending,
+        id: 'help-bad',
+        title: 'Rejected lead',
+        url: 'https://www.citizensadvice.org.uk/rejected-lead',
+        reviewStatus: 'rejected' as const,
+      }
+      const shown = visibleThirdEyeHelp({
+        sessionResources: [pending, rejected],
+        cachedResources: [],
+        matterType: 'housing',
+        story: 'My car insurer may refuse the claim after I crashed.',
+      })
+      const fosHits = discoverHelpFromExaHits(
+        [
+          {
+            id: 'web-fos',
+            url: 'https://www.financial-ombudsman.org.uk/consumers/how-to-complain',
+            title: 'Complain to the Financial Ombudsman',
+            excerpt: 'Free complaint service for insurance claims.',
+          },
+        ],
+        { matterSlug: 'consumer' },
+      )
+      return (
+        assert(shown.free.some((r) => /financial ombudsman/i.test(r.title)), 'pending Third Eye lead hidden until approval') ||
+        assert(!shown.free.some((r) => r.reviewStatus === 'rejected'), 'rejected Third Eye lead leaked') ||
+        assert(fosHits.some((r) => /financial-ombudsman/i.test(r.url)), 'FOS host not classified as Third Eye free help')
       )
     },
   },
