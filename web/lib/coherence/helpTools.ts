@@ -6,6 +6,13 @@
  */
 import { freeHelpAdmissibleOnGeometry, sraOrganisationAdmissible } from '@/lib/matter/graphAdmissibility'
 import { freezeIssueGraph } from './freezeIssueGraph'
+import {
+  admitHitSync,
+  crawlQueriesFromFrozenSession,
+  queryLeaksClientStory,
+  type AdmitResult,
+  type CrawlHit,
+} from '@/lib/graph-ingest/admitCompiler'
 import { matchAuthorityHelp, type AuthorityHelpHit } from './matchAuthorityHelp'
 import { matchFreeServices, type FreeServiceHit } from './matchFreeServices'
 import { matchLegalAid, type LegalAidHit } from './legalAid'
@@ -117,6 +124,26 @@ function toDoors(
     })
   }
   return rankPeopleFirst(doors)
+}
+
+/**
+ * Plan web ingest queries from the frozen graph only.
+ * Hits must still pass Admit before anyone sees them.
+ */
+export function plan_graph_ingest(session: SessionState) {
+  const frozen = freezeIssueGraph(session)
+  const plan = crawlQueriesFromFrozenSession(frozen)
+  if (!plan.ok) return plan
+  const leaked = plan.queries.some((q) => queryLeaksClientStory(q.query, frozen))
+  if (leaked) {
+    return { ok: false as const, reason: 'refused_client_story_in_query', queries: [] }
+  }
+  return { ...plan, session: frozen }
+}
+
+/** Admit crawl hits. AI critic is opt-in (batch jobs). Live matching never uses raw hits. */
+export function admit_discovered_hits(hits: CrawlHit[], aiByUrl?: Map<string, AdmitResult['ai']>): AdmitResult[] {
+  return hits.map((hit) => admitHitSync(hit, aiByUrl?.get(hit.url) ?? null))
 }
 
 /**

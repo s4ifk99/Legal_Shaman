@@ -27,6 +27,7 @@ export function classifyHelpDoorKind(title: string, type = '', tool: HelpToolNam
   const hay = `${title} ${type}`.toLowerCase()
   if (/duty solicitor|police station advice|duty scheme/.test(hay)) return 'duty'
   if (/law centre|civil legal advice|\bcla\b/.test(hay)) return 'law_centre'
+  if (/financial ombudsman/.test(hay)) return 'duty'
   if (/citizens advice/.test(hay)) return 'cab'
   if (/ombudsman|iopc|police conduct|regulator|\bsra\b|legal ombudsman/.test(hay)) return 'regulator'
   if (tool === 'match_legal_aid') return 'law_centre'
