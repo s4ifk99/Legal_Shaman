@@ -464,13 +464,40 @@
   border-radius: var(--radius, 0.5rem);
 }
 
-.oslaw__slot-groups {
-  display: grid;
-  gap: 0.85rem;
+.oslaw__source-drop {
+  font-size: 0.9rem;
+  color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--ink-muted) 70%, transparent);
+  border-radius: var(--radius, 0.5rem);
+  padding: 0.15rem 0.75rem 0.15rem;
+  background: color-mix(in srgb, var(--paper, #fff) 88%, var(--ink-muted));
 }
 
-.oslaw__slot-label {
-  margin: 0 0 0.35rem;
-  font-size: 0.92rem;
+.oslaw__source-drop summary {
+  cursor: pointer;
   font-weight: 650;
+  list-style-position: outside;
+  padding: 0.55rem 0.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.65rem;
+}
+
+.oslaw__source-drop-count {
+  font-weight: 500;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+}
+
+.oslaw__source-drop[open] {
+  padding-bottom: 0.65rem;
+}
+
+.oslaw__source-drop ul {
+  margin: 0 0 0.25rem;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
