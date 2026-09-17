@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-16T20:53:58.964Z",
+    "scrapedAt": "2026-09-17T10:44:34.376Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 8,
+    "topicCount": 10,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1winj9v",
+          "title": "Bank lost my £262k for 3 days, what are my options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1winj9v/bank_lost_my_262k_for_3_days_what_are_my_options/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1winj9v/bank_lost_my_262k_for_3_days_what_are_my_options/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789631519,
+          "snippet": "Bank lost my £262k for 3 days, what shall I do? Hi there, As the title suggests, I was in the process of buying my house. I went to the Lloyds branch (I’m with Halifax) to make the CHAPS payment of £262k to my conveyancing solicitors. The staff member took me to a cabin where the",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1whx379",
           "title": "UPDATE: Pet microchip company wants to charge a yearly subscription just to update my address in the database (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whx379/update_pet_microchip_company_wants_to_charge_a/",
@@ -74,6 +86,66 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wi7y2s",
+          "title": "Is it worth challenging this speeding prosecution?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi7y2s/is_it_worth_challenging_this_speeding_prosecution/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi7y2s/is_it_worth_challenging_this_speeding_prosecution/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789588539,
+          "snippet": "In England, last Friday evening I was driving down the A5. It's a stretch of road I've been down a few times but not regularly. It's a 50mph limit and then changes somewhere to 30mph. I was driving along, there weren't a lot of cars/congestion. Anyway I remembered that it changes",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wipu4k",
+          "title": "My bank froze my account accidentally and now I’m ruined",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipu4k/my_bank_froze_my_account_accidentally_and_now_im/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipu4k/my_bank_froze_my_account_accidentally_and_now_im/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789639595,
+          "snippet": "Hello, I am in England July 2025 my wife applied for an IVA independently, I was not on it. My bank applied those restrictions to my account and it was frozen for weeks. All of my direct debits were affected and during that time I wasn’t able to pay for anything. We had to borrow",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wifyzw",
+          "title": "Uk Divorce - moving money out of joint accounts into 19 accounts",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wifyzw/uk_divorce_moving_money_out_of_joint_accounts/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wifyzw/uk_divorce_moving_money_out_of_joint_accounts/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789608181,
+          "snippet": "’I’ve been going back through our joint account statements from roughly 2021–2025 while preparing for financial disclosure. Over that period I’ve identified 19 different accounts that money was transferred to, and when I checked them they all matched to my ex’s name. There were c",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wihg0r",
+          "title": "When a drug dealer is arrested what will happen to the customers- England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wihg0r/when_a_drug_dealer_is_arrested_what_will_happen/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wihg0r/when_a_drug_dealer_is_arrested_what_will_happen/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789612201,
+          "snippet": "Forgive me I’m sure this is asked a lot I used to by thc vapes off of a guy in Manchester. Buy on vinted and it’d be shipped to a locker. I quit a month ago as I’m in uni and I’ve decided that I should lock in a bit. However I obviously paid for this stuff with my card. If the de",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1winnmz",
+          "title": "PCN Appeal; Redbridge rejected my parking appeal saying Valentines car park isn’t Council owned – but their own website calls it “our” park?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1winnmz/pcn_appeal_redbridge_rejected_my_parking_appeal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1winnmz/pcn_appeal_redbridge_rejected_my_parking_appeal/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789631947,
+          "snippet": "I got a PCN for parking at Valentines Park on a bank holiday without starting a RingGo session. I challenged it because Redbridge Council states that its car parks are free on bank holidays. They’ve rejected my challenge and said: “Valentines car park is not Redbridge council own",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wi7ub9",
           "title": "EasyJet refusing to pay expenses for a hotel after I was left stranded after a cancelled flight.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi7ub9/easyjet_refusing_to_pay_expenses_for_a_hotel/",
@@ -98,15 +170,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1whrgb6",
-          "title": "False Fixed Penalty Notice (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrgb6/false_fixed_penalty_notice_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrgb6/false_fixed_penalty_notice_england/",
+          "id": "1wipseh",
+          "title": "Divorce - Mortgage Payments on jointly owned property - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipseh/divorce_mortgage_payments_on_jointly_owned/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipseh/divorce_mortgage_payments_on_jointly_owned/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789547780,
-          "snippet": "Got approached by two men in blue with body-cam while I was sitting and waiting for an appointment outside Wolverhampton Library. They came up to me and said they were checking identification because of suspicious activity and they just walked off and didn't give any notice of gi",
+          "createdUtc": 1789639428,
+          "snippet": "I am currently going through divorce and looking for some advice. I have my own housing needs to meet and have been informing her for the past few months that I am no longer able to make the mortgage payments (I ended up taking out a loan with the bank to keep up with the mortgag",
           "listingSource": "rss:hot"
         },
         {
@@ -122,135 +194,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1whxnn1",
-          "title": "Sister with drug addiction - how do we protect her kids?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whxnn1/sister_with_drug_addiction_how_do_we_protect_her/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whxnn1/sister_with_drug_addiction_how_do_we_protect_her/",
+          "id": "1wiqi3h",
+          "title": "Out-of-hours unacceptable construction noise (Control of Pollution Act 1974/Environmental Protection Act 1990)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiqi3h/outofhours_unacceptable_construction_noise/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiqi3h/outofhours_unacceptable_construction_noise/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789566240,
-          "snippet": "Obligatory throwaway disclaimer. Hello Reddit, not a usual poster but looking for personal experiences and/or advice. If this isn’t the right sub I’m sorry, but I am Scotland based. I have an older half sister who is hiding a severe drug addiction from the family - borrowing mone",
+          "createdUtc": 1789641779,
+          "snippet": "(England) There has been extreme construction noise from the renovation of a shop opposite my home that has been going on several nights per week for over 5 weeks now (scaffolding, power tools, generators, constant shouting, crashing of heavy materials). I have an ongoing noise c",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1whnxx2",
-          "title": "Employer refusing expenses claims",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whnxx2/employer_refusing_expenses_claims/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whnxx2/employer_refusing_expenses_claims/",
+          "id": "1wipsb2",
+          "title": "Form E voluntary - New assets, loan",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipsb2/form_e_voluntary_new_assets_loan/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipsb2/form_e_voluntary_new_assets_loan/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789535905,
-          "snippet": "My contract states \" ˜we will reimburse your travel from your home to any site away from home at the applicable HMRC mileage rate™ I've been there in this job 3 weeks. Submitted my expenses for personal mileage of 350 miles and I get this email from the CEO. : \"We pay you a great",
+          "createdUtc": 1789639419,
+          "snippet": "Hello, I need some advice please. UK based Exchanged Form Es Mine is very clear and accurate. The other party however: Missing child arrangements order where it specifies it needs to be entered Few days after Form e submission, the ex decides to purchase a £32,000 car. The old on",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1whsj2d",
-          "title": "How much force am I allowed to use against shoplifters?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whsj2d/how_much_force_am_i_allowed_to_use_against/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whsj2d/how_much_force_am_i_allowed_to_use_against/",
+          "id": "1wippb9",
+          "title": "Reciving a debt collection letters for parking tickets for parking with an old permit in a residential parking - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wippb9/reciving_a_debt_collection_letters_for_parking/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wippb9/reciving_a_debt_collection_letters_for_parking/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789551590,
-          "snippet": "Small business in Birmingham. We're getting increasingly belligerent shoplifters. Police never attend when called. They usually show up 4-5 hours later, take the footage, then go. There's been zero convictions. It's gotten to the point that men in balaclavas just hop the counter,",
+          "createdUtc": 1789639170,
+          "snippet": "Hi everyone, sorry for the long post I was parking my car in my friend's parking space in a residential building managed by a private company. I was using the permit he received when moved to the flat. I was away for a week and when I returned I found 2 tickets in the windsheild ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wh18zj",
-          "title": "UPDATE - FtM transgender facing two different issues at work?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh18zj/update_ftm_transgender_facing_two_different/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh18zj/update_ftm_transgender_facing_two_different/",
+          "id": "1wipowo",
+          "title": "Is it possible to access the details of a possession hearing?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipowo/is_it_possible_to_access_the_details_of_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipowo/is_it_possible_to_access_the_details_of_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789480885,
-          "snippet": "BiL met the head of HR and CEO yesterday. They were super apologetic and said this should never have arisen, and that local HR and management had overstepped the mark by some way. CEO said in her view the court rulings were wrong and created a untenable position for employees, ma",
+          "createdUtc": 1789639133,
+          "snippet": "My neighbour has recently had a possession hearing, and I would like to read the details if this. Is this possible? Are they open access to the public and if so, where would I look/apply. submitted by /u/spahettiyeti [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wi08te",
-          "title": "Additional item sent and not expected.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi08te/additional_item_sent_and_not_expected/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi08te/additional_item_sent_and_not_expected/",
+          "id": "1wipod7",
+          "title": "Does Ordering in Store for Delivery Count as Distance Selling?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipod7/does_ordering_in_store_for_delivery_count_as/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipod7/does_ordering_in_store_for_delivery_count_as/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789572072,
-          "snippet": "I am in England, I ordered something online (let's say a value of £50), and I've just picked it up from the post office. There is an additional package which I thought might be a related free gift. My details, my customer number etc on the label. I've Just got home and its a simi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1whxw03",
-          "title": "Weird neighbours filming and harassing us on our land",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whxw03/weird_neighbours_filming_and_harassing_us_on_our/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whxw03/weird_neighbours_filming_and_harassing_us_on_our/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789566792,
-          "snippet": "Hi Reddit, so to give detailed information the title: We have a farm, in England, along one of the boundaries of our field there is fencing between us and a property. They always have issues with whatever is being done on the farm. We constantly get reported to the council for li",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wi4ahh",
-          "title": "Wales - Very said they didn’t get my payment but Revolut said they did",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi4ahh/wales_very_said_they_didnt_get_my_payment_but/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi4ahh/wales_very_said_they_didnt_get_my_payment_but/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789580734,
-          "snippet": "Hi, I was in Japan a couple of months ago and the Very page wouldn’t let me log in, a few days after the due date as I had to do it at night. I contacted their support and asked if there’s anything I can do. Very said I can bank transfer it to their bank account which I promptly ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1whypye",
-          "title": "I’m on bail and have an arrest warrant for missing a court date me and my solicitor wasn’t made aware about, what will happen next? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whypye/im_on_bail_and_have_an_arrest_warrant_for_missing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whypye/im_on_bail_and_have_an_arrest_warrant_for_missing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789568673,
-          "snippet": "So I’ve had issues with the EMS people about missing an appointment about possible tampering with my tag and they came out with 2 minutes notice while I was out of the house and no possible way to get back in time which I made a post about and said I missed an appointment, by the",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wi8s2b",
-          "title": "Window company won't honour warranty for cracked pane [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi8s2b/window_company_wont_honour_warranty_for_cracked/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi8s2b/window_company_wont_honour_warranty_for_cracked/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789590370,
-          "snippet": "Three years ago we commissioned a local company to replace all the windows in our house with double glazed UPVC sashes, which cost tens of thousands of pounds. With the windows came a ten year guarantee for the frames and a five year guarantee for the \"sealed glass units\" (panes)",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wi61t8",
-          "title": "Can a car insurer ignore a claim?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi61t8/can_a_car_insurer_ignore_a_claim/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi61t8/can_a_car_insurer_ignore_a_claim/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789584471,
-          "snippet": "Had a new driver pull out on me from a side road onto a main road that I was driving on, causing rear damage to my car and front damage to theirs. They admitted at the site of the incident that they’d been driving for a month and this had been their third incident (other two not ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1whr3j1",
-          "title": "Feel like my employer is throwing me under the bus but what are my rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whr3j1/feel_like_my_employer_is_throwing_me_under_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whr3j1/feel_like_my_employer_is_throwing_me_under_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789546502,
-          "snippet": "Hi, work as a project engineer for an IT provider. I dont want to go into specifics because it would out me or my company, but the client I work on is very high profile and constantly celebrated as a big win so they are always eager to keep them happy. My role is supposed to be p",
+          "createdUtc": 1789639081,
+          "snippet": "I'm in England. I went to a store to buy a piece of clothing. I tried some on and decided to buy one, but they didn't have the colour/size combination I wanted so they ordered it for me to be delivered to my house. I paid in the store but left only with the receipt/order details ",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 11,
+      "postCount": 6,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -277,6 +277,18 @@
           "numComments": 0,
           "createdUtc": 1781046142,
           "snippet": "If OP wanted advice from AI, they would have asked AI, rather than posted on a forum containing humans. The AI advice that we see here is more often than not one (or more) of the following: completely lacking in nuance, fails to appreciate that there is no such thing as \"UK law\",",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1winj9v",
+          "title": "Bank lost my £262k for 3 days, what are my options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1winj9v/bank_lost_my_262k_for_3_days_what_are_my_options/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1winj9v/bank_lost_my_262k_for_3_days_what_are_my_options/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789631519,
+          "snippet": "Bank lost my £262k for 3 days, what shall I do? Hi there, As the title suggests, I was in the process of buying my house. I went to the Lloyds branch (I’m with Halifax) to make the CHAPS payment of £262k to my conveyancing solicitors. The staff member took me to a cabin where the",
           "listingSource": "rss:hot"
         },
         {
@@ -304,6 +316,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wipu4k",
+          "title": "My bank froze my account accidentally and now I’m ruined",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipu4k/my_bank_froze_my_account_accidentally_and_now_im/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipu4k/my_bank_froze_my_account_accidentally_and_now_im/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789639595,
+          "snippet": "Hello, I am in England July 2025 my wife applied for an IVA independently, I was not on it. My bank applied those restrictions to my account and it was frozen for weeks. All of my direct debits were affected and during that time I wasn’t able to pay for anything. We had to borrow",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wi7ub9",
           "title": "EasyJet refusing to pay expenses for a hotel after I was left stranded after a cancelled flight.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi7ub9/easyjet_refusing_to_pay_expenses_for_a_hotel/",
@@ -314,54 +338,6 @@
           "createdUtc": 1789588314,
           "snippet": "I'm in England but the issue took place in Germany which I dont think matters as Im covered by UK trading standards? The flight was delayed for hours until just before midnight local time before finally being cancelled. Due to a lack of other flights I was forced to travel throug",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1whrgb6",
-          "title": "False Fixed Penalty Notice (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrgb6/false_fixed_penalty_notice_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whrgb6/false_fixed_penalty_notice_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789547780,
-          "snippet": "Got approached by two men in blue with body-cam while I was sitting and waiting for an appointment outside Wolverhampton Library. They came up to me and said they were checking identification because of suspicious activity and they just walked off and didn't give any notice of gi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1whxnn1",
-          "title": "Sister with drug addiction - how do we protect her kids?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whxnn1/sister_with_drug_addiction_how_do_we_protect_her/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whxnn1/sister_with_drug_addiction_how_do_we_protect_her/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789566240,
-          "snippet": "Obligatory throwaway disclaimer. Hello Reddit, not a usual poster but looking for personal experiences and/or advice. If this isn’t the right sub I’m sorry, but I am Scotland based. I have an older half sister who is hiding a severe drug addiction from the family - borrowing mone",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1whsj2d",
-          "title": "How much force am I allowed to use against shoplifters?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whsj2d/how_much_force_am_i_allowed_to_use_against/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whsj2d/how_much_force_am_i_allowed_to_use_against/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789551590,
-          "snippet": "Small business in Birmingham. We're getting increasingly belligerent shoplifters. Police never attend when called. They usually show up 4-5 hours later, take the footage, then go. There's been zero convictions. It's gotten to the point that men in balaclavas just hop the counter,",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wh18zj",
-          "title": "UPDATE - FtM transgender facing two different issues at work?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh18zj/update_ftm_transgender_facing_two_different/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wh18zj/update_ftm_transgender_facing_two_different/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789480885,
-          "snippet": "BiL met the head of HR and CEO yesterday. They were super apologetic and said this should never have arisen, and that local HR and management had overstepped the mark by some way. CEO said in her view the court rulings were wrong and created a untenable position for employees, ma",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -369,7 +345,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 2,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -397,6 +373,18 @@
           "numComments": 0,
           "createdUtc": 1789569478,
           "snippet": "Hi everyone, I really need some advice please. A CCJ was entered against my co-tenant and I after a default judgment was granted. No pre-action letter was ever issued and we genuinely had no idea about the case until enforcement agents started calling us aggressively. The landlor",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wipowo",
+          "title": "Is it possible to access the details of a possession hearing?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipowo/is_it_possible_to_access_the_details_of_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipowo/is_it_possible_to_access_the_details_of_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789639133,
+          "snippet": "My neighbour has recently had a possession hearing, and I would like to read the details if this. Is this possible? Are they open access to the public and if so, where would I look/apply. submitted by /u/spahettiyeti [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
@@ -426,15 +414,63 @@
       ]
     },
     {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
+      "slug": "motoring-offences",
+      "label": "Motoring Offences",
+      "legalAreaSlug": "motoring_offences",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
+        {
+          "id": "1wi7y2s",
+          "title": "Is it worth challenging this speeding prosecution?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi7y2s/is_it_worth_challenging_this_speeding_prosecution/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi7y2s/is_it_worth_challenging_this_speeding_prosecution/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789588539,
+          "snippet": "In England, last Friday evening I was driving down the A5. It's a stretch of road I've been down a few times but not regularly. It's a 50mph limit and then changes somewhere to 30mph. I was driving along, there weren't a lot of cars/congestion. Anyway I remembered that it changes",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 3,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wifyzw",
+          "title": "Uk Divorce - moving money out of joint accounts into 19 accounts",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wifyzw/uk_divorce_moving_money_out_of_joint_accounts/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wifyzw/uk_divorce_moving_money_out_of_joint_accounts/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789608181,
+          "snippet": "’I’ve been going back through our joint account statements from roughly 2021–2025 while preparing for financial disclosure. Over that period I’ve identified 19 different accounts that money was transferred to, and when I checked them they all matched to my ex’s name. There were c",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wipseh",
+          "title": "Divorce - Mortgage Payments on jointly owned property - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipseh/divorce_mortgage_payments_on_jointly_owned/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipseh/divorce_mortgage_payments_on_jointly_owned/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789639428,
+          "snippet": "I am currently going through divorce and looking for some advice. I have my own housing needs to meet and have been informing her for the past few months that I am no longer able to make the mortgage payments (I ended up taking out a loan with the bank to keep up with the mortgag",
+          "listingSource": "rss:hot"
+        },
         {
           "id": "1wi0xrp",
           "title": "Separating with divorce on the horizon, who gets the dog?",
@@ -450,66 +486,6 @@
       ]
     },
     {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1whnxx2",
-          "title": "Employer refusing expenses claims",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whnxx2/employer_refusing_expenses_claims/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whnxx2/employer_refusing_expenses_claims/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789535905,
-          "snippet": "My contract states \" ˜we will reimburse your travel from your home to any site away from home at the applicable HMRC mileage rate™ I've been there in this job 3 weeks. Submitted my expenses for personal mileage of 350 miles and I get this email from the CEO. : \"We pay you a great",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1whr3j1",
-          "title": "Feel like my employer is throwing me under the bus but what are my rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whr3j1/feel_like_my_employer_is_throwing_me_under_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whr3j1/feel_like_my_employer_is_throwing_me_under_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789546502,
-          "snippet": "Hi, work as a project engineer for an IT provider. I dont want to go into specifics because it would out me or my company, but the client I work on is very high profile and constantly celebrated as a big win so they are always eager to keep them happy. My role is supposed to be p",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "neighbour-disputes",
-      "label": "Neighbour Disputes",
-      "legalAreaSlug": "neighbour_dispute",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1whxw03",
-          "title": "Weird neighbours filming and harassing us on our land",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whxw03/weird_neighbours_filming_and_harassing_us_on_our/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whxw03/weird_neighbours_filming_and_harassing_us_on_our/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789566792,
-          "snippet": "Hi Reddit, so to give detailed information the title: We have a farm, in England, along one of the boundaries of our field there is fencing between us and a property. They always have issues with whatever is being done on the farm. We constantly get reported to the council for li",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
       "slug": "prison-law",
       "label": "Prison Law",
       "legalAreaSlug": "criminal_defence",
@@ -520,23 +496,59 @@
       ],
       "posts": [
         {
-          "id": "1whypye",
-          "title": "I’m on bail and have an arrest warrant for missing a court date me and my solicitor wasn’t made aware about, what will happen next? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whypye/im_on_bail_and_have_an_arrest_warrant_for_missing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whypye/im_on_bail_and_have_an_arrest_warrant_for_missing/",
+          "id": "1wihg0r",
+          "title": "When a drug dealer is arrested what will happen to the customers- England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wihg0r/when_a_drug_dealer_is_arrested_what_will_happen/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wihg0r/when_a_drug_dealer_is_arrested_what_will_happen/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789568673,
-          "snippet": "So I’ve had issues with the EMS people about missing an appointment about possible tampering with my tag and they came out with 2 minutes notice while I was out of the house and no possible way to get back in time which I made a post about and said I missed an appointment, by the",
+          "createdUtc": 1789612201,
+          "snippet": "Forgive me I’m sure this is asked a lot I used to by thc vapes off of a guy in Manchester. Buy on vinted and it’d be shipped to a locker. I quit a month ago as I’m in uni and I’ve decided that I should lock in a bit. However I obviously paid for this stuff with my card. If the de",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1winnmz",
+          "title": "PCN Appeal; Redbridge rejected my parking appeal saying Valentines car park isn’t Council owned – but their own website calls it “our” park?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1winnmz/pcn_appeal_redbridge_rejected_my_parking_appeal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1winnmz/pcn_appeal_redbridge_rejected_my_parking_appeal/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789631947,
+          "snippet": "I got a PCN for parking at Valentines Park on a bank holiday without starting a RingGo session. I challenged it because Redbridge Council states that its car parks are free on bank holidays. They’ve rejected my challenge and said: “Valentines car park is not Redbridge council own",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wippb9",
+          "title": "Reciving a debt collection letters for parking tickets for parking with an old permit in a residential parking - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wippb9/reciving_a_debt_collection_letters_for_parking/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wippb9/reciving_a_debt_collection_letters_for_parking/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789639170,
+          "snippet": "Hi everyone, sorry for the long post I was parking my car in my friend's parking space in a residential building managed by a private company. I was using the permit he received when moved to the flat. I was away for a week and when I returned I found 2 tickets in the windsheild ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "agricultural-and-rural-law",
+      "label": "Agricultural and Rural Law",
+      "legalAreaSlug": "agricultural_rural",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -544,15 +556,63 @@
       ],
       "posts": [
         {
-          "id": "1wi8s2b",
-          "title": "Window company won't honour warranty for cracked pane [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi8s2b/window_company_wont_honour_warranty_for_cracked/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi8s2b/window_company_wont_honour_warranty_for_cracked/",
+          "id": "1wiqi3h",
+          "title": "Out-of-hours unacceptable construction noise (Control of Pollution Act 1974/Environmental Protection Act 1990)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiqi3h/outofhours_unacceptable_construction_noise/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiqi3h/outofhours_unacceptable_construction_noise/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789590370,
-          "snippet": "Three years ago we commissioned a local company to replace all the windows in our house with double glazed UPVC sashes, which cost tens of thousands of pounds. With the windows came a ten year guarantee for the frames and a five year guarantee for the \"sealed glass units\" (panes)",
+          "createdUtc": 1789641779,
+          "snippet": "(England) There has been extreme construction noise from the renovation of a shop opposite my home that has been going on several nights per week for over 5 weeks now (scaffolding, power tools, generators, constant shouting, crashing of heavy materials). I have an ongoing noise c",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "banking-and-finance",
+      "label": "Banking and Finance",
+      "legalAreaSlug": "banking_finance",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wipsb2",
+          "title": "Form E voluntary - New assets, loan",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipsb2/form_e_voluntary_new_assets_loan/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipsb2/form_e_voluntary_new_assets_loan/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789639419,
+          "snippet": "Hello, I need some advice please. UK based Exchanged Form Es Mine is very clear and accurate. The other party however: Missing child arrangements order where it specifies it needs to be entered Few days after Form e submission, the ex decides to purchase a £32,000 car. The old on",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "online-shopping-and-distance-selling",
+      "label": "Online Shopping and Distance Selling",
+      "legalAreaSlug": "consumer_online_shopping",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wipod7",
+          "title": "Does Ordering in Store for Delivery Count as Distance Selling?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipod7/does_ordering_in_store_for_delivery_count_as/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipod7/does_ordering_in_store_for_delivery_count_as/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789639081,
+          "snippet": "I'm in England. I went to a store to buy a piece of clothing. I tried some on and decided to buy one, but they didn't have the colour/size combination I wanted so they ordered it for me to be delivered to my house. I paid in the store but left only with the receipt/order details ",
           "listingSource": "rss:hot"
         }
       ]
