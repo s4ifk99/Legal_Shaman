@@ -165,7 +165,7 @@ export function SearchBar({
                 <span className="text-secondary">Shaman</span>
               </h1>
               <p className="mb-1 text-base font-medium text-foreground md:text-lg">
-                Signposting, not legal advice
+                Justice through Search
               </p>
             </>
           ) : (
@@ -184,7 +184,7 @@ export function SearchBar({
                 <span className="text-secondary">Shaman</span>
               </h1>
               <p className="mb-2 text-base font-medium text-foreground md:text-lg">
-                Signposting, not legal advice
+                Justice through Search
               </p>
             </>
           ))}
