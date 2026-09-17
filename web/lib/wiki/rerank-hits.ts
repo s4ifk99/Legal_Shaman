@@ -1,7 +1,24 @@
-import { isPcnAppealQuery, isPropertyPurchaseMisrepresentationQuery, isRecordingLawQuery, isVehicleRepairQuery } from "@/lib/legal/query-signals";
+import {
+  isDisabilityAbsenceAdjustmentsQuery,
+  isFamilyBelongingsPropertyClaim,
+  isPcnAppealQuery,
+  isPropertyPurchaseMisrepresentationQuery,
+  isRecordingLawQuery,
+  isVehicleRepairQuery,
+} from "@/lib/legal/query-signals";
 import { resolveLegalIssueFromQuery } from "@/lib/legal/taxonomy";
 
 import type { WikiSearchHit } from "./search";
+
+const FAMILY_CUSTODY_TITLE =
+  /\b(child arrangements|custody|contact order|types of court orders in family|court orders in family|divorce financial|care order)\b/i;
+
+const SMALL_CLAIMS_BELONGINGS_TITLE =
+  /\b(small claim|letter before action|money claim|county court|personal belongings|household items|property damage|damaged|compensation|should i sue)\b/i;
+
+/** Housing / IHT / leasehold bleed from “year old” / “her house” / “child”. */
+const OFFTOPIC_FOR_BELONGINGS_TITLE =
+  /\b(tenant|tenancy|section\s*21|section\s*8|eviction|landlord|leasehold|enfranchisement|inheritance tax|10-?year charge|trusts?,?\s*inheritance|disinherit|mesher order|indefinite leave|visa|parent of a child who lives)\b/i;
 
 const HOUSING_REPAIR_QUERY =
   /\b(housing association|social housing|council (home|house|tenant|housing)|disrepair|repairs?|landlord|leak|damp|mould|mold|bathroom|kitchen|awaab|hoarding|succession)\b/i;
@@ -43,7 +60,24 @@ const SLUG_ANCHORS: Record<string, string[]> = {
     "section 21",
     "eviction",
   ],
-  employment: ["unfair dismissal", "ACAS", "employment rights", "workplace", "pension auto enrolment"],
+  employment: [
+    "unfair dismissal",
+    "ACAS",
+    "employment rights",
+    "workplace",
+    "pension auto enrolment",
+    "reasonable adjustments",
+    "disability discrimination",
+    "sickness absence",
+  ],
+  employment_disability_absence: [
+    "reasonable adjustments",
+    "disability discrimination",
+    "sickness absence management",
+    "Bradford Factor",
+    "Equality Act disability",
+    "disability-related absence",
+  ],
   family: ["child arrangements", "divorce", "domestic abuse", "contact order"],
   immigration: ["visa refusal", "immigration", "home office", "spouse visa"],
   debt: ["bailiff", "debt", "creditor", "CCJ"],
@@ -117,6 +151,19 @@ function slugRoot(slug: string): string {
 export function wikiAnchorsForQuery(query: string): string[] {
   const lower = query.toLowerCase();
   const anchors: string[] = [];
+  const belongingsClaim = isFamilyBelongingsPropertyClaim(query);
+
+  if (belongingsClaim) {
+    anchors.push(
+      "deciding whether to make a small claim",
+      "small claims court and letter before action",
+      "letter before action",
+      "money claim",
+      "household items and personal belongings",
+      "property damage compensation",
+      "county court claim",
+    );
+  }
 
   if (isPcnAppealQuery(query)) {
     anchors.push(
@@ -126,6 +173,9 @@ export function wikiAnchorsForQuery(query: string): string[] {
       "penalty charge notice council PCN",
       "London Tribunals parking appeal",
     );
+  }
+  if (isDisabilityAbsenceAdjustmentsQuery(query)) {
+    anchors.push(...(SLUG_ANCHORS.employment_disability_absence ?? []));
   }
   if (isVehicleRepairQuery(query)) {
     anchors.push(
@@ -194,10 +244,16 @@ export function wikiAnchorsForQuery(query: string): string[] {
 
   const resolution = resolveLegalIssueFromQuery(query);
   if (resolution) {
-    anchors.push(resolution.canonicalName);
-    anchors.push(...resolution.searchBoostTerms.slice(0, 8));
-    anchors.push(...(SLUG_ANCHORS[resolution.taxonomySlug] ?? []));
-    anchors.push(...(SLUG_ANCHORS[slugRoot(resolution.taxonomySlug)] ?? []));
+    // Belongings / sue-for-replacement: do not inject family custody/divorce anchors
+    if (belongingsClaim && (resolution.taxonomySlug === "family" || slugRoot(resolution.taxonomySlug) === "family")) {
+      anchors.push(...(SLUG_ANCHORS.consumer_small_claims ?? []));
+      anchors.push(...(SLUG_ANCHORS.consumer ?? []));
+    } else {
+      anchors.push(resolution.canonicalName);
+      anchors.push(...resolution.searchBoostTerms.slice(0, 8));
+      anchors.push(...(SLUG_ANCHORS[resolution.taxonomySlug] ?? []));
+      anchors.push(...(SLUG_ANCHORS[slugRoot(resolution.taxonomySlug)] ?? []));
+    }
   }
 
   return [...new Set(anchors.map((a) => a.trim()).filter((a) => a.length >= 3))];
@@ -206,6 +262,26 @@ export function wikiAnchorsForQuery(query: string): string[] {
 function patternBoostForHit(query: string, hit: WikiSearchHit): number {
   const titleLower = hit.title.toLowerCase();
   let boost = 0;
+
+  if (isFamilyBelongingsPropertyClaim(query)) {
+    if (SMALL_CLAIMS_BELONGINGS_TITLE.test(titleLower)) boost += 140;
+    if (/deciding whether to make a small claim|letter before action|money claim|should i sue/i.test(titleLower)) {
+      boost += 60;
+    }
+    if (FAMILY_CUSTODY_TITLE.test(titleLower)) boost -= 160;
+    if (OFFTOPIC_FOR_BELONGINGS_TITLE.test(titleLower)) boost -= 200;
+    if (hit.category === "Family and Relationships" && !SMALL_CLAIMS_BELONGINGS_TITLE.test(titleLower)) {
+      boost -= 80;
+    }
+    if (
+      hit.category === "Home and Housing" ||
+      hit.category === "Wills and Planning Ahead" ||
+      hit.category === "Immigration and Citizenship"
+    ) {
+      boost -= 120;
+    }
+    if (hit.category === "Courts and Disputes" || hit.category === "Consumer Rights") boost += 40;
+  }
 
   if (isRecordingLawQuery(query) && !isVehicleRepairQuery(query)) {
     if (/\b(record|filming|consent|cctv|privacy)\b/i.test(titleLower)) boost += 45;
@@ -219,6 +295,23 @@ function patternBoostForHit(query: string, hit: WikiSearchHit): number {
     }
     if (hit.category === "Driving and Parking") boost += 50;
     if (hit.category === "Work and Employment") boost -= 90;
+  }
+  if (isDisabilityAbsenceAdjustmentsQuery(query)) {
+    if (
+      /reasonable adjustment|disability discrimination|absence management|bradford|equality act|sickness absence|disabled employee/i.test(
+        titleLower,
+      )
+    ) {
+      boost += 120;
+    }
+    if (
+      /schedule of loss|unfair dismissal|bullying at work|zero hours|how to win a grievance|value a claim for employment tribunal/i.test(
+        titleLower,
+      )
+    ) {
+      boost -= 140;
+    }
+    if (hit.category === "Work and Employment") boost += 30;
   }
   if (isVehicleRepairQuery(query)) {
     if (/problem with a car repair|buying or repairing a car/i.test(titleLower)) boost += 120;
@@ -296,6 +389,7 @@ function hasPatternRerank(query: string): boolean {
   return (
     isVehicleRepairQuery(query) ||
     isPcnAppealQuery(query) ||
+    isDisabilityAbsenceAdjustmentsQuery(query) ||
     isPropertyPurchaseMisrepresentationQuery(query) ||
     isRecordingLawQuery(query) ||
     RECORDING_QUERY.test(query) ||
@@ -397,6 +491,26 @@ export function housingRepairAnchors(query: string): string[] {
 
 export function isSharedHousingQuery(query: string): boolean {
   return SHARED_HOUSING_QUERY.test(query);
+}
+
+/** Prefer small-claims / LBA / belongings pages; demote custody / family court order guides. */
+export function rerankFamilyBelongingsHits(query: string, hits: WikiSearchHit[]): WikiSearchHit[] {
+  return [...hits]
+    .map((hit) => {
+      let score = hit.score + patternBoostForHit(query, hit);
+      const t = hit.title.toLowerCase();
+      if (FAMILY_CUSTODY_TITLE.test(t)) score -= 200;
+      if (OFFTOPIC_FOR_BELONGINGS_TITLE.test(t)) score -= 250;
+      if (SMALL_CLAIMS_BELONGINGS_TITLE.test(t)) score += 80;
+      return { hit, score };
+    })
+    .filter(({ hit, score }) => {
+      const t = hit.title.toLowerCase();
+      if (OFFTOPIC_FOR_BELONGINGS_TITLE.test(t) && score < 50) return false;
+      return score > 0;
+    })
+    .sort((a, b) => b.score - a.score || a.hit.id.localeCompare(b.hit.id))
+    .map((row) => ({ ...row.hit, score: row.score }));
 }
 
 export function isHousingRepairQuery(query: string): boolean {

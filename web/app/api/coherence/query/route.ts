@@ -24,6 +24,7 @@ import {
   releaseConcurrent,
   summarizeLlmTrace,
 } from "@/lib/coherence/usage";
+import { ensureBillingSchema } from "@/lib/billing/schema";
 import { requireCoherenceAuthEnabled } from "@/lib/auth/coherence-auth-config";
 import { isUserEmailVerified } from "@/lib/auth/email-verification";
 import {
@@ -32,6 +33,7 @@ import {
 } from "@/lib/auth/quota-rate-limit";
 import { verifyTurnstileToken, clientIpFromRequest } from "@/lib/auth/turnstile";
 import { accountsPrisma } from "@/lib/db/accounts";
+import { resolveFreeSearchKey } from "@/lib/billing/free-search-key";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -56,6 +58,7 @@ function unavailableResponse(message: string, requestId: string): NextResponse {
 }
 
 async function duplicateRequest(requestId: string): Promise<boolean> {
+  await ensureBillingSchema();
   const existing = await accountsPrisma.usageEvent.findFirst({
     where: {
       requestId,
@@ -174,11 +177,17 @@ export async function POST(req: Request) {
     }
   }
 
+  const searchKey = resolveFreeSearchKey({
+    rawInputs: (body.session as { rawInputs?: unknown } | undefined)?.rawInputs,
+    latestText: body.latestText,
+  });
   const allowance = await canStartCoherenceUsage({
     userId,
     requestId: idempotencyKey,
     endpoint: ENDPOINT,
     expectedFrontierCalls: 2,
+    countSearch: Boolean(searchKey),
+    searchKey,
   });
   if (!allowance.allowed) {
     if (allowance.reason !== "concurrent") {
@@ -261,6 +270,7 @@ export async function POST(req: Request) {
       requestId: idempotencyKey,
       endpoint: ENDPOINT,
       status: "started",
+      searchKey,
     });
     const summary = summarizeLlmTrace(
       (llmTrace?.records as Parameters<typeof summarizeLlmTrace>[0]) || [],
@@ -270,6 +280,7 @@ export async function POST(req: Request) {
       requestId: idempotencyKey,
       endpoint: ENDPOINT,
       status: "completed",
+      searchKey,
       ...summary,
     });
   } else {

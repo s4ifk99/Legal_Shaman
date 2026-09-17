@@ -1,11 +1,18 @@
 const OPENROUTER_DEFAULT_BASE = "https://openrouter.ai/api/v1";
 
 export function resolveLlmApiKey(): string | undefined {
-  return (
-    process.env.LLM_API_KEY?.trim() ||
-    process.env.OPENROUTER_API_KEY?.trim() ||
-    undefined
-  );
+  const explicitBase =
+    process.env.LLM_BASE_URL?.trim() || process.env.OPENROUTER_BASE_URL?.trim();
+  const openRouterKey = process.env.OPENROUTER_API_KEY?.trim();
+  const llmKey = process.env.LLM_API_KEY?.trim();
+
+  // When the base URL explicitly targets OpenRouter, do not let an older
+  // provider-specific LLM_API_KEY shadow the current OpenRouter credential.
+  if (explicitBase && isOpenRouterBaseUrl(explicitBase)) {
+    return openRouterKey || llmKey || undefined;
+  }
+
+  return llmKey || openRouterKey || undefined;
 }
 
 export function resolveLlmBaseUrl(): string {
@@ -66,6 +73,20 @@ export function isInsufficientCreditsError(err: unknown): boolean {
   if (/402|insufficient credits/i.test(message)) return true;
   const status = (err as { status?: number })?.status;
   return status === 402;
+}
+
+export function isRateLimitedOrUnavailableError(err: unknown): boolean {
+  const status = (err as { status?: number })?.status;
+  if (status === 429 || status === 503) return true;
+  const message = err instanceof Error ? err.message : String(err);
+  return /429|503|rate.?limit|overloaded|service unavailable/i.test(message);
+}
+
+export function isLlmTimeoutError(err: unknown): boolean {
+  const status = (err as { status?: number })?.status;
+  if (status === 408) return true;
+  const message = err instanceof Error ? err.message : String(err);
+  return /timeout|timed out|ETIMEDOUT|AbortError|deadline exceeded/i.test(message);
 }
 
 export { OPENROUTER_DEFAULT_BASE };

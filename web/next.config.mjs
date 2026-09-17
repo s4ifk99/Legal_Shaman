@@ -5,12 +5,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Aramb Third Eye uses WebSocket (`ws` + optional native `bufferutil`). Webpack
+  // bundling breaks bufferutil.mask → "b.mask is not a function" on Vercel.
+  serverExternalPackages: ["@aramb-ai/sdk", "ws", "bufferutil"],
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
     unoptimized: true,
   },
+  allowedDevOrigins: ["127.0.0.1", "localhost", "192.168.0.12"],
   // Keep serverless functions under Vercel's 250mb uncompressed limit.
   // Keys match route paths and (for Turbopack/Webpack NFT) app/ prefixed entry names.
   outputFileTracingExcludes: {

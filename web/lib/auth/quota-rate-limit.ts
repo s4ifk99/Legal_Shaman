@@ -34,15 +34,22 @@ export function rateLimitKeyFromRequest(req: Request, prefix: string): string {
 }
 
 /** Per-user in-flight expensive requests (single-instance; use Redis for multi-node). */
-const inFlight = new Map<string, string>();
+const inFlight = new Map<string, { requestId: string; startedAt: number }>();
+const IN_FLIGHT_TTL_MS = 2 * 60_000;
 
 export function tryAcquireConcurrent(userId: string, requestId: string): boolean {
   const existing = inFlight.get(userId);
-  if (existing && existing !== requestId) return false;
-  inFlight.set(userId, requestId);
+  if (
+    existing &&
+    existing.requestId !== requestId &&
+    Date.now() - existing.startedAt < IN_FLIGHT_TTL_MS
+  ) {
+    return false;
+  }
+  inFlight.set(userId, { requestId, startedAt: Date.now() });
   return true;
 }
 
 export function releaseConcurrent(userId: string, requestId: string): void {
-  if (inFlight.get(userId) === requestId) inFlight.delete(userId);
+  if (inFlight.get(userId)?.requestId === requestId) inFlight.delete(userId);
 }

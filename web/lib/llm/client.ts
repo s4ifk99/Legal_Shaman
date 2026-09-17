@@ -11,6 +11,7 @@ import {
 } from "@/lib/coherence/llm-budget";
 import {
   isInsufficientCreditsError,
+  isRateLimitedOrUnavailableError,
   openRouterDefaultHeaders,
   resolveChatModel,
   resolveFreeFallbackModel,
@@ -64,7 +65,8 @@ function getChatClient(): OpenAI {
     );
   }
   const defaultHeaders = openRouterDefaultHeaders();
-  const defaultTimeout = process.env.VERCEL === "1" ? 8_000 : 45_000;
+  // Overview chat needs ≥45s; do not rely only on /answer mutating LLM_TIMEOUT_MS.
+  const defaultTimeout = 45_000;
   const timeoutMs = Number(process.env.LLM_TIMEOUT_MS ?? defaultTimeout);
   _chatClient = new OpenAI({
     apiKey,
@@ -110,6 +112,8 @@ export type ChatOptions = {
   temperature?: number;
   maxTokens?: number;
   model?: string;
+  /** Per-request timeout; Overview needs ≥45s even if a caller left the env low. */
+  timeoutMs?: number;
   /** Coherence cost attribution — set on master-path calls. */
   purpose?: LlmCallReason;
   caller?: string;
@@ -117,19 +121,28 @@ export type ChatOptions = {
   retryReason?: string;
 };
 
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function chatWithModel(
   client: OpenAI,
   messages: ChatMessage[],
   options: ChatOptions,
   model: string,
 ): Promise<string> {
-  const response = await client.chat.completions.create({
-    model,
-    messages,
-    temperature: options.temperature ?? 0.2,
-    max_tokens: options.maxTokens ?? 400,
-    response_format: options.jsonMode ? { type: "json_object" } : undefined,
-  });
+  const response = await client.chat.completions.create(
+    {
+      model,
+      messages,
+      temperature: options.temperature ?? 0.2,
+      max_tokens: options.maxTokens ?? 400,
+      response_format: options.jsonMode ? { type: "json_object" } : undefined,
+    },
+    options.timeoutMs && Number.isFinite(options.timeoutMs)
+      ? { timeout: options.timeoutMs }
+      : undefined,
+  );
   return response.choices[0]?.message?.content ?? "";
 }
 
@@ -158,32 +171,50 @@ export async function chat(
     content = await chatWithModel(client, messages, options, model);
   } catch (err) {
     const fallback = resolveFreeFallbackModel();
-    if (fallback && fallback !== model && isInsufficientCreditsError(err)) {
+    let lastErr: unknown = err;
+
+    if (isRateLimitedOrUnavailableError(err)) {
+      for (let i = 0; i < 2; i++) {
+        const delayMs = 500 * (i + 1);
+        console.warn(`[llm] ${model} 429/503; backoff ${delayMs}ms (retry ${i + 1}/2)`);
+        await sleep(delayMs);
+        attempt += 1;
+        retryReason = "rate_limit_backoff";
+        try {
+          content = await chatWithModel(client, messages, options, model);
+          lastErr = null;
+          break;
+        } catch (retryErr) {
+          lastErr = retryErr;
+          if (!isRateLimitedOrUnavailableError(retryErr)) break;
+        }
+      }
+      if (lastErr && fallback && fallback !== model) {
+        console.warn(`[llm] ${model} still 429/503; retrying with ${fallback}`);
+        attempt += 1;
+        retryReason = "rate_limit_free_fallback";
+        usedModel = fallback;
+        try {
+          content = await chatWithModel(client, messages, options, fallback);
+          lastErr = null;
+        } catch (err2) {
+          lastErr = err2;
+        }
+      }
+    } else if (fallback && fallback !== model && isInsufficientCreditsError(err)) {
       console.warn(`[llm] ${model} insufficient credits; retrying with ${fallback}`);
       attempt = 2;
       retryReason = "insufficient_credits_fallback";
       usedModel = fallback;
       try {
         content = await chatWithModel(client, messages, options, fallback);
+        lastErr = null;
       } catch (err2) {
-        recordLlmCall({
-          purpose,
-          caller,
-          model: usedModel,
-          attempt,
-          ok: false,
-          latencyMs: Date.now() - t0,
-          inputChars,
-          outputChars: 0,
-          estimatedInputTokens: estimateTokensFromChars(inputChars),
-          estimatedOutputTokens: 0,
-          estimatedCostUsd: 0,
-          retryReason,
-          error: err2 instanceof Error ? err2.message : String(err2),
-        });
-        throw err2;
+        lastErr = err2;
       }
-    } else {
+    }
+
+    if (lastErr) {
       recordLlmCall({
         purpose,
         caller,
@@ -197,9 +228,9 @@ export async function chat(
         estimatedOutputTokens: 0,
         estimatedCostUsd: 0,
         retryReason,
-        error: err instanceof Error ? err.message : String(err),
+        error: lastErr instanceof Error ? lastErr.message : String(lastErr),
       });
-      throw err;
+      throw lastErr;
     }
   }
 

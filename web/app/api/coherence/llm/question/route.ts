@@ -1,14 +1,19 @@
 import { NextResponse } from "next/server";
 
 import { coherenceOpenRouterConfig } from "@/lib/coherence/config";
-import { coherenceApiGuard } from "@/lib/coherence/server/guard";
+import { coherenceApiGuard, requireCoherenceAccess } from "@/lib/coherence/server/guard";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(req: Request) {
   const blocked = coherenceApiGuard();
   if (blocked) return blocked;
+  const access = await requireCoherenceAccess(req, {
+    endpoint: "/api/coherence/llm/question",
+    countSearch: false,
+  });
+  if (access instanceof NextResponse) return access;
   const { apiKey, model } = coherenceOpenRouterConfig();
   return NextResponse.json({ configured: Boolean(apiKey), model });
 }
@@ -16,6 +21,12 @@ export async function GET() {
 export async function POST(req: Request) {
   const blocked = coherenceApiGuard();
   if (blocked) return blocked;
+
+  const access = await requireCoherenceAccess(req, {
+    endpoint: "/api/coherence/llm/question",
+    countSearch: false,
+  });
+  if (access instanceof NextResponse) return access;
 
   const { apiKey, model, siteUrl, siteName } = coherenceOpenRouterConfig();
   if (!apiKey) {

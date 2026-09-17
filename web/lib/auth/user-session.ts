@@ -9,6 +9,7 @@ export type PublicUser = {
   name: string;
   email: string;
   emailVerified?: boolean;
+  plan?: "free" | "paid";
 };
 
 export type AuthenticatedUser = PublicUser;

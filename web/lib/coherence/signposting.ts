@@ -59,6 +59,22 @@ const OFF_TOPIC =
 const IMMIGRATION_RELEVANT =
   /immig|asylum|refugee|migrant|visa|traffick|home office|oisc|settled|ilr|deport|nationality|citizenship/
 
+/** Private / council parking charge stories (not used-car “car” alone). */
+export function isParkingStoryText(text: string): boolean {
+  const t = text.toLowerCase()
+  if (/\b(car\s*park|parking|pcn|popla|parking (?:fine|ticket|charge|app)|private parking|penalty charge)\b/i.test(t)) {
+    // Exclude pure used-car purchase unless parking language dominates
+    if (
+      /\b(buying|bought|purchased|dealer|mot\b|faulty (?:car|vehicle)|used car)\b/i.test(t) &&
+      !/\b(car\s*park|parking|pcn|popla)\b/i.test(t)
+    ) {
+      return false
+    }
+    return true
+  }
+  return false
+}
+
 function scoreResource(
   r: SignpostResource,
   text: string,
@@ -68,6 +84,7 @@ function scoreResource(
 ): number {
   const hay = `${r.name} ${r.description || ''}`.toLowerCase()
   let score = 0
+  const parkingStory = isParkingStoryText(text)
 
   // Curated section for this matter type — always surface top resources
   if (section.matterTypes.includes(matter)) score += 5
@@ -76,6 +93,7 @@ function scoreResource(
   if (matterBoost && section.title === 'Immigration and Citizenship') score += 5
   if (matterBoost && section.title === 'Consumer Rights') score += 5
   if (matterBoost && section.title === 'Home and Housing') score += 8
+  if (matterBoost && section.title === 'Driving and Parking') score += parkingStory ? 12 : 4
   if (matterBoost && section.title === 'Getting Help' && GENERAL_HELP.test(hay)) score += 4
   if (matterBoost && section.title === 'Getting Help' && !GENERAL_HELP.test(hay)) score += 0
 
@@ -101,12 +119,25 @@ function scoreResource(
     score -= 8
   }
   if (/domestic|abuse/.test(text) && /domestic|abuse|refuge/.test(hay)) score += 6
-  if (/\bcar\b|vehicle|dealer|garage|fault|refund|consumer|warranty|trader/.test(text) && /consumer|fault|refund|car|vehicle|resolver|which/.test(hay))
+  // Used-car / goods — skip when this is a parking story ("car park" ≠ used car)
+  if (
+    !parkingStory &&
+    /\b(car|vehicle|dealer|garage|fault|refund|consumer|warranty|trader)\b/.test(text) &&
+    /consumer|fault|refund|car|vehicle|resolver|which/.test(hay)
+  ) {
     score += 8
+  }
   if (/\bilr\b|visa|refus|appeal|immigration/.test(text) && IMMIGRATION_RELEVANT.test(hay)) score += 6
-  if (/\bpcns?\b|parking ticket|penalty charge|london tribunal/.test(text)) {
-    if (/parking|pcn|tribunal|motoring|consumer/i.test(hay)) score += 10
-    if (/employment|acas|workplace|unfair dismiss/i.test(hay)) score -= 16
+  if (parkingStory) {
+    if (/parking|pcn|popla|tribunal|motoring|ticket|fine/i.test(hay)) score += 14
+    if (/yellow box/i.test(hay) && !/yellow box/i.test(text)) score -= 8
+    if (/employment|acas|workplace|unfair dismiss|used.?car|faulty goods/i.test(hay)) score -= 16
+    if (section.title === 'Getting Help' && parkingStory) {
+      if (!/citizens advice|legal aid|pro bono|advicenow|lawworks|resolver/i.test(hay)) score -= 12
+      if (/guide to pro bono/i.test(hay)) score -= 8
+    }
+    if (/immig|asylum|visa|traffick|domestic abuse|stalking|housing|evict|debt|bailiff/i.test(hay))
+      score -= 18
   }
   if (GENERAL_HELP.test(hay) && /help|advice|solicitor|adviser|legal/.test(text)) score += 3
 
@@ -134,18 +165,24 @@ export async function matchSignposting(
   const bundle = await load()
   const text = sessionText(session)
   const matter = session.matterType
+  const parkingStory =
+    session.taxonomySlug === 'parking_pcn' || isParkingStoryText(text)
   const hits: SignpostHit[] = []
 
   for (const section of bundle.sections) {
     const matterBoost =
       section.matterTypes.includes(matter) ||
-      (matter === 'unknown' && section.title === 'Getting Help')
+      (matter === 'unknown' && section.title === 'Getting Help') ||
+      (parkingStory && section.title === 'Driving and Parking')
     if (!matterBoost && section.title !== 'Getting Help') continue
 
     for (const r of section.resources) {
       const score = scoreResource(r, text, section, matterBoost, matter)
       // Stricter floor so weak token overlaps (e.g. therapy orgs) do not appear
-      const floor = section.matterTypes.includes(matter) ? 5 : 6
+      const floor =
+        section.matterTypes.includes(matter) || (parkingStory && section.title === 'Driving and Parking')
+          ? 5
+          : 6
       if (score < floor) continue
       hits.push({
         id: `signpost:${section.title}:${r.name}`.toLowerCase().replace(/\s+/g, '-'),
@@ -171,6 +208,41 @@ export async function matchSignposting(
     out.push(h)
     if (out.length >= limit) break
   }
+
+  // Hard fallback: parking stories always get CA + POPLA if scorers returned nothing useful
+  if (parkingStory && !out.some((h) => /parking|popla|pcn/i.test(h.title))) {
+    const fallbacks: SignpostHit[] = [
+      {
+        id: 'signpost:fallback:ca-parking',
+        title: 'Citizens Advice — parking tickets and PCNs',
+        type: 'Signpost · Driving and Parking',
+        blurb: 'Challenge a council or private parking ticket — appeals and POPLA.',
+        url: 'https://www.citizensadvice.org.uk/law-and-courts/parking-tickets/when-to-appeal-a-parking-ticket/',
+        section: 'Driving and Parking',
+        score: 100,
+      },
+      {
+        id: 'signpost:fallback:popla',
+        title: 'POPLA — Parking on Private Land Appeals',
+        type: 'Signpost · Driving and Parking',
+        blurb: 'Independent appeal for private parking charges.',
+        url: 'https://www.popla.co.uk/',
+        section: 'Driving and Parking',
+        score: 99,
+      },
+      {
+        id: 'signpost:fallback:govuk-parking',
+        title: 'GOV.UK — parking tickets',
+        type: 'Signpost · Driving and Parking',
+        blurb: 'Official overview of parking tickets and how to challenge them.',
+        url: 'https://www.gov.uk/parking-tickets',
+        section: 'Driving and Parking',
+        score: 98,
+      },
+    ]
+    return [...fallbacks, ...out].slice(0, Math.max(limit, 3))
+  }
+
   return out
 }
 

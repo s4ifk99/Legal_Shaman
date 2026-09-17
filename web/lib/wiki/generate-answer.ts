@@ -492,37 +492,27 @@ function deterministicAnswerFromHits(
   const secondary = hits.find((h) => h.id !== primary?.id);
 
   if (useCursorStyleAnswers()) {
-    const blocks: string[] = ["What the sources say"];
-    if (primary?.summary?.trim()) {
-      blocks.push(
-        `The matching guidance on “${primary.title}” explains that ${truncate(cleanSnippet(primary.summary), 360)}`,
-      );
-    } else if (primary) {
-      blocks.push(`Matching wiki guidance includes “${primary.title}”.`);
-    }
+    const sourcesSay = primary?.summary?.trim()
+      ? `The matching guidance on “${primary.title}” explains that ${truncate(cleanSnippet(primary.summary), 360)}`
+      : primary
+        ? `Matching wiki guidance includes “${primary.title}”.`
+        : "No closely matching wiki page was found for this query.";
 
-    const steps = (primary?.practicalGuidance ?? []).slice(0, 3);
-    const keys = (primary?.keyInformation ?? []).slice(0, 2);
-    if (steps.length || keys.length) {
-      blocks.push("Practical route");
-      if (keys.length) {
-        blocks.push(keys.map((k) => cleanSnippet(k)).filter(Boolean).join(" "));
-      }
-      if (steps.length) {
-        blocks.push(steps.map((s) => cleanSnippet(s)).filter(Boolean).join(" "));
-      }
-    }
+    const steps = (primary?.practicalGuidance ?? []).slice(0, 3).map((s) => cleanSnippet(s)).filter(Boolean);
+    const keys = (primary?.keyInformation ?? []).slice(0, 2).map((k) => cleanSnippet(k)).filter(Boolean);
+    const practicalLines = [
+      ...keys.map((k) => `• ${k}`),
+      ...steps.map((s) => `• ${s}`),
+    ];
 
-    if (secondary?.summary?.trim()) {
-      blocks.push(
-        `Related page “${secondary.title}”: ${truncate(cleanSnippet(secondary.summary), 240)}`,
-      );
-    }
-
-    blocks.push(
-      "Limits / missing facts",
-      "This is general signposting from the Legal Shaman wiki — not legal advice. Check the cited pages or Citizens Advice for personalised help.",
-    );
+    const blocks = [
+      `What the sources say\n${sourcesSay}`,
+      practicalLines.length ? `Practical route\n${practicalLines.join("\n")}` : "",
+      secondary?.summary?.trim()
+        ? `${secondary.title}\n${truncate(cleanSnippet(secondary.summary), 240)}`
+        : "",
+      `Limits / missing facts\nThis is general signposting from the Legal Shaman wiki — not legal advice. Check the cited pages or Citizens Advice for personalised help. Firms with indexed commentary below are signposts, not endorsements.`,
+    ];
     return sanitizeWikiAnswer(blocks.filter(Boolean).join("\n\n"));
   }
 

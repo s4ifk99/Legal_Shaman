@@ -1,3 +1,6 @@
+import type { SessionMatterFrame } from './matterFrame'
+import type { ResearchBundle } from './researchBundle'
+
 export type QuestionKind = 'open' | 'closed'
 
 export interface PredictiveChoice {
@@ -31,13 +34,22 @@ export type MatterType =
 export type Jurisdiction = 'EnglandWales' | 'Scotland' | 'NorthernIreland' | 'Unknown'
 
 export type Mode = 'browse' | 'dispute' | 'info' | 'research' | 'urgent' | 'unknown'
+export type SearchMode = 'umbra' | 'penumbra'
+export type PenumbraResearchStatus = 'idle' | 'starting' | 'awaiting_input' | 'complete' | 'error'
+
+export type DatePrecision = 'day' | 'month' | 'year' | 'unknown'
 
 export interface TimelineEvent {
   id: string
   label: string
   rawSpan?: string
   dateApprox?: string
+  datePrecision?: DatePrecision
   kind: 'start' | 'event' | 'goal'
+  actors?: string[]
+  documentLabels?: string[]
+  /** Extracted beats start false; client edits set true. */
+  clientConfirmed?: boolean
 }
 
 export interface Party {
@@ -57,6 +69,22 @@ export interface SessionState {
   jurisdiction: Jurisdiction
   locationHint: string
   mode: Mode
+  /** Retrieval breadth preference; hard safety and grounding checks apply in both modes. */
+  searchMode: SearchMode
+  penumbraAcknowledged: boolean
+  /** Separate, optional exploratory child session; never the canonical case answer. */
+  penumbraResearch?: {
+    status: PenumbraResearchStatus
+    caseKey: string
+    conversationId?: string
+    questions: string[]
+    bundle?: ResearchBundle
+    fallback?: boolean
+    error?: string
+    updatedAt: string
+    cacheHit?: boolean
+    exaSource?: string
+  }
   softFlags: string[]
   safetyRisk: boolean
   answeredPromptIds: string[]
@@ -70,8 +98,133 @@ export interface SessionState {
   taxonomySlug?: string | null
   /** Canonical matter understanding — downstream agents must not re-classify raw prose */
   matterFrame?: SessionMatterFrame | null
+  /** Search consumes this snapshot; later turns must not rewrite the primary issue from new asides. */
+  issueGraphFrozen?: boolean
+  /**
+   * Consented help outcomes (appointment / adviser / instruct). Session-only.
+   * Never persist without consentToRecord — does not write the public knowledge graph.
+   */
+  helpOutcome?: {
+    consentToRecord: boolean
+    result?: 'got_appointment' | 'reached_adviser' | 'instructed' | 'no_help'
+    recordedAt?: string
+  }
+  /** User-confirmed reformulated search question (Atwell-style expert arm). */
+  confirmedSearchQuery: string
+  /** none = not yet gated; confirmed = used reformulation; refused = safety refuse; skipped = original words */
+  reformulationOutcome: 'none' | 'confirmed' | 'refused' | 'skipped'
+  /** Chen-style formal retrieval query (glossary ± LLM). */
+  styleTranslatedQuery: string
+  /** CAQI-style context tokens, e.g. jurisdiction:EnglandWales role:tenant */
+  searchContextTokens: string[]
+  /** Shao-adapted lay search intent */
+  searchIntent:
+    | 'particular_resource'
+    | 'characterization'
+    | 'remedy_outcome'
+    | 'procedure'
+    | 'interest_browse'
+    | 'unknown'
+  /** Primary online metric for AB success under this intent */
+  abPrimaryMetric:
+    | 'precision_at_k'
+    | 'frame_confirm_rate'
+    | 'task_completion'
+    | 'guidance_step_engagement'
+    | 'session_depth'
+    | 'unset'
+  /**
+   * User-confirmed CAQI role (employment clarify). unset = infer from narrative.
+   */
+  confirmedUserRole:
+    | 'tenant'
+    | 'landlord'
+    | 'employee'
+    | 'employer'
+    | 'consumer'
+    | 'immigrant_applicant'
+    | 'family_member'
+    | 'unset'
+  /** Sargeant-style UK taxonomy hit (L1/L2 + matter pack). */
+  ukTaxonomyL1: string
+  ukTaxonomyL2: string
+  ukTaxonomyPackId: string
+  ukTaxonomyConfidence: number
+  /** T5: answers from authority interrogator (topic:/goal:/…). */
+  authorityAnswers: string[]
+  /** T5: offline allowlisted authority pages (no Exa in product). */
+  authorityHits: Array<{
+    id: string
+    title: string
+    url: string
+    tier: string
+    score: number
+    firm?: string
+    kind?: 'official' | 'law_firm'
+  }>
+  /** T5: citation audit passed on authorityHits. */
+  authorityAuditOk: boolean
+  /** OpenRouter / heuristic pack classifier result (first-message intent). */
+  packClassification?: {
+    packId: string
+    confidence: number
+    reason: string
+    clarifyingQuestion?: string
+    source: 'llm' | 'heuristic' | 'user'
+  }
+  /** Client corrections and refinement requests retained with the local case draft. */
+  feedbackHistory?: Array<{
+    kind: 'clarify' | 'add_detail' | 'refine'
+    text: string
+    at: string
+  }>
+  /** Local-only snapshots of prior overviews so a refinement can be compared after reload. */
+  answerRevisionHistory?: Array<{
+    kind: 'clarify' | 'add_detail' | 'refine'
+    answerOverview: string
+    at: string
+  }>
+  /**
+   * Late-freeze research dialogue: ask / wiki / update until commit,
+   * then one Penumbra Exa pass + Overview.
+   */
+  researchDialogue?: {
+    set: {
+      hypotheses: Array<{
+        slug: string
+        score: number
+        why: string[]
+        evidence: Array<{ title: string; support: 'support' | 'contradict' | 'neutral' }>
+      }>
+      turns: number
+      askedProbeIds: string[]
+      selectedSlug?: string
+    }
+    status: 'active' | 'committed'
+    turns: number
+    transcript: Array<{ role: 'user' | 'agent' | 'system'; text: string; at: string }>
+    lastEvidence: Array<{ title: string; support: 'support' | 'contradict' | 'neutral' }>
+    statusNote?: string
+  }
+  /**
+   * @deprecated Prefer researchDialogue — kept in sync for traps / older UI paths.
+   */
+  hypothesisProbe?: {
+    set: {
+      hypotheses: Array<{
+        slug: string
+        score: number
+        why: string[]
+        evidence: Array<{ title: string; support: 'support' | 'contradict' | 'neutral' }>
+      }>
+      turns: number
+      askedProbeIds: string[]
+      selectedSlug?: string
+    }
+    status: 'probing' | 'committed'
+    turns: number
+  }
 }
-import type { SessionMatterFrame } from './matterFrame'
 
 export interface ServiceCard {
   id: string

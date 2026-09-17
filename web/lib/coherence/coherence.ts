@@ -7,6 +7,7 @@
  */
 import type { SessionState } from './types'
 import type { LegalFrame } from './frames'
+import { looksNeighbourDispute, looksVisaRefusalOrChallenge } from './sense'
 import { clipPhrase } from './timelineExtract'
 
 /** Lightweight wiki / guidance node for the session graph. */
@@ -115,7 +116,8 @@ const UNMET_RULES: UnmetRule[] = [
     id: 'constraint_decision_date',
     label: 'Decision / refusal date unclear',
     question: 'When did you get the refusal or decision, roughly?',
-    applies: (fid, _s, t) => fid === 'imm-challenge' || (fid.startsWith('imm-') && /refus|reject|decision/.test(t)),
+    applies: (fid, _s, t) =>
+      fid === 'imm-challenge' || (fid.startsWith('imm-') && looksVisaRefusalOrChallenge(t)),
     filled: (_s, t) =>
       /\b(20\d{2}|last month|this year|yesterday|january|february|march|april|may|june|july|august|september|october|november|december)\b/.test(
         t,
@@ -125,7 +127,7 @@ const UNMET_RULES: UnmetRule[] = [
     id: 'constraint_decision_letter',
     label: 'Decision letter / notice not named',
     question: 'Do you still have the refusal letter or decision notice?',
-    applies: (fid) => fid === 'imm-challenge',
+    applies: (fid, _s, t) => fid === 'imm-challenge' || looksVisaRefusalOrChallenge(t),
     filled: (s, t) => s.documents.length > 0 || /letter|notice|decision|refusal letter/.test(t),
   },
   {
@@ -168,9 +170,13 @@ const UNMET_RULES: UnmetRule[] = [
     id: 'constraint_housing_notice',
     label: 'Notice / tenancy papers unclear',
     question: 'Do you have a tenancy agreement or any notice from the landlord (for example section 21)?',
-    applies: (fid) => fid.startsWith('hous-'),
+    applies: (fid) => fid.startsWith('hous-') && fid !== 'hous-neighbour',
     filled: (s, t) =>
-      s.documents.length > 0 || /tenancy|section\s*21|section\s*8|notice|possession/.test(t),
+      looksNeighbourDispute(
+        [...s.rawInputs, s.whatHappened, s.goal].join(' '),
+      ) ||
+      s.documents.length > 0 ||
+      /tenancy|section\s*21|section\s*8|notice|possession/.test(t),
   },
   {
     id: 'constraint_employment_status',
@@ -242,14 +248,34 @@ function narrativeSupportReasons(frameId: string, text: string): string[] {
     'hous-disrepair': [[/mould|mold|damp|\brepairs?\b|disrepair/, 'Disrepair / conditions language']],
     'hous-deposit': [[/deposit|\brents?\b|arrears/, 'Rent / deposit language']],
     'hous-homeless': [[/homeless|sofa|nowhere to stay/, 'Homelessness language']],
-    'hous-general': [[/landlord|tenant|housing|\brents?\b/, 'Housing language present']],
+    'hous-lease-fire': [
+      [/fire door|leasehold|tamper|shared (?:property|block)|latch/, 'Leasehold / fire safety language'],
+    ],
+    'hous-neighbour': [
+      [
+        /neighbour|neighbor|car\s*port|carport|park(?:ed|ing)|boundary|noise|blocking|right of way|easement|shared (?:drive|access)/,
+        'Neighbour / access language',
+      ],
+    ],
+    'hous-general': [
+      [/\b(landlord|tenant|tenancy|section\s*21|\brents?\b)\b/, 'Landlord–tenant language present'],
+    ],
     'emp-unfair': [[/dismiss|fired|sacked|constructive/, 'Dismissal language']],
+    'emp-disability-ra': [
+      [
+        /bradford|reasonable adjustment|sickness absence|disability[- ]related|absence (?:management|procedure|trigger)|fluctuating/,
+        'Disability / absence adjustment language',
+      ],
+    ],
     'emp-wages': [[/wage|pay|holiday|contract|hours/, 'Pay / contract language']],
-    'emp-discrim': [[/discriminat|harass|whistle/, 'Discrimination / harassment language']],
-    'emp-tribunal': [[/tribunal|acas|claim/, 'Tribunal / ACAS language']],
+    'emp-discrim': [[/discriminat|harass|whistle|disabilit|disabled|equality act/, 'Discrimination / disability language']],
+    'emp-tribunal': [[/tribunal|acas|early conciliation/, 'Tribunal / ACAS language']],
     'emp-general': [[/employer|job|work|employment/, 'Employment language present']],
     'debt-enforcement': [[/bailiff|enforcement|warrant/, 'Enforcement / bailiff language']],
     'debt-ccj': [[/ccj|county court|judgment/, 'CCJ / judgment language']],
+    'debt-benefits': [
+      [/universal credit|\bpip\b|deprivation of capital|benefit/, 'Benefits / UC / PIP language'],
+    ],
     'debt-solution': [[/afford|iva|bankruptcy|breathing/, 'Debt solution language']],
     'debt-general': [[/debt|owe|creditor|money/, 'Debt language present']],
     'fam-children': [[/child|custody|contact|arrangement/, 'Children / arrangements language']],
@@ -315,7 +341,7 @@ function buildGraph(
         (frame.id === 'imm-family' && /join|family|spouse|partner|child/.test(g)) ||
         (frame.id === 'imm-adviser' && /solicitor|adviser|help|lawyer/.test(g)) ||
         (frame.id === 'imm-return' && /return|come back|re-?enter/.test(g)) ||
-        (frame.id.startsWith('hous-') && /stay|home|evict|\brepairs?\b|deposit|landlord/.test(g)) ||
+        (frame.id.startsWith('hous-') && /stay|home|evict|\brepairs?\b|deposit|landlord|neighbour|neighbor|driveway|parking|stop/.test(g)) ||
         (frame.id.startsWith('emp-') && /job|pay|wage|tribunal|dismiss|reinstate/.test(g)) ||
         (frame.id.startsWith('debt-') && /stop|pay|afford|bailiff|ccj/.test(g)) ||
         (frame.id.startsWith('fam-') && /child|contact|safe|divorce|see the kids/.test(g)) ||

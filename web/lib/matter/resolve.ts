@@ -1,10 +1,19 @@
 import { resolveTaxonomy } from "@/lib/legal/taxonomy-resolver";
 import type { TaxonomyResolution } from "@/lib/legal/taxonomy-resolver";
+import { isFamilyBelongingsPropertyClaim } from "@/lib/legal/query-signals";
+import {
+  storyLooksWorkplaceLeaveOrStaffRules,
+  storyLooksWorkplaceNeurodiversityAdjustments,
+} from "@/lib/coherence/hypothesisProbe";
+import { liveAskFromStory } from "@/lib/coherence/clientQuestions";
+import { normaliseLayText } from "@/lib/coherence/normaliseLay";
 
+import { extractStoryKeyphrases } from "./conceptRetrievalPlan";
 import {
   extractRelationshipModel,
   preferDisputeIssues,
 } from "./relationships";
+import { storyLooksAmbiguousSeizedDevice, storyLooksEmployerSeizedKit } from "./graphAdmissibility";
 import { buildRetrievalPlan, syncEventIssueLinks } from "./retrieval-plan";
 import {
   GLOBAL_EXCLUSION_LABELS,
@@ -48,12 +57,29 @@ function parseJurisdiction(hint?: string): MatterFrame["jurisdiction"] {
   return { code: "england_wales", confidence: 0.5 };
 }
 
-function buildExclusions(primarySlugs: string[], taxonomy: TaxonomyResolution | null): string[] {
+function looksProtectedCharacteristicClaim(story: string): boolean {
+  return (
+    /\b(discriminat|harass(?:ment|ed)?|bullied|bullying|protected characteristic|reasonable adjustments?|pregnancy discriminat|racist|homophob|sexist|disability discriminat)\b/i.test(
+      story,
+    ) || storyLooksWorkplaceNeurodiversityAdjustments(story)
+  );
+}
+
+function buildExclusions(
+  primarySlugs: string[],
+  taxonomy: TaxonomyResolution | null,
+  story = "",
+  keepSlugs: string[] = [],
+): string[] {
   const out = new Set<string>();
   for (const slug of primarySlugs) {
     const pattern = ISSUE_TITLE_EXCLUSIONS[slug];
     if (!pattern) continue;
-    if (/employment/i.test(pattern.source)) out.add("employment");
+    if (/\bemployment tribunal|rights at work|working time\b/i.test(pattern.source)) {
+      if (!keepSlugs.includes("employment") && !primarySlugs.includes("employment")) {
+        out.add("employment");
+      }
+    }
     if (/used car|car repair/i.test(pattern.source)) out.add("used_vehicle");
     if (/travel agent/i.test(pattern.source)) out.add("travel_agent");
     if (/consumer contracts|distance/i.test(pattern.source)) out.add("distance_contracts");
@@ -82,18 +108,36 @@ function buildExclusions(primarySlugs: string[], taxonomy: TaxonomyResolution | 
       if (label !== "employment") out.delete(label);
     }
   }
+  if (!looksProtectedCharacteristicClaim(story)) {
+    out.add("discrimination_equality");
+  }
+  for (const slug of [...primarySlugs, ...keepSlugs]) out.delete(slug);
   return [...out];
 }
 
-function buildConcepts(primarySlugs: string[], taxonomy: TaxonomyResolution | null): string[] {
+function buildConcepts(
+  primarySlugs: string[],
+  taxonomy: TaxonomyResolution | null,
+  story = "",
+  agentConcepts: string[] = [],
+): string[] {
   const concepts = new Set<string>();
   for (const slug of primarySlugs) {
     concepts.add(slug.replace(/_/g, " "));
   }
-  for (const term of taxonomy?.searchBoostTerms?.slice(0, 6) || []) {
+  // Matter-resolution LLM concepts first (LexKeyPlan IR)
+  for (const term of agentConcepts) {
+    const t = term.trim().toLowerCase();
+    if (t.length >= 3) concepts.add(t);
+  }
+  for (const term of taxonomy?.searchBoostTerms?.slice(0, 8) || []) {
     if (term.length >= 4) concepts.add(term.toLowerCase());
   }
-  return [...concepts].slice(0, 12);
+  // LexKeyPlan: story keyphrases compound into the frame (wiki navigation IR)
+  for (const phrase of extractStoryKeyphrases(story, 8)) {
+    concepts.add(phrase);
+  }
+  return [...concepts].slice(0, 20);
 }
 
 function buildObjectives(input: MatterResolveInput, primarySlugs: string[]): string[] {
@@ -128,12 +172,15 @@ function withMateriality(
 function buildAmbiguities(
   taxonomy: TaxonomyResolution | null,
   input: MatterResolveInput,
+  independentIssueCount = 0,
 ): MatterAmbiguity[] {
   const out: MatterAmbiguity[] = [];
   const candidates = taxonomy?.candidates || [];
   const top = candidates[0];
   const second = candidates[1];
-  const closeCall = Boolean(second && top && second.score / top.score >= 0.78);
+  const closeCall = Boolean(
+    second && top && second.score / top.score >= 0.78 && independentIssueCount < 2,
+  );
 
   if (closeCall && top && second) {
     out.push(
@@ -163,6 +210,21 @@ function buildAmbiguities(
         question: u.suggestedAsk,
         whyItMatters: u.whyItMatters || "Brief agent flagged uncertainty.",
         materiality: "medium",
+      }),
+    );
+  }
+  const story = [input.submission, input.clientQuestion, input.brief?.whatHappened]
+    .filter(Boolean)
+    .join("\n");
+  if (storyLooksAmbiguousSeizedDevice(story)) {
+    out.push(
+      withMateriality({
+        question: "Are you the person who was arrested, or the employer whose equipment the police took?",
+        whyItMatters:
+          "Criminal-defence pages and SRA cards assume the asker is the suspect. Return-of-property pages assume they own the kit.",
+        materiality: "high",
+        affectsRetrieval: true,
+        blocking: true,
       }),
     );
   }
@@ -223,31 +285,48 @@ function vagueAmbiguities(submission: string): MatterAmbiguity[] {
 }
 
 function mergeTaxonomy(input: MatterResolveInput): TaxonomyResolution | null {
-  const story = input.submission.trim();
+  const story = normaliseLayText(input.submission.trim());
   const resolved = resolveTaxonomy({
     story,
-    question: input.clientQuestion || input.brief?.clientQuestion,
-    understanding: input.understanding || input.brief?.understanding,
+    question: normaliseLayText(input.clientQuestion || input.brief?.clientQuestion || ""),
+    understanding: normaliseLayText(input.understanding || input.brief?.understanding || ""),
   });
   if (!resolved) return null;
 
+  const agentBoosts = [
+    ...(input.agentConcepts || []),
+    ...(input.taxonomy?.searchBoostTerms || []),
+  ]
+    .map((t) => String(t).trim().toLowerCase())
+    .filter((t) => t.length >= 3);
+
+  let next: TaxonomyResolution = resolved;
+  if (agentBoosts.length) {
+    next = {
+      ...resolved,
+      searchBoostTerms: [
+        ...new Set([...agentBoosts, ...resolved.searchBoostTerms]),
+      ].slice(0, 12),
+    };
+  }
+
   const classifySlug = input.classify?.taxonomySlug || input.taxonomy?.taxonomySlug;
-  if (classifySlug && classifySlug !== resolved.taxonomySlug) {
-    const boosted = resolved.candidates.find((c) => c.slug === classifySlug);
+  if (classifySlug && classifySlug !== next.taxonomySlug) {
+    const boosted = next.candidates.find((c) => c.slug === classifySlug);
     if (boosted) {
       return {
-        ...resolved,
+        ...next,
         taxonomySlug: classifySlug,
-        confidence: input.taxonomy?.confidence === "high" ? "high" : resolved.confidence,
-        reason: `classify-stamp:${classifySlug}; ${resolved.reason}`,
+        confidence: input.taxonomy?.confidence === "high" ? "high" : next.confidence,
+        reason: `classify-stamp:${classifySlug}; ${next.reason}`,
         candidates: [
           { slug: classifySlug, score: Math.max(boosted.score, 50), sources: ["classify-stamp"] },
-          ...resolved.candidates.filter((c) => c.slug !== classifySlug),
+          ...next.candidates.filter((c) => c.slug !== classifySlug),
         ],
       };
     }
   }
-  return resolved;
+  return next;
 }
 
 function deriveResolutionStatus(opts: {
@@ -300,6 +379,71 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
   primaryIssues = preferred.primary;
   secondaryIssues = preferred.secondary;
 
+  // Ex broke child's gift / sue for replacement → small claims primary, family secondary
+  const storyBlob = [input.submission, input.clientQuestion, input.understanding]
+    .filter(Boolean)
+    .join("\n");
+  if (isFamilyBelongingsPropertyClaim(storyBlob)) {
+    const smallClaims: MatterIssue = {
+      slug: "consumer_small_claims",
+      confidence: Math.max(0.78, primaryIssues[0]?.confidence ?? 0.78),
+      reason: "family backdrop + damaged belongings / civil recovery",
+    };
+    const familyKept = [...primaryIssues, ...secondaryIssues].filter((i) => i.slug === "family");
+    secondaryIssues = [
+      ...familyKept,
+      ...[...primaryIssues, ...secondaryIssues].filter(
+        (i) => i.slug !== "family" && i.slug !== "consumer_small_claims",
+      ),
+    ].slice(0, 4);
+    primaryIssues = [smallClaims];
+  }
+
+  // Contact / school-language bleed: workplace leave or staff rules must not pin primary family.
+  if (storyLooksWorkplaceLeaveOrStaffRules(storyBlob)) {
+    const employmentIssue: MatterIssue = {
+      slug: "employment",
+      confidence: Math.max(0.72, primaryIssues[0]?.confidence ?? 0.72),
+      reason: "workplace leave / staff rules",
+    };
+    const primaryIsFamily =
+      primaryIssues[0]?.slug === "family" ||
+      primaryIssues[0]?.slug?.startsWith("family") ||
+      Boolean(primaryIssues[0]?.slug?.includes("child"));
+
+    if (primaryIsFamily || !primaryIssues.length) {
+      const familyKept = [...primaryIssues, ...secondaryIssues].filter(
+        (i) => i.slug === "family" || i.slug.includes("child"),
+      );
+      secondaryIssues = [
+        ...familyKept.map((i) => ({ ...i, confidence: Math.min(i.confidence, 0.4) })),
+        ...[...primaryIssues, ...secondaryIssues].filter(
+          (i) => i.slug !== "family" && i.slug !== "employment" && !i.slug.includes("child"),
+        ),
+      ].slice(0, 4);
+      primaryIssues = [employmentIssue];
+      if (
+        storyLooksWorkplaceNeurodiversityAdjustments(storyBlob) &&
+        !secondaryIssues.some((s) => s.slug === "discrimination_equality")
+      ) {
+        secondaryIssues.unshift({
+          slug: "discrimination_equality",
+          confidence: 0.55,
+          reason: "workplace neurodiversity / adjustment cues",
+        });
+      }
+    } else if (
+      !primaryIssues.some((i) => i.slug === "employment" || i.slug.startsWith("employment")) &&
+      !secondaryIssues.some((i) => i.slug === "employment")
+    ) {
+      secondaryIssues.unshift({
+        slug: "employment",
+        confidence: 0.62,
+        reason: "workplace leave / staff-rules competitor",
+      });
+    }
+  }
+
   if (
     primaryIssues[0]?.slug === "housing" &&
     relationshipModel.relationships.some((r) => r.type === "employment") &&
@@ -312,15 +456,114 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
     });
   }
 
+  // Live ask is solicitor conduct / LeO / SRA — demote bare employment primary from workplace history.
+  const liveAsk = liveAskFromStory(storyBlob, input.clientQuestion || "");
+  if (
+    liveAsk.solicitorConduct &&
+    primaryIssues[0]?.slug === "employment" &&
+    !liveAsk.themes.includes("employment_wages") &&
+    !liveAsk.themes.includes("employment_rights")
+  ) {
+    const employmentKept = primaryIssues.filter((i) => i.slug === "employment").map((i) => ({
+      ...i,
+      confidence: Math.min(i.confidence, 0.42),
+      reason: `${i.reason}; backdrop — live ask is solicitor conduct`,
+    }));
+    secondaryIssues = [
+      ...employmentKept,
+      ...secondaryIssues.filter((i) => i.slug !== "employment"),
+    ].slice(0, 4);
+    primaryIssues = [
+      {
+        slug: "other",
+        confidence: Math.max(0.72, primaryIssues[0]?.confidence ?? 0.72),
+        reason: "live ask: Legal Ombudsman / SRA / solicitor fees or supervision",
+      },
+    ];
+  }
+
+  // Live ask is police pursuit damage claim — demote garage / vehicle-repair primary.
+  if (
+    liveAsk.policeVehicleClaim &&
+    (primaryIssues[0]?.slug === "consumer_vehicle_repair" || primaryIssues[0]?.slug === "consumer")
+  ) {
+    const repairKept = primaryIssues
+      .filter((i) => i.slug === "consumer_vehicle_repair" || i.slug === "consumer")
+      .map((i) => ({
+        ...i,
+        confidence: Math.min(i.confidence, 0.4),
+        reason: `${i.reason}; backdrop — live ask is police vehicle claim`,
+      }));
+    secondaryIssues = [
+      ...repairKept,
+      ...secondaryIssues.filter(
+        (i) => i.slug !== "consumer_vehicle_repair" && i.slug !== "consumer",
+      ),
+    ].slice(0, 4);
+    primaryIssues = [
+      {
+        slug: "other",
+        confidence: Math.max(0.74, primaryIssues[0]?.confidence ?? 0.74),
+        reason: "live ask: claim against police for damage to a parked vehicle",
+      },
+    ];
+  }
+
+  if (
+    liveAsk.neighbourSurveillance &&
+    primaryIssues[0]?.slug === "housing" &&
+    !/\b(landlord|tenant|tenancy|section\s*21|illegal evict)\b/i.test(storyBlob)
+  ) {
+    const housingKept = primaryIssues
+      .filter((i) => i.slug === "housing")
+      .map((i) => ({
+        ...i,
+        confidence: Math.min(i.confidence, 0.4),
+        reason: `${i.reason}; backdrop — live ask is neighbour CCTV / privacy`,
+      }));
+    secondaryIssues = [
+      ...housingKept,
+      ...secondaryIssues.filter((i) => i.slug !== "housing" && i.slug !== "neighbour_dispute"),
+    ].slice(0, 4);
+    if (!secondaryIssues.some((i) => i.slug === "data_protection")) {
+      secondaryIssues.unshift({
+        slug: "data_protection",
+        confidence: 0.55,
+        reason: "live ask: domestic CCTV / ICO",
+      });
+    }
+    primaryIssues = [
+      {
+        slug: "neighbour_dispute",
+        confidence: Math.max(0.78, primaryIssues[0]?.confidence ?? 0.78),
+        reason: "live ask: neighbour camera / CCTV pointing at the home",
+      },
+    ];
+  }
+
+  const disputedSupports = new Set(
+    relationshipModel.events.filter((e) => e.disputed).flatMap((e) => e.supportsIssues),
+  );
+  secondaryIssues = secondaryIssues.filter(
+    (i) =>
+      i.confidence >= 0.4 ||
+      disputedSupports.has(i.slug) ||
+      (i.slug === "employment" &&
+        relationshipModel.relationships.some((r) => r.type === "employment")),
+  );
+
   const primarySlugs = primaryIssues.map((i) => i.slug);
   const secondarySlugs = secondaryIssues.map((i) => i.slug);
   const top = candidates[0];
   const second = candidates[1];
-  const closeCall = Boolean(second && top && second.score / top.score >= 0.78);
+  const independentIssueCount = new Set(relationshipModel.disputeIssueHints.map((h) => h.slug)).size;
+  const closeCall = Boolean(
+    second && top && second.score / top.score >= 0.78 && independentIssueCount < 2,
+  );
 
   let ambiguities = [
     ...relationshipModel.ambiguities,
-    ...buildAmbiguities(taxonomy, input),
+    ...buildAmbiguities(taxonomy, input, independentIssueCount),
   ];
   if (!ambiguities.length && isVagueSubmission(input.submission)) {
     ambiguities = vagueAmbiguities(input.submission);
@@ -384,8 +627,16 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
       ? "pre_action"
       : undefined,
     objectives: buildObjectives(input, primarySlugs),
-    concepts: buildConcepts(primarySlugs, taxonomy),
-    exclusions: buildExclusions(primarySlugs, taxonomy),
+    concepts: buildConcepts(
+      primarySlugs,
+      taxonomy,
+      [input.submission, input.clientQuestion, input.understanding].filter(Boolean).join("\n"),
+      [
+        ...(input.agentConcepts || []),
+        ...(input.taxonomy?.searchBoostTerms || []),
+      ],
+    ),
+    exclusions: buildExclusions(primarySlugs, taxonomy, storyBlob, secondarySlugs),
     ambiguities,
     overallConfidence,
     resolutionStatus,
@@ -420,6 +671,16 @@ export function resolveMatterFrame(input: MatterResolveInput): MatterResolveResu
     },
     retrievalScope: retrievalScopeForSlugs([...primarySlugs, ...secondarySlugs.slice(0, 2)]),
   };
+
+  if (
+    storyLooksEmployerSeizedKit(storyBlob) &&
+    !frame.capacities.some((c) => c.partyId === "user" && c.capacity === "employer")
+  ) {
+    frame.capacities = [
+      ...frame.capacities,
+      { partyId: "user", capacity: "employer", confidence: 0.82 },
+    ];
+  }
 
   frame = syncEventIssueLinks(frame);
   const { traces } = buildRetrievalPlan(frame);

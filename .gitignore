@@ -14,9 +14,14 @@ __pycache__/
 Thumbs.db
 web/.sra-sync-state.json
 web/reports/
+web/data/leads-no-booked-call-eval.json
 *api-keys*.txt
 .vercel
 .env*
 
 # Local ops logs
 web/logs/
+
+# Exa batch runner
+scripts/exa/.venv/
+scripts/exa/runs/

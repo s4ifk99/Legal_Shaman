@@ -1,0 +1,246 @@
+{
+  "gist": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+  "pattern": "LLM Wiki: compile & maintain persistent wiki vs query-time RAG",
+  "results": [
+    {
+      "title": "SUMIE: A Synthetic Benchmark for Incremental Entity Summarization",
+      "url": "https://doi.org/10.48550/arxiv.2406.05079",
+      "score": 0,
+      "publishedDate": "2024-06-07T00:00:00.000Z",
+      "query": "incremental knowledge base construction large language models entity pages topic",
+      "highlights": [
+        "# SUMIE: A Synthetic Benchmark for Incremental Entity Summarization\n\narXiv (Cornell University). Published: 2024-06-07. Preprint. 0 citations.\n\n## Authors\n\n- Eunjeong Hwang: h-index 0; 0 citations\n- Yichao Zhou: h-index 11; 574 citations\n- Beliz Gunel: h-index 10; 963 citations\n- James B. Wendt: h-index 16; 1,046 citations\n- Sandeep Tata: h-index 18; 1,408 citations\n\n## Topics\n\n- Data Quality and Management\n- Data Management and Algorithms\n- Topic Modeling\n\n---\n\n# SUMIE: A Synthetic Benchmark for Incremental Entity Summarization\n\n## Abstract\n\nNo existing dataset adequately tests how well language models can incrementally update entity summaries -a crucial ability as these models rapidly advance. The Incremental Entity Summarization (IES) task is vital for maintaining accurate, up-to-date knowledge. To address this, we introduce SUMIE, a fully synthetic dataset designed to expose real-wor"
+      ],
+      "text": "# SUMIE: A Synthetic Benchmark for Incremental Entity Summarization\n\narXiv (Cornell University). Published: 2024-06-07. Preprint. 0 citations.\n\n## Authors\n\n- Eunjeong Hwang: h-index 0; 0 citations\n- Yichao Zhou: h-index 11; 574 citations\n- Beliz Gunel: h-index 10; 963 citations\n- James B. Wendt: h-index 16; 1,046 citations\n- Sandeep Tata: h-index 18; 1,408 citations\n\n## Topics\n\n- Data Quality and Management\n- Data Management and Algorithms\n- Topic Modeling\n\n---\n\n# SUMIE: A Synthetic Benchmark for Incremental Entity Summarization\n\n## Abstract\n\nNo existing dataset adequately tests how well langu",
+      "karpathy_relevance": 4
+    },
+    {
+      "title": "WiCER: Wiki-memory Compile, Evaluate, Refine Iterative Knowledge Compilation for LLM Wiki Systems",
+      "url": "https://doi.org/10.48550/arxiv.2605.07068",
+      "score": 0,
+      "publishedDate": "2026-05-08T00:00:00.000Z",
+      "query": "persistent knowledge base LLM wiki incremental compilation instead of RAG retrie",
+      "highlights": [
+        "# WiCER: Wiki-memory Compile, Evaluate, Refine Iterative Knowledge Compilation for LLM Wiki Systems\n\narXiv (Cornell University). Published: 2026-05-08. Preprint. 0 citations.\n\n## Authors\n\n- Juan M. Huerta: h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Wikis in Education and Collaboration\n- Natural Language Processing Techniques\n\n---\n\n# WiCER: Wiki-memory Compile, Evaluate, Refine Iterative Knowledge Compilation for LLM Wiki Systems\n\n## Abstract\n\nThe LLM Wiki pattern\u2014to compile and provide domain knowledge into a persistent artifact and serve it to LLMs via KV cache inference\u2014promises context access at sub-second latency with zero retrieval failure. Realizing this requires solving the compilation gap: LLM-compilation distilling raw documents into a wiki with out catastrophically discarding critical facts. We characterize this gap across 17 RepLiQA domains (6,"
+      ],
+      "text": "# WiCER: Wiki-memory Compile, Evaluate, Refine Iterative Knowledge Compilation for LLM Wiki Systems\n\narXiv (Cornell University). Published: 2026-05-08. Preprint. 0 citations.\n\n## Authors\n\n- Juan M. Huerta: h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Wikis in Education and Collaboration\n- Natural Language Processing Techniques\n\n---\n\n# WiCER: Wiki-memory Compile, Evaluate, Refine Iterative Knowledge Compilation for LLM Wiki Systems\n\n## Abstract\n\nThe LLM Wiki pattern\u2014to compile and provide domain knowledge into a persistent artifact and serve it to LLMs via KV cach",
+      "karpathy_relevance": 3
+    },
+    {
+      "title": "Building the Memex Sixty Years Later: Trends and Directions in Personal Knowledge Bases ; CU-CS-997-05",
+      "url": "https://scholar.colorado.edu/csci_techreports/931",
+      "score": 0,
+      "publishedDate": "2005-01-01T00:00:00.000Z",
+      "query": "knowledge compilation LLM personal knowledge management Memex associative trails",
+      "highlights": [
+        "# Building the Memex Sixty Years Later: Trends and Directions in Personal Knowledge Bases ; CU-CS-997-05\n\nCU Scholar (University of Colorado Boulder). Published: 2005-01-01. 4 citations.\n\n## Authors\n\n- Stephen Davies: h-index 18; 1,226 citations\n- Javier Velez-Morales: h-index 1; 4 citations\n- Roger King (University of Colorado Boulder): h-index 18; 2,235 citations\n\n## Topics\n\n- Personal Information Management and User Behavior\n- Semantic Web and Ontologies\n- Usability and User Interface Design\n\n---\n\n# Building the Memex Sixty Years Later: Trends and Directions in Personal Knowledge Bases\n\n## Abstract\n\nSoftware tools abound for managing documents and other information sources, but are rarely used for managing the personal, subjective knowledge an individual gleans from them. Yet for at least sixty years there has been a thread of interest in building a system to support a personalized re"
+      ],
+      "text": "# Building the Memex Sixty Years Later: Trends and Directions in Personal Knowledge Bases ; CU-CS-997-05\n\nCU Scholar (University of Colorado Boulder). Published: 2005-01-01. 4 citations.\n\n## Authors\n\n- Stephen Davies: h-index 18; 1,226 citations\n- Javier Velez-Morales: h-index 1; 4 citations\n- Roger King (University of Colorado Boulder): h-index 18; 2,235 citations\n\n## Topics\n\n- Personal Information Management and User Behavior\n- Semantic Web and Ontologies\n- Usability and User Interface Design\n\n---\n\n# Building the Memex Sixty Years Later: Trends and Directions in Personal Knowledge Bases\n\n## ",
+      "karpathy_relevance": 3
+    },
+    {
+      "title": "Streaming Knowledge Compilation: Proactive Materiality-Scored Pinning for Time-Evolving LLM Wikis",
+      "url": "https://doi.org/10.48550/arxiv.2606.09877",
+      "score": 0,
+      "publishedDate": "2026-06-03T00:00:00.000Z",
+      "query": "persistent knowledge base LLM wiki incremental compilation instead of RAG retrie",
+      "highlights": [
+        "# Streaming Knowledge Compilation: Proactive Materiality-Scored Pinning for Time-Evolving LLM Wikis\n\narXiv (Cornell University). Published: 2026-06-03. Preprint. 0 citations.\n\n## Authors\n\n- Juan M. Huerta: h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Wikis in Education and Collaboration\n- Advanced Graph Neural Networks\n- Information Retrieval and Search Behavior\n\n---\n\n# Streaming Knowledge Compilation: Proactive Materiality-Scored Pinning for Time-Evolving LLM Wikis\n\n## Abstract\n\nLLM wiki systems compile knowledge into pre-filled KV caches for efficient infer ence, but assume a static corpus\u2014an assumption that fails whenever the underlying information landscape evolves continuously. We formalize Streaming Knowledge Compilation: given a document stream, a fixed token budget, and future queries un known at ingestion time, maintain a compiled wiki that minimizes cumulative reg"
+      ],
+      "text": "# Streaming Knowledge Compilation: Proactive Materiality-Scored Pinning for Time-Evolving LLM Wikis\n\narXiv (Cornell University). Published: 2026-06-03. Preprint. 0 citations.\n\n## Authors\n\n- Juan M. Huerta: h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Wikis in Education and Collaboration\n- Advanced Graph Neural Networks\n- Information Retrieval and Search Behavior\n\n---\n\n# Streaming Knowledge Compilation: Proactive Materiality-Scored Pinning for Time-Evolving LLM Wikis\n\n## Abstract\n\nLLM wiki systems compile knowledge into pre-filled KV caches for efficient infer ence, but assume a s",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "Vector RAG vs LLM-Compiled Wiki: A Preregistered Comparison on a Small Multi-Domain Research",
+      "url": "https://doi.org/10.48550/arxiv.2605.18490",
+      "score": 0,
+      "publishedDate": "2026-05-18T00:00:00.000Z",
+      "query": "persistent knowledge base LLM wiki incremental compilation instead of RAG retrie",
+      "highlights": [
+        "# Vector RAG vs LLM-Compiled Wiki: A Preregistered Comparison on a Small Multi-Domain Research\n\narXiv (Cornell University). Published: 2026-05-18. Preprint. 0 citations.\n\n## Authors\n\n- Theodore O. Cochran: h-index 1; 3 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Expert finding and Q&A systems\n- Computational and Text Analysis Methods\n\n---\n\n# Vector RAG vs LLM-Compiled Wiki: A Preregistered Comparison on a Small Multi-Domain Research\n\nTheodore O. Cochran AI for Altruism (A4A) theo@ai4altruism.org\n\n## Abstract\n\nWe preregistered a comparison of two ways to help an LLM answer questions over a small research corpus: a single-round Vector RAG system and an LLM-compiled markdown wiki. Both systems answered the same 13 questions over 24 papers using the same answer-generating model, and their answers were scored by blinded LLM judges. The wiki scored much better at connecting"
+      ],
+      "text": "# Vector RAG vs LLM-Compiled Wiki: A Preregistered Comparison on a Small Multi-Domain Research\n\narXiv (Cornell University). Published: 2026-05-18. Preprint. 0 citations.\n\n## Authors\n\n- Theodore O. Cochran: h-index 1; 3 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Expert finding and Q&A systems\n- Computational and Text Analysis Methods\n\n---\n\n# Vector RAG vs LLM-Compiled Wiki: A Preregistered Comparison on a Small Multi-Domain Research\n\nTheodore O. Cochran AI for Altruism (A4A) theo@ai4altruism.org\n\n## Abstract\n\nWe preregistered a comparison of two ways to help an LLM answer qu",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "Progressive Disclosure for LLM-Maintained Wiki Knowledge Bases: a Preregistered Ablation",
+      "url": "https://doi.org/10.48550/arxiv.2607.04576",
+      "score": 0,
+      "publishedDate": "2026-07-06T00:00:00.000Z",
+      "query": "persistent knowledge base LLM wiki incremental compilation instead of RAG retrie",
+      "highlights": [
+        "# Progressive Disclosure for LLM-Maintained Wiki Knowledge Bases: a Preregistered Ablation\n\narXiv (Cornell University). Published: 2026-07-06. Preprint. 0 citations.\n\n## Authors\n\n- Theodore O. Cochran: h-index 1; 3 citations; corresponding author\n\n## Topics\n\n- Wikis in Education and Collaboration\n- Topic Modeling\n- Advanced Graph Neural Networks\n\n---\n\n# Progressive Disclosure for LLM-Maintained Wiki Knowledge Bases: a Preregistered Ablation\n\n## Abstract\n\nLLM agents increasingly answer questions against structured knowledge bases that they themselves help maintain. A common efficiency intuition says that progressive disclosure should make this cheaper: keep a compact catalog and a one-line summary for each page, and the agent loads only what it needs instead of a large monolithic index. We test that intuition on a real 709-page markdown knowledge base maintained by an LLM. We retrofit it"
+      ],
+      "text": "# Progressive Disclosure for LLM-Maintained Wiki Knowledge Bases: a Preregistered Ablation\n\narXiv (Cornell University). Published: 2026-07-06. Preprint. 0 citations.\n\n## Authors\n\n- Theodore O. Cochran: h-index 1; 3 citations; corresponding author\n\n## Topics\n\n- Wikis in Education and Collaboration\n- Topic Modeling\n- Advanced Graph Neural Networks\n\n---\n\n# Progressive Disclosure for LLM-Maintained Wiki Knowledge Bases: a Preregistered Ablation\n\n## Abstract\n\nLLM agents increasingly answer questions against structured knowledge bases that they themselves help maintain. A common efficiency intuition",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "WikiKV: Schema-Evolving Path-Indexed Storage for Hierarchical Knowledge Navigation",
+      "url": "https://doi.org/10.48550/arxiv.2606.14275",
+      "score": 0,
+      "publishedDate": "2026-06-12T00:00:00.000Z",
+      "query": "persistent knowledge base LLM wiki incremental compilation instead of RAG retrie",
+      "highlights": [
+        "# WikiKV: Schema-Evolving Path-Indexed Storage for Hierarchical Knowledge Navigation\n\narXiv (Cornell University). Published: 2026-06-12. Preprint. 0 citations.\n\n## Authors\n\n- Feifei Li: h-index 0; 0 citations\n- \u94ed\u8c6a \u6881: h-index 0; 0 citations\n- Zihan Li: h-index 0; 0 citations\n- Hang Liao: h-index 0; 0 citations\n- Xingyu Fan: h-index 0; 0 citations\n- X . Wu: h-index 0; 0 citations\n- Chenggong Wang: h-index 0; 0 citations\n- Wenhui Que: h-index 2; 146 citations\n\n## Topics\n\n- Topic Modeling\n- Information Retrieval and Search Behavior\n- Advanced Graph Neural Networks\n\n---\n\n# WikiKV: Schema-Evolving Path-Indexed Storage for Hierarchical Knowledge Navigation\n\nWeChat, Tencent Inc., Beijing, China { niyali, hliangming, muselli, caryliao} @tencent.com { fanxfan, xiaoqingwwu, jevanwang, victorque} @tencent.com *These authors contributed equally to this work. \u2020Corresponding author.\n\nAbstract\u2014LLM-curat"
+      ],
+      "text": "# WikiKV: Schema-Evolving Path-Indexed Storage for Hierarchical Knowledge Navigation\n\narXiv (Cornell University). Published: 2026-06-12. Preprint. 0 citations.\n\n## Authors\n\n- Feifei Li: h-index 0; 0 citations\n- \u94ed\u8c6a \u6881: h-index 0; 0 citations\n- Zihan Li: h-index 0; 0 citations\n- Hang Liao: h-index 0; 0 citations\n- Xingyu Fan: h-index 0; 0 citations\n- X . Wu: h-index 0; 0 citations\n- Chenggong Wang: h-index 0; 0 citations\n- Wenhui Que: h-index 2; 146 citations\n\n## Topics\n\n- Topic Modeling\n- Information Retrieval and Search Behavior\n- Advanced Graph Neural Networks\n\n---\n\n# WikiKV: Schema-Evolving P",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "Knowledge Compounding: An Empirical Economic Analysis of Self-Evolving Knowledge Wikis under the Agentic ROI Framework",
+      "url": "https://doi.org/10.48550/arxiv.2604.11243",
+      "score": 0,
+      "publishedDate": "2026-04-13T00:00:00.000Z",
+      "query": "LLM maintains structured knowledge graph wiki from documents compounding synthes",
+      "highlights": [
+        "# Knowledge Compounding: An Empirical Economic Analysis of Self-Evolving Knowledge Wikis under the Agentic ROI Framework\n\narXiv (Cornell University). Published: 2026-04-13. Preprint. 0 citations.\n\n## Authors\n\n- Shuide Wen: h-index 0; 0 citations\n- Beier Ku: h-index 0; 0 citations\n\n## Topics\n\n- Wikis in Education and Collaboration\n- Information Retrieval and Search Behavior\n- Language and cultural evolution\n\n---\n\n# Knowledge Compounding: An Empirical Economic Analysis under the Agentic ROI Framework\n\nShuide Wen\u00b9 \u00b7 Beier Ku\u00b2 \u00b9 Shenzhen International Graduate School, Tsinghua University, Shenzhen, China \u00b2 Jesus College, University of Oxford, Oxford, United Kingdom Corresponding authors: wenshuide@sz.tsinghua.edu.cn \u00b7 beier.ku@jesus.ox.ac.uk\n\nApril 2026\n\n## Abstract\n\nWe extend the Agentic ROI framework of Liu et al. (2026) by relaxing its implicit assumption that per-task LLM costs are indep"
+      ],
+      "text": "# Knowledge Compounding: An Empirical Economic Analysis of Self-Evolving Knowledge Wikis under the Agentic ROI Framework\n\narXiv (Cornell University). Published: 2026-04-13. Preprint. 0 citations.\n\n## Authors\n\n- Shuide Wen: h-index 0; 0 citations\n- Beier Ku: h-index 0; 0 citations\n\n## Topics\n\n- Wikis in Education and Collaboration\n- Information Retrieval and Search Behavior\n- Language and cultural evolution\n\n---\n\n# Knowledge Compounding: An Empirical Economic Analysis under the Agentic ROI Framework\n\nShuide Wen\u00b9 \u00b7 Beier Ku\u00b2 \u00b9 Shenzhen International Graduate School, Tsinghua University, Shenzhen",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "Agentic Deep Graph Reasoning Yields Self-Organizing Knowledge Networks",
+      "url": "https://doi.org/10.48550/arxiv.2502.13025",
+      "score": 0,
+      "publishedDate": "2025-02-18T00:00:00.000Z",
+      "query": "LLM maintains structured knowledge graph wiki from documents compounding synthes",
+      "highlights": [
+        "# Agentic Deep Graph Reasoning Yields Self-Organizing Knowledge Networks\n\narXiv (Cornell University). Published: 2025-02-18. Preprint. 1 citation.\n\n## Authors\n\n- Markus J. Buehler: h-index 119; 55,099 citations; corresponding author\n\n## Topics\n\n- Advanced Graph Neural Networks\n\n---\n\n# Autonomous Knowledge Gardening at Scale\n\nAgentic Deep Graph Reasoning Yields Self-Organizing Knowledge Networks\n\nA Preprint\n\nFebruary 19, 2025\n\n## Abstract\n\nWe present an agentic, autonomous graph expansion framework that iteratively structures and refines knowledge in situ. Unlike conventional knowledge graph construction methods relying on static extraction or single-pass learning, our approach couples a reasoning-native large language model with a continually updated graph representation. At each step, the system actively generates new concepts and relationships, merges them into a global graph, and form"
+      ],
+      "text": "# Agentic Deep Graph Reasoning Yields Self-Organizing Knowledge Networks\n\narXiv (Cornell University). Published: 2025-02-18. Preprint. 1 citation.\n\n## Authors\n\n- Markus J. Buehler: h-index 119; 55,099 citations; corresponding author\n\n## Topics\n\n- Advanced Graph Neural Networks\n\n---\n\n# Autonomous Knowledge Gardening at Scale\n\nAgentic Deep Graph Reasoning Yields Self-Organizing Knowledge Networks\n\nA Preprint\n\nFebruary 19, 2025\n\n## Abstract\n\nWe present an agentic, autonomous graph expansion framework that iteratively structures and refines knowledge in situ. Unlike conventional knowledge graph co",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "Memory as Metabolism: A Design for Companion Knowledge Systems",
+      "url": "https://doi.org/10.48550/arxiv.2604.12034",
+      "score": 0,
+      "publishedDate": "2026-04-13T00:00:00.000Z",
+      "query": "knowledge compilation LLM personal knowledge management Memex associative trails",
+      "highlights": [
+        "# Memory as Metabolism: A Design for Companion Knowledge Systems\n\narXiv (Cornell University). Published: 2026-04-13. Preprint. 0 citations.\n\n## Authors\n\n- Stefan Miteski: h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Wikis in Education and Collaboration\n- Environmental Monitoring and Data Management\n- Advanced Graph Neural Networks\n\n---\n\n# Memory as Metabolism: A Design for Companion Knowledge Systems\n\nmodeled on sleep consolidation. New entries land in a raw buffer. A shallow filter rejects obvious garbage at ingestion but does not make coherence decisions. The real coherence work runs on a schedule (nightly, weekly, whatever fits), and it scores entries against each other as well as against the active wiki. This matters because a single contradictory entry scored alone gets quarantined, but three mutually-supporting entries arriving in the same buffer window can accumulate"
+      ],
+      "text": "# Memory as Metabolism: A Design for Companion Knowledge Systems\n\narXiv (Cornell University). Published: 2026-04-13. Preprint. 0 citations.\n\n## Authors\n\n- Stefan Miteski: h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Wikis in Education and Collaboration\n- Environmental Monitoring and Data Management\n- Advanced Graph Neural Networks\n\n---\n\n# Memory as Metabolism: A Design for Companion Knowledge Systems\n\nmodeled on sleep consolidation. New entries land in a raw buffer. A shallow filter rejects obvious garbage at ingestion but does not make coherence decisions. The real coherence wor",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "WINELL: Wikipedia Never-Ending Updating with LLM Agents",
+      "url": "https://doi.org/10.48550/arxiv.2508.03728",
+      "score": 0,
+      "publishedDate": "2025-07-30T00:00:00.000Z",
+      "query": "incremental knowledge base construction large language models entity pages topic",
+      "highlights": [
+        "# WINELL: Wikipedia Never-Ending Updating with LLM Agents\n\narXiv (Cornell University). Published: 2025-07-30. Preprint. 0 citations.\n\n## Authors\n\n- Reddy, Revanth Gangi\n- Dixit, Tanay\n- Qin, Jiaxin\n- Qian, Cheng\n- Lee, Daniel\n- Han, Jiawei\n- Small, Kevin\n- Fan, Xing\n- Sarikaya, Ruhi\n- Ji, Heng\n\n## Topics\n\n- Wikis in Education and Collaboration\n- Topic Modeling\n- Natural Language Processing Techniques\n\n---\n\n# WINELL: Wikipedia Never-Ending Updating with LLM Agents\n\nRevanth Gangi Reddy*1 Tanay Dixit*1 Jiaxin Qin 1 Cheng Qian 1 Daniel Lee 1 Jiawei Han 1 Kevin Small 2 Xing Fan 2 Ruhi Sarikaya 2 Heng Ji 2 1 University of Illinois Urbana-Champaign 2 Amazon revanth3@illinois.edu; jihj@amazon.com\n\n## Abstract\n\nWikipedia, a vast and continuously consulted knowledge base, faces significant challenges in maintaining up-to-date content due to its re liance on manual human editors. Inspired by the vi"
+      ],
+      "text": "# WINELL: Wikipedia Never-Ending Updating with LLM Agents\n\narXiv (Cornell University). Published: 2025-07-30. Preprint. 0 citations.\n\n## Authors\n\n- Reddy, Revanth Gangi\n- Dixit, Tanay\n- Qin, Jiaxin\n- Qian, Cheng\n- Lee, Daniel\n- Han, Jiawei\n- Small, Kevin\n- Fan, Xing\n- Sarikaya, Ruhi\n- Ji, Heng\n\n## Topics\n\n- Wikis in Education and Collaboration\n- Topic Modeling\n- Natural Language Processing Techniques\n\n---\n\n# WINELL: Wikipedia Never-Ending Updating with LLM Agents\n\nRevanth Gangi Reddy*1 Tanay Dixit*1 Jiaxin Qin 1 Cheng Qian 1 Daniel Lee 1 Jiawei Han 1 Kevin Small 2 Xing Fan 2 Ruhi Sarikaya 2 He",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "WikiBigEdit: Understanding the Limits of Lifelong Knowledge Editing in LLMs",
+      "url": "https://doi.org/10.48550/arxiv.2503.05683",
+      "score": 0,
+      "publishedDate": "2025-03-07T00:00:00.000Z",
+      "query": "from RAG to knowledge base curation LLM updates wiki contradictions synthesis",
+      "highlights": [
+        "# WikiBigEdit: Understanding the Limits of Lifelong Knowledge Editing in LLMs\n\narXiv (Cornell University). Published: 2025-03-07. Preprint. 0 citations.\n\n## Authors\n\n- Lukas Thede: h-index 2; 8 citations\n- Karsten Roth: h-index 15; 3,611 citations\n- Matthias Bethge: h-index 66; 36,262 citations\n- Zeynep Akata: h-index 49; 16,618 citations\n- Hartvigsen, Tom\n\n## Topics\n\n- Digital Rights Management and Security\n- Wikis in Education and Collaboration\n- Library Science and Information Systems\n\n---\n\n# WikiBigEdit: Understanding the Limits of Lifelong Knowledge Editing in LLMs\n\nLukas Thede 1 2 3 Karsten Roth 1 2 3 Matthias Bethge 1 Zeynep Akata 2 3 4 Thomas Hartvigsen 5\n\n## Abstract\n\nKeeping large language models factually up-to date is crucial for deployment, yet costly retrain ing remains a challenge. Knowledge editing of fers a promising alternative, but methods are only tested on small-scal"
+      ],
+      "text": "# WikiBigEdit: Understanding the Limits of Lifelong Knowledge Editing in LLMs\n\narXiv (Cornell University). Published: 2025-03-07. Preprint. 0 citations.\n\n## Authors\n\n- Lukas Thede: h-index 2; 8 citations\n- Karsten Roth: h-index 15; 3,611 citations\n- Matthias Bethge: h-index 66; 36,262 citations\n- Zeynep Akata: h-index 49; 16,618 citations\n- Hartvigsen, Tom\n\n## Topics\n\n- Digital Rights Management and Security\n- Wikis in Education and Collaboration\n- Library Science and Information Systems\n\n---\n\n# WikiBigEdit: Understanding the Limits of Lifelong Knowledge Editing in LLMs\n\nLukas Thede 1 2 3 Kars",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "Evolve: A Persistent Knowledge Lifecycle for Small Language Models",
+      "url": "https://doi.org/10.48550/arxiv.2604.23424",
+      "score": 0,
+      "publishedDate": "2026-04-25T00:00:00.000Z",
+      "query": "cache-augmented generation compiled knowledge store vs retrieval augmented gener",
+      "highlights": [
+        "# Evolve: A Persistent Knowledge Lifecycle for Small Language Models\n\narXiv (Cornell University). Published: 2026-04-25. Preprint. 0 citations.\n\n## Authors\n\n- Dikran Hovagimian: h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Natural Language Processing Techniques\n- Multimodal Machine Learning Applications\n\n---\n\n# Evolve: A Persistent Knowledge Lifecycle for Small Language Models\n\nDikran Hovagimian Independent Researcher dikran@hovagimian.com Code and evaluation data: https://gitlab.com/dikran.hovagimian/evolve April 2026\n\n## Abstract\n\nEvolve pairs a small local language model with a persistent, teacher-compiled knowledge store \u2014 refined through sleep consolidation and usage-driven refresh \u2014 to deliver substantial accuracy gains over the model\u2019s parametric baseline while amortizing teacher costs through cross-query knowledge reuse. Rather than retrieving docum"
+      ],
+      "text": "# Evolve: A Persistent Knowledge Lifecycle for Small Language Models\n\narXiv (Cornell University). Published: 2026-04-25. Preprint. 0 citations.\n\n## Authors\n\n- Dikran Hovagimian: h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Natural Language Processing Techniques\n- Multimodal Machine Learning Applications\n\n---\n\n# Evolve: A Persistent Knowledge Lifecycle for Small Language Models\n\nDikran Hovagimian Independent Researcher dikran@hovagimian.com Code and evaluation data: https://gitlab.com/dikran.hovagimian/evolve April 2026\n\n## Abstract\n\nEvolve pairs a small local lan",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "Transforming AI Decision Support System with Knowledge Graphs & CAG",
+      "url": "https://doi.org/10.63503/j.ijaimd.2025.110",
+      "score": 0,
+      "publishedDate": "2025-05-08T00:00:00.000Z",
+      "query": "cache-augmented generation compiled knowledge store vs retrieval augmented gener",
+      "highlights": [
+        "# Transforming AI Decision Support System with Knowledge Graphs & CAG\n\nInternational Journal on Engineering Artificial Intelligence Management Decision Support and Policies. Published: 2025-05-08. 1 citation.\n\n## Authors\n\n- Saiyam Arora (Engineers India (India)): h-index 3; 65 citations; corresponding author\n\n## Topics\n\n- Data Quality and Management\n- Cognitive Computing and Networks\n- Data Mining Algorithms and Applications\n\n---\n\n# Transforming AI Decision Support System with Knowledge Graphs & CAG\n\n## Abstract\n\nArtificial Intelligence (AI) serves as a fundamental component of decision support systems (DSS), enabling organizations to process large-scale data and derive actionable insights. However, traditional AI models utilizing relational databases (RDBMS) exhibit limitations in retaining context and applying knowledge-driven reasoning. This study examines the integration of Knowledge"
+      ],
+      "text": "# Transforming AI Decision Support System with Knowledge Graphs & CAG\n\nInternational Journal on Engineering Artificial Intelligence Management Decision Support and Policies. Published: 2025-05-08. 1 citation.\n\n## Authors\n\n- Saiyam Arora (Engineers India (India)): h-index 3; 65 citations; corresponding author\n\n## Topics\n\n- Data Quality and Management\n- Cognitive Computing and Networks\n- Data Mining Algorithms and Applications\n\n---\n\n# Transforming AI Decision Support System with Knowledge Graphs & CAG\n\n## Abstract\n\nArtificial Intelligence (AI) serves as a fundamental component of decision suppor",
+      "karpathy_relevance": 2
+    },
+    {
+      "title": "Retrieval as Reasoning: Self-Evolving Agent-Native Retrieval via LLM-Wiki",
+      "url": "https://doi.org/10.48550/arxiv.2605.25480",
+      "score": 0,
+      "publishedDate": "2026-05-25T00:00:00.000Z",
+      "query": "persistent knowledge base LLM wiki incremental compilation instead of RAG retrie",
+      "highlights": [
+        "# Retrieval as Reasoning: Self-Evolving Agent-Native Retrieval via LLM-Wiki\n\narXiv (Cornell University). Published: 2026-05-25. Preprint. 0 citations.\n\n## Authors\n\n- \u94ed\u8c6a \u6881: h-index 0; 0 citations\n- Feifei Li: h-index 0; 0 citations\n- Wu Xiaoqing: h-index 6; 349 citations\n- Wenhui Que: h-index 2; 146 citations\n\n## Topics\n\n- Topic Modeling\n- Information Retrieval and Search Behavior\n- Advanced Graph Neural Networks\n\n---\n\n# Retrieval as Reasoning: Self-Evolving Agent-Native Retrieval via LLM-Wiki\n\nHaoliang Ming, Feifei Li, Xiaoqing Wu, Wenhui Que\u2217 WeChat, Tencent Inc., Beijing, China {hliangming, niyali, xiaoqingwwu, victorque}@tencent.com\n\n## Abstract\n\nLLM agents require retrieval to behave less like one-shot context fetching and more like reasoning: searching, reading, traversing, and deciding when evidence is sufficient. Yet cur rent Retrieval-Augmented Generation (RAG) systems organize e"
+      ],
+      "text": "# Retrieval as Reasoning: Self-Evolving Agent-Native Retrieval via LLM-Wiki\n\narXiv (Cornell University). Published: 2026-05-25. Preprint. 0 citations.\n\n## Authors\n\n- \u94ed\u8c6a \u6881: h-index 0; 0 citations\n- Feifei Li: h-index 0; 0 citations\n- Wu Xiaoqing: h-index 6; 349 citations\n- Wenhui Que: h-index 2; 146 citations\n\n## Topics\n\n- Topic Modeling\n- Information Retrieval and Search Behavior\n- Advanced Graph Neural Networks\n\n---\n\n# Retrieval as Reasoning: Self-Evolving Agent-Native Retrieval via LLM-Wiki\n\nHaoliang Ming, Feifei Li, Xiaoqing Wu, Wenhui Que\u2217 WeChat, Tencent Inc., Beijing, China {hliangming, ",
+      "karpathy_relevance": 1
+    },
+    {
+      "title": "Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment",
+      "url": "https://doi.org/10.48550/arxiv.2603.25737",
+      "score": 0,
+      "publishedDate": "2026-03-26T00:00:00.000Z",
+      "query": "persistent knowledge base LLM wiki incremental compilation instead of RAG retrie",
+      "highlights": [
+        "# Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment\n\narXiv (Cornell University). Published: 2026-03-26. Preprint. 0 citations.\n\n## Authors\n\n- Yuxing Lu: h-index 0; 0 citations\n- Xukai Zhao: h-index 8; 212 citations\n- Wei Wu: h-index 1; 1 citation\n- Jinzhuo Wang: h-index 15; 728 citations\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- Topic Modeling\n- Biomedical Text Mining and Ontologies\n\n---\n\n# Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment\n\nYuxing Lu\n\n\u2660\u2661\n\n, Xukai Zhao\n\n\u2663\n\n, Wei Wu\n\n\u2660\n\n, Jinzhuo Wang\n\n*\u2660 \u2660\n\nPeking University\n\n\u2661\n\nGeorgia Institute of Technology \u2663\n\nTsinghua University\n\n## Abstract\n\nThe knowledge base in a retrieval-augmented generation (RAG) system is typically assem bled once and never revised, even though the facts a query requires are often fragmented across documents and buried in irrele"
+      ],
+      "text": "# Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment\n\narXiv (Cornell University). Published: 2026-03-26. Preprint. 0 citations.\n\n## Authors\n\n- Yuxing Lu: h-index 0; 0 citations\n- Xukai Zhao: h-index 8; 212 citations\n- Wei Wu: h-index 1; 1 citation\n- Jinzhuo Wang: h-index 15; 728 citations\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- Topic Modeling\n- Biomedical Text Mining and Ontologies\n\n---\n\n# Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment\n\nYuxing Lu\n\n\u2660\u2661\n\n, Xukai Zhao\n\n\u2663\n\n, Wei Wu\n\n\u2660\n\n, Jinzhuo Wang\n\n*\u2660 \u2660\n\nPeki",
+      "karpathy_relevance": 1
+    },
+    {
+      "title": "Facts as First Class Objects: Knowledge Objects for Persistent LLM Memory",
+      "url": "https://doi.org/10.48550/arxiv.2603.17781",
+      "score": 0,
+      "publishedDate": "2026-03-18T00:00:00.000Z",
+      "query": "persistent knowledge base LLM wiki incremental compilation instead of RAG retrie",
+      "highlights": [
+        "# Facts as First Class Objects: Knowledge Objects for Persistent LLM Memory\n\narXiv (Cornell University). Published: 2026-03-18. Preprint. 0 citations.\n\n## Authors\n\n- Oliver Zahn: h-index 0; 0 citations\n- Simran Chana: h-index 4; 92 citations\n\n## Topics\n\n- Advanced Graph Neural Networks\n- Topic Modeling\n- Big Data and Digital Economy\n\n---\n\n# Facts as First Class Objects: Knowledge Objects for Persistent LLM Memory\n\n1Independent Researcher 2University of Cambridge\n\nMarch 2026\n\n## Abstract\n\nLarge language models increasingly serve as persistent knowledge workers, with in-context memory\u2014facts stored in the prompt\u2014as the default strategy. We benchmark in-context memory against Knowledge Objects (KOs), discrete hash-addressed tuples with O(1) retrieval. Within the context window, Claude Sonnet 4.5 achieves 100% exact-match accuracy from 10 to 7,000 facts (97.5% of its 200K window). However, pr"
+      ],
+      "text": "# Facts as First Class Objects: Knowledge Objects for Persistent LLM Memory\n\narXiv (Cornell University). Published: 2026-03-18. Preprint. 0 citations.\n\n## Authors\n\n- Oliver Zahn: h-index 0; 0 citations\n- Simran Chana: h-index 4; 92 citations\n\n## Topics\n\n- Advanced Graph Neural Networks\n- Topic Modeling\n- Big Data and Digital Economy\n\n---\n\n# Facts as First Class Objects: Knowledge Objects for Persistent LLM Memory\n\n1Independent Researcher 2University of Cambridge\n\nMarch 2026\n\n## Abstract\n\nLarge language models increasingly serve as persistent knowledge workers, with in-context memory\u2014facts stor",
+      "karpathy_relevance": 1
+    },
+    {
+      "title": "Docs2KG: A Human-LLM Collaborative Approach to Unified Knowledge Graph Construction from Heterogeneous Documents",
+      "url": "https://doi.org/10.1145/3701716.3715309",
+      "score": 0,
+      "publishedDate": "2025-05-08T00:00:00.000Z",
+      "query": "LLM maintains structured knowledge graph wiki from documents compounding synthes",
+      "highlights": [
+        "# Docs2KG: A Human-LLM Collaborative Approach to Unified Knowledge Graph Construction from Heterogeneous Documents\n\nPublished: 2025-05-08. 5 citations.\n\n## Authors\n\n- Qiang Sun (The University of Western Australia): h-index 2; 10 citations\n- Yuanyi Luo (Harbin Institute of Technology): h-index 4; 48 citations\n- W. J. Zhang (The University of Western Australia): h-index 3; 32 citations\n- Sirui Li (The University of Western Australia): h-index 8; 367 citations\n- Jichunyang Li (The University of Western Australia): h-index 3; 16 citations\n- Kai Niu (The University of Western Australia)\n- Xiangrui Kong (The University of Western Australia): h-index 5; 58 citations\n- Wei Liu (The University of Western Australia): h-index 29; 52,271 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n- Topic Modeling\n- Biomedical Text Mining and Ontologies\n\n---\n\n# Docs2KG: A Human-LLM Collaborative Approach to"
+      ],
+      "text": "# Docs2KG: A Human-LLM Collaborative Approach to Unified Knowledge Graph Construction from Heterogeneous Documents\n\nPublished: 2025-05-08. 5 citations.\n\n## Authors\n\n- Qiang Sun (The University of Western Australia): h-index 2; 10 citations\n- Yuanyi Luo (Harbin Institute of Technology): h-index 4; 48 citations\n- W. J. Zhang (The University of Western Australia): h-index 3; 32 citations\n- Sirui Li (The University of Western Australia): h-index 8; 367 citations\n- Jichunyang Li (The University of Western Australia): h-index 3; 16 citations\n- Kai Niu (The University of Western Australia)\n- Xiangrui",
+      "karpathy_relevance": 1
+    },
+    {
+      "title": "SocraticKG: Knowledge Graph Construction via QA-Driven Fact Extraction",
+      "url": "https://doi.org/10.48550/arxiv.2601.10003",
+      "score": 0,
+      "publishedDate": "2026-01-15T00:00:00.000Z",
+      "query": "LLM maintains structured knowledge graph wiki from documents compounding synthes",
+      "highlights": [
+        "# SocraticKG: Knowledge Graph Construction via QA-Driven Fact Extraction\n\narXiv (Cornell University). Published: 2026-01-15. Preprint. 0 citations.\n\n## Authors\n\n- Sanghyeok Choi: h-index 0; 0 citations\n- Woosang Jeon: h-index 0; 0 citations\n- Kepeng Yang: h-index 6; 139 citations\n- Kim, Taehyeong\n\n## Topics\n\n- Advanced Graph Neural Networks\n- Topic Modeling\n- Biomedical Text Mining and Ontologies\n\n---\n\n# SocraticKG: Knowledge Graph Construction via QA-Driven Fact Extraction\n\n1Department of Biosystems Engineering, Seoul National University 2Interdisciplinary Program in Cognitive Science, Seoul National University {cholsang83, jwoosang1, kyuseok0603, taehyeong.kim}@snu.ac.kr\n\n## Abstract\n\nConstructing Knowledge Graphs (KGs) from unstructured text provides a structured frame work for knowledge representation and rea soning, yet current LLM-based approaches struggle with a fundamental trade-"
+      ],
+      "text": "# SocraticKG: Knowledge Graph Construction via QA-Driven Fact Extraction\n\narXiv (Cornell University). Published: 2026-01-15. Preprint. 0 citations.\n\n## Authors\n\n- Sanghyeok Choi: h-index 0; 0 citations\n- Woosang Jeon: h-index 0; 0 citations\n- Kepeng Yang: h-index 6; 139 citations\n- Kim, Taehyeong\n\n## Topics\n\n- Advanced Graph Neural Networks\n- Topic Modeling\n- Biomedical Text Mining and Ontologies\n\n---\n\n# SocraticKG: Knowledge Graph Construction via QA-Driven Fact Extraction\n\n1Department of Biosystems Engineering, Seoul National University 2Interdisciplinary Program in Cognitive Science, Seoul ",
+      "karpathy_relevance": 1
+    },
+    {
+      "title": "From Links to Dialogue; Hypertext Challenges and Opportunities in Conversational Navigation",
+      "url": "https://doi.org/10.1145/3720533.3750064",
+      "score": 0,
+      "publishedDate": "2025-09-15T00:00:00.000Z",
+      "query": "knowledge compilation LLM personal knowledge management Memex associative trails",
+      "highlights": [
+        "# From Links to Dialogue; Hypertext Challenges and Opportunities in Conversational Navigation\n\nPublished: 2025-09-15. 2 citations.\n\n## Authors\n\n- Behnam Rahdari (Stanford University): h-index 8; 169 citations\n- Peter Brusilovsky (University of Pittsburgh): h-index 68; 22,383 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n- Speech and dialogue systems\n- Multi-Agent Systems and Negotiation\n\n---\n\n# From Links to Dialogue; Hypertext Challenges and Opportunities in Conversational Navigation\n\n## Abstract\n\nLarge Language Model (LLM) dialogue is rapidly displacing the blue-link lists that once defined web navigation. While LLM with its fluent answers delights users, this shift affects readers' agency concealing the associative links and orienting cues that the hypertext community has spent eight decades refining. This paper asks: What must be reclaimed, and what new affordances are possible"
+      ],
+      "text": "# From Links to Dialogue; Hypertext Challenges and Opportunities in Conversational Navigation\n\nPublished: 2025-09-15. 2 citations.\n\n## Authors\n\n- Behnam Rahdari (Stanford University): h-index 8; 169 citations\n- Peter Brusilovsky (University of Pittsburgh): h-index 68; 22,383 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n- Speech and dialogue systems\n- Multi-Agent Systems and Negotiation\n\n---\n\n# From Links to Dialogue; Hypertext Challenges and Opportunities in Conversational Navigation\n\n## Abstract\n\nLarge Language Model (LLM) dialogue is rapidly displacing the blue-link lists that once de",
+      "karpathy_relevance": 1
+    }
+  ]
+}

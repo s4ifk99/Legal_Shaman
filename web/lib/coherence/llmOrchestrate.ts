@@ -1,6 +1,8 @@
 import type { MatterType, Mode, Party, Prompt, SessionState, TimelineEvent, Jurisdiction } from './types'
 import { maximiseLocalCoherence } from './coherence'
 import { proposeLegalFrames } from './frames'
+import { sanitizeIntakeNarrative } from './sense'
+import { inferredTimelineEvent } from './timelineExtract'
 
 export type OrchestrateSnippet = {
   title: string
@@ -38,8 +40,6 @@ export type OrchestrateResult = {
   prompt: Prompt | null
   model?: string
 }
-
-const uid = () => Math.random().toString(36).slice(2, 10)
 
 const MATTERS = new Set<MatterType>([
   'immigration',
@@ -79,13 +79,14 @@ export function mergeOrchestratedTimeline(
 ): SessionState {
   const llmEvents: TimelineEvent[] = (timeline.events || [])
     .filter((e) => (e.label || e.rawSpan || '').trim().length >= 8)
-    .map((e) => ({
-      id: uid(),
-      kind: 'event' as const,
-      label: e.label.trim().slice(0, 78),
-      rawSpan: e.rawSpan?.trim() || e.label.trim(),
-      dateApprox: e.dateApprox?.trim() || undefined,
-    }))
+    .map((e) =>
+      inferredTimelineEvent({
+        label: e.label.trim().slice(0, 78),
+        rawSpan: e.rawSpan?.trim() || e.label.trim(),
+        dateApprox: e.dateApprox?.trim() || undefined,
+        actors: e.actors,
+      }),
+    )
 
   const useLlmEvents = llmEvents.length >= 2
   const events = useLlmEvents ? llmEvents : session.events
@@ -113,7 +114,7 @@ export function mergeOrchestratedTimeline(
       ? (timeline.mode as Mode)
       : undefined
 
-  return {
+  return sanitizeIntakeNarrative({
     ...session,
     events,
     whatHappened:
@@ -144,7 +145,7 @@ export function mergeOrchestratedTimeline(
     clientQuestion:
       (timeline as { clientQuestion?: string }).clientQuestion?.trim() || session.clientQuestion,
     topicId: (timeline as { topicId?: string }).topicId?.trim() || session.topicId,
-  }
+  })
 }
 
 export function clarifiersForSession(session: SessionState) {

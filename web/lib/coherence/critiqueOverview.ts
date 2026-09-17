@@ -1,4 +1,13 @@
 import type { AnswerPackage } from "@/lib/coherence/answerPackage";
+import type { MatterFrame } from "@/lib/matter/types";
+import { liveQuestionCoverageGaps } from "@/lib/coherence/clientQuestions";
+import {
+  graphIsWeakForHits,
+  overviewUsesForbiddenPlaybook,
+  storyLooksEmployerSeizedKit,
+  storyLooksVacatedRroRelet,
+  titleAdmissibleOnGeometry,
+} from "@/lib/matter/graphAdmissibility";
 
 export type OverviewCritique = {
   ok: boolean;
@@ -11,8 +20,33 @@ export type OverviewCritique = {
 const SUCCESS_PREDICT =
   /\b(you will win|likely to (win|succeed)|guaranteed|definitely entitled|strong claim you)\b/i;
 
+/** Soft strength ratings the write model uses instead of hard win-talk. */
+const STRENGTH_RATING =
+  /\b(?:solid|strong|good|meritorious) case\b|\blikely entitled\b|\byou have a claim\b|\bconstitute[sd]? a (?:solid |strong |good |meritorious )?(?:legal )?case for\b|\bwin odds\b/i;
+
+const CRITIC_REWRITE_STRENGTH =
+  "Rewrite: answer how-strong questions as what a tribunal looks at and what evidence is missing — never strength ratings, win odds, solid/strong case, or entitlement conclusions. Prefer evidence checklist, jurisdiction, ground elements, time limits as check sources, and free help.";
+
+function assertsSettledRroLimitation(text: string): boolean {
+  const hedge =
+    /check sources|sources disagree|12 vs 24|12 or 24|24 months|uncertain|not settled|may (?:be|differ)|depending on (?:the )?source/i;
+  const flat =
+    /typically within 12 months/i.test(text) ||
+    /(?:must|need to|have to) apply.{0,50}within 12 months/i.test(text) ||
+    /(?:the |a )?time limit is 12 months/i.test(text) ||
+    /apply within 12 months(?: of| for|\.|$)/i.test(text);
+  return flat && !hedge.test(text);
+}
+
 const PATHWAY_BOILERPLATE =
   /\b(start with the primary linked open source|keep evidence: contracts, receipts|from compiled wiki pathway)\b/i;
+
+/** Fingerprints of the seized-kit caseBuilder recs — LLM must not parrot the template. */
+const KIT_TEMPLATE_FINGERPRINTS = [
+  /treat this as police seizure of employer property, not a housing or motoring matter/i,
+  /a criminal defence solicitor is for the arrested person \(police station \/ interview\)/i,
+  /write to the force, then get employer-side advice on recovering kit/i,
+];
 
 /**
  * Master Critic for the practical Overview recommendation.
@@ -23,6 +57,7 @@ export function critiqueOverviewRecommendation(opts: {
   clientQuestion?: string;
   understanding?: string;
   answerPackage: AnswerPackage | null | undefined;
+  matterFrame?: MatterFrame | null;
 }): OverviewCritique {
   const errors: string[] = [];
   const pack = opts.answerPackage;
@@ -35,23 +70,65 @@ export function critiqueOverviewRecommendation(opts: {
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
+  const frame = opts.matterFrame;
+  const pageTitles = (pack?.wikiPages || []).map((p) => p.title);
+  const weakGraph = frame ? graphIsWeakForHits(pageTitles, frame, opts.latestText) : false;
+  const thinHonest =
+    weakGraph &&
+    /library is thin|does not yet have enough matching pages|do not (?:switch|complete the page)/i.test(
+      overview,
+    );
 
   if (!pack) {
     errors.push("overview: missing answer package");
-  } else if (overview.length < 160) {
+  } else if (overview.length < 160 && !thinHonest) {
     errors.push("overview: recommendation too short to be practical");
+  } else if (thinHonest && overview.length < 80) {
+    errors.push("overview: weak-graph note too short");
   }
 
   if (overview && SUCCESS_PREDICT.test(overview)) {
     errors.push("overview: predicts legal success / outcome");
   }
 
+  const recsPreview = [
+    ...(pack?.bullets || []).map((b) => b.text),
+    ...(pack?.recommendations || []),
+  ].join(" ");
+  const strengthBlob = `${overview}\n${recsPreview}`;
+  if (STRENGTH_RATING.test(strengthBlob)) {
+    errors.push(`overview: rates claim strength (solid/strong/good case). ${CRITIC_REWRITE_STRENGTH}`);
+  }
+  if (
+    (storyLooksVacatedRroRelet(opts.latestText) || /rent repayment|\brros?\b/i.test(strengthBlob)) &&
+    assertsSettledRroLimitation(strengthBlob)
+  ) {
+    errors.push(
+      "overview: asserts a single settled RRO / tribunal apply window. Cite uncertainty and dual windows (12 vs 24 months); tell the client to check sources. Never treat one period as settled.",
+    );
+  }
+
   if (overview && PATHWAY_BOILERPLATE.test(overview)) {
     errors.push("overview: thin pathway boilerplate instead of curated recommendation");
   }
 
-  if (pack && (pack.wikiPages?.length || 0) < 2) {
+  const admittedExternal =
+    pack?.researchBundle?.sources?.filter((s) => s.origin === "external" && s.url).length || 0;
+  const zeroWikiMode = pageTitles.length === 0 && (admittedExternal >= 1 || thinHonest);
+  if (pack && (pack.wikiPages?.length || 0) < 2 && !thinHonest && admittedExternal < 1 && !zeroWikiMode) {
     errors.push("overview: fewer than 2 wiki pages grounding the answer");
+  }
+
+  if (pack && (pack.recommendations?.length || 0) < 2) {
+    errors.push("overview: fewer than 2 concrete recommendations");
+  }
+
+  if (pack && (pack.options?.length || 0) < 2) {
+    errors.push("overview: fewer than 2 realistic options");
+  }
+
+  if (pack && (pack.followUps?.length || 0) < 3) {
+    errors.push("overview: missing conversational follow-up actions");
   }
 
   // Client story themes the recommendation should touch when present
@@ -86,6 +163,11 @@ export function critiqueOverviewRecommendation(opts: {
       label: "PCN / parking appeal",
       need: /pcn|penalty charge|parking|appeal|tribunal|adjudicat|permit|contravention/i,
     },
+    {
+      re: /door.{0,24}removed|no front door|illegal evict|forced .{0,40}(?:leave|vacate)|homeless|nowhere else to go/i,
+      label: "illegal eviction / homelessness",
+      need: /illegal evict|homeless|shelter|lock|court order|occup|tenancy|housing/i,
+    },
   ];
 
   const missingThemes: string[] = [];
@@ -95,7 +177,12 @@ export function critiqueOverviewRecommendation(opts: {
     }
   }
   // Fail only if several raised themes are ignored (avoid over-strict single misses)
-  const hardThemes = missingThemes.filter((t) => t === "PCN / parking appeal");
+  const hardThemes = missingThemes.filter(
+    (t) =>
+      t === "PCN / parking appeal" ||
+      t === "damaged belongings / small claims" ||
+      t === "illegal eviction / homelessness",
+  );
   if (missingThemes.length >= 2 || hardThemes.length) {
     errors.push(
       `overview: does not address client themes: ${missingThemes.slice(0, 4).join(", ")}`,
@@ -110,8 +197,88 @@ export function critiqueOverviewRecommendation(opts: {
     errors.push("overview: employment guidance for a PCN / parking appeal story");
   }
 
+  if (
+    /\b(threw|broke|broken|damaged).{0,80}(switch|console|toy|gift)|sue.{0,40}(ex|mum|replacement)/i.test(
+      story,
+    ) &&
+    /child arrangements|custody|types of court orders in family|contact order/i.test(overview) &&
+    !/small claim|letter before|money claim|county court|compensation|damag/i.test(overview)
+  ) {
+    errors.push("overview: family custody guidance for a belongings / small-claims story");
+  }
+
   if (overview && !/legal\s*shaman\.?com/i.test(overview)) {
     errors.push("overview: missing LegalShaman.com recommendation note");
+  }
+
+  const recsAndBullets = [
+    ...(pack?.bullets || []).map((b) => b.text),
+    ...(pack?.recommendations || []),
+  ].join(" ");
+  if (/do not paste|cover the client's live questions|Your live questions:/i.test(recsAndBullets)) {
+    errors.push("overview: takeaways contain author instructions or a question dump");
+  }
+  const kitHits = KIT_TEMPLATE_FINGERPRINTS.filter((re) => re.test(recsAndBullets)).length;
+  if (kitHits >= 2) {
+    errors.push("overview: template-shaped kit recommendations");
+  }
+  const liveGaps = liveQuestionCoverageGaps(
+    opts.latestText,
+    `${overview}\n${recsAndBullets}`,
+    opts.clientQuestion,
+  );
+  if (liveGaps.length) {
+    errors.push(`overview: missing answers to live questions (${liveGaps.join(", ")})`);
+  }
+
+  if (overview && /progress the .{0,60} using the matched guidance/i.test(overview)) {
+    errors.push("overview: empty live-now slot filled with matched-guidance boilerplate");
+  }
+  if (frame && overview && overviewUsesForbiddenPlaybook(overview, frame, opts.latestText)) {
+    errors.push("overview: off-graph playbook (housing/garden/motoring fill)");
+  }
+  if (frame) {
+    const offGraph = pageTitles.filter(
+      (t) => !titleAdmissibleOnGeometry(t, frame, opts.latestText, { requireCoverage: true }),
+    );
+    if (offGraph.length) {
+      errors.push(`overview: off-graph wiki titles: ${offGraph.slice(0, 3).join("; ")}`);
+    }
+  }
+
+  if (storyLooksEmployerSeizedKit(opts.latestText)) {
+    if (/matched housing|right of way|back garden|penalty charge|\bpcn\b|homelessness duty/i.test(overview)) {
+      errors.push("overview: housing/garden/PCN playbook on employer-kit crime");
+    }
+    if (/scam refund|hasn.?t arrived|faulty goods|consumer helpline/i.test(overview)) {
+      errors.push("overview: consumer filler on employer-kit crime");
+    }
+    if (/crown prosecution service|\bcps\b/i.test(overview) && /solicitor|firm|contact/i.test(overview)) {
+      errors.push("overview: CPS listed as a solicitor to contact");
+    }
+    if (
+      /you (?:are|were) (?:the )?(?:arrested person|defendant|suspect)/i.test(overview) &&
+      !/not (?:the|you)/i.test(overview)
+    ) {
+      errors.push("overview: treats the employer as the arrested person");
+    }
+    const recText = [
+      ...(pack?.bullets || []).map((b) => b.text),
+      ...(pack?.recommendations || []),
+    ].join(" ");
+    if (
+      /do not paste|cover the client's live questions|Your live questions:/i.test(recText) ||
+      (recText.match(/\?/g) || []).length >= 2
+    ) {
+      errors.push("overview: takeaways dump the client's question list");
+    }
+    if (
+      pageTitles.some((t) =>
+        /if you are accused|disciplinary meeting/i.test(t),
+      )
+    ) {
+      errors.push("overview: neighbour employment/accused wiki on employer-kit crime");
+    }
   }
 
   const origin = (pack as { origin?: string } | null | undefined)?.origin;

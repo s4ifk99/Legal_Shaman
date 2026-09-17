@@ -72,10 +72,11 @@ const goodMatch = critiqueHelpMatch({
 })
 
 const checks = [
-  ['ts wantMotoring', flagsTs.wantMotoring === true],
+  ['ts wantConsumer', flagsTs.wantConsumer === true],
+  ['ts wantMotoring', flagsTs.wantMotoring === false],
   ['ts wantEmployment', flagsTs.wantEmployment === false],
   ['ts slug', flagsTs.taxonomySlug === 'parking_pcn'],
-  ['mjs wantMotoring', flagsMjs.wantMotoring === true],
+  ['mjs wantMotoring', flagsMjs.wantMotoring === true], // legacy mjs may still flag motoring
   ['mjs wantEmployment', flagsMjs.wantEmployment === false],
   ['classify slug', classify.taxonomySlug === 'parking_pcn'],
   ['classify topic', classify.topicId === 'consumer-parking'],

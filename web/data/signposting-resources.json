@@ -4,7 +4,7 @@
       "title": "Getting Help",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Getting Help",
+          "name": "Legal Shaman wiki — Getting Help",
           "description": "Legal aid, pro bono routes, and national advice organisations.",
           "url": "/ask-the-shaman?q=Getting%20Help",
           "links": [
@@ -17,6 +17,24 @@
               "url": "/find-a-lawyer"
             }
           ]
+        },
+        {
+          "name": "Citizens Advice Adviceline (England)",
+          "phone": "0800 144 8848",
+          "description": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+          "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/"
+        },
+        {
+          "name": "Advice NI",
+          "phone": "0800 915 4604",
+          "description": "Free independent advice for people in Northern Ireland.",
+          "url": "https://www.adviceni.net/"
+        },
+        {
+          "name": "Complain about a legal adviser (GOV.UK)",
+          "phone": "0300 555 0333",
+          "description": "How to complain about a solicitor or legal adviser, including Legal Ombudsman and SRA routes.",
+          "url": "https://www.gov.uk/complain-about-legal-adviser"
         },
         {
           "name": "Advicenow",
@@ -80,7 +98,8 @@
         {
           "name": "Civil Legal Advice",
           "description": "(if eligible for legal aid)",
-          "url": "https://www.gov.uk/civil-legal-advice"
+          "url": "https://www.gov.uk/civil-legal-advice",
+          "phone": "0345 345 4345"
         },
         {
           "name": "Guide to family law legal aid",
@@ -90,7 +109,8 @@
         {
           "name": "Legal Aid Agency",
           "phone": "0300 200 2020",
-          "description": "Civil enquiries | 01158 526 000 \u2013 Crime enquiries"
+          "description": "Civil enquiries | 01158 526 000 – Crime enquiries",
+          "url": "https://www.gov.uk/government/organisations/legal-aid-agency"
         },
         {
           "name": "Public Law Project",
@@ -110,7 +130,8 @@
         {
           "name": "Citizens Advice",
           "description": "provides legal advice",
-          "url": "https://www.citizensadvice.org.uk/"
+          "url": "https://www.citizensadvice.org.uk/",
+          "phone": "0800 144 8848"
         },
         {
           "name": "Law Centres Network",
@@ -126,6 +147,21 @@
           "name": "The University of Law",
           "description": "provides free legal advice to members of the public",
           "url": "https://www.law.ac.uk/"
+        },
+        {
+          "name": "The Access to Justice Foundation",
+          "description": "Home # For a society where everyone has access to justice We increase funding for free legal advice. We award grants, raise funds and help to make the case for investment in advice…",
+          "url": "https://atjf.org.uk/"
+        },
+        {
+          "name": "Finding free or affordable legal help",
+          "description": "Citizens Advice # Finding free or affordable legal help This advice applies to England. See advice for See advice for Northern Ireland, See advice for Scotland, See advice for…",
+          "url": "https://www.citizensadvice.org.uk/law-and-courts/legal-system/finding-free-or-affordable-legal-help/"
+        },
+        {
+          "name": "AdviceUK - Supporting advice organisations",
+          "description": "member resources News Find out how we make a difference together, to individual lives, livelihoods and liberty in our latest news section. Our members Discover more about…",
+          "url": "https://www.adviceuk.org.uk/"
         }
       ]
     },
@@ -133,8 +169,8 @@
       "title": "Courts and Disputes",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Courts and Disputes",
-          "description": "Starting a claim, preparing documents, hearings, and enforcement \u2014 in plain language.",
+          "name": "Legal Shaman wiki — Courts and Disputes",
+          "description": "Starting a claim, preparing documents, hearings, and enforcement — in plain language.",
           "url": "/ask-the-shaman?q=Courts%20and%20Disputes",
           "links": [
             {
@@ -239,7 +275,7 @@
         },
         {
           "name": "Litigation funding options",
-          "description": "Third-party funding for higher-value civil claims \u2014 mainly for businesses and complex disputes.",
+          "description": "Third-party funding for higher-value civil claims — mainly for businesses and complex disputes.",
           "links": [
             {
               "text": "Asertis",
@@ -325,7 +361,23 @@
               "text": "Sentry Funding",
               "url": "https://sentryfunding.co.uk/"
             }
-          ]
+          ],
+          "url": "https://www.gov.uk/legal-aid"
+        },
+        {
+          "name": "Make a court claim for money",
+          "description": "Resolve your claim through mediation - GOV.UK Skip to main content # Make a court claim for money Skip contents # Resolve your claim through mediation Mediation is when an impartial…",
+          "url": "https://www.gov.uk/make-court-claim-for-money/mediation"
+        },
+        {
+          "name": "Small Claims Mediation Service (SCMS) - Find a Court or Tribunal",
+          "description": "GOV.UK Skip to main content Find a Court or Tribunal beta This is a new service – your feedback will help us to improve it. Cymraeg Back # Small…",
+          "url": "https://www.find-court-tribunal.service.gov.uk/courts/small-claims-mediation-service-scms"
+        },
+        {
+          "name": "Small claims and the civil court",
+          "description": "Advicenow ## Our free Mandatory Reconsideration tools help thousands of people challenge unfair benefit decisions. \"The decision was overturned in my son's favour. A great help in…",
+          "url": "https://www.advicenow.org.uk/get-help/going-court/small-claims-and-civil-court"
         }
       ]
     },
@@ -333,7 +385,7 @@
       "title": "Home and Housing",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Home and Housing",
+          "name": "Legal Shaman wiki — Home and Housing",
           "description": "Renting, buying, eviction, council housing, and repairs.",
           "url": "/ask-the-shaman?q=Home%20and%20Housing",
           "links": [
@@ -387,7 +439,7 @@
           ]
         },
         {
-          "name": "Gov.uk \u2013 What is housing benefit and how to claim it",
+          "name": "Gov.uk – What is housing benefit and how to claim it",
           "url": "https://www.gov.uk/housing-benefit",
           "description": ""
         },
@@ -436,6 +488,16 @@
           "name": "Bloomsbury Legal Clinic",
           "description": "London-based advice clinic offering specialist housing advice.",
           "url": "https://www.bloomsburylegalclinic.org.uk/"
+        },
+        {
+          "name": "Help to Rent Database: Find housing advice near you",
+          "description": "Help to Rent Database | Get help renting a house | Crisis UK Search for schemes that help people overcome barriers to accessing private rented accommodation in the UK. This database is for…",
+          "url": "https://www.crisis.org.uk/ending-homelessness/resources-for-practitioners/prs-database/"
+        },
+        {
+          "name": "Damp and mould",
+          "description": "Housing ombudsman Close Main Menu # Damp and mould support guide ## On this page ## About damp and mould in your home Damp is the build-up of moisture in a building. Damp can happen when there are…",
+          "url": "https://www.housing-ombudsman.org.uk/centre-for-learning/support-guides/damp-and-mould/"
         }
       ]
     },
@@ -443,7 +505,7 @@
       "title": "Family and Relationships",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Family and Relationships",
+          "name": "Legal Shaman wiki — Family and Relationships",
           "description": "Divorce, children, domestic abuse, marriage, and separation.",
           "url": "/ask-the-shaman?q=Family%20and%20Relationships",
           "links": [
@@ -561,7 +623,7 @@
           "url": "https://www.hestia.org/brightsky"
         },
         {
-          "name": "National Domestic Violence Helpline",
+          "name": "National Domestic Abuse Helpline",
           "phone": "0808 2000 247",
           "description": "24 hour National Domestic Violence Helpline",
           "url": "https://www.nationaldahelpline.org.uk/"
@@ -604,6 +666,21 @@
           "name": "UK Deed Poll Office",
           "description": "Support for you or your child's name-change process.",
           "url": "https://www.ukdpo.com/"
+        },
+        {
+          "name": "Family law advice",
+          "description": "Rights of Women Skip Main Navigation ## Enter your search term here… Search Safe exit # Family Law Advice Our family law advice lines can advise you on: domestic violence and abuse; divorce,…",
+          "url": "https://www.rightsofwomen.org.uk/get-advice/family-law/"
+        },
+        {
+          "name": "Find a Legal Aid Adviser or Family Mediator",
+          "description": "d adviser or family mediator Use this service to find legal aid…",
+          "url": "https://find-legal-advice.justice.gov.uk/"
+        },
+        {
+          "name": "Family mediation",
+          "description": "Resolution ## What is mediation? Mediators are trained to help resolve disputes over all issues faced by separating couples, or specific issues such as arrangements for any children. A mediator will…",
+          "url": "https://resolution.org.uk/looking-for-help/splitting-up/your-process-options-for-divorce-and-dissolution/family-mediation/"
         }
       ]
     },
@@ -611,8 +688,8 @@
       "title": "Wills and Planning Ahead",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Wills and Planning Ahead",
-          "description": "Wills, probate, inheritance tax, and lasting powers of attorney \u2014 plain-language guides from approved sources.",
+          "name": "Legal Shaman wiki — Wills and Planning Ahead",
+          "description": "Wills, probate, inheritance tax, and lasting powers of attorney — plain-language guides from approved sources.",
           "url": "/ask-the-shaman?q=Wills%20and%20Planning%20Ahead",
           "links": [
             {
@@ -626,24 +703,40 @@
           ]
         },
         {
-          "name": "Citizens Advice \u2014 making a will",
+          "name": "Age UK — free legal advice",
+          "phone": "0800 678 1602",
+          "description": "Where older people can find free or low-cost legal advice, including wills and later-life planning.",
+          "url": "https://www.ageuk.org.uk/information-advice/money-legal/legal-issues/free-legal-advice/"
+        },
+        {
+          "name": "Citizens Advice — making a will",
           "url": "https://www.citizensadvice.org.uk/family/death-and-wills/making-a-will/",
           "description": "Who needs a will, what to include, and how to get it signed correctly."
         },
         {
-          "name": "GOV.UK \u2014 make a will",
+          "name": "GOV.UK — make a will",
           "url": "https://www.gov.uk/make-will",
           "description": "Official overview of making and updating a will in England and Wales."
         },
         {
-          "name": "Age UK \u2014 making a will",
+          "name": "Age UK — making a will",
           "url": "https://www.ageuk.org.uk/information-advice/money-legal/legal-issues/making-a-will/",
           "description": "Practical guidance for older people planning a will."
         },
         {
-          "name": "GOV.UK \u2014 lasting power of attorney",
+          "name": "GOV.UK — lasting power of attorney",
           "url": "https://www.gov.uk/power-of-attorney",
           "description": "How to appoint someone to make decisions for you if you lose capacity."
+        },
+        {
+          "name": "Setting up a lasting power of attorney (LPA)",
+          "description": "Power of attorney – Setting up a lasting power of attorney (LPA) | Age UK Skip to content Postcode Submit ### Legal issues - Where can I get free legal advice? - How to be an executor information…",
+          "url": "https://www.ageuk.org.uk/information-advice/money-legal/legal-issues/power-of-attorney/"
+        },
+        {
+          "name": "Contested Probate Clinic - Legal Advice Clinic",
+          "description": "# Contested Probate ClinicThe University of Westminster Legal Advice Clinic is now closed for new enquiries while our students take their exams and summer break. We will…",
+          "url": "https://uowlegaladviceclinic.org.uk/contested-probate-clinic/"
         }
       ]
     },
@@ -651,7 +744,7 @@
       "title": "Work and Employment",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Work and Employment",
+          "name": "Legal Shaman wiki — Work and Employment",
           "description": "Rights at work, redundancy, tribunals, and employing staff in a small business.",
           "url": "/ask-the-shaman?q=Work%20and%20Employment",
           "links": [
@@ -732,7 +825,7 @@
         {
           "name": "Rights of women",
           "phone": "020 7490 0152",
-          "description": "Mondays, Tuesdays and Wednesdays: 3pm \u2013 5pm and 6 \u2013 8pm. Offers free employment legal advice to women in England and Wales experiencing sexual harassment at work",
+          "description": "Mondays, Tuesdays and Wednesdays: 3pm – 5pm and 6 – 8pm. Offers free employment legal advice to women in England and Wales experiencing sexual harassment at work",
           "url": "https://rightsofwomen.org.uk/"
         },
         {
@@ -758,6 +851,16 @@
           "phone": "01904 900 151",
           "description": "free confidential legal information and advice if you believe you have been unfairly treated under a Zero Hours Contract.",
           "url": "https://zerohoursjustice.org.uk/"
+        },
+        {
+          "name": "Get free advice - Maternity Action",
+          "description": "## Get free advice Do you have a question about your rights at work, benefits or entitlement to free NHS maternity care? Maternity Action can help with free legal advice. Please…",
+          "url": "https://maternityaction.org.uk/get-free-advice/"
+        },
+        {
+          "name": "Pay and work rights helpline and complaints",
+          "description": "GOV.UK Skip to main content # Pay and work rights helpline and complaints Help and advice for workers and employers on rights and obligations at work. ## Acas helpline…",
+          "url": "https://www.gov.uk/pay-and-work-rights"
         }
       ]
     },
@@ -765,7 +868,7 @@
       "title": "Your Business",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Your Business",
+          "name": "Legal Shaman wiki — Your Business",
           "description": "Contracts, company structure, shareholders, and insolvency for small businesses.",
           "url": "/ask-the-shaman?q=Your%20Business",
           "links": [
@@ -780,6 +883,18 @@
           ]
         },
         {
+          "name": "Business support helpline (GOV.UK)",
+          "phone": "0800 998 1098",
+          "description": "Government business support and advice for setting up and running a small business.",
+          "url": "https://www.gov.uk/get-business-support"
+        },
+        {
+          "name": "IPO — defend your intellectual property",
+          "phone": "0300 300 2000",
+          "description": "Intellectual Property Office help on copyright, trade marks and enforcement.",
+          "url": "https://www.gov.uk/defend-your-intellectual-property"
+        },
+        {
           "name": "LawWorks Not for Profit programme",
           "description": "Brokers legal advice to small not-for-profit organisations on a wide range of legal issues.",
           "url": "https://www.lawworks.org.uk/legal-advice-not-profits"
@@ -790,9 +905,19 @@
           "description": "Membership body with legal protection and business advice for small firms."
         },
         {
-          "name": "GOV.UK \u2014 set up a business",
+          "name": "GOV.UK — set up a business",
           "url": "https://www.gov.uk/set-up-business",
           "description": "Official steps for sole traders, partnerships, and limited companies."
+        },
+        {
+          "name": "Check your employment status",
+          "description": "Citizens Advice # Check your employment status This advice applies to England. See advice for See advice for Northern Ireland, See advice for Scotland, See advice for Wales ## Help us…",
+          "url": "https://www.citizensadvice.org.uk/work/check-your-employment-status/"
+        },
+        {
+          "name": "Self-employment - Employment status",
+          "description": "Acas - Types of employment status - Employee - Worker - Self-employment A person is usually self-employed if they are their own boss. Self-employed status is not defined in…",
+          "url": "https://www.acas.org.uk/employment-status/self-employment"
         }
       ]
     },
@@ -800,7 +925,7 @@
       "title": "Money, Benefits and Debt",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Money, Benefits and Debt",
+          "name": "Legal Shaman wiki — Money, Benefits and Debt",
           "description": "Universal Credit, debt solutions, tax, council tax, and energy bills.",
           "url": "/ask-the-shaman?q=Money,%20Benefits%20and%20Debt",
           "links": [
@@ -844,7 +969,8 @@
         {
           "name": "HMRC Tax and Benefits Confidential Helpline",
           "phone": "0845 608 6000",
-          "description": "helps families and individuals with targeted financial support"
+          "description": "helps families and individuals with targeted financial support",
+          "url": "https://www.gov.uk/contact-hmrc"
         },
         {
           "name": "Mary Ward Legal Centre",
@@ -853,9 +979,9 @@
           "url": "https://marywardlegal.org.uk/"
         },
         {
-          "name": "Money Advice Service",
-          "phone": "0800 138 7777",
-          "description": "provides free and impartial money advice",
+          "name": "MoneyHelper (MaPS)",
+          "phone": "0800 011 3797",
+          "description": "Free government-backed money guidance on debt, benefits, pensions and bills (formerly Money Advice Service).",
           "url": "https://www.moneyhelper.org.uk/"
         },
         {
@@ -904,6 +1030,21 @@
           "phone": "020 7259 0801",
           "description": "provides advice and support on income, housing and social welfare matters",
           "url": "https://z2k.org/"
+        },
+        {
+          "name": "MoneyHelper — free government-backed money guidance",
+          "description": "Free and impartial help with money, backed by the government | MoneyHelper # Fuel prices near you Find the best petrol and diesel prices near you from live government data. Try our Petrol price…",
+          "url": "https://www.moneyhelper.org.uk/en"
+        },
+        {
+          "name": "Get free debt advice",
+          "description": "GOV.UK Skip to main content # Get free debt advice Get free, confidential and independent advice on dealing with debt problems. This list covers UK-wide organisations and ones based in England…",
+          "url": "https://www.gov.uk/debt-advice"
+        },
+        {
+          "name": "National Debtline: Free Debt Advice and Support",
+          "description": "Free Debt Advice and Support | National Debtline # Free, impartial debt advice and support We’re a trusted debt advice charity offering free, independent support. If you’re struggling with debt,…",
+          "url": "https://nationaldebtline.org/"
         }
       ]
     },
@@ -911,7 +1052,7 @@
       "title": "Consumer Rights",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Consumer Rights",
+          "name": "Legal Shaman wiki — Consumer Rights",
           "description": "Faulty goods, refunds, cancelled travel, and contracts with traders.",
           "url": "/ask-the-shaman?q=Consumer%20Rights",
           "links": [
@@ -926,9 +1067,22 @@
           ]
         },
         {
-          "name": "Citizens Advice \u2014 consumer service",
-          "url": "https://www.citizensadvice.org.uk/consumer/",
-          "description": "Buying, refunds, faulty goods, and problems with services."
+          "name": "Citizens Advice consumer helpline",
+          "phone": "0808 223 1133",
+          "description": "Help with faulty goods, refunds, traders, contracts and consumer rights.",
+          "url": "https://www.citizensadvice.org.uk/consumer/get-more-help/if-you-need-more-help-about-a-consumer-issue/"
+        },
+        {
+          "name": "CAA passenger advice",
+          "phone": "020 7453 6888",
+          "description": "UK Civil Aviation Authority advice for flight delays, cancellations and passenger rights.",
+          "url": "https://www.caa.co.uk/passengers/"
+        },
+        {
+          "name": "Ofcom complaints",
+          "phone": "0300 123 3333",
+          "description": "Advice and complaints about phone, broadband and TV providers.",
+          "url": "https://www.ofcom.org.uk/about-ofcom/what-we-do/contact-us"
         },
         {
           "name": "Which? Consumer Rights",
@@ -939,6 +1093,16 @@
           "name": "Resolver",
           "url": "https://www.resolver.co.uk/",
           "description": "Free tool to escalate complaints with many retailers and service providers."
+        },
+        {
+          "name": "Complaining to an ombudsman",
+          "description": "Citizens Advice # Complaining to an ombudsman This advice applies to England. See advice for See advice for Northern Ireland, See advice for Scotland, See advice for Wales ## Help us…",
+          "url": "https://www.citizensadvice.org.uk/consumer/get-more-help/how-to-use-an-ombudsman-in-england/"
+        },
+        {
+          "name": "Motor Ombudsman — refund for a faulty vehicle",
+          "description": "Motoring Advice - 7 Min Read # Can you get a refund from a car dealership for a faulty vehicle? Your rights explained April 29, 2026 Copy link …",
+          "url": "https://www.themotorombudsman.org/motoring-advice/refund-for-faulty-vehicle/"
         }
       ]
     },
@@ -946,7 +1110,7 @@
       "title": "Neighbours and Property",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Neighbours and Property",
+          "name": "Legal Shaman wiki — Neighbours and Property",
           "description": "Boundaries, noise, party walls, and disputes with neighbours.",
           "url": "/ask-the-shaman?q=Neighbours%20and%20Property",
           "links": [
@@ -961,14 +1125,29 @@
           ]
         },
         {
-          "name": "GOV.UK \u2014 resolving neighbour disputes",
+          "name": "GOV.UK — resolving neighbour disputes",
           "url": "https://www.gov.uk/how-to-resolve-neighbour-disputes",
           "description": "Mediation, noise, boundaries, and when to involve the council."
         },
         {
-          "name": "RICS \u2014 party wall matters",
+          "name": "RICS — party wall matters",
           "url": "https://www.ricsfirms.com/home/party-wall/",
           "description": "Find surveyors for party wall agreements and boundary issues."
+        },
+        {
+          "name": "If you disagree with your neighbour about a wall or fence",
+          "description": "Citizens Advice # If you disagree with your neighbour about a wall or fence This advice applies to England. See advice for See advice for Northern Ireland,…",
+          "url": "https://www.citizensadvice.org.uk/housing/problems-with-neighbours/if-you-disagree-with-your-neighbour-about-a-wall-or-fence/"
+        },
+        {
+          "name": "Party Wall Mediation Scheme",
+          "description": "# Why the Party Wall Surveyors Mediation Scheme? # Why the Party Wall Surveyors Mediation Scheme? ## WELCOME The Party Wall Mediation Scheme has been set up jointly between the Pyramus &…",
+          "url": "https://partywallmediation.co.uk/"
+        },
+        {
+          "name": "Neighbour dispute mediation - WMS",
+          "description": "Home Services Neighbour dispute mediation # Neighbour dispute mediation When communication between neighbours breaks down, mediation can help resolve their disagreement swiftly, and…",
+          "url": "https://wmsmediation.org/services/neighbour-dispute-mediation/"
         }
       ]
     },
@@ -976,7 +1155,7 @@
       "title": "Immigration and Citizenship",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Immigration and Citizenship",
+          "name": "Legal Shaman wiki — Immigration and Citizenship",
           "description": "Visas, settled status, asylum, and British citizenship.",
           "url": "/ask-the-shaman?q=Immigration%20and%20Citizenship",
           "links": [
@@ -989,6 +1168,12 @@
               "url": "/find-a-lawyer"
             }
           ]
+        },
+        {
+          "name": "Asylum helplines (GOV.UK)",
+          "phone": "0808 801 0503",
+          "description": "Official list of free asylum and immigration helplines.",
+          "url": "https://www.gov.uk/asylum-helplines"
         },
         {
           "name": "Anti Trafficking and Labour Exploitation Unit (ATLEU)",
@@ -1031,6 +1216,16 @@
           "phone": "0117 911 3393",
           "description": "specifically for Wales and the South West and West of the UK",
           "url": "https://migrantlegalsupport.org/"
+        },
+        {
+          "name": "Immigration and asylum law advice",
+          "description": "Rights of Women Skip Main Navigation ## Enter your search term here… Search Safe exit # Immigration and asylum law advice We have three immigration and asylum law advice lines:…",
+          "url": "https://www.rightsofwomen.org.uk/get-advice/immigration-and-asylum-law/"
+        },
+        {
+          "name": "Home - Refugee Council",
+          "description": "# A little kindness goes a long way It’s normal to have different opinions on immigration and asylum. But there are some things we can all agree on. ## Help for refugees and people…",
+          "url": "https://www.refugeecouncil.org.uk/"
         }
       ]
     },
@@ -1038,8 +1233,8 @@
       "title": "Health and Injury",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Health and Injury",
-          "description": "Personal injury claims and clinical negligence \u2014 what to check before you claim.",
+          "name": "Legal Shaman wiki — Health and Injury",
+          "description": "Personal injury claims and clinical negligence — what to check before you claim.",
           "url": "/ask-the-shaman?q=Health%20and%20Injury",
           "links": [
             {
@@ -1053,15 +1248,26 @@
           ]
         },
         {
+          "name": "Independent NHS Complaints Advocacy",
+          "phone": "0300 323 0006",
+          "description": "Free help to complain about NHS care (local advocacy services).",
+          "url": "https://www.nhs.uk/using-the-nhs/about-the-nhs/how-to-complain-to-the-nhs/"
+        },
+        {
           "name": "Action against Medical Accidents (AvMA)",
           "phone": "0845 123 2352",
           "url": "https://www.avma.org.uk/",
           "description": "Independent charity helping people affected by medical accidents."
         },
         {
-          "name": "Citizens Advice \u2014 personal injury",
+          "name": "Citizens Advice — personal injury",
           "url": "https://www.citizensadvice.org.uk/law-and-courts/personal-injuries/",
           "description": "Overview of making a personal injury claim."
+        },
+        {
+          "name": "RIDDOR — report workplace injuries (HSE)",
+          "description": "RIDDOR – Reporting of Injuries, Diseases and Dangerous Occurrences Regulations - HSE # RIDDOR – Reporting of Injuries, Diseases and Dangerous Occurrences Regulations ### Reportable incidents Types of…",
+          "url": "https://www.hse.gov.uk/riddor/"
         }
       ]
     },
@@ -1069,7 +1275,7 @@
       "title": "Driving and Parking",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Driving and Parking",
+          "name": "Legal Shaman wiki — Driving and Parking",
           "description": "Motoring offences, parking fines (PCNs), and the Highway Code.",
           "url": "/ask-the-shaman?q=Driving%20and%20Parking",
           "links": [
@@ -1084,14 +1290,61 @@
           ]
         },
         {
-          "name": "Yellow Box Guru \u2014 yellow box junction PCNs",
-          "description": "Guide to UK yellow box junction law, enforcement and appeals, including a PCN checklist \u2014 for motorists challenging tickets and for understanding when a box or ticket may not comply with the law.",
+          "name": "POPLA — Parking on Private Land Appeals",
+          "phone": "0330 159 6126",
+          "description": "Independent appeals for private parking charges (England and Wales).",
+          "url": "https://www.popla.co.uk/"
+        },
+        {
+          "name": "Independent Appeals Service (IAS)",
+          "description": "Appeals for parking charges from operators in the International Parking Community (IPC) scheme.",
+          "url": "https://theias.org/appeal"
+        },
+        {
+          "name": "Traffic Penalty Tribunal",
+          "description": "Independent appeals for council penalty charge notices outside London.",
+          "url": "https://www.trafficpenaltytribunal.gov.uk/"
+        },
+        {
+          "name": "London Tribunals (Environment & Traffic Adjudicators)",
+          "phone": "020 7520 7200",
+          "description": "Appeals for London borough PCNs (parking, bus lanes, moving traffic).",
+          "url": "https://www.londontribunals.gov.uk/eat"
+        },
+        {
+          "name": "Resolver — private parking tickets guide",
+          "description": "Practical guide and complaint templates for private parking charges.",
+          "url": "https://www.resolver.co.uk/rights-guide/private-parking-tickets"
+        },
+        {
+          "name": "GOV.UK — parking tickets",
+          "description": "Official guidance on parking fines and how to challenge them.",
+          "url": "https://www.gov.uk/parking-tickets"
+        },
+        {
+          "name": "Yellow Box Guru — yellow box junction PCNs",
+          "description": "Guide to yellow box junction PCNs, enforcement and appeals.",
           "url": "https://www.yellowboxes.co.uk/"
         },
         {
-          "name": "Citizens Advice \u2014 parking tickets and PCNs",
+          "name": "Citizens Advice — parking tickets and PCNs",
           "url": "https://www.citizensadvice.org.uk/consumer/parking-travel-leisure/parking-tickets/",
           "description": "Challenge a council or private parking ticket."
+        },
+        {
+          "name": "Appealing a parking ticket",
+          "description": "Citizens Advice # Appealing a parking ticket This advice applies to England. See advice for See advice for Northern Ireland, See advice for Scotland, See advice for Wales ## Help us…",
+          "url": "https://www.citizensadvice.org.uk/law-and-courts/parking-tickets/appealing-a-parking-ticket/"
+        },
+        {
+          "name": "Appeal against a penalty charge notice: How to appeal a penalty charge notice",
+          "description": "GOV.UK Skip to main content # Appeal against a penalty charge notice Skip contents # How to appeal a penalty charge notice You may be…",
+          "url": "https://www.gov.uk/appeal-against-a-penalty-charge-notice"
+        },
+        {
+          "name": "DVLA records of motoring offences - Unlock",
+          "description": "e to move on positively in their lives. Find out more # DVLA records of…",
+          "url": "https://unlock.org.uk/dvla-records-of-motoring-offences/"
         }
       ]
     },
@@ -1099,7 +1352,7 @@
       "title": "Rights and Discrimination",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Rights and Discrimination",
+          "name": "Legal Shaman wiki — Rights and Discrimination",
           "description": "Equality Act rights, human rights, and challenging unfair treatment.",
           "url": "/ask-the-shaman?q=Rights%20and%20Discrimination",
           "links": [
@@ -1174,7 +1427,7 @@
         },
         {
           "name": "Shout",
-          "description": "Text 'Shout' to 85258 \u2013 24/7 confidential text support service for those struggling with mental health",
+          "description": "Text 'Shout' to 85258 – 24/7 confidential text support service for those struggling with mental health",
           "url": "https://giveusashout.org/"
         },
         {
@@ -1182,6 +1435,209 @@
           "phone": "0117 9897725",
           "description": "a charity providing information, advice & support to parents, children & young people about any type of special educational need or disability from 0-25 years who live in Bristol, N. Somerset or S. Gloucestershire",
           "url": "https://www.sendandyou.org.uk/"
+        },
+        {
+          "name": "What can I do if I'm discriminated against? - Liberty",
+          "description": "## We can’t do this without you. Every day, people’s basic rights and freedoms come under threat. But together, we can create change. By supporting our work,…",
+          "url": "https://www.libertyhumanrights.org.uk/advice_information/what-can-i-do-if-im-discriminated-against/"
+        }
+      ]
+    },
+    {
+      "title": "Human Rights and Protest",
+      "resources": [
+        {
+          "name": "Liberty — Advice and Information",
+          "description": "Liberty's human-rights guidance is reputable NGO information and signposting. It is not a substitute for current legislation, official guidance, or tailored legal advice.",
+          "url": "https://www.libertyhumanrights.org.uk/advice-and-information/",
+          "links": [
+            {
+              "text": "Explainer: Can I be arrested for something I post on social media or chant at a protest?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-can-i-be-arrested-for-something-i-post-on-social-media-or-chant-at-a-protest/"
+            },
+            {
+              "text": "Crime and Policing Act 2026: Explaining the new protest restrictions",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/crime-and-policing-act-2026-explaining-the-new-protest-restrictions/"
+            },
+            {
+              "text": "Talking to the police — Easy Read",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/talking-to-the-police-easy-read/"
+            },
+            {
+              "text": "Protesting at university: What are my rights?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/university-protests/"
+            },
+            {
+              "text": "Watch: Disabled People's Protest Rights Webinar",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/protest-rights-webinar/"
+            },
+            {
+              "text": "Police use of facial recognition technology: What are my rights?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/police-use-of-facial-recognition-technology-what-are-my-rights/"
+            },
+            {
+              "text": "Examined under Schedule 7 of the Terrorism Act 2000: What are my rights?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/examined-under-schedule-7-of-the-terrorism-act-2000-what-are-my-rights/"
+            },
+            {
+              "text": "Requesting data held by your university: Subject Access Request template",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/requesting-data-held-by-your-university-a-subject-access-request-template-for-students-and-academics/"
+            },
+            {
+              "text": "Prevent: What are my rights?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/prevent-what-are-my-rights/"
+            },
+            {
+              "text": "Your right to protest",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/right-to-protest/"
+            },
+            {
+              "text": "How to organise a protest",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/how-to-organise-a-protest/"
+            },
+            {
+              "text": "What if I'm arrested at a protest?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/what-if-im-arrested-at-a-protest/"
+            },
+            {
+              "text": "Public Order Act: new protest offences and serious disruption",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/public-order-act-new-protest-offences/"
+            },
+            {
+              "text": "Public Order Act: new protest stop and search powers",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/public-order-act-new-stop-search-powers/"
+            },
+            {
+              "text": "How to organise a more accessible protest",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/organise-a-more-accessible-protest/"
+            },
+            {
+              "text": "Your right to protest: disabled people's rights",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/disabled-people-protest/"
+            },
+            {
+              "text": "Practical protest tips",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/practical-protest-tips/"
+            },
+            {
+              "text": "A guide to kettling",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/kettling-guide/"
+            },
+            {
+              "text": "Monitoring and reporting on protests",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-monitoring-reporting-on-protests/"
+            },
+            {
+              "text": "Policing and protest: LGBTQ+ people of colour",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/lgbtq-people-of-colour-rights/"
+            },
+            {
+              "text": "How does the new Policing Act 2022 affect my protest rights?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/pcsc-policing-act-protest-rights/"
+            },
+            {
+              "text": "What can I do if the police discriminate against me?",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/what-can-i-do-if-the-police-discriminate-against-me/"
+            },
+            {
+              "text": "I need a lawyer",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/i-need-a-lawyer/"
+            },
+            {
+              "text": "Public Order Act: serious disruption and protest conditions",
+              "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-serious-disruption-to-the-life-of-the-community-protest-conditions/"
+            }
+          ]
+        },
+        {
+          "name": "Legal Shaman wiki — Human Rights and Public Law",
+          "description": "Search the dedicated human-rights and public-law guides.",
+          "url": "/ask-the-shaman?q=Human%20Rights%20and%20Public%20Law"
+        },
+        {
+          "name": "Legislation.gov.uk — Public Order Act 2023",
+          "description": "Primary legislation to check alongside explanatory guidance.",
+          "url": "https://www.legislation.gov.uk/ukpga/2023/15/contents"
+        },
+        {
+          "name": "Crown Prosecution Service — Protest-related offences",
+          "description": "Official prosecution guidance on offences that may arise during protests and demonstrations.",
+          "url": "https://www.cps.gov.uk/legal-guidance/public-order-offences-incorporating-charging-standard"
+        }
+      ]
+    },
+    {
+      "title": "Palestine Activist Resources",
+      "resources": [
+        {
+          "name": "Liberty — Palestine Solidarity Protests",
+          "description": "Explains protest rights, possible police powers, restrictions, arrest, and routes to legal advice and support. Check the page date and current law before relying on it.",
+          "url": "https://www.libertyhumanrights.org.uk/advice_information/explainer-palestine-protests/"
+        },
+        {
+          "name": "Liberty — Protest bust cards",
+          "description": "Practical rights information for protesters, including translated materials and arrest-related signposting.",
+          "url": "https://www.libertyhumanrights.org.uk/advice_information/protest-bust-cards-with-translations/"
+        },
+        {
+          "name": "Liberty — How to organise a protest",
+          "description": "England-only guidance for organisers on notification, police conditions, accessibility, legal observers, and support.",
+          "url": "https://www.libertyhumanrights.org.uk/advice_information/how-to-organise-a-protest/"
+        },
+        {
+          "name": "Liberty — What if I'm arrested at a protest?",
+          "description": "England-only guidance on arrest, custody, appropriate adults, legal advice, and protest support contacts.",
+          "url": "https://www.libertyhumanrights.org.uk/advice_information/what-if-im-arrested-at-a-protest/"
+        },
+        {
+          "name": "European Legal Support Centre",
+          "description": "Legal support and reporting routes for Palestine advocacy repression in Europe and Britain; check eligibility and current availability.",
+          "url": "https://elsc.support/about/"
+        },
+        {
+          "name": "European Legal Support Centre — Britain research",
+          "description": "Research and monitoring on repression of Palestine solidarity in Britain. Research is not a substitute for legal advice.",
+          "url": "https://elsc.support/wp-content/uploads/2026/03/On-All-Fronts-The-Multi-Sited-Repression-of-Palestine-Solidarity-in-Britain.pdf"
+        },
+        {
+          "name": "Green and Black Cross — Protest rights and bust cards",
+          "description": "Independent protest-rights information and practical resources. Not legal representation.",
+          "url": "https://greenandblackcross.org/"
+        },
+        {
+          "name": "Netpol — Protest legal support",
+          "description": "Protest monitoring, legal-observer information, and protest solicitor signposting.",
+          "url": "https://netpol.org/"
+        },
+        {
+          "name": "Black Protest Legal Support",
+          "description": "Legal support information for people protesting racial injustice; check current eligibility and availability.",
+          "url": "https://blackprotestlaw.org/"
+        },
+        {
+          "name": "Joint Council for the Welfare of Immigrants — Protest information",
+          "description": "Immigration-related information for protesters. Immigration status can make tailored advice especially important.",
+          "url": "https://www.jcwi.org.uk/"
+        },
+        {
+          "name": "Informed Dissent — Protest and immigration guidance",
+          "description": "Additional guidance referenced by Liberty on the possible immigration consequences of arrest; obtain individual immigration advice where needed.",
+          "url": "https://www.informeddissent.info/immigration-status"
+        },
+        {
+          "name": "Bristol Defendant Solidarity",
+          "description": "Local police-station and court support for arrested protesters. Contact details and availability can change.",
+          "url": "https://bristolabc.org/defendant-solidarity/"
+        },
+        {
+          "name": "Citizens Advice — Human rights",
+          "description": "Independent guidance on human-rights protections and routes to further help.",
+          "url": "https://www.citizensadvice.org.uk/law-and-courts/human-rights/"
+        },
+        {
+          "name": "GOV.UK — Get legal advice",
+          "description": "Find regulated legal advice and check legal-aid eligibility where applicable.",
+          "url": "https://www.gov.uk/find-legal-advice"
         }
       ]
     },
@@ -1189,7 +1645,7 @@
       "title": "Crime and Police",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Crime and Police",
+          "name": "Legal Shaman wiki — Crime and Police",
           "description": "If you are accused of a crime, victim support, and fraud.",
           "url": "/ask-the-shaman?q=Crime%20and%20Police",
           "links": [
@@ -1202,6 +1658,18 @@
               "url": "/find-a-lawyer"
             }
           ]
+        },
+        {
+          "name": "Crimestoppers",
+          "phone": "0800 555 111",
+          "description": "Anonymous reporting of crime — independent of the police.",
+          "url": "https://crimestoppers-uk.org/"
+        },
+        {
+          "name": "National Stalking Helpline (Suzy Lamplugh Trust)",
+          "phone": "0808 802 0300",
+          "description": "Specialist advice and support for people experiencing stalking.",
+          "url": "https://www.suzylamplugh.org/pages/category/national-stalking-helpline"
         },
         {
           "name": "Victim Support",
@@ -1306,6 +1774,16 @@
           "name": "Protests stop and search factsheet",
           "description": "The law, the history, and the statistics behind protest-related searches.",
           "url": "https://www.stop-watch.org/what-we-do/resources/protests-stop-and-search-factsheet/"
+        },
+        {
+          "name": "Victim and witness services",
+          "description": "GOV.UK Skip to main content Guidance # Victim and witness services Information on accessing victim and witness support services. From: Ministry of Justice Published: 5 July 2022 Last…",
+          "url": "https://www.gov.uk/guidance/victim-and-witness-services"
+        },
+        {
+          "name": "Make a complaint – Victim and Witness Information",
+          "description": "mplaint As the victim or witness of a crime, you deserve to be treated…",
+          "url": "https://victimandwitnessinformation.org.uk/make-a-complaint"
         }
       ]
     },
@@ -1313,7 +1791,7 @@
       "title": "Education",
       "resources": [
         {
-          "name": "Legal Shaman wiki \u2014 Education",
+          "name": "Legal Shaman wiki — Education",
           "description": "School exclusions, SEND, and education rights for children and young people.",
           "url": "/ask-the-shaman?q=Education",
           "links": [
@@ -1343,6 +1821,21 @@
           "name": "IPSEA Advice line",
           "description": "provides legally based information and next step advice on any educational issue that is the result of a child's special educational needs or disability.",
           "url": "https://www.ipsea.org.uk/"
+        },
+        {
+          "name": "School Exclusions Hub",
+          "description": "## School Exclusions Hub Your guide to understanding and challenging school exclusions in England. ## Understand Your Rights. ## Navigate Exclusion. # your future Coram’s School Exclusions…",
+          "url": "https://schoolexclusionshub.org.uk/"
+        },
+        {
+          "name": "Permanent exclusions",
+          "description": "(IPSEA) Independent Provider of Special Education Advice # Permanent exclusions The steps we explain on this page only relate to pupils at maintained schools, Academy schools (not 16-19…",
+          "url": "https://www.ipsea.org.uk/permanent-exclusions"
+        },
+        {
+          "name": "Advice for parents on school admission appeals (GOV.UK)",
+          "description": "Advice for parents and guardians on school admission appeals - GOV.UK Skip to main content ## Applies to England Print this page © Crown copyright 2023 This publication is licensed under the terms of…",
+          "url": "https://www.gov.uk/government/publications/admission-appeals-for-school-places/advice-for-parents-and-guardians-on-school-admission-appeals"
         }
       ]
     }

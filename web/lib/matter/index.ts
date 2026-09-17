@@ -22,11 +22,62 @@ export type { MatterInspectorView } from "./inspector";
 export { extractRelationshipModel, preferDisputeIssues } from "./relationships";
 export { buildRetrievalPlan, syncEventIssueLinks, enrichEvent } from "./retrieval-plan";
 export type { RetrievalIntentTrace } from "./retrieval-plan";
-export { evaluateMatterGate } from "./matter-gate";
+export {
+  buildConceptRetrievalPlan,
+  extractStoryKeyphrases,
+  listConceptClusterIds,
+  shouldSuppressSlugDefaults,
+} from "./conceptRetrievalPlan";
+export type { ConceptRetrievalPlan } from "./conceptRetrievalPlan";
+export {
+  coverageSlotsFrom,
+  groupBySlot,
+  isOfficialAuthoritySource,
+  matchingSlotIds,
+  primaryMatterSlug,
+  rankByCoverage,
+  slotRetryQueries,
+  storyLooksSolicitorConductComplaint,
+  storyLooksVacatedRroRelet,
+  titleCoversGraph,
+  uncoveredSlots,
+} from "./coverageSlots";
+export type { CoverageSlot } from "./coverageSlots";
+export { resolveLiveDispute, titleBlockedByLiveDispute } from "./liveDispute";
+export type { LiveDispute, LiveDisputeKind } from "./liveDispute";
+export {
+  liveAskFromStory,
+  liveAskHasTheme,
+  storyLooksSolicitorConductComplaint as storyLooksSolicitorConductFromAsk,
+} from "../coherence/clientQuestions";
+export type { LiveAsk, LiveAskTheme } from "../coherence/clientQuestions";
+export {
+  WIKI_AREA_INTENT_DEFAULTS,
+  areaForSlug,
+  listWikiAreas,
+  SLUG_INTENT_DEFAULTS,
+} from "./areaIntentDefaults";
+export type { WikiAreaIntentDefault } from "./areaIntentDefaults";
+export {
+  employmentIsBackdropOnly,
+  intentAllowedOnGraph,
+  titleAllowedOnGraph,
+} from "./issueGraphHits";
+export {
+  filterAdmissibleTitles,
+  freeHelpAdmissibleOnGeometry,
+  graphIsWeakForHits,
+  isNeighbourAttractorTitle,
+  sraOrganisationAdmissible,
+  storyLooksAmbiguousSeizedDevice,
+  storyLooksEmployerSeizedKit,
+  titleAdmissibleOnGeometry,
+} from "./graphAdmissibility";
 export type { MatterGateResult, EvidenceGateResult } from "./types";
 export {
   ISSUE_RETRIEVAL_INTENTS,
   ISSUE_RETRIEVAL_SCOPES,
+  intentsForIssueSlug,
   plannedIntentsForFrame,
   retrievalScopeForSlugs,
 } from "./scopes";

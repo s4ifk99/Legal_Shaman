@@ -15,6 +15,7 @@ export type LlmCallReason =
   | "evidence_research_exception"
   | "blocking_ambiguity_after_retrieval"
   | "evidence_replan"
+  | "pack_classify"
   | "legacy_brief"
   | "legacy_taxonomy"
   | "legacy_timeline"
@@ -24,7 +25,8 @@ export type LlmCallReason =
   | "legacy_critic"
   | "legacy_help_match"
   | "legacy_other"
-  | "compile_wiki";
+  | "compile_wiki"
+  | "penumbra_research";
 
 export type LlmBudgetPolicy = {
   normalMax: number;
@@ -40,6 +42,7 @@ export const DEFAULT_LLM_BUDGET_POLICY: LlmBudgetPolicy = {
     "evidence_research_exception",
     "blocking_ambiguity_after_retrieval",
     "evidence_replan",
+    "penumbra_research",
   ],
 };
 
@@ -87,6 +90,8 @@ const HARD_PERMITTED: Set<LlmCallReason> = new Set([
   "evidence_research_exception",
   "blocking_ambiguity_after_retrieval",
   "evidence_replan",
+  "pack_classify",
+  "penumbra_research",
 ]);
 
 const COST_PER_1K_INPUT = 0.00015;

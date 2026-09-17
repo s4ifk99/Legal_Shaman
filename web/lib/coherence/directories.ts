@@ -77,8 +77,11 @@ function fillTemplate(tpl: string | undefined, session: SessionState, fallback: 
     crime: 'criminal law',
   }
   const issue =
-    session.taxonomySlug === 'parking_pcn'
-      ? 'parking PCN motoring RTA'
+    session.taxonomySlug === 'parking_pcn' ||
+    /\b(car\s*park|parking|pcn|popla|private parking)\b/i.test(
+      [...session.rawInputs, session.whatHappened, session.goal].join(' '),
+    )
+      ? 'parking PCN motoring consumer'
       : issueByMatter[session.matterType] ||
         (session.matterType === 'unknown' || session.matterType === 'other'
           ? 'legal help'
@@ -95,12 +98,29 @@ function fillTemplate(tpl: string | undefined, session: SessionState, fallback: 
 export async function matchDirectories(session: SessionState): Promise<DirectoryHit[]> {
   const bundle = await loadDirs()
   const matter = session.matterType
-  return bundle.entries
-    .filter(
-      (e) =>
-        e.matterTypes.includes(matter) ||
-        (matter === 'unknown' && (e.id === 'sra-register' || e.id === 'citizens-advice')),
+  const parkingStory =
+    session.taxonomySlug === 'parking_pcn' ||
+    /\b(car\s*park|parking|pcn|popla|parking (?:fine|ticket|charge)|private parking)\b/i.test(
+      [...session.rawInputs, session.whatHappened, session.goal].join(' '),
     )
+  return bundle.entries
+    .filter((e) => {
+      if (e.matterTypes.includes(matter)) return true
+      if (matter === 'unknown' && (e.id === 'sra-register' || e.id === 'citizens-advice')) return true
+      // Parking / PCN: always offer SRA + Law Society + CAB finders
+      if (
+        parkingStory &&
+        (e.id === 'sra-register' ||
+          e.id === 'citizens-advice' ||
+          e.id === 'law-society-find' ||
+          e.id === 'lawworks' ||
+          e.id === 'govuk-legal-aid' ||
+          /solicitor|sra|citizens advice|law society/i.test(e.title))
+      ) {
+        return true
+      }
+      return false
+    })
     .map((e) => ({
       id: e.id,
       title: e.title,
@@ -126,7 +146,12 @@ export async function matchProbono(session: SessionState, limit = 3): Promise<Pr
     let score = 1
     const areas = s.practiceAreas.map((a) => a.toLowerCase()).join(' ')
     if (matterLabel && areas.includes(matterLabel)) score += 6
-    if (session.taxonomySlug === 'parking_pcn') {
+    if (
+      session.taxonomySlug === 'parking_pcn' ||
+      /\b(car\s*park|parking|pcn|popla|private parking)\b/i.test(
+        [...session.rawInputs, session.whatHappened].join(' '),
+      )
+    ) {
       if (/motoring|crime|road traffic|parking|consumer/i.test(areas)) score += 8
       if (/employment/i.test(areas) && !/motoring|crime|consumer/i.test(areas)) score -= 12
     }

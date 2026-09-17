@@ -1,7 +1,8 @@
 import "server-only";
 
 import { chat, llmConfigured } from "@/lib/llm/client";
-import { enableLlmAnswer, resolveSynthesisModel } from "@/lib/llm/answer-config";
+import { isLlmTimeoutError, isRateLimitedOrUnavailableError } from "@/lib/llm/openrouter";
+import { enableOverviewSynthesis, resolveOverviewModel } from "@/lib/llm/answer-config";
 import { sanitizeSignpostingText } from "@/lib/guardrails/validator";
 import {
   clearWikiAnswerCacheForTests,
@@ -13,36 +14,87 @@ import { getWikiPageById, searchWikiPages } from "@/lib/wiki/search";
 import {
   isSharedHousingQuery,
   rerankSharedHousingHits,
+  rerankFamilyBelongingsHits,
   stableSortWikiHits,
   filterOffTopicPropertyPurchaseHits,
 } from "@/lib/wiki/rerank-hits";
-import { isPropertyPurchaseMisrepresentationQuery } from "@/lib/legal/query-signals";
+import {
+  isFamilyBelongingsPropertyClaim,
+  isPropertyPurchaseMisrepresentationQuery,
+} from "@/lib/legal/query-signals";
 import { pickRecommendedFirms } from "@/lib/wiki/firm-recommendations";
 import { applyDworkinBoostToWikiHits } from "@/lib/wiki/dworkin-tags";
 import { retrieveDworkinSnippetsForOverview } from "@/lib/coherence/overviewDworkinPack";
+import { ensureShamanRecAnswer } from "@/lib/coherence/shamanRecFormat";
 import { KnowledgeRetriever, matterEvidenceToWikiHits } from "@/lib/matter/retrieve";
+import { titleAllowedOnGraph } from "@/lib/matter/issueGraphHits";
 import type { MatterFrame } from "@/lib/matter/types";
-import type { AnswerPackage } from "@/lib/coherence/answerPackage";
+import {
+  defaultAnswerFollowUps,
+  type AnswerPackage,
+} from "@/lib/coherence/answerPackage";
+import {
+  HARD_SEARCH_GUARDRAILS,
+  normalizeSearchMode,
+  searchModePolicy,
+} from "@/lib/coherence/searchMode";
+import {
+  AUTHOR_META_TAKEAWAY,
+  formatCaseBrief,
+  buildCaseLedOverview,
+  buildThinHonestOverview,
+  stripAuthorMetaTakeaway,
+} from "@/lib/coherence/caseBuilder";
+import type { ResearchBundle } from "@/lib/coherence/researchBundle";
+import {
+  coverageSlotsFrom,
+  isOfficialAuthoritySource,
+  rankByCoverage,
+  slotRetryQueries,
+  titleCoversGraph,
+} from "@/lib/matter/coverageSlots";
+import {
+  filterAdmissibleTitles,
+  freeHelpAdmissibleOnGeometry,
+  isNeighbourAttractorTitle,
+} from "@/lib/matter/graphAdmissibility";
+import { extractClientQuestions, liveQuestionCoverageGaps } from "@/lib/coherence/clientQuestions";
 
-const OVERVIEW_SYSTEM = `You are Legal Shaman's Overview agent — imitating Cursor working inside the legal_shaman Obsidian vault (AGENTS.md).
+const OVERVIEW_SYSTEM = `You are Legal Shaman's Overview agent — a research agent that builds the client's case from the CASE FILE, WIKI CONTEXT (library), and optional Third Eye notes.
 
-Write a practical UK signposting recommendation for the client's live situation.
+Write a practical UK signposting recommendation that answers each live Client question in the CASE FILE, in order. If a source is missing for a question, say so and point to an admitted official or Third Eye URL. Never invent statutes, case law, or neighbour topics.
 
 Rules:
-1. Use ONLY the WIKI CONTEXT and DWORKIN AUTHORITY snippets. Do not invent statutes, outcomes, or firm endorsements.
-2. Open with one short line: the client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).
-3. Answer the client's actual questions in clear prose. Cover each distinct issue they raised (e.g. sole-name broadband / WiFi password, joint rent shortfall, cameras/CCTV, threats/harassment, letter before action / money claim, council PCNs / permit-road appeals, estate agent / flat misrepresentation / demolition) when the context supports it. If they only mentioned work as the setting (“someone at my work”) but the dispute is parking tickets, a garage, or a landlord, do not write employment-law guidance.
-4. Make useful distinctions the sources support (e.g. sole-name provider contract vs household contribution agreement; joint and several rent liability; cameras on shared space vs private space; harassment vs pure CCTV complaints).
-5. Prefer concrete next steps grounded in the pages. Prefer rule-tagged sources for what to do, principle-tagged sources for fairness questions, and treat policy-tagged sources as background.
-6. Do NOT predict win/lose. Do NOT say "you should definitely".
-7. Keep it concise: about 250–450 words. Short section headings allowed (plain lines, not markdown #).
-8. End with one sentence: this is curated signposting from indexed sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.
-9. If Master Critic feedback is provided, fix every listed failure before answering.
-10. Return JSON only:
+1. Treat the CASE FILE as frozen. Cover every primary and secondary issue on the graph. Never switch the matter to an excluded topic (e.g. discrimination, child arrangements) just because a neighbouring wiki page ranked.
+2. Treat WIKI CONTEXT and DWORKIN AUTHORITY as the curated foundation. A supplemental Third Eye / Penumbra bundle is unverified lead material: use it to fill gaps, name uncertainty, and never treat an unsupported external claim as established law.
+3. Open with one short line: the client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).
+4. Structure the answer with these exact plain-line section titles (no markdown #):
+   - What the sources say — short prose on what admitted sources cover for the live facts
+   - Practical route — 2–5 bullet lines (• ) with concrete next steps in time order
+   - Optional: a related wiki page title as its own section heading, then one short paragraph
+   - Limits / missing facts — signposting disclaimer and material unknowns
+   Do not dump a single numbered essay. Do not use markdown [text](url) links — write plain source names; URLs go in the JSON sources / freeHelp fields only.
+5. If they were already forced out, do not write as if they still have a quiet week before a notice date. If they have already left, do not pivot to stay-in-home, section 21, or illegal-eviction playbooks unless lock-out, still-in-occupation, or illegal eviction facts are live.
+6. Prefer concrete next steps grounded in admitted pages or admitted Third Eye / official URLs. Prefer rule-tagged sources for what to do, principle-tagged sources for fairness questions, and treat policy-tagged sources as background.
+7. Do NOT predict win/lose, entitlement, or claim strength. Do not say solid case, strong case, good case, meritorious, likely entitled, or "you have a claim". Frame how-strong questions as factors, evidence gaps, and next documents — not prospects. Do NOT say "you should definitely".
+7a. Time limits (including rent repayment / tribunal windows): cite uncertainty and dual windows (for example 12 vs 24 months). Never assert one period as settled. Tell the client to check sources.
+8. Keep it concise: about 280–520 words. Short section headings allowed (plain lines, not markdown #). Zero wiki pages is allowed when the CASE FILE plus admitted Third Eye or official URLs can answer, or when you must say the library is thin.
+9. End with one sentence: this is Legal Shaman signposting from curated and clearly labelled supplemental sources — get a Citizens Advice or solicitor check before filing if wording is uncertain.
+10. If the library titles do not cover the client's live questions, say the library is thin and cite only admitted pages and admitted URLs. Never complete the page with housing, garden, right of way, tenancy deposit, package holiday, smart meter, motoring/PCN, consumer-scam, or “item hasn't arrived” guidance unless that issue is on the frozen graph.
+11. When the asker owns seized work kit (employer / company laptop), do not write as if they are the arrested person. Criminal defence is for the arrested person only; recovering employer property is a separate route.
+12. Only cite titles that appear in WIKI CONTEXT or admitted Third Eye notes. Do not invent pages to fill the list.
+13. If Master Critic feedback is provided, fix every listed failure before answering. Strength-rating failures: answer what a tribunal looks at and what is missing — never a strength score.
+14. Give at least two realistic options where the sources support more than one route.
+15. Takeaways and next steps must be short practical actions. Never paste the client's questions, "Your live questions:", "do not paste", or a string with two or more question marks.
+16. Return JSON only:
 {
   "answer": "full recommendation text",
   "wikiPageTitles": ["exact titles used from context"],
-  "takeaways": ["up to 5 short practical takeaways"]
+  "takeaways": ["up to 5 short practical takeaways"],
+  "recommendations": ["up to 4 concrete next steps"],
+  "options": [{"title": "short route name", "description": "what this route involves and when it may fit"}],
+  "missingFacts": ["facts that could materially change the guidance"],
+  "followUpPrompts": ["up to 3 useful clarification or refinement prompts"]
 }`;
 
 export function collectOverviewHits(query: string) {
@@ -74,6 +126,57 @@ export function collectOverviewHits(query: string) {
       /buying and selling a home/i,
       /misrepresentation/i,
       /house sale falls through/i,
+    ];
+    const pinned: typeof hits = [];
+    const rest = [...hits];
+    for (const re of pin) {
+      const idx = rest.findIndex((h) => re.test(h.title));
+      if (idx >= 0) pinned.push(...rest.splice(idx, 1));
+    }
+    return applyDworkinBoostToWikiHits([...pinned, ...rest]).slice(0, 8);
+  }
+  if (isFamilyBelongingsPropertyClaim(query)) {
+    const extras = [
+      "deciding whether to make a small claim",
+      "small claims court and letter before action",
+      "letter before action small claims",
+      "money claim online",
+      "household items and personal belongings after separation",
+      "property damage compensation small claims",
+    ];
+    const byId = new Map<string, ReturnType<typeof searchWikiPages>[number]>();
+    for (const hit of retrieveWikiHitsForQuery(query, 12)) {
+      byId.set(hit.id, hit);
+    }
+    for (const phrase of extras) {
+      for (const hit of searchWikiPages(phrase, 5)) {
+        const existing = byId.get(hit.id);
+        if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+      }
+    }
+    let hits = rerankFamilyBelongingsHits(query, [...byId.values()]);
+    hits = hits.filter((h) => {
+      const t = h.title.toLowerCase();
+      if (/types of court orders in family|child arrangements and custody|contact order|care order/i.test(t)) {
+        return false;
+      }
+      if (/divorce financial|ancillary relief|prenup|living together and marriage/i.test(t)) return false;
+      if (
+        /tenant|tenancy|section\s*21|section\s*8|eviction|landlord|leasehold|enfranchisement|inheritance tax|10-?year charge|disinherit|mesher order|parent of a child who lives|indefinite leave/i.test(
+          t,
+        )
+      ) {
+        return false;
+      }
+      return true;
+    });
+    const pin = [
+      /deciding whether to make a small claim/i,
+      /letter before action/i,
+      /small claims court/i,
+      /money claim/i,
+      /personal belongings|household items/i,
+      /property damage|compensation/i,
     ];
     const pinned: typeof hits = [];
     const rest = [...hits];
@@ -145,7 +248,7 @@ function buildContext(
       const page = getWikiPageById(hit.id);
       const keys = (hit.keyInformation || []).slice(0, 5).join(" · ");
       const guide = (hit.practicalGuidance || []).slice(0, 4).join(" · ");
-      const excerpt = (page?.content || hit.summary || "").replace(/\s+/g, " ").trim().slice(0, 900);
+      const excerpt = (page?.content || hit.summary || "").replace(/\s+/g, " ").trim().slice(0, 1400);
       const kind = hit.dworkinKind ? `Dworkin: ${hit.dworkinKind} (${hit.dworkinSource || "inferred"})` : "";
       return [
         `### ${i + 1}. ${hit.title}`,
@@ -179,18 +282,151 @@ function buildContext(
   return `${wikiBlock}\n\n==== DWORKIN AUTHORITY (same taxonomy — rule > principle > policy) ====\n\n${authority}`;
 }
 
-function parseJson(raw: string): { answer?: string; wikiPageTitles?: string[]; takeaways?: string[] } | null {
+function formatResearchBundle(bundle: ResearchBundle): string {
+  return [
+    "==== THE SHAMAN RESEARCH NOTES (supplemental; verify against WIKI CONTEXT) ====",
+    `Status: ${bundle.status}`,
+    bundle.questions.length ? `Questions still open: ${bundle.questions.join(" · ")}` : "",
+    bundle.matching
+      ? `Matching lens: ${bundle.matching.matterType} / ${bundle.matching.topicId} (${bundle.matching.confidence}) — ${bundle.matching.rationale}`
+      : "",
+    bundle.sources
+      .map(
+        (source) =>
+          `[${source.id}] ${source.title} (${source.origin === "external" ? "external/unverified" : "curated"}; ${source.tier})\n${source.excerpt}`,
+      )
+      .join("\n\n"),
+    "Claims:",
+    bundle.claims
+      .map(
+        (claim) =>
+          `- ${claim.claim} [${claim.confidence}; sources: ${claim.sourceIds.join(", ")}]`,
+      )
+      .join("\n"),
+    bundle.conflicts.length ? `Conflicts: ${bundle.conflicts.join(" · ")}` : "",
+    bundle.missingFacts.length ? `Missing facts: ${bundle.missingFacts.join(" · ")}` : "",
+    bundle.nextActions.length ? `Research next actions: ${bundle.nextActions.join(" · ")}` : "",
+    bundle.freeResources.length
+      ? `Free-resource leads (pending review; do not treat as verified):\n${bundle.freeResources
+          .map((resource) => `- ${resource.title} (${resource.resourceType}) — ${resource.url}`)
+          .join("\n")}`
+      : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+function attachResearchBundle(pack: AnswerPackage, bundle?: ResearchBundle): AnswerPackage {
+  return bundle ? { ...pack, researchBundle: bundle } : pack
+}
+
+function admitResearchBundle(
+  bundle: ResearchBundle | undefined,
+  frame: MatterFrame | null | undefined,
+  story: string,
+): ResearchBundle | undefined {
+  if (!bundle || !frame) return bundle;
+  const slots = coverageSlotsFrom(frame, story);
+  const sources = bundle.sources.filter((source) => {
+    const hay = `${source.title} ${source.url} ${source.excerpt || ""}`;
+    if (isNeighbourAttractorTitle(source.title, frame, story)) return false;
+    if (slots.length && !titleCoversGraph(hay, slots, story)) return false;
+    return true;
+  });
+  const kept = new Set(sources.map((source) => source.id));
+  sources.sort((a, b) => {
+    const ao = isOfficialAuthoritySource(a.title, a.url, a.excerpt) ? 1 : 0;
+    const bo = isOfficialAuthoritySource(b.title, b.url, b.excerpt) ? 1 : 0;
+    return bo - ao;
+  });
+  return {
+    ...bundle,
+    sources,
+    claims: bundle.claims.filter((claim) => claim.sourceIds.some((id) => kept.has(id))),
+    freeResources: bundle.freeResources.filter((resource) =>
+      freeHelpAdmissibleOnGeometry(resource.title, resource.description, story),
+    ),
+  };
+}
+
+type ParsedOverview = {
+  answer?: string;
+  wikiPageTitles?: string[];
+  takeaways?: string[];
+  recommendations?: string[];
+  options?: Array<{ title?: string; description?: string } | string>;
+  missingFacts?: string[];
+  followUpPrompts?: string[];
+};
+
+function parseJson(raw: string): ParsedOverview | null {
   try {
-    return JSON.parse(raw) as { answer?: string; wikiPageTitles?: string[]; takeaways?: string[] };
+    return JSON.parse(raw) as ParsedOverview;
   } catch {
     const m = raw.match(/\{[\s\S]*\}/);
     if (!m) return null;
     try {
-      return JSON.parse(m[0]) as { answer?: string; wikiPageTitles?: string[]; takeaways?: string[] };
+      return JSON.parse(m[0]) as ParsedOverview;
     } catch {
       return null;
     }
   }
+}
+
+function cleanList(value: unknown, limit: number, minLength = 12): string[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((item) => String(item || '').replace(/\s+/g, ' ').trim())
+    .filter((item) => item.length >= minLength)
+    .slice(0, limit);
+}
+
+export type LlmFallbackReason = "429" | "timeout" | "short_answer" | "disabled" | "error";
+
+function looksLikeQuestionDump(text: string): boolean {
+  const s = String(text || "");
+  if (AUTHOR_META_TAKEAWAY.test(s)) return true;
+  return (s.match(/\?/g) || []).length >= 2;
+}
+
+function practicalLines(value: unknown, limit: number): string[] {
+  return cleanList(value, limit)
+    .map(stripAuthorMetaTakeaway)
+    .filter((item) => item.length >= 12 && !looksLikeQuestionDump(item));
+}
+
+function overviewJsonUsable(
+  parsed: ParsedOverview | null,
+  answer: string,
+  takeaways: string[],
+  recs: string[],
+  latestText: string,
+  clientQuestion?: string,
+): boolean {
+  if (!parsed || !answer) return false;
+  if (takeaways.some((t) => AUTHOR_META_TAKEAWAY.test(t) || looksLikeQuestionDump(t))) return false;
+  if (recs.some((t) => AUTHOR_META_TAKEAWAY.test(t) || looksLikeQuestionDump(t))) return false;
+  const hay = `${answer}\n${takeaways.join("\n")}\n${recs.join("\n")}`;
+  const gaps = liveQuestionCoverageGaps(latestText, hay, clientQuestion);
+  const covers = extractClientQuestions(`${clientQuestion || ""}\n${latestText}`).length === 0 || gaps.length === 0;
+  if (answer.length >= 160) return true;
+  if (covers && takeaways.length >= 2 && recs.length >= 1 && answer.length >= 40) return true;
+  return false;
+}
+
+function classifyLlmFailure(err: unknown): Exclude<LlmFallbackReason, "short_answer" | "disabled"> {
+  if (isRateLimitedOrUnavailableError(err) && !isLlmTimeoutError(err)) {
+    const status = (err as { status?: number })?.status;
+    if (status === 503) return "error";
+    return "429";
+  }
+  if (isLlmTimeoutError(err)) return "timeout";
+  return "error";
+}
+
+function overviewChatTimeoutMs(): number {
+  const fromEnv = Number(process.env.LLM_TIMEOUT_MS);
+  return Math.max(45_000, Number.isFinite(fromEnv) ? fromEnv : 0);
 }
 
 function toPackage(
@@ -200,6 +436,12 @@ function toPackage(
   origin: "retrieve-llm" | "retrieve-deterministic",
   query = "",
   dworkin: ReturnType<typeof retrieveDworkinSnippetsForOverview> = [],
+  guidance?: {
+    recommendations?: string[];
+    options?: AnswerPackage['options'];
+    missingFacts?: string[];
+    followUpPrompts?: string[];
+  },
 ): AnswerPackage {
   const firms = pickRecommendedFirms(query || hits.map((h) => h.title).join(" "), hits).slice(
     0,
@@ -234,13 +476,62 @@ function toPackage(
     if (sources.length >= 10) break;
   }
 
+  const parsedRecommendations = practicalLines(guidance?.recommendations, 4);
+  const recs = practicalLines(takeaways, 5);
+  const recommendations = parsedRecommendations.length ? parsedRecommendations : recs.slice(0, 4);
+  const parsedOptions = (guidance?.options || [])
+    .map((item) =>
+      typeof item === 'string'
+        ? { title: item, description: '' }
+        : {
+            title: String(item.title || '').replace(/\s+/g, ' ').trim(),
+            description: String(item.description || '').replace(/\s+/g, ' ').trim(),
+          },
+    )
+    .filter((item) => item.title.length >= 4)
+    .slice(0, 4);
+  const options = parsedOptions.length
+    ? parsedOptions
+    : [
+        {
+          title: 'Follow the recommended next steps',
+          description: 'Use the cited guidance and evidence checklist to progress the matter yourself.',
+        },
+        {
+          title: 'Get independent help',
+          description: 'Ask Citizens Advice or a solicitor to review the facts if the route or wording is uncertain.',
+        },
+      ];
+  const parsedMissingFacts = cleanList(guidance?.missingFacts, 5);
+  const missingFacts = parsedMissingFacts.length
+    ? parsedMissingFacts
+    : ['Exact dates, documents, contract or notice wording, and the outcome you want.'];
+  const followUpPrompts = cleanList(guidance?.followUpPrompts, 3);
+  const relatedTitle = hits[0]?.title;
+  const structuredAnswer = ensureShamanRecAnswer({
+    answer,
+    recommendations,
+    missingFacts,
+    relatedTitle,
+    relatedBody: relatedTitle
+      ? `Related guidance from “${relatedTitle}”. Cross-check the cited Sources by issue list.`
+      : undefined,
+  });
+
   return {
-    answerOverview: answer,
-    bullets: takeaways.slice(0, 5).map((t) => ({
+    answerOverview: structuredAnswer,
+    bullets: recs.slice(0, 5).map((t) => ({
       text: t,
       sourceTitle: hits[0]?.title || "Legal Shaman wiki",
       sourceUrl: "https://www.citizensadvice.org.uk/",
       tier: "areas",
+    })),
+    recommendations,
+    options,
+    missingFacts,
+    followUps: defaultAnswerFollowUps(missingFacts).map((item, index) => ({
+      ...item,
+      prompt: followUpPrompts[index] || item.prompt,
     })),
     wikiPages: (() => {
       const seen = new Set<string>();
@@ -272,7 +563,7 @@ function toPackage(
       "Signposting from the Legal Shaman wiki — not legal advice. Free help first.",
     citation: { ok: true, issues: [] },
     ...( { origin } as object ),
-  } as AnswerPackage & { origin: string };
+  } as unknown as AnswerPackage & { origin: string };
 }
 
 /**
@@ -285,8 +576,16 @@ export async function buildOverviewAnswer(opts: {
   critique?: string | null;
   taxonomySlug?: string | null;
   matterFrame?: MatterFrame | null;
+  searchMode?: 'umbra' | 'penumbra';
+  researchBundle?: ResearchBundle;
+  followUp?: {
+    kind: 'clarify' | 'add_detail' | 'refine';
+    text: string;
+    priorAnswer?: string;
+  };
 }): Promise<{ answerPackage: AnswerPackage; meta: Record<string, unknown> }> {
   const latestText = opts.latestText.trim();
+  const policy = searchModePolicy(normalizeSearchMode(opts.searchMode));
   const searchBlob = [opts.clientQuestion, opts.understanding, latestText]
     .filter(Boolean)
     .join("\n\n");
@@ -303,25 +602,95 @@ export async function buildOverviewAnswer(opts: {
     const evidence = KnowledgeRetriever.forMatter({
       matterFrame: opts.matterFrame,
       submission: latestText,
+      limit: policy.retrievalBreadth === 'broad' ? 14 : 8,
     });
     hits = matterEvidenceToWikiHits(evidence.hits);
+    const slots = coverageSlotsFrom(opts.matterFrame, latestText);
+    hits = rankByCoverage(hits, slots, { story: latestText, limit: hits.length || 8 });
+    hits = filterAdmissibleTitles(hits, opts.matterFrame, latestText, { requireCoverage: true });
     retrievalMeta = {
       retrievalMode: evidence.mode,
       retrievalIntents: evidence.intents,
       matterId: opts.matterFrame.matterId,
     };
+    // Belongings / shared-housing: merge legacy curated collect so live matches local special cases
+    if (isFamilyBelongingsPropertyClaim(searchBlob) || isSharedHousingQuery(searchBlob)) {
+      const curated = collectOverviewHits(searchBlob);
+      const byId = new Map(hits.map((h) => [h.id, h]));
+      for (const hit of curated) {
+        const existing = byId.get(hit.id);
+        if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+      }
+      hits = isFamilyBelongingsPropertyClaim(searchBlob)
+        ? rerankFamilyBelongingsHits(searchBlob, [...byId.values()]).slice(0, 8)
+        : rerankSharedHousingHits(searchBlob, [...byId.values()]).slice(0, 8);
+      retrievalMeta = {
+        ...retrievalMeta,
+        retrievalMode: `${evidence.mode}+collectOverviewHits`,
+      };
+    } else {
+      const slots = coverageSlotsFrom(opts.matterFrame, latestText);
+      const byId = new Map(hits.map((h) => [h.id, h]));
+      for (const { query } of slotRetryQueries(
+        slots,
+        hits.map((h) => h.title),
+        latestText,
+      )) {
+        for (const hit of filterAdmissibleTitles(
+          collectOverviewHits(query),
+          opts.matterFrame,
+          latestText,
+          { requireCoverage: true },
+        )) {
+          const existing = byId.get(hit.id);
+          if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+        }
+      }
+      if (hits.length < 2) {
+        for (const hit of filterAdmissibleTitles(
+          collectOverviewHits(searchBlob),
+          opts.matterFrame,
+          latestText,
+          { requireCoverage: true },
+        )) {
+          const existing = byId.get(hit.id);
+          if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+        }
+      }
+      hits = rankByCoverage([...byId.values()], slots, { story: latestText, limit: 8 });
+      retrievalMeta = {
+        ...retrievalMeta,
+        retrievalMode: `${evidence.mode}+slot-retry`,
+      };
+    }
   } else {
     hits = collectOverviewHits(searchBlob);
+    if (policy.retrievalBreadth === 'broad') {
+      const broadHits = retrieveWikiHitsForQuery(searchBlob, 14);
+      const byId = new Map(hits.map((hit) => [hit.id, hit]));
+      for (const hit of broadHits) {
+        const existing = byId.get(hit.id);
+        if (!existing || hit.score > existing.score) byId.set(hit.id, hit);
+      }
+      hits = stableSortWikiHits([...byId.values()]).slice(0, 14);
+    }
     retrievalMeta = { retrievalMode: "legacy-collectOverviewHits" };
   }
   const dworkin = retrieveDworkinSnippetsForOverview({
     query: searchBlob,
     taxonomySlug,
     excludeTitles: hits.map((h) => h.title),
-    limit: 4,
+    limit: policy.retrievalBreadth === 'broad' ? 8 : 4,
+  }).filter((s) => {
+    if (opts.matterFrame && !titleAllowedOnGraph(s.title, opts.matterFrame)) return false;
+    if (!opts.matterFrame) return true;
+    const slots = coverageSlotsFrom(opts.matterFrame, latestText);
+    return titleCoversGraph(s.title, slots, latestText) || slots.length === 0;
   });
   const packMeta = {
     taxonomySlug,
+    searchMode: policy.mode,
+    searchBreadth: policy.retrievalBreadth,
     ...retrievalMeta,
     dworkinKinds: [
       ...hits.map((h) => h.dworkinKind).filter(Boolean),
@@ -329,42 +698,84 @@ export async function buildOverviewAnswer(opts: {
     ],
     dworkinTitles: dworkin.map((s) => s.title),
   };
+  const searchMode = normalizeSearchMode(opts.searchMode);
 
   const storyBlock = [
+    opts.matterFrame ? formatCaseBrief(opts.matterFrame, latestText, opts.clientQuestion) : "",
     opts.understanding ? `Brief understanding: ${opts.understanding}` : "",
     opts.clientQuestion ? `Client questions: ${opts.clientQuestion}` : "",
     `Situation:\n${latestText}`,
+    `Search mode: ${policy.label}\n${policy.promptInstruction}\n${HARD_SEARCH_GUARDRAILS}`,
     opts.critique
       ? `Master Critic feedback (fix these failures):\n${opts.critique}`
+      : "",
+    opts.followUp
+      ? `Client follow-up (${opts.followUp.kind}) — incorporate this into the revised guidance:\n${opts.followUp.text}`
+      : "",
+    opts.followUp?.priorAnswer
+      ? `Prior overview focus (revise it; do not blindly repeat it):\n${opts.followUp.priorAnswer.slice(0, 1800)}`
       : "",
   ]
     .filter(Boolean)
     .join("\n\n");
 
-  if (hits.length >= 2 && llmConfigured() && enableLlmAnswer()) {
-    const context = buildContext(hits, dworkin);
+  const admittedBundle = admitResearchBundle(opts.researchBundle, opts.matterFrame, latestText);
+  const slotsForAdmit = opts.matterFrame
+    ? coverageSlotsFrom(opts.matterFrame, latestText)
+    : [];
+  const supplemental = (admittedBundle?.sources || [])
+    .filter((s) => s.origin === "external" && s.url)
+    .filter((s) =>
+      opts.matterFrame
+        ? titleCoversGraph(`${s.title} ${s.url} ${s.excerpt || ""}`, slotsForAdmit, latestText) &&
+          !isNeighbourAttractorTitle(s.title, opts.matterFrame, latestText)
+        : true,
+    )
+    .slice(0, 10)
+    .map((s) => ({ title: s.title, url: s.url }));
+  let llmFallbackReason: LlmFallbackReason | undefined;
+  let llmError: string | undefined;
+  const wikiContext =
+    hits.length > 0
+      ? buildContext(hits, dworkin)
+      : "No admitted Legal Shaman wiki pages cover the live questions. Say the library is thin. Use only admitted Third Eye notes below, if any.";
+  const canWriteLlm =
+    llmConfigured() &&
+    enableOverviewSynthesis() &&
+    (Boolean(opts.matterFrame) ||
+      hits.length >= 2 ||
+      (Boolean(opts.matterFrame) && latestText.length >= 8 && supplemental.length >= 1));
+  if (!canWriteLlm) {
+    if (!llmConfigured() || !enableOverviewSynthesis()) llmFallbackReason = "disabled";
+  }
+  if (canWriteLlm) {
+    const supplementalResearch = admittedBundle
+      ? `\n\n${formatResearchBundle(admittedBundle)}`
+      : "";
     try {
       const raw = await chat(
         [
           { role: "system", content: OVERVIEW_SYSTEM },
           {
             role: "user",
-            content: `${storyBlock}\n\nWIKI CONTEXT:\n${context}\n\nRespond with JSON only.`,
+            content: `${storyBlock}\n\nWIKI CONTEXT:\n${wikiContext}${supplementalResearch}\n\nRespond with JSON only.`,
           },
         ],
         {
           jsonMode: true,
-          temperature: 0.2,
-          maxTokens: 1400,
-          model: resolveSynthesisModel(),
+          temperature: 0.35,
+          maxTokens: 2400,
+          timeoutMs: overviewChatTimeoutMs(),
+          model: resolveOverviewModel(),
           purpose: "final_synthesis",
           caller: "overviewAnswer",
         },
       );
       const parsed = parseJson(raw);
-      let answer = sanitizeSignpostingText((parsed?.answer || "").trim());
-      if (answer.length >= 160) {
-        // Keep wiki page order preferred; optionally reorder by titles LLM used
+      const answer = sanitizeSignpostingText((parsed?.answer || "").trim());
+      const takeaways = practicalLines(parsed?.takeaways, 5);
+      const recs = practicalLines(parsed?.recommendations, 4);
+      if (overviewJsonUsable(parsed, answer, takeaways, recs, latestText, opts.clientQuestion)) {
         const preferredTitles = new Set(
           (parsed?.wikiPageTitles || []).map((t) => t.toLowerCase()),
         );
@@ -375,22 +786,44 @@ export async function buildOverviewAnswer(opts: {
                 ...hits.filter((h) => !preferredTitles.has(h.title.toLowerCase())),
               ]
             : hits;
-        const takeaways = (parsed?.takeaways || [])
-          .map((t) => String(t).trim())
-          .filter((t) => t.length >= 12)
-          .slice(0, 5);
+        const options = Array.isArray(parsed?.options)
+          ? parsed.options
+              .map((item) =>
+                typeof item === 'string'
+                  ? { title: item, description: '' }
+                  : {
+                      title: String(item?.title || ''),
+                      description: String(item?.description || ''),
+                    },
+              )
+              .filter((item) => item.title.trim().length >= 4)
+              .slice(0, 4)
+          : [];
         return {
-          answerPackage: toPackage(answer, ordered, takeaways, "retrieve-llm", latestText, dworkin),
+          answerPackage: attachResearchBundle(
+            toPackage(answer, ordered, takeaways, "retrieve-llm", latestText, dworkin, {
+              recommendations: recs,
+              options,
+              missingFacts: cleanList(parsed?.missingFacts, 5),
+              followUpPrompts: cleanList(parsed?.followUpPrompts, 3),
+            }),
+            admittedBundle,
+          ),
           meta: {
             mode: "synthesis",
             retrievalScore: ordered[0]?.score ?? 0,
             pageTitles: ordered.slice(0, 6).map((h) => h.title),
             used: "coherence-overview-llm",
+            arambPilot: Boolean(admittedBundle),
             ...packMeta,
           },
         };
       }
+      llmFallbackReason = "short_answer";
+      llmError = "overview_llm_short_answer";
     } catch (err) {
+      llmFallbackReason = classifyLlmFailure(err);
+      llmError = (err instanceof Error ? err.message : String(err)).slice(0, 300);
       console.warn(
         "[coherence-overview] LLM synthesis failed:",
         err instanceof Error ? err.message : err,
@@ -398,8 +831,25 @@ export async function buildOverviewAnswer(opts: {
     }
   }
 
+  const skipStockEssay =
+    Boolean(llmFallbackReason) &&
+    supplemental.length >= 1 &&
+    (llmFallbackReason === "429" ||
+      llmFallbackReason === "timeout" ||
+      llmFallbackReason === "short_answer" ||
+      llmFallbackReason === "error");
+  const fallbackFlags = {
+    ...(llmFallbackReason ? { llmFallbackReason } : {}),
+    ...(llmError ? { llmError } : {}),
+  };
+
   // Deterministic practical fallback for shared housing (avoid cancel-contract boilerplate)
-  if (isSharedHousingQuery(latestText) && hits.length >= 2) {
+  if (
+    !skipStockEssay &&
+    isSharedHousingQuery(latestText) &&
+    hits.length >= 2 &&
+    !/illegal evict|door.{0,24}removed|no front door|forced .{0,30}(?:leave|vacate)|homeless/i.test(latestText)
+  ) {
     const primary = hits.find((h) => /share accommodation/i.test(h.title)) || hits[0];
     const bill = hits.find((h) => /dispute a mobile|internet or tv bill/i.test(h.title));
     const harass = hits.find((h) => /harass/i.test(h.title));
@@ -442,19 +892,63 @@ export async function buildOverviewAnswer(opts: {
       "Use Citizens Advice before paid solicitors.",
     ];
     return {
-      answerPackage: toPackage(
-        parts.join("\n"),
-        hits,
-        takeaways,
-        "retrieve-deterministic",
-        latestText,
-        dworkin,
+      answerPackage: attachResearchBundle(
+        toPackage(
+          parts.join("\n"),
+          hits,
+          takeaways,
+          "retrieve-deterministic",
+          latestText,
+          dworkin,
+        ),
+        admittedBundle,
       ),
       meta: {
         mode: "retrieval_only",
         retrievalScore: hits[0]?.score ?? 0,
         pageTitles: hits.slice(0, 6).map((h) => h.title),
         used: "shared-housing-deterministic",
+        arambPilot: Boolean(admittedBundle),
+        ...fallbackFlags,
+        ...packMeta,
+      },
+    };
+  }
+
+  // Case-shaped fallback: MatterFrame + admitted wiki hits (weak graph → honest short case).
+  if (opts.matterFrame) {
+    const preferThin = Boolean(llmFallbackReason) && supplemental.length >= 1;
+    const cased = preferThin
+      ? buildThinHonestOverview({
+          story: latestText,
+          frame: opts.matterFrame,
+          clientQuestion: opts.clientQuestion,
+          supplemental,
+        })
+      : buildCaseLedOverview({
+          story: latestText,
+          frame: opts.matterFrame,
+          clientQuestion: opts.clientQuestion,
+          hitTitles: hits.map((h) => h.title),
+          supplemental,
+        });
+    return {
+      answerPackage: attachResearchBundle(
+        toPackage(cased.answer, hits, cased.takeaways, "retrieve-deterministic", latestText, dworkin, {
+          recommendations: cased.recommendations,
+          options: cased.options,
+          missingFacts: cased.missingFacts,
+          followUpPrompts: cased.followUpPrompts,
+        }),
+        admittedBundle,
+      ),
+      meta: {
+        mode: "retrieval_only",
+        retrievalScore: hits[0]?.score ?? 0,
+        pageTitles: hits.slice(0, 6).map((h) => h.title),
+        used: preferThin ? "thin-honest-fallback" : "case-led-deterministic",
+        arambPilot: Boolean(admittedBundle),
+        ...fallbackFlags,
         ...packMeta,
       },
     };
@@ -468,19 +962,22 @@ export async function buildOverviewAnswer(opts: {
       : await generateWikiAnswer(latestText);
 
   const answer = (wiki.answer || wiki.message || "").trim();
-  const pack = toPackage(
-    answer.length >= 80
-      ? answer
-      : [
-          "This client was recommended by LegalShaman.com (signposting only — not legal advice).",
-          opts.understanding || latestText.slice(0, 280),
-          "Open the matched wiki pages below for the guidance that applies to your facts. Start with free help (Citizens Advice) before paid solicitors.",
-        ].join("\n\n"),
-    (wiki.wikiPages?.length ? wiki.wikiPages : hits).slice(0, 8),
-    [],
-    wiki.mode === "synthesis" ? "retrieve-llm" : "retrieve-deterministic",
-    latestText,
-    dworkin,
+  const pack = attachResearchBundle(
+    toPackage(
+      answer.length >= 80
+        ? answer
+        : [
+            "This client was recommended by LegalShaman.com (signposting only — not legal advice).",
+            opts.understanding || latestText.slice(0, 280),
+            "Open the matched wiki pages below for the guidance that applies to your facts. Start with free help (Citizens Advice) before paid solicitors.",
+          ].join("\n\n"),
+      (wiki.wikiPages?.length ? wiki.wikiPages : hits).slice(0, 8),
+      [],
+      wiki.mode === "synthesis" ? "retrieve-llm" : "retrieve-deterministic",
+      latestText,
+      dworkin,
+    ),
+    admittedBundle,
   );
 
   return {
@@ -490,6 +987,8 @@ export async function buildOverviewAnswer(opts: {
       retrievalScore: wiki.retrievalScore,
       pageTitles: (wiki.wikiPages || []).slice(0, 6).map((p) => p.title),
       used: "wiki-fallback",
+      arambPilot: Boolean(admittedBundle),
+      ...fallbackFlags,
       ...packMeta,
     },
   };

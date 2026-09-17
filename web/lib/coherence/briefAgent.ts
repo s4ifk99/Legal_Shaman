@@ -2,7 +2,8 @@
  * Client Brief Agent — understands the live brief and builds timeline (LLM + heuristics).
  */
 import type { MatterType, Mode, Party, SessionState, TimelineEvent, Jurisdiction } from './types'
-import { createInitialSession } from './sense'
+import { createInitialSession, sanitizeIntakeNarrative } from './sense'
+import { inferredTimelineEvent } from './timelineExtract'
 
 export type BriefResult = {
   freshBrief: boolean
@@ -24,8 +25,6 @@ export type BriefResult = {
   openUncertainties?: { id: string; whyItMatters: string; suggestedAsk: string }[]
   source?: string
 }
-
-const uid = () => Math.random().toString(36).slice(2, 10)
 
 const MATTERS = new Set<MatterType>([
   'immigration',
@@ -127,13 +126,14 @@ export function applyBriefToSession(
       }
     : { ...session }
 
-  const events: TimelineEvent[] = (brief.events || []).map((e) => ({
-    id: uid(),
-    kind: 'event' as const,
-    label: e.label.trim().slice(0, 78),
-    rawSpan: e.rawSpan?.trim() || e.label.trim(),
-    dateApprox: e.dateApprox?.trim() || undefined,
-  }))
+  const events: TimelineEvent[] = (brief.events || []).map((e) =>
+    inferredTimelineEvent({
+      label: e.label.trim().slice(0, 78),
+      rawSpan: e.rawSpan?.trim() || e.label.trim(),
+      dateApprox: e.dateApprox?.trim() || undefined,
+      actors: e.actors,
+    }),
+  )
 
   const parties: Party[] = brief.freshBrief ? [] : [...base.parties]
   for (const p of brief.parties || []) {
@@ -151,11 +151,18 @@ export function applyBriefToSession(
   const matter = asMatter(brief.matterType)
   const jurisdiction = asJurisdiction(brief.jurisdiction)
 
-  return {
+  return sanitizeIntakeNarrative({
     ...base,
-    rawInputs: brief.freshBrief ? [latestText] : [...base.rawInputs, latestText].filter(Boolean),
+    rawInputs: brief.freshBrief
+      ? [latestText].filter(Boolean)
+      : base.rawInputs[base.rawInputs.length - 1] === latestText.trim()
+        ? base.rawInputs
+        : [...base.rawInputs, latestText].filter(Boolean),
     events: events.length >= 2 ? events : base.events,
-    whatHappened: brief.whatHappened?.trim() || latestText,
+    whatHappened:
+      [brief.whatHappened?.trim() || '', base.whatHappened?.trim() || '', latestText.trim().length >= 40 ? latestText.trim() : '']
+        .filter(Boolean)
+        .sort((a, b) => b.length - a.length)[0] || '',
     howCaused: brief.howCaused?.trim() || (brief.freshBrief ? '' : base.howCaused),
     goal: brief.goal?.trim() || base.goal,
     parties,
@@ -170,8 +177,8 @@ export function applyBriefToSession(
       brief.mode === 'urgent'
         ? (brief.mode as Mode)
         : base.mode,
-    briefUnderstanding: brief.understanding || '',
-    clientQuestion: brief.clientQuestion || '',
+    briefUnderstanding: brief.understanding?.trim() || base.briefUnderstanding || '',
+    clientQuestion: brief.clientQuestion?.trim() || base.clientQuestion || '',
     topicId: brief.topicId || '',
-  }
+  })
 }

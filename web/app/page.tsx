@@ -24,8 +24,8 @@ export default function Home() {
               How can we help?
             </h2>
             <p className="mt-3 mx-auto max-w-2xl text-muted-foreground md:text-lg">
-              Ask the Shaman for wiki guidance, lawyer matching, and live discussions — or browse
-              Signpost for trusted national resources.
+              Guided matching or Signpost for trusted national resources. Signposting only — we are
+              not a solicitor and we do not give legal advice.
             </p>
           </div>
           <ProductEntryCards />
@@ -98,7 +98,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="mb-10 text-center">
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Browse by <span className="text-primary">area of law</span>
+              Signposting
             </h2>
             <p className="mt-3 text-muted-foreground md:text-lg">
               Housing, family, work, debt, and more — each section links to our wiki and trusted external help

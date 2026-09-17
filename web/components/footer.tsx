@@ -33,7 +33,7 @@ export function Footer() {
             </div>
             <div>
               <span className="font-serif text-2xl font-bold">Legal Shaman</span>
-              <p className="text-sm text-primary-foreground/70">Fixing Search for Legal Disputes</p>
+              <p className="text-sm text-primary-foreground/70">Justice through Search</p>
             </div>
           </div>
           
@@ -53,8 +53,8 @@ export function Footer() {
             <Link href="/privacy" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Privacy
             </Link>
-            <Link href="/signpost" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              For Firms
+            <Link href="/for-firms" className="text-primary-foreground/70 transition-colors hover:text-gold">
+              For firms
             </Link>
             <Link href="https://www.linkedin.com/in/aleemthedreamm/" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Contact
@@ -84,7 +84,7 @@ export function Footer() {
         
         <div className="mt-10 border-t border-primary-foreground/20 pt-8 space-y-4">
           <p className="text-center font-serif text-lg font-medium text-gold">
-            Fixing Search for Legal Disputes
+            Justice through Search
           </p>
           <p className="text-center text-sm text-primary-foreground/70 max-w-2xl mx-auto">
             Legal Shaman is the UK&apos;s agentic legal signposting platform — search solicitors, legal aid, and free advice; get guided lawyer matches; and explore wiki resources across the UK.

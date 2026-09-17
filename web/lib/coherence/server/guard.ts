@@ -14,6 +14,7 @@ import {
   recordUsageEvent,
   type UsageAllowance,
 } from "@/lib/coherence/usage";
+import { getCoherenceInternalSecret } from "@/lib/coherence/server/internal-auth";
 
 export type CoherenceAccessContext = {
   user: AuthenticatedUser;
@@ -21,6 +22,8 @@ export type CoherenceAccessContext = {
   allowance: UsageAllowance;
   /** Quota already enforced on Vercel gateway — skip local usage records. */
   trustedGateway?: boolean;
+  /** Whether this request acquired a local concurrency slot and usage record. */
+  usageTracked?: boolean;
 };
 
 export type CoherenceAccessOptions = {
@@ -30,6 +33,9 @@ export type CoherenceAccessOptions = {
   expectedFrontierCalls?: number;
   /** Skip started usage event (gateway records after backend success). */
   skipUsageRecord?: boolean;
+  /** Count one stable user-initiated case search, not each internal LLM call. */
+  countSearch?: boolean;
+  searchKey?: string;
 };
 
 function quotaResponse(allowance: UsageAllowance): NextResponse {
@@ -40,6 +46,8 @@ function quotaResponse(allowance: UsageAllowance): NextResponse {
       error: allowance.reason ?? "quota_exceeded",
       dailyUsed: allowance.dailyUsed,
       dailyLimit: allowance.dailyLimit,
+      monthlySearchUsed: allowance.monthlySearchUsed,
+      monthlySearchLimit: allowance.monthlySearchLimit,
       retryAfterSec: allowance.retryAfterSec,
     },
     { status: 429, headers },
@@ -66,6 +74,12 @@ export async function requireCoherenceAccess(
     req.headers.get("x-coherence-trusted-internal") === "1" &&
     Boolean(req.headers.get("x-coherence-trusted-user-id")?.trim());
   if (trustedGateway) {
+    const expected = getCoherenceInternalSecret();
+    const got = req.headers.get("x-coherence-internal-secret")?.trim();
+    // Never honour forgeable trusted headers without the internal tunnel secret.
+    if (!expected || got !== expected) {
+      return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+    }
     const trustedUserId = req.headers.get("x-coherence-trusted-user-id")!.trim();
     return {
       user: {
@@ -77,6 +91,7 @@ export async function requireCoherenceAccess(
       requestId,
       allowance: { allowed: true },
       trustedGateway: true,
+      usageTracked: false,
     };
   }
 
@@ -87,12 +102,14 @@ export async function requireCoherenceAccess(
         user,
         requestId,
         allowance: { allowed: true },
+        usageTracked: false,
       };
     }
     return {
       user: { id: "anonymous", name: "Guest", email: "", emailVerified: true },
       requestId,
       allowance: { allowed: true },
+      usageTracked: false,
     };
   }
 
@@ -126,6 +143,8 @@ export async function requireCoherenceAccess(
     requestId,
     endpoint: opts.endpoint,
     expectedFrontierCalls: opts.expectedFrontierCalls ?? 2,
+    countSearch: opts.countSearch,
+    searchKey: opts.searchKey,
   });
   if (!allowance.allowed) {
     if (allowance.reason !== "concurrent") {
@@ -158,10 +177,11 @@ export async function requireCoherenceAccess(
       requestId,
       endpoint: opts.endpoint,
       status: "started",
+      searchKey: opts.countSearch ? opts.searchKey : undefined,
     });
   }
 
-  return { user, requestId, allowance };
+  return { user, requestId, allowance, usageTracked: !opts.skipUsageRecord };
 }
 
 /** Legacy sync guard — feature flag only (non-LLM probes). */

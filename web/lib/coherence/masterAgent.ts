@@ -2,7 +2,8 @@
  * Client Master Orchestrator — subagents + critic via /api/llm/master
  */
 import type { MatterType, Mode, Party, Prompt, SessionState, TimelineEvent, Jurisdiction } from './types'
-import { createInitialSession } from './sense'
+import { createInitialSession, sanitizeIntakeNarrative } from './sense'
+import { inferredTimelineEvent } from './timelineExtract'
 import type { AnswerPackage } from './answerPackage'
 import type { SessionMatterFrame } from './matterFrame'
 import { coherenceMasterEndpoint } from '@/lib/coherence/client-gateway'
@@ -18,7 +19,7 @@ export type MasterResult = {
     matterType?: string
     goal?: string
     mode?: string
-    events?: { label: string; rawSpan: string; dateApprox?: string }[]
+    events?: { label: string; rawSpan: string; dateApprox?: string; actors?: string[] }[]
     whatHappened?: string
     parties?: Party[]
     documents?: string[]
@@ -86,8 +87,6 @@ export type HelpMatchResult = {
   }
 }
 
-const uid = () => Math.random().toString(36).slice(2, 10)
-
 const MATTERS = new Set<MatterType>([
   'immigration',
   'personal_injury',
@@ -125,6 +124,11 @@ export async function runMasterOrchestrate(
   heuristicPrompt: Prompt | null,
   signal?: AbortSignal,
   mode: 'intake' | 'answer' = 'intake',
+  followUp?: {
+    kind: 'clarify' | 'add_detail' | 'refine'
+    text: string
+    priorAnswer?: string
+  },
 ): Promise<MasterResult | null> {
   if (!latestText.trim()) return null
   const endpoint = coherenceMasterEndpoint()
@@ -140,6 +144,8 @@ export async function runMasterOrchestrate(
       body: JSON.stringify({
         latestText,
         mode,
+        searchMode: session.searchMode,
+        followUp,
         heuristicPrompt: heuristicPrompt
           ? { id: heuristicPrompt.id, text: heuristicPrompt.text, reason: heuristicPrompt.reason }
           : null,
@@ -160,6 +166,8 @@ export async function runMasterOrchestrate(
           })),
           rawInputs: session.rawInputs.slice(-4),
           topicId: session.topicId,
+          searchMode: session.searchMode,
+          penumbraAcknowledged: session.penumbraAcknowledged,
           answeredPromptIds: session.answeredPromptIds,
         },
       }),
@@ -221,13 +229,14 @@ export function applyMasterToSession(
       }
     : { ...session }
 
-  const events: TimelineEvent[] = (brief.events || []).map((e) => ({
-    id: uid(),
-    kind: 'event' as const,
-    label: (e.label || '').trim().slice(0, 78),
-    rawSpan: e.rawSpan?.trim() || e.label?.trim() || '',
-    dateApprox: e.dateApprox?.trim() || undefined,
-  }))
+  const events: TimelineEvent[] = (brief.events || []).map((e) =>
+    inferredTimelineEvent({
+      label: (e.label || '').trim().slice(0, 78),
+      rawSpan: e.rawSpan?.trim() || e.label?.trim() || '',
+      dateApprox: e.dateApprox?.trim() || undefined,
+      actors: e.actors,
+    }),
+  )
 
   const parties: Party[] = fresh ? [] : [...base.parties]
   for (const p of brief.parties || []) {
@@ -239,16 +248,37 @@ export function applyMasterToSession(
   const matter = asMatter(classify.matterType || brief.matterType)
   const jurisdiction = asJurisdiction(brief.jurisdiction)
 
-  return {
+  const briefWhat = brief.whatHappened?.trim() || ''
+  const baseWhat = base.whatHappened?.trim() || ''
+  const latest = latestText.trim()
+  // Never replace a long client story with a short clarifier or location chip
+  const preferStory = (...opts: string[]) =>
+    opts
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .sort((a, b) => b.length - a.length)[0] || ''
+
+  const rawInputs = fresh
+    ? [latest].filter(Boolean)
+    : base.rawInputs[base.rawInputs.length - 1] === latest
+      ? base.rawInputs
+      : [...base.rawInputs, latest].filter(Boolean)
+
+  return sanitizeIntakeNarrative({
     ...base,
-    rawInputs: fresh ? [latestText] : [...base.rawInputs, latestText].filter(Boolean),
+    rawInputs,
     events: events.length >= 2 ? events : base.events,
-    whatHappened: brief.whatHappened?.trim() || latestText,
+    whatHappened: preferStory(briefWhat, baseWhat, latest.length >= 40 ? latest : ''),
     howCaused: brief.howCaused?.trim() || (fresh ? '' : base.howCaused),
     goal: brief.goal?.trim() || base.goal,
     parties,
     documents: fresh ? [...(brief.documents || [])] : base.documents,
-    matterType: matter !== 'unknown' ? matter : base.matterType,
+    matterType:
+      base.issueGraphFrozen && base.matterType !== 'unknown'
+        ? base.matterType
+        : matter !== 'unknown'
+          ? matter
+          : base.matterType,
     jurisdiction: jurisdiction !== 'Unknown' ? jurisdiction : base.jurisdiction,
     locationHint: brief.locationHint?.trim() || base.locationHint,
     mode:
@@ -258,10 +288,18 @@ export function applyMasterToSession(
       brief.mode === 'urgent'
         ? (brief.mode as Mode)
         : base.mode,
-    briefUnderstanding: brief.understanding || '',
-    clientQuestion: brief.clientQuestion || '',
+    briefUnderstanding: brief.understanding?.trim() || base.briefUnderstanding || '',
+    clientQuestion: brief.clientQuestion?.trim() || base.clientQuestion || '',
     topicId: classify.topicId || brief.topicId || '',
     taxonomySlug: classify.taxonomySlug || base.taxonomySlug || null,
-    matterFrame: master.matterFrame ?? base.matterFrame ?? null,
-  }
+    matterFrame: base.issueGraphFrozen
+      ? base.matterFrame ?? master.matterFrame ?? null
+      : master.matterFrame ?? base.matterFrame ?? null,
+    issueGraphFrozen: fresh ? false : Boolean(base.issueGraphFrozen),
+    helpOutcome: fresh ? { consentToRecord: false } : base.helpOutcome,
+    searchMode: session.searchMode,
+    penumbraAcknowledged: session.penumbraAcknowledged,
+    feedbackHistory: session.feedbackHistory,
+    answerRevisionHistory: session.answerRevisionHistory,
+  })
 }

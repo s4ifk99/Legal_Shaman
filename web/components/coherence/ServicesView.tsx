@@ -1,15 +1,46 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { SessionState } from '@/lib/coherence/types'
-import type { LegalFrame } from '@/lib/coherence/frames'
+import { proposeLegalFrames, type LegalFrame } from '@/lib/coherence/frames'
 import {
   buildHelpPack,
   matterLabel,
+  matchingSessionForHelp,
   type HelpPack,
 } from '@/lib/coherence/services'
+import { freezeIssueGraph } from '@/lib/coherence/freezeIssueGraph'
+import { classifyHelpDoorKind, rankPeopleFirst } from '@/lib/coherence/peopleFirst'
+import {
+  SEARCH_MAG_DEFAULT,
+  SEARCH_MAG_MAX,
+  SEARCH_MAG_META,
+  SEARCH_MAG_MIN,
+  filterFreeHelpByMag,
+  magBlurbMax,
+  magShowRawUrl,
+  magShowScores,
+  parseSearchMagLevel,
+  showDirectoriesAtMag,
+  showRawSourcesAtMag,
+  showSolicitorsAtMag,
+  showThirdEyeHelpAtMag,
+  type SearchMagLevel,
+} from '@/lib/coherence/searchMagnification'
+import { visibleThirdEyeHelp } from '@/lib/coherence/thirdEyeMatchingHelp'
 import type { HelpMatchResult } from '@/lib/coherence/masterAgent'
-import { buildLawyerBrief, briefToPlainText } from '@/lib/coherence/brief'
+import { buildLawyerBrief, briefToPlainText, placeForSummary } from '@/lib/coherence/brief'
 import { computeProgress } from '@/lib/coherence/slots'
+import { isParkingStoryText } from '@/lib/coherence/signposting'
+import { freeHelpAdmissibleOnGeometry } from '@/lib/matter/graphAdmissibility'
+import {
+  isFamilyBelongingsDisputeText,
+  isInsuranceComplaintStoryText,
+  isParkingSpecialistService,
+  isPropertyDamageClaimText,
+} from '@/lib/coherence/matchFreeServices'
 import { SraAttribution } from '@/components/sra-attribution'
+import { sraLaneAlert, sraRegisterFootnote } from '@/lib/coherence/sraRegisterFootnote'
+import { captureProductEvent } from '@/components/analytics/posthog-provider'
+import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './ServicesView.css'
 
 interface Props {
@@ -18,6 +49,7 @@ interface Props {
   helpMatch?: HelpMatchResult | null
   onBack: () => void
   onOpenSraFirm?: (sraId: string) => void
+  pageNavigation?: PageNavigationProps
 }
 
 type Row = {
@@ -30,6 +62,8 @@ type Row = {
   sraId?: string
   section?: string
   score?: number
+  relevance?: string
+  rawSource?: boolean
 }
 
 function formatPhoneDisplay(phone: string): string {
@@ -51,15 +85,120 @@ function telHref(phone: string): string {
   return `tel:${cleaned}`
 }
 
-function Item({ s, onOpenSraFirm }: { s: Row; onOpenSraFirm?: (sraId: string) => void }) {
+/** One-line blurb — strip scraped headings / nav noise. */
+function compactBlurb(text: string, max = 140): string {
+  const cleaned = text
+    .replace(/#{1,6}\s*/g, '')
+    .replace(/\bSee advice for\b[^.!?\n]*/gi, '')
+    .replace(/\bHelp us improve[^.!?\n]*/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (!cleaned) return ''
+  if (cleaned.length <= max) return cleaned
+  const cut = cleaned.slice(0, max)
+  const lastSpace = cut.lastIndexOf(' ')
+  return `${(lastSpace > 60 ? cut.slice(0, lastSpace) : cut).trim()}…`
+}
+
+function relevanceLabel(score?: number, fallback?: string): string {
+  if (fallback?.trim()) return compactBlurb(fallback, 110)
+  if (score == null || Number.isNaN(score)) return ''
+  if (score >= 28) return 'Strong match for this dispute type'
+  if (score >= 18) return 'Good match — confirm they take your matter'
+  if (score >= 12) return 'Possible match from the SRA register'
+  return 'Listed on the SRA register'
+}
+
+function shortTypeLabel(type: string): string {
+  const t = type.toLowerCase()
+  if (t.includes('raw search')) return 'Raw search'
+  if (t.includes('sra')) return 'SRA firm'
+  if (t.includes('third eye') && t.includes('free')) return 'Free help'
+  if (t.includes('third eye')) return 'Directory'
+  if (t.includes('free')) return 'Free help'
+  if (t.includes('official')) return 'Official'
+  if (t.includes('pro bono')) return 'Pro bono'
+  if (t.includes('legal aid')) return 'Legal aid'
+  if (t.includes('directory')) return 'Directory'
+  return compactBlurb(type, 28)
+}
+
+function jurisdictionLabel(session: SessionState): string {
+  switch (session.jurisdiction) {
+    case 'EnglandWales':
+      return 'England & Wales'
+    case 'Scotland':
+      return 'Scotland'
+    case 'NorthernIreland':
+      return 'Northern Ireland'
+    case 'Unknown':
+      return 'Not yet confirmed'
+    default:
+      return session.jurisdiction || 'Not yet confirmed'
+  }
+}
+
+function legalAreaLabel(session: SessionState): string {
+  if (session.taxonomySlug === 'parking_pcn') return 'Parking / PCN'
+  if (session.ukTaxonomyL1 || session.ukTaxonomyL2) {
+    return [session.ukTaxonomyL1, session.ukTaxonomyL2].filter(Boolean).join(' · ')
+  }
+  return matterLabel(session.matterType)
+}
+
+function disputeTypeLabel(session: SessionState): string {
+  const labels: Record<string, string> = {
+    consumer_services: 'Consumer services / contractor workmanship dispute',
+    consumer_small_claims: 'Consumer small claim / money recovery',
+    consumer_vehicle_repair: 'Used vehicle / repair dispute',
+    parking_pcn: 'Parking charge / PCN dispute',
+    neighbour_dispute: 'Neighbour access / property dispute',
+    employment: 'Employment / workplace dispute',
+    housing: 'Housing / tenancy dispute',
+    conveyancing: 'Conveyancing / property purchase dispute',
+    family: 'Family / relationship dispute',
+    debt: 'Debt / enforcement dispute',
+    immigration: 'Immigration / visa matter',
+    defamation_media: 'Defamation / media / reputation',
+  }
+  if (session.taxonomySlug && labels[session.taxonomySlug]) return labels[session.taxonomySlug]
+  if (session.taxonomySlug === 'defamation_media') return 'Defamation / media / reputation'
+  if (session.topicId && session.topicId !== 'general') {
+    return session.topicId.replace(/[-_]/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase())
+  }
+  return session.matterType === 'unknown' ? 'General legal matter — still being classified' : matterLabel(session.matterType)
+}
+
+function Item({
+  s,
+  onOpenSraFirm,
+  mag,
+}: {
+  s: Row
+  onOpenSraFirm?: (sraId: string) => void
+  mag: SearchMagLevel
+}) {
   const phone = (s.phone || '').trim()
   const tel = phone ? telHref(phone) : ''
+  const relevance = relevanceLabel(s.score, s.relevance || (s.sraId ? s.blurb.split(' — ')[0] : ''))
+  const blurb = s.sraId && mag < 5 ? '' : compactBlurb(s.blurb, magBlurbMax(mag))
+  const showScore = magShowScores(mag) && s.score != null && s.score > 0
 
   return (
-    <li className="services__item">
-      <div className="services__type">{s.type}</div>
+    <li className={s.rawSource ? 'services__item services__item--raw' : 'services__item'}>
+      <div className="services__item-top">
+        <span className="services__type">{shortTypeLabel(s.type)}</span>
+        {showScore ? (
+          <span className="services__relevance-score" title="Match strength">
+            Relevance {Math.min(99, Math.round(s.score!))}
+          </span>
+        ) : s.score != null && s.score > 0 && mag >= 3 ? (
+          <span className="services__relevance-score" title="Match strength from the SRA register">
+            Relevance {Math.min(99, Math.round(s.score))}
+          </span>
+        ) : null}
+      </div>
       <h3 className="services__name">{s.title}</h3>
-      {s.blurb && <p className="services__blurb">{s.blurb}</p>}
       {phone ? (
         <p className="services__phone">
           <span className="services__phone-label">Phone</span>
@@ -71,17 +210,24 @@ function Item({ s, onOpenSraFirm }: { s: Row; onOpenSraFirm?: (sraId: string) =>
             <span className="services__phone-link">{formatPhoneDisplay(phone)}</span>
           )}
         </p>
-      ) : s.sraId ? (
+      ) : s.sraId && mag >= 3 ? (
         <p className="services__phone services__phone--missing">Phone not listed on SRA register</p>
       ) : null}
+      {relevance && mag >= 3 ? <p className="services__relevance">{relevance}</p> : null}
+      {(!relevance || mag >= 4) && blurb ? <p className="services__blurb">{blurb}</p> : null}
+      {magShowRawUrl(mag) && s.url ? (
+        <p className="services__raw-url">
+          <span className="services__phone-label">Source</span> {s.url}
+        </p>
+      ) : null}
       <div className="services__actions">
-        {s.sraId && onOpenSraFirm ? (
+        {s.sraId && onOpenSraFirm && mag >= 3 ? (
           <button
             type="button"
             className="services__link services__link--button"
             onClick={() => onOpenSraFirm(s.sraId!)}
           >
-            View firm profile →
+            Firm profile →
           </button>
         ) : null}
         {s.url ? (
@@ -100,17 +246,23 @@ function Section({
   rows,
   onOpenSraFirm,
   variant,
+  mag,
 }: {
   title: string
   lead?: string
   rows: Row[]
   onOpenSraFirm?: (sraId: string) => void
-  variant?: 'free'
+  variant?: 'free' | 'read'
+  mag: SearchMagLevel
 }) {
   if (!rows.length) return null
   return (
     <section
-      className={['services__section', variant === 'free' ? 'services__section--free' : '']
+      className={[
+        'services__section',
+        variant === 'free' ? 'services__section--free' : '',
+        variant === 'read' ? 'services__section--read' : '',
+      ]
         .filter(Boolean)
         .join(' ')}
     >
@@ -118,14 +270,66 @@ function Section({
       {lead ? <p className="services__section-lead">{lead}</p> : null}
       <ul className="services__list">
         {rows.map((s) => (
-          <Item key={s.id} s={s} onOpenSraFirm={onOpenSraFirm} />
+          <Item key={s.id} s={s} onOpenSraFirm={onOpenSraFirm} mag={mag} />
         ))}
       </ul>
     </section>
   )
 }
 
-function ShareWithSolicitorPanel({
+const MAG_STORAGE_KEY = 'ls-matching-help-search-mag'
+
+function SearchMagnificationSlider({
+  value,
+  onChange,
+}: {
+  value: SearchMagLevel
+  onChange: (level: SearchMagLevel) => void
+}) {
+  const meta = SEARCH_MAG_META[value]
+  return (
+    <div className="services__mag">
+      <div className="services__mag-head">
+        <label className="services__mag-label" htmlFor="search-magnification">
+          Search magnification
+        </label>
+        <p className="services__mag-value">
+          {value} · {meta.name}
+        </p>
+      </div>
+      <input
+        id="search-magnification"
+        className="services__mag-range"
+        type="range"
+        min={SEARCH_MAG_MIN}
+        max={SEARCH_MAG_MAX}
+        step={1}
+        value={value}
+        aria-valuemin={SEARCH_MAG_MIN}
+        aria-valuemax={SEARCH_MAG_MAX}
+        aria-valuenow={value}
+        aria-valuetext={`${value}, ${meta.name}`}
+        onChange={(e) => onChange(parseSearchMagLevel(e.target.value))}
+      />
+      <ol className="services__mag-ticks">
+        {([1, 2, 3, 4, 5] as const).map((n) => (
+          <li key={n}>
+            <button
+              type="button"
+              className={n === value ? 'services__mag-tick services__mag-tick--on' : 'services__mag-tick'}
+              onClick={() => onChange(n)}
+            >
+              {n} {SEARCH_MAG_META[n].name}
+            </button>
+          </li>
+        ))}
+      </ol>
+      <p className="services__mag-hint">{meta.hint}</p>
+    </div>
+  )
+}
+
+function StickyCaseRail({
   session,
   frames,
 }: {
@@ -150,26 +354,71 @@ function ShareWithSolicitorPanel({
     }
   }
 
-  const timelineRows =
+  const area = legalAreaLabel(session)
+  const jurisdiction = jurisdictionLabel(session)
+  const location = placeForSummary(session) || (session.locationHint || '').trim()
+  const dispute = disputeTypeLabel(session)
+
+  return (
+    <aside className="services__rail" aria-label="Case routing">
+      <div className="services__rail-block">
+        <p className="services__meta-label">Legal area</p>
+        <p className="services__meta-value">{area}</p>
+      </div>
+      <div className="services__rail-block">
+        <p className="services__meta-label">Dispute type</p>
+        <p className="services__meta-value">{dispute}</p>
+      </div>
+      <div className="services__rail-block">
+        <p className="services__meta-label">Jurisdiction</p>
+        <p className="services__meta-value services__meta-value--compact">{jurisdiction}</p>
+        <p className="services__meta-sub">
+          {location || 'Add a town or postcode to rank nearby solicitors.'}
+        </p>
+      </div>
+      <div className="services__share-actions">
+        <button type="button" className="services__share-copy" onClick={() => void copyShare()}>
+          {copied ? 'Copied' : 'Copy summary for solicitor'}
+        </button>
+        <p className="services__share-copy-hint">
+          Includes a “Recommended by LegalShaman.com” note.
+        </p>
+      </div>
+    </aside>
+  )
+}
+
+function CaseContext({
+  session,
+  frames,
+}: {
+  session: SessionState
+  frames: LegalFrame[]
+}) {
+  const progress = useMemo(() => computeProgress(session), [session])
+  const brief = useMemo(
+    () => buildLawyerBrief(session, progress, frames),
+    [session, progress, frames],
+  )
+
+  const timelineRows: { order: number; when: string; event: string }[] =
     brief.timeline.length > 0
-      ? brief.timeline
+      ? brief.timeline.map((row) => ({ order: row.order, when: row.when, event: row.event }))
       : session.whatHappened
         ? [{ order: 1, when: 'Account', event: session.whatHappened }]
         : []
 
+  const summaryLines = brief.situationSummary
+    .split('\n')
+    .map((line) => line.replace(/^•\s*/, '').trim())
+    .filter((line) => line && !/^Recommended by LegalShaman/i.test(line))
+
   return (
-    <aside className="services__share" aria-label="Share with a solicitor">
-      <h2 className="services__share-title">Share with a solicitor</h2>
-      <p className="services__share-lead">
-        Copy this summary when you contact a firm. It opens with a note that you were recommended by
-        LegalShaman.com.
-      </p>
-
-      <div className="services__share-card">
-        <p className="services__share-badge">Recommended by LegalShaman.com</p>
-        <p className="services__share-summary">{brief.situationSummary}</p>
-
-        <h3 className="services__share-heading">Timeline</h3>
+    <div className="services__context">
+      <section className="services__context-block" aria-labelledby="services-timeline">
+        <h2 id="services-timeline" className="services__section-title">
+          Timeline
+        </h2>
         {timelineRows.length === 0 ? (
           <p className="services__share-empty">No timeline events yet — add detail on the intake screen.</p>
         ) : (
@@ -182,18 +431,28 @@ function ShareWithSolicitorPanel({
             ))}
           </ol>
         )}
+      </section>
 
-        <h3 className="services__share-heading">Desired outcome</h3>
-        <p className="services__share-outcome">{brief.desiredOutcome}</p>
-
-        <h3 className="services__share-heading">Instructions for the solicitor</h3>
-        <p className="services__share-instructions">{brief.instructionsForLawyer}</p>
-
-        <button type="button" className="services__share-copy" onClick={() => void copyShare()}>
-          {copied ? 'Copied' : 'Copy summary for solicitor'}
-        </button>
-      </div>
-    </aside>
+      <section className="services__context-block" aria-labelledby="services-summary">
+        <h2 id="services-summary" className="services__section-title">
+          Situation summary
+        </h2>
+        {summaryLines.length === 0 ? (
+          <p className="services__share-empty">No summary yet.</p>
+        ) : (
+          <ul className="services__share-bullets" aria-label="Situation summary">
+            {summaryLines.map((line, i) => (
+              <li key={`sum-${i}`}>{line}</li>
+            ))}
+          </ul>
+        )}
+        {brief.desiredOutcome ? (
+          <p className="services__share-outcome">
+            <span className="services__meta-label">Goal</span> {brief.desiredOutcome}
+          </p>
+        ) : null}
+      </section>
+    </div>
   )
 }
 
@@ -214,13 +473,67 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
   const story = [...session.rawInputs, session.whatHappened, session.goal]
     .join(' ')
     .toLowerCase()
+  const parkingStory =
+    session.taxonomySlug === 'parking_pcn' || isParkingStoryText(story)
+  const propertyDamage = isPropertyDamageClaimText(story)
+  const familyBelongings = isFamilyBelongingsDisputeText(story)
+
+  if (!freeHelpAdmissibleOnGeometry(row.title, `${row.blurb || ''} ${row.url || ''}`, story)) {
+    return false
+  }
+
+  if (isInsuranceComplaintStoryText(story)) {
+    if (/legal aid agency|civil legal advice|check if you are eligible for legal aid/i.test(hay)) {
+      return false
+    }
+    if (/consumer helpline|which\?|resolver/i.test(hay) && !/financial ombudsman/i.test(hay)) {
+      return false
+    }
+    return (
+      /financial ombudsman|moneyhelper|money advice/i.test(hay) ||
+      (/citizens advice/i.test(hay) && !/consumer helpline|consumer service/i.test(hay))
+    )
+  }
 
   if (/therap|counsell|intercultural|wellbeing|well-being|psycholog/.test(hay) && !/trauma|mental|abuse/.test(story)) {
     return false
   }
 
+  // Parking appeal routes never appear on non-parking searches
+  if (!parkingStory && isParkingSpecialistService(hay)) {
+    return false
+  }
+
+  if (parkingStory) {
+    if (
+      /age uk|free representation unit|\bfru\b|employment|social security|universal credit|\bavma\b|clinical|medical accident|nhs complaint/.test(
+        hay,
+      )
+    ) {
+      return false
+    }
+    return /parking|pcn|popla|\bias\b|independent appeals|tribunal|adjudicator|adviceline|consumer helpline|resolver|advicenow|legal aid|pro bono|citizens advice|penalty charge|motoring/.test(
+      hay,
+    )
+  }
+
+  // Core free advice hubs — always OK when not parking-gated above
   if (/citizens advice|advicenow|legal aid|lawworks|pro bono|civil legal advice|check if you are eligible/.test(hay)) {
     return true
+  }
+
+  // Family + damaged belongings / sue → consumer / small-claims free help, not DA packs
+  if (familyBelongings || (matter === 'family' && propertyDamage)) {
+    if (
+      /domestic (?:abuse|violence)|rape crisis|refuge\b|\bncdv\b|national centre for domestic|domestic violence assist|rights of women|ourfamilywizard|family mediation|dad'?s house|only dads|family rights group|age uk|creditor/.test(
+        hay,
+      )
+    ) {
+      if (!/\b(domestic (?:abuse|violence)|rape|refuge|molestation)\b/.test(story)) return false
+    }
+    return /consumer|small claim|money claim|citizens advice|advicenow|legal aid|civil legal advice|goods|damag|court|family|child|parent/.test(
+      hay,
+    )
   }
 
   if (matter === 'housing') {
@@ -228,11 +541,8 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
       hay,
     )
   }
-  if (session.taxonomySlug === 'parking_pcn') {
-    return /parking|pcn|tribunal|consumer|motoring|rta|citizens advice/.test(hay)
-  }
-  if (matter === 'consumer') {
-    return /consumer|car|vehicle|refund|trader|ombudsman|resolver|which\b|faulty|goods|parking|pcn|tribunal/.test(
+  if (matter === 'consumer' || propertyDamage) {
+    return /consumer|refund|trader|ombudsman|resolver|which\b|faulty|goods|small claim|money claim|citizens advice|advicenow/.test(
       hay,
     )
   }
@@ -249,25 +559,35 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
     return /debt|money advice|insolvency|bankrupt|bailiff/.test(hay)
   }
   if (matter === 'family') {
-    return /family|divorce|child|custody|domestic/.test(hay)
+    return /family|divorce|child|custody|domestic|parent|contact/.test(hay)
   }
 
   return /citizens advice|advicenow|legal aid|lawworks|pro bono|civil legal advice/.test(hay)
 }
 
 function mergeFreeHelp(
+  dialableServices: Row[],
+  authorityOfficial: Row[],
   agentFree: Row[],
   signRows: Row[],
   legalAid: Row[],
   probono: Row[],
   session: SessionState,
-  limit = 8,
+  limit = 12,
 ): Row[] {
   const out: Row[] = []
   const seen = new Set<string>()
+  const story = [...session.rawInputs, session.whatHappened, session.goal].join(' ')
+  const parkingStory =
+    session.taxonomySlug === 'parking_pcn' ||
+    /\b(car\s*park|parking|pcn|popla|parking (?:fine|ticket|charge)|private parking)\b/i.test(story)
 
-  const push = (row: Row) => {
-    if (!isRelevantFreeHelp(row, session)) return
+  const pushAllowlisted = (row: Row) => {
+    const phoneKey = (row.phone || '').replace(/\D/g, '')
+    if (phoneKey) {
+      if (seen.has(`phone:${phoneKey}`)) return
+      seen.add(`phone:${phoneKey}`)
+    }
     const key = normKey(row.title, row.url)
     if (seen.has(key)) return
     const titleKey = row.title.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
@@ -276,16 +596,28 @@ function mergeFreeHelp(
     out.push(row)
   }
 
+  const push = (row: Row) => {
+    if (!isRelevantFreeHelp(row, session)) return
+    pushAllowlisted(row)
+  }
+
+  for (const row of dialableServices) push(row)
+  for (const row of authorityOfficial) push(row)
   for (const row of agentFree) push(row)
 
-  const matterSectionsPreferred =
-    session.matterType === 'housing'
-      ? ['home and housing']
-      : session.matterType === 'consumer'
-        ? ['consumer rights']
-        : session.matterType === 'immigration'
-          ? ['immigration and citizenship']
-          : []
+  const matterSectionsPreferred = parkingStory
+    ? ['driving and parking', 'consumer rights']
+    : isFamilyBelongingsDisputeText(story) || isPropertyDamageClaimText(story)
+      ? ['consumer rights', 'courts and disputes']
+      : session.matterType === 'housing'
+        ? ['home and housing']
+        : session.matterType === 'consumer'
+          ? ['consumer rights']
+          : session.matterType === 'family'
+            ? ['family', 'relationships']
+            : session.matterType === 'immigration'
+              ? ['immigration and citizenship']
+              : []
 
   const rankedSign = [...signRows].sort((a, b) => {
     const aPref = matterSectionsPreferred.some((s) => (a.section || '').toLowerCase().includes(s))
@@ -297,38 +629,70 @@ function mergeFreeHelp(
     if (aPref !== bPref) return bPref - aPref
     return (b.score || 0) - (a.score || 0)
   })
-  for (const row of rankedSign) push(row)
-  for (const row of legalAid) push(row)
+  for (const row of rankedSign) {
+    if (
+      isInsuranceComplaintStoryText(story) &&
+      /legal aid|which\?|resolver|consumer helpline/i.test(`${row.title} ${row.blurb}`) &&
+      !/financial ombudsman/i.test(row.title)
+    ) {
+      continue
+    }
+    push(row)
+  }
+  if (!isInsuranceComplaintStoryText(story)) {
+    for (const row of legalAid) push(row)
+  }
   for (const row of probono) push(row)
 
   return out.slice(0, limit)
 }
 
-export function ServicesView({ session, frames = [], helpMatch = null, onBack, onOpenSraFirm }: Props) {
+export function ServicesView({
+  session,
+  frames = [],
+  helpMatch = null,
+  onBack,
+  onOpenSraFirm,
+  pageNavigation,
+}: Props) {
   const [pack, setPack] = useState<HelpPack | null>(null)
+  const [cachedHelp, setCachedHelp] = useState<
+    NonNullable<SessionState['penumbraResearch']>['bundle']['freeResources']
+  >([])
   const [loading, setLoading] = useState(true)
+  const [mag, setMag] = useState<SearchMagLevel>(SEARCH_MAG_DEFAULT)
 
-  const placeLine = [
-    session.taxonomySlug === 'parking_pcn' ? 'Parking / PCN' : matterLabel(session.matterType),
-    session.locationHint
-      ? session.locationHint
-      : session.jurisdiction === 'EnglandWales'
-        ? 'England & Wales'
-        : session.jurisdiction === 'Unknown'
-          ? ''
-          : session.jurisdiction === 'NorthernIreland'
-            ? 'Northern Ireland'
-            : session.jurisdiction,
-    session.goal ? `Goal: ${session.goal}` : '',
-  ]
-    .filter(Boolean)
-    .join(' · ')
+  useEffect(() => {
+    try {
+      setMag(parseSearchMagLevel(sessionStorage.getItem(MAG_STORAGE_KEY)))
+    } catch {
+      setMag(SEARCH_MAG_DEFAULT)
+    }
+  }, [])
+
+  function onMagChange(level: SearchMagLevel) {
+    setMag(level)
+    try {
+      sessionStorage.setItem(MAG_STORAGE_KEY, String(level))
+    } catch {
+      /* ignore */
+    }
+    captureProductEvent('matching_help_search_mag', { level, name: SEARCH_MAG_META[level].name })
+  }
+  const helpSession = useMemo(
+    () => matchingSessionForHelp(freezeIssueGraph(session)),
+    [session],
+  )
+  const helpFrames = useMemo(
+    () => (helpSession === session ? frames : proposeLegalFrames(helpSession, 5)),
+    [frames, helpSession, session],
+  )
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
     void (async () => {
-      const next = await buildHelpPack(session, frames)
+      const next = await buildHelpPack(helpSession, helpFrames)
       if (cancelled) return
       setPack(next)
       setLoading(false)
@@ -336,25 +700,28 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
     return () => {
       cancelled = true
     }
-  }, [session, frames])
+  }, [helpFrames, helpSession])
 
-  const phase2Rows: Row[] =
-    pack?.phase2Wiki.map((s) => ({
-      id: s.id,
-      type: `Wiki · ${s.topic}`,
-      title: s.title,
-      blurb: s.description,
-      url: s.sourceUrl,
-    })) ?? []
-
-  const v1Rows: Row[] =
-    pack?.v1Wiki.map((s) => ({
-      id: s.id,
-      type: `Knowledge · ${s.topic}`,
-      title: s.title,
-      blurb: s.description,
-      url: s.sourceUrl,
-    })) ?? []
+  useEffect(() => {
+    let cancelled = false
+    const matterType = helpSession.matterType || 'unknown'
+    void (async () => {
+      try {
+        const res = await fetch(
+          `/api/coherence/help-candidates?matterType=${encodeURIComponent(matterType)}`,
+        )
+        if (!res.ok) return
+        const data = (await res.json()) as { resources?: typeof cachedHelp }
+        if (cancelled || !Array.isArray(data.resources)) return
+        setCachedHelp(data.resources)
+      } catch {
+        /* Matching Help still works from indexed services + this session's Third Eye bundle */
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [helpSession.matterType])
 
   const signRows: Row[] =
     pack?.signposts.map((s) => ({
@@ -385,7 +752,10 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
       title: s.title,
       blurb: s.blurb,
       phone: s.phone,
+      url: s.url,
       sraId: s.sraId,
+      score: s.score,
+      relevance: s.blurb.split(' — ')[0],
     })) ?? []
 
   const proRows: Row[] =
@@ -408,6 +778,32 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
       url: s.url,
     })) ?? []
 
+  const freeServiceRows: Row[] =
+    pack?.freeServices.map((s) => ({
+      id: s.id,
+      type: s.type,
+      title: s.title,
+      blurb: s.blurb,
+      url: s.url,
+      phone: s.phone,
+      score: s.score,
+    })) ?? []
+
+  const authorityOfficialRows: Row[] =
+    pack?.authorityOfficial.map((s) => ({
+      id: s.id,
+      type:
+        s.tier === 'primary'
+          ? 'Official · primary'
+          : s.tier === 'secondary'
+            ? 'Official · guidance'
+            : 'Trusted resource',
+      title: s.title,
+      blurb: s.blurb,
+      url: s.url,
+      score: s.score,
+    })) ?? []
+
   const agentFreeRows: Row[] =
     helpMatch?.freeHelp.map((s) => ({
       id: s.id,
@@ -417,6 +813,32 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
       url: s.url,
       phone: s.phone,
     })) ?? []
+
+  const thirdEyeStory = [...helpSession.rawInputs, helpSession.whatHappened, helpSession.goal].join(' ')
+  const thirdEyeHelp = visibleThirdEyeHelp({
+    sessionResources: helpSession.penumbraResearch?.bundle?.freeResources || [],
+    cachedResources: cachedHelp,
+    matterType: helpSession.matterType,
+    story: thirdEyeStory,
+  })
+  const thirdEyeFreeRows: Row[] = thirdEyeHelp.free.map((resource) => ({
+    id: `third-eye-free:${resource.id}`,
+    type: 'Third Eye · free help',
+    title: resource.title,
+    blurb: `${resource.description} Verify this organisation before you rely on it.`,
+    url: resource.url,
+    phone: resource.phone,
+  }))
+  const thirdEyePaidRows: Row[] = thirdEyeHelp.paid.map((resource) => ({
+    id: `third-eye-paid:${resource.id}`,
+    type: 'Third Eye · directory',
+    title: resource.title,
+    blurb: `${resource.description} Official directory lead from Third Eye — not a named firm recommendation.`,
+    url: resource.url,
+    phone: resource.phone,
+  }))
+  const visibleThirdEyeFree = showThirdEyeHelpAtMag(mag) ? thirdEyeFreeRows : []
+  const visibleThirdEyePaid = showThirdEyeHelpAtMag(mag) ? thirdEyePaidRows : []
 
   const agentDirRows: Row[] =
     helpMatch?.directories.map((s) => ({
@@ -430,141 +852,263 @@ export function ServicesView({ session, frames = [], helpMatch = null, onBack, o
   const agentSolRows: Row[] =
     helpMatch?.solicitors.map((s) => ({
       id: s.id,
-      type: 'Solicitor signpost',
+      type: s.sraId ? 'SRA-regulated firm' : 'Solicitor signpost',
       title: s.title,
       blurb: s.blurb,
       url: s.url,
       phone: s.phone,
       sraId: s.sraId,
+      relevance: compactBlurb(s.blurb, 110),
     })) ?? []
 
-  const freeRows = mergeFreeHelp(agentFreeRows, signRows, aidRows, proRows, session, 8)
-
-  const guidanceRows: Row[] = [...phase2Rows, ...v1Rows]
-
-  const helpMatchHasLiveSra = (helpMatch?.solicitors || []).some(
-    (s) => s.type === 'sra-live' || s.id?.startsWith('sra-live:'),
+  const freeRowsUnsorted = mergeFreeHelp(
+    freeServiceRows,
+    authorityOfficialRows,
+    agentFreeRows,
+    signRows,
+    aidRows,
+    proRows,
+    session,
+    12,
+  )
+  const peopleOrder = new Map(
+    rankPeopleFirst(
+      freeRowsUnsorted.map((r) => ({
+        id: r.id,
+        title: r.title,
+        kind: classifyHelpDoorKind(r.title, r.type, 'match_free_help'),
+        blurb: r.blurb,
+        url: r.url,
+        phone: r.phone,
+        tool: 'match_free_help' as const,
+      })),
+    ).map((d, i) => [d.id, i]),
+  )
+  const freeRows = filterFreeHelpByMag(
+    [...freeRowsUnsorted].sort(
+      (a, b) => (peopleOrder.get(a.id) ?? 99) - (peopleOrder.get(b.id) ?? 99),
+    ),
+    mag,
   )
 
-  const showSraSolicitors = agentSolRows.length > 0 || (!helpMatchHasLiveSra && sraRows.length > 0)
+  const helpMatchHasLiveSra = (helpMatch?.solicitors || []).some(
+    (s) => (s.type === 'sra-live' || s.id?.startsWith('sra-live:')) && (s.title || '').trim(),
+  )
+
+  // Prefer live SRA register hits from HelpPack. Agent solicitors only win when they
+  // actually include live SRA rows — never hide pack firms behind an empty agent list.
+  const solicitorRows: Row[] = (
+    helpMatchHasLiveSra && agentSolRows.length > 0
+      ? agentSolRows
+      : sraRows.length > 0
+        ? sraRows
+        : agentSolRows
+  ).slice().sort(
+    (a, b) =>
+      (b.phone ? 1 : 0) - (a.phone ? 1 : 0) ||
+      (b.score || 0) - (a.score || 0) ||
+      a.title.localeCompare(b.title),
+  )
+
+  const directoryRows: Row[] = agentDirRows.length > 0 ? agentDirRows : dirRows
+
+  const visibleSolicitorRows = showSolicitorsAtMag(mag) ? solicitorRows : []
+  const visibleDirectoryRows = showDirectoriesAtMag(mag) ? directoryRows : []
+  const rawSourceRows: Row[] = showRawSourcesAtMag(mag)
+    ? [
+        ...(pack?.phase2Wiki || []).map((s) => ({
+          id: `raw-wiki-${s.id}`,
+          type: 'Raw search · wiki',
+          title: s.title,
+          blurb: s.description,
+          url: s.sourceUrl,
+          score: s.score,
+          rawSource: true,
+        })),
+        ...(pack?.v1Wiki || []).map((s) => ({
+          id: `raw-v1-${s.id}`,
+          type: 'Raw search · knowledge',
+          title: s.title,
+          blurb: s.description,
+          url: s.sourceUrl,
+          score: s.score,
+          rawSource: true,
+        })),
+        ...(helpMatch?.ranked || []).map((s, i) => ({
+          id: s.id || `raw-ranked-${i}`,
+          type: `Raw search · ${s.type || 'hit'}`,
+          title: s.title,
+          blurb: s.blurb,
+          url: s.url,
+          phone: s.phone,
+          sraId: s.sraId,
+          rawSource: true,
+        })),
+      ]
+    : []
+
+  const showSraSolicitors = visibleSolicitorRows.some((r) => r.sraId) || (showSolicitorsAtMag(mag) && sraRows.length > 0)
+  const sraAlert = !loading && showSolicitorsAtMag(mag) ? sraLaneAlert(pack?.meta.sra, visibleSolicitorRows.length) : null
+
+  useEffect(() => {
+    if (loading || !pack || solicitorRows.length > 0) return
+    captureProductEvent('matching_help_sra_empty', {
+      matter_type: helpSession.matterType,
+      taxonomy_slug: helpSession.taxonomySlug || '',
+      empty_reason: pack.meta.sra?.emptyReason || 'unknown',
+      sra_reachable: Boolean(pack.meta.sra?.reachable),
+    })
+  }, [loading, pack, solicitorRows.length, helpSession.matterType, helpSession.taxonomySlug])
 
   const empty =
     !loading &&
     !freeRows.length &&
-    !sraRows.length &&
-    !dirRows.length &&
-    !agentDirRows.length &&
-    !agentSolRows.length &&
-    !guidanceRows.length
-
-  const freeLead =
-    session.taxonomySlug === 'parking_pcn'
-      ? 'PCN free help first — Citizens Advice and the parking tribunal, then Motoring / RTA solicitors.'
-      : session.matterType === 'housing'
-        ? 'Housing-focused free advice first — Shelter, tenant clinics, and Citizens Advice before paid solicitors.'
-        : session.matterType === 'consumer'
-          ? 'Consumer free help first — Citizens Advice and ADR schemes before paid solicitors.'
-          : session.matterType === 'crime'
-            ? 'Free guidance first — then directories for regulated criminal / motoring solicitors.'
-            : 'Start with free advice services matched to your issue, then directories and solicitors.'
+    !visibleSolicitorRows.length &&
+    !visibleDirectoryRows.length &&
+    !rawSourceRows.length &&
+    !visibleThirdEyeFree.length &&
+    !visibleThirdEyePaid.length
 
   return (
     <div className="services">
+      {pageNavigation ? <PageNavigation {...pageNavigation} /> : null}
       <header className="services__header">
         <button type="button" className="services__back" onClick={onBack}>
           ← Back to timeline
         </button>
         <h1 className="services__title">Matching help</h1>
-        <p className="services__sub">{placeLine}</p>
-        {helpMatch && (
-          <p className="services__hint">
-            Free help first ({freeRows.length} shown), then directories ({helpMatch.directories.length})
-            and SRA solicitors ({helpMatch.solicitors.length})
-            {helpMatch.sra?.reachable
-              ? ` · live register ${helpMatch.sra.total?.toLocaleString() ?? '—'} orgs`
-              : helpMatch.sra?.configured
-                ? ' · live SRA unreachable (start Podman Postgres on :5433)'
-                : ' · live SRA offline (set DATABASE_URL)'}
-            .
-          </p>
-        )}
-        {pack && !loading && pack.sraFirms.length > 0 && !session.locationHint && (
-          <p className="services__hint">
-            Add your town or postcode on the timeline to rank nearby solicitors first.
-            {session.taxonomySlug === 'parking_pcn' &&
-              ' Firms shown list Motoring / RTA or Consumer parking work — confirm they take council PCN appeals.'}
-            {session.matterType === 'consumer' &&
-              session.taxonomySlug !== 'parking_pcn' &&
-              ' Firms shown list Consumer work on the SRA register — confirm they take used-car / faulty-goods cases.'}
-            {session.matterType === 'housing' &&
-              ' Firms shown list housing / property work — confirm they take tenant or landlord disputes.'}
-          </p>
-        )}
-        {pack && (
-          <p className="services__trial">
-            {pack.meta.sra?.reachable
-              ? `Live SRA register: ${pack.meta.sra.total?.toLocaleString() ?? '—'} organisations. `
-              : pack.meta.sra?.configured
-                ? 'Live SRA register temporarily unreachable — start Podman Postgres (`./podman-postgres-data.sh` on :5433) then refresh. '
-                : 'SRA live search offline (set DATABASE_URL to 127.0.0.1:5433). '}
-            Not legal advice — verify live pages and regulation yourself.
-          </p>
-        )}
+        <p className="services__sub">
+          {SEARCH_MAG_META[mag].hint} Not legal advice.
+        </p>
       </header>
 
       <div className="services__layout">
-        <ShareWithSolicitorPanel session={session} frames={frames} />
+        <StickyCaseRail session={helpSession} frames={helpFrames} />
+        <div className="services__main">
+          <CaseContext session={helpSession} frames={helpFrames} />
 
-        <div className="services__matches">
-          {loading ? (
-            <p className="services__blurb">Loading matching guidance…</p>
-          ) : empty ? (
-            <p className="services__blurb">No matches yet — try adding a place or more detail.</p>
-          ) : (
-            <>
-              <Section
-                title="Free help first"
-                lead={freeLead}
-                rows={freeRows}
-                variant="free"
-                onOpenSraFirm={onOpenSraFirm}
-              />
-              {agentDirRows.length > 0 && (
+          <div className="services__matches">
+            <h2 className="services__band-title">Who to contact</h2>
+            <SearchMagnificationSlider value={mag} onChange={onMagChange} />
+            <p className="services__band-lead">
+              {mag <= 2
+                ? 'People and official doors first. Slide toward Matched to include SRA firms.'
+                : mag === 5
+                  ? 'Raw retrieved sources are listed below the admitted doors. Verify every page yourself.'
+                  : 'Curated contacts for this dispute — free help and SRA-regulated firms.'}
+            </p>
+
+            {loading ? (
+              <p className="services__blurb">Loading matching guidance…</p>
+            ) : empty ? (
+              <p className="services__blurb">No matches yet — try adding a place or more detail.</p>
+            ) : (
+              <>
+                {sraAlert ? (
+                  <div
+                    className={
+                      sraAlert.tone === 'alert'
+                        ? 'services__sra-banner services__sra-banner--alert'
+                        : 'services__sra-banner'
+                    }
+                    role={sraAlert.tone === 'alert' ? 'alert' : 'status'}
+                  >
+                    <p className="services__sra-banner-title">{sraAlert.title}</p>
+                    <p className="services__sra-banner-detail">{sraAlert.detail}</p>
+                  </div>
+                ) : null}
+                {showSolicitorsAtMag(mag) ? (
+                  <Section
+                    title="SRA-regulated solicitors"
+                    lead={
+                      visibleSolicitorRows.length
+                        ? session.locationHint
+                          ? `Firms for ${session.locationHint} and your dispute type — confirm they take your matter.`
+                          : 'Firms from the SRA register for this dispute type — add a town or postcode to rank nearby.'
+                        : undefined
+                    }
+                    rows={visibleSolicitorRows}
+                    mag={mag}
+                    onOpenSraFirm={onOpenSraFirm}
+                  />
+                ) : null}
+                {showSolicitorsAtMag(mag) && !visibleSolicitorRows.length && !sraAlert ? (
+                  <p className="services__empty-solicitors" role="status">
+                    No named SRA firms matched this dispute yet.
+                  </p>
+                ) : null}
                 <Section
-                  title="Find a regulated solicitor"
-                  rows={agentDirRows}
+                  title="Free help"
+                  lead="Charities and helplines matched to this dispute type."
+                  rows={freeRows}
+                  variant="free"
+                  mag={mag}
                   onOpenSraFirm={onOpenSraFirm}
                 />
-              )}
-              {agentSolRows.length > 0 && (
-                <Section
-                  title="SRA solicitors (after free help)"
-                  rows={agentSolRows}
-                  onOpenSraFirm={onOpenSraFirm}
-                />
-              )}
-              {!helpMatchHasLiveSra && (
-                <Section
-                  title="SRA-regulated solicitors (live register)"
-                  rows={sraRows}
-                  onOpenSraFirm={onOpenSraFirm}
-                />
-              )}
-              {!agentDirRows.length && <Section title="Official directories" rows={dirRows} />}
-              <Section title="Guidance (UK legal wiki)" rows={guidanceRows} />
-              {showSraSolicitors ? (
-                <SraAttribution className="services__sra-attribution" />
-              ) : null}
-            </>
+                {visibleThirdEyeFree.length > 0 && (
+                  <Section
+                    title="Third Eye · free help found"
+                    lead="Helplines and charities Third Eye found for this matter. Shown whether or not they have been approved into the trusted index. Verify before you contact them."
+                    rows={visibleThirdEyeFree}
+                    variant="free"
+                    mag={mag}
+                    onOpenSraFirm={onOpenSraFirm}
+                  />
+                )}
+                {visibleThirdEyePaid.length > 0 && (
+                  <Section
+                    title="Third Eye · paid / regulated directories"
+                    lead="Find-a-solicitor directories Third Eye found. They do not replace the live SRA matches above."
+                    rows={visibleThirdEyePaid}
+                    mag={mag}
+                    onOpenSraFirm={onOpenSraFirm}
+                  />
+                )}
+                {visibleDirectoryRows.length > 0 && (
+                  <Section
+                    title="Official directories"
+                    lead="Secondary — search the registers yourself if you need a wider list. Not a substitute for named SRA firms above."
+                    rows={visibleDirectoryRows}
+                    mag={mag}
+                    onOpenSraFirm={onOpenSraFirm}
+                  />
+                )}
+                {rawSourceRows.length > 0 && (
+                  <Section
+                    title="Raw search results"
+                    lead="What retrieval returned before people-first ranking. Signposting only — not advice."
+                    rows={rawSourceRows}
+                    mag={mag}
+                    onOpenSraFirm={onOpenSraFirm}
+                  />
+                )}
+                {showSraSolicitors ? (
+                  <SraAttribution className="services__sra-attribution" />
+                ) : null}
+              </>
+            )}
+          </div>
+
+          {pack && (
+            <p className="services__trial">
+              {sraRegisterFootnote(pack.meta.sra)}
+              Not legal advice — verify live pages and regulation yourself.
+            </p>
           )}
+
+          <p className="services__note">
+            Signposts only — verify regulation and suitability yourself. Not a recommendation ranking. Not
+            legal advice.
+          </p>
+          {helpSession.matterType !== session.matterType ? (
+            <p className="services__note">
+              Matching area adjusted to {matterLabel(helpSession.matterType)} after reviewing the case
+              evidence.
+            </p>
+          ) : null}
         </div>
       </div>
-
-      <p className="services__note">
-        Signposts only — verify regulation and suitability yourself. Not a recommendation ranking. Not legal
-        advice. Free help is filtered to your matter type; SRA firm cards come from the live register when
-        available.
-      </p>
+      {pageNavigation ? <PageNavigation {...pageNavigation} /> : null}
     </div>
   )
 }

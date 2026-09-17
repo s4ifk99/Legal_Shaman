@@ -1,4 +1,5 @@
 import type { Jurisdiction, MatterType, SessionState } from './types'
+import { buildRetrievalText } from './retrievalText'
 import type { LegalFrame } from './frames'
 import type { KnowledgeHit } from './knowledgeTypes'
 import {
@@ -6,10 +7,16 @@ import {
   loadSourceSnippets,
   type SourceSnippet,
 } from './oslawSummary'
-import type { RightsSummary } from './oslawRights'
+import { RIGHTS_CAVEAT, type RightsSummary } from './oslawRights'
+import { normaliseLayText } from './normaliseLay'
 import {
   buildRightsFromWiki,
   featuredToolsFromWiki,
+  isBenefitsRulesStory,
+  isLeaseholdFireSafetyAlterationStory,
+  isPrivateParkingStory,
+  isUsedCarPurchaseStory,
+  isVictimCommunicationsHarassmentStory,
   linkedTopicPages,
   synthesizeStepsFromWiki,
 } from './wikiOslaw'
@@ -176,6 +183,172 @@ export async function loadWiki(domain: WikiDomainId = 'immigration'): Promise<Wi
   return catalogue
 }
 
+type LeadOslawFallback = {
+  id: string
+  title: string
+  summary: string
+  url: string
+  overview: string
+  bullets: string[]
+  steps: { id: string; label: string; detail: string; url: string; sourceTitle: string }[]
+  when: RegExp
+}
+
+/**
+ * Small, cited OSLAW pathways for high-volume areas that do not yet have a
+ * compiled domain catalogue. These are deliberately scoped to open guidance
+ * and never replace a catalogue match where one exists.
+ */
+const LEAD_OSLAW_FALLBACKS: LeadOslawFallback[] = [
+  {
+    id: 'pathway-conveyancing-transfer',
+    title: 'Property transfer and conveyancing',
+    summary: 'Open guidance for buying, selling, remortgaging, or transferring a share or title in property.',
+    url: 'https://www.gov.uk/buy-sell-your-home',
+    overview:
+      'Property transfers can involve conveyancing, Land Registry title changes, mortgage consent, tax, and sometimes independent legal advice. The right process depends on whether this is a sale, gift, transfer of equity, remortgage, or leasehold matter.',
+    bullets: [
+      'Check the title, ownership structure, restrictions, mortgage terms, and any lease or transfer conditions.',
+      'A transfer of equity or change to title may require lender consent and an application to HM Land Registry.',
+      'Keep the contract, title documents, valuations, tax correspondence, and conveyancer instructions together.',
+    ],
+    steps: [
+      { id: 'identify-transfer', label: 'Identify the transaction', detail: 'Confirm whether this is a purchase, sale, transfer of equity, gift, remortgage, or title correction.', url: 'https://www.gov.uk/buy-sell-your-home', sourceTitle: 'GOV.UK: Buying or selling your home' },
+      { id: 'check-title', label: 'Check title and lender requirements', detail: 'Review the title register, restrictions, lease terms, and whether a lender or another owner must consent.', url: 'https://www.gov.uk/government/collections/registering-land-and-property-with-land-registry', sourceTitle: 'GOV.UK: HM Land Registry' },
+      { id: 'check-tax', label: 'Check tax and registration', detail: 'Before signing or transferring, check possible Stamp Duty Land Tax, Capital Gains Tax, and Land Registry steps.', url: 'https://www.gov.uk/stamp-duty-land-tax', sourceTitle: 'GOV.UK: Stamp Duty Land Tax' },
+    ],
+    when: /\b(conveyanc|transfer(?:ring)? (?:of )?(?:equity|property|ownership)|transfer of equity|add name to title|remove name from title|title deeds?|buying (?:a )?(?:property|flat|house)|selling (?:a )?(?:property|flat|house)|buying and\/or selling|buying or selling|lease extension|remortgag|stamp duty)\b/i,
+  },
+  {
+    id: 'pathway-wills-lpa-trusts',
+    title: 'Wills, powers of attorney and trusts',
+    summary: 'A practical open-guidance route for planning ahead, appointing decision-makers, or dealing with trusts and estates.',
+    url: 'https://www.gov.uk/make-will',
+    overview:
+      'GOV.UK guidance covers making or changing a will, appointing attorneys under a lasting power of attorney, and the roles around trusts and estates. The correct document and formalities depend on the person’s circumstances, so the linked guidance should be checked before signing.',
+    bullets: [
+      'A will should be checked for signing and witnessing formalities; GOV.UK explains the basic process.',
+      'A lasting power of attorney must be registered before an attorney can generally use it.',
+      'Trustee, executor, and attorney duties are distinct roles — use the matching official guide.',
+    ],
+    steps: [
+      { id: 'identify-document', label: 'Identify the document', detail: 'Decide whether the issue is a will, lasting power of attorney, trust, or estate administration question.', url: 'https://www.gov.uk/make-will', sourceTitle: 'GOV.UK: Make a will' },
+      { id: 'check-formalities', label: 'Check formalities', detail: 'Read the relevant GOV.UK process before signing, witnessing, registering, or distributing assets.', url: 'https://www.gov.uk/power-of-attorney', sourceTitle: 'GOV.UK: Power of attorney' },
+      { id: 'keep-records', label: 'Keep the paperwork', detail: 'Keep signed originals, registration details, valuations, and correspondence together for the people who may need them.', url: 'https://www.gov.uk/applying-for-probate', sourceTitle: 'GOV.UK: Applying for probate' },
+    ],
+    when: /\b(?:make|making|draft|drafting|write|writing|update|change|set up|lasting power of attorney|power of attorney|lpa|trust|trustee|probate|executor|letters of administration)\b/i,
+  },
+  {
+    id: 'pathway-family-agreements',
+    title: 'Family and separation agreements',
+    summary: 'Open guidance on recording financial, property, and parenting arrangements after separation or before marriage.',
+    url: 'https://www.gov.uk/money-property-when-relationship-ends',
+    overview:
+      'When relationships change, open guidance distinguishes informal arrangements, mediation, and court-approved financial or child arrangements. A written agreement or order can matter later, particularly where property, pensions, or children are involved.',
+    bullets: [
+      'A clean-break or other financial arrangement may need a court order to record it formally.',
+      'Mediation and a written parenting plan are common first steps where it is safe and suitable.',
+      'Keep full financial disclosure and signed agreement versions, including dates and review points.',
+    ],
+    steps: [
+      { id: 'map-arrangements', label: 'List what needs agreeing', detail: 'Separate finances and property from child arrangements so each issue follows the right process.', url: 'https://www.gov.uk/money-property-when-relationship-ends', sourceTitle: 'GOV.UK: Money and property when a relationship ends' },
+      { id: 'consider-mediation', label: 'Consider a supported agreement', detail: 'Check whether mediation or another supported negotiation route is appropriate and safe.', url: 'https://www.gov.uk/try-mediation', sourceTitle: 'GOV.UK: Family mediation' },
+      { id: 'formalise', label: 'Check formalisation', detail: 'Where a financial clean break or consent arrangement is intended, check whether a court order is needed.', url: 'https://www.gov.uk/apply-financial-order', sourceTitle: 'GOV.UK: Apply for a financial order' },
+    ],
+    when: /\b(clean break|separation agreement|financial order|consent order|cohabitation agreement|prenup|pre-?nuptial|post-?nuptial|parenting agreement|family agreement)\b/i,
+  },
+  {
+    id: 'pathway-commercial-business-contracts',
+    title: 'Commercial and business contracts',
+    summary: 'An open-guidance route for drafting, reviewing, or dealing with a contract used in a business or commercial setting.',
+    url: 'https://www.gov.uk/starting-up-a-business',
+    overview:
+      'Business guidance covers choosing a structure, recording terms, and keeping commercial records. A contract dispute usually turns on the wording, performance evidence, notice provisions, and the loss or remedy being claimed.',
+    bullets: [
+      'Record the parties, scope, price, payment dates, delivery standards, and termination terms clearly.',
+      'Keep the signed contract, variations, invoices, and dated communications in one evidence file.',
+      'Check dispute, notice, governing-law, and escalation clauses before sending a formal demand.',
+    ],
+    steps: [
+      { id: 'identify-business', label: 'Identify the business relationship', detail: 'Confirm whether this is a supplier, customer, partnership, company, or commercial premises arrangement.', url: 'https://www.gov.uk/business-legal-structures', sourceTitle: 'GOV.UK: Business legal structures' },
+      { id: 'collect-contract', label: 'Collect the contract record', detail: 'Gather the signed terms, order forms, invoices, variations, and messages showing what happened.', url: 'https://www.gov.uk/starting-up-a-business', sourceTitle: 'GOV.UK: Starting a business' },
+      { id: 'follow-notice', label: 'Follow the escalation route', detail: 'Use any contractual notice or dispute process before considering court or another remedy.', url: 'https://www.gov.uk/make-court-claim-for-money', sourceTitle: 'GOV.UK: Make a court claim for money' },
+    ],
+    when: /\b(business|commercial|company|companies|supplier|customer|client|trade|shop|retail|partnership|sole trader)\b[\s\S]{0,100}\b(contract|agreement|terms|lease|licence|invoice|unpaid|dispute|draft|review|breach|termination)\b/i,
+  },
+  {
+    id: 'pathway-legal-documents-certification',
+    title: 'Legal documents and certification',
+    summary: 'Open guidance on statutory declarations, affidavits, witnessing, certification, notarisation, and legalisation.',
+    url: 'https://www.gov.uk/certifying-document',
+    overview:
+      'Different documents require different people and formalities: certification is not the same as witnessing, notarisation, or legalisation. Official guidance explains the process and when an apostille or other authentication may be needed.',
+    bullets: [
+      'Check exactly whether the recipient requires a certified copy, witness, solicitor, notary, or apostille.',
+      'Do not sign a declaration or deed until the required signing and witnessing sequence is clear.',
+      'Keep the original, certified copy, receipt, and the receiving organisation’s requirements.',
+    ],
+    steps: [
+      { id: 'check-requirement', label: 'Confirm the receiving requirement', detail: 'Ask the organisation what form of certification, witnessing, notarisation, or legalisation it accepts.', url: 'https://www.gov.uk/certifying-document', sourceTitle: 'GOV.UK: Certifying a document' },
+      { id: 'sign-correctly', label: 'Use the correct formalities', detail: 'Follow the document-specific signing and witnessing instructions before submitting it.', url: 'https://www.gov.uk/government/publications/statutory-declarations', sourceTitle: 'GOV.UK: Statutory declarations' },
+      { id: 'legalise-if-needed', label: 'Legalise for overseas use if required', detail: 'Check whether the receiving country needs an apostille or other legalisation step.', url: 'https://www.gov.uk/get-document-legalised', sourceTitle: 'GOV.UK: Get a document legalised' },
+    ],
+    when: /\b(statutory declaration|affidavit|deed|certif(?:y|ied|ication)|notar(?:y|ise|ized|ised)|apostille|legalis(?:e|ation)|witness(?:ed|ing)?|power of attorney)\b/i,
+  },
+  {
+    id: 'pathway-tax-estate-banking',
+    title: 'Tax, estates and banking',
+    summary: 'An open-guidance route for inheritance tax, estate funds, property tax, and bank-account questions after a death or transfer.',
+    url: 'https://www.gov.uk/inheritance-tax',
+    overview:
+      'Official guidance separates inheritance tax, capital gains tax, income tax, and the administration of estate money. Bank and executor steps depend on the account holder, the grant or other authority available, and the type of asset.',
+    bullets: [
+      'Inheritance tax and estate administration have separate reporting and payment steps.',
+      'Keep valuations, debts, gifts, account statements, and property information for the relevant tax return.',
+      'Ask the bank which authority it needs before transferring or closing an estate account.',
+    ],
+    steps: [
+      { id: 'identify-tax', label: 'Identify the tax or estate step', detail: 'Work out whether the question concerns inheritance tax, capital gains tax, income tax, or banking authority.', url: 'https://www.gov.uk/inheritance-tax', sourceTitle: 'GOV.UK: Inheritance Tax' },
+      { id: 'collect-valuations', label: 'Collect financial evidence', detail: 'Gather account statements, asset valuations, liabilities, gifts, and correspondence with the bank or personal representatives.', url: 'https://www.gov.uk/valuing-estate-of-someone-who-died', sourceTitle: 'GOV.UK: Valuing an estate' },
+      { id: 'check-deadlines', label: 'Check the current deadline', detail: 'Use the official tax and probate guidance for the applicable reporting and payment deadlines.', url: 'https://www.gov.uk/tax', sourceTitle: 'GOV.UK: Tax' },
+    ],
+    when: /\b(inheritance tax|IHT|capital gains tax|stamp duty|bank account|banking|executor.{0,30}(?:account|funds)|estate.{0,30}(?:tax|account|funds)|probate.{0,30}(?:bank|tax)|(?:late|deceased|died|death).{0,80}(?:ISA|premium bonds|bank|account|savings))\b/i,
+  },
+]
+
+function buildLeadOslawFallback(text: string): OslawCourse | null {
+  const fallback = LEAD_OSLAW_FALLBACKS.find((candidate) => candidate.when.test(text))
+  if (!fallback) return null
+  const sourceSnippets: SourceSnippet[] = fallback.steps.map((step) => ({
+    title: step.sourceTitle,
+    url: step.url,
+    preview: step.detail,
+    authority: 'primary',
+  }))
+  const rights: RightsSummary = {
+    overview: fallback.overview,
+    bullets: fallback.bullets.map((text, index) => ({
+      text,
+      sourceTitle: fallback.steps[index % fallback.steps.length]?.sourceTitle,
+      sourceUrl: fallback.steps[index % fallback.steps.length]?.url,
+    })),
+    origin: 'heuristic',
+    caveat: RIGHTS_CAVEAT,
+  }
+  return {
+    pathwayId: fallback.id,
+    title: fallback.title,
+    summary: fallback.summary,
+    primaryUrl: fallback.url,
+    rights,
+    sourceSnippets,
+    featuredTools: [],
+    steps: fallback.steps,
+    related: [],
+    disclaimer: RIGHTS_CAVEAT,
+  }
+}
+
 /** Domains to query for this session / frame set. */
 export function activeDomains(session: SessionState, frames: LegalFrame[] = []): WikiDomainId[] {
   const domains = new Set<WikiDomainId>()
@@ -188,32 +361,80 @@ export function activeDomains(session: SessionState, frames: LegalFrame[] = []):
     }
   }
 
-  const blob = session.rawInputs.join(' ').toLowerCase()
+  const blob = normaliseLayText(session.rawInputs.join(' ')).toLowerCase()
   if (/\bilr\b|visa|asylum|home office|deport/.test(blob)) domains.add('immigration')
-  if (/landlord|tenant|evict|mould|homeless|\brents?\b|tenancy|section\s*21/.test(blob)) domains.add('housing')
-  if (/employer|dismiss|fired|redundan|wages/.test(blob)) domains.add('employment')
-  if (/debt|bailiff|ccj|creditor/.test(blob)) domains.add('debt')
-  if (/divorce|custody|child arrangement|domestic abuse/.test(blob)) domains.add('family')
-  if (/refund|faulty|trader|warranty|consumer|\bcar\b|dealer|garage|fault codes?/.test(blob)) domains.add('consumer')
-  if (/sentenc|arrest|police|criminal|offence|magistrates|cps|fraud|theft|assault/.test(blob))
+  if (/landlord|tenant|evict|mould|homeless|\brents?\b|tenancy|section\s*21|flatmate|housemate/.test(blob))
+    domains.add('housing')
+  if (
+    /\b(conveyanc|transfer(?:ring)? (?:of )?(?:equity|property|ownership)|title deeds?|lease extension|remortgag|buying (?:a )?(?:property|flat|house)|selling (?:a )?(?:property|flat|house))\b/.test(
+      blob,
+    )
+  ) {
+    domains.add('housing')
+  }
+  // Employment domain: require real workplace dispute cues — not bare “employed as…” / “employer travel”
+  const employmentDomain =
+    /\b(dismiss|fired|sacked|redundan|unfair dismiss|constructive dismiss|unpaid wages|holiday (?:hours|pay)|employment tribunal|acas|pregnant|maternity)\b/i.test(
+      blob,
+    ) ||
+    (/\b(manager|supervisor|boss|line manager)\b/i.test(blob) &&
+      /\b(holiday|shift|hours|appointment|drinking water|wage|pay|grievance)\b/i.test(blob))
+  const antiEmploymentBleed =
+    /\b(insurer|insurance (?:company|claim|policy)|festival|day ticket|wheelchair|airport)\b/i.test(blob) &&
+    !/\b(dismiss|sacked|fired|redundan|holiday hours|holiday pay)\b/i.test(blob)
+  if (employmentDomain && !antiEmploymentBleed) domains.add('employment')
+  if (/debt|bailiff|ccj|creditor|mortgage|repossess|universal credit|\bpip\b|deprivation of capital/.test(blob) && !/\b(festival|day ticket|concert)\b/i.test(blob))
+    domains.add('debt')
+  if (isBenefitsRulesStory(blob)) {
+    domains.add('debt')
+  }
+  const familyDomain =
+    /\b(divorce|custody|child arrangement|domestic abuse|inherit|probate|trust fund|\bctf\b)\b/i.test(blob) ||
+    (/\b(\d+\s*year\s*old|my (?:sons?|daughters?|kids?|children|child))\b/i.test(blob) &&
+      /\b(my ex|ex[- ]?(?:partner|wife|husband)|his mum|her boyfriend|boyfriend'?s kid)\b/i.test(blob))
+  if (familyDomain) domains.add('family')
+  // Bare “her house” must not add housing when this is a parental dispute
+  if (familyDomain && !/landlord|tenant|evict|tenancy|\brents?\b|section\s*21/.test(blob)) {
+    domains.delete('housing')
+  }
+  // Damaged belongings / sue between parents → also pull consumer / courts wiki
+  if (
+    /\b(threw|broke|broken|damaged|destroyed|smashed)\b/.test(blob) &&
+    /\b(sue|replacement|get (?:it|them) (?:back|fixed)|switch|console|toy|gift|belongings)\b/.test(blob)
+  ) {
+    domains.add('consumer')
+  }
+  if (
+    (/refund|faulty|trader|warranty|consumer|used car|bought .{0,20}(?:car|vehicle)|dealer|garage|fault codes?|insurer|insurance|festival|day ticket|wheelchair|airport|accessibility/.test(
+      blob,
+    ) ||
+      session.matterType === 'consumer') &&
+    !(/\b(car\s*park|parking|pcn|popla|neighbour|neighbor|driveway|car\s*port|carport)\b/.test(blob) &&
+      !/\b(used car|dealer|fault codes?)\b/.test(blob)) &&
+    !isBenefitsRulesStory(blob)
+  ) {
+    domains.add('consumer')
+  }
+  if (/\b(car\s*park|parking (?:fine|ticket|charge)|pcn|popla|private parking)\b/.test(blob)) {
+    domains.add('consumer')
+  }
+  if (/sentenc|arrest|police|criminal|offence|magistrates|cps|fraud|theft|assault|confiscat|seiz/.test(blob))
     domains.add('crime')
+
+  if (session.ukTaxonomyPackId) {
+    if (/mortgage/.test(session.ukTaxonomyPackId)) domains.add('debt')
+    if (/joint_tenancy|deposit|possession/.test(session.ukTaxonomyPackId)) domains.add('housing')
+    if (/police|crime/.test(session.ukTaxonomyPackId)) domains.add('crime')
+    if (/trusts|inheritance/.test(session.ukTaxonomyPackId)) domains.add('family')
+    if (/pregnancy|unfair_dismissal/.test(session.ukTaxonomyPackId)) domains.add('employment')
+  }
 
   if (domains.size === 0) return []
   return [...domains]
 }
 
 function sessionText(session: SessionState): string {
-  return [
-    ...session.rawInputs,
-    session.whatHappened,
-    session.howCaused,
-    session.goal,
-    ...session.events.map((e) => e.label),
-    ...session.documents,
-    session.matterType,
-  ]
-    .join(' ')
-    .toLowerCase()
+  return buildRetrievalText(session)
 }
 
 /** Hard filter: UK-wide pages always ok; nation-tagged pages only for matching session. */
@@ -267,43 +488,69 @@ function scorePage(page: WikiPage, text: string, frameIds: string[], domainId?: 
   if (/evict|possession|section 21|lock.?out/.test(text) && /evict|possession|section/.test(page.id + page.title.toLowerCase())) {
     score += 5
   }
-  // Shared housing must not collapse into deposit / rent-arrears / disrepair / homelessness pathways
-  if (
-    /flatmate|housemate|lodger|subtenant|excluded occupier|share[d]?\s+accommodation|joint tenancy|notice to quit/.test(
-      text,
-    )
-  ) {
-    const idTitle = `${page.id} ${page.title}`.toLowerCase()
-    if (/shared|flatmate|lodger|housemate|accommodation|occupier|joint/.test(idTitle)) score += 18
-    if (/deposit-rent|rent.?arrears|deposit.?protection/.test(idTitle)) score -= 16
-    if (/disrepair|pathway-disrepair/.test(idTitle) && !/disrepair|mould|mold|damp|\brepairs?\b|leaking/.test(text)) {
-      score -= 20
-    }
-    if (/homeless|pathway-homeless/.test(idTitle) && !/homeless|sofa|rough sleep|nowhere to stay/.test(text)) {
-      score -= 22
-    }
-  }
-  // Bare "repair" substring in pathway match caused false disrepair hits — require real conditions language
-  if (
-    /pathway-disrepair|disrepair \/ conditions/.test(`${page.id} ${page.title}`.toLowerCase()) &&
-    !/disrepair|mould|mold|damp|\brepairs?\b|heating|leaking|hazard/.test(text)
-  ) {
-    score -= 14
-  }
-  if (
-    /pathway-homelessness|homelessness/.test(`${page.id} ${page.title}`.toLowerCase()) &&
-    !/homeless|sofa|rough sleep|nowhere to stay|priority need/.test(text)
-  ) {
-    score -= 14
-  }
   if (/dismiss|fired|redundan/.test(text) && /dismiss|redundan|unfair/.test(page.id + page.title.toLowerCase())) {
     score += 5
   }
   if (/bailiff|ccj|debt/.test(text) && /bailiff|ccj|debt|enforcement/.test(page.id + page.title.toLowerCase())) {
     score += 5
   }
-  if (/refund|faulty|consumer/.test(text) && /refund|faulty|consumer|trader/.test(page.id + page.title.toLowerCase())) {
+  if (
+    /refund|faulty|consumer/.test(text) &&
+    /refund|faulty|consumer|trader/.test(page.id + page.title.toLowerCase()) &&
+    !(isPrivateParkingStory(text) && !isUsedCarPurchaseStory(text) && /used.?car|faulty.?goods|car/.test(page.id + page.title.toLowerCase()))
+  ) {
     score += 4
+  }
+  if (
+    isPrivateParkingStory(text) &&
+    /parking|pcn|popla|ticket/.test(page.id + page.title.toLowerCase() + (page.primaryUrl || ''))
+  ) {
+    score += 10
+  }
+  if (
+    isPrivateParkingStory(text) &&
+    !isUsedCarPurchaseStory(text) &&
+    /used.?car|faulty.?goods|buying.?a.?used.?car/.test(page.id + page.title.toLowerCase())
+  ) {
+    score -= 40
+  }
+  if (
+    isLeaseholdFireSafetyAlterationStory(text) &&
+    /homeless/.test(page.id + page.title.toLowerCase())
+  ) {
+    score -= 45
+  }
+  if (
+    isLeaseholdFireSafetyAlterationStory(text) &&
+    /lease|fire|alter|possession|deposit|tenancy|shared/.test(page.id + page.title.toLowerCase())
+  ) {
+    score += 8
+  }
+  if (
+    isBenefitsRulesStory(text) &&
+    /faulty.?goods|refund|trader|consumer rights/.test(page.id + page.title.toLowerCase())
+  ) {
+    score -= 45
+  }
+  if (
+    isBenefitsRulesStory(text) &&
+    /benefit|universal credit|pip|money|debt.?solution|breathing/.test(
+      page.id + page.title.toLowerCase(),
+    )
+  ) {
+    score += 14
+  }
+  if (
+    isVictimCommunicationsHarassmentStory(text) &&
+    /if.?accused|accused|sentencing/.test(page.id + page.title.toLowerCase())
+  ) {
+    score -= 45
+  }
+  if (
+    isVictimCommunicationsHarassmentStory(text) &&
+    /victim|witness|harass|stalk|report/.test(page.id + page.title.toLowerCase())
+  ) {
+    score += 16
   }
   if (/\bilr\b|indefinite leave|settlement|settled/.test(text) && /settlement|ilr|indefinite|settled/.test(page.id)) {
     score += 6
@@ -406,6 +653,10 @@ export async function matchOslawCourse(
   frames: LegalFrame[],
   limit = 3,
 ): Promise<OslawCourse | null> {
+  const text = normaliseLayText(sessionText(session))
+  const leadFallback = buildLeadOslawFallback(text)
+  if (leadFallback) return leadFallback
+
   const domains = activeDomains(session, frames)
   if (domains.length === 0) return null
 
@@ -413,9 +664,13 @@ export async function matchOslawCourse(
     ? frames.map((f) => f.id)
     : [`${domains[0] === 'immigration' ? 'imm' : domains[0].slice(0, 4)}-general`]
 
-  const text = sessionText(session)
+  const parkingOnly = isPrivateParkingStory(text) && !isUsedCarPurchaseStory(text)
+  const leaseFireOnly = isLeaseholdFireSafetyAlterationStory(text)
+  const benefitsOnly = isBenefitsRulesStory(text)
+  const victimHarassment = isVictimCommunicationsHarassmentStory(text)
   const scoredArrays = await Promise.all(domains.map((d) => scoreDomain(d, session, frameIds)))
-  const scored = scoredArrays
+
+  let scored = scoredArrays
     .flat()
     .map((row) => ({
       ...row,
@@ -423,9 +678,68 @@ export async function matchOslawCourse(
     }))
     .sort((a, b) => b.score - a.score)
 
+  if (parkingOnly) {
+    const withoutUsedCar = scored.filter((x) => {
+      const blob = `${x.page.id} ${x.page.title} ${x.page.primaryUrl}`.toLowerCase()
+      return !/used.?car|buying.?a.?used.?car|problem-with-a-used-car|decision-trees\/problem-with-a-used-car|faulty.?goods/.test(
+        blob,
+      )
+    })
+    // Prefer a non-car pathway when available; otherwise skip wiki course so Answer pack owns parking.
+    if (withoutUsedCar.some((x) => x.page.kind === 'pathway' && x.page.primaryUrl)) {
+      scored = withoutUsedCar
+    } else {
+      return null
+    }
+  }
+
+  if (leaseFireOnly) {
+    const withoutHomeless = scored.filter(
+      (x) => !/homeless/.test(`${x.page.id} ${x.page.title}`.toLowerCase()),
+    )
+    if (withoutHomeless.length) scored = withoutHomeless
+  }
+
+  if (benefitsOnly) {
+    const withoutConsumerGoods = scored.filter((x) => {
+      const blob = `${x.page.id} ${x.page.title}`.toLowerCase()
+      return !/faulty.?goods|refund.?cancel|trader.?practices/.test(blob)
+    })
+    if (withoutConsumerGoods.length) scored = withoutConsumerGoods
+  }
+
+  if (victimHarassment) {
+    const withoutAccused = scored.filter(
+      (x) => !/if.?accused|pathway-if-accused|sentencing/.test(`${x.page.id} ${x.page.title}`.toLowerCase()),
+    )
+    if (withoutAccused.length) scored = withoutAccused
+  }
+
   const pathways = scored.filter((x) => x.page.kind === 'pathway' && x.page.primaryUrl)
-  const primary = pathways[0] ?? scored.find((x) => x.page.primaryUrl)
+  // Benefits: prefer Money/Benefits topic when it outranks debt pathways after filters
+  let primary =
+    benefitsOnly
+      ? scored.find(
+          (x) =>
+            x.page.primaryUrl &&
+            /benefit|universal credit|money.?benefits/i.test(`${x.page.id} ${x.page.title}`),
+        ) ??
+        pathways[0] ??
+        scored.find((x) => x.page.primaryUrl)
+      : pathways[0] ?? scored.find((x) => x.page.primaryUrl)
   if (!primary) return null
+
+  if (parkingOnly && /used.?car|faulty.?goods/i.test(`${primary.page.id} ${primary.page.title}`)) {
+    return null
+  }
+  if (leaseFireOnly && /homeless/i.test(`${primary.page.id} ${primary.page.title}`)) {
+    return null
+  }
+  if (victimHarassment && /if.?accused|accused/i.test(`${primary.page.id} ${primary.page.title}`)) {
+    primary =
+      pathways.find((x) => /victim|witness/i.test(`${x.page.id} ${x.page.title}`)) ?? primary
+    if (/if.?accused|accused/i.test(`${primary.page.id} ${primary.page.title}`)) return null
+  }
 
   const page = primary.page
   const domainId = primary.domainId
@@ -501,7 +815,7 @@ function rankPathwaySources(page: WikiPage, text: string): RankedSource[] {
   const urls = [...new Set([page.primaryUrl, ...(page.sourceUrls || [])].filter(Boolean))]
   const noise = /energy|boiler|insulation|meter|solid-wall|citizenship|visa|passport/i
   const storyBoosts: [RegExp, number][] = [
-    [/\bcar\b|vehicle|dealer|garage|mot\b|battery|fault codes?/i, 8],
+    [/\bcar\b(?!\s*park)|(?:used car)|(?:\bvehicle\b)|dealer|garage|mot\b|battery|fault codes?/i, 8],
     [/warrant|guarante/i, 5],
     [/refund|cancel|money back/i, 5],
     [/landlord|tenant|mould|evict|deposit|homeless/i, 5],

@@ -1,18 +1,23 @@
 import "server-only";
 
+import { createHash } from "node:crypto";
 import { accountsPrisma } from "@/lib/db/accounts";
+import { ensureBillingSchema } from "@/lib/billing/schema";
 import {
   checkRateLimit,
   releaseConcurrent,
   tryAcquireConcurrent,
 } from "@/lib/auth/quota-rate-limit";
+import { B2C_FREE_SEARCH_LIMIT_DEFAULT } from "@/lib/billing/plan";
 
 export type UsageAllowance = {
   allowed: boolean;
-  reason?: "daily_quota" | "minute_quota" | "concurrent" | "unverified";
+  reason?: "daily_quota" | "monthly_search_quota" | "minute_quota" | "concurrent" | "unverified";
   retryAfterSec?: number;
   dailyUsed?: number;
   dailyLimit?: number;
+  monthlySearchUsed?: number;
+  monthlySearchLimit?: number;
   minuteUsed?: number;
   minuteLimit?: number;
 };
@@ -26,6 +31,7 @@ export type UsageRecordInput = {
   inputTokens?: number;
   outputTokens?: number;
   estimatedCostUsd?: number;
+  searchKey?: string;
 };
 
 function numEnv(name: string, fallback: number): number {
@@ -43,16 +49,45 @@ function startOfUtcDay(d = new Date()): Date {
   return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
 }
 
+function stableSearchKey(value?: string): string | null {
+  const text = value?.trim();
+  return text ? createHash("sha256").update(`legal-shaman-search:${text}`).digest("hex") : null;
+}
+
+/** Distinct free searches used on this account (lifetime — not calendar month). */
+export async function monthlySearchUsage(userId: string): Promise<number> {
+  await ensureBillingSchema();
+  const rows = await accountsPrisma.$queryRaw<Array<{ n: bigint | number }>>`
+    SELECT COUNT(DISTINCT "search_key") AS n
+    FROM "usage_events"
+    WHERE "user_id" = ${userId}
+      AND "search_key" IS NOT NULL
+      AND "status" IN ('started', 'completed')
+  `;
+  return Number(rows[0]?.n ?? 0);
+}
+
+export const freeSearchUsage = monthlySearchUsage;
+
 export async function canStartCoherenceUsage(opts: {
   userId: string;
   requestId: string;
   endpoint: string;
   expectedFrontierCalls?: number;
+  countSearch?: boolean;
+  searchKey?: string;
 }): Promise<UsageAllowance> {
   const minuteLimit = numEnv("COHERENCE_PER_MINUTE_LIMIT", 3);
 
   if (!tryAcquireConcurrent(opts.userId, opts.requestId)) {
     return { allowed: false, reason: "concurrent" };
+  }
+
+  try {
+    await ensureBillingSchema();
+  } catch (error) {
+    releaseConcurrent(opts.userId, opts.requestId);
+    throw error;
   }
 
   const minuteKey = `coherence:min:${opts.userId}`;
@@ -100,10 +135,36 @@ export async function canStartCoherenceUsage(opts: {
     };
   }
 
+  const monthlySearchLimit = numEnv(
+    "COHERENCE_FREE_MONTHLY_SEARCH_LIMIT",
+    B2C_FREE_SEARCH_LIMIT_DEFAULT,
+  );
+  if (user.plan !== "paid" && opts.countSearch && stableSearchKey(opts.searchKey)) {
+    const monthlySearchUsed = await monthlySearchUsage(opts.userId);
+    if (monthlySearchUsed >= monthlySearchLimit) {
+      releaseConcurrent(opts.userId, opts.requestId);
+      return {
+        allowed: false,
+        reason: "monthly_search_quota",
+        monthlySearchUsed,
+        monthlySearchLimit,
+      };
+    }
+    return {
+      allowed: true,
+      dailyUsed,
+      dailyLimit,
+      monthlySearchUsed,
+      monthlySearchLimit,
+      minuteLimit,
+    };
+  }
+
   return {
     allowed: true,
     dailyUsed,
     dailyLimit,
+    monthlySearchLimit: user.plan === "paid" ? undefined : monthlySearchLimit,
     minuteLimit,
   };
 }
@@ -120,6 +181,7 @@ export async function recordUsageEvent(input: UsageRecordInput): Promise<void> {
         inputTokens: input.inputTokens ?? 0,
         outputTokens: input.outputTokens ?? 0,
         estimatedCostUsd: input.estimatedCostUsd ?? 0,
+        searchKey: stableSearchKey(input.searchKey),
       },
     });
   } catch (err) {

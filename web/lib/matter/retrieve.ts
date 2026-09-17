@@ -1,9 +1,41 @@
-import { searchWikiPages } from "@/lib/wiki/search";
+import { searchWikiPages, getWikiPageById } from "@/lib/wiki/search";
 import { wikiAnchorsForQuery } from "@/lib/wiki/rerank-hits";
+import { liveAskFromStory } from "@/lib/coherence/clientQuestions";
 
+import { buildConceptRetrievalPlan } from "./conceptRetrievalPlan";
 import { buildRetrievalPlan } from "./retrieval-plan";
+import { titleAllowedOnGraph } from "./issueGraphHits";
+import { isNeighbourAttractorTitle, storyLooksEmployerSeizedKit } from "./graphAdmissibility";
+import { gapIntentsForFrame } from "./gapRetrieve";
 import { exclusionPatternsForSlugs } from "./scopes";
+import { coverageSlotsFrom, rankByCoverage, slotRetryQueries, titleCoversGraph } from "./coverageSlots";
 import type { MatterEvidenceSet, MatterFrame } from "./types";
+
+function titleBoostForLiveAsk(title: string, submission: string): number {
+  const ask = liveAskFromStory(submission);
+  if (ask.solicitorConduct || ask.themes.includes("solicitor_ombudsman")) {
+    if (/legal ombudsman|complain about a legal|solicitors regulation|\bsra\b|success fee|conditional fee/i.test(title)) {
+      return 1.35;
+    }
+    if (/holiday pay|unpaid wage|working time|rest break/i.test(title) && !ask.themes.includes("employment_wages")) {
+      return 0.55;
+    }
+    return 1;
+  }
+  if (ask.policeVehicleClaim || ask.themes.includes("police_vehicle_claim")) {
+    if (/claim against (?:the )?police|police (?:vehicle|car).{0,40}damage|IOPC|complain about (?:the )?police|insurance claim|collision/i.test(title)) {
+      return 1.4;
+    }
+    if (/problem with a car repair|buying or repairing a car|poor workmanship|quote/i.test(title)) {
+      return 0.45;
+    }
+    return 1;
+  }
+  if (/illegal evict|homeless|occupi|service occup|tied accommodation|no tenancy|holiday pay|unpaid wage/i.test(title)) {
+    return 1.3;
+  }
+  return 1;
+}
 
 /** Legacy path: raw submission drives search (pre–Matter Engine baseline). */
 export function retrieveBaseline(submission: string, limit = 8): MatterEvidenceSet {
@@ -37,7 +69,7 @@ function titleExcluded(title: string, patterns: RegExp[], exclusionLabels: strin
     return true;
   }
   if (exclusionLabels.includes("travel_agent") && /travel agent/.test(t)) return true;
-  if (exclusionLabels.includes("distance_contracts") && /consumer contracts.*regulations|cancel.*online/.test(t)) {
+  if (exclusionLabels.includes("discrimination_equality") && /discriminat|equality act|protected characteristic|bullying at work|harassment at work/.test(t)) {
     return true;
   }
   return false;
@@ -54,8 +86,12 @@ export function retrieveForMatter(opts: {
   const { matterFrame, submission } = opts;
   const limit = opts.limit ?? 8;
   const primarySlugs = matterFrame.primaryIssues.map((i) => i.slug);
-  const { intents, traces } = buildRetrievalPlan(matterFrame);
-  const exclusionPatterns = exclusionPatternsForSlugs(primarySlugs);
+  const { intents, traces } = buildRetrievalPlan(matterFrame, submission);
+  const conceptPlan = buildConceptRetrievalPlan(matterFrame, submission);
+  const exclusionPatterns = [
+    ...exclusionPatternsForSlugs(primarySlugs, submission),
+    ...conceptPlan.titleExclusions,
+  ];
 
   const intentTrace = new Map<string, string>();
   for (const t of traces) {
@@ -67,12 +103,15 @@ export function retrieveForMatter(opts: {
   for (const intent of intents) {
     for (const hit of searchWikiPages(intent, 6)) {
       if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
+      if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
+      if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
       const existing = byId.get(hit.id);
+      const boost = titleBoostForLiveAsk(hit.title, submission);
       const row = {
         id: hit.id,
         title: hit.title,
         category: hit.category,
-        score: hit.score,
+        score: hit.score * boost,
         intent,
         trace: intentTrace.get(intent),
       };
@@ -81,9 +120,17 @@ export function retrieveForMatter(opts: {
   }
 
   const tail = submission.replace(/\s+/g, " ").trim().slice(-220);
-  if (tail.length >= 40) {
+  // Belongings / small-claims: skip raw story-tail search — "year old" / "her house" pollute housing & IHT
+  const skipTail =
+    primarySlugs.includes("consumer_small_claims") ||
+    primarySlugs.includes("housing") ||
+    storyLooksEmployerSeizedKit(submission) ||
+    /\b(threw|broke|broken|damaged).{0,80}(switch|console|toy|gift|belongings)\b/i.test(submission);
+  if (tail.length >= 40 && !skipTail) {
     for (const hit of searchWikiPages(tail, 4)) {
       if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
+      if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
+      if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
       const existing = byId.get(hit.id);
       const row = {
         id: hit.id,
@@ -97,7 +144,60 @@ export function retrieveForMatter(opts: {
     }
   }
 
-  const hits = [...byId.values()].sort((a, b) => b.score - a.score).slice(0, limit);
+  for (const intent of gapIntentsForFrame(
+    matterFrame,
+    submission,
+    [...byId.values()].map((h) => h.title),
+  )) {
+    if (!intents.includes(intent)) intents.push(intent);
+    for (const hit of searchWikiPages(intent, 6)) {
+      if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
+      if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
+      if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
+      const existing = byId.get(hit.id);
+      const liveBoost = titleBoostForLiveAsk(hit.title, submission);
+      const boost = liveBoost >= 1.3 ? 1.35 : liveBoost <= 0.6 ? 0.55 : 1.15;
+      const row = {
+        id: hit.id,
+        title: hit.title,
+        category: hit.category,
+        score: hit.score * boost,
+        intent,
+        trace: "gap-fill",
+      };
+      if (!existing || row.score > existing.score) byId.set(hit.id, row);
+    }
+  }
+
+  const slots = coverageSlotsFrom(matterFrame, submission);
+  for (const { slot, query } of slotRetryQueries(
+    slots,
+    [...byId.values()].map((h) => h.title),
+    submission,
+  )) {
+    if (!intents.includes(query)) intents.push(query);
+    for (const hit of searchWikiPages(query, 6)) {
+      if (titleExcluded(hit.title, exclusionPatterns, matterFrame.exclusions)) continue;
+      if (!titleAllowedOnGraph(hit.title, matterFrame)) continue;
+      if (isNeighbourAttractorTitle(hit.title, matterFrame, submission)) continue;
+      if (!titleCoversGraph(hit.title, [slot], submission)) continue;
+      const existing = byId.get(hit.id);
+      const row = {
+        id: hit.id,
+        title: hit.title,
+        category: hit.category,
+        score: hit.score * 1.2,
+        intent: query,
+        trace: `slot-retry:${slot.id}`,
+      };
+      if (!existing || row.score > existing.score) byId.set(hit.id, row);
+    }
+  }
+
+  const hits = rankByCoverage([...byId.values()], slots, {
+    story: submission,
+    limit,
+  });
 
   return { hits, intents, retrievalTraces: traces, mode: "matter-scoped" };
 }
@@ -111,15 +211,18 @@ export const KnowledgeRetriever = {
 export function matterEvidenceToWikiHits(
   hits: MatterEvidenceSet["hits"],
 ): ReturnType<typeof searchWikiPages> {
-  return hits.map((h) => ({
-    id: h.id,
-    title: h.title,
-    category: h.category,
-    summary: "",
-    keyInformation: [],
-    practicalGuidance: [],
-    relatedConcepts: [],
-    relatedOrganisations: [],
-    score: h.score,
-  }));
+  return hits.map((h) => {
+    const page = getWikiPageById(h.id);
+    return {
+      id: h.id,
+      title: h.title,
+      category: h.category || page?.category || "",
+      summary: page?.summary || "",
+      keyInformation: page?.keyInformation || [],
+      practicalGuidance: page?.practicalGuidance || [],
+      relatedConcepts: page?.relatedConcepts || [],
+      relatedOrganisations: page?.relatedOrganisations || [],
+      score: h.score,
+    };
+  });
 }

@@ -1,4 +1,5 @@
 import type { TimelineEvent } from './types'
+import { guessDatePrecision } from './timelineDates'
 
 const uid = () => Math.random().toString(36).slice(2, 10)
 
@@ -6,6 +7,27 @@ export type ExtractedEvent = {
   label: string
   rawSpan: string
   dateApprox?: string
+  actors?: string[]
+}
+
+export function inferredTimelineEvent(
+  partial: Omit<TimelineEvent, 'id' | 'kind' | 'clientConfirmed'> & {
+    id?: string
+    kind?: TimelineEvent['kind']
+    clientConfirmed?: boolean
+  },
+): TimelineEvent {
+  return {
+    id: partial.id || uid(),
+    kind: partial.kind || 'event',
+    label: partial.label,
+    rawSpan: partial.rawSpan,
+    dateApprox: partial.dateApprox,
+    datePrecision: partial.datePrecision ?? guessDatePrecision(partial.dateApprox),
+    actors: partial.actors?.filter(Boolean),
+    documentLabels: partial.documentLabels?.filter(Boolean),
+    clientConfirmed: partial.clientConfirmed ?? false,
+  }
 }
 
 /** Domain-agnostic story beats → short timeline labels. */
@@ -288,7 +310,14 @@ export function mergeTimelineEvents(
   const out = [...existing]
   for (const e of extracted) {
     if (isDuplicate(out, e)) continue
-    out.push({ id: uid(), kind: 'event', label: e.label, rawSpan: e.rawSpan, dateApprox: e.dateApprox })
+    out.push(
+      inferredTimelineEvent({
+        label: e.label,
+        rawSpan: e.rawSpan,
+        dateApprox: e.dateApprox,
+        actors: e.actors,
+      }),
+    )
   }
   return out
 }

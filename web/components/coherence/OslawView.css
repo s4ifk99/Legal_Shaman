@@ -60,6 +60,59 @@
   color: var(--ink);
 }
 
+.oslaw__mode {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.85rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: var(--radius, 0.5rem);
+}
+
+.oslaw__mode-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.oslaw__mode-copy,
+.oslaw__mode-risk {
+  margin: 0.25rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.oslaw__mode-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.oslaw__mode-button {
+  border: 1px solid var(--ink-muted);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+.oslaw__mode-button.is-selected {
+  border-color: var(--action, var(--ink));
+  box-shadow: inset 0 0 0 1px var(--action, var(--ink));
+}
+
+.oslaw__mode-ack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  padding: 0.6rem 0;
+  color: var(--ink-faint);
+  font-size: 0.78rem;
+}
+
 .oslaw__body {
   display: flex;
   flex-direction: column;
@@ -70,6 +123,94 @@
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
+}
+
+.oslaw__rec-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.oslaw__rec-hero-title {
+  margin: 0;
+  font-family: var(--font-serif, Georgia, "Times New Roman", serif);
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.oslaw__rec-hero-sub {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+.oslaw__rec-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--ink-muted) 28%, transparent);
+}
+
+.oslaw__rec-card {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: 0.85rem;
+  background: var(--surface, #fff);
+}
+
+.oslaw__rec-card--status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.oslaw__rec-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.65rem;
+}
+
+.oslaw__rec-status-title {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 650;
+  color: var(--ink);
+}
+
+.oslaw__rec-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.oslaw__rec-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.oslaw__rec-badge--synth,
+.oslaw__rec-badge--conf {
+  background: color-mix(in srgb, #059669 14%, transparent);
+  color: #065f46;
+}
+
+.oslaw__rec-disclaimer-top {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--ink-faint);
 }
 
 .oslaw__rec-head {
@@ -145,8 +286,51 @@
   text-underline-offset: 2px;
 }
 
+.oslaw__options {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.oslaw__option {
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: var(--radius, 0.5rem);
+}
+
+.oslaw__option h4 {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.oslaw__option p {
+  margin: 0.35rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.oslaw__follow-up {
+  padding: 0.9rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: var(--radius, 0.5rem);
+}
+
+.oslaw__follow-up-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
 .oslaw__rec-pages {
-  list-style: disc;
+  list-style: none;
+  padding-left: 0;
+}
+
+.oslaw__rec-pages a {
+  color: var(--action, var(--ink));
+  font-weight: 600;
+  text-underline-offset: 2px;
 }
 
 .oslaw__rec-sources {
@@ -203,4 +387,117 @@
 
 .oslaw__btn--primary:hover {
   background: color-mix(in oklab, var(--action, #1f5c45) 88%, black);
+}
+
+.oslaw__research-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--ink-muted);
+  border-left: 3px solid var(--action, var(--ink));
+  border-radius: var(--radius, 0.5rem);
+  background: color-mix(in srgb, var(--action, #1f5c45) 4%, transparent);
+}
+
+.oslaw__research-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.oslaw__research-status {
+  flex: none;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.oslaw__research-error {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+}
+
+.oslaw__research-questions,
+.oslaw__research-findings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.oslaw__research-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.oslaw__research-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.55rem;
+  padding: 0.65rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: var(--radius, 0.5rem);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+}
+
+.oslaw__research-input:focus {
+  outline: 2px solid color-mix(in srgb, var(--action, #1f5c45) 50%, transparent);
+  outline-offset: 1px;
+}
+
+.oslaw__research-memo {
+  white-space: pre-wrap;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin: 0.75rem 0;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--ink-muted);
+  border-radius: var(--radius, 0.5rem);
+}
+
+.oslaw__source-drop {
+  font-size: 0.9rem;
+  color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--ink-muted) 70%, transparent);
+  border-radius: var(--radius, 0.5rem);
+  padding: 0.15rem 0.75rem 0.15rem;
+  background: color-mix(in srgb, var(--paper, #fff) 88%, var(--ink-muted));
+}
+
+.oslaw__source-drop summary {
+  cursor: pointer;
+  font-weight: 650;
+  list-style-position: outside;
+  padding: 0.55rem 0.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.65rem;
+}
+
+.oslaw__source-drop-count {
+  font-weight: 500;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+}
+
+.oslaw__source-drop[open] {
+  padding-bottom: 0.65rem;
+}
+
+.oslaw__source-drop ul {
+  margin: 0 0 0.25rem;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }

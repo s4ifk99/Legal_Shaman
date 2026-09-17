@@ -9,6 +9,8 @@ import { OSLAW_GENERIC_PLAYBOOK, OSLAW_PLAYBOOKS } from './oslawPlaybooks'
 import type { SourceSnippet } from './oslawSummary'
 import type { OslawCourseStep, WikiCatalogue, WikiDomainId, WikiPage } from './wiki'
 import { tidySentence } from './timelineExtract'
+import { buildRetrievalText } from './retrievalText'
+import { isUsedCarPurchaseStory as isUsedCarPurchaseStoryLocked } from './topicLock'
 
 export type OslawRightsBullet = {
   text: string
@@ -39,23 +41,71 @@ export type WikiToolPage = WikiPage & {
 }
 
 function sessionText(session: SessionState): string {
-  return [
-    ...session.rawInputs,
-    session.whatHappened,
-    session.howCaused,
-    session.goal,
-    ...session.events.map((e) => e.label),
-    ...session.documents,
-    session.matterType,
-  ]
-    .join(' ')
-    .toLowerCase()
+  return buildRetrievalText(session)
+}
+
+/** Private parking / PCN stories — must not trigger used-car tools (\bcar\b matches "car park"). */
+export function isPrivateParkingStory(text: string): boolean {
+  return /\b(parking|car\s*park|pcn|popla|private parking|parking charge|parking fine|parking ticket|parking app|parking company)\b/i.test(
+    text,
+  )
+}
+
+export function isUsedCarPurchaseStory(text: string): boolean {
+  if (isPrivateParkingStory(text) && !/\b(used car|bought .{0,24}(?:car|vehicle)|dealer|fault codes?)\b/i.test(text)) {
+    return false
+  }
+  return isUsedCarPurchaseStoryLocked(text)
+}
+
+/** Lease / fire-door / shared-property alteration — not a homelessness-duty story. */
+export function isLeaseholdFireSafetyAlterationStory(text: string): boolean {
+  return /\b(fire door|fire safety|tamper(?:ing)? with fire|adjust.{0,40}latch(?:es)?|leasehold|shared (?:property|block)|unauthorised alter|unauthorized alter)\b/i.test(
+    text,
+  )
+}
+
+/** UC / PIP / deprivation-of-capital — benefits rules, not consumer goods. */
+export function isBenefitsRulesStory(text: string): boolean {
+  const benefit =
+    /\b(universal credit|\buc\b|\bpip\b|personal independence|dla\b|esa\b|benefit)\b/i.test(text)
+  const rules =
+    /\b(eligibility|eligible|deprivation of capital|sanction|mandatory reconsideration|tribunal|affect (?:my|their|our) (?:uc|universal credit|pip|benefits?)|savings|capital)\b/i.test(
+      text,
+    )
+  return benefit && rules
+}
+
+/** Victim of harassing / obscene calls — not “if you are accused”. */
+export function isVictimCommunicationsHarassmentStory(text: string): boolean {
+  const victimCue =
+    /\b(receiv(?:e|ing|ed) calls?|caller id|no caller id|phone calls?|on the (?:other end|phone)|harass(?:ing|ment)? calls?|obscene|masturbat|stalk(?:ing|er)?)\b/i.test(
+      text,
+    )
+  const accusedCue =
+    /\b(i (?:am|was) (?:accused|arrested|charged)|police (?:interview|station)|under caution|duty solicitor|cps charged)\b/i.test(
+      text,
+    )
+  return victimCue && !accusedCue
+}
+
+function looksLikeUsedCarWhen(when: string): boolean {
+  return /\\bcar\\b|used car|vehicle|dealer|garage|mot\\b|fault codes?|motor/i.test(when)
 }
 
 function stepMatchesWhen(when: string | undefined, text: string): boolean {
   if (!when) return true
   try {
-    return new RegExp(when, 'is').test(text)
+    if (!new RegExp(when, 'is').test(text)) return false
+    // Guard: parking stories must not activate used-car step filters
+    if (
+      isPrivateParkingStory(text) &&
+      !isUsedCarPurchaseStory(text) &&
+      looksLikeUsedCarWhen(when)
+    ) {
+      return false
+    }
+    return true
   } catch {
     return true
   }
@@ -194,6 +244,14 @@ function synthesizeFromPlaybook(
 
   for (const def of playbook) {
     if (def.when && !def.when.test(text)) continue
+    if (
+      isPrivateParkingStory(text) &&
+      !isUsedCarPurchaseStory(text) &&
+      def.when &&
+      looksLikeUsedCarWhen(def.when.source)
+    ) {
+      continue
+    }
 
     let pick: RankedSource | undefined
     if (def.fixedUrl) {
@@ -241,7 +299,15 @@ export function featuredToolsFromWiki(
       const when = t.toolMeta?.when
       if (!when) return true
       try {
-        return new RegExp(when, 'i').test(text)
+        if (!new RegExp(when, 'i').test(text)) return false
+        if (
+          isPrivateParkingStory(text) &&
+          !isUsedCarPurchaseStory(text) &&
+          looksLikeUsedCarWhen(when)
+        ) {
+          return false
+        }
+        return true
       } catch {
         return true
       }
@@ -262,7 +328,15 @@ export function featuredToolsFromWiki(
       const when = t.toolMeta?.when
       if (!when) return true
       try {
-        return new RegExp(when, 'i').test(text)
+        if (!new RegExp(when, 'i').test(text)) return false
+        if (
+          isPrivateParkingStory(text) &&
+          !isUsedCarPurchaseStory(text) &&
+          looksLikeUsedCarWhen(when)
+        ) {
+          return false
+        }
+        return true
       } catch {
         return true
       }

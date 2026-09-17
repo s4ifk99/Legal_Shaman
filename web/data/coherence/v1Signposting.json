@@ -732,7 +732,8 @@
       "title": "Money, Benefits and Debt",
       "matterTypes": [
         "other",
-        "housing"
+        "housing",
+        "debt"
       ],
       "resources": [
         {
@@ -943,18 +944,31 @@
     {
       "title": "Driving and Parking",
       "matterTypes": [
-        "other"
+        "consumer",
+        "crime",
+        "other",
+        "unknown"
       ],
       "resources": [
+        {
+          "name": "Citizens Advice — parking tickets and PCNs",
+          "description": "Challenge a council or private parking ticket — appeals, POPLA, and when to get help.",
+          "url": "https://www.citizensadvice.org.uk/law-and-courts/parking-tickets/when-to-appeal-a-parking-ticket/"
+        },
+        {
+          "name": "POPLA — Parking on Private Land Appeals",
+          "description": "Independent appeal for private parking charges (after the operator rejects your appeal).",
+          "url": "https://www.popla.co.uk/"
+        },
+        {
+          "name": "GOV.UK — parking tickets",
+          "description": "Official overview of parking tickets, fines, and how to challenge them.",
+          "url": "https://www.gov.uk/parking-tickets"
+        },
         {
           "name": "Yellow Box Guru — yellow box junction PCNs",
           "description": "Guide to UK yellow box junction law, enforcement and appeals, including a PCN checklist — for motorists challenging tickets and for understanding when a box or ticket may not comply with the law.",
           "url": "https://www.yellowboxes.co.uk/"
-        },
-        {
-          "name": "Citizens Advice — parking tickets and PCNs",
-          "description": "Challenge a council or private parking ticket.",
-          "url": "https://www.citizensadvice.org.uk/consumer/parking-travel-leisure/parking-tickets/"
         }
       ]
     },
@@ -1041,7 +1055,8 @@
     {
       "title": "Crime and Police",
       "matterTypes": [
-        "other"
+        "other",
+        "crime"
       ],
       "resources": [
         {

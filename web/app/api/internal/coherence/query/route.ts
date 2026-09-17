@@ -6,6 +6,7 @@ import { NextResponse } from "next/server";
 import { enableCoherenceAskLocal } from "@/lib/coherence/mode";
 import {
   COHERENCE_INTERNAL_HEADERS,
+  getCoherenceInternalSecret,
   verifyInternalCoherenceRequest,
 } from "@/lib/coherence/server/internal-auth";
 import { POST as executeMaster } from "@/app/api/coherence/llm/master/route";
@@ -32,6 +33,7 @@ export async function POST(req: Request) {
   const userId = req.headers.get(COHERENCE_INTERNAL_HEADERS.userId)?.trim() || "anonymous";
   const idempotencyKey =
     req.headers.get(COHERENCE_INTERNAL_HEADERS.idempotencyKey)?.trim() || requestId;
+  const internalSecret = getCoherenceInternalSecret();
 
   const body = await req.text();
   const forwardReq = new Request(new URL("/api/coherence/llm/master", req.url), {
@@ -41,6 +43,7 @@ export async function POST(req: Request) {
       "x-request-id": requestId || idempotencyKey,
       "x-coherence-trusted-user-id": userId,
       "x-coherence-trusted-internal": "1",
+      ...(internalSecret ? { "x-coherence-internal-secret": internalSecret } : {}),
     },
     body,
   });

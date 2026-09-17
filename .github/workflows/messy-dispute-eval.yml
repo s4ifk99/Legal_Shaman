@@ -1,0 +1,32 @@
+name: Messy dispute eval
+
+on:
+  pull_request:
+    paths:
+      - "web/scripts/messy-dispute-eval.ts"
+      - "web/data/coherence/eval/messy-disputes.json"
+      - "web/lib/coherence/ukTaxonomy.ts"
+      - "web/lib/coherence/packClassifier.ts"
+      - "web/lib/coherence/matchFreeServices.ts"
+      - "web/lib/coherence/sense.ts"
+      - "web/lib/legal/query-signals.ts"
+      - "web/package.json"
+      - ".github/workflows/messy-dispute-eval.yml"
+  workflow_dispatch:
+
+jobs:
+  messy-disputes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm run test:messy-disputes

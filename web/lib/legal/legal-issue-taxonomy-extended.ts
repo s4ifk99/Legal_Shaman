@@ -257,6 +257,8 @@ export const LEGAL_ISSUE_TAXONOMY_EXTENDED: LegalIssueTaxonomyEntry[] = [
       "privacy solicitor",
       "subject access request refused",
       "ICO",
+      "neighbour CCTV",
+      "home CCTV complaint",
     ],
     subIssues: ["SARs", "Breach response", "ICO complaints", "Employment data"],
     relatedPracticeAreas: ["Employment", "Commercial law"],

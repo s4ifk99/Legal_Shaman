@@ -7,7 +7,12 @@ import {
   LEGAL_ISSUE_TAXONOMY,
   type LegalIssueTaxonomyEntry,
 } from "@/lib/legal/legal-issue-taxonomy-data";
-import { isPcnAppealQuery, isPropertyPurchaseMisrepresentationQuery, isVehicleRepairQuery } from "@/lib/legal/query-signals";
+import {
+  isPcnAppealQuery,
+  isPropertyPurchaseMisrepresentationQuery,
+  isVehicleRepairQuery,
+  storyLooksNeighbourSurveillance,
+} from "@/lib/legal/query-signals";
 import {
   normalizePhrase,
   normalizePracticeAreas,
@@ -121,6 +126,7 @@ const DETECT = {
     /\b(neighbour|neighbor).{0,40}(driveway|car\s*port|carport|blocking|access|right of way)\b/i.test(
       q,
     ) || /\b(car\s*port|carport|easement|right of way)\b/i.test(q),
+  neighbour_cctv: (q: string) => storyLooksNeighbourSurveillance(q),
   motoring_ban: (q: string) =>
     /\b(driving ban|disqualif|banned from driving|in charge of (?:a |the )?vehicle)\b/i.test(q),
   property_purchase: (q: string) => isPropertyPurchaseMisrepresentationQuery(q),
@@ -179,6 +185,10 @@ export function resolveTaxonomy(opts: {
   if (detected.shared_housing) add("housing", 36, "detector:shared_housing");
   if (detected.housing_repair) add("housing", 36, "detector:housing_repair");
   if (detected.neighbour_access) add("neighbour_dispute", 38, "detector:neighbour_access");
+  if (detected.neighbour_cctv) {
+    add("neighbour_dispute", 44, "detector:neighbour_cctv");
+    add("data_protection", 22, "detector:neighbour_cctv");
+  }
   if (detected.motoring_ban) add("criminal_defence", 42, "detector:motoring_ban");
   if (detected.property_purchase) add("conveyancing", 44, "detector:property_purchase");
 

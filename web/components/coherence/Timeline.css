@@ -1,151 +1,155 @@
 .timeline {
   width: 100%;
-  padding: 1rem 1.25rem 0.75rem;
+  padding: 0.85rem 1.25rem 0.75rem;
   border-bottom: 1px solid var(--ink-muted);
 }
 
-.timeline__track {
-  display: flex;
-  align-items: flex-start;
-  gap: 0;
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 0.35rem 0.15rem 1rem;
-  scroll-snap-type: x proximity;
-  scrollbar-width: thin;
-  -webkit-overflow-scrolling: touch;
+.timeline__banner {
+  margin: 0 0 0.65rem;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--ink-faint);
 }
 
-.timeline__item {
+.timeline__goal {
   display: flex;
-  align-items: flex-start;
-  flex: 0 0 auto;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.timeline__goal-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  flex-shrink: 0;
+}
+
+.timeline__goal-btn,
+.timeline__goal-input {
+  flex: 1;
   min-width: 0;
-}
-
-.timeline__segment {
-  flex: 0 0 1.25rem;
-  width: 1.25rem;
-  height: 2px;
-  background: color-mix(in oklab, var(--action, var(--ink)) 55%, var(--ink-muted));
-  margin-top: 0.55rem;
-  align-self: flex-start;
-  opacity: 0.9;
-}
-
-.timeline__node {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  width: 8.75rem;
-  min-width: 8.75rem;
-  max-width: 8.75rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
   background: none;
   border: none;
-  padding: 0.15rem 0.35rem 0.25rem;
+  border-bottom: 1px solid var(--ink-muted);
+  padding: 0.2rem 0;
+  text-align: left;
+  cursor: text;
+}
+
+.timeline__goal-btn {
   cursor: pointer;
-  color: var(--ink);
-  font: inherit;
-  scroll-snap-align: start;
 }
 
-.timeline__node:hover .timeline__dot,
-.timeline__node:focus-visible .timeline__dot {
-  transform: scale(1.12);
-}
-
-.timeline__node:focus-visible {
+.timeline__goal-input:focus,
+.timeline__goal-btn:focus-visible {
   outline: none;
+  border-bottom-color: var(--action, var(--ink));
 }
 
-.timeline__node:focus-visible .timeline__label {
-  color: var(--action, var(--ink));
-}
-
-.timeline__dot {
-  width: 0.85rem;
-  height: 0.85rem;
-  border-radius: 50%;
-  background: var(--paper);
-  border: 2px solid var(--action, var(--ink));
-  flex-shrink: 0;
-  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
-  position: relative;
-  z-index: 1;
-}
-
-.timeline__node--anchor .timeline__dot {
-  width: 1rem;
-  height: 1rem;
-  background: var(--action, var(--ink));
-  border-color: var(--action, var(--ink));
-}
-
-.timeline__node--filled .timeline__dot,
-.timeline__node--active .timeline__dot {
-  background: var(--action, var(--ink));
-  border-color: var(--action, var(--ink));
-  transform: scale(1.12);
-}
-
-.timeline__label {
-  width: 100%;
-  font-size: 0.72rem;
-  line-height: 1.3;
-  text-align: center;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  font-weight: 500;
-  color: var(--ink);
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-  hyphens: auto;
-  min-height: 2.8em;
-}
-
-.timeline__date {
-  display: block;
-  margin-bottom: 0.15rem;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--accent-gold, var(--ink-faint));
-}
-
-.timeline__edit {
+.timeline__list-head {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  align-items: flex-end;
-  padding: 0.65rem 0 0.35rem;
-  border-top: 1px solid var(--ink-muted);
-  margin-top: 0.35rem;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
 }
 
-.timeline__field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  flex: 1 1 12rem;
+.timeline__heading {
+  margin: 0;
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
 
-.timeline__field--narrow {
-  flex: 0 1 7rem;
+.timeline__sort {
+  appearance: none;
+  border: none;
+  background: none;
+  color: var(--ink-faint);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.timeline__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline__empty {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  padding: 0.4rem 0;
+}
+
+.timeline__row {
+  border-bottom: 1px solid var(--ink-muted);
+}
+
+.timeline__row:last-child {
+  border-bottom: none;
+}
+
+.timeline__row-main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: baseline;
+  text-align: left;
+  background: none;
+  border: none;
+  font: inherit;
+  color: var(--ink);
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.timeline__when {
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+
+.timeline__what {
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.timeline__edit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: flex-end;
+  padding: 0 0 0.65rem;
+}
+
+.timeline__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1 1 10rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.timeline__field--date {
+  flex: 0 0 7rem;
 }
 
 .timeline__field--grow {
-  flex: 1 1 100%;
+  flex: 1 1 14rem;
 }
 
 .timeline__field input {
@@ -156,53 +160,80 @@
   border: none;
   border-bottom: 1px solid var(--ink);
   background: transparent;
-  padding: 0.35rem 0;
+  padding: 0.3rem 0;
+  font-family: inherit;
 }
 
 .timeline__field input:focus {
   outline: none;
   border-bottom-width: 2px;
-  border-bottom-color: var(--action, var(--ink));
 }
 
-.timeline__detail {
-  margin: 0.35rem 0 0;
-  font-size: 0.78rem;
-  line-height: 1.35;
-  letter-spacing: 0;
-  text-transform: none;
+.timeline__more {
+  appearance: none;
+  border: none;
+  background: none;
   color: var(--ink-faint);
-  max-height: 4.5rem;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.35rem 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .timeline__edit-actions {
   display: flex;
   gap: 0.35rem;
+  margin-left: auto;
 }
 
-.timeline__edit-actions button {
-  border: 1px solid color-mix(in oklab, var(--action, var(--ink)) 28%, var(--ink-muted));
-  background: transparent;
-  color: var(--ink);
-  padding: 0.35rem 0.55rem;
+.timeline__edit-actions button,
+.timeline__add-btn {
+  border: none;
+  background: none;
+  color: var(--ink-faint);
+  padding: 0.25rem 0;
   font-size: 0.75rem;
   cursor: pointer;
-  border-radius: var(--radius, 0.5rem);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.timeline__edit-actions button:hover {
-  background: var(--action, var(--ink));
-  border-color: var(--action, var(--ink));
-  color: var(--action-fg, var(--paper));
+.timeline__add-btn {
+  color: var(--ink);
 }
 
-.timeline__danger:hover {
-  background: var(--ink);
-  border-color: var(--ink);
+.timeline__add-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.timeline__add {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.35rem;
+  padding-top: 0.45rem;
+}
+
+.timeline__add-date,
+.timeline__add-what {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--ink);
+  border: none;
+  border-bottom: 1px solid var(--ink-muted);
+  background: transparent;
+  padding: 0.3rem 0;
+}
+
+.timeline__add-date:focus,
+.timeline__add-what:focus {
+  outline: none;
+  border-bottom-color: var(--ink);
 }
 
 @media (max-width: 640px) {
@@ -211,14 +242,9 @@
     padding-right: 0.85rem;
   }
 
-  .timeline__node {
-    width: 7.25rem;
-    min-width: 7.25rem;
-    max-width: 7.25rem;
-  }
-
-  .timeline__label {
-    font-size: 0.68rem;
-    -webkit-line-clamp: 4;
+  .timeline__row-main,
+  .timeline__add {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
   }
 }

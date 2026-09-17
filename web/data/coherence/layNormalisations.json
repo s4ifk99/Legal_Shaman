@@ -19,7 +19,19 @@
     ["\\bwont\\b", "won't"],
     ["\\bhasnt\\b", "hasn't"],
     ["\\bim\\b", "I'm"],
-    ["\\bsacked\\b", "sacked"]
+    ["\\bsacked\\b", "sacked"],
+    ["\\batterney\\b", "attorney"],
+    ["\\bberieal\\b", "burial"],
+    ["\\bleagal\\b", "legal"],
+    ["\\bnotarise?\\b", "notarise"],
+    ["\\bdraft(?:ing)? or updating a will\\b", "making a will"],
+    ["\\bwill and poa\\b", "will and power of attorney"],
+    ["\\btransferring property ownership\\b", "transfer of equity conveyancing"],
+    ["\\bclean break\\b", "clean break financial order"],
+    ["\\bprenuptial\\b", "prenuptial agreement family"],
+    ["\\blease a retail\\b", "commercial property shop lease"],
+    ["\\bfamily leagal aid\\b", "family legal aid"],
+    ["\\bpower attorney\\b", "power of attorney"]
   ],
   "notes": "Shared lay-person spelling fixes. Keep patterns lowercase for matching; applied case-insensitively. Grow from eval:lay failures."
 }

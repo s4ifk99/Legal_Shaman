@@ -1,6 +1,7 @@
 import type { SessionState } from './types'
 import type { LegalFrame } from './frames'
 import type { AnswerPackage } from './answerPackage'
+import type { ResearchBundle } from './researchBundle'
 import { MAX_SEARCH_QUERY_CHARS } from '@/lib/legal-search/query-limits'
 
 export type RetrieveAnswerResult = {
@@ -10,23 +11,38 @@ export type RetrieveAnswerResult = {
   error?: string
 }
 
+export type AnswerFollowUpContext = {
+  kind: 'clarify' | 'add_detail' | 'refine'
+  text: string
+  priorAnswer?: string
+}
+
 /** Build story text for Retrieve → Answer. */
 export function sessionAnswerQuery(session: SessionState, frames: LegalFrame[] = []): string {
   const parts = [
     session.clientQuestion,
     session.briefUnderstanding,
     session.whatHappened,
-    session.howCaused,
-    session.goal,
     ...session.rawInputs.slice(-2),
-    ...session.events.slice(0, 8).map((e) => [e.label, e.rawSpan].filter(Boolean).join(' ')),
-    frames
-      .slice(0, 3)
-      .map((f) => f.label)
-      .join(' '),
   ]
     .map((p) => String(p || '').trim())
     .filter(Boolean)
+
+  const frameLabels = frames
+    .slice(0, 3)
+    .map((f) => f.label)
+    .filter(Boolean)
+    .join(' ')
+  if (frameLabels) parts.push(frameLabels)
+  const story = String(session.whatHappened || '').toLowerCase()
+  const goal = String(session.goal || '').trim()
+  const caused = String(session.howCaused || '').trim()
+  if (goal && goal.length >= 8 && !story.includes(goal.toLowerCase().slice(0, 40))) {
+    if (!/^because i don't know/i.test(goal)) parts.push(goal)
+  }
+  if (caused && !/^because i don't know/i.test(caused) && !story.includes(caused.toLowerCase().slice(0, 40))) {
+    parts.push(caused)
+  }
 
   const seen = new Set<string>()
   const unique: string[] = []
@@ -67,6 +83,8 @@ export function isFinalOverviewPackage(pack: AnswerPackage | null | undefined): 
 export async function fetchRetrieveAnswer(
   session: SessionState,
   frames: LegalFrame[] = [],
+  followUp?: AnswerFollowUpContext,
+  researchBundle?: ResearchBundle,
 ): Promise<RetrieveAnswerResult | null> {
   const latestText = sessionAnswerQuery(session, frames)
   if (latestText.length < 8) return null
@@ -81,9 +99,12 @@ export async function fetchRetrieveAnswer(
         clientQuestion: session.clientQuestion,
         matterType: session.matterType,
         topicId: session.topicId,
+        searchMode: session.searchMode,
         whatHappened: session.whatHappened,
         goal: session.goal,
         frameIds: frames.map((f) => f.id),
+        followUp,
+        researchBundle,
       }),
     })
     const data = (await res.json().catch(() => null)) as RetrieveAnswerResult | null

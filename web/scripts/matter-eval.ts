@@ -9,7 +9,18 @@
  *   npm run matter:eval -- --suite=regression
  *   npm run matter:eval -- --compare --suite=adversarial
  */
-import { formatMatterEvalReport, runMatterEval } from "../lib/matter/eval/run";
+import Module from "node:module";
+
+type NodeLoad = (request: string, parent: unknown, isMain: boolean) => unknown;
+const nodeModule = Module as typeof Module & { _load: NodeLoad };
+const load = nodeModule._load;
+nodeModule._load = function (request: string, parent: unknown, isMain: boolean) {
+  if (request === "server-only") return {};
+  return load(request, parent, isMain);
+};
+
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { formatMatterEvalReport, runMatterEval } = require("../lib/matter/eval/run") as typeof import("../lib/matter/eval/run");
 import type { MatterEvalSuite } from "../lib/matter/eval/types";
 
 const args = process.argv.slice(2);

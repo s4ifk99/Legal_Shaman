@@ -1,0 +1,650 @@
+{
+  "problem": "see chat",
+  "queries": [
+    "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+    "hierarchical intent classification legal question answering retrieval without proliferating rules",
+    "adaptive retrieval intents from extracted concepts taxonomy-driven RAG information retrieval",
+    "cascading errors multi-stage NLP pipelines query understanding retrieval routing",
+    "LLM structured output legal issue framing concepts exclusions retrieval planning",
+    "HyDE query expansion dense retrieval topic drift mitigation legal IR",
+    "task decomposition agents retrieval planning instead of handcrafted rules"
+  ],
+  "results": [
+    {
+      "title": "LevelRAG: Enhancing Retrieval-Augmented Generation with Multi-hop Logic Planning over Rewriting Augmented Searchers",
+      "url": "https://doi.org/10.48550/arxiv.2502.18139",
+      "score": 0,
+      "publishedDate": "2025-02-25T00:00:00.000Z",
+      "author": "Zhuocheng Zhang, Feng Yang, Min Zhang",
+      "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+      "highlights": [
+        "# LevelRAG: Enhancing Retrieval-Augmented Generation with Multi-hop Logic Planning over Rewriting Augmented Searchers\n\narXiv (Cornell University). Published: 2025-02-25. Preprint. 0 citations.\n\n## Authors\n\n- Zhuocheng Zhang: h-index 3; 106 citations\n- Feng Yang: h-index 8; 205 citations\n- Min Zhang: h-index 43; 6,630 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n- Web Data Mining and Analysis\n- Advanced Database Systems and Queries\n\n---\n\n# LevelRAG: Enhancing Retrieval-Augmented Generation with Multi-hop Logic Planning over Rewriting Augmented Searchers\n\nRetrieval-Augmented Generation (RAG) is a crucial method for mitigating hallucinations in Large Language Models (LLMs) and integrating external knowledge into their re sponses. Existing RAG methods typically employ query rewriting to"
+      ],
+      "text": "# LevelRAG: Enhancing Retrieval-Augmented Generation with Multi-hop Logic Planning over Rewriting Augmented Searchers\n\narXiv (Cornell University). Published: 2025-02-25. Preprint. 0 citations.\n\n## Authors\n\n- Zhuocheng Zhang: h-index 3; 106 citations\n- Feng Yang: h-index 8; 205 citations\n- Min Zhang: h-index 43; 6,630 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n- Web Data Mining and Analysis\n- Advanced Database Systems and Queries\n\n---\n\n# LevelRAG: Enhancing Retrieval-Augmented Generation"
+    },
+    {
+      "title": "UniRAG: A Unified RAG Framework for Knowledge-Intensive Queries with Decomposition, Break-Down Reasoning, and Iterative Rewriting",
+      "url": "https://doi.org/10.18653/v1/2025.findings-emnlp.1022",
+      "score": 0,
+      "publishedDate": "2025-01-01T00:00:00.000Z",
+      "author": "Gun Il Kim, Jong Wook Kim, Beakcheol Jang",
+      "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+      "highlights": [
+        "# UniRAG: A Unified RAG Framework for Knowledge-Intensive Queries with Decomposition, Break-Down Reasoning, and Iterative Rewriting\n\nPublished: 2025-01-01. 0 citations.\n\n## Authors\n\n- Gun Il Kim: h-index 4; 87 citations\n- Jong Wook Kim: h-index 35; 10,993 citations\n- Beakcheol Jang: h-index 26; 3,122 citations\n\n## Topics\n\n- Constraint Satisfaction and Optimization\n- Logic, Reasoning, and Knowledge\n- Semantic Web and Ontologies\n\n---\n\n# UniRAG: A Unified RAG Framework for Knowledge-Intensive Queries with Decomposition, Break-Down Reasoning, and Iterative Rewriting\n\n## Abstract\n\nKnowledge-intensive queries require accurate answers that are explicitly grounded in retrieved evidence. However, existing retrievalaugmented generation (RAG) approaches often struggle with query complexity, suffer fr"
+      ],
+      "text": "# UniRAG: A Unified RAG Framework for Knowledge-Intensive Queries with Decomposition, Break-Down Reasoning, and Iterative Rewriting\n\nPublished: 2025-01-01. 0 citations.\n\n## Authors\n\n- Gun Il Kim: h-index 4; 87 citations\n- Jong Wook Kim: h-index 35; 10,993 citations\n- Beakcheol Jang: h-index 26; 3,122 citations\n\n## Topics\n\n- Constraint Satisfaction and Optimization\n- Logic, Reasoning, and Knowledge\n- Semantic Web and Ontologies\n\n---\n\n# UniRAG: A Unified RAG Framework for Knowledge-Intensive Queri"
+    },
+    {
+      "title": "MaFeRw: Query Rewriting with Multi-Aspect Feedbacks for Retrieval-Augmented Large Language Models",
+      "url": "https://doi.org/10.1609/aaai.v39i24.34732",
+      "score": 0,
+      "publishedDate": "2025-04-11T00:00:00.000Z",
+      "author": "Yujing Wang, Hainan Zhang, Liang Pang, Binghui Guo, Hongwei Zheng, Zhiming Zheng",
+      "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+      "highlights": [
+        "# MaFeRw: Query Rewriting with Multi-Aspect Feedbacks for Retrieval-Augmented Large Language Models\n\nProceedings of the AAAI Conference on Artificial Intelligence. Published: 2025-04-11. 10 citations.\n\n## Authors\n\n- Yujing Wang (Beijing Advanced Sciences and Innovation Center): h-index 22; 3,145 citations\n- Hainan Zhang (Beijing Advanced Sciences and Innovation Center): h-index 10; 359 citations\n- Liang Pang (Chinese Academy of Sciences): h-index 28; 4,200 citations\n- Binghui Guo (Beijing Academy of Artificial Intelligence): h-index 8; 185 citations\n- Hongwei Zheng (Beijing Computing Center): h-index 21; 1,289 citations\n- Zhiming Zheng (Beijing Advanced Sciences and Innovation Center): h-index 28; 2,989 citations\n\n## Topics\n\n- Topic Modeling\n- Natural Language Processing Techniques\n- Data"
+      ],
+      "text": "# MaFeRw: Query Rewriting with Multi-Aspect Feedbacks for Retrieval-Augmented Large Language Models\n\nProceedings of the AAAI Conference on Artificial Intelligence. Published: 2025-04-11. 10 citations.\n\n## Authors\n\n- Yujing Wang (Beijing Advanced Sciences and Innovation Center): h-index 22; 3,145 citations\n- Hainan Zhang (Beijing Advanced Sciences and Innovation Center): h-index 10; 359 citations\n- Liang Pang (Chinese Academy of Sciences): h-index 28; 4,200 citations\n- Binghui Guo (Beijing Academ"
+    },
+    {
+      "title": "DMQR-RAG: Diverse Multi-Query Rewriting for RAG",
+      "url": "https://doi.org/10.48550/arxiv.2411.13154",
+      "score": 0,
+      "publishedDate": "2024-11-20T00:00:00.000Z",
+      "author": "Zhicong Li, Jiahao Wang, Zhishu Jiang, Hangyu Mao, Zhongxia Chen, Jia Du, et al.",
+      "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+      "highlights": [
+        "# DMQR-RAG: Diverse Multi-Query Rewriting for RAG\n\narXiv (Cornell University). Published: 2024-11-20. Preprint. 2 citations.\n\n## Authors\n\n- Zhicong Li: h-index 14; 654 citations\n- Jiahao Wang: h-index 31; 2,837 citations\n- Zhishu Jiang: h-index 1; 2 citations\n- Hangyu Mao: h-index 13; 726 citations\n- Zhongxia Chen: h-index 7; 1,505 citations\n- Jia Du: h-index 32; 2,775 citations\n- Yuanxing Zhang: h-index 39; 4,856 citations\n- Fuzheng Zhang: h-index 15; 605 citations\n- Di Zhang: h-index 8; 180 citations\n- Yong Liu: h-index 13; 741 citations\n\n## Topics\n\n- Natural Language Processing Techniques\n- Algorithms and Data Compression\n\n---\n\n# DMQR-RAG: DIVERSE MULTI-QUERY REWRITING FOR RETRIEVAL-AUGMENTED GENERATION\n\n## Abstract\n\nLarge language models often encounter challenges with static knowledge"
+      ],
+      "text": "# DMQR-RAG: Diverse Multi-Query Rewriting for RAG\n\narXiv (Cornell University). Published: 2024-11-20. Preprint. 2 citations.\n\n## Authors\n\n- Zhicong Li: h-index 14; 654 citations\n- Jiahao Wang: h-index 31; 2,837 citations\n- Zhishu Jiang: h-index 1; 2 citations\n- Hangyu Mao: h-index 13; 726 citations\n- Zhongxia Chen: h-index 7; 1,505 citations\n- Jia Du: h-index 32; 2,775 citations\n- Yuanxing Zhang: h-index 39; 4,856 citations\n- Fuzheng Zhang: h-index 15; 605 citations\n- Di Zhang: h-index 8; 180 ci"
+    },
+    {
+      "title": "MuISQA: Multi-Intent Retrieval-Augmented Generation for Scientific Question Answering",
+      "url": "https://doi.org/10.48550/arxiv.2511.16283",
+      "score": 0,
+      "publishedDate": "2025-11-20T00:00:00.000Z",
+      "author": "Li, Zhiyuan, Yu, Haisheng, Guo, Guangchuan, Zhou, Nan, Zhang, Jiajun",
+      "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+      "highlights": [
+        "# MuISQA: Multi-Intent Retrieval-Augmented Generation for Scientific Question Answering\n\narXiv (Cornell University). Published: 2025-11-20. Preprint. 0 citations.\n\n## Authors\n\n- Li, Zhiyuan\n- Yu, Haisheng\n- Guo, Guangchuan\n- Zhou, Nan\n- Zhang, Jiajun\n\n## Topics\n\n- Topic Modeling\n- Multimodal Machine Learning Applications\n- Advanced Graph Neural Networks\n\n---\n\n# MuISQA: Multi-Intent Retrieval-Augmented Generation for Scientific Question Answering\n\n## Abstract\n\nComplex scientific questions often en tail multiple intents, such as identifying gene mutations and linking them to re lated diseases. These tasks require ev idence from diverse sources and multi hop reasoning, while conventional retrieval augmented generation (RAG) systems are usually single-intent oriented, leading to in complete ev"
+      ],
+      "text": "# MuISQA: Multi-Intent Retrieval-Augmented Generation for Scientific Question Answering\n\narXiv (Cornell University). Published: 2025-11-20. Preprint. 0 citations.\n\n## Authors\n\n- Li, Zhiyuan\n- Yu, Haisheng\n- Guo, Guangchuan\n- Zhou, Nan\n- Zhang, Jiajun\n\n## Topics\n\n- Topic Modeling\n- Multimodal Machine Learning Applications\n- Advanced Graph Neural Networks\n\n---\n\n# MuISQA: Multi-Intent Retrieval-Augmented Generation for Scientific Question Answering\n\n## Abstract\n\nComplex scientific questions often e"
+    },
+    {
+      "title": "The Impact of Query Decomposition and Cross-Encoder Reranking in Multi-Hop Retrieval-Augmented Generation",
+      "url": "https://doi.org/10.66245/jyi.v1.i1.002",
+      "score": 0,
+      "publishedDate": "2026-01-01T00:00:00.000Z",
+      "author": "Hail Lim",
+      "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+      "highlights": [
+        "# The Impact of Query Decomposition and Cross-Encoder Reranking in Multi-Hop Retrieval-Augmented Generation\n\nJournal of Youth Impact. Published: 2026-01-01. 0 citations.\n\n## Authors\n\n- Hail Lim (Michigan State University): h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Multimodal Machine Learning Applications\n- Information Retrieval and Search Behavior\n\n---\n\n# The Impact of Query Decomposition and Cross-Encoder Reranking in Multi-Hop Retrieval-Augmented Generation\n\n## Abstract\n\nRetrieval-Augmented Generation (RAG) has emerged as a promising paradigm for open-domain question answering. However, standard single-hop retrieval often fails on complex, multi-hop queries where the answer requires synthesizing information from disparate documents. In this work, we prop"
+      ],
+      "text": "# The Impact of Query Decomposition and Cross-Encoder Reranking in Multi-Hop Retrieval-Augmented Generation\n\nJournal of Youth Impact. Published: 2026-01-01. 0 citations.\n\n## Authors\n\n- Hail Lim (Michigan State University): h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Multimodal Machine Learning Applications\n- Information Retrieval and Search Behavior\n\n---\n\n# The Impact of Query Decomposition and Cross-Encoder Reranking in Multi-Hop Retrieval-Augmented Generation\n\n#"
+    },
+    {
+      "title": "Question Decomposition for Retrieval-Augmented Generation",
+      "url": "https://doi.org/10.18653/v1/2025.acl-srw.32",
+      "score": 0,
+      "publishedDate": "2025-01-01T00:00:00.000Z",
+      "author": "Paul Ammann, Jonas Golde, Alan Akbik",
+      "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+      "highlights": [
+        "# Question Decomposition for Retrieval-Augmented Generation\n\nPublished: 2025-01-01. 9 citations.\n\n## Authors\n\n- Paul Ammann (Humboldt-Universit\u00e4t zu Berlin): h-index 39; 7,156 citations\n- Jonas Golde (Humboldt-Universit\u00e4t zu Berlin): h-index 12; 729 citations\n- Alan Akbik (Humboldt-Universit\u00e4t zu Berlin): h-index 13; 2,180 citations\n\n## Topics\n\n- Topic Modeling\n- Natural Language Processing Techniques\n- Speech and dialogue systems\n\n## Funding\n\n- Deutsche Forschungsgemeinschaft\n  - Eidetische Repr\u00e4sentationen Nat\u00fcrlicher Sprache\n  - EXC 2002: Science of Intelligence (SCIoI)\n\n---\n\n# Question Decomposition for Retrieval-Augmented Generation\n\n## Abstract\n\nGrounding large language models (LLMs) in verifiable external sources is a wellestablished strategy for generating reliable answers. Retriev"
+      ],
+      "text": "# Question Decomposition for Retrieval-Augmented Generation\n\nPublished: 2025-01-01. 9 citations.\n\n## Authors\n\n- Paul Ammann (Humboldt-Universit\u00e4t zu Berlin): h-index 39; 7,156 citations\n- Jonas Golde (Humboldt-Universit\u00e4t zu Berlin): h-index 12; 729 citations\n- Alan Akbik (Humboldt-Universit\u00e4t zu Berlin): h-index 13; 2,180 citations\n\n## Topics\n\n- Topic Modeling\n- Natural Language Processing Techniques\n- Speech and dialogue systems\n\n## Funding\n\n- Deutsche Forschungsgemeinschaft\n  - Eidetische Rep"
+    },
+    {
+      "title": "Transforming Questions and Documents for Semantically Aligned Retrieval-Augmented Generation",
+      "url": "https://doi.org/10.48550/arxiv.2508.09755",
+      "score": 0,
+      "publishedDate": "2025-08-13T00:00:00.000Z",
+      "author": "Lee, Seokgi",
+      "query": "multi-hop retrieval query rewriting concept extraction vs hard-coded intent classifiers RAG",
+      "highlights": [
+        "# Transforming Questions and Documents for Semantically Aligned Retrieval-Augmented Generation\n\narXiv (Cornell University). Published: 2025-08-13. Preprint. 0 citations.\n\n## Authors\n\n- Lee, Seokgi: corresponding author\n\n## Topics\n\n- Subterranean biodiversity and taxonomy\n- Cell Image Analysis Techniques\n- Species Distribution and Climate Change\n\n---\n\n# Transforming Questions and Documents for Semantically Aligned Retrieval-Augmented Generation\n\nSeokgi Lee seokilee@snu.ac.kr\n\n## Abstract\n\nWe introduce a novel retrieval-augmented generation (RAG) framework tailored for multihop question answering. First, our system uses large language model (LLM) to decompose complex multihop questions into a sequence of single-hop subquestions that guide document retrieval. This decomposi tion mitigates the"
+      ],
+      "text": "# Transforming Questions and Documents for Semantically Aligned Retrieval-Augmented Generation\n\narXiv (Cornell University). Published: 2025-08-13. Preprint. 0 citations.\n\n## Authors\n\n- Lee, Seokgi: corresponding author\n\n## Topics\n\n- Subterranean biodiversity and taxonomy\n- Cell Image Analysis Techniques\n- Species Distribution and Climate Change\n\n---\n\n# Transforming Questions and Documents for Semantically Aligned Retrieval-Augmented Generation\n\nSeokgi Lee seokilee@snu.ac.kr\n\n## Abstract\n\nWe intr"
+    },
+    {
+      "title": "Decompose-and-Refine: Structured Legal Question Answering with Parametric Retrieval",
+      "url": "https://doi.org/10.48550/arxiv.2605.24454",
+      "score": 0,
+      "publishedDate": "2026-05-23T00:00:00.000Z",
+      "author": "Jihyung Lee, Hyounghun Kim, Gary Lee",
+      "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+      "highlights": [
+        "# Decompose-and-Refine: Structured Legal Question Answering with Parametric Retrieval\n\narXiv (Cornell University). Published: 2026-05-23. Preprint. 0 citations.\n\n## Authors\n\n- Jihyung Lee: h-index 9; 359 citations\n- Hyounghun Kim: h-index 0; 0 citations\n- Gary Lee: h-index 0; 0 citations\n\n## Topics\n\n- Topic Modeling\n- Multimodal Machine Learning Applications\n- Advanced Graph Neural Networks\n\n---\n\n# Decompose-and-Refine: Structured Legal Question Answering with Parametric Retrieval\n\nJihyung Lee 1, Hyounghun Kim 1,2, Gary Geunbae Lee 1,2 1Graduate School of Artificial Intelligence, POSTECH, Republic of Korea 2Department of Computer Science and Engineering, POSTECH, Republic of Korea {jihyung.lee, h.kim, gblee}@postech.ac.kr\n\n## Abstract\n\nLarge language models (LLMs) have shown strong perform"
+      ],
+      "text": "# Decompose-and-Refine: Structured Legal Question Answering with Parametric Retrieval\n\narXiv (Cornell University). Published: 2026-05-23. Preprint. 0 citations.\n\n## Authors\n\n- Jihyung Lee: h-index 9; 359 citations\n- Hyounghun Kim: h-index 0; 0 citations\n- Gary Lee: h-index 0; 0 citations\n\n## Topics\n\n- Topic Modeling\n- Multimodal Machine Learning Applications\n- Advanced Graph Neural Networks\n\n---\n\n# Decompose-and-Refine: Structured Legal Question Answering with Parametric Retrieval\n\nJihyung Lee 1"
+    },
+    {
+      "title": "An Intent Taxonomy of Legal Case Retrieval",
+      "url": "https://doi.org/10.48550/arxiv.2307.13298",
+      "score": 0,
+      "publishedDate": "2023-07-25T00:00:00.000Z",
+      "author": "Yunqiu Shao, Haitao Li, Yueyue Wu, Yiqun Liu, Qingyao Ai, Jiaxin Mao, et al.",
+      "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+      "highlights": [
+        "# An Intent Taxonomy of Legal Case Retrieval\n\narXiv (Cornell University). Published: 2023-07-25. Preprint. 0 citations.\n\n## Authors\n\n- Yunqiu Shao: h-index 11; 523 citations\n- Haitao Li: h-index 16; 866 citations\n- Yueyue Wu: h-index 11; 389 citations\n- Yiqun Liu: h-index 53; 10,446 citations\n- Qingyao Ai: h-index 25; 4,783 citations\n- Jiaxin Mao: h-index 25; 2,581 citations\n- Yixiao Ma: h-index 11; 816 citations\n- Shaoping Ma: h-index 52; 10,948 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Legal Education and Practice Innovations\n\n## Funding\n\n- National Natural Science Foundation of China\n\n---\n\n# An Intent Taxonomy of Legal Case Retrieval\n\n## Abstract\n\nLegal case retrieval is a special Information Retrieval (IR) task focusing on legal case documents. Depending on the downstrea"
+      ],
+      "text": "# An Intent Taxonomy of Legal Case Retrieval\n\narXiv (Cornell University). Published: 2023-07-25. Preprint. 0 citations.\n\n## Authors\n\n- Yunqiu Shao: h-index 11; 523 citations\n- Haitao Li: h-index 16; 866 citations\n- Yueyue Wu: h-index 11; 389 citations\n- Yiqun Liu: h-index 53; 10,446 citations\n- Qingyao Ai: h-index 25; 4,783 citations\n- Jiaxin Mao: h-index 25; 2,581 citations\n- Yixiao Ma: h-index 11; 816 citations\n- Shaoping Ma: h-index 52; 10,948 citations\n\n## Topics\n\n- Artificial Intelligence i"
+    },
+    {
+      "title": "NLP-Based Rule Learning from Legal Text for Question Answering",
+      "url": "https://doi.org/10.9734/ajrcos/2024/v17i7475",
+      "score": 0,
+      "publishedDate": "2024-06-14T00:00:00.000Z",
+      "author": "Biralatei Fawei",
+      "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+      "highlights": [
+        "# NLP-Based Rule Learning from Legal Text for Question Answering\n\nAsian Journal of Research in Computer Science. Published: 2024-06-14. 0 citations.\n\n## Authors\n\n- Biralatei Fawei (Niger Delta University): h-index 4; 98 citations; corresponding author\n\n## Topics\n\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n- Natural Language Processing Techniques\n\n---\n\n# NLP-Based Rule Learning from Legal\n\nVolume 17, Issue 7, Page 31-40, 2024; Article no.AJRCOS.118145 ISSN: 2581-8260 Biralatei Fawei a*\n\na Department of Computing Science, Niger Delta University, Wilberforce, PMB 581, Bayelsa State, Nigeria.\n\nAuthor\u2019s contribution\n\nThe sole author designed, analyzed, interpreted and prepared the manuscript.\n\nDOI: https://doi.org/10.9734/ajrcos/2024/v17i7475 Open Peer Review History"
+      ],
+      "text": "# NLP-Based Rule Learning from Legal Text for Question Answering\n\nAsian Journal of Research in Computer Science. Published: 2024-06-14. 0 citations.\n\n## Authors\n\n- Biralatei Fawei (Niger Delta University): h-index 4; 98 citations; corresponding author\n\n## Topics\n\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n- Natural Language Processing Techniques\n\n---\n\n# NLP-Based Rule Learning from Legal\n\nVolume 17, Issue 7, Page 31-40, 2024; Article no.AJRCOS.118145 ISSN: 2581-8260 B"
+    },
+    {
+      "title": "Segment First, Retrieve Better: Realistic Legal Search via Rhetorical Role-Based Queries",
+      "url": "https://doi.org/10.48550/arxiv.2508.00679",
+      "score": 0,
+      "publishedDate": "2025-08-01T00:00:00.000Z",
+      "author": "Shubham Kumar Nigam, Tanmay Dubey, Noel Shallum, Arnab Bhattacharya",
+      "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+      "highlights": [
+        "# Segment First, Retrieve Better: Realistic Legal Search via Rhetorical Role-Based Queries\n\narXiv (Cornell University). Published: 2025-08-01. Preprint. 0 citations.\n\n## Authors\n\n- Shubham Kumar Nigam: h-index 5; 83 citations\n- Tanmay Dubey: h-index 1; 5 citations\n- Noel Shallum: h-index 4; 37 citations\n- Arnab Bhattacharya: h-index 18; 1,387 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n- Multi-Agent Systems and Negotiation\n\n---\n\n# Segment First, Retrieve Better: Realistic Legal Search via Rhetorical Role-Based Queries\n\n1IIT Kanpur, India 2IISER Kolkata, India 3 Symbiosis Law School Pune, India {sknigam, tanmay, arnabb}@cse.iitk.ac.in noelshallum@gmail.com\n\n## Abstract\n\nLegal precedent retrieval is a cornerstone of the common law system, governed by the prin cipl"
+      ],
+      "text": "# Segment First, Retrieve Better: Realistic Legal Search via Rhetorical Role-Based Queries\n\narXiv (Cornell University). Published: 2025-08-01. Preprint. 0 citations.\n\n## Authors\n\n- Shubham Kumar Nigam: h-index 5; 83 citations\n- Tanmay Dubey: h-index 1; 5 citations\n- Noel Shallum: h-index 4; 37 citations\n- Arnab Bhattacharya: h-index 18; 1,387 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n- Multi-Agent Systems and Negotiation\n\n---\n\n# Segment First, Retrieve Better: Reali"
+    },
+    {
+      "title": "GLIER: Generative Legal Inference and Evidence Ranking for Legal Case Retrieval",
+      "url": "https://doi.org/10.48550/arxiv.2604.23779",
+      "score": 0,
+      "publishedDate": "2026-04-26T00:00:00.000Z",
+      "author": "Minghan Li, Tianrui Lv, Chao Zhang, Guodong Zhou",
+      "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+      "highlights": [
+        "# GLIER: Generative Legal Inference and Evidence Ranking for Legal Case Retrieval\n\narXiv (Cornell University). Published: 2026-04-26. Preprint. 0 citations.\n\n## Authors\n\n- Minghan Li: h-index 0; 0 citations\n- Tianrui Lv: h-index 3; 412 citations\n- Chao Zhang: h-index 0; 0 citations\n- Guodong Zhou: h-index 0; 0 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n- Business Process Modeling and Analysis\n\n---\n\n# GLIER: Generative Legal Inference and Evidence Ranking for Legal Case Retrieval\n\nMinghan Li*\u2020, Tianrui Lv*, Chao Zhang, Guodong Zhou Soochow University, Suzhou, China mhli@suda.edu.cn, trlvtrlv@stu.suda.edu.cn, czhang1@stu.suda.edu.cn, gdzhou@suda.edu.cn\n\n## Abstract\n\nThe semantic gap between colloquial user queries and professional legal documents presents a funda"
+      ],
+      "text": "# GLIER: Generative Legal Inference and Evidence Ranking for Legal Case Retrieval\n\narXiv (Cornell University). Published: 2026-04-26. Preprint. 0 citations.\n\n## Authors\n\n- Minghan Li: h-index 0; 0 citations\n- Tianrui Lv: h-index 3; 412 citations\n- Chao Zhang: h-index 0; 0 citations\n- Guodong Zhou: h-index 0; 0 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n- Business Process Modeling and Analysis\n\n---\n\n# GLIER: Generative Legal Inference and Evidence Ranking for Legal Ca"
+    },
+    {
+      "title": "Learning Interpretable Legal Case Retrieval via Knowledge-Guided Case Reformulation",
+      "url": "https://doi.org/10.18653/v1/2024.emnlp-main.73",
+      "score": 0,
+      "publishedDate": "2024-01-01T00:00:00.000Z",
+      "author": "Chenlong Deng, Kelong Mao, Zhicheng Dou",
+      "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+      "highlights": [
+        "# Learning Interpretable Legal Case Retrieval via Knowledge-Guided Case Reformulation\n\nPublished: 2024-01-01. 4 citations.\n\n## Authors\n\n- Chenlong Deng (Renmin University of China): h-index 17; 1,530 citations\n- Kelong Mao (Renmin University of China): h-index 15; 1,128 citations\n- Zhicheng Dou (Renmin University of China): h-index 34; 4,330 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Legal Education and Practice Innovations\n- Dispute Resolution and Class Actions\n\n## Funding\n\n- National Natural Science Foundation of China\n- National Science and Technology Major Project\n\n---\n\n# Learning Interpretable Legal Case Retrieval via Knowledge-Guided Case Reformulation\n\n## Abstract\n\nLegal case retrieval for sourcing similar cases is critical in upholding judicial fairness. Different fro"
+      ],
+      "text": "# Learning Interpretable Legal Case Retrieval via Knowledge-Guided Case Reformulation\n\nPublished: 2024-01-01. 4 citations.\n\n## Authors\n\n- Chenlong Deng (Renmin University of China): h-index 17; 1,530 citations\n- Kelong Mao (Renmin University of China): h-index 15; 1,128 citations\n- Zhicheng Dou (Renmin University of China): h-index 34; 4,330 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Legal Education and Practice Innovations\n- Dispute Resolution and Class Actions\n\n## Funding\n\n- Nati"
+    },
+    {
+      "title": "A Hybrid Virtual Assistant for Legal Domain Based on Information Retrieval and Knowledge Graphs",
+      "url": "https://doi.org/10.21609/jiki.v16i2.1152",
+      "score": 0,
+      "publishedDate": "2023-07-03T00:00:00.000Z",
+      "author": "Douglas Raevan Faisal, Fariz Darari, Muhammad Ilham Al Ghifari, Muhammad Zuhdi Zamrud, Marcellino Chris O'Vara, Berty Chrismartin Lumban Tobing, et al.",
+      "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+      "highlights": [
+        "# A Hybrid Virtual Assistant for Legal Domain Based on Information Retrieval and Knowledge Graphs\n\nJurnal Ilmu Komputer dan Informasi. Published: 2023-07-03. 2 citations.\n\n## Authors\n\n- Douglas Raevan Faisal (University of Indonesia): h-index 2; 13 citations\n- Fariz Darari (University of Indonesia): h-index 9; 245 citations\n- Muhammad Ilham Al Ghifari (University of Indonesia): h-index 1; 2 citations\n- Muhammad Zuhdi Zamrud (University of Indonesia): h-index 1; 2 citations\n- Marcellino Chris O'Vara (University of Indonesia): h-index 1; 2 citations\n- Berty Chrismartin Lumban Tobing (CATAPA): h-index 3; 40 citations\n- On Lee (GDP Ayurvedic University): h-index 1; 2 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n\n---\n\n# A Hybrid Virtual Assistant for Legal Domain Base"
+      ],
+      "text": "# A Hybrid Virtual Assistant for Legal Domain Based on Information Retrieval and Knowledge Graphs\n\nJurnal Ilmu Komputer dan Informasi. Published: 2023-07-03. 2 citations.\n\n## Authors\n\n- Douglas Raevan Faisal (University of Indonesia): h-index 2; 13 citations\n- Fariz Darari (University of Indonesia): h-index 9; 245 citations\n- Muhammad Ilham Al Ghifari (University of Indonesia): h-index 1; 2 citations\n- Muhammad Zuhdi Zamrud (University of Indonesia): h-index 1; 2 citations\n- Marcellino Chris O'V"
+    },
+    {
+      "title": "LegalMALR:Multi-Agent Query Understanding and LLM-Based Reranking for Chinese Statute Retrieval",
+      "url": "https://doi.org/10.48550/arxiv.2601.17692",
+      "score": 0,
+      "publishedDate": "2026-01-25T00:00:00.000Z",
+      "author": "Yunhan Li, Mingjie Xie, Gaoli Kang, Zihan Gong, Gengshen Wu, Min Yang",
+      "query": "hierarchical intent classification legal question answering retrieval without proliferating rules",
+      "highlights": [
+        "# LegalMALR:Multi-Agent Query Understanding and LLM-Based Reranking for Chinese Statute Retrieval\n\narXiv (Cornell University). Published: 2026-01-25. Preprint. 0 citations.\n\n## Authors\n\n- Yunhan Li: h-index 0; 0 citations\n- Mingjie Xie: h-index 0; 0 citations\n- Gaoli Kang: h-index 0; 0 citations\n- Zihan Gong: h-index 0; 0 citations\n- Gengshen Wu: h-index 10; 643 citations\n- Min Yang: h-index 0; 0 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n- Multi-Agent Systems and Negotiation\n\n---\n\n# LegalMALR:Multi-Agent Query Understanding and LLM-Based Reranking for Chinese Statute Retrieval\n\nYunhan Li1,2, Mingjie Xie3,4, Gaoli Kang4, Zihan Gong2,3, Gengshen Wu1, Min Yang2*\n\n1Faculty of Data Science, City University of Macau, Avenida Padre Tom\u00e1s Pereira Taipa, Macau. 2*Shenz"
+      ],
+      "text": "# LegalMALR:Multi-Agent Query Understanding and LLM-Based Reranking for Chinese Statute Retrieval\n\narXiv (Cornell University). Published: 2026-01-25. Preprint. 0 citations.\n\n## Authors\n\n- Yunhan Li: h-index 0; 0 citations\n- Mingjie Xie: h-index 0; 0 citations\n- Gaoli Kang: h-index 0; 0 citations\n- Zihan Gong: h-index 0; 0 citations\n- Gengshen Wu: h-index 10; 643 citations\n- Min Yang: h-index 0; 0 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Topic Modeling\n- Multi-Agent Systems and Ne"
+    },
+    {
+      "title": "Adaptive ToR: Complexity-Aware Tree-Based Retrieval for Pareto-Optimal Multi-Intent NLU",
+      "url": "https://doi.org/10.48550/arxiv.2604.24219",
+      "score": 0,
+      "publishedDate": "2026-04-27T00:00:00.000Z",
+      "author": "Hee-Kyong Yoo, Wonbae Kim, \uc548\ud6a8\ucca0",
+      "query": "adaptive retrieval intents from extracted concepts taxonomy-driven RAG information retrieval",
+      "highlights": [
+        "# Adaptive ToR: Complexity-Aware Tree-Based Retrieval for Pareto-Optimal Multi-Intent NLU\n\narXiv (Cornell University). Published: 2026-04-27. Preprint. 0 citations.\n\n## Authors\n\n- Hee-Kyong Yoo: h-index 0; 0 citations\n- Wonbae Kim: h-index 0; 0 citations\n- \uc548\ud6a8\ucca0: h-index 1; 9 citations\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- Natural Language Processing Techniques\n- Semantic Web and Ontologies\n\n---\n\n# Adaptive ToR: Complexity-Aware Tree-Based Retrieval for Pareto-Optimal Multi-Intent NLU\n\n[Hee-Kyong Yoo, Wonbae Kim, Hyocheol Ahn] [Data Science Lab Co., Ltd., Seoul, Korea] [hkyoo@dataslab.co.kr, wonkim@dataslab.co.kr, hcahn@dataslab.co.kr]\n\n## Abstract\n\nMulti-intent natural language understanding requires retrieval systems that simultaneously achieve high accuracy and computa"
+      ],
+      "text": "# Adaptive ToR: Complexity-Aware Tree-Based Retrieval for Pareto-Optimal Multi-Intent NLU\n\narXiv (Cornell University). Published: 2026-04-27. Preprint. 0 citations.\n\n## Authors\n\n- Hee-Kyong Yoo: h-index 0; 0 citations\n- Wonbae Kim: h-index 0; 0 citations\n- \uc548\ud6a8\ucca0: h-index 1; 9 citations\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- Natural Language Processing Techniques\n- Semantic Web and Ontologies\n\n---\n\n# Adaptive ToR: Complexity-Aware Tree-Based Retrieval for Pareto-Optimal Multi-Int"
+    },
+    {
+      "title": "Taxonomy-Driven Knowledge Graph Construction for Domain-Specific Scientific Applications",
+      "url": "https://doi.org/10.18653/v1/2025.findings-acl.223",
+      "score": 0,
+      "publishedDate": "2025-01-01T00:00:00.000Z",
+      "author": "Huitong Pan, Qi Zhang, Mustapha Adamu, Eduard Dragut, Longin Jan Latecki",
+      "query": "adaptive retrieval intents from extracted concepts taxonomy-driven RAG information retrieval",
+      "highlights": [
+        "# Taxonomy-Driven Knowledge Graph Construction for Domain-Specific Scientific Applications\n\nPublished: 2025-01-01. 2 citations.\n\n## Authors\n\n- Huitong Pan (Temple University): h-index 3; 32 citations\n- Qi Zhang (Temple University): h-index 53; 15,474 citations\n- Mustapha Adamu (Temple University): h-index 1; 2 citations\n- Eduard Dragut (Temple University): h-index 18; 1,038 citations\n- Longin Jan Latecki (Temple University): h-index 57; 11,764 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n- Data Mining Algorithms and Applications\n- Biomedical Text Mining and Ontologies\n\n## Funding\n\n- National Science Foundation\n  - III: Medium: Collaborative Research: Extracting and Linking AI Artifacts\n  - Proto-OKN Theme 1: Knowledge Graph to Support Evaluation and Development of Climate Models\n\n--"
+      ],
+      "text": "# Taxonomy-Driven Knowledge Graph Construction for Domain-Specific Scientific Applications\n\nPublished: 2025-01-01. 2 citations.\n\n## Authors\n\n- Huitong Pan (Temple University): h-index 3; 32 citations\n- Qi Zhang (Temple University): h-index 53; 15,474 citations\n- Mustapha Adamu (Temple University): h-index 1; 2 citations\n- Eduard Dragut (Temple University): h-index 18; 1,038 citations\n- Longin Jan Latecki (Temple University): h-index 57; 11,764 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n"
+    },
+    {
+      "title": "UGuideRAG: Intent-Enhanced Retrieval-Augmented Generation with User-Generated Content for Personalized Urban Tourism",
+      "url": "https://doi.org/10.1145/3748636.3762712",
+      "score": 0,
+      "publishedDate": "2025-11-03T00:00:00.000Z",
+      "author": "Jing Tang, Inhye Kong, Zhaonan Wang",
+      "query": "adaptive retrieval intents from extracted concepts taxonomy-driven RAG information retrieval",
+      "highlights": [
+        "# UGuideRAG: Intent-Enhanced Retrieval-Augmented Generation with User-Generated Content for Personalized Urban Tourism\n\nPublished: 2025-11-03. 0 citations.\n\n## Authors\n\n- Jing Tang (University of Zurich)\n- Inhye Kong (University of Zurich): h-index 7; 178 citations\n- Zhaonan Wang (New York University Shanghai): h-index 18; 1,127 citations\n\n## Topics\n\n- Multimodal Machine Learning Applications\n- Data Management and Algorithms\n- Recommender Systems and Techniques\n\n---\n\n# UGuideRAG: Intent-Enhanced Retrieval-Augmented Generation with User-Generated Content for Personalized Urban Tourism\n\n## Abstract\n\nCitywalk, as an increasingly popular form of urban tourism, emphasizes immersive, diverse, and personalized exploration over conventional sightseeing. These features evolving tourist expectations"
+      ],
+      "text": "# UGuideRAG: Intent-Enhanced Retrieval-Augmented Generation with User-Generated Content for Personalized Urban Tourism\n\nPublished: 2025-11-03. 0 citations.\n\n## Authors\n\n- Jing Tang (University of Zurich)\n- Inhye Kong (University of Zurich): h-index 7; 178 citations\n- Zhaonan Wang (New York University Shanghai): h-index 18; 1,127 citations\n\n## Topics\n\n- Multimodal Machine Learning Applications\n- Data Management and Algorithms\n- Recommender Systems and Techniques\n\n---\n\n# UGuideRAG: Intent-Enhanced"
+    },
+    {
+      "title": "Enhancing product categorization with retrieval augmented generation: a comparative study of architectures, techniques and strategies",
+      "url": "http://hdl.handle.net/10362/186190",
+      "score": 0,
+      "publishedDate": "2025-02-22T00:00:00.000Z",
+      "author": "Marrero, Rafael Alejandro Moles",
+      "query": "adaptive retrieval intents from extracted concepts taxonomy-driven RAG information retrieval",
+      "highlights": [
+        "# Enhancing product categorization with retrieval augmented generation: a comparative study of architectures, techniques and strategies\n\nPortuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT). Published: 2025-02-22. Dissertation. 0 citations.\n\n## Authors\n\n- Marrero, Rafael Alejandro Moles (Bial (Spain)): corresponding author\n\n## Topics\n\n- Text and Document Classification Technologies\n- Advanced Graph Neural Networks\n- Machine Learning and Data Classification\n\n---\n\n# Gpt-4 technical report\n\n## Abstract\n\nThis research explored techniques to improve Large Language Models performance for Hierarchical Product Classification (HPC), including optimized fine-tuning, optimal prompting techniques, taxonomy-specific Knowledge Graphs, leveraging Retrieval-Augmen"
+      ],
+      "text": "# Enhancing product categorization with retrieval augmented generation: a comparative study of architectures, techniques and strategies\n\nPortuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT). Published: 2025-02-22. Dissertation. 0 citations.\n\n## Authors\n\n- Marrero, Rafael Alejandro Moles (Bial (Spain)): corresponding author\n\n## Topics\n\n- Text and Document Classification Technologies\n- Advanced Graph Neural Networks\n- Machine Learning and Data Classificati"
+    },
+    {
+      "title": "DO-RAG: A Domain-Specific QA Framework Using Knowledge Graph-Enhanced Retrieval-Augmented Generation",
+      "url": "https://doi.org/10.1007/978-981-95-7394-3_28",
+      "score": 0,
+      "publishedDate": "2026-01-01T00:00:00.000Z",
+      "author": "David Osei Opoku, Ming Sheng, Yong Zhang",
+      "query": "adaptive retrieval intents from extracted concepts taxonomy-driven RAG information retrieval",
+      "highlights": [
+        "# DO-RAG: A Domain-Specific QA Framework Using Knowledge Graph-Enhanced Retrieval-Augmented Generation\n\nLecture notes in computer science. Published: 2026-01-01. 0 citations.\n\n## Authors\n\n- David Osei Opoku (Tsinghua University): h-index 1; 5 citations\n- Ming Sheng (Tsinghua University): h-index 13; 811 citations\n- Yong Zhang (Zhejiang Normal University): h-index 13; 544 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Semantic Web and Ontologies\n- Biomedical Text Mining and Ontologies\n\n---\n\n# DO-RAG: A Domain-Specific QA Framework Using Knowledge Graph-Enhanced Retrieval-Augmented Generation\n\n## Abstract\n\nDomain-specific QA systems require not just generative fluency but high factual accuracy grounded in structured expert knowledge. While recent Retrieval-Augmented Generatio"
+      ],
+      "text": "# DO-RAG: A Domain-Specific QA Framework Using Knowledge Graph-Enhanced Retrieval-Augmented Generation\n\nLecture notes in computer science. Published: 2026-01-01. 0 citations.\n\n## Authors\n\n- David Osei Opoku (Tsinghua University): h-index 1; 5 citations\n- Ming Sheng (Tsinghua University): h-index 13; 811 citations\n- Yong Zhang (Zhejiang Normal University): h-index 13; 544 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Semantic Web and Ontologies\n- Biomedical Text Mining and Ontolo"
+    },
+    {
+      "title": "DioR: Adaptive Cognitive Detection and Contextual Retrieval Optimization for Dynamic Retrieval-Augmented Generation",
+      "url": "https://doi.org/10.48550/arxiv.2504.10198",
+      "score": 0,
+      "publishedDate": "2025-04-14T00:00:00.000Z",
+      "author": "Hanghui Guo, Jia Xiong Zhu, Shimin Di, Weijie Shi, Chen, Zhangze, Jiajie Xu",
+      "query": "adaptive retrieval intents from extracted concepts taxonomy-driven RAG information retrieval",
+      "highlights": [
+        "# DioR: Adaptive Cognitive Detection and Contextual Retrieval Optimization for Dynamic Retrieval-Augmented Generation\n\narXiv (Cornell University). Published: 2025-04-14. Preprint. 0 citations.\n\n## Authors\n\n- Hanghui Guo: h-index 3; 126 citations\n- Jia Xiong Zhu: h-index 2; 8 citations\n- Shimin Di: h-index 9; 287 citations\n- Weijie Shi: h-index 11; 546 citations\n- Chen, Zhangze\n- Jiajie Xu: h-index 30; 4,670 citations\n\n## Topics\n\n- Topic Modeling\n- Speech and dialogue systems\n- Domain Adaptation and Few-Shot Learning\n\n## Funding\n\n- Natural Science Foundation of Zhejiang Province\n  - \u57fa\u4e8e\u591a\u6a21\u6001\u77e5\u8bc6\u56fe\u8c31\u7684\u53ef\u89e3\u91ca\u6027\u4e2a\u6027\u5316\u5b66\u4e60\u8def\u5f84\u63a8\u8350\u7814\u7a76\n- National Natural Science Foundation of China\n\n---\n\n# DioR: Adaptive Cognitive Detection and Contextual Retrieval Optimization for Dynamic Retrieval-Augmented Generation\n\n## Abstract"
+      ],
+      "text": "# DioR: Adaptive Cognitive Detection and Contextual Retrieval Optimization for Dynamic Retrieval-Augmented Generation\n\narXiv (Cornell University). Published: 2025-04-14. Preprint. 0 citations.\n\n## Authors\n\n- Hanghui Guo: h-index 3; 126 citations\n- Jia Xiong Zhu: h-index 2; 8 citations\n- Shimin Di: h-index 9; 287 citations\n- Weijie Shi: h-index 11; 546 citations\n- Chen, Zhangze\n- Jiajie Xu: h-index 30; 4,670 citations\n\n## Topics\n\n- Topic Modeling\n- Speech and dialogue systems\n- Domain Adaptation "
+    },
+    {
+      "title": "Agentic Multi-Source Grounding for Enhanced Query Intent Understanding: A DoorDash Case Study",
+      "url": "https://doi.org/10.1145/3805712.3808471",
+      "score": 0,
+      "publishedDate": "2026-07-10T00:00:00.000Z",
+      "author": "Emmanuel Aboah Boateng, Kyle MacDonald, Akshad Viswanathan, Sudeep Das",
+      "query": "adaptive retrieval intents from extracted concepts taxonomy-driven RAG information retrieval",
+      "highlights": [
+        "# Agentic Multi-Source Grounding for Enhanced Query Intent Understanding: A DoorDash Case Study\n\nPublished: 2026-07-10. 0 citations.\n\n## Authors\n\n- Emmanuel Aboah Boateng (DoorDash, San Francisco, CA, USA): h-index 0; 0 citations\n- Kyle MacDonald (DoorDash, San Francisco, CA, USA): h-index 0; 0 citations\n- Akshad Viswanathan (DoorDash, San Francisco, CA, USA): h-index 0; 0 citations\n- Sudeep Das (DoorDash, San Francisco, CA, USA): h-index 3; 43 citations\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- Topic Modeling\n- Text and Document Classification Technologies\n\n---\n\n# Agentic Multi-Source Grounding for Enhanced Query Intent Understanding: A DoorDash Case Study\n\nAkshad Viswanathan akshad.viswanathan@doordash.com DoorDash, Inc. San Francisco, California, USA\n\n## Abstract\n\nAccura"
+      ],
+      "text": "# Agentic Multi-Source Grounding for Enhanced Query Intent Understanding: A DoorDash Case Study\n\nPublished: 2026-07-10. 0 citations.\n\n## Authors\n\n- Emmanuel Aboah Boateng (DoorDash, San Francisco, CA, USA): h-index 0; 0 citations\n- Kyle MacDonald (DoorDash, San Francisco, CA, USA): h-index 0; 0 citations\n- Akshad Viswanathan (DoorDash, San Francisco, CA, USA): h-index 0; 0 citations\n- Sudeep Das (DoorDash, San Francisco, CA, USA): h-index 3; 43 citations\n\n## Topics\n\n- Information Retrieval and S"
+    },
+    {
+      "title": "Rethinking Agentic RAG: Toward LLM-Driven Logical Retrieval Beyond Embeddings",
+      "url": "https://doi.org/10.48550/arxiv.2605.27123",
+      "score": 0,
+      "publishedDate": "2026-05-26T00:00:00.000Z",
+      "author": "Yuqi Zeng, Qixiang Deng, Yulei Wan, Ruiquan Jiang, Xiaoqing Zheng, Xuanjing Huang",
+      "query": "adaptive retrieval intents from extracted concepts taxonomy-driven RAG information retrieval",
+      "highlights": [
+        "# Rethinking Agentic RAG: Toward LLM-Driven Logical Retrieval Beyond Embeddings\n\narXiv (Cornell University). Published: 2026-05-26. Preprint. 0 citations.\n\n## Authors\n\n- Yuqi Zeng: h-index 0; 0 citations\n- Qixiang Deng: h-index 0; 0 citations\n- Yulei Wan: h-index 0; 0 citations\n- Ruiquan Jiang: h-index 0; 0 citations\n- Xiaoqing Zheng: h-index 0; 0 citations\n- Xuanjing Huang: h-index 0; 0 citations\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- Semantic Web and Ontologies\n- Graph Theory and Algorithms\n\n---\n\n# Rethinking Agentic RAG: Toward LLM-Driven Logical Retrieval Beyond Embeddings\n\nYuqi Zeng 1, Qixiang Deng 1, Yulei Wan 2, Ruiquan Jiang 2, Xiaoqing Zheng 1*, Xuanjing Huang 1 1School of Computer Science, Fudan University 2Shanghai Kingstar Software Technology Co., Ltd. 233071"
+      ],
+      "text": "# Rethinking Agentic RAG: Toward LLM-Driven Logical Retrieval Beyond Embeddings\n\narXiv (Cornell University). Published: 2026-05-26. Preprint. 0 citations.\n\n## Authors\n\n- Yuqi Zeng: h-index 0; 0 citations\n- Qixiang Deng: h-index 0; 0 citations\n- Yulei Wan: h-index 0; 0 citations\n- Ruiquan Jiang: h-index 0; 0 citations\n- Xiaoqing Zheng: h-index 0; 0 citations\n- Xuanjing Huang: h-index 0; 0 citations\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- Semantic Web and Ontologies\n- Graph Theor"
+    },
+    {
+      "title": "PASC: Pipeline-Aware Conformal Prediction with Joint Coverage Guarantees for Multi-Stage NLP and LLM Pipelines",
+      "url": "https://doi.org/10.48550/arxiv.2605.18812",
+      "score": 0,
+      "publishedDate": "2026-05-12T00:00:00.000Z",
+      "author": "Varun Kotte",
+      "query": "cascading errors multi-stage NLP pipelines query understanding retrieval routing",
+      "highlights": [
+        "# PASC: Pipeline-Aware Conformal Prediction with Joint Coverage Guarantees for Multi-Stage NLP and LLM Pipelines\n\narXiv (Cornell University). Published: 2026-05-12. Preprint. 0 citations.\n\n## Authors\n\n- Varun Kotte: h-index 1; 2 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Advanced Graph Neural Networks\n- Data Quality and Management\n\n---\n\n# PASC: Pipeline-Aware Conformal Prediction with Joint Coverage Guarantees for Multi-Stage NLP and LLM Pipelines\n\nVarun Kotte 1\n\n## Abstract\n\nModern NLP and LLM systems are pipelines: named entity recognition (NER) \u2192 entity dis ambiguation (NED) \u2192 entity typing, retrieval augmented generation (retriever \u2192 reader), and agentic chains of planner \u2192 tool \u2192 critic. Errors compound across stages, but existing uncertainty quantification methods"
+      ],
+      "text": "# PASC: Pipeline-Aware Conformal Prediction with Joint Coverage Guarantees for Multi-Stage NLP and LLM Pipelines\n\narXiv (Cornell University). Published: 2026-05-12. Preprint. 0 citations.\n\n## Authors\n\n- Varun Kotte: h-index 1; 2 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Advanced Graph Neural Networks\n- Data Quality and Management\n\n---\n\n# PASC: Pipeline-Aware Conformal Prediction with Joint Coverage Guarantees for Multi-Stage NLP and LLM Pipelines\n\nVarun Kotte 1\n\n## Abstract\n"
+    },
+    {
+      "title": "Classifying and Addressing the Diversity of Errors in Retrieval-Augmented Generation Systems",
+      "url": "https://doi.org/10.18653/v1/2026.eacl-long.147",
+      "score": 0,
+      "publishedDate": "2026-01-01T00:00:00.000Z",
+      "author": "K. Leung, Mouloud Belbahri, Yi Sui, Alex Labach, Xueying Zhang, Stephen Anthony Rose, et al.",
+      "query": "cascading errors multi-stage NLP pipelines query understanding retrieval routing",
+      "highlights": [
+        "# Classifying and Addressing the Diversity of Errors in Retrieval-Augmented Generation Systems\n\nPublished: 2026-01-01. 1 citation.\n\n## Authors\n\n- K. Leung: h-index 11; 1,753 citations\n- Mouloud Belbahri: h-index 1; 1 citation\n- Yi Sui: h-index 2; 13 citations\n- Alex Labach: h-index 1; 1 citation\n- Xueying Zhang: h-index 1; 1 citation\n- Stephen Anthony Rose: h-index 1; 1 citation\n- Jesse C. Cresswell: h-index 8; 765 citations\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- AI-based Problem Solving and Planning\n- Natural Language Processing Techniques\n\n---\n\n# Classifying and Addressing the Diversity of Errors in Retrieval-Augmented Generation Systems\n\n## Abstract\n\nRetrieval-augmented generation (RAG) is a prevalent approach for building LLM-based question-answering systems that can"
+      ],
+      "text": "# Classifying and Addressing the Diversity of Errors in Retrieval-Augmented Generation Systems\n\nPublished: 2026-01-01. 1 citation.\n\n## Authors\n\n- K. Leung: h-index 11; 1,753 citations\n- Mouloud Belbahri: h-index 1; 1 citation\n- Yi Sui: h-index 2; 13 citations\n- Alex Labach: h-index 1; 1 citation\n- Xueying Zhang: h-index 1; 1 citation\n- Stephen Anthony Rose: h-index 1; 1 citation\n- Jesse C. Cresswell: h-index 8; 765 citations\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- AI-based Prob"
+    },
+    {
+      "title": "A Unified Structured Query Understanding Framework for Industrial Semantic Search",
+      "url": "https://doi.org/10.1145/3770855.3818312",
+      "score": 0,
+      "publishedDate": "2026-05-22T00:00:00.000Z",
+      "author": "Ping Liu, Qianqi Shen, Jianqiang Shen, Chunnan Yao, Kevin Kao, Rajat Arora, et al.",
+      "query": "cascading errors multi-stage NLP pipelines query understanding retrieval routing",
+      "highlights": [
+        "# A Unified Structured Query Understanding Framework for Industrial Semantic Search\n\narXiv (Cornell University). Published: 2026-05-22. Preprint. 0 citations.\n\n## Authors\n\n- Ping Liu: h-index 0; 0 citations\n- Qianqi Shen: h-index 4; 112 citations\n- Jianqiang Shen: h-index 0; 0 citations\n- Chunnan Yao: h-index 0; 0 citations\n- Kevin Kao: h-index 1; 20 citations\n- Rajat Arora: h-index 0; 0 citations\n- Dan Xu: h-index 0; 0 citations\n- Baofen Zheng: h-index 1; 1 citation\n- Yunxiang Ren: h-index 0; 0 citations\n- Benjamin Le: h-index 0; 0 citations\n- Ali Hooshmand: h-index 10; 392 citations\n- Igor Lapchuk: h-index 0; 0 citations\n- Juan Bottaro: h-index 0; 0 citations\n- Raghavan Muthuregunathan: h-index 0; 0 citations\n- Caleb Johnson: h-index 0; 0 citations\n- Liangjie Hong: h-index 0; 0 citations"
+      ],
+      "text": "# A Unified Structured Query Understanding Framework for Industrial Semantic Search\n\narXiv (Cornell University). Published: 2026-05-22. Preprint. 0 citations.\n\n## Authors\n\n- Ping Liu: h-index 0; 0 citations\n- Qianqi Shen: h-index 4; 112 citations\n- Jianqiang Shen: h-index 0; 0 citations\n- Chunnan Yao: h-index 0; 0 citations\n- Kevin Kao: h-index 1; 20 citations\n- Rajat Arora: h-index 0; 0 citations\n- Dan Xu: h-index 0; 0 citations\n- Baofen Zheng: h-index 1; 1 citation\n- Yunxiang Ren: h-index 0; 0"
+    },
+    {
+      "title": "Cascading Hallucination in Agentic RAG: The CHARM Framework for Detection and Mitigation",
+      "url": "https://doi.org/10.48550/arxiv.2606.04435",
+      "score": 0,
+      "publishedDate": "2026-06-03T00:00:00.000Z",
+      "author": "Saroj Mishra",
+      "query": "cascading errors multi-stage NLP pipelines query understanding retrieval routing",
+      "highlights": [
+        "# Cascading Hallucination in Agentic RAG: The CHARM Framework for Detection and Mitigation\n\narXiv (Cornell University). Published: 2026-06-03. Preprint. 0 citations.\n\n## Authors\n\n- Saroj Mishra: h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Adversarial Robustness in Machine Learning\n- Security and Verification in Computing\n- Anomaly Detection Techniques and Applications\n\n---\n\n# Cascading Hallucination in Agentic RAG: The CHARM Framework for Detection and Mitigation\n\nSaroj Mishra University of North Dakota saroj.mishra773@gmail.com\n\nAbstract\u2014Multi-step agentic retrieval-augmented generation (RAG) pipelines have demonstrated significant capability for complex reasoning tasks, yet remain vulnerable to a class of failure that existing hallucination detection mechanisms systematica"
+      ],
+      "text": "# Cascading Hallucination in Agentic RAG: The CHARM Framework for Detection and Mitigation\n\narXiv (Cornell University). Published: 2026-06-03. Preprint. 0 citations.\n\n## Authors\n\n- Saroj Mishra: h-index 0; 0 citations; corresponding author\n\n## Topics\n\n- Adversarial Robustness in Machine Learning\n- Security and Verification in Computing\n- Anomaly Detection Techniques and Applications\n\n---\n\n# Cascading Hallucination in Agentic RAG: The CHARM Framework for Detection and Mitigation\n\nSaroj Mishra Uni"
+    },
+    {
+      "title": "Diagnosis Is Not Prescription: Linguistic Co-Adaptation Explains Patching Hazards in LLM Pipelines",
+      "url": "https://doi.org/10.48550/arxiv.2605.21958",
+      "score": 0,
+      "publishedDate": "2026-05-21T00:00:00.000Z",
+      "author": "Yoon Jeonghun, Kim Dongchan",
+      "query": "cascading errors multi-stage NLP pipelines query understanding retrieval routing",
+      "highlights": [
+        "# Diagnosis Is Not Prescription: Linguistic Co-Adaptation Explains Patching Hazards in LLM Pipelines\n\narXiv (Cornell University). Published: 2026-05-21. Preprint. 0 citations.\n\n## Authors\n\n- Yoon Jeonghun: h-index 0; 0 citations\n- Kim Dongchan: h-index 0; 0 citations\n\n## Topics\n\n- Software System Performance and Reliability\n- Advanced Software Engineering Methodologies\n- Multi-Agent Systems and Negotiation\n\n---\n\n# Diagnosis Is Not Prescription: Linguistic Co-Adaptation Explains Patching Hazards in LLM Pipelines\n\n## Abstract\n\nWhen a multi-module LLM agent fails, the module most responsible for the failure is not necessarily the best place to intervene. We demonstrate this Diagnostic Paradox empiri cally: causal analysis consistently identifies the routing module \u2014 which selects which tool t"
+      ],
+      "text": "# Diagnosis Is Not Prescription: Linguistic Co-Adaptation Explains Patching Hazards in LLM Pipelines\n\narXiv (Cornell University). Published: 2026-05-21. Preprint. 0 citations.\n\n## Authors\n\n- Yoon Jeonghun: h-index 0; 0 citations\n- Kim Dongchan: h-index 0; 0 citations\n\n## Topics\n\n- Software System Performance and Reliability\n- Advanced Software Engineering Methodologies\n- Multi-Agent Systems and Negotiation\n\n---\n\n# Diagnosis Is Not Prescription: Linguistic Co-Adaptation Explains Patching Hazards "
+    },
+    {
+      "title": "Agentic Adversarial Rewriting Exposes Architectural Vulnerabilities in Black-Box NLP Pipelines",
+      "url": "https://doi.org/10.48550/arxiv.2604.23483",
+      "score": 0,
+      "publishedDate": "2026-04-26T00:00:00.000Z",
+      "author": "Mazal Bethany, Kim-Kwang Raymond Choo, Nishant Vishwamitra, Peyman Najafirad",
+      "query": "cascading errors multi-stage NLP pipelines query understanding retrieval routing",
+      "highlights": [
+        "# Agentic Adversarial Rewriting Exposes Architectural Vulnerabilities in Black-Box NLP Pipelines\n\narXiv (Cornell University). Published: 2026-04-26. Preprint. 0 citations.\n\n## Authors\n\n- Mazal Bethany: h-index 4; 98 citations\n- Kim-Kwang Raymond Choo: h-index 0; 0 citations\n- Nishant Vishwamitra: h-index 12; 634 citations\n- Peyman Najafirad: h-index 11; 675 citations\n\n## Topics\n\n- Adversarial Robustness in Machine Learning\n- Topic Modeling\n- Natural Language Processing Techniques\n\n---\n\n# Agentic Adversarial Rewriting Exposes Architectural Vulnerabilities in Black-Box NLP Pipelines\n\nMazal Bethany, Kim-Kwang Raymond Choo, Senior Member, IEEE, Nishant Vishwamitra, and Peyman Najafirad, Senior Member, IEEE\n\nAbstract\u2014Multi-component natural language processing (NLP) pipelines are increasingly d"
+      ],
+      "text": "# Agentic Adversarial Rewriting Exposes Architectural Vulnerabilities in Black-Box NLP Pipelines\n\narXiv (Cornell University). Published: 2026-04-26. Preprint. 0 citations.\n\n## Authors\n\n- Mazal Bethany: h-index 4; 98 citations\n- Kim-Kwang Raymond Choo: h-index 0; 0 citations\n- Nishant Vishwamitra: h-index 12; 634 citations\n- Peyman Najafirad: h-index 11; 675 citations\n\n## Topics\n\n- Adversarial Robustness in Machine Learning\n- Topic Modeling\n- Natural Language Processing Techniques\n\n---\n\n# Agentic"
+    },
+    {
+      "title": "A Systematic Study of Retrieval Pipeline Design for Retrieval-Augmented Medical Question Answering",
+      "url": "https://doi.org/10.48550/arxiv.2604.07274",
+      "score": 0,
+      "publishedDate": "2026-04-08T00:00:00.000Z",
+      "author": "Nusrat Sultana, A. Moosa, Kazi Afzalur Rahman, Sajal Chandra Banik",
+      "query": "cascading errors multi-stage NLP pipelines query understanding retrieval routing",
+      "highlights": [
+        "# A Systematic Study of Retrieval Pipeline Design for Retrieval-Augmented Medical Question Answering\n\narXiv (Cornell University). Published: 2026-04-08. Preprint. 0 citations.\n\n## Authors\n\n- Nusrat Sultana: h-index 3; 71 citations\n- A. Moosa: h-index 17; 950 citations\n- Kazi Afzalur Rahman: h-index 9; 452 citations\n- Sajal Chandra Banik: h-index 11; 341 citations\n\n## Topics\n\n- Topic Modeling\n- Information Retrieval and Search Behavior\n- Multimodal Machine Learning Applications\n\n---\n\n# A Systematic Study of Retrieval Pipeline Design for\n\nNusrat Sultana 1,*, Abdullah Muhammad Moosa 1, Kazi Afzalur Rahman 2, Sajal Chandra Banik 2\n\n* Correspondence: nusratsultana@cuet.ac.bd\n\nAbstract: Large language models (LLMs) have demonstrated strong capabilities in medical question answering; however, pur"
+      ],
+      "text": "# A Systematic Study of Retrieval Pipeline Design for Retrieval-Augmented Medical Question Answering\n\narXiv (Cornell University). Published: 2026-04-08. Preprint. 0 citations.\n\n## Authors\n\n- Nusrat Sultana: h-index 3; 71 citations\n- A. Moosa: h-index 17; 950 citations\n- Kazi Afzalur Rahman: h-index 9; 452 citations\n- Sajal Chandra Banik: h-index 11; 341 citations\n\n## Topics\n\n- Topic Modeling\n- Information Retrieval and Search Behavior\n- Multimodal Machine Learning Applications\n\n---\n\n# A Systemat"
+    },
+    {
+      "title": "Reducing hallucination in structured outputs via Retrieval-Augmented Generation",
+      "url": "https://doi.org/10.18653/v1/2024.naacl-industry.19",
+      "score": 0,
+      "publishedDate": "2024-01-01T00:00:00.000Z",
+      "author": "Orlando Ayala, Patrice Bechard",
+      "query": "cascading errors multi-stage NLP pipelines query understanding retrieval routing",
+      "highlights": [
+        "# Reducing hallucination in structured outputs via Retrieval-Augmented Generation\n\nPublished: 2024-01-01. 58 citations.\n\n## Authors\n\n- Orlando Ayala: h-index 23; 1,995 citations\n- Patrice Bechard: h-index 1; 58 citations\n\n## Topics\n\n- Hallucinations in medical conditions\n- Functional Brain Connectivity Studies\n- Topological and Geometric Data Analysis\n\n---\n\n# Reducing hallucination in structured outputs via Retrieval-Augmented Generation\n\n## Abstract\n\nA current limitation of Generative AI (GenAI) is its propensity to hallucinate. While Large Language Models (LLM) have taken the world by storm, without eliminating or at least reducing hallucination, real-world GenAI systems will likely continue to face challenges in user adoption. In the process of deploying an enterprise application that p"
+      ],
+      "text": "# Reducing hallucination in structured outputs via Retrieval-Augmented Generation\n\nPublished: 2024-01-01. 58 citations.\n\n## Authors\n\n- Orlando Ayala: h-index 23; 1,995 citations\n- Patrice Bechard: h-index 1; 58 citations\n\n## Topics\n\n- Hallucinations in medical conditions\n- Functional Brain Connectivity Studies\n- Topological and Geometric Data Analysis\n\n---\n\n# Reducing hallucination in structured outputs via Retrieval-Augmented Generation\n\n## Abstract\n\nA current limitation of Generative AI (GenAI"
+    },
+    {
+      "title": "LexKeyPlan: Planning with Keyphrases and Retrieval Augmentation for Legal Text Generation: A Case Study on European Court of Human Rights Cases",
+      "url": "https://doi.org/10.18653/v1/2025.acl-short.32",
+      "score": 0,
+      "publishedDate": "2025-01-01T00:00:00.000Z",
+      "author": "Santosh T.y.s.s, Elvin Quero Hernandez",
+      "query": "LLM structured output legal issue framing concepts exclusions retrieval planning",
+      "highlights": [
+        "# LexKeyPlan: Planning with Keyphrases and Retrieval Augmentation for Legal Text Generation: A Case Study on European Court of Human Rights Cases\n\nPublished: 2025-01-01. 2 citations.\n\n## Authors\n\n- Santosh T.y.s.s: h-index 4; 42 citations\n- Elvin Quero Hernandez (Technical University of Munich): h-index 1; 2 citations\n\n## Topics\n\n- Advanced Text Analysis Techniques\n- Topic Modeling\n- Natural Language Processing Techniques\n\n---\n\n# LexKeyPlan: Planning with Keyphrases and Retrieval Augmentation for Legal Text Generation: A Case Study on European Court of Human Rights Cases\n\n## Abstract\n\nLarge language models excel at legal text generation but often produce hallucinations due to their sole reliance on parametric knowledge. Retrieval-augmented models mitigate this by providing relevant externa"
+      ],
+      "text": "# LexKeyPlan: Planning with Keyphrases and Retrieval Augmentation for Legal Text Generation: A Case Study on European Court of Human Rights Cases\n\nPublished: 2025-01-01. 2 citations.\n\n## Authors\n\n- Santosh T.y.s.s: h-index 4; 42 citations\n- Elvin Quero Hernandez (Technical University of Munich): h-index 1; 2 citations\n\n## Topics\n\n- Advanced Text Analysis Techniques\n- Topic Modeling\n- Natural Language Processing Techniques\n\n---\n\n# LexKeyPlan: Planning with Keyphrases and Retrieval Augmentation fo"
+    },
+    {
+      "title": "LegalCheck: Retrieval- and Context-Augmented Generation for Drafting Municipal Legal Advice Letters",
+      "url": "https://doi.org/10.48550/arxiv.2605.12012",
+      "score": 0,
+      "publishedDate": "2026-05-12T00:00:00.000Z",
+      "author": "Virgill van der Meer, Julien Rossi",
+      "query": "LLM structured output legal issue framing concepts exclusions retrieval planning",
+      "highlights": [
+        "# LegalCheck: Retrieval- and Context-Augmented Generation for Drafting Municipal Legal Advice Letters\n\narXiv (Cornell University). Published: 2026-05-12. Preprint. 0 citations.\n\n## Authors\n\n- Virgill van der Meer: h-index 0; 0 citations\n- Julien Rossi: h-index 0; 0 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n- Ethics and Social Impacts of AI\n\n---\n\n# LegalCheck: Retrieval- and Context-Augmented Generation for Drafting Municipal Legal Advice Letters\n\n## Abstract\n\nPublic-sector legal departments in the Netherlands face acute staff shortages, increased case volumes, and increased pressure to meet regulatory compliance. This paper presents LegalCheck, a novel system that addresses these challenges by automating the drafting of objection response"
+      ],
+      "text": "# LegalCheck: Retrieval- and Context-Augmented Generation for Drafting Municipal Legal Advice Letters\n\narXiv (Cornell University). Published: 2026-05-12. Preprint. 0 citations.\n\n## Authors\n\n- Virgill van der Meer: h-index 0; 0 citations\n- Julien Rossi: h-index 0; 0 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n- Ethics and Social Impacts of AI\n\n---\n\n# LegalCheck: Retrieval- and Context-Augmented Generation for Drafting Municipal Legal Advice Letters"
+    },
+    {
+      "title": "Augmented Question-guided Retrieval (AQgR) of Indian Case Law with LLM, RAG, and Structured Summaries",
+      "url": "https://doi.org/10.48550/arxiv.2508.04710",
+      "score": 0,
+      "publishedDate": "2025-07-23T00:00:00.000Z",
+      "author": "V, Vishnuprabha, Viswanathan, Daleesha M, R, Rajesh, Pillai, Aneesh V",
+      "query": "LLM structured output legal issue framing concepts exclusions retrieval planning",
+      "highlights": [
+        "# Augmented Question-guided Retrieval (AQgR) of Indian Case Law with LLM, RAG, and Structured Summaries\n\narXiv (Cornell University). Published: 2025-07-23. Preprint. 0 citations.\n\n## Authors\n\n- V, Vishnuprabha\n- Viswanathan, Daleesha M\n- R, Rajesh\n- Pillai, Aneesh V\n\n## Topics\n\n- Research Data Management Practices\n- Data Quality and Management\n- Species Distribution and Climate Change\n\n---\n\n# Augmented Question-guided Retrieval (AQgR) of Indian Case Law with LLM, RAG, and Structured Summaries\n\nVishnuprabha V 1*, Daleesha M Viswanathan 1, Rajesh R 2, Aneesh V. Pillai 3\n\n1*Division of Information Technology, School of Engineering, Cochin University of Science and Technology, India. 2 NPOL, India. 3 School of Legal Studies, Cochin University of Science and Technology, India.\n\n*Corresponding a"
+      ],
+      "text": "# Augmented Question-guided Retrieval (AQgR) of Indian Case Law with LLM, RAG, and Structured Summaries\n\narXiv (Cornell University). Published: 2025-07-23. Preprint. 0 citations.\n\n## Authors\n\n- V, Vishnuprabha\n- Viswanathan, Daleesha M\n- R, Rajesh\n- Pillai, Aneesh V\n\n## Topics\n\n- Research Data Management Practices\n- Data Quality and Management\n- Species Distribution and Climate Change\n\n---\n\n# Augmented Question-guided Retrieval (AQgR) of Indian Case Law with LLM, RAG, and Structured Summaries\n\nV"
+    },
+    {
+      "title": "Elevating Legal LLM Responses: Harnessing Trainable Logical Structures and Semantic Knowledge with Legal Reasoning",
+      "url": "https://doi.org/10.18653/v1/2025.naacl-long.290",
+      "score": 0,
+      "publishedDate": "2025-01-01T00:00:00.000Z",
+      "author": "Rujing Yao, Yang Wu, Chenghao Wang, Jingwei Xiong, Fang Wang, Xiaozhong Liu",
+      "query": "LLM structured output legal issue framing concepts exclusions retrieval planning",
+      "highlights": [
+        "# Elevating Legal LLM Responses: Harnessing Trainable Logical Structures and Semantic Knowledge with Legal Reasoning\n\nPublished: 2025-01-01. 6 citations.\n\n## Authors\n\n- Rujing Yao: h-index 6; 98 citations\n- Yang Wu: h-index 2; 10 citations\n- Chenghao Wang: h-index 35; 3,831 citations\n- Jingwei Xiong: h-index 6; 93 citations\n- Fang Wang: h-index 16; 752 citations\n- Xiaozhong Liu: h-index 14; 873 citations\n\n## Topics\n\n- Legal Education and Practice Innovations\n- Artificial Intelligence in Law\n- Comparative and International Law Studies\n\n---\n\n# Elevating Legal LLM Responses: Harnessing Trainable Logical Structures and Semantic Knowledge with Legal Reasoning\n\n## Abstract\n\nLarge Language Models (LLMs) have achieved impressive results across numerous domains, yet they experience notable deficien"
+      ],
+      "text": "# Elevating Legal LLM Responses: Harnessing Trainable Logical Structures and Semantic Knowledge with Legal Reasoning\n\nPublished: 2025-01-01. 6 citations.\n\n## Authors\n\n- Rujing Yao: h-index 6; 98 citations\n- Yang Wu: h-index 2; 10 citations\n- Chenghao Wang: h-index 35; 3,831 citations\n- Jingwei Xiong: h-index 6; 93 citations\n- Fang Wang: h-index 16; 752 citations\n- Xiaozhong Liu: h-index 14; 873 citations\n\n## Topics\n\n- Legal Education and Practice Innovations\n- Artificial Intelligence in Law\n- Co"
+    },
+    {
+      "title": "LexGenie: Automated Generation of Structured Reports for European Court of Human Rights Case Law",
+      "url": "http://arxiv.org/abs/2503.03266",
+      "score": 0,
+      "publishedDate": "2025-03-05T00:00:00.000Z",
+      "author": "T. Y. S. S Santosh, Mahmoud Aly, Oana Ichim, Matthias Grabmair",
+      "query": "LLM structured output legal issue framing concepts exclusions retrieval planning",
+      "highlights": [
+        "# LexGenie: Automated Generation of Structured Reports for European Court of Human Rights Case Law\n\narXiv (Cornell University). Published: 2025-03-05. Preprint. 0 citations.\n\n## Authors\n\n- T. Y. S. S Santosh: h-index 6; 208 citations\n- Mahmoud Aly: h-index 1; 3 citations\n- Oana Ichim: h-index 4; 35 citations\n- Matthias Grabmair: h-index 12; 510 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n- Topic Modeling\n\n---\n\n# LexGenie: Automated Generation of Structured Reports for European Court of Human Rights Case Law\n\n1School of Computation, Information, and Technology; Technical University of Munich, Germany 2Graduate Institute of International and Development Studies, Geneva, Switzerland {santosh.tokala, mahmoud.aly, matthias.grabmair}@tum.de oana.i"
+      ],
+      "text": "# LexGenie: Automated Generation of Structured Reports for European Court of Human Rights Case Law\n\narXiv (Cornell University). Published: 2025-03-05. Preprint. 0 citations.\n\n## Authors\n\n- T. Y. S. S Santosh: h-index 6; 208 citations\n- Mahmoud Aly: h-index 1; 3 citations\n- Oana Ichim: h-index 4; 35 citations\n- Matthias Grabmair: h-index 12; 510 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n- Topic Modeling\n\n---\n\n# LexGenie: Automated Generation of S"
+    },
+    {
+      "title": "Automating IRAC Analysis in Malaysian Contract Law using a Semi-Structured Knowledge Base",
+      "url": "https://doi.org/10.1007/s10506-025-09467-5",
+      "score": 0,
+      "publishedDate": "2025-07-07T00:00:00.000Z",
+      "author": "Xiaoxi Kang, Lizhen Qu, Lay-Ki Soon, Zhuang Li, Adnan Trakic",
+      "query": "LLM structured output legal issue framing concepts exclusions retrieval planning",
+      "highlights": [
+        "# Automating IRAC Analysis in Malaysian Contract Law using a Semi-Structured Knowledge Base\n\nArtificial Intelligence and Law. Published: 2025-07-07. Preprint. 2 citations.\n\n## Authors\n\n- Xiaoxi Kang (Monash University Malaysia): h-index 2; 11 citations; corresponding author\n- Lizhen Qu (Monash University): h-index 21; 2,972 citations; corresponding author\n- Lay-Ki Soon (Monash University Malaysia): h-index 12; 490 citations\n- Zhuang Li (La Trobe University): h-index 10; 418 citations\n- Adnan Trakic (Monash University Malaysia): h-index 4; 58 citations\n\n## Topics\n\n- Artificial Intelligence in Law\n\n---\n\n# Automating IRAC Analysis in Malaysian Contract Law using a Semi-Structured Knowledge Base\n\n## Abstract\n\nThe effectiveness of Large Language Models (LLMs) in legal reasoning is often limited"
+      ],
+      "text": "# Automating IRAC Analysis in Malaysian Contract Law using a Semi-Structured Knowledge Base\n\nArtificial Intelligence and Law. Published: 2025-07-07. Preprint. 2 citations.\n\n## Authors\n\n- Xiaoxi Kang (Monash University Malaysia): h-index 2; 11 citations; corresponding author\n- Lizhen Qu (Monash University): h-index 21; 2,972 citations; corresponding author\n- Lay-Ki Soon (Monash University Malaysia): h-index 12; 490 citations\n- Zhuang Li (La Trobe University): h-index 10; 418 citations\n- Adnan Tra"
+    },
+    {
+      "title": "Retrieval And Structuring Augmented Generation with Large Language Models",
+      "url": "https://doi.org/10.1145/3711896.3736557",
+      "score": 0,
+      "publishedDate": "2025-08-03T00:00:00.000Z",
+      "author": "Pengcheng Jiang, Siru Ouyang, Yizhu Jiao, Ming Zhong, Runchu Tian, Jiawei Han",
+      "query": "LLM structured output legal issue framing concepts exclusions retrieval planning",
+      "highlights": [
+        "# Retrieval And Structuring Augmented Generation with Large Language Models\n\nPublished: 2025-08-03. 8 citations.\n\n## Authors\n\n- Pengcheng Jiang (University of Illinois Urbana-Champaign)\n- Siru Ouyang (University of Illinois Urbana-Champaign): h-index 7; 134 citations\n- Yizhu Jiao (University of Illinois Urbana-Champaign): h-index 11; 636 citations\n- Ming Zhong (University of Illinois Urbana-Champaign): h-index 25; 3,416 citations\n- Runchu Tian (University of Illinois Urbana-Champaign): h-index 5; 282 citations\n- Jiawei Han (University of Illinois Urbana-Champaign): h-index 148; 124,278 citations\n\n## Topics\n\n- Topic Modeling\n- Natural Language Processing Techniques\n- Advanced Text Analysis Techniques\n\n## Funding\n\n- Universitas Brawijaya\n\n---\n\n# Retrieval And Structuring Augmented Generation"
+      ],
+      "text": "# Retrieval And Structuring Augmented Generation with Large Language Models\n\nPublished: 2025-08-03. 8 citations.\n\n## Authors\n\n- Pengcheng Jiang (University of Illinois Urbana-Champaign)\n- Siru Ouyang (University of Illinois Urbana-Champaign): h-index 7; 134 citations\n- Yizhu Jiao (University of Illinois Urbana-Champaign): h-index 11; 636 citations\n- Ming Zhong (University of Illinois Urbana-Champaign): h-index 25; 3,416 citations\n- Runchu Tian (University of Illinois Urbana-Champaign): h-index 5"
+    },
+    {
+      "title": "Revisiting Feedback Models for HyDE",
+      "url": "https://doi.org/10.48550/arxiv.2511.19349",
+      "score": 0,
+      "publishedDate": "2025-11-24T00:00:00.000Z",
+      "author": "Jedidi, Nour, Lin, Jimmy",
+      "query": "HyDE query expansion dense retrieval topic drift mitigation legal IR",
+      "highlights": [
+        "# Revisiting Feedback Models for HyDE\n\narXiv (Cornell University). Published: 2025-11-24. Preprint. 0 citations.\n\n## Authors\n\n- Jedidi, Nour\n- Lin, Jimmy\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- Topic Modeling\n- Expert finding and Q&A systems\n\n---\n\n# Revisiting Feedback Models for HyDE\n\nJimmy Lin University of Waterloo Waterloo, ON, Canada jimmylin@uwaterloo.ca\n\n## Abstract\n\nRecent approaches that leverage large language models (LLMs) for pseudo-relevance feedback (PRF) have generally not utilized well established feedback models like Rocchio and RM3 when expanding queries for sparse retrievers like BM25. Instead, they often opt for a simple string concatenation of the query and LLM-generated expansion content. But is this optimal? To answer this question, we revisit and s"
+      ],
+      "text": "# Revisiting Feedback Models for HyDE\n\narXiv (Cornell University). Published: 2025-11-24. Preprint. 0 citations.\n\n## Authors\n\n- Jedidi, Nour\n- Lin, Jimmy\n\n## Topics\n\n- Information Retrieval and Search Behavior\n- Topic Modeling\n- Expert finding and Q&A systems\n\n---\n\n# Revisiting Feedback Models for HyDE\n\nJimmy Lin University of Waterloo Waterloo, ON, Canada jimmylin@uwaterloo.ca\n\n## Abstract\n\nRecent approaches that leverage large language models (LLMs) for pseudo-relevance feedback (PRF) have gen"
+    },
+    {
+      "title": "clulab-retrieval at SemEval-2026 Task 8: A Comparative Analysis of Dense Retrievers and HyDE for Multi-Turn Conversational Retrieval",
+      "url": "https://doi.org/10.18653/v1/2026.semeval-1.351",
+      "score": 0,
+      "publishedDate": "2026-01-01T00:00:00.000Z",
+      "author": "Hyungji Kim, Siva Rohit Kondapaneni, Steven Bethard",
+      "query": "HyDE query expansion dense retrieval topic drift mitigation legal IR",
+      "highlights": [
+        "# clulab-retrieval at SemEval-2026 Task 8: A Comparative Analysis of Dense Retrievers and HyDE for Multi-Turn Conversational Retrieval\n\nPublished: 2026-01-01. 0 citations.\n\n## Authors\n\n- Hyungji Kim (University of Arizona): h-index 0; 0 citations\n- Siva Rohit Kondapaneni (University of Arizona): h-index 0; 0 citations\n- Steven Bethard (University of Arizona): h-index 0; 0 citations\n\n## Topics\n\n- Topic Modeling\n- Natural Language Processing Techniques\n- Text Readability and Simplification\n\n---\n\n# clulab-retrieval at SemEval-2026 Task 8: A Comparative Analysis of Dense Retrievers and HyDE for Multi-Turn Conversational Retrieval\n\n## Abstract\n\nWe present a comparative analysis of dense retrievers and retrieval strategies for multiturn conversational retrieval in SemEval-2026 Task 8 (MTRAGEval)"
+      ],
+      "text": "# clulab-retrieval at SemEval-2026 Task 8: A Comparative Analysis of Dense Retrievers and HyDE for Multi-Turn Conversational Retrieval\n\nPublished: 2026-01-01. 0 citations.\n\n## Authors\n\n- Hyungji Kim (University of Arizona): h-index 0; 0 citations\n- Siva Rohit Kondapaneni (University of Arizona): h-index 0; 0 citations\n- Steven Bethard (University of Arizona): h-index 0; 0 citations\n\n## Topics\n\n- Topic Modeling\n- Natural Language Processing Techniques\n- Text Readability and Simplification\n\n---\n\n#"
+    },
+    {
+      "title": "Enhancing Financial RAG with Agentic AI and Multi-HyDE: A Novel Approach to Knowledge Retrieval and Hallucination Reduction",
+      "url": "https://doi.org/10.18653/v1/2025.finnlp-2.3",
+      "score": 0,
+      "publishedDate": "2025-01-01T00:00:00.000Z",
+      "author": "Ryan George, Akshay Govind Srinivasan, Jayden Koshy Joe, M R Harshith, J Vijayavallabh, Hrushikesh Kant, et al.",
+      "query": "HyDE query expansion dense retrieval topic drift mitigation legal IR",
+      "highlights": [
+        "# Enhancing Financial RAG with Agentic AI and Multi-HyDE: A Novel Approach to Knowledge Retrieval and Hallucination Reduction\n\nPublished: 2025-01-01. 2 citations.\n\n## Authors\n\n- Ryan George: h-index 2; 7 citations\n- Akshay Govind Srinivasan: h-index 1; 2 citations\n- Jayden Koshy Joe: h-index 1; 3 citations\n- M R Harshith: h-index 1; 2 citations\n- J Vijayavallabh: h-index 1; 2 citations\n- Hrushikesh Kant: h-index 1; 2 citations\n- Rahul Vimalkanth: h-index 1; 2 citations\n- S. Sachin Kumar: h-index 21; 1,882 citations\n- Sudharshan Suresh\n\n## Topics\n\n- Stock Market Forecasting Methods\n- Financial Distress and Bankruptcy Prediction\n- Complex Systems and Time Series Analysis\n\n---\n\n# Enhancing Financial RAG with Agentic AI and Multi-HyDE: A Novel Approach to Knowledge Retrieval and Hallucination"
+      ],
+      "text": "# Enhancing Financial RAG with Agentic AI and Multi-HyDE: A Novel Approach to Knowledge Retrieval and Hallucination Reduction\n\nPublished: 2025-01-01. 2 citations.\n\n## Authors\n\n- Ryan George: h-index 2; 7 citations\n- Akshay Govind Srinivasan: h-index 1; 2 citations\n- Jayden Koshy Joe: h-index 1; 3 citations\n- M R Harshith: h-index 1; 2 citations\n- J Vijayavallabh: h-index 1; 2 citations\n- Hrushikesh Kant: h-index 1; 2 citations\n- Rahul Vimalkanth: h-index 1; 2 citations\n- S. Sachin Kumar: h-index"
+    },
+    {
+      "title": "Section-Weighted Hybrid Approach for Legal Case Retrieval",
+      "url": "https://doi.org/10.48550/arxiv.2606.03138",
+      "score": 0,
+      "publishedDate": "2026-06-02T00:00:00.000Z",
+      "author": "Rajith Arulanandam, Nisansa de Silva",
+      "query": "HyDE query expansion dense retrieval topic drift mitigation legal IR",
+      "highlights": [
+        "# Section-Weighted Hybrid Approach for Legal Case Retrieval\n\narXiv (Cornell University). Published: 2026-06-02. Preprint. 0 citations.\n\n## Authors\n\n- Rajith Arulanandam: h-index 0; 0 citations\n- Nisansa de Silva: h-index 0; 0 citations\n\n## Topics\n\n- Topic Modeling\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n\n---\n\n# Section-Weighted Hybrid Approach for Legal Case Retrieval\n\nRajith Arulanandam, Nisansa de Silva Department of Computer Science & Engineering, University of Moratuwa, Sri Lanka { rajith.24,nisansadds} @cse.mrt.ac.lk\n\nAbstract\u2014Finding truly analogous precedents requires captur ing legal reasoning beyond surface word overlap. We present a two-stage, section-aware framework for legal case retrieval that first segments raw judgments into facts, issues, deci"
+      ],
+      "text": "# Section-Weighted Hybrid Approach for Legal Case Retrieval\n\narXiv (Cornell University). Published: 2026-06-02. Preprint. 0 citations.\n\n## Authors\n\n- Rajith Arulanandam: h-index 0; 0 citations\n- Nisansa de Silva: h-index 0; 0 citations\n\n## Topics\n\n- Topic Modeling\n- Artificial Intelligence in Law\n- Multi-Agent Systems and Negotiation\n\n---\n\n# Section-Weighted Hybrid Approach for Legal Case Retrieval\n\nRajith Arulanandam, Nisansa de Silva Department of Computer Science & Engineering, University of "
+    },
+    {
+      "title": "HyPA-RAG: A Hybrid Parameter Adaptive Retrieval-Augmented Generation System for AI Legal and Policy Applications",
+      "url": "https://doi.org/10.18653/v1/2024.customnlp4u-1.18",
+      "score": 0,
+      "publishedDate": "2024-01-01T00:00:00.000Z",
+      "author": "Rishi Kalra, Zekun Wu, Ayesha Gulley, Airlie Hilliard, Xin\u2010Yuan Guan, Adriano Koshiyama, et al.",
+      "query": "HyDE query expansion dense retrieval topic drift mitigation legal IR",
+      "highlights": [
+        "# HyPA-RAG: A Hybrid Parameter Adaptive Retrieval-Augmented Generation System for AI Legal and Policy Applications\n\nPublished: 2024-01-01. 21 citations.\n\n## Authors\n\n- Rishi Kalra\n- Zekun Wu: h-index 4; 57 citations\n- Ayesha Gulley: h-index 3; 40 citations\n- Airlie Hilliard: h-index 10; 512 citations\n- Xin\u2010Yuan Guan: h-index 97; 40,887 citations\n- Adriano Koshiyama: h-index 19; 1,449 citations\n- Philip Treleaven: h-index 36; 5,929 citations\n\n## Topics\n\n- Computational Physics and Python Applications\n- Energy Load and Power Forecasting\n- Stock Market Forecasting Methods\n\n---\n\n# HyPA-RAG: A Hybrid Parameter Adaptive Retrieval-Augmented Generation System for AI Legal and Policy Applications\n\n## Abstract\n\nWhile Large Language Models (LLMs) excel in text generation and question-answering, their"
+      ],
+      "text": "# HyPA-RAG: A Hybrid Parameter Adaptive Retrieval-Augmented Generation System for AI Legal and Policy Applications\n\nPublished: 2024-01-01. 21 citations.\n\n## Authors\n\n- Rishi Kalra\n- Zekun Wu: h-index 4; 57 citations\n- Ayesha Gulley: h-index 3; 40 citations\n- Airlie Hilliard: h-index 10; 512 citations\n- Xin\u2010Yuan Guan: h-index 97; 40,887 citations\n- Adriano Koshiyama: h-index 19; 1,449 citations\n- Philip Treleaven: h-index 36; 5,929 citations\n\n## Topics\n\n- Computational Physics and Python Applicat"
+    },
+    {
+      "title": "LLM-Based Query Expansion with Gaussian Kernel Semantic Enhancement for Dense Retrieval",
+      "url": "https://doi.org/10.3390/electronics14091744",
+      "score": 0,
+      "publishedDate": "2025-04-24T00:00:00.000Z",
+      "author": "Min Pan, Wenrui Xiong, Shuting Zhou, Mengfei Gao, Jinguang Chen",
+      "query": "HyDE query expansion dense retrieval topic drift mitigation legal IR",
+      "highlights": [
+        "# LLM-Based Query Expansion with Gaussian Kernel Semantic Enhancement for Dense Retrieval\n\nElectronics. Published: 2025-04-24. 2 citations.\n\n## Authors\n\n- Min Pan (Hubei Normal University): h-index 6; 196 citations\n- Wenrui Xiong (Hubei Normal University): h-index 5; 164 citations\n- Shuting Zhou (Hubei Normal University): h-index 6; 186 citations\n- Mengfei Gao (Hubei Normal University)\n- Jinguang Chen (Huzhou University): h-index 12; 479 citations; corresponding author\n\n## Topics\n\n- Image Retrieval and Classification Techniques\n- Neural Networks and Applications\n- Advanced Image and Video Retrieval Techniques\n\n## Funding\n\n- Hubei Provincial Department of Education\n\n---\n\n# LLM-Based Query Expansion with Gaussian Kernel Semantic Enhancement for Dense Retrieval\n\n## Abstract\n\nIn the field of I"
+      ],
+      "text": "# LLM-Based Query Expansion with Gaussian Kernel Semantic Enhancement for Dense Retrieval\n\nElectronics. Published: 2025-04-24. 2 citations.\n\n## Authors\n\n- Min Pan (Hubei Normal University): h-index 6; 196 citations\n- Wenrui Xiong (Hubei Normal University): h-index 5; 164 citations\n- Shuting Zhou (Hubei Normal University): h-index 6; 186 citations\n- Mengfei Gao (Hubei Normal University)\n- Jinguang Chen (Huzhou University): h-index 12; 479 citations; corresponding author\n\n## Topics\n\n- Image Retrie"
+    },
+    {
+      "title": "Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose",
+      "url": "https://doi.org/10.48550/arxiv.2606.18051",
+      "score": 0,
+      "publishedDate": "2026-06-16T00:00:00.000Z",
+      "author": "Gao X",
+      "query": "task decomposition agents retrieval planning instead of handcrafted rules",
+      "highlights": [
+        "# Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose\n\narXiv (Cornell University). Published: 2026-06-16. Preprint. 0 citations.\n\n## Authors\n\n- Gao X: h-index 2; 9 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Information Retrieval and Search Behavior\n- Natural Language Processing Techniques\n\n---\n\n# Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose\n\n## Abstract\n\nLLM agents increasingly rely on external skills\u2014reusable tool specifications\u2014but real-world tasks often require composing multiple skills, not just selecting one. We formalize this as the Compositional Skill Routing problem: given a complex user query and a large skill library, decompose the query into atomic sub-tasks, retrieve the appropriate skill for each sub-"
+      ],
+      "text": "# Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose\n\narXiv (Cornell University). Published: 2026-06-16. Preprint. 0 citations.\n\n## Authors\n\n- Gao X: h-index 2; 9 citations; corresponding author\n\n## Topics\n\n- Topic Modeling\n- Information Retrieval and Search Behavior\n- Natural Language Processing Techniques\n\n---\n\n# Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose\n\n## Abstract\n\nLLM agents increasingly rely on external skills\u2014reusable tool spec"
+    },
+    {
+      "title": "RaDA: Retrieval-augmented Web Agent Planning with LLMs",
+      "url": "https://doi.org/10.18653/v1/2024.findings-acl.802",
+      "score": 0,
+      "publishedDate": "2024-01-01T00:00:00.000Z",
+      "author": "Minsoo Kim, Victor S. Bursztyn, Eunyee Koh, Shunan Guo, Seung-won Hwang",
+      "query": "task decomposition agents retrieval planning instead of handcrafted rules",
+      "highlights": [
+        "# RaDA: Retrieval-augmented Web Agent Planning with LLMs\n\nPublished: 2024-01-01. 3 citations.\n\n## Authors\n\n- Minsoo Kim: h-index 8; 487 citations\n- Victor S. Bursztyn: h-index 3; 61 citations\n- Eunyee Koh: h-index 24; 2,363 citations\n- Shunan Guo: h-index 15; 959 citations\n- Seung-won Hwang: h-index 24; 1,654 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n- Service-Oriented Architecture and Web Services\n- Multi-Agent Systems and Negotiation\n\n## Funding\n\n- Ministry of Science and ICT, South Korea\n- Institute for Information and Communications Technology Promotion\n- Seoul National University\n\n---\n\n# RaDA: Retrieval-augmented Web Agent Planning with LLMs\n\n## Abstract\n\nAgents powered by large language models (LLMs) inherit important limitations, such as the restricted context length, depe"
+      ],
+      "text": "# RaDA: Retrieval-augmented Web Agent Planning with LLMs\n\nPublished: 2024-01-01. 3 citations.\n\n## Authors\n\n- Minsoo Kim: h-index 8; 487 citations\n- Victor S. Bursztyn: h-index 3; 61 citations\n- Eunyee Koh: h-index 24; 2,363 citations\n- Shunan Guo: h-index 15; 959 citations\n- Seung-won Hwang: h-index 24; 1,654 citations\n\n## Topics\n\n- Semantic Web and Ontologies\n- Service-Oriented Architecture and Web Services\n- Multi-Agent Systems and Negotiation\n\n## Funding\n\n- Ministry of Science and ICT, South "
+    },
+    {
+      "title": "ADaPT: As-Needed Decomposition and Planning with Language Models",
+      "url": "https://doi.org/10.48550/arxiv.2311.05772",
+      "score": 0,
+      "publishedDate": "2023-11-08T00:00:00.000Z",
+      "author": "Archiki Prasad, Alexander Koller, Mareike Hartmann, Peter Clark, Ashish Sabharwal, Mohit Bansal, et al.",
+      "query": "task decomposition agents retrieval planning instead of handcrafted rules",
+      "highlights": [
+        "# ADaPT: As-Needed Decomposition and Planning with Language Models\n\narXiv (Cornell University). Published: 2023-11-08. Preprint. 2 citations.\n\n## Authors\n\n- Archiki Prasad: h-index 6; 99 citations\n- Alexander Koller: h-index 26; 3,077 citations\n- Mareike Hartmann: h-index 10; 1,005 citations\n- Peter Clark: h-index 65; 18,151 citations\n- Ashish Sabharwal: h-index 44; 7,865 citations\n- Mohit Bansal: h-index 61; 20,213 citations\n- Tushar Khot: h-index 33; 5,375 citations\n\n## Topics\n\n- Topic Modeling\n- Natural Language Processing Techniques\n\n## Funding\n\n- National Science Foundation\n  - CAREER: Semantic Multi-Task Learning for Generalizable and Interpretable Language Generation\n  - AI Institute for Engaged Learning\n- Defense Advanced Research Projects Agency\n\n---\n\n# ADAPT: As-Needed Decomposit"
+      ],
+      "text": "# ADaPT: As-Needed Decomposition and Planning with Language Models\n\narXiv (Cornell University). Published: 2023-11-08. Preprint. 2 citations.\n\n## Authors\n\n- Archiki Prasad: h-index 6; 99 citations\n- Alexander Koller: h-index 26; 3,077 citations\n- Mareike Hartmann: h-index 10; 1,005 citations\n- Peter Clark: h-index 65; 18,151 citations\n- Ashish Sabharwal: h-index 44; 7,865 citations\n- Mohit Bansal: h-index 61; 20,213 citations\n- Tushar Khot: h-index 33; 5,375 citations\n\n## Topics\n\n- Topic Modelin"
+    },
+    {
+      "title": "Learning and Reusing Policy Decompositions for Hierarchical Generalized Planning with LLM Agents",
+      "url": "https://doi.org/10.48550/arxiv.2605.06957",
+      "score": 0,
+      "publishedDate": "2026-05-07T00:00:00.000Z",
+      "author": "Shirin Sohrabi, Haritha Ananthakrishnan, Harsha Kokel, Kavitha Srinivas, Michael Katz",
+      "query": "task decomposition agents retrieval planning instead of handcrafted rules",
+      "highlights": [
+        "# Learning and Reusing Policy Decompositions for Hierarchical Generalized Planning with LLM Agents\n\narXiv (Cornell University). Published: 2026-05-07. Preprint. 0 citations.\n\n## Authors\n\n- Shirin Sohrabi: h-index 19; 1,268 citations\n- Haritha Ananthakrishnan: h-index 2; 15 citations\n- Harsha Kokel: h-index 3; 58 citations\n- Kavitha Srinivas: h-index 31; 3,314 citations\n- Michael Katz: h-index 0; 0 citations\n\n## Topics\n\n- Reinforcement Learning in Robotics\n- AI-based Problem Solving and Planning\n- Machine Learning in Healthcare\n\n---\n\n# Learning and Reusing Policy Decompositions for Hierarchical Generalized Planning with LLM Agents\n\nShirin Sohrabi Haritha Ananthakrishnan Harsha Kokel Kavitha Srinivas Michael Katz IBM ssohrab@us.ibm.com {hananthakris,Harsha.Kokel,kavitha.srinivas,Michael.Katz"
+      ],
+      "text": "# Learning and Reusing Policy Decompositions for Hierarchical Generalized Planning with LLM Agents\n\narXiv (Cornell University). Published: 2026-05-07. Preprint. 0 citations.\n\n## Authors\n\n- Shirin Sohrabi: h-index 19; 1,268 citations\n- Haritha Ananthakrishnan: h-index 2; 15 citations\n- Harsha Kokel: h-index 3; 58 citations\n- Kavitha Srinivas: h-index 31; 3,314 citations\n- Michael Katz: h-index 0; 0 citations\n\n## Topics\n\n- Reinforcement Learning in Robotics\n- AI-based Problem Solving and Planning\n"
+    },
+    {
+      "title": "Beyond Entangled Planning: Task-Decoupled Planning for Long-Horizon Agents",
+      "url": "https://doi.org/10.48550/arxiv.2601.07577",
+      "score": 0,
+      "publishedDate": "2026-01-12T00:00:00.000Z",
+      "author": "Yunfan Li, Bingbing Xu, Xueyun Tian, Xiucheng Xu, Huawei Shen",
+      "query": "task decomposition agents retrieval planning instead of handcrafted rules",
+      "highlights": [
+        "# Beyond Entangled Planning: Task-Decoupled Planning for Long-Horizon Agents\n\narXiv (Cornell University). Published: 2026-01-12. Preprint. 0 citations.\n\n## Authors\n\n- Yunfan Li: h-index 0; 0 citations\n- Bingbing Xu: h-index 0; 0 citations\n- Xueyun Tian: h-index 1; 1 citation\n- Xiucheng Xu: h-index 0; 0 citations\n- Huawei Shen: h-index 8; 257 citations\n\n## Topics\n\n- AI-based Problem Solving and Planning\n- Multimodal Machine Learning Applications\n- Reinforcement Learning in Robotics\n\n---\n\n# Beyond Entangled Planning: Task-Decoupled Planning for Long-Horizon Agents\n\nYunfan Li 1,2, Bingbing Xu 1*, Xueyun Tian 1,2, Xiucheng Xu 1,2, Huawei Shen 1,2 1State Key Laboratory of AI Safety, Institute of Computing Technology, CAS, 2University of Chinese Academy of Sciences {liyunfan24s,xubingbing}@ict.a"
+      ],
+      "text": "# Beyond Entangled Planning: Task-Decoupled Planning for Long-Horizon Agents\n\narXiv (Cornell University). Published: 2026-01-12. Preprint. 0 citations.\n\n## Authors\n\n- Yunfan Li: h-index 0; 0 citations\n- Bingbing Xu: h-index 0; 0 citations\n- Xueyun Tian: h-index 1; 1 citation\n- Xiucheng Xu: h-index 0; 0 citations\n- Huawei Shen: h-index 8; 257 citations\n\n## Topics\n\n- AI-based Problem Solving and Planning\n- Multimodal Machine Learning Applications\n- Reinforcement Learning in Robotics\n\n---\n\n# Beyond"
+    },
+    {
+      "title": "Multi-Agent LLM Collaborative Reasoning and Task Planning for Complex Task Solving",
+      "url": "https://doi.org/10.21203/rs.3.rs-10232223/v1",
+      "score": 0,
+      "publishedDate": "2026-07-06T00:00:00.000Z",
+      "author": "Wentao Zhang, Tian Liao, Yihui Feng",
+      "query": "task decomposition agents retrieval planning instead of handcrafted rules",
+      "highlights": [
+        "# Multi-Agent LLM Collaborative Reasoning and Task Planning for Complex Task Solving\n\nResearch Square. Published: 2026-07-06. Preprint. 0 citations.\n\n## Authors\n\n- Wentao Zhang (University of Southern California): h-index 11; 355 citations\n- Tian Liao (Universidad del Noreste): h-index 25; 2,108 citations\n- Yihui Feng (Rose\u2013Hulman Institute of Technology): h-index 5; 70 citations\n\n## Topics\n\n- Natural Language Processing Techniques\n- Topic Modeling\n- Text Readability and Simplification\n\n---\n\n# Multi-Agent LLM Collaborative Reasoning and Task Planning for Complex Task Solving\n\n## Abstract\n\nComplex open-domain tasks require long-range reasoning, controlled decomposition, and reliable tool-mediated execution from large language models (LLMs). Single-agent LLM workflows still suffer from one-p"
+      ],
+      "text": "# Multi-Agent LLM Collaborative Reasoning and Task Planning for Complex Task Solving\n\nResearch Square. Published: 2026-07-06. Preprint. 0 citations.\n\n## Authors\n\n- Wentao Zhang (University of Southern California): h-index 11; 355 citations\n- Tian Liao (Universidad del Noreste): h-index 25; 2,108 citations\n- Yihui Feng (Rose\u2013Hulman Institute of Technology): h-index 5; 70 citations\n\n## Topics\n\n- Natural Language Processing Techniques\n- Topic Modeling\n- Text Readability and Simplification\n\n---\n\n# M"
+    },
+    {
+      "title": "FitText: Evolving Agent Tool Ecologies via Memetic Retrieval",
+      "url": "https://doi.org/10.48550/arxiv.2605.02411",
+      "score": 0,
+      "publishedDate": "2026-05-04T00:00:00.000Z",
+      "author": "Kyle Zheng, Han Zhang, Renliang Sun, Chenchen Ye, Wei Wang",
+      "query": "task decomposition agents retrieval planning instead of handcrafted rules",
+      "highlights": [
+        "# FitText: Evolving Agent Tool Ecologies via Memetic Retrieval\n\narXiv (Cornell University). Published: 2026-05-04. Preprint. 0 citations.\n\n## Authors\n\n- Kyle Zheng: h-index 0; 0 citations\n- Han Zhang: h-index 1; 3 citations\n- Renliang Sun: h-index 12; 692 citations\n- Chenchen Ye: h-index 0; 0 citations\n- Wei Wang: h-index 1; 3 citations\n\n## Topics\n\n- Language and cultural evolution\n- Biomedical Text Mining and Ontologies\n- Topic Modeling\n\n---\n\n# FitText: Evolving Agent Tool Ecologies via Memetic Retrieval\n\nChenchen Ye UCLA ccye@cs.ucla.edu\n\n## Abstract\n\nA semantic gap separates how users describe tasks from how tools are doc umented. As API ecosystems scale to tens of thousands of endpoints, static retrieval from the initial query alone cannot bridge this gap: the agent\u2019s un derstanding of"
+      ],
+      "text": "# FitText: Evolving Agent Tool Ecologies via Memetic Retrieval\n\narXiv (Cornell University). Published: 2026-05-04. Preprint. 0 citations.\n\n## Authors\n\n- Kyle Zheng: h-index 0; 0 citations\n- Han Zhang: h-index 1; 3 citations\n- Renliang Sun: h-index 12; 692 citations\n- Chenchen Ye: h-index 0; 0 citations\n- Wei Wang: h-index 1; 3 citations\n\n## Topics\n\n- Language and cultural evolution\n- Biomedical Text Mining and Ontologies\n- Topic Modeling\n\n---\n\n# FitText: Evolving Agent Tool Ecologies via Memetic"
+    },
+    {
+      "title": "MLLM as Retriever: Interactively Learning Multimodal Retrieval for Embodied Agents",
+      "url": "https://doi.org/10.48550/arxiv.2410.03450",
+      "score": 0,
+      "publishedDate": "2024-10-04T00:00:00.000Z",
+      "author": "Junpeng Yue, Xinru Xu, B\u00f6rje F. Karlsson, Zongqing Lu",
+      "query": "task decomposition agents retrieval planning instead of handcrafted rules",
+      "highlights": [
+        "# MLLM as Retriever: Interactively Learning Multimodal Retrieval for Embodied Agents\n\narXiv (Cornell University). Published: 2024-10-04. Preprint. 1 citation.\n\n## Authors\n\n- Junpeng Yue: h-index 12; 595 citations\n- Xinru Xu: h-index 5; 129 citations\n- B\u00f6rje F. Karlsson: h-index 13; 970 citations\n- Zongqing Lu: h-index 25; 2,252 citations\n\n## Topics\n\n- Natural Language Processing Techniques\n- Speech and dialogue systems\n- Semantic Web and Ontologies\n\n---\n\n# \u2113 \u2113 (MART) \u2113 \u2113\n\nJunpeng Yue 1\u2217, Xinrun Xu 2, Borje F. Karlsson \u00a8 3, and Zongqing Lu 1\u2020 1School of Computer Science, Peking University 2Institute of Software, Chinese Academy of Sciences 3Beijing Academy of Artificial Intelligence\n\n## ABSTRACT\n\nMLLM agents demonstrate potential for complex embodied tasks by retrieving multimodal task-rele"
+      ],
+      "text": "# MLLM as Retriever: Interactively Learning Multimodal Retrieval for Embodied Agents\n\narXiv (Cornell University). Published: 2024-10-04. Preprint. 1 citation.\n\n## Authors\n\n- Junpeng Yue: h-index 12; 595 citations\n- Xinru Xu: h-index 5; 129 citations\n- B\u00f6rje F. Karlsson: h-index 13; 970 citations\n- Zongqing Lu: h-index 25; 2,252 citations\n\n## Topics\n\n- Natural Language Processing Techniques\n- Speech and dialogue systems\n- Semantic Web and Ontologies\n\n---\n\n# \u2113 \u2113 (MART) \u2113 \u2113\n\nJunpeng Yue 1\u2217, Xinrun "
+    }
+  ]
+}

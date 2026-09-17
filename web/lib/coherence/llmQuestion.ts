@@ -8,30 +8,35 @@ const GENERIC_BAN =
   /^(tell me more|can you (please )?explain|what happened\??|what do you want\??|please provide more (details|information))\s*$/i
 
 function anchorsFromSession(session: SessionState): string[] {
+  const jurisdictionOnly =
+    /^(england(?:\s+and\s+wales)?|wales|scotland|northern\s+ireland|uk|united\s+kingdom|london)$/i
   const parts = [
     session.whatHappened,
     session.howCaused,
-    ...session.rawInputs.slice(-3),
+    ...[...session.rawInputs].sort((a, b) => b.length - a.length).slice(0, 3),
     ...session.events.map((e) => e.rawSpan || e.label),
     ...session.parties.map((p) => p.label),
-    session.locationHint,
   ]
     .map((s) => s.trim())
-    .filter((s) => s.length >= 4)
+    .filter((s) => s.length >= 8 && !jurisdictionOnly.test(s))
 
   const unique: string[] = []
   for (const p of parts) {
     if (!unique.some((u) => u.toLowerCase() === p.toLowerCase())) unique.push(p)
   }
+  // Prefer longer story anchors first so grounding cannot pass on "England"
+  unique.sort((a, b) => b.length - a.length)
   return unique.slice(0, 8)
 }
 
 function isGrounded(text: string, anchors: string[]): boolean {
   if (anchors.length === 0) return true
   const lower = text.toLowerCase()
-  return anchors.some((a) => {
-    const token = a.toLowerCase().slice(0, 24)
-    return token.length >= 4 && lower.includes(token)
+  const storyAnchors = anchors.filter((a) => a.trim().length >= 20)
+  const pool = storyAnchors.length ? storyAnchors : anchors
+  return pool.some((a) => {
+    const token = a.toLowerCase().slice(0, 32)
+    return token.length >= 8 && lower.includes(token)
   })
 }
 

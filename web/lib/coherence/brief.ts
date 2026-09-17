@@ -6,7 +6,10 @@ import type { LegalFrame } from './frames'
 import type { LawyerReviewRecord, SolicitorBriefWithReview } from './lawyerLoop'
 import { matterLabel } from './services'
 import { missingSlots } from './slots'
+import { compressLiveGoal, extractClientQuestions } from './clientQuestions'
+import { isMetaCauseLine, sanitizeIntakeNarrative } from './sense'
 import { tidySentence } from './timelineExtract'
+import { guessDatePrecision } from './timelineDates'
 
 export type { SolicitorBriefV0 } from './briefSchema'
 export { validateSolicitorBriefShape, SOLICITOR_BRIEF_REQUIRED_KEYS } from './briefSchema'
@@ -19,7 +22,18 @@ export interface LawyerBrief {
   situationSummary: string
   instructionsForLawyer: string
   desiredOutcome: string
-  timeline: { order: number; when: string; event: string }[]
+  /** Client's own words, unprocessed — for the solicitor to read first. */
+  clientNarrativeRaw: string
+  timeline: {
+    order: number
+    when: string
+    event: string
+    actors: string[]
+    documents: string[]
+    sourceSpan?: string
+    datePrecision: SolicitorBriefV0['timeline'][number]['date_precision']
+    clientConfirmed: boolean
+  }[]
   parties: string[]
   documents: string[]
   jurisdiction: string
@@ -59,17 +73,37 @@ function sessionTextBlob(session: SessionState): string {
   ].join(' ')
 }
 
-function guessDatePrecision(dateApprox: string | undefined): 'day' | 'month' | 'year' | 'unknown' {
-  if (!dateApprox) return 'unknown'
-  if (/\d{1,2}\s+\w+\s+\d{4}|\d{4}-\d{2}-\d{2}/.test(dateApprox)) return 'day'
-  if (/\w+\s+\d{4}|\d{4}-\d{2}/.test(dateApprox)) return 'month'
-  if (/\d{4}/.test(dateApprox)) return 'year'
-  return 'unknown'
-}
-
 function newBriefId(): string {
   if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) return crypto.randomUUID()
   return `brief-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`
+}
+
+/** Verbatim client story for a solicitor — not the processed situation summary. */
+export function buildClientNarrativeRaw(session: SessionState): string {
+  const seen = new Set<string>()
+  const parts: string[] = []
+
+  function push(text: string) {
+    const trimmed = text.replace(/\s+/g, ' ').trim()
+    if (!trimmed) return
+    const key = trimmed.toLowerCase()
+    if (seen.has(key)) return
+    if ([...seen].some((s) => s.includes(key) || key.includes(s))) {
+      if (key.length <= 40) return
+    }
+    seen.add(key)
+    parts.push(text.trim())
+  }
+
+  for (const input of session.rawInputs) push(input)
+  push(session.whatHappened)
+  const cause = session.howCaused.trim()
+  if (cause && !isMetaCauseLine(cause)) push(cause)
+  if (session.clientQuestion?.trim()) {
+    const q = session.clientQuestion.trim()
+    if (!parts.some((p) => p.includes(q))) push(q)
+  }
+  return parts.join('\n\n')
 }
 
 /** Core slots filled + enough progress. Jurisdiction required before solicitor-ready. */
@@ -87,35 +121,98 @@ export function isReadyForSolicitor(session: SessionState, progress: number): bo
   return true
 }
 
-function buildSituationSummary(session: SessionState): string {
-  const situationParts: string[] = [
-    'This client was recommended by LegalShaman.com (signposting only — not a referral for paid work, and not legal advice).',
+export function placeForSummary(session: SessionState): string {
+  const hint = (session.locationHint || '').trim()
+  if (hint) return hint
+  const blob = [
+    ...session.rawInputs,
+    session.whatHappened,
+    session.goal,
+    session.confirmedSearchQuery,
   ]
-  if (session.matterType !== 'unknown') {
-    situationParts.push(`This appears to concern ${matterLabel(session.matterType).toLowerCase()}.`)
+    .join(' ')
+    .trim()
+  const named =
+    blob.match(
+      /\b(Cornwall|Devon|Dorset|Somerset|Kent|Surrey|Essex|Sussex|Hampshire|Wiltshire|Norfolk|Suffolk|Cumbria|Yorkshire|Lancashire|London|Manchester|Birmingham|Leeds|Bristol|Liverpool|Glasgow|Edinburgh|Belfast|Cardiff|Plymouth|Truro|Exeter)\b/i,
+    )?.[1] ?? ''
+  const inEngland =
+    blob.match(/\bin\s+([A-Z][a-z]{2,}(?:\s+[A-Z][a-z]{2,})?),\s*(?:England|Wales|Scotland)\b/)?.[1] ??
+    ''
+  return named || inEngland || ''
+}
+
+function compactGist(session: SessionState): string {
+  const questions = extractClientQuestions(
+    `${session.clientQuestion || ''}\n${session.whatHappened || ''}\n${session.rawInputs.join('\n')}`,
+  )
+  if (questions.length) {
+    return questions.slice(0, 3).join(' ')
   }
-  if (session.whatHappened) {
-    situationParts.push(`What happened (client narrative): ${session.whatHappened}`)
-  } else if (session.events.length) {
-    situationParts.push(`Key events reported: ${session.events.map((e) => e.label).join('; ')}.`)
-  } else if (session.rawInputs[0]) {
-    situationParts.push(`Client’s opening account: “${session.rawInputs[0]}”.`)
+  const text = (session.whatHappened.trim() || session.rawInputs.find((r) => r.trim().length >= 8) || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (!text) return ''
+
+  const parking =
+    session.taxonomySlug === 'parking_pcn' ||
+    /\b(car\s*park|parking|pcn|popla|parking (?:fine|ticket|charge)|private parking)\b/i.test(text)
+  if (parking) {
+    const bits: string[] = []
+    if (/ticket machines? were broken|machines were broken/i.test(text)) bits.push('ticket machines were broken')
+    if (/app/.test(text) && /(failed|circles|unable|struggled)/i.test(text)) bits.push('could not pay on the parking app')
+    if (/fine|pcn|parking charge|£\d+/i.test(text)) bits.push('a parking charge followed')
+    if (/appeal/.test(text) && /denied|refused|rejected|nope/i.test(text)) bits.push('the operator appeal was refused')
+    if (/\bpopla\b/i.test(text) && /denied|refused|rejected|shouldn|too long/i.test(text))
+      bits.push('POPLA also refused')
+    if (bits.length) {
+      const lead = bits[0].charAt(0).toUpperCase() + bits[0].slice(1)
+      return `${lead}${bits.length > 1 ? `; ${bits.slice(1).join('; ')}` : ''}.`
+    }
   }
-  if (session.howCaused) {
-    situationParts.push(`How the client says it was caused: ${session.howCaused}`)
+
+  const first = text.split(/(?<=[.!?])\s+/)[0]?.trim() || text
+  if (first.length <= 180) return first.endsWith('.') ? first : `${first}.`
+  return `${first.slice(0, 177).replace(/\s+\S*$/, '')}…`
+}
+
+function buildSituationSummary(session: SessionState): string {
+  const bullets: string[] = []
+  const place = placeForSummary(session)
+  const nation = {
+    EnglandWales: 'England & Wales',
+    Scotland: 'Scotland',
+    NorthernIreland: 'Northern Ireland',
+    Unknown: '',
+  }[session.jurisdiction]
+
+  const area =
+    session.taxonomySlug === 'parking_pcn' ? 'Parking / PCN' : matterLabel(session.matterType)
+  const where = [place, nation].filter(Boolean).join(', ')
+  if (session.matterType !== 'unknown' || session.taxonomySlug === 'parking_pcn') {
+    bullets.push(where ? `${area} in ${where}.` : `${area}.`)
+  } else if (where) {
+    bullets.push(`Location: ${where}.`)
+  }
+
+  const gist = compactGist(session)
+  if (gist) bullets.push(gist)
+
+  const cause = session.howCaused.trim()
+  if (cause && !isMetaCauseLine(cause)) {
+    bullets.push(`How it was caused: ${cause}`)
   }
   if (session.parties.length) {
-    situationParts.push(`People / bodies mentioned: ${session.parties.map((p) => p.label).join(', ')}.`)
+    bullets.push(`People / bodies mentioned: ${session.parties.map((p) => p.label).join(', ')}.`)
   }
   if (session.softFlags.includes('character_concern_raised')) {
-    situationParts.push(
-      'Client raised a character / suitability concern (client-stated — not a finding).',
-    )
+    bullets.push('Client raised a character / suitability concern (client-stated — not a finding).')
   }
   if (session.safetyRisk) {
-    situationParts.push('Safety / urgency flag was raised during intake — check urgently.')
+    bullets.push('Safety / urgency flag was raised during intake — check urgently.')
   }
-  return situationParts.join(' ') || 'Insufficient detail captured yet.'
+
+  return bullets.map((b) => `• ${b}`).join('\n') || '• Insufficient detail captured yet.'
 }
 
 function buildIssues(frames: LegalFrame[]): LawyerBrief['issues'] {
@@ -132,12 +229,18 @@ export function buildLawyerBrief(
   progress: number,
   frames: LegalFrame[] = [],
 ): LawyerBrief {
+  session = sanitizeIntakeNarrative(session)
   const ready = isBriefReady(session, progress)
   const readyForSolicitor = isReadyForSolicitor(session, progress)
   const timeline = session.events.map((e, i) => ({
     order: i + 1,
     when: e.dateApprox || 'Date not given',
-    event: e.rawSpan ? tidySentence(e.rawSpan, 220) : e.label,
+    event: e.label || (e.rawSpan ? tidySentence(e.rawSpan, 220) : ''),
+    actors: e.actors?.filter(Boolean) ?? [],
+    documents: e.documentLabels?.filter(Boolean) ?? [],
+    sourceSpan: e.rawSpan && e.rawSpan !== e.label ? e.rawSpan : undefined,
+    datePrecision: e.datePrecision ?? guessDatePrecision(e.dateApprox),
+    clientConfirmed: e.clientConfirmed === true,
   }))
 
   const gaps = missingSlots(session).map((s) => s.label)
@@ -188,8 +291,13 @@ export function buildLawyerBrief(
     title: 'Notes for your Lawyer',
     createdAt: new Date().toISOString(),
     situationSummary: buildSituationSummary(session),
-    instructionsForLawyer: instructions.join(' '),
-    desiredOutcome: session.goal || 'Not yet stated by the client.',
+    instructionsForLawyer: instructions.map((line) => `• ${line}`).join('\n'),
+    desiredOutcome:
+      session.goal ||
+      compressLiveGoal(`${session.clientQuestion || ''}\n${session.whatHappened || ''}`) ||
+      extractClientQuestions(`${session.clientQuestion || ''}\n${session.whatHappened || ''}`)[0] ||
+      'Not yet stated by the client.',
+    clientNarrativeRaw: buildClientNarrativeRaw(session),
     timeline,
     parties: session.parties.map((p) => (p.role ? `${p.label} (${p.role})` : p.label)),
     documents: session.documents,
@@ -229,6 +337,7 @@ export function buildSolicitorBrief(
     /** Phase 3 local fit per frame — unmet_constraints come from here, not intake gaps */
     frameFits?: FrameFit[]
     conflictsDetected?: SolicitorBriefV0['conflicts_detected']
+    consentToShare?: boolean
   },
 ): SolicitorBriefV0 {
   const display = buildLawyerBrief(session, progress, frames)
@@ -306,14 +415,17 @@ export function buildSolicitorBrief(
       success_looks_like: session.goal || '',
       source: session.goal ? 'client' : 'inferred_unconfirmed',
     },
+    client_narrative_raw: display.clientNarrativeRaw || undefined,
     timeline: session.events.map((e, i) => ({
       order: i + 1,
       date_approx: e.dateApprox || '',
-      date_precision: guessDatePrecision(e.dateApprox),
-      event: e.rawSpan ? tidySentence(e.rawSpan, 220) : e.label,
-      actors: [],
+      date_precision: e.datePrecision ?? guessDatePrecision(e.dateApprox),
+      event: e.label || (e.rawSpan ? tidySentence(e.rawSpan, 220) : ''),
+      actors: e.actors?.filter(Boolean) ?? [],
+      documents: e.documentLabels?.filter(Boolean) ?? [],
+      source_span: e.rawSpan && e.rawSpan !== e.label ? e.rawSpan : undefined,
       source: 'client' as const,
-      client_confirmed: true,
+      client_confirmed: e.clientConfirmed === true,
     })),
     matter_summary_plain: display.situationSummary,
     matter_type: session.matterType,
@@ -339,7 +451,7 @@ export function buildSolicitorBrief(
     },
     handoff: {
       ready_for_solicitor: display.readyForSolicitor,
-      consent_to_share: false,
+      consent_to_share: opts?.consentToShare === true,
       attachments: [],
     },
     system_boundaries: {
@@ -360,26 +472,27 @@ export function briefToPlainText(brief: LawyerBrief): string {
       : 'Handoff: Not yet solicitor-ready',
     `Risk routing: ${brief.riskRouting}`,
     '',
-    '— SITUATION SUMMARY —',
-    brief.situationSummary,
-    '',
     '— DESIRED OUTCOME —',
     brief.desiredOutcome,
     '',
-    '— INSTRUCTIONS FOR THE LAWYER —',
-    brief.instructionsForLawyer,
-    '',
-    '— TIMELINE —',
+    ...(brief.clientNarrativeRaw
+      ? ['— IN THE CLIENT’S WORDS —', brief.clientNarrativeRaw, '']
+      : []),
+    '— CHRONOLOGY —',
   ]
 
   if (brief.timeline.length === 0) {
     lines.push('(No timeline events captured yet.)')
   } else {
     for (const row of brief.timeline) {
-      lines.push(`${row.order}. [${row.when}] ${row.event}`)
+      const who = row.actors.length ? ` (${row.actors.join(', ')})` : ''
+      const status = row.clientConfirmed ? '' : ' [inferred]'
+      lines.push(`${row.order}. [${row.when}] ${row.event}${who}${status}`)
     }
   }
 
+  lines.push('', '— SITUATION SUMMARY —', brief.situationSummary)
+  lines.push('', '— INSTRUCTIONS FOR THE LAWYER —', brief.instructionsForLawyer)
   lines.push('', '— DETAILS —')
   lines.push(`Matter type: ${brief.matterType}`)
   lines.push(`Jurisdiction: ${brief.jurisdiction}`)

@@ -141,7 +141,14 @@ export type MatterResolveInput = {
     confidence?: string;
     reason?: string;
     candidates?: { slug: string; score: number; sources?: string[] }[];
+    /** From matter-resolution agent (concepts copied to boost terms). */
+    searchBoostTerms?: string[];
   };
+  /**
+   * Concepts from matter-resolution LLM (LexKeyPlan IR).
+   * Merged into MatterFrame.concepts for retrieval planning.
+   */
+  agentConcepts?: string[];
 };
 
 export type MatterDiagnostics = {

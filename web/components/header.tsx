@@ -95,11 +95,12 @@ const locations = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user } = useBookmarks();
+  const { user, openAuth, signOut } = useBookmarks();
   const pathname = usePathname();
   const onShaman =
     pathname === "/ask-the-shaman" || pathname.startsWith("/ask-the-shaman/");
   const onSignpost = pathname === "/signposting" || pathname.startsWith("/signposting");
+  const onForFirms = pathname === "/for-firms" || pathname === "/signpost";
 
   return (
     <header className="relative overflow-hidden border-b-2 border-gold/30 bg-card">
@@ -114,13 +115,12 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center group" aria-label="Legal Shaman home">
             <div className="relative">
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 opacity-0 blur transition-opacity group-hover:opacity-100" />
               <Image
-                src="/logo.jpg"
-                alt="Legal Shaman Logo"
-                width={52}
-                height={52}
-                className="relative h-13 w-13 rounded-full border-2 border-gold/50"
+                src="/legal-shaman-header-transparent.png"
+                alt="Legal Shaman"
+                width={1024}
+                height={114}
+                className="relative h-auto w-[min(30rem,55vw)] max-w-full"
               />
             </div>
           </Link>
@@ -153,13 +153,20 @@ export function Header() {
               <NavBoxLink href="/signposting" active={onSignpost}>
                 Signpost
               </NavBoxLink>
+              <NavBoxLink href="/for-firms" active={onForFirms}>
+                For firms
+              </NavBoxLink>
               <NavBoxLink href="/bookmarks">
                 <Bookmark className="h-4 w-4" />
                 Bookmarks
               </NavBoxLink>
               {!user ? (
-                <NavBoxLink href="/login">Sign in</NavBoxLink>
-              ) : null}
+                <NavBoxButton variant="primary" onClick={() => openAuth("login")}>
+                  Login
+                </NavBoxButton>
+              ) : (
+                <NavBoxButton onClick={() => void signOut()}>Log out</NavBoxButton>
+              )}
             </nav>
 
             <button
@@ -192,6 +199,14 @@ export function Header() {
               Signpost
             </NavBoxLink>
             <NavBoxLink
+              href="/for-firms"
+              active={onForFirms}
+              className="w-full"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              For firms
+            </NavBoxLink>
+            <NavBoxLink
               href="/bookmarks"
               className="w-full"
               onClick={() => setMobileMenuOpen(false)}
@@ -200,14 +215,27 @@ export function Header() {
               Bookmarks
             </NavBoxLink>
             {!user ? (
-              <NavBoxLink
-                href="/login"
+              <NavBoxButton
+                variant="primary"
                 className="w-full"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openAuth("login");
+                }}
               >
-                Sign in
-              </NavBoxLink>
-            ) : null}
+                Login
+              </NavBoxButton>
+            ) : (
+              <NavBoxButton
+                className="w-full"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  void signOut();
+                }}
+              >
+                Log out
+              </NavBoxButton>
+            )}
           </nav>
         ) : null}
       </div>

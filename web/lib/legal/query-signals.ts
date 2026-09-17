@@ -1,7 +1,36 @@
 /** Shared query-shape detectors for wiki retrieve + taxonomy (leaf module). */
 
+/**
+ * Police pursuit / emergency vehicle damaged a stationary parked car —
+ * live ask is a claim against the force, not a garage workmanship dispute.
+ * Garage may appear only as the place the car was left.
+ */
+export function looksPolicePursuitVehicleClaim(text: string): boolean {
+  const s = String(text || "");
+  if (!s.trim()) return false;
+  const policeHit =
+    /\bpolice (?:car|vehicle|van)\b.{0,100}\b(hit|struck|damaged|collided|crash(?:ed)?|ran into|reversed into)\b/i.test(s) ||
+    /\b(hit|struck|damaged|collided|crash(?:ed)?|ran into|reversed into)\b.{0,100}\bpolice (?:car|vehicle|van)\b/i.test(s) ||
+    /\b(police|officer).{0,60}(?:left|gave).{0,40}(?:contact )?details\b/i.test(s) ||
+    /\bclaim against (?:the )?police\b/i.test(s) ||
+    /\bpolice.{0,40}(?:expecting|expect) a claim\b/i.test(s);
+  if (!policeHit) return false;
+  const vehicleDamaged =
+    /\b(car|vehicle|van)\b/i.test(s) &&
+    /\b(hit|struck|damaged|collided|crash|parked|stationary)\b/i.test(s);
+  if (!vehicleDamaged && !/\bclaim against (?:the )?police\b/i.test(s)) return false;
+  // Pure garage workmanship / quote disputes without police collision stay garage
+  const garageWorkmanshipOnly =
+    /\b(workmanship|coolant|expansion tank|charged (?:too )?much|poor (?:repair|service)|invoice (?:from|for) (?:the )?garage)\b/i.test(
+      s,
+    ) && !/\bpolice (?:car|vehicle|van)\b/i.test(s);
+  if (garageWorkmanshipOnly) return false;
+  return true;
+}
+
 /** Garage / van / car repair — not landlord housing repairs, not employment. */
 export function isVehicleRepairQuery(query: string): boolean {
+  if (looksPolicePursuitVehicleClaim(query)) return false;
   const q = query.toLowerCase();
   if (/\b(works?\s+van|company van|hire van|works vehicle)\b/i.test(q)) return true;
   if (/\b(mechanic|main dealer|motor ombudsman|mot)\b/i.test(q)) return true;
@@ -22,9 +51,28 @@ export function isVehicleRepairQuery(query: string): boolean {
 
 /** Filming / CCTV / consent — not “I have a record of the invoice”. */
 export function isRecordingLawQuery(query: string): boolean {
-  return /\b(film(ing)?|photograph|cctv|privacy|record(ing|ed)? (someone|me|without)|without .{0,20}consent|illegal to record)\b/i.test(
-    query,
-  );
+  const q = String(query || "");
+  return /\b(film(ing)?|photograph|cctv|nanny cam|doorbell cam(?:era)?|ring (?:doorbell|camera)|home (?:security )?camera|(?:security|surveillance) camera|privacy|record(ing|ed)? (someone|me|without)|without .{0,20}consent|illegal to record)\b/i.test(
+    q,
+  ) || /\b(neighbours?|neighbors?).{0,48}camera\b/i.test(q) || /\bcamera.{0,48}(neighbours?|neighbors?|facing|point(?:ing|ed)|my door|window|garden)\b/i.test(q);
+}
+
+/**
+ * Neighbour pointed a camera / CCTV / doorbell cam at the client's home —
+ * privacy / ICO / harassment, not landlord–tenant eviction.
+ */
+export function storyLooksNeighbourSurveillance(text: string): boolean {
+  const s = String(text || "");
+  if (!s.trim()) return false;
+  const neighbour = /\b(neighbours?|neighbors?|next[- ]door)\b/i.test(s);
+  const camera =
+    /\b(cctv|cameras?|doorbell|nanny cam|filming|recording me|surveillance)\b/i.test(s) ||
+    isRecordingLawQuery(s);
+  if (!neighbour || !camera) return false;
+  const tenancyLockout =
+    /\b(landlord|tenant|tenancy|section\s*21|section\s*8|illegal evict|changed? (?:the )?locks?)\b/i.test(s) &&
+    !/\b(camera|cctv|doorbell|filming)\b/i.test(s);
+  return !tenancyLockout;
 }
 
 /**
@@ -48,21 +96,84 @@ export function isPropertyPurchaseMisrepresentationQuery(query: string): boolean
 }
 
 /**
+ * Ex / co-parent damaged a child’s gift or belongings — civil recovery / small claims,
+ * not child arrangements / custody (even though matter may still type as family).
+ */
+export function isFamilyBelongingsPropertyClaim(query: string): boolean {
+  const q = (query || "").toLowerCase();
+  if (!q.trim()) return false;
+  // Pure custody / divorce / DA as the ask — keep family wiki path
+  if (
+    /\b(child arrangements?|contact order|custody|care order|divorce|non-molestation|domestic (?:abuse|violence))\b/i.test(
+      q,
+    ) &&
+    !/\b(threw|broke|broken|damaged|destroyed|smashed|sue|replacement|switch|console|toy|gift|get (?:it|them) (?:back|fixed))\b/i.test(
+      q,
+    )
+  ) {
+    return false;
+  }
+  const damageOrSue =
+    /\b(threw|broke|broken|damaged|destroyed|smashed|ruined)\b/.test(q) ||
+    /\b(sue|get (?:it|them) (?:back|fixed)|can'?t afford a new|replacement|small claims?|money claim|letter before action)\b/.test(
+      q,
+    );
+  if (!damageOrSue) return false;
+  const familyBackdrop =
+    /\b(my ex|ex[- ]?(?:partner|wife|husband)|his mum|his mom|her boyfriend|boyfriend'?s kid|co[- ]?parent)\b/.test(
+      q,
+    ) ||
+    (/\b(\d+\s*year\s*old|my (?:sons?|daughters?|kids?|children|child)|picking .{0,12}(?:sons?|daughters?) up)\b/.test(
+      q,
+    ) &&
+      /\b(ex|mum|mom|mother|dad|father|boyfriend)\b/.test(q));
+  return familyBackdrop;
+}
+
+/**
  * Council / London Tribunals PCN (permit road, bus lane, moving traffic) —
  * not employment just because the story starts “someone at my work”.
  */
 export function isPcnAppealQuery(query: string): boolean {
   const q = query.toLowerCase();
+  if (/\bpopla\b/i.test(q) || /\bprivate (?:car\s*)?park/i.test(q)) return true;
   const pcn =
     /\bpcns?\b/i.test(q) ||
     /\bpenalty charge( notices?)?\b/i.test(q) ||
-    /\b(parking ticket|parking fine|parking charge notice)\b/i.test(q);
+    /\b(parking ticket|parking fine|parking charge(?: notice)?)\b/i.test(q);
   if (!pcn) return false;
-  // Workplace HR stories that happen to say “PCN” as something else are rare;
-  // still require a traffic / council cue when the only hit is a weak “ticket”.
   return (
-    /\b(council|hounslow|tf[l]|london tribunal|london tribunals|eta\b|adjudicat|permit|restricted (road|hours)|bus lane|moving traffic|contravention|yellow box|congestion charge|appeal)\b/i.test(
+    /\b(council|hounslow|tf[l]|london tribunal|london tribunals|eta\b|adjudicat|permit|restricted (road|hours)|bus lane|moving traffic|contravention|yellow box|congestion charge|appeal|private parking|car park)\b/i.test(
       q,
     ) || /\bpcns?\b/i.test(q)
   );
+}
+
+/**
+ * Workplace disability / sickness-absence adjustments (Bradford Factor, RA to
+ * attendance triggers) — Equality Act / adjustments, not unfair dismissal.
+ */
+export function isDisabilityAbsenceAdjustmentsQuery(query: string): boolean {
+  const q = query.toLowerCase();
+  const workplace =
+    /\b(employer|employee|at work|workplace|retail|hr\b|my (?:job|work)|customer-?facing)\b/i.test(q);
+  const disability =
+    /\b(disabilit(?:y|ies)|disabled|equality act|reasonable adjustments?|fluctuating (?:health )?conditions?|chronic migraine|epilepsy)\b/i.test(
+      q,
+    );
+  const absence =
+    /\b(bradford factor|sickness absence|absence (?:management|procedure|score|trigger|policy)|attendance (?:trigger|management|score)|disability[- ]related (?:sickness|absence)|sick (?:days?|leave|absence)|short (?:periods? of )?sickness)\b/i.test(
+      q,
+    );
+  if (/\bbradford factor\b/i.test(q) && workplace) return true;
+  if (disability && absence && workplace) return true;
+  if (
+    disability &&
+    workplace &&
+    /\breasonable adjustments?\b/i.test(q) &&
+    /\b(absence|sick|bradford|trigger|attendance)\b/i.test(q)
+  ) {
+    return true;
+  }
+  return false;
 }

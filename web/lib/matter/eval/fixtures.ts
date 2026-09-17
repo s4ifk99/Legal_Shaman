@@ -82,6 +82,21 @@ export const MATTER_EVAL_REGRESSION: MatterEvalCase[] = [
       mustNotRetrieveDomains: ["used car", "travel agent"],
     },
   },
+  {
+    id: "cov-employer-family-dual-010",
+    suite: "coverage",
+    label: "Director ending PAYE during family proceedings",
+    submission: `I'm going through divorce/family proceedings with my ex-wife, who has been on PAYE through my limited company for over 10 years. She is not carrying out any work or duties for the business but continues to receive pay and has use of a company vehicle. What are my options for lawfully ending her employment? What is the correct way to recover the company vehicle? Should an employment solicitor coordinate with my family solicitor?`,
+    expected: {
+      primaryIssuesAny: ["employment"],
+      secondaryIssuesAny: ["family"],
+      mustExclude: ["discrimination_equality"],
+      mustRetrieveConcepts: ["employment"],
+      mustNotRetrieveDomains: ["used car", "parking", "section 21"],
+      helpMatchPracticeAny: ["employment"],
+      mustRelationshipTypes: ["employment"],
+    },
+  },
 ];
 
 export const MATTER_EVAL_FIXTURES: MatterEvalCase[] = [

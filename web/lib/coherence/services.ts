@@ -5,6 +5,8 @@ import type { LegalFrame } from './frames'
 import { proposeLegalFrames } from './frames'
 import type { KnowledgeHit } from './knowledgeTypes'
 import { matchLegalAid, type LegalAidHit } from './legalAid'
+import { matchAuthorityHelp, type AuthorityHelpHit } from './matchAuthorityHelp'
+import { matchFreeServices, type FreeServiceHit } from './matchFreeServices'
 import { matchSignposting, type SignpostHit } from './signposting'
 import { matchSraFirms, sraStatus, type SraFirmHit, type SraSearchMeta } from './sraLive'
 import {
@@ -15,19 +17,30 @@ import {
   type WikiHit,
 } from './wiki'
 import { matchV1Wiki, v1WikiInfo, type V1WikiHit } from './v1Wiki'
+import { applyFrameRoutingToSession } from './issueRouting'
+import { freezeIssueGraph } from './freezeIssueGraph'
+import { classifyHelpDoorKind, rankPeopleFirst, type HelpDoor } from './peopleFirst'
 
 export type { KnowledgeHit, WikiHit }
 export { matchImmigrationWiki, sourcesByFrame, wikiHitsToBriefSources, wikiHitsToSignposts } from './wiki'
-export type { DirectoryHit, LegalAidHit, ProbonoHit, SignpostHit, SraFirmHit, V1WikiHit }
+export type { DirectoryHit, LegalAidHit, ProbonoHit, SignpostHit, SraFirmHit, V1WikiHit, AuthorityHelpHit, FreeServiceHit }
 
 export interface HelpPack {
   phase2Wiki: KnowledgeHit[]
   v1Wiki: V1WikiHit[]
   signposts: SignpostHit[]
+  /** Dialable charities / helplines from freeServicesIndex (offline, incl. Exa fill) */
+  freeServices: FreeServiceHit[]
+  /** Offline authority index — official / trusted free resources */
+  authorityOfficial: AuthorityHelpHit[]
+  /** Offline firm commentary pages (signposting, not SRA cards) */
+  authorityFirms: AuthorityHelpHit[]
   legalAid: LegalAidHit[]
   sraFirms: SraFirmHit[]
   probono: ProbonoHit[]
   directories: DirectoryHit[]
+  /** People / services first; SRA firms last. */
+  peopleFirstDoors?: HelpDoor[]
   meta: {
     phase2?: { name: string; articleCount: number; pageCount?: number; pattern?: string }
     v1?: Awaited<ReturnType<typeof v1WikiInfo>>
@@ -122,49 +135,173 @@ export async function matchImmigrationKnowledge(
 export const matchDomainKnowledge = matchImmigrationKnowledge
 
 /**
+ * Resolve the routing lens for matching help. Penumbra may suggest a primary
+ * area only after citing its research sources; strong employment facts also
+ * outrank stray labels such as a user tapping "Criminal" in an earlier turn.
+ */
+export function matchingSessionForHelp(session: SessionState): SessionState {
+  if (session.issueGraphFrozen && session.matterFrame?.primaryIssues?.length) {
+    return applyFrameRoutingToSession(session)
+  }
+  if (session.matterFrame?.primaryIssues?.length) {
+    return applyFrameRoutingToSession(session)
+  }
+  const text = [
+    ...session.rawInputs,
+    session.whatHappened,
+    session.howCaused,
+    session.goal,
+    session.clientQuestion,
+    session.briefUnderstanding,
+    ...session.events.flatMap((event) => [event.label, event.rawSpan || '']),
+  ].join(' ')
+  const employmentSignal =
+    /\b(employer|employment|employee|workplace|work schedule|rota|shift|childcare|pregnan|maternity|acas|hr\b|dismiss|redundan)\b/i.test(
+      text,
+    )
+  const activeCrimeSignal =
+    /\b(police|arrest(?:ed)?|charged with|prosecut(?:ion|ed)|magistrates?|cps\b|offen[cs]e|driving ban|court hearing)\b/i.test(
+      text,
+    )
+  const contractorDisputeSignal =
+    /\b(painter|builder|contractor|scaffold(?:er|ing)?|tradesperson|workmanship|plumber|roofer|renovation)\b/i.test(
+      text,
+    ) &&
+    /\b(contract|damage|repair|work|pay|invoice|subcontract|unsafe|dangerous)\b/i.test(text)
+  const matching = session.penumbraResearch?.bundle?.matching
+
+  if (employmentSignal && !activeCrimeSignal) {
+    return {
+      ...session,
+      matterType: 'employment',
+      topicId: matching?.matterType === 'employment' ? matching.topicId : 'employment',
+      taxonomySlug: matching?.matterType === 'employment' ? matching.taxonomySlug || 'employment' : 'employment',
+    }
+  }
+
+  if (contractorDisputeSignal && !activeCrimeSignal) {
+    return {
+      ...session,
+      matterType: 'consumer',
+      topicId: 'consumer-services',
+      taxonomySlug: 'consumer_services',
+    }
+  }
+
+  if (matching && matching.confidence !== 'low' && matching.matterType !== 'unknown') {
+    return {
+      ...session,
+      matterType: matching.matterType,
+      topicId: matching.topicId || session.topicId,
+      taxonomySlug: matching.taxonomySlug || session.taxonomySlug,
+    }
+  }
+
+  return session
+}
+
+/**
  * Full help pack: Phase 2 legal wiki + V1 knowledge, signposting, legal aid, pro bono, directories.
  */
 export async function buildHelpPack(
   session: SessionState,
   frames: LegalFrame[] = [],
 ): Promise<HelpPack> {
-  const isImm = isImmigrationSession(session)
-  const useWiki = hasWikiDomainSession(session) || frames.length > 0
+  const frozen = freezeIssueGraph(session)
+  const routed = matchingSessionForHelp(frozen)
+  const isImm = isImmigrationSession(routed)
+  const useWiki = hasWikiDomainSession(routed) || frames.length > 0
+  const authority = matchAuthorityHelp(routed, 10)
+  const freeServices = matchFreeServices(routed, 10)
 
   const [
     phase2Wiki,
     v1Wiki,
     signposts,
     legalAid,
-    sraFirms,
+    sraMatch,
     probono,
     directories,
     phase2Info,
     v1Meta,
     sraMeta,
   ] = await Promise.all([
-    useWiki ? matchDomainKnowledge(session, 6, frames) : Promise.resolve([] as KnowledgeHit[]),
-    matchV1Wiki(session, isImm ? 4 : 2),
-    matchSignposting(session, 6),
-    isImm || session.matterType === 'immigration'
-      ? matchLegalAid(session, 5)
+    useWiki ? matchDomainKnowledge(routed, 6, frames) : Promise.resolve([] as KnowledgeHit[]),
+    matchV1Wiki(routed, isImm ? 4 : 2),
+    matchSignposting(routed, 6),
+    isImm || routed.matterType === 'immigration'
+      ? matchLegalAid(routed, 5)
       : Promise.resolve([] as LegalAidHit[]),
-    matchSraFirms(session, 5, frames),
-    matchProbono(session, 3),
-    matchDirectories(session),
-    useWiki ? wikiInfoForSession(session, frames) : Promise.resolve(null),
+    matchSraFirms(routed, 5, frames),
+    matchProbono(routed, 3),
+    matchDirectories(routed),
+    useWiki ? wikiInfoForSession(routed, frames) : Promise.resolve(null),
     v1WikiInfo(),
     sraStatus(),
   ])
+
+  const peopleFirstDoors = rankPeopleFirst([
+    ...freeServices.map((h) => ({
+      id: h.id,
+      title: h.title,
+      kind: classifyHelpDoorKind(h.title, h.type, 'match_free_help'),
+      blurb: h.blurb,
+      url: h.url,
+      phone: h.phone,
+      tool: 'match_free_help' as const,
+    })),
+    ...signposts.map((h) => ({
+      id: h.id,
+      title: h.title,
+      kind: classifyHelpDoorKind(h.title, h.type, 'signpost_category'),
+      blurb: h.blurb,
+      url: h.url,
+      phone: h.phone,
+      tool: 'signpost_category' as const,
+    })),
+    ...legalAid.map((h) => ({
+      id: h.id,
+      title: h.title,
+      kind: classifyHelpDoorKind(h.title, h.type, 'match_legal_aid'),
+      blurb: h.blurb,
+      url: h.url,
+      phone: h.phone,
+      tool: 'match_legal_aid' as const,
+    })),
+    ...sraMatch.firms.map((h) => ({
+      id: h.id,
+      title: h.title,
+      kind: 'firm' as const,
+      blurb: h.blurb,
+      url: h.url,
+      phone: h.phone,
+      tool: 'search_sra' as const,
+    })),
+  ])
+  const sraFirms = sraMatch.firms
+  const sraLaneMeta: SraSearchMeta = {
+    ...sraMeta,
+    hitsReturned: sraMatch.search.hitsReturned ?? sraFirms.length,
+    emptyReason: sraMatch.search.emptyReason,
+    error: sraMatch.search.error || sraMeta.error,
+    reachable:
+      sraMatch.search.emptyReason === 'unavailable' || sraMatch.search.emptyReason === 'http_error'
+        ? false
+        : sraMeta.reachable,
+  }
 
   return {
     phase2Wiki,
     v1Wiki,
     signposts,
+    freeServices,
+    authorityOfficial: authority.official,
+    authorityFirms: authority.firms,
     legalAid,
     sraFirms,
     probono,
     directories,
+    peopleFirstDoors,
     meta: {
       phase2: phase2Info
         ? {
@@ -175,7 +312,7 @@ export async function buildHelpPack(
           }
         : undefined,
       v1: v1Meta,
-      sra: sraMeta,
+      sra: sraLaneMeta,
     },
   }
 }
