@@ -98,7 +98,9 @@ export function Header() {
   const { user, openAuth, signOut } = useBookmarks();
   const pathname = usePathname();
   const onShaman =
-    pathname === "/ask-the-shaman" || pathname.startsWith("/ask-the-shaman/");
+    pathname === "/" ||
+    pathname === "/ask-the-shaman" ||
+    pathname.startsWith("/ask-the-shaman/");
   const onSignpost = pathname === "/signposting" || pathname.startsWith("/signposting");
   const onForFirms = pathname === "/for-firms" || pathname === "/signpost";
 
@@ -147,7 +149,7 @@ export function Header() {
             </DropdownMenu>
 
             <nav className="hidden items-center gap-1.5 md:flex">
-              <NavBoxLink href="/ask-the-shaman" active={onShaman}>
+              <NavBoxLink href="/" active={onShaman}>
                 Ask the Shaman
               </NavBoxLink>
               <NavBoxLink href="/signposting" active={onSignpost}>
@@ -183,7 +185,7 @@ export function Header() {
         {mobileMenuOpen ? (
           <nav className="mt-4 grid gap-2 border-t border-border/70 pt-4 md:hidden">
             <NavBoxLink
-              href="/ask-the-shaman"
+              href="/"
               active={onShaman}
               className="w-full"
               onClick={() => setMobileMenuOpen(false)}
