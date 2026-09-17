@@ -39,7 +39,14 @@ function looksLikeStoryQuery(q: string): boolean {
   return words.length >= 6;
 }
 
-export function SearchBar({ compact = false }: { compact?: boolean }) {
+export function SearchBar({
+  compact = false,
+  hideBrand = false,
+}: {
+  compact?: boolean;
+  /** Skip logo/H1 so inner pages (SEO landings) can keep their own title. */
+  hideBrand?: boolean;
+}) {
   const router = useRouter();
   const { requireAuth } = useRequireAuth();
   const [q, setQ] = useState("");
@@ -125,7 +132,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
     <div
       className={cn(
         "relative overflow-hidden border-b-2 border-gold/30 bg-gradient-to-br from-primary/5 via-background to-secondary/5",
-        compact ? "py-8 md:py-10" : "py-12",
+        hideBrand ? "py-6 md:py-8" : compact ? "py-8 md:py-10" : "py-12",
       )}
     >
       <div className="absolute -left-20 -top-20 opacity-15">
@@ -136,7 +143,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
       </div>
 
       <div className="relative mx-auto max-w-4xl px-4 text-center">
-        {!compact && (
+        {!hideBrand && !compact && (
           <div className="mb-6 flex justify-center">
             <div className="relative">
               <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 blur-lg" />
@@ -150,40 +157,43 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
             </div>
           </div>
         )}
-        {!compact ? (
-          <>
-            <h1 className="mb-2 font-serif text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-              <span className="text-primary">Legal</span>{" "}
-              <span className="text-secondary">Shaman</span>
-            </h1>
-            <p className="mb-1 text-base font-medium text-foreground md:text-lg">
-              Signposting, not legal advice
-            </p>
-          </>
-        ) : (
-          <>
-            <div className="mb-4 flex justify-center">
-              <Image
-                src="/logo.jpg"
-                alt="Legal Shaman Logo"
-                width={72}
-                height={72}
-                className="h-16 w-16 rounded-full border-2 border-gold/50 shadow-md md:h-[4.5rem] md:w-[4.5rem]"
-              />
-            </div>
-            <h1 className="mb-1 font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
-              <span className="text-primary">Legal</span>{" "}
-              <span className="text-secondary">Shaman</span>
-            </h1>
-            <p className="mb-2 text-base font-medium text-foreground md:text-lg">
-              Signposting, not legal advice
-            </p>
-          </>
+        {!hideBrand &&
+          (!compact ? (
+            <>
+              <h1 className="mb-2 font-serif text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+                <span className="text-primary">Legal</span>{" "}
+                <span className="text-secondary">Shaman</span>
+              </h1>
+              <p className="mb-1 text-base font-medium text-foreground md:text-lg">
+                Signposting, not legal advice
+              </p>
+            </>
+          ) : (
+            <>
+              <div className="mb-4 flex justify-center">
+                <Image
+                  src="/logo.jpg"
+                  alt="Legal Shaman Logo"
+                  width={72}
+                  height={72}
+                  className="h-16 w-16 rounded-full border-2 border-gold/50 shadow-md md:h-[4.5rem] md:w-[4.5rem]"
+                />
+              </div>
+              <h1 className="mb-1 font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
+                <span className="text-primary">Legal</span>{" "}
+                <span className="text-secondary">Shaman</span>
+              </h1>
+              <p className="mb-2 text-base font-medium text-foreground md:text-lg">
+                Signposting, not legal advice
+              </p>
+            </>
+          ))}
+        {!hideBrand && (
+          <p className={cn("text-muted-foreground", compact ? "mb-6 md:text-lg" : "mb-8")}>
+            Describe your situation. We point you to legal aid, free services, and solicitors. We do
+            not advise on your case.
+          </p>
         )}
-        <p className={cn("text-muted-foreground", compact ? "mb-6 md:text-lg" : "mb-8")}>
-          Describe your situation. We point you to legal aid, free services, and solicitors. We do
-          not advise on your case.
-        </p>
 
         <form
           onSubmit={onSubmit}

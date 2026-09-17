@@ -1,23 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Phone, Globe, ExternalLink, MapPin, ShieldCheck } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Bookmark, BookOpen } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { SearchBar } from "@/components/search-bar";
+import { SpiralBackground } from "@/components/spiral-decoration";
+import { DirectorySearchResults } from "@/components/search/directory-search-results";
+import { SearchFormWithSuggestions } from "@/components/search-form-with-suggestions";
+import { SearchDirectorySidebar } from "@/components/search-directory-sidebar";
+import { OslawTrendingMarquee } from "@/components/oslaw/trending-marquee";
 import { runDirectorySearch } from "@/lib/legal-search/run-directory-search";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
+import { getDistinctCities, getListingsBySubcategory } from "@/lib/data";
+import { enableMapSearch } from "@/lib/legal-search/config";
+import { buildMapMarkers } from "@/lib/search/map-results";
+import type { ResultDebugDiagnostics } from "@/lib/legal-search/search-diagnostics-types";
 
 // Render on demand (like /search). Avoids a build-time database dependency and
 // keeps directory results fresh as the underlying data updates.
 export const dynamic = "force-dynamic";
 
-const BASE = "https://www.legalshaman.com";
-
 type Combo = {
-  areaLabel: string; // H1 / title fragment, e.g. "Divorce & Family Law"
+  areaLabel: string; // H1 / title fragment, e.g. "Divorce & Family Law Solicitors"
   areaShort: string; // lowercase for prose, e.g. "family law"
   practiceAreaSlug: string; // taxonomy slug passed to search
   locationLabel: string; // e.g. "London"
@@ -125,51 +130,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-type DisplayRow = {
-  id: string;
-  name: string;
-  description: string;
-  city: string;
-  postcode: string;
-  phone: string;
-  website?: string;
-  sraProfileUrl?: string;
-  isLegalAid: boolean;
-  isFree: boolean;
-  isSra: boolean;
-};
-
-function toDisplayRow(row: LegacyGetRow): DisplayRow {
-  if (row.kind === "adlGroup") {
-    const loc = (row.locations[0] ?? {}) as Record<string, string>;
-    return {
-      id: row.id,
-      name: row.businessName,
-      description: row.description,
-      city: loc.city ?? "",
-      postcode: loc.postcode ?? "",
-      phone: loc.phone ?? "",
-      website: loc.website || undefined,
-      isLegalAid: true,
-      isFree: row.isFree,
-      isSra: false,
-    };
-  }
-  return {
-    id: row.id,
-    name: row.businessName,
-    description: row.description,
-    city: row.city,
-    postcode: row.postcode,
-    phone: row.phone,
-    website: row.website,
-    sraProfileUrl: row.sraProfileUrl,
-    isLegalAid: Boolean(row.isLegalAid),
-    isFree: row.isFree,
-    isSra: row.sourceType === "sra",
-  };
-}
-
 export default async function SolicitorsLandingPage({ params }: PageProps) {
   const { practiceArea, location } = await params;
   const combo = COMBOS[comboKey(practiceArea, location)];
@@ -177,21 +137,37 @@ export default async function SolicitorsLandingPage({ params }: PageProps) {
     notFound();
   }
 
-  let rows: DisplayRow[] = [];
+  let rows: LegacyGetRow[] = [];
+  let explanations: string[] = [];
+  let debugByIndex: (ResultDebugDiagnostics | undefined)[] = [];
+  let parsedPracticeArea: string | undefined = combo.practiceAreaSlug;
+  let parsedLocation: string | undefined = combo.locationLabel;
+  let markers: ReturnType<typeof buildMapMarkers>["markers"] = [];
+  let missingCoordinatesCount = 0;
+
   try {
     const dir = await runDirectorySearch({
       query: combo.query,
-      limit: 24,
+      limit: 60,
       semantic: false,
       city: combo.locationLabel,
       practiceArea: combo.practiceAreaSlug,
     });
-    rows = (dir.legacyRows as LegacyGetRow[]).map(toDisplayRow);
+    rows = dir.legacyRows as LegacyGetRow[];
+    explanations = dir.results.map((r) => r.explanation ?? "");
+    debugByIndex = dir.results.map((r) => r.debug);
+    parsedPracticeArea = dir.parsedQuery?.practiceAreaSlug ?? combo.practiceAreaSlug;
+    parsedLocation = dir.parsedQuery?.location ?? combo.locationLabel;
+    const mapPayload = enableMapSearch() ? buildMapMarkers(dir.results) : null;
+    markers = mapPayload?.markers ?? [];
+    missingCoordinatesCount = mapPayload?.missingCoordinatesCount ?? 0;
   } catch {
     rows = [];
   }
 
-  const canonical = `${BASE}/solicitors/${practiceArea.toLowerCase()}/${location.toLowerCase()}`;
+  const citizensFallback = getListingsBySubcategory("citizens-advice").slice(0, 3);
+  const cities = getDistinctCities({ max: 32 });
+  const wideLayout = markers.length > 0;
 
   const itemListLd = {
     "@context": "https://schema.org",
@@ -202,10 +178,8 @@ export default async function SolicitorsLandingPage({ params }: PageProps) {
       position: i + 1,
       item: {
         "@type": "LegalService",
-        name: r.name,
+        name: r.businessName,
         areaServed: combo.locationLabel,
-        ...(r.website ? { url: r.website } : {}),
-        ...(r.phone ? { telephone: r.phone } : {}),
       },
     })),
   };
@@ -223,6 +197,8 @@ export default async function SolicitorsLandingPage({ params }: PageProps) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
+      <OslawTrendingMarquee />
+      <SearchBar compact hideBrand />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }}
@@ -231,137 +207,107 @@ export default async function SolicitorsLandingPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
-      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
-        <div className="mb-6">
-          <Link
-            href="/search"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Search the full directory
-          </Link>
-        </div>
 
-        <h1 className="mb-3 font-serif text-3xl font-semibold text-primary">
-          {combo.areaLabel} in {combo.locationLabel}
-        </h1>
-        <p className="mb-4 max-w-2xl text-muted-foreground">{combo.intro}</p>
-        <p className="mb-6 text-xs text-muted-foreground">
-          This is not legal advice. Listings include curated services, GOV.UK legal aid providers,
-          and SRA-verified firms.
-        </p>
-
-        <div className="mb-8 flex flex-wrap gap-3">
-          <Button asChild>
-            <Link href="/ask-the-shaman?guided=1">Find a lawyer (guided)</Link>
-          </Button>
-          <Button asChild variant="secondary">
-            <Link href={`/search?q=${encodeURIComponent(combo.query)}`}>Refine this search</Link>
-          </Button>
-        </div>
-
-        {rows.length > 0 ? (
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold text-foreground">
-              {combo.areaShort.replace(/^\w/, (c) => c.toUpperCase())} help in {combo.locationLabel}
-            </h2>
-            {rows.map((r) => (
-              <ResultCard key={r.id} row={r} />
-            ))}
-          </section>
-        ) : (
-          <Card>
-            <CardContent className="py-10 text-center text-muted-foreground">
-              We couldn&apos;t load listings right now.{" "}
-              <Link href="/search" className="text-primary underline">
-                Search the directory
-              </Link>{" "}
-              instead.
-            </CardContent>
-          </Card>
-        )}
-
-        <section className="mt-12">
-          <h2 className="mb-4 text-xl font-semibold text-foreground">Frequently asked questions</h2>
-          <div className="space-y-4">
-            {combo.faqs.map((f) => (
-              <div key={f.q}>
-                <h3 className="font-medium text-foreground">{f.q}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{f.a}</p>
+      <section className="relative border-b border-border py-10 md:py-14">
+        <SpiralBackground className="opacity-40" />
+        <div className="relative mx-auto w-full max-w-5xl px-4">
+          <h1 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            {combo.areaLabel} in {combo.locationLabel}
+          </h1>
+          <p className="mt-3 max-w-2xl text-muted-foreground md:text-lg">{combo.intro}</p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Signposting only — not legal advice. Listings include curated services, GOV.UK legal aid
+            providers, and SRA-verified firms.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <Link
+              href="/find-a-lawyer"
+              className="group flex min-h-[7rem] gap-4 rounded-2xl border-2 border-primary/40 bg-primary/5 p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/10 hover:shadow-md"
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-card/80">
+                <BookOpen className="h-6 w-6 text-primary" />
               </div>
-            ))}
+              <div>
+                <h2 className="font-serif text-lg font-semibold text-foreground group-hover:text-primary">
+                  Guided matching
+                </h2>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Tell us your situation and we&apos;ll shortlist legal aid, free help, and solicitors.
+                </p>
+              </div>
+            </Link>
+            <Link
+              href="/bookmarks"
+              className="group flex min-h-[7rem] gap-4 rounded-2xl border-2 border-gold/40 bg-gold/5 p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-gold/70 hover:bg-gold/10 hover:shadow-md"
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-card/80">
+                <Bookmark className="h-6 w-6 text-gold" />
+              </div>
+              <div>
+                <h2 className="font-serif text-lg font-semibold text-foreground group-hover:text-primary">
+                  Save firms
+                </h2>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Bookmark listings from this page to compare them later.
+                </p>
+              </div>
+            </Link>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <main className={`mx-auto w-full flex-1 px-4 py-10 ${wideLayout ? "max-w-7xl" : "max-w-5xl"}`}>
+        <SearchFormWithSuggestions
+          key={combo.query}
+          initialQuery={combo.query}
+          initialFreeOnly={false}
+          initialLegalAidOnly={false}
+          initialCity={combo.locationLabel}
+          cities={cities}
+        />
+
+        <div className="mt-8 grid gap-8 lg:grid-cols-[260px_1fr]">
+          <SearchDirectorySidebar
+            q={combo.query}
+            freeOnly={false}
+            legalAidOnly={false}
+            city={combo.locationLabel}
+            practiceArea={combo.practiceAreaSlug}
+          />
+          <div>
+            <DirectorySearchResults
+              rows={rows}
+              explanations={explanations}
+              debugByIndex={debugByIndex}
+              q={combo.query}
+              parsedPracticeArea={parsedPracticeArea}
+              parsedLocation={parsedLocation}
+              freeOnly={false}
+              legalAidOnly={false}
+              cityFacet={combo.locationLabel}
+              markers={markers}
+              missingCoordinatesCount={missingCoordinatesCount}
+              externalFallback={null}
+              citizensFallback={citizensFallback}
+            />
+
+            <section className="mt-14">
+              <h2 className="mb-4 font-serif text-2xl font-semibold text-foreground">
+                Frequently asked questions
+              </h2>
+              <div className="space-y-4">
+                {combo.faqs.map((f) => (
+                  <div key={f.q}>
+                    <h3 className="font-medium text-foreground">{f.q}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{f.a}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
       </main>
       <Footer />
     </div>
-  );
-}
-
-function ResultCard({ row }: { row: DisplayRow }) {
-  const addressLine = [row.city, row.postcode].map((p) => (p || "").trim()).filter(Boolean).join(", ");
-  return (
-    <Card className="overflow-hidden">
-      <CardContent className="p-5">
-        <div className="mb-2 flex flex-wrap items-start justify-between gap-2">
-          <h3 className="text-lg font-semibold text-foreground">{row.name}</h3>
-          <div className="flex flex-wrap gap-2">
-            {row.isSra && (
-              <Badge variant="outline" className="border-primary/30 text-primary">
-                <ShieldCheck className="mr-1 h-3 w-3" />
-                SRA-verified
-              </Badge>
-            )}
-            {row.isFree && <Badge className="bg-green-100 text-green-800">Free</Badge>}
-            {row.isLegalAid && (
-              <Badge variant="outline" className="border-primary/30 text-primary">
-                Legal Aid *
-              </Badge>
-            )}
-          </div>
-        </div>
-        {row.description && (
-          <p className="mb-3 text-sm text-muted-foreground">{row.description}</p>
-        )}
-        {addressLine && (
-          <div className="mb-2 flex items-start gap-2 text-sm text-muted-foreground">
-            <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-            <span>{addressLine}</span>
-          </div>
-        )}
-        <div className="flex flex-wrap gap-4">
-          {row.phone && (
-            <a href={`tel:${row.phone}`} className="inline-flex items-center gap-1.5 text-sm text-accent hover:underline">
-              <Phone className="h-4 w-4" />
-              {row.phone}
-            </a>
-          )}
-          {row.website && (
-            <a
-              href={row.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-accent hover:underline"
-            >
-              <Globe className="h-4 w-4" />
-              Visit website
-              <ExternalLink className="h-3 w-3" />
-            </a>
-          )}
-          {row.sraProfileUrl && (
-            <a
-              href={row.sraProfileUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-accent hover:underline"
-            >
-              <ShieldCheck className="h-4 w-4" />
-              SRA profile
-              <ExternalLink className="h-3 w-3" />
-            </a>
-          )}
-        </div>
-      </CardContent>
-    </Card>
   );
 }
