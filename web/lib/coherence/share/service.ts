@@ -175,16 +175,20 @@ export async function createOrUpdateShare(opts: {
       },
     });
   } catch {
-    diskUpsertShare({
-      tokenHash,
-      updateTokenHash,
-      briefId: brief.brief_id,
-      expiresAt: expiresAt.toISOString(),
-      revokedAt: null,
-      consentAt: now.toISOString(),
-      publishedAt: now.toISOString(),
-      payload: brief,
-    });
+    try {
+      diskUpsertShare({
+        tokenHash,
+        updateTokenHash,
+        briefId: brief.brief_id,
+        expiresAt: expiresAt.toISOString(),
+        revokedAt: null,
+        consentAt: now.toISOString(),
+        publishedAt: now.toISOString(),
+        payload: brief,
+      });
+    } catch {
+      return { ok: false, error: "unavailable", status: 503 };
+    }
   }
 
   return {

@@ -18,6 +18,8 @@ import {
 } from './wiki'
 import { matchV1Wiki, v1WikiInfo, type V1WikiHit } from './v1Wiki'
 import { applyFrameRoutingToSession } from './issueRouting'
+import { freezeIssueGraph } from './freezeIssueGraph'
+import { classifyHelpDoorKind, rankPeopleFirst, type HelpDoor } from './peopleFirst'
 
 export type { KnowledgeHit, WikiHit }
 export { matchImmigrationWiki, sourcesByFrame, wikiHitsToBriefSources, wikiHitsToSignposts } from './wiki'
@@ -37,6 +39,8 @@ export interface HelpPack {
   sraFirms: SraFirmHit[]
   probono: ProbonoHit[]
   directories: DirectoryHit[]
+  /** People / services first; SRA firms last. */
+  peopleFirstDoors?: HelpDoor[]
   meta: {
     phase2?: { name: string; articleCount: number; pageCount?: number; pattern?: string }
     v1?: Awaited<ReturnType<typeof v1WikiInfo>>
@@ -136,6 +140,9 @@ export const matchDomainKnowledge = matchImmigrationKnowledge
  * outrank stray labels such as a user tapping "Criminal" in an earlier turn.
  */
 export function matchingSessionForHelp(session: SessionState): SessionState {
+  if (session.issueGraphFrozen && session.matterFrame?.primaryIssues?.length) {
+    return applyFrameRoutingToSession(session)
+  }
   if (session.matterFrame?.primaryIssues?.length) {
     return applyFrameRoutingToSession(session)
   }
@@ -200,10 +207,12 @@ export async function buildHelpPack(
   session: SessionState,
   frames: LegalFrame[] = [],
 ): Promise<HelpPack> {
-  const isImm = isImmigrationSession(session)
-  const useWiki = hasWikiDomainSession(session) || frames.length > 0
-  const authority = matchAuthorityHelp(session, 10)
-  const freeServices = matchFreeServices(session, 10)
+  const frozen = freezeIssueGraph(session)
+  const routed = matchingSessionForHelp(frozen)
+  const isImm = isImmigrationSession(routed)
+  const useWiki = hasWikiDomainSession(routed) || frames.length > 0
+  const authority = matchAuthorityHelp(routed, 10)
+  const freeServices = matchFreeServices(routed, 10)
 
   const [
     phase2Wiki,
@@ -217,20 +226,58 @@ export async function buildHelpPack(
     v1Meta,
     sraMeta,
   ] = await Promise.all([
-    useWiki ? matchDomainKnowledge(session, 6, frames) : Promise.resolve([] as KnowledgeHit[]),
-    matchV1Wiki(session, isImm ? 4 : 2),
-    matchSignposting(session, 6),
-    isImm || session.matterType === 'immigration'
-      ? matchLegalAid(session, 5)
+    useWiki ? matchDomainKnowledge(routed, 6, frames) : Promise.resolve([] as KnowledgeHit[]),
+    matchV1Wiki(routed, isImm ? 4 : 2),
+    matchSignposting(routed, 6),
+    isImm || routed.matterType === 'immigration'
+      ? matchLegalAid(routed, 5)
       : Promise.resolve([] as LegalAidHit[]),
-    matchSraFirms(session, 5, frames),
-    matchProbono(session, 3),
-    matchDirectories(session),
-    useWiki ? wikiInfoForSession(session, frames) : Promise.resolve(null),
+    matchSraFirms(routed, 5, frames),
+    matchProbono(routed, 3),
+    matchDirectories(routed),
+    useWiki ? wikiInfoForSession(routed, frames) : Promise.resolve(null),
     v1WikiInfo(),
     sraStatus(),
   ])
 
+  const peopleFirstDoors = rankPeopleFirst([
+    ...freeServices.map((h) => ({
+      id: h.id,
+      title: h.title,
+      kind: classifyHelpDoorKind(h.title, h.type, 'match_free_help'),
+      blurb: h.blurb,
+      url: h.url,
+      phone: h.phone,
+      tool: 'match_free_help' as const,
+    })),
+    ...signposts.map((h) => ({
+      id: h.id,
+      title: h.title,
+      kind: classifyHelpDoorKind(h.title, h.type, 'signpost_category'),
+      blurb: h.blurb,
+      url: h.url,
+      phone: h.phone,
+      tool: 'signpost_category' as const,
+    })),
+    ...legalAid.map((h) => ({
+      id: h.id,
+      title: h.title,
+      kind: classifyHelpDoorKind(h.title, h.type, 'match_legal_aid'),
+      blurb: h.blurb,
+      url: h.url,
+      phone: h.phone,
+      tool: 'match_legal_aid' as const,
+    })),
+    ...sraMatch.firms.map((h) => ({
+      id: h.id,
+      title: h.title,
+      kind: 'firm' as const,
+      blurb: h.blurb,
+      url: h.url,
+      phone: h.phone,
+      tool: 'search_sra' as const,
+    })),
+  ])
   const sraFirms = sraMatch.firms
   const sraLaneMeta: SraSearchMeta = {
     ...sraMeta,
@@ -254,6 +301,7 @@ export async function buildHelpPack(
     sraFirms,
     probono,
     directories,
+    peopleFirstDoors,
     meta: {
       phase2: phase2Info
         ? {

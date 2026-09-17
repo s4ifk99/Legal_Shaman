@@ -273,7 +273,12 @@ export function applyMasterToSession(
     goal: brief.goal?.trim() || base.goal,
     parties,
     documents: fresh ? [...(brief.documents || [])] : base.documents,
-    matterType: matter !== 'unknown' ? matter : base.matterType,
+    matterType:
+      base.issueGraphFrozen && base.matterType !== 'unknown'
+        ? base.matterType
+        : matter !== 'unknown'
+          ? matter
+          : base.matterType,
     jurisdiction: jurisdiction !== 'Unknown' ? jurisdiction : base.jurisdiction,
     locationHint: brief.locationHint?.trim() || base.locationHint,
     mode:
@@ -287,7 +292,11 @@ export function applyMasterToSession(
     clientQuestion: brief.clientQuestion?.trim() || base.clientQuestion || '',
     topicId: classify.topicId || brief.topicId || '',
     taxonomySlug: classify.taxonomySlug || base.taxonomySlug || null,
-    matterFrame: master.matterFrame ?? base.matterFrame ?? null,
+    matterFrame: base.issueGraphFrozen
+      ? base.matterFrame ?? master.matterFrame ?? null
+      : master.matterFrame ?? base.matterFrame ?? null,
+    issueGraphFrozen: fresh ? false : Boolean(base.issueGraphFrozen),
+    helpOutcome: fresh ? { consentToRecord: false } : base.helpOutcome,
     searchMode: session.searchMode,
     penumbraAcknowledged: session.penumbraAcknowledged,
     feedbackHistory: session.feedbackHistory,

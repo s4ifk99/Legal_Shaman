@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "purpose": "Offline classify + match gate for messy UK disputes. If mixed housing/police fails, we are a demo, not an agent.",
+    "notAdvice": true
+  },
+  "cases": [
+    {
+      "id": "housing-police-illegal-eviction",
+      "story": "My landlord changed the locks yesterday while I was at work. Police came, said it's a civil matter and they will not take a crime number. I slept in the car with two kids. England.",
+      "expectMatter": "housing",
+      "expectPackIn": ["landlord-tenant"],
+      "forbidPack": ["private-parking-charge", "neighbour-access-dispute", "car-reject-failed-repair"],
+      "expectTaxonomyReasonsAny": ["Possession / eviction", "Landlord–tenant"],
+      "expectTaxonomyReasonsAnyPolice": ["Criminal / police general", "Police seized / confiscated property", "Police attendance"],
+      "expectFrameIdAny": ["hous-possession", "hous-homeless", "hous-disrepair", "hous-general"],
+      "expectFreeHelpAny": ["shelter", "citizens advice"],
+      "forbidFreeHelp": ["popla", "parking charge"],
+      "followUp": "The garage said the clutch is fine and wants £400. A neighbour also mentioned parking.",
+      "expectFrozenMatter": "housing",
+      "expectPeopleFirstNotFirm": true
+    },
+    {
+      "id": "housing-police-assault-during-eviction",
+      "story": "Bailiffs and police turned up, landlord is trying to evict me under section 21, one officer shoved me and I have a bruise. Still in the flat. England and Wales.",
+      "expectMatter": "housing",
+      "expectPackIn": ["landlord-tenant"],
+      "forbidPack": ["private-parking-charge", "employment-general"],
+      "expectTaxonomyReasonsAny": ["Possession / eviction"],
+      "expectTaxonomyReasonsAnyPolice": ["Criminal / police general", "Police attendance"],
+      "expectFrameIdAny": ["hous-possession", "hous-homeless", "hous-general"],
+      "expectFreeHelpAny": ["shelter", "citizens advice"],
+      "forbidFreeHelp": ["popla", "holiday pay"]
+    },
+    {
+      "id": "unnamed-notice-not-s21-label",
+      "story": "I don't know what this paper is called. Landlord posted something through the door, two months to get out, private rented, England.",
+      "expectMatter": "housing",
+      "expectPackIn": ["landlord-tenant"],
+      "forbidPack": ["unclear", "private-parking-charge"],
+      "expectTaxonomyReasonsAny": ["Landlord–tenant", "Possession / eviction"],
+      "expectFreeHelpAny": ["shelter", "citizens advice"],
+      "forbidFreeHelp": ["popla"]
+    },
+    {
+      "id": "police-station-arrest-not-housing",
+      "story": "I was arrested and taken to the police station — need duty solicitor rights.",
+      "expectMatter": "crime",
+      "forbidPack": ["landlord-tenant", "neighbour-access-dispute", "private-parking-charge"],
+      "expectTaxonomyReasonsAny": ["Criminal / police general"],
+      "forbidTaxonomyReasons": ["Possession / eviction", "Landlord–tenant"],
+      "forbidFreeHelp": ["shelter housing"]
+    },
+    {
+      "id": "police-van-hit-parked-car",
+      "story": "A police van reversed into my parked car on the street and drove off. I want to claim for the damage. England.",
+      "expectMatterIn": ["crime", "consumer", "other", "unknown", "personal_injury"],
+      "forbidPack": ["landlord-tenant", "neighbour-access-dispute"],
+      "forbidTaxonomyReasons": ["Possession / eviction"],
+      "expectLiveDispute": "police_vehicle_claim",
+      "forbidFreeHelp": ["shelter housing"]
+    },
+    {
+      "id": "parking-pcn-not-housing",
+      "story": "Got a private parking charge on a retail park, want to appeal POPLA. England.",
+      "expectMatter": "consumer",
+      "expectPackIn": ["private-parking-charge"],
+      "forbidPack": ["landlord-tenant"],
+      "forbidFreeHelp": ["shelter housing"]
+    },
+    {
+      "id": "workplace-leave-not-housing",
+      "story": "I am a school cleaner, employer says I am not allowed to take holiday this term, England.",
+      "expectMatter": "employment",
+      "expectPackIn": ["employment-general"],
+      "forbidPack": ["landlord-tenant", "private-parking-charge"],
+      "expectFreeHelpAny": ["acas", "citizens advice"],
+      "forbidFreeHelp": ["shelter housing", "popla"]
+    }
+  ]
+}

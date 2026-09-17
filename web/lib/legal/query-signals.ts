@@ -9,8 +9,8 @@ export function looksPolicePursuitVehicleClaim(text: string): boolean {
   const s = String(text || "");
   if (!s.trim()) return false;
   const policeHit =
-    /\bpolice (?:car|vehicle|van)\b.{0,100}\b(hit|struck|damaged|collided|crash(?:ed)?|ran into)\b/i.test(s) ||
-    /\b(hit|struck|damaged|collided|crash(?:ed)?|ran into)\b.{0,100}\bpolice (?:car|vehicle|van)\b/i.test(s) ||
+    /\bpolice (?:car|vehicle|van)\b.{0,100}\b(hit|struck|damaged|collided|crash(?:ed)?|ran into|reversed into)\b/i.test(s) ||
+    /\b(hit|struck|damaged|collided|crash(?:ed)?|ran into|reversed into)\b.{0,100}\bpolice (?:car|vehicle|van)\b/i.test(s) ||
     /\b(police|officer).{0,60}(?:left|gave).{0,40}(?:contact )?details\b/i.test(s) ||
     /\bclaim against (?:the )?police\b/i.test(s) ||
     /\bpolice.{0,40}(?:expecting|expect) a claim\b/i.test(s);
