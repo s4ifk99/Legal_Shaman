@@ -18,6 +18,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 
+  // High-intent practice-area × location landing pages (SEO target combos).
+  // Keep in sync with the COMBOS whitelist in app/solicitors/[practiceArea]/[location]/page.tsx.
+  const solicitorsRoutes: MetadataRoute.Sitemap = [
+    "family/london",
+    "immigration/london",
+    "employment/manchester",
+  ].map((combo) => ({
+    url: `${BASE}/solicitors/${combo}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  }));
+
   let categoryRoutes: MetadataRoute.Sitemap = [];
   try {
     const slugs = getAllSubcategories();
@@ -44,5 +57,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     wikiRoutes = [];
   }
 
-  return [...staticRoutes, ...categoryRoutes, ...wikiRoutes];
+  return [...staticRoutes, ...solicitorsRoutes, ...categoryRoutes, ...wikiRoutes];
 }
