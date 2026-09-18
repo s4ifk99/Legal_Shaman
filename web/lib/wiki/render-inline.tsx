@@ -5,7 +5,8 @@ const TOKEN =
 
 /**
  * Render lightweight wiki/markdown inline marks for public wiki pages:
- * `**bold**`, `[label](url)`, `[[wikilink]]`, and `` `code` ``.
+ * `[label](url)`, `[[wikilink]]`, and `` `code` ``.
+ * `**bold**` is stripped to plain text (no weight change).
  * Also strips a leftover leading list marker if the index left one on.
  */
 export function renderWikiInline(raw: string): ReactNode {
@@ -24,11 +25,8 @@ export function renderWikiInline(raw: string): ReactNode {
     }
 
     if (match[2]) {
-      nodes.push(
-        <span key={key++} className="font-medium text-foreground">
-          {match[2]}
-        </span>,
-      );
+      // [[wikilink]] → plain label
+      nodes.push(match[2]);
     } else if (match[3] && match[4]) {
       nodes.push(
         <a
@@ -42,11 +40,8 @@ export function renderWikiInline(raw: string): ReactNode {
         </a>,
       );
     } else if (match[5]) {
-      nodes.push(
-        <strong key={key++} className="font-semibold text-foreground">
-          {match[5]}
-        </strong>,
-      );
+      // **bold** → plain text (unbold)
+      nodes.push(match[5]);
     } else if (match[6]) {
       nodes.push(
         <code key={key++} className="rounded bg-muted px-1 py-0.5 text-[0.85em]">
