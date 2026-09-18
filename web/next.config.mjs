@@ -32,6 +32,7 @@ const nextConfig = {
   outputFileTracingIncludes: {
     "/ask-the-shaman": ["./data/wiki-index.json"],
     "/ask-the-shaman/wiki/[slug]": ["./data/wiki-index.json"],
+    "/ask-the-shaman/wiki/[[...slug]]": ["./data/wiki-index.json"],
     "/api/ask/**": ["./data/wiki-index.json"],
     "/api/coherence/**": ["./data/wiki-index.json", "./data/coherence/**"],
     "app/ask-the-shaman/**": ["./data/wiki-index.json"],

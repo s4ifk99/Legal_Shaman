@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
@@ -6,22 +7,34 @@ import { Footer } from "@/components/footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { getWikiPageById } from "@/lib/wiki/search";
 import { renderWikiInline } from "@/lib/wiki/render-inline";
+import { wikiPagePublicPath } from "@/lib/wiki/public-url";
 
 type PageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug?: string[] }>;
 };
 
-export async function generateMetadata({ params }: PageProps) {
+/** Accept both %2F-encoded single segments and real multi-segment paths. */
+function wikiIdFromSlugParam(slug: string[] | undefined): string {
+  if (!slug?.length) return "";
+  return slug.map((part) => decodeURIComponent(part)).join("/");
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const page = getWikiPageById(decodeURIComponent(slug));
+  const id = wikiIdFromSlugParam(slug);
+  const page = id ? getWikiPageById(id) : null;
+  const canonical = id ? wikiPagePublicPath(id) : undefined;
   return {
     title: page ? `${page.title} | Ask the Shaman` : "Wiki article | Ask the Shaman",
+    alternates: canonical ? { canonical } : undefined,
+    robots: page ? { index: true, follow: true } : { index: false, follow: false },
   };
 }
 
 export default async function WikiArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const page = getWikiPageById(decodeURIComponent(slug));
+  const id = wikiIdFromSlugParam(slug);
+  const page = id ? getWikiPageById(id) : null;
   if (!page) notFound();
 
   return (
