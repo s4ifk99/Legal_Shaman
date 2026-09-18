@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-17T20:58:19.250Z",
+    "scrapedAt": "2026-09-18T10:20:21.218Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 7,
+    "topicCount": 4,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,15 +38,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wiyelm",
-          "title": "royal mail left my parcel halfway out of my letterbox and it was stolen - england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiyelm/royal_mail_left_my_parcel_halfway_out_of_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiyelm/royal_mail_left_my_parcel_halfway_out_of_my/",
+          "id": "1wjl2iq",
+          "title": "I've received a written warning from HR for biphobia because I mocked their tone-deaf bi awareness week campaign. I'm literally bi.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjl2iq/ive_received_a_written_warning_from_hr_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjl2iq/ive_received_a_written_warning_from_hr_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789661666,
-          "snippet": "my parcel was due to be delivered today. as i wasnt going to be in, i updated my delivery instructions at 8:36am asking for it to be redelivered to my chosen collection point. at 10:29, i received an email saying it been delivered today. the proof of delivery photo shows the parc",
+          "createdUtc": 1789722386,
+          "snippet": "I've just received a written warning from HR at 9:15am this morning. They started a bi awareness week campaign on Wednesday and it was completely tone-deaf. To start with they made a typo and kept referring to Bi people as \"B+\" while talking about inclusivity. I remarked to a col",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wjk7y9",
+          "title": "\"Equally owned\" shared bay, but he's treated it like his own private lock-up for 3 years — fair?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjk7y9/equally_owned_shared_bay_but_hes_treated_it_like/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjk7y9/equally_owned_shared_bay_but_hes_treated_it_like/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789719334,
+          "snippet": "So we've got this landlord (doesn't live here, rents his flat out) who co-owns our building in Edinburgh, same as the rest of us with the common areas. He's been using our shared parking bay as basically a permanent storage spot for his 1966 Mustang. Three years now. - Car's taxe",
           "listingSource": "rss:hot"
         },
         {
@@ -62,6 +74,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wjgw1g",
+          "title": "Neighbors or their scaffolding team broke into my garden when I was out, what are my options, england",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjgw1g/neighbors_or_their_scaffolding_team_broke_into_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjgw1g/neighbors_or_their_scaffolding_team_broke_into_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789707741,
+          "snippet": "The neighbors moved in next door around 8 months ago. About 2/3 weeks ago they out on some scaffolding on the front of the house and two days ago some more to cover all the front side. Yesterday I went out and suddenly I noticed that there were loads of missed calls from my wife,",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wivzyl",
           "title": "Banned from Aldi — advice? Scotland",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wivzyl/banned_from_aldi_advice_scotland/",
@@ -74,6 +98,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wja86x",
+          "title": "Possible chemical/radiation exposure at university laboratory – what are the correct steps to take?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wja86x/possible_chemicalradiation_exposure_at_university/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wja86x/possible_chemicalradiation_exposure_at_university/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789688768,
+          "snippet": "I have worked as a researcher at a university in England for almost 5 years and I’m looking for advice about how to handle a potential health and safety issue in our laboratory. Over the past couple of years, three different students working in our lab have developed recurring mi",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1winj9v",
           "title": "Bank lost my £262k for 3 days, what are my options?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1winj9v/bank_lost_my_262k_for_3_days_what_are_my_options/",
@@ -83,6 +119,90 @@
           "numComments": 0,
           "createdUtc": 1789631519,
           "snippet": "Bank lost my £262k for 3 days, what shall I do? Hi there, As the title suggests, I was in the process of buying my house. I went to the Lloyds branch (I’m with Halifax) to make the CHAPS payment of £262k to my conveyancing solicitors. The staff member took me to a cabin where the",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wj4gah",
+          "title": "Neighbour has 20 cars for sale - help? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj4gah/neighbour_has_20_cars_for_sale_help_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj4gah/neighbour_has_20_cars_for_sale_help_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789674919,
+          "snippet": "Posted elsewhere but was advised to come here. My neighbour is running a used car business from his home, which currently has 20 cars for sale. They have a website and a trade account on Autotrader if that’s relevant. This has been going on for about 2 years but only recently has",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wjlgvr",
+          "title": "[England] Damaged an induction hob, landlord wants to bill me a brand new model and installation costs",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjlgvr/england_damaged_an_induction_hob_landlord_wants/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjlgvr/england_damaged_an_induction_hob_landlord_wants/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789723786,
+          "snippet": "I accidentally dropped an object on the glass top of the induction hob in my kitchen and now there’s a big crack on one of the corners. I've been checking how much it would cost to repair it but it's an old model (the manufacturing date is 2012), it's not produced anymore, and I’",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wjlgkw",
+          "title": "Is this grounds for constructive dismissal in England, please?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjlgkw/is_this_grounds_for_constructive_dismissal_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjlgkw/is_this_grounds_for_constructive_dismissal_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789723759,
+          "snippet": "I (M51) have been working at my current job for almost 5 years. I am classed by my emoyer as being vulnerable. I was diagnosed as having a neurological disorder in November 2025 after some time away sick from work related stress. I work sales at a satellite office with one other ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wj2obc",
+          "title": "Received parking charge notice for time queuing & despite not occupying a space (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj2obc/received_parking_charge_notice_for_time_queuing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj2obc/received_parking_charge_notice_for_time_queuing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789671010,
+          "snippet": "Hi- looking for some advice. I had a hospital appointment at Royal Free Hospital in Hampstead. Upon entering the hospital’s entrance I immediately joined a long queue to the car park, which was located further inside the grounds of the hospital. The queue was very slow moving and",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wj0j2a",
+          "title": "Are Next allowed to spam me with text messages and only provide a premium SMS number to unsubscribe? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj0j2a/are_next_allowed_to_spam_me_with_text_messages/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj0j2a/are_next_allowed_to_spam_me_with_text_messages/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789666269,
+          "snippet": "Hi, As per the title, is it legal for Next (the clothing store) to spam me with text messages, up to 2 a day, and the only opt-out in the message is to text STOP to 88440, which is chargable on my phone contract which is set to a £0 over-contract allowance? I have made a GDPR com",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wjiq5i",
+          "title": "Director of RTM company, leaseholder is threatening legal action for damages during building works (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjiq5i/director_of_rtm_company_leaseholder_is/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjiq5i/director_of_rtm_company_leaseholder_is/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789714027,
+          "snippet": "I'm one of 3 directors of the RTM company of a small block of flats in London. Last year we needed to do some major building works on the block. To carry out this work the builders needed at times to access the basement flat in question. The leaseholder of the basement flat is cl",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wj6j8p",
+          "title": "(England) Landlord advertising property after evicting me",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj6j8p/england_landlord_advertising_property_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj6j8p/england_landlord_advertising_property_after/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789679604,
+          "snippet": "I was given an eviction notice 4 months ago so that the landlord could move his mother into the property. I tried to ask for more time as the rental market here is attrocious and I can't afford anywhere else, but they refused. I spent 3 months applying for anywhere but couldn't g",
           "listingSource": "rss:hot"
         },
         {
@@ -122,135 +242,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wj0j2a",
-          "title": "Are Next allowed to spam me with text messages and only provide a premium SMS number to unsubscribe? [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj0j2a/are_next_allowed_to_spam_me_with_text_messages/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj0j2a/are_next_allowed_to_spam_me_with_text_messages/",
+          "id": "1wjkzyb",
+          "title": "Utilities \"Duty of Reinstatement\"",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjkzyb/utilities_duty_of_reinstatement/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjkzyb/utilities_duty_of_reinstatement/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789666269,
-          "snippet": "Hi, As per the title, is it legal for Next (the clothing store) to spam me with text messages, up to 2 a day, and the only opt-out in the message is to text STOP to 88440, which is chargable on my phone contract which is set to a £0 over-contract allowance? I have made a GDPR com",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wj2obc",
-          "title": "Received parking charge notice for time queuing & despite not occupying a space (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj2obc/received_parking_charge_notice_for_time_queuing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj2obc/received_parking_charge_notice_for_time_queuing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789671010,
-          "snippet": "Hi- looking for some advice. I had a hospital appointment at Royal Free Hospital in Hampstead. Upon entering the hospital’s entrance I immediately joined a long queue to the car park, which was located further inside the grounds of the hospital. The queue was very slow moving and",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wisn6v",
-          "title": "[England] Getting a 17-year-old out of a bad situation, what should I know?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wisn6v/england_getting_a_17yearold_out_of_a_bad/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wisn6v/england_getting_a_17yearold_out_of_a_bad/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789648148,
-          "snippet": "I posted this on /AskUK and they suggested I post here as well. A friend [17F] of my kid lives in a terribly abusive household. She's regularly locked in her room from the outside, denied food, and is tracked everywhere she goes. There's also some physical abuse I'm not comfortab",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wiz3ga",
-          "title": "I'm in family court (UK) tomorrow and I'm worried about my attire",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiz3ga/im_in_family_court_uk_tomorrow_and_im_worried/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiz3ga/im_in_family_court_uk_tomorrow_and_im_worried/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789663174,
-          "snippet": "I've applied for a non-molestation order and have been given less than 24 hours' notice to appear in court. I am able to appear, but I'm worried that my outfit may come across as too casual. I don't want my appearance to have any baring on the case. I don't own any formal trouser",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wj1n9q",
-          "title": "Former student landlord trying to take whole deposit - Wales",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj1n9q/former_student_landlord_trying_to_take_whole/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj1n9q/former_student_landlord_trying_to_take_whole/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789668720,
-          "snippet": "Is there anything I can do about this other than challenge him through the deposit service? The only valid complaint is the blue tack stains and even then £200 seems very high for that. submitted by /u/Craftyfox1603 [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wircy4",
-          "title": "Landlord wants full £1,875 deposit plus another £1,584 [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wircy4/landlord_wants_full_1875_deposit_plus_another/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wircy4/landlord_wants_full_1875_deposit_plus_another/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789644486,
-          "snippet": "My wife and I recently moved out of a rented flat in England. Our deposit was £1,875 and the landlord/agent is claiming £3,459 in total, so they want the full deposit plus another £1,584. The main charges I’m disputing are £510 cleaning, £1,040 redecorating and £1,462 for replaci",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wj4gah",
-          "title": "Neighbour has 20 cars for sale - help? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj4gah/neighbour_has_20_cars_for_sale_help_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj4gah/neighbour_has_20_cars_for_sale_help_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789674919,
-          "snippet": "Posted elsewhere but was advised to come here. My neighbour is running a used car business from his home, which currently has 20 cars for sale. They have a website and a trade account on Autotrader if that’s relevant. This has been going on for about 2 years but only recently has",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wj2qcy",
-          "title": "How long do I wait for police to contact me before I follow up (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj2qcy/how_long_do_i_wait_for_police_to_contact_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj2qcy/how_long_do_i_wait_for_police_to_contact_me/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789671138,
-          "snippet": "TLDR: I walked into an active disagreement between 2 strangers where I felt one was at risk. I intervened,,took 3 hard hits and gave none. Called police who said because he’s walking away they won’t come but will try to sort it. Told them I have some videos given to me of the inc",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wiz4ct",
-          "title": "What license do I need to drive a School Minibus?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiz4ct/what_license_do_i_need_to_drive_a_school_minibus/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiz4ct/what_license_do_i_need_to_drive_a_school_minibus/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789663229,
-          "snippet": "Hi everyone, Not sure if this really belongs here. Did consider posting in the UK trucking chat too, but seems out of place there. I am looking for a new job, ideally part time to tidy me over until I can get into something more long-term and with progression. I drive a lot for w",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1whx379",
-          "title": "UPDATE: Pet microchip company wants to charge a yearly subscription just to update my address in the database (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whx379/update_pet_microchip_company_wants_to_charge_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whx379/update_pet_microchip_company_wants_to_charge_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789564883,
-          "snippet": "Original post here: [ https://www.reddit.com/r/LegalAdviceUK/s/o4cZyVLE2x ] Just wanted to give an update on my post the other day. (Summary: A pet microchip database wanted to charge me a yearly subscription fee to update my address with them.) Thanks to everyone who commented, ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wi7y2s",
-          "title": "Is it worth challenging this speeding prosecution?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi7y2s/is_it_worth_challenging_this_speeding_prosecution/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi7y2s/is_it_worth_challenging_this_speeding_prosecution/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789588539,
-          "snippet": "In England, last Friday evening I was driving down the A5. It's a stretch of road I've been down a few times but not regularly. It's a 50mph limit and then changes somewhere to 30mph. I was driving along, there weren't a lot of cars/congestion. Anyway I remembered that it changes",
+          "createdUtc": 1789722130,
+          "snippet": "A Utility company is set to dig up a substantial amount of our local skatepark in order to put in a storm overflow tank, there really isn't anywhere else for them to do it as it's in line with where pre-existing pipes connect and flow etc. My question is mostly based around \"Duty",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 12,
+      "postCount": 14,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,15 +280,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wiyelm",
-          "title": "royal mail left my parcel halfway out of my letterbox and it was stolen - england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiyelm/royal_mail_left_my_parcel_halfway_out_of_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiyelm/royal_mail_left_my_parcel_halfway_out_of_my/",
+          "id": "1wjl2iq",
+          "title": "I've received a written warning from HR for biphobia because I mocked their tone-deaf bi awareness week campaign. I'm literally bi.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjl2iq/ive_received_a_written_warning_from_hr_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjl2iq/ive_received_a_written_warning_from_hr_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789661666,
-          "snippet": "my parcel was due to be delivered today. as i wasnt going to be in, i updated my delivery instructions at 8:36am asking for it to be redelivered to my chosen collection point. at 10:29, i received an email saying it been delivered today. the proof of delivery photo shows the parc",
+          "createdUtc": 1789722386,
+          "snippet": "I've just received a written warning from HR at 9:15am this morning. They started a bi awareness week campaign on Wednesday and it was completely tone-deaf. To start with they made a typo and kept referring to Bi people as \"B+\" while talking about inclusivity. I remarked to a col",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wjk7y9",
+          "title": "\"Equally owned\" shared bay, but he's treated it like his own private lock-up for 3 years — fair?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjk7y9/equally_owned_shared_bay_but_hes_treated_it_like/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjk7y9/equally_owned_shared_bay_but_hes_treated_it_like/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789719334,
+          "snippet": "So we've got this landlord (doesn't live here, rents his flat out) who co-owns our building in Edinburgh, same as the rest of us with the common areas. He's been using our shared parking bay as basically a permanent storage spot for his 1966 Mustang. Three years now. - Car's taxe",
           "listingSource": "rss:hot"
         },
         {
@@ -304,6 +316,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wjgw1g",
+          "title": "Neighbors or their scaffolding team broke into my garden when I was out, what are my options, england",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjgw1g/neighbors_or_their_scaffolding_team_broke_into_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjgw1g/neighbors_or_their_scaffolding_team_broke_into_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789707741,
+          "snippet": "The neighbors moved in next door around 8 months ago. About 2/3 weeks ago they out on some scaffolding on the front of the house and two days ago some more to cover all the front side. Yesterday I went out and suddenly I noticed that there were loads of missed calls from my wife,",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wivzyl",
           "title": "Banned from Aldi — advice? Scotland",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wivzyl/banned_from_aldi_advice_scotland/",
@@ -316,6 +340,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wja86x",
+          "title": "Possible chemical/radiation exposure at university laboratory – what are the correct steps to take?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wja86x/possible_chemicalradiation_exposure_at_university/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wja86x/possible_chemicalradiation_exposure_at_university/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789688768,
+          "snippet": "I have worked as a researcher at a university in England for almost 5 years and I’m looking for advice about how to handle a potential health and safety issue in our laboratory. Over the past couple of years, three different students working in our lab have developed recurring mi",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1winj9v",
           "title": "Bank lost my £262k for 3 days, what are my options?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1winj9v/bank_lost_my_262k_for_3_days_what_are_my_options/",
@@ -325,42 +361,6 @@
           "numComments": 0,
           "createdUtc": 1789631519,
           "snippet": "Bank lost my £262k for 3 days, what shall I do? Hi there, As the title suggests, I was in the process of buying my house. I went to the Lloyds branch (I’m with Halifax) to make the CHAPS payment of £262k to my conveyancing solicitors. The staff member took me to a cabin where the",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wius71",
-          "title": "Recieved repeated letters for unpaid train penalty fare to my address, but the person doesn't live here. What should I be concerned about? - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wius71/recieved_repeated_letters_for_unpaid_train/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wius71/recieved_repeated_letters_for_unpaid_train/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789653533,
-          "snippet": "A few weeks ago a letter arrived at my parents house addressed to a man who doesn't and hasn't ever lived here. They've owned the house for 30 years. The address wasn't even \"our address\" as it was spelt wrong. We thought it was a harmless mistake so we crossed out the address, w",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wipu4k",
-          "title": "My bank froze my account accidentally and now I’m ruined",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipu4k/my_bank_froze_my_account_accidentally_and_now_im/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wipu4k/my_bank_froze_my_account_accidentally_and_now_im/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789639595,
-          "snippet": "Hello, I am in England July 2025 my wife applied for an IVA independently, I was not on it. My bank applied those restrictions to my account and it was frozen for weeks. All of my direct debits were affected and during that time I wasn’t able to pay for anything. We had to borrow",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wiuoke",
-          "title": "my job is trying to say I quit instead of being made redundant.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiuoke/my_job_is_trying_to_say_i_quit_instead_of_being/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wiuoke/my_job_is_trying_to_say_i_quit_instead_of_being/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789653309,
-          "snippet": "(England) I started working there from 24th September 2023, I was 16 at the time working part time. I have been on a 0 hour contract this whole time. I woke up to an email on 22nd August 2026 stating that they're going to close the place to customers on the 13th September, and pr",
           "listingSource": "rss:hot"
         }
       ]
@@ -388,27 +388,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wj1n9q",
-          "title": "Former student landlord trying to take whole deposit - Wales",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj1n9q/former_student_landlord_trying_to_take_whole/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj1n9q/former_student_landlord_trying_to_take_whole/",
+          "id": "1wjlgvr",
+          "title": "[England] Damaged an induction hob, landlord wants to bill me a brand new model and installation costs",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjlgvr/england_damaged_an_induction_hob_landlord_wants/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjlgvr/england_damaged_an_induction_hob_landlord_wants/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789668720,
-          "snippet": "Is there anything I can do about this other than challenge him through the deposit service? The only valid complaint is the blue tack stains and even then £200 seems very high for that. submitted by /u/Craftyfox1603 [link] [comments]",
+          "createdUtc": 1789723786,
+          "snippet": "I accidentally dropped an object on the glass top of the induction hob in my kitchen and now there’s a big crack on one of the corners. I've been checking how much it would cost to repair it but it's an old model (the manufacturing date is 2012), it's not produced anymore, and I’",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wircy4",
-          "title": "Landlord wants full £1,875 deposit plus another £1,584 [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wircy4/landlord_wants_full_1875_deposit_plus_another/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wircy4/landlord_wants_full_1875_deposit_plus_another/",
+          "id": "1wj6j8p",
+          "title": "(England) Landlord advertising property after evicting me",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj6j8p/england_landlord_advertising_property_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj6j8p/england_landlord_advertising_property_after/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789644486,
-          "snippet": "My wife and I recently moved out of a rented flat in England. Our deposit was £1,875 and the landlord/agent is claiming £3,459 in total, so they want the full deposit plus another £1,584. The main charges I’m disputing are £510 cleaning, £1,040 redecorating and £1,462 for replaci",
+          "createdUtc": 1789679604,
+          "snippet": "I was given an eviction notice 4 months ago so that the landlord could move his mother into the property. I tried to ask for more time as the rental market here is attrocious and I can't afford anywhere else, but they refused. I spent 3 months applying for anywhere but couldn't g",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wj4gah",
+          "title": "Neighbour has 20 cars for sale - help? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj4gah/neighbour_has_20_cars_for_sale_help_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj4gah/neighbour_has_20_cars_for_sale_help_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789674919,
+          "snippet": "Posted elsewhere but was advised to come here. My neighbour is running a used car business from his home, which currently has 20 cars for sale. They have a website and a trade account on Autotrader if that’s relevant. This has been going on for about 2 years but only recently has",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wjiq5i",
+          "title": "Director of RTM company, leaseholder is threatening legal action for damages during building works (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjiq5i/director_of_rtm_company_leaseholder_is/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wjiq5i/director_of_rtm_company_leaseholder_is/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789714027,
+          "snippet": "I'm one of 3 directors of the RTM company of a small block of flats in London. Last year we needed to do some major building works on the block. To carry out this work the builders needed at times to access the basement flat in question. The leaseholder of the basement flat is cl",
           "listingSource": "rss:hot"
         }
       ]
@@ -433,102 +469,6 @@
           "numComments": 0,
           "createdUtc": 1789671010,
           "snippet": "Hi- looking for some advice. I had a hospital appointment at Royal Free Hospital in Hampstead. Upon entering the hospital’s entrance I immediately joined a long queue to the car park, which was located further inside the grounds of the hospital. The queue was very slow moving and",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wj4gah",
-          "title": "Neighbour has 20 cars for sale - help? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj4gah/neighbour_has_20_cars_for_sale_help_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj4gah/neighbour_has_20_cars_for_sale_help_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789674919,
-          "snippet": "Posted elsewhere but was advised to come here. My neighbour is running a used car business from his home, which currently has 20 cars for sale. They have a website and a trade account on Autotrader if that’s relevant. This has been going on for about 2 years but only recently has",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wj2qcy",
-          "title": "How long do I wait for police to contact me before I follow up (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj2qcy/how_long_do_i_wait_for_police_to_contact_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wj2qcy/how_long_do_i_wait_for_police_to_contact_me/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789671138,
-          "snippet": "TLDR: I walked into an active disagreement between 2 strangers where I felt one was at risk. I intervened,,took 3 hard hits and gave none. Called police who said because he’s walking away they won’t come but will try to sort it. Told them I have some videos given to me of the inc",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "subscriptions-and-memberships",
-      "label": "Subscriptions and Memberships",
-      "legalAreaSlug": "consumer_subscriptions",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1whx379",
-          "title": "UPDATE: Pet microchip company wants to charge a yearly subscription just to update my address in the database (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1whx379/update_pet_microchip_company_wants_to_charge_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1whx379/update_pet_microchip_company_wants_to_charge_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789564883,
-          "snippet": "Original post here: [ https://www.reddit.com/r/LegalAdviceUK/s/o4cZyVLE2x ] Just wanted to give an update on my post the other day. (Summary: A pet microchip database wanted to charge me a yearly subscription fee to update my address with them.) Thanks to everyone who commented, ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "motoring-offences",
-      "label": "Motoring Offences",
-      "legalAreaSlug": "motoring_offences",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wi7y2s",
-          "title": "Is it worth challenging this speeding prosecution?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi7y2s/is_it_worth_challenging_this_speeding_prosecution/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wi7y2s/is_it_worth_challenging_this_speeding_prosecution/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789588539,
-          "snippet": "In England, last Friday evening I was driving down the A5. It's a stretch of road I've been down a few times but not regularly. It's a 50mph limit and then changes somewhere to 30mph. I was driving along, there weren't a lot of cars/congestion. Anyway I remembered that it changes",
           "listingSource": "rss:hot"
         }
       ]
