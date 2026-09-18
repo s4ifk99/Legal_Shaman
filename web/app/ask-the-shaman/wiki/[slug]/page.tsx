@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { getWikiPageById } from "@/lib/wiki/search";
+import { renderWikiInline } from "@/lib/wiki/render-inline";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -16,10 +17,6 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: page ? `${page.title} | Ask the Shaman` : "Wiki article | Ask the Shaman",
   };
-}
-
-function cleanWikiLine(line: string): string {
-  return line.replace(/\[\[([^\]]+)\]\]/g, "$1").replace(/\*\*/g, "");
 }
 
 export default async function WikiArticlePage({ params }: PageProps) {
@@ -48,19 +45,18 @@ export default async function WikiArticlePage({ params }: PageProps) {
           {page.summary ? (
             <section>
               <h2 className="font-serif text-lg font-semibold">Summary</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{page.summary}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {renderWikiInline(page.summary)}
+              </p>
             </section>
           ) : null}
 
           {page.keyInformation.length ? (
             <section>
               <h2 className="font-serif text-lg font-semibold">Key information</h2>
-              <ul className="mt-2 space-y-2 text-sm text-foreground">
+              <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-foreground marker:text-gold">
                 {page.keyInformation.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span className="text-gold">•</span>
-                    <span>{cleanWikiLine(item)}</span>
-                  </li>
+                  <li key={item}>{renderWikiInline(item)}</li>
                 ))}
               </ul>
             </section>
@@ -69,12 +65,9 @@ export default async function WikiArticlePage({ params }: PageProps) {
           {page.practicalGuidance.length ? (
             <section>
               <h2 className="font-serif text-lg font-semibold">Practical guidance</h2>
-              <ul className="mt-2 space-y-2 text-sm text-foreground">
+              <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-foreground marker:text-gold">
                 {page.practicalGuidance.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span className="text-gold">•</span>
-                    <span>{cleanWikiLine(item)}</span>
-                  </li>
+                  <li key={item}>{renderWikiInline(item)}</li>
                 ))}
               </ul>
             </section>
@@ -89,7 +82,7 @@ export default async function WikiArticlePage({ params }: PageProps) {
                     key={concept}
                     className="rounded-full border border-border bg-muted px-3 py-1 text-xs text-foreground"
                   >
-                    {concept}
+                    {concept.replace(/^\[\[|\]\]$/g, "")}
                   </span>
                 ))}
               </div>
@@ -100,9 +93,9 @@ export default async function WikiArticlePage({ params }: PageProps) {
             <Card className="border-gold/20">
               <CardContent className="p-5">
                 <h2 className="font-serif text-lg font-semibold">Sources</h2>
-                <ul className="mt-2 space-y-2 text-xs text-muted-foreground">
+                <ul className="mt-2 list-disc space-y-2 pl-5 text-xs text-muted-foreground marker:text-gold">
                   {page.sources.slice(0, 10).map((source) => (
-                    <li key={source}>{cleanWikiLine(source)}</li>
+                    <li key={source}>{renderWikiInline(source)}</li>
                   ))}
                 </ul>
               </CardContent>
