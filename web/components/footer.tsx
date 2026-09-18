@@ -38,7 +38,7 @@ export function Footer() {
           </div>
           
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
-            <Link href="/ask-the-shaman" className="text-primary-foreground/70 transition-colors hover:text-gold">
+            <Link href="/" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Ask the Shaman
             </Link>
             <Link href="/signposting" className="text-primary-foreground/70 transition-colors hover:text-gold">

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Phone, Mail, MapPin, Globe, ExternalLink, Search } from "lucide-react";
@@ -13,6 +14,25 @@ type PageProps = {
   params: Promise<{ slug: string }>;
   searchParams?: Promise<{ q?: string }>;
 };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const info = getCategoryInfo(slug);
+  if (!info) {
+    return { title: "Category not found" };
+  }
+  const title = `${info.name} in the UK`;
+  const description = `Find trusted ${info.name.toLowerCase()} services across the United Kingdom — curated listings, legal aid providers, and free advice. Not legal advice.`;
+  // Self-referential canonical so Google consolidates ?q= filter variants
+  // onto the clean category URL (fixes "duplicate without user-selected canonical").
+  const canonical = `/category/${slug}`;
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: { title: `${title} | Legal Shaman`, description, url: canonical },
+  };
+}
 
 export default async function CategoryPage({ params, searchParams }: PageProps) {
   const { slug } = await params;

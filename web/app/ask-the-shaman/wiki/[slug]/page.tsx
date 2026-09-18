@@ -32,7 +32,7 @@ export default async function WikiArticlePage({ params }: PageProps) {
       <Header />
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8">
         <Link
-          href="/ask-the-shaman"
+          href="/"
           className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />

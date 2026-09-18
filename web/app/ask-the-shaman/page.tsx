@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import { BookOpen } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -27,6 +28,10 @@ type PageProps = {
     guided?: string;
     location?: string;
     classic?: string;
+    billing?: string;
+    login?: string;
+    verified?: string;
+    verify?: string;
   }>;
 };
 
@@ -99,6 +104,21 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
   const initialLocation = (sp.location || "").trim();
   const showGuided = sp.guided === "1";
   const forceClassic = sp.classic === "1";
+  const hasIntakeIntent = Boolean(
+    initialQuery ||
+      initialLocation ||
+      showGuided ||
+      forceClassic ||
+      (sp.billing || "").trim() ||
+      (sp.login || "").trim() ||
+      (sp.verified || "").trim() ||
+      (sp.verify || "").trim(),
+  );
+
+  // Bare /ask-the-shaman used to restore a stale localStorage case. Default is the landing page.
+  if (!hasIntakeIntent) {
+    redirect("/");
+  }
 
   const hdrs = await headers();
   const user = await getCurrentUser();
@@ -131,8 +151,8 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
           {uiMode === "coherence" && forceClassic ? (
             <p className="text-sm text-muted-foreground">
               Classic Ask (local escape hatch).{" "}
-              <Link href="/ask-the-shaman" className="font-medium text-primary hover:underline">
-                Back to Coherence intake
+              <Link href="/" className="font-medium text-primary hover:underline">
+                Back to Ask the Shaman
               </Link>
             </p>
           ) : null}
@@ -150,7 +170,7 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
                 debugEnabled={enableSearchDebug()}
               />
               <p className="text-sm text-muted-foreground">
-                <Link href="/ask-the-shaman" className="font-medium text-primary hover:underline">
+                <Link href="/" className="font-medium text-primary hover:underline">
                   ← Back to unified search
                 </Link>
               </p>
