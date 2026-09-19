@@ -1,0 +1,18 @@
+{
+  "name": "Legal Shaman (Next.js web app)",
+  "install": "bash .cursor/install.sh",
+  "start": "bash .cursor/start.sh",
+  "terminals": [
+    {
+      "name": "next-dev",
+      "command": "bash .cursor/start.sh && cd web && npm run dev",
+      "description": "Ensures PostgreSQL is up, then runs the Next.js dev server for the web app on http://localhost:3000 (pages: /, /search, /ask-the-shaman, /signposting)."
+    }
+  ],
+  "ports": [
+    {
+      "name": "web",
+      "port": 3000
+    }
+  ]
+}
