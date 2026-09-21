@@ -37,16 +37,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
   let wikiRoutes: MetadataRoute.Sitemap = [];
   try {
     const index = getWikiIndex();
-    // Prefer Areas/ editorial pages for the sitemap budget so Blog→wiki publishes
-    // are discoverable (Directory firm pages dominate alphabetical order).
-    const areas = index.pages.filter((p) => p.id.startsWith("Areas/"));
-    const rest = index.pages.filter((p) => !p.id.startsWith("Areas/"));
-    const capped = [...areas, ...rest].slice(0, 500);
+    // Blog→wiki publishes must stay in the 500-URL budget (Areas alone is ~2.6k).
+    const priorityIds = new Set([
+      "Areas/Consumer Rights/Faulty Goods and Services/Courier left my parcel outside and it went missing — can I use Section 75",
+      "Areas/Home and Housing/Buying and Selling/Ground rent reviewed every 10 years by RPI — what should a buyer check",
+    ]);
+    const priority = index.pages.filter((p) => priorityIds.has(p.id));
+    const areas = index.pages.filter(
+      (p) => p.id.startsWith("Areas/") && !priorityIds.has(p.id),
+    );
+    const rest = index.pages.filter(
+      (p) => !p.id.startsWith("Areas/") && !priorityIds.has(p.id),
+    );
+    const capped = [...priority, ...areas, ...rest].slice(0, 500);
     wikiRoutes = capped.map((page) => ({
       url: `${BASE}/ask-the-shaman/wiki/${encodeURIComponent(page.id)}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: page.id.startsWith("Areas/") ? 0.65 : 0.5,
+      priority: priorityIds.has(page.id)
+        ? 0.75
+        : page.id.startsWith("Areas/")
+          ? 0.65
+          : 0.5,
     }));
   } catch {
     wikiRoutes = [];
