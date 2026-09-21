@@ -40,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Blog→wiki publishes must stay in the 500-URL budget (Areas alone is ~2.6k).
     const priorityIds = new Set([
       "Areas/Consumer Rights/Faulty Goods and Services/Courier left my parcel outside and it went missing — can I use Section 75",
+      "Areas/Consumer Rights/Faulty Goods and Services/A company called my private number with my name and job title — what can I do",
       "Areas/Home and Housing/Buying and Selling/Ground rent reviewed every 10 years by RPI — what should a buyer check",
     ]);
     const priority = index.pages.filter((p) => priorityIds.has(p.id));
