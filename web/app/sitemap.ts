@@ -37,11 +37,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   let wikiRoutes: MetadataRoute.Sitemap = [];
   try {
     const index = getWikiIndex();
-    wikiRoutes = index.pages.slice(0, 500).map((page) => ({
+    // Prefer Areas/ editorial pages for the sitemap budget so Blog→wiki publishes
+    // are discoverable (Directory firm pages dominate alphabetical order).
+    const areas = index.pages.filter((p) => p.id.startsWith("Areas/"));
+    const rest = index.pages.filter((p) => !p.id.startsWith("Areas/"));
+    const capped = [...areas, ...rest].slice(0, 500);
+    wikiRoutes = capped.map((page) => ({
       url: `${BASE}/ask-the-shaman/wiki/${encodeURIComponent(page.id)}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: 0.5,
+      priority: page.id.startsWith("Areas/") ? 0.65 : 0.5,
     }));
   } catch {
     wikiRoutes = [];
