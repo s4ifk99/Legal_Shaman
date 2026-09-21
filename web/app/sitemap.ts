@@ -43,6 +43,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "Areas/Consumer Rights/Faulty Goods and Services/A company called my private number with my name and job title — what can I do",
       "Areas/Home and Housing/Buying and Selling/Ground rent reviewed every 10 years by RPI — what should a buyer check",
       "Areas/Money, Benefits and Debt/Debt Solutions/Family spent on my credit card and won’t repay: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Non refundable train ticket but the train never came: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Garage fixed my car then it broke down again: who helps",
     ]);
     const priority = index.pages.filter((p) => priorityIds.has(p.id));
     const areas = index.pages.filter(
