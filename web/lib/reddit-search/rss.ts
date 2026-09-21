@@ -102,3 +102,12 @@ export async function fetchSubredditHotRss(
   const xml = await fetchRssText(`/r/${subreddit}/hot.rss`);
   return parseRedditAtomFeed(xml, subreddit).slice(0, limit);
 }
+
+/** New listing via public Atom RSS — no Reddit API app required. */
+export async function fetchSubredditNewRss(
+  subreddit: string,
+  limit = 25,
+): Promise<LiveRedditSearchResult[]> {
+  const xml = await fetchRssText(`/r/${subreddit}/new.rss`);
+  return parseRedditAtomFeed(xml, subreddit).slice(0, limit);
+}

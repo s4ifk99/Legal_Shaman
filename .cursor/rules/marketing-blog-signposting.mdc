@@ -1,0 +1,37 @@
+---
+description: How Legal Shaman Marketing Blog drafts should be written
+alwaysApply: true
+---
+
+# Marketing Blog signposting voice
+
+When writing or editing **Marketing Blog** drafts (Notion) or the matching wiki signpost pages:
+
+## Purpose
+- Signposting only: who helps, in what order, with official links. Not legal advice.
+- Answer the demand query shape (often “who helps?”) so a reader can act without guessing.
+
+## Structure (Notion draft)
+1. Status callout · `## SEO` (H1, meta, Primary query, matter, CTA) · Summary · Key information
+2. **What [door] would actually do here** for every free service you lean on (especially Citizens Advice, ACAS, ICO, CCW, ombudsmen)
+3. Practical guidance: who to contact, in order
+4. Services table with columns: Who helps · What they actually do · What they do not do · How to reach
+5. FAQ · Sources (official URLs + related wiki) · Disclaimer · anonymised Legal Shaman query
+6. Follow `seo-keyword-bold` and `no-dash-in-prose`
+
+## Free doors: never name-drop only
+Bad: “Contact Citizens Advice.”
+Good: what advisers will do (explain rights, point to a template, pass a Trading Standards report), what they will **not** do (chase the trader, lodge the claim, represent in court), and when to skip the call.
+
+Always link templates or guides you rely on (CA letter templates, ICO home CCTV letter, POPLA path, etc.).
+
+## Depth by matter
+- **Employment**: spell out contract type (employee / worker / zero hours / agency / self employed), which free services fit each (e.g. Zero Hours Justice, Maternity Action, ACAS, union, Law Centre), and **when to speak to a solicitor** (discrimination, unpaid final pay after chase, ACAS ending, deadline close).
+- **Regulators (ICO, CAA, CCW, MIB)**: what they enforce, what to do before complaining, enforcement limits, and when another door is better.
+- **Consumer**: trader first, evidence, then card / scheme / court; CA as advice + templates, not casework.
+
+## Wiki publish
+Public wiki only renders Summary, Key Information bullets, Practical Guidance bullets, Related topics, Sources. Fold “what they will / will not do” and template links into those bullet sections so nothing important lives only in Notion-only headings or tables.
+
+## Daily automation gate
+Nightly Cursor Automation writes **10** Blog Queue rows at **Ready for review**. Only rows flipped to **Approved** are auto-published (Publishing → Published). Never publish from Ready for review or Kill. See `.cursor/blog-automation-prompts.md` and Marketing → Daily Reddit → 10 morning drafts.

@@ -1,0 +1,18 @@
+---
+description: Bold SEO keywords in Marketing Blog / wiki signposting drafts
+alwaysApply: true
+---
+
+# SEO keyword bolding
+
+When writing or editing **Marketing Blog** drafts, wiki signpost pages, or SEO landing copy:
+
+1. Take the **Primary query** (and H1 target phrases) from the page’s SEO block.
+2. **Bold** those keywords / short phrases in the visible prose — Summary, Key information, Practical guidance, FAQ answers, and meta description draft text.
+3. Prefer **first meaningful use** of each keyword family per section (not every repeat). Do not bold whole sentences or non-query filler.
+4. Keep legal names accurate: e.g. **Section 75**, **chargeback**, **Consumer Rights Act 2015**.
+5. When creating a new draft, list Primary query under `## SEO` first, then bold those terms in the body before marking ready for review.
+6. For **wiki** pages, use real markdown: `**keyword**` for bold and `[label](https://…)` for links. The public wiki renderer turns these into HTML — prefer phrase bold (`**parcel left outside**`) over bolding every single word.
+
+Example primary query: `section 75 parcel not delivered / courier left outside missing`  
+→ body uses **Section 75**, **parcel not delivered**, **courier left**, **missing**, **chargeback** where natural, plus working `[Citizens Advice](url)` links.

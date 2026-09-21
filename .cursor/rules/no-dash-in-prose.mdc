@@ -1,0 +1,21 @@
+---
+description: Do not use hyphens or dashes in prose writing
+alwaysApply: true
+---
+
+# No dashes in writing
+
+When writing or editing prose (Marketing Blog drafts, wiki signpost pages, SEO copy, user facing summaries, FAQs, chat replies about content):
+
+1. Do **not** use `-`, `–`, or `—` in visible sentences.
+2. Prefer commas, full stops, colons, parentheses, or a short rewrite.
+3. Avoid hyphenated clause breaks and dash asides (e.g. rewrite “issuer → FOS — if needed” as separate sentences or “then”).
+4. Prefer open wording over hyphen stacks where natural: “credit card” not “credit-card”; “pre recorded” or “recorded” not “pre-recorded” when it still reads clearly.
+5. Markdown list markers and table pipes are fine (structural syntax). Code, URLs, IDs, and legal citations stay unchanged when the source uses a hyphen (e.g. case names, statute pins).
+
+Examples:
+
+- Bad: `Authorised spend — Citizens Advice helps.`
+- Good: `Authorised spend: Citizens Advice helps.`
+- Bad: `cardholder-vs-family debt`
+- Good: `cardholder versus family debt`
