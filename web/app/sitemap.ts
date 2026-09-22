@@ -53,6 +53,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "Areas/Consumer Rights/Faulty Goods and Services/Plumber's work flooded the home with sewage: who helps",
       "Areas/Driving and Parking/Motoring Offences/Parked motorcycle hit and the driver left: who helps",
       "Areas/Neighbours and Property/Noise and Nuisance/Drone flying low over my back garden: who helps",
+      "Areas/Driving and Parking/Parking and PCNs/PayByPhone vs Pay By Phone parking fine: who helps",
+      "Areas/Consumer Rights/Travel and Holidays/Airline oversold my flight at the airport: who helps",
+      "Areas/Money, Benefits and Debt/Debt Solutions/Retailer collected goods then debt collector chased: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Rejected for a job over long term health: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Employer requires my personal phone for work: who helps",
+      "Areas/Neighbours and Property/Boundaries and Rights/Neighbours dumping rubbish in shared car park: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Skip hire wasted delivery fee dispute: who helps",
+      "Areas/Driving and Parking/Motoring Offences/Parked car owner has died: who can move the vehicle",
+      "Areas/Consumer Rights/Faulty Goods and Services/Long car repair dispute with ex client: who helps",
     ]);
     const priority = index.pages.filter((p) => priorityIds.has(p.id));
     const areas = index.pages.filter(
