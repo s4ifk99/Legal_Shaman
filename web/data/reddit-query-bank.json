@@ -1,5 +1,86 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-21T17:11:10.241Z",
-  "entries": []
+  "updatedAt": "2026-09-22T22:04:31.749Z",
+  "entries": [
+    {
+      "id": "1wnke7b",
+      "titleShape": "[England] Is it justified asking for a refund for this terrible stay? Filthy accommodation",
+      "matterGuess": "consumer",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-22T22:04:31.749Z",
+      "normalisedTitle": "england is it justified asking for a refund for this terrible stay filthy accommodation"
+    },
+    {
+      "id": "1wnh01c",
+      "titleShape": "Should take this traffic PCN appeal to London Tribunals?",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-22T22:04:31.749Z",
+      "normalisedTitle": "should i take this traffic pcn appeal to london tribunals"
+    },
+    {
+      "id": "1wnm0kk",
+      "titleShape": "NHS England Trust pocketing a net profit of £820,000 per year for staff parking",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-22T22:04:31.749Z",
+      "normalisedTitle": "nhs england trust pocketing a net profit of 820 000 per year for staff parking"
+    },
+    {
+      "id": "1wnmh6u",
+      "titleShape": "Holiday Pay + Irregular hours - Scotland",
+      "matterGuess": "employment",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-22T22:04:31.749Z",
+      "normalisedTitle": "holiday pay irregular hours scotland"
+    },
+    {
+      "id": "1wnm18m",
+      "titleShape": "England – Private HMO tenant – ongoing noise/ASB dispute - London",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-22T22:04:31.749Z",
+      "normalisedTitle": "england private hmo tenant ongoing noise asb dispute london"
+    },
+    {
+      "id": "1wn3rqa",
+      "titleShape": "Threats to kill and harrasment from neighbour.",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-22T22:04:31.749Z",
+      "normalisedTitle": "threats to kill and harrasment from neighbour"
+    },
+    {
+      "id": "1wmrhwh",
+      "titleShape": "Is it worth reporting a large electricity supplier for fraud after winning Ombudsman case?",
+      "matterGuess": "crime",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-22T22:04:31.749Z",
+      "normalisedTitle": "is it worth reporting a large electricity supplier for fraud after winning ombudsman case"
+    },
+    {
+      "id": "1wni63l",
+      "titleShape": "new driver. parking ticket due to quoting wrong license plate",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-22T22:04:31.749Z",
+      "normalisedTitle": "new driver parking ticket due to quoting wrong license plate"
+    },
+    {
+      "id": "1wnn05p",
+      "titleShape": "What recourse do have (England) for claiming compensation for the costs incurred from an assault after investigating officer failed to corre",
+      "matterGuess": "crime",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-22T22:04:31.749Z",
+      "normalisedTitle": "what recourse do i have england for claiming compensation for the costs incurred from an assault after investigating officer failed to correspond with cps"
+    },
+    {
+      "id": "1wnktoe",
+      "titleShape": "rights relating to aquarium light - light is faulty (seller says likely to be water ingress) but they are refusing to replace outside of war",
+      "matterGuess": "consumer",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-22T22:04:31.749Z",
+      "normalisedTitle": "my rights relating to my aquarium light light is faulty seller says likely to be water ingress but they are refusing to replace outside of warranty england"
+    }
+  ]
 }
