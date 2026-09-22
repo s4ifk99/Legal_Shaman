@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 import { runDirectorySearch } from "@/lib/legal-search/run-directory-search";
 import { enableMapSearch, enableSearchDebug } from "@/lib/legal-search/config";
 import { buildMapMarkers } from "@/lib/search/map-results";
@@ -9,6 +10,9 @@ export const runtime = "nodejs";
 
 /** Map markers + filtered results for viewport bounds. */
 export async function GET(req: Request) {
+  const authBlock = await requireSearchAuthResponse();
+  if (authBlock) return authBlock;
+
   if (!enableMapSearch()) {
     return NextResponse.json({ error: "map_search_disabled" }, { status: 404 });
   }

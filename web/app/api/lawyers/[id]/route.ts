@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 import { getLawyerById } from "@/lib/lawyers/db";
 import { DISCLAIMER } from "@/lib/agent/types";
 
@@ -13,6 +14,9 @@ export async function GET(
   _req: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const authBlock = await requireSearchAuthResponse();
+  if (authBlock) return authBlock;
+
   const { id } = await params;
   if (!id || id.length > 64) {
     return NextResponse.json({ error: "Invalid id" }, { status: 400 });

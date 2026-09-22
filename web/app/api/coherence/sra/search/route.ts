@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 import { coherenceDatabaseUrl } from "@/lib/coherence/config";
 import { coherenceApiGuard } from "@/lib/coherence/server/guard";
 import {
@@ -19,6 +20,9 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
+  const authBlock = await requireSearchAuthResponse();
+  if (authBlock) return authBlock;
+
   const blocked = coherenceApiGuard();
   if (blocked) return blocked;
 
