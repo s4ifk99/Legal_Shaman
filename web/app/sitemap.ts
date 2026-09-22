@@ -45,6 +45,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "Areas/Money, Benefits and Debt/Debt Solutions/Family spent on my credit card and won’t repay: who helps",
       "Areas/Consumer Rights/Faulty Goods and Services/Non refundable train ticket but the train never came: who helps",
       "Areas/Consumer Rights/Faulty Goods and Services/Garage fixed my car then it broke down again: who helps",
+      "Areas/Driving and Parking/Parking and PCNs/Private parking charge for a short hospital stay: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/In store return done but refund never arrived: who helps",
+      "Areas/Work and Employment/Discrimination at Work/Possible maternity discrimination at work: who helps",
+      "Areas/Work and Employment/Redundancy and Dismissal/Dismissed in under two weeks with a baby at home: who helps",
+      "Areas/Home and Housing/Repairs and Safety/House flooded from the water company's sewer again: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Plumber's work flooded the home with sewage: who helps",
+      "Areas/Driving and Parking/Motoring Offences/Parked motorcycle hit and the driver left: who helps",
+      "Areas/Neighbours and Property/Noise and Nuisance/Drone flying low over my back garden: who helps",
     ]);
     const priority = index.pages.filter((p) => priorityIds.has(p.id));
     const areas = index.pages.filter(
