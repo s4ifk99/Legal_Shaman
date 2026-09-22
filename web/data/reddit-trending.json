@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-22T10:42:18.409Z",
+    "scrapedAt": "2026-09-22T20:54:56.478Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 6,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,54 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wn7uow",
+          "title": "Wife ran off, emptied joint accounts and savings. What do I do. Wales.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn7uow/wife_ran_off_emptied_joint_accounts_and_savings/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn7uow/wife_ran_off_emptied_joint_accounts_and_savings/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790079343,
+          "snippet": "My wife ran off, took all our cash and the kids. I realised a little late that she'd clearly planned it, and I feel like a bit of a fool I'm not really well-versed in legal stuff. I'm not working right now, and all my bank accounts show massive overdrafts. What do I do. submitted",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wng71b",
+          "title": "Parents withholding passport, england",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wng71b/parents_withholding_passport_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wng71b/parents_withholding_passport_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790098618,
+          "snippet": "I am 18 and im not british but i have lived here for 10 years. My passport is a Saudi passport and i dont have any other ID but my parents are completely refusing to give me because i wanted to move out , and i need to apply for uni and also find my NI to be paid by my job. I don",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wn7qlh",
+          "title": "British police have contacted me and told me I was victim of a hate crime incident. 1. I live in Ireland and 2. it wasn't a hate crime - she just gave me extra potatoes.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn7qlh/british_police_have_contacted_me_and_told_me_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn7qlh/british_police_have_contacted_me_and_told_me_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790079027,
+          "snippet": "I've just been contacted by one of the British police forces regarding me being the alleged victim of a hate crime incident. I wasn't. I made is clear I wasn't. They kept pushing over and over though on the call, recanting what happened but refusing to tell me who reported it. I ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wnkn4k",
+          "title": "A store worker who served me messaged me on my number linked to my account Scotland",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkn4k/a_store_worker_who_served_me_messaged_me_on_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkn4k/a_store_worker_who_served_me_messaged_me_on_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790108122,
+          "snippet": "I went to one of the big high street chains and was served by a worker who needed my phone number to access my account. I’m a woman and he’s a man. I didn’t give him my number personally, only because it was relevant for the transaction. The worker has now whatsapped me. I’m not ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wn3s4a",
           "title": "​[England] Paid with PayByPhone, the sign said Pay By Phone, got fined",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn3s4a/england_paid_with_paybyphone_the_sign_said_pay_by/",
@@ -50,39 +98,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wn1d9g",
-          "title": "Owner of parked vehicle died. Who can/can’t move it? [London, England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn1d9g/owner_of_parked_vehicle_died_who_cancant_move_it/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn1d9g/owner_of_parked_vehicle_died_who_cancant_move_it/",
+          "id": "1wnkcrt",
+          "title": "Potentially missold property via TA6 form (England, London)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkcrt/potentially_missold_property_via_ta6_form_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkcrt/potentially_missold_property_via_ta6_form_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790057375,
-          "snippet": "Hello! I have asked Google and chat but gotten nowhere really so hoping someone here has a bit of advice. I rent a ground floor flat in a townhouse turned into separate flats in south London. Theres a drive way which is not included in any of the contracts directly, but the landl",
+          "createdUtc": 1790107501,
+          "snippet": "Hi, I was wondering if someone could say if the following is worth pursuing before I consult a property solicitor. The situation is that I bought an end of terrace house for £750k in January. The house being an end of terrace doesn't have a corner road and parking, it instead has",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wmcedq",
-          "title": "British Airways have sold more tickets than they have available seats. I'm stuck in an airport.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmcedq/british_airways_have_sold_more_tickets_than_they/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmcedq/british_airways_have_sold_more_tickets_than_they/",
+          "id": "1wnh3h3",
+          "title": "Suspended from Work for Disclosing Medical Cannabis Prescription (Northern Ireland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnh3h3/suspended_from_work_for_disclosing_medical/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnh3h3/suspended_from_work_for_disclosing_medical/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789996283,
-          "snippet": "Internal UK flight. I need to get to London today. My flight has been booked for over 2 months. I arrived to pick up my boarding pass as online check-in wasn't working. I arrived at the check-in desk the minute it opened. I was told they had oversold the flight and I have been pl",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wmzkzu",
-          "title": "Argos collected my £600 oven but says they never received it. Now Lowell is chasing the debt. Help?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmzkzu/argos_collected_my_600_oven_but_says_they_never/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmzkzu/argos_collected_my_600_oven_but_says_they_never/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790051518,
-          "snippet": "Hi everyone. This is a very long story so i’ll try to keep it to the main details My mum bought an oven from Argos with ‘Argos buy now pay later’ credit in January 2025. We had just moved houses and got the measurements wrong, so my mum scheduled a refund with Argos. The lady on ",
+          "createdUtc": 1790100513,
+          "snippet": "Hey guys! I have been a medical cannabis patient with alternaleaf for over a year now, which I did not disclose to my employer as I did not take my medication during work hours and therefore would not be impaired, and due to the stigma and general fear. I am prescribed it to mana",
           "listingSource": "rss:hot"
         },
         {
@@ -98,27 +134,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wmrhwh",
-          "title": "Is it worth reporting a large electricity supplier for fraud after winning Ombudsman case?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmrhwh/is_it_worth_reporting_a_large_electricity/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmrhwh/is_it_worth_reporting_a_large_electricity/",
+          "id": "1wmzkzu",
+          "title": "Argos collected my £600 oven but says they never received it. Now Lowell is chasing the debt. Help?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmzkzu/argos_collected_my_600_oven_but_says_they_never/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmzkzu/argos_collected_my_600_oven_but_says_they_never/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790029508,
-          "snippet": "I run a small business in England. 2 1/2 years ago we expanded and took an additional unit. We sent our energy supplier the meter reading and shortly after they sent out a meter reader. They sent us bills and we paid them for the next 2 and a bit years. Every now and then we woul",
+          "createdUtc": 1790051518,
+          "snippet": "Hi everyone. This is a very long story so i’ll try to keep it to the main details My mum bought an oven from Argos with ‘Argos buy now pay later’ credit in January 2025. We had just moved houses and got the measurements wrong, so my mum scheduled a refund with Argos. The lady on ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wmbf1w",
-          "title": "I've lost my job and I've been asked to attend a voluntary interview after I called a thief a slur.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmbf1w/ive_lost_my_job_and_ive_been_asked_to_attend_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmbf1w/ive_lost_my_job_and_ive_been_asked_to_attend_a/",
+          "id": "1wn1d9g",
+          "title": "Owner of parked vehicle died. Who can/can’t move it? [London, England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn1d9g/owner_of_parked_vehicle_died_who_cancant_move_it/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn1d9g/owner_of_parked_vehicle_died_who_cancant_move_it/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789993796,
-          "snippet": "Just to clear things up, I'm the same race as the thief. It slipped out in the heat of the moment. The bakery I work at kept getting robbed. People would just come in, lift items off shelves and walk out. Police never came and didnt care when we reported it. Managements solution ",
+          "createdUtc": 1790057375,
+          "snippet": "Hello! I have asked Google and chat but gotten nowhere really so hoping someone here has a bit of advice. I rent a ground floor flat in a townhouse turned into separate flats in south London. Theres a drive way which is not included in any of the contracts directly, but the landl",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wne1xt",
+          "title": "Father was involved in a bus accident (UK)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wne1xt/father_was_involved_in_a_bus_accident_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wne1xt/father_was_involved_in_a_bus_accident_uk/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790094013,
+          "snippet": "Hey everyone, I need your help. Unfortunately, my Dad was hit by a bus last week and is currently in hospital with several broken bones and fractures. Unfortunately he doesn’t have much memory of the incident so I’ve tried contacting the police, transport for London and some othe",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wn67m2",
+          "title": "Membership sub, locked-in \"lifetime\" pricing not honoured this year",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn67m2/membership_sub_lockedin_lifetime_pricing_not/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn67m2/membership_sub_lockedin_lifetime_pricing_not/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790074452,
+          "snippet": "A year ago I subscribed to be part of a new online education and support community for a health condition. It's owned by one person with the help of admin support. The person is based in England and is well known in their niche and their podcast does well. They come across as car",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wmcedq",
+          "title": "British Airways have sold more tickets than they have available seats. I'm stuck in an airport.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmcedq/british_airways_have_sold_more_tickets_than_they/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmcedq/british_airways_have_sold_more_tickets_than_they/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1789996283,
+          "snippet": "Internal UK flight. I need to get to London today. My flight has been booked for over 2 months. I arrived to pick up my boarding pass as online check-in wasn't working. I arrived at the check-in desk the minute it opened. I was told they had oversold the flight and I have been pl",
           "listingSource": "rss:hot"
         },
         {
@@ -134,123 +206,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wmh19l",
-          "title": "Having to use your private phone at work",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmh19l/having_to_use_your_private_phone_at_work/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmh19l/having_to_use_your_private_phone_at_work/",
+          "id": "1wnljlq",
+          "title": "Ordered the new iPhone but received an empty box! It was clearly open (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnljlq/ordered_the_new_iphone_but_received_an_empty_box/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnljlq/ordered_the_new_iphone_but_received_an_empty_box/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790006704,
-          "snippet": "Hello. I am sure this is a common situation, but I would like to know what the answer is. We have to use our private phones at work. We have to install at least a two-factor authentication app (no, Google/Apple Authenticator does not work). We will need this to log into any compu",
+          "createdUtc": 1790110103,
+          "snippet": "So I ordered the iPhone from Argos and I thought that the parcel was missing because it looked like from the picture that the Driver had placed it outside so I initially rang Argos and told them that I didn’t receive the parcel and then found it the next day it was thrown over, b",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wmgd0i",
-          "title": "England - Not considered for job application because of long term health condition",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmgd0i/england_not_considered_for_job_application/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmgd0i/england_not_considered_for_job_application/",
+          "id": "1wnl1pb",
+          "title": "[Scotland] Does installing EV chargepoints on a communal, privately, owned car park need unanimous owner consent, or is a majority vote enough?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnl1pb/scotland_does_installing_ev_chargepoints_on_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnl1pb/scotland_does_installing_ev_chargepoints_on_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790005269,
-          "snippet": "I'm currently applying for new jobs and had a second interview last week. The first interview was a 'character interview' to check I would fit in with the company etc. and I passed this with glowing feedback, and a second stage interview was arranged, which took place on Friday (",
+          "createdUtc": 1790109011,
+          "snippet": "Looking for some general guidance before we take formal legal advice. Situation: I'm one of 21 owners in a factored development (flats) in Scotland. We have a communal car park owned in common by all owners (equal pro indiviso shares). We want to install 7 EV chargepoints there a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wm7n8e",
-          "title": "Evology parking -£32 for 35 minutes - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm7n8e/evology_parking_32_for_35_minutes_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm7n8e/evology_parking_32_for_35_minutes_england/",
+          "id": "1wnkzel",
+          "title": "Coach package holiday cancelled destinations",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkzel/coach_package_holiday_cancelled_destinations/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkzel/coach_package_holiday_cancelled_destinations/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789981973,
-          "snippet": "Just been foe an appointment at UHCW Coventry. Got there 0845. Appointment at 0900. Left at 0920 Their camera didn't get my front plate so I had to enter it manually. 2 out of 3 machines wouldn't take payment as the contactless panel just looked dead. Finally found one that worke",
+          "createdUtc": 1790108870,
+          "snippet": "My in laws have gone on a coach package holiday where their accommodation is sorted out and they get taken to different places for day trips. One of the passengers on the trip (most of them are elderly) is apparently mentally ill or having some kind of neurological decline and su",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wn2s5i",
-          "title": "England - Neighbours throwing rubbish into carpark",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn2s5i/england_neighbours_throwing_rubbish_into_carpark/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn2s5i/england_neighbours_throwing_rubbish_into_carpark/",
+          "id": "1wnh01c",
+          "title": "Should I take this traffic PCN appeal to London Tribunals?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnh01c/should_i_take_this_traffic_pcn_appeal_to_london/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnh01c/should_i_take_this_traffic_pcn_appeal_to_london/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790062322,
-          "snippet": "I work at a school in England, the car park backs onto about a dozen row houses, quite often, on a weekly basis we get a pile of rubbish in the corner. Over summer I upgraded our CCTV and there’s now a 4K camera covering the carpark (the houses are blacked out but the fences are ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wm6th6",
-          "title": "Bought a \"non refundable\" train ticket, but the train didn't show up at all. Refusing refund.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm6th6/bought_a_non_refundable_train_ticket_but_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm6th6/bought_a_non_refundable_train_ticket_but_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789978994,
-          "snippet": "Hi all I bought an \"open return\" train ticket on Saturday morning via Trainline for a short journey I needed to take to get to a nearby event. I got to the departure station in plenty of time, but after about 10 minutes the departures board changed to show the next train due was ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wn4z3x",
-          "title": "Extremely long dispute with ex-client over work carried out on vehicle - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn4z3x/extremely_long_dispute_with_exclient_over_work/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn4z3x/extremely_long_dispute_with_exclient_over_work/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790070331,
-          "snippet": "Took a job a few years ago to rebuild an engine for a new client, put my way by a third party. Job was convoluted from the very beginning, with many pitfalls (200,000 mile engine that couldn't be easily repaired, with incorrectly supplied major parts from the third party). I have",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wm88hg",
-          "title": "Someone trespassed into a deceased relatives garden and chopped down a bush, suspected neighbours (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm88hg/someone_trespassed_into_a_deceased_relatives/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm88hg/someone_trespassed_into_a_deceased_relatives/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789984037,
-          "snippet": "Hi, We had a relative pass away last year and her house is now sold and waiting for probate to be processed. We have a family friend who has been going in to check on garden, water it etc every so often. Someone we trust very much. The other day, she came in to find someone had c",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wmcqq7",
-          "title": "Skip Company trying to charge me a wasted delivery fee UK BASED",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmcqq7/skip_company_trying_to_charge_me_a_wasted/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmcqq7/skip_company_trying_to_charge_me_a_wasted/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789997114,
-          "snippet": "I emailed a skip company for a quote. They asked me questions about what I needed it for and gave me a price of £288 for a 6‑yard skip. I said I wanted to book the 6‑yard skip. 20 minutes later they emailed saying they didn’t have any 6‑yard skips available, and told me the other",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wmfo2d",
-          "title": "House structurally in trouble - legal cover likely to be declined",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmfo2d/house_structurally_in_trouble_legal_cover_likely/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmfo2d/house_structurally_in_trouble_legal_cover_likely/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790003753,
-          "snippet": "My wife and I bought our first house together in Feb 2026. We were first time buyers but due to good jobs, saving etc, luck and parental help we have a £900k home in SE London (England). Before purchasing we had a homebuyers survey that raised some concerns about \"cracks\" in rend",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wm5noh",
-          "title": "Garage ‘fixed’ my clutch, let me drive off. Immediately broke down on motorway from the same issue!",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm5noh/garage_fixed_my_clutch_let_me_drive_off/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm5noh/garage_fixed_my_clutch_let_me_drive_off/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789974833,
-          "snippet": "I’m in Surrey, recently moved. The clutch in my Ford was sticking down and behaving weirdly so I took it to a local garage. They kept my car for 3 days and charged me £2000, saying the engine oil was so dirty that it had disintegrated the rubber around the clutch and it all neede",
+          "createdUtc": 1790100308,
+          "snippet": "https://preview.redd.it/d9kqnl0t24rh1.jpg?width=4000&amp;format=pjpg&amp;auto=webp&amp;s=4e72e8e53c9ec25b6e81acdbe3619087be614ef0 Hello, I received a PCN from Ealing council in London for turning right and driving down a road that is restricted at certain times of the day. I appe",
           "listingSource": "rss:hot"
         }
       ]
@@ -280,6 +280,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wn7uow",
+          "title": "Wife ran off, emptied joint accounts and savings. What do I do. Wales.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn7uow/wife_ran_off_emptied_joint_accounts_and_savings/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn7uow/wife_ran_off_emptied_joint_accounts_and_savings/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790079343,
+          "snippet": "My wife ran off, took all our cash and the kids. I realised a little late that she'd clearly planned it, and I feel like a bit of a fool I'm not really well-versed in legal stuff. I'm not working right now, and all my bank accounts show massive overdrafts. What do I do. submitted",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wng71b",
+          "title": "Parents withholding passport, england",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wng71b/parents_withholding_passport_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wng71b/parents_withholding_passport_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790098618,
+          "snippet": "I am 18 and im not british but i have lived here for 10 years. My passport is a Saudi passport and i dont have any other ID but my parents are completely refusing to give me because i wanted to move out , and i need to apply for uni and also find my NI to be paid by my job. I don",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wnkn4k",
+          "title": "A store worker who served me messaged me on my number linked to my account Scotland",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkn4k/a_store_worker_who_served_me_messaged_me_on_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkn4k/a_store_worker_who_served_me_messaged_me_on_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790108122,
+          "snippet": "I went to one of the big high street chains and was served by a worker who needed my phone number to access my account. I’m a woman and he’s a man. I didn’t give him my number personally, only because it was relevant for the transaction. The worker has now whatsapped me. I’m not ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wn3s4a",
           "title": "​[England] Paid with PayByPhone, the sign said Pay By Phone, got fined",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn3s4a/england_paid_with_paybyphone_the_sign_said_pay_by/",
@@ -292,27 +328,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wn1d9g",
-          "title": "Owner of parked vehicle died. Who can/can’t move it? [London, England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn1d9g/owner_of_parked_vehicle_died_who_cancant_move_it/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn1d9g/owner_of_parked_vehicle_died_who_cancant_move_it/",
+          "id": "1wnkcrt",
+          "title": "Potentially missold property via TA6 form (England, London)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkcrt/potentially_missold_property_via_ta6_form_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkcrt/potentially_missold_property_via_ta6_form_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790057375,
-          "snippet": "Hello! I have asked Google and chat but gotten nowhere really so hoping someone here has a bit of advice. I rent a ground floor flat in a townhouse turned into separate flats in south London. Theres a drive way which is not included in any of the contracts directly, but the landl",
+          "createdUtc": 1790107501,
+          "snippet": "Hi, I was wondering if someone could say if the following is worth pursuing before I consult a property solicitor. The situation is that I bought an end of terrace house for £750k in January. The house being an end of terrace doesn't have a corner road and parking, it instead has",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wmcedq",
-          "title": "British Airways have sold more tickets than they have available seats. I'm stuck in an airport.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmcedq/british_airways_have_sold_more_tickets_than_they/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmcedq/british_airways_have_sold_more_tickets_than_they/",
+          "id": "1wnh3h3",
+          "title": "Suspended from Work for Disclosing Medical Cannabis Prescription (Northern Ireland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnh3h3/suspended_from_work_for_disclosing_medical/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnh3h3/suspended_from_work_for_disclosing_medical/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789996283,
-          "snippet": "Internal UK flight. I need to get to London today. My flight has been booked for over 2 months. I arrived to pick up my boarding pass as online check-in wasn't working. I arrived at the check-in desk the minute it opened. I was told they had oversold the flight and I have been pl",
+          "createdUtc": 1790100513,
+          "snippet": "Hey guys! I have been a medical cannabis patient with alternaleaf for over a year now, which I did not disclose to my employer as I did not take my medication during work hours and therefore would not be impaired, and due to the stigma and general fear. I am prescribed it to mana",
           "listingSource": "rss:hot"
         },
         {
@@ -325,42 +361,6 @@
           "numComments": 0,
           "createdUtc": 1790065982,
           "snippet": "Hi all, So a week ago today our next door neighbours who we're joined onto (we moved in about 6 months ago) verbally abused my partner and called her the most vile names as well as telling her she wasn't fit to be a mother when she told them she was a recently registered childmin",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wmbf1w",
-          "title": "I've lost my job and I've been asked to attend a voluntary interview after I called a thief a slur.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmbf1w/ive_lost_my_job_and_ive_been_asked_to_attend_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmbf1w/ive_lost_my_job_and_ive_been_asked_to_attend_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789993796,
-          "snippet": "Just to clear things up, I'm the same race as the thief. It slipped out in the heat of the moment. The bakery I work at kept getting robbed. People would just come in, lift items off shelves and walk out. Police never came and didnt care when we reported it. Managements solution ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wn57u7",
-          "title": "Do I have legal access to this communal garden?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn57u7/do_i_have_legal_access_to_this_communal_garden/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn57u7/do_i_have_legal_access_to_this_communal_garden/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790071196,
-          "snippet": "Hi all! Based in England. So back in 2023, I purchased my first flat. It was advertised as a 125 year lease and it was actually a 99 year lease from 2003. The company who owned it ultimately agreed to extend the lease at cost to them, so the whole process took just over a year. W",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wmh19l",
-          "title": "Having to use your private phone at work",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmh19l/having_to_use_your_private_phone_at_work/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmh19l/having_to_use_your_private_phone_at_work/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790006704,
-          "snippet": "Hello. I am sure this is a common situation, but I would like to know what the answer is. We have to use our private phones at work. We have to install at least a two-factor authentication app (no, Google/Apple Authenticator does not work). We will need this to log into any compu",
           "listingSource": "rss:hot"
         }
       ]
@@ -390,6 +390,30 @@
       ]
     },
     {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wn7qlh",
+          "title": "British police have contacted me and told me I was victim of a hate crime incident. 1. I live in Ireland and 2. it wasn't a hate crime - she just gave me extra potatoes.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn7qlh/british_police_have_contacted_me_and_told_me_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wn7qlh/british_police_have_contacted_me_and_told_me_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790079027,
+          "snippet": "I've just been contacted by one of the British police forces regarding me being the alleged victim of a hate crime incident. I wasn't. I made is clear I wasn't. They kept pushing over and over though on the call, recanting what happened but refusing to tell me who reported it. I ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "debt",
       "label": "Debt",
       "legalAreaSlug": "debt",
@@ -414,45 +438,9 @@
       ]
     },
     {
-      "slug": "consumer-law",
-      "label": "Consumer Law",
-      "legalAreaSlug": "consumer",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wmrhwh",
-          "title": "Is it worth reporting a large electricity supplier for fraud after winning Ombudsman case?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmrhwh/is_it_worth_reporting_a_large_electricity/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmrhwh/is_it_worth_reporting_a_large_electricity/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790029508,
-          "snippet": "I run a small business in England. 2 1/2 years ago we expanded and took an additional unit. We sent our energy supplier the meter reading and shortly after they sent out a meter reader. They sent us bills and we paid them for the next 2 and a bit years. Every now and then we woul",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wm6th6",
-          "title": "Bought a \"non refundable\" train ticket, but the train didn't show up at all. Refusing refund.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm6th6/bought_a_non_refundable_train_ticket_but_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm6th6/bought_a_non_refundable_train_ticket_but_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1789978994,
-          "snippet": "Hi all I bought an \"open return\" train ticket on Saturday morning via Trainline for a short journey I needed to take to get to a nearby event. I got to the departure station in plenty of time, but after about 10 minutes the departures board changed to show the next train due was ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
+      "slug": "clinical-negligence",
+      "label": "Clinical Negligence",
+      "legalAreaSlug": "clinical_negligence",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -460,23 +448,23 @@
       ],
       "posts": [
         {
-          "id": "1wmcqq7",
-          "title": "Skip Company trying to charge me a wasted delivery fee UK BASED",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmcqq7/skip_company_trying_to_charge_me_a_wasted/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmcqq7/skip_company_trying_to_charge_me_a_wasted/",
+          "id": "1wnl1pb",
+          "title": "[Scotland] Does installing EV chargepoints on a communal, privately, owned car park need unanimous owner consent, or is a majority vote enough?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnl1pb/scotland_does_installing_ev_chargepoints_on_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnl1pb/scotland_does_installing_ev_chargepoints_on_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789997114,
-          "snippet": "I emailed a skip company for a quote. They asked me questions about what I needed it for and gave me a price of £288 for a 6‑yard skip. I said I wanted to book the 6‑yard skip. 20 minutes later they emailed saying they didn’t have any 6‑yard skips available, and told me the other",
+          "createdUtc": 1790109011,
+          "snippet": "Looking for some general guidance before we take formal legal advice. Situation: I'm one of 21 owners in a factored development (flats) in Scotland. We have a communal car park owned in common by all owners (equal pro indiviso shares). We want to install 7 EV chargepoints there a",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "garage-and-vehicle-repair-disputes",
-      "label": "Garage and Vehicle Repair Disputes",
-      "legalAreaSlug": "consumer_vehicle_repair",
+      "slug": "travel-and-holiday-disputes",
+      "label": "Travel and Holiday Disputes",
+      "legalAreaSlug": "consumer_travel_holidays",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -484,15 +472,39 @@
       ],
       "posts": [
         {
-          "id": "1wm5noh",
-          "title": "Garage ‘fixed’ my clutch, let me drive off. Immediately broke down on motorway from the same issue!",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm5noh/garage_fixed_my_clutch_let_me_drive_off/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wm5noh/garage_fixed_my_clutch_let_me_drive_off/",
+          "id": "1wnkzel",
+          "title": "Coach package holiday cancelled destinations",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkzel/coach_package_holiday_cancelled_destinations/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnkzel/coach_package_holiday_cancelled_destinations/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1789974833,
-          "snippet": "I’m in Surrey, recently moved. The clutch in my Ford was sticking down and behaving weirdly so I took it to a local garage. They kept my car for 3 days and charged me £2000, saying the engine oil was so dirty that it had disintegrated the rubber around the clutch and it all neede",
+          "createdUtc": 1790108870,
+          "snippet": "My in laws have gone on a coach package holiday where their accommodation is sorted out and they get taken to different places for day trips. One of the passengers on the trip (most of them are elderly) is apparently mentally ill or having some kind of neurological decline and su",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wnh01c",
+          "title": "Should I take this traffic PCN appeal to London Tribunals?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnh01c/should_i_take_this_traffic_pcn_appeal_to_london/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wnh01c/should_i_take_this_traffic_pcn_appeal_to_london/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790100308,
+          "snippet": "https://preview.redd.it/d9kqnl0t24rh1.jpg?width=4000&amp;format=pjpg&amp;auto=webp&amp;s=4e72e8e53c9ec25b6e81acdbe3619087be614ef0 Hello, I received a PCN from Ealing council in London for turning right and driving down a road that is restricted at certain times of the day. I appe",
           "listingSource": "rss:hot"
         }
       ]
