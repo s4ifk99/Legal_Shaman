@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
 import { fetchLiveRedditSearch } from "@/lib/reddit-search/live-search";
 import { formatOslawScrapedAt, getOslawTrendingData } from "@/lib/oslaw/data";
 import { searchCachedOslawPosts } from "@/lib/oslaw/search-cached";
@@ -6,6 +7,9 @@ import { searchCachedOslawPosts } from "@/lib/oslaw/search-cached";
 export const runtime = "nodejs";
 
 export async function GET(req: Request) {
+  const authBlock = await requireSearchAuthResponse();
+  if (authBlock) return authBlock;
+
   const { searchParams } = new URL(req.url);
   const q = (searchParams.get("q") || "").trim();
   const limit = Math.min(25, Math.max(1, Number(searchParams.get("limit") || 12) || 12));

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
+import { requireSearchAuthResponse } from "@/lib/auth/require-search-auth";
+
 import { runMatcherUnified } from "@/lib/legal-search/run-matcher-unified";
 import { AppliedFiltersSchema, DISCLAIMER } from "@/lib/agent/types";
 import { enableSearchDebug } from "@/lib/legal-search/config";
@@ -27,6 +29,9 @@ const ClarifyInput = z.object({
  * combined query — if it still fails, it returns the deterministic template.
  */
 export async function POST(req: Request) {
+  const authBlock = await requireSearchAuthResponse();
+  if (authBlock) return authBlock;
+
   let body: unknown;
   try {
     body = await req.json();
