@@ -62,6 +62,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "Areas/Consumer Rights/Faulty Goods and Services/Skip hire wasted delivery fee dispute: who helps",
       "Areas/Driving and Parking/Motoring Offences/Parked car owner has died: who can move the vehicle",
       "Areas/Consumer Rights/Faulty Goods and Services/Long car repair dispute with ex client: who helps",
+      "Areas/Consumer Rights/Travel and Holidays/Filthy holiday stay refund: who helps",
+      "Areas/Neighbours and Property/Boundaries and Rights/Neighbour threats and harassment: who helps",
+      "Areas/Driving and Parking/Parking and PCNs/Traffic PCN to London Tribunals: who helps",
+      "Areas/Driving and Parking/Parking and PCNs/NHS staff parking charges: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Holiday pay on irregular hours Scotland: who helps",
+      "Areas/Neighbours and Property/Noise and Nuisance/HMO neighbour noise and ASB: who helps",
+      "Areas/Driving and Parking/Parking and PCNs/Parking ticket wrong registration: who helps",
+      "Areas/Crime and Police/Victim Support/Assault costs after police CPS delay: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Faulty goods outside warranty: who helps",
     ]);
     const priority = index.pages.filter((p) => priorityIds.has(p.id));
     const areas = index.pages.filter(
