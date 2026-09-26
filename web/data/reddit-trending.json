@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-25T21:07:22.432Z",
+    "scrapedAt": "2026-09-26T10:35:23.547Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 9,
+    "topicCount": 5,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wqm4ob",
+          "title": "A regular customer is openly drink driving. What are our obligations? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqm4ob/a_regular_customer_is_openly_drink_driving_what/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqm4ob/a_regular_customer_is_openly_drink_driving_what/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790414651,
+          "snippet": "Hi, I'm currently pulling pints at a local pub. I'm bar staff on a zero-hours contract. Once a week we have live music. Most of the bands and musicians that play are great. And most of them get taxis, or have friends who drive, or use the designated driver system. However, there'",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wql1a7",
+          "title": "Recommendations on how to still receive deliveries given landlord has removed means of finding my address (Northern Ireland)?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wql1a7/recommendations_on_how_to_still_receive/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wql1a7/recommendations_on_how_to_still_receive/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790410442,
+          "snippet": "Because of new fire safety regulations with certain properties, landlord is going through the process of replacing all of the doors in their properties. However, all tenants received a letter explaining that the doors were being replaced due to regulations but we were also advise",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wqk1r3",
+          "title": "Attachment of Earnings Order issued against me and I don’t know why",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqk1r3/attachment_of_earnings_order_issued_against_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqk1r3/attachment_of_earnings_order_issued_against_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790406733,
+          "snippet": "I’m in England and when I checked my payslip today I have had over £400 deducted as part of an attachment of earnings order. I do not have any debts so this was a shock. I have raised a query with my employers payroll department to get details as to why this has been done and I a",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wq1ltn",
           "title": "Bailiffs wanted to take my kids belongings from my exes place",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq1ltn/bailiffs_wanted_to_take_my_kids_belongings_from/",
@@ -62,6 +98,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wqlxo5",
+          "title": "How does the construction industry get away with using CIS as the default for almost everyone? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqlxo5/how_does_the_construction_industry_get_away_with/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqlxo5/how_does_the_construction_industry_get_away_with/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790413900,
+          "snippet": "I have worked for several construction companies over more than ten years. 5 years continuous fixed day rate and hours for the current one. Every one of them paid me through CIS, and almost everyone I know in the trade is paid the same way. In all that time I have never had a day",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wpxd3p",
           "title": "Deceased mum’s debts being sent to me UK",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpxd3p/deceased_mums_debts_being_sent_to_me_uk/",
@@ -74,159 +122,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wps90h",
-          "title": "England - Vet practice is using \"client confidentiality\" to block my negligence complaint about a rescue cat, claiming a charity owns him. I paid the bill privately—am I the legal client?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wps90h/england_vet_practice_is_using_client/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wps90h/england_vet_practice_is_using_client/",
+          "id": "1wqbn7c",
+          "title": "[ENGLAND] Gate onto rear alleyway/footpath installed around 16 years ago: can a neighbour demand it is removed?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqbn7c/england_gate_onto_rear_alleywayfootpath_installed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqbn7c/england_gate_onto_rear_alleywayfootpath_installed/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790330265,
-          "snippet": "I have been caring for a stray cat for the past 3 years. We managed to capture him and spoke to an animal charity about covering his initial medical consultation which usually includes neutering, chip and a physical exam but the charity authorized additional testing because he wa",
+          "createdUtc": 1790380098,
+          "snippet": "England. I bought my house in 2010. Soon afterwards I installed a small gate in my rear/side boundary fence. It leads onto an alleyway/footpath running behind or alongside a row of houses, near a residents’ car park. I do not yet know who owns the alleyway. It appears likely to b",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wpu9on",
-          "title": "I was a money mule at 19 and idk what to do",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpu9on/i_was_a_money_mule_at_19_and_idk_what_to_do/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpu9on/i_was_a_money_mule_at_19_and_idk_what_to_do/",
+          "id": "1wqkx5l",
+          "title": "Suspended from Work for breach of trust (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqkx5l/suspended_from_work_for_breach_of_trust_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqkx5l/suspended_from_work_for_breach_of_trust_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790337063,
-          "snippet": "For context, 2 years have passed since I had a CIFAS marker placed on my name. I was living in a youth homeless hostel at the time, and I had absolutely no money for the next few days. A peer in the hostel was also skint and brought some lad to my attention on Snapchat who said h",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wpv6ab",
-          "title": "In England. UK-based Debt Collection Agency chasing debt for a speeding ticket from Italy under a different name.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpv6ab/in_england_ukbased_debt_collection_agency_chasing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpv6ab/in_england_ukbased_debt_collection_agency_chasing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790339701,
-          "snippet": "I posted about this two years ago ( original post ) when I received a speeding ticket for a hire car from Firenze Police addressed to my home but to someone with a Chinese name I've never heard of. I subsequently sent a note to Firenze Police stating that no one by that name has ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wq4bgb",
-          "title": "England - Argos refuse to return Apple Watch",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq4bgb/england_argos_refuse_to_return_apple_watch/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq4bgb/england_argos_refuse_to_return_apple_watch/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790361761,
-          "snippet": "Hi, I bought Apple Watch SE 3 from Argos via online and collected it from store. When I tried to pair with my phone I realised the watch doesn't have celluar support, which I needed it to be. At this point I have not set up the watch or used it at all. I tried to return it in sto",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wpdoz9",
-          "title": "Police have lost the forensic medical examination I had done at a hospital. How does that even happen? What now?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpdoz9/police_have_lost_the_forensic_medical_examination/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpdoz9/police_have_lost_the_forensic_medical_examination/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790284114,
-          "snippet": "I was informed earlier this evening after work. They've conducted multiple thorough searches and can't locate the evidence with their DNAs on it. They've lost it and my clotjes too. Police say they can't charge him or his cousin because it has to go to the Crown Prosecutiom Servi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wpyxgj",
-          "title": "Bought the car and it was towed. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpyxgj/bought_the_car_and_it_was_towed_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpyxgj/bought_the_car_and_it_was_towed_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790349136,
-          "snippet": "I bought the car privately through a friend who knew somebody was selling a car. A day to two later , my car got towed and when i reported it to the police as stolen they said your car has been towed , its not been stolen because of unpaid debts etc. they gave me the contact numb",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wprwcf",
-          "title": "UK dealer says it's liquidating after I issued a County Court claim – what happens now?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wprwcf/uk_dealer_says_its_liquidating_after_i_issued_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wprwcf/uk_dealer_says_its_liquidating_after_i_issued_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790328952,
-          "snippet": "I'm looking for advice from anyone familiar with UK/England small-company liquidations and existing County Court claims. I bought a used car from a Coventry dealer in July 2026 for £4,800. The car was advertised on AutoTrader with the seller type clearly shown as “TRADE”. I had s",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wq73pd",
-          "title": "Name change when married - spelling different to husband (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq73pd/name_change_when_married_spelling_different_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq73pd/name_change_when_married_spelling_different_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790368349,
-          "snippet": "Hi. I’m British and getting married to my Polish partner. His name ends in -ski and in Polish culture the wife’s name would be the same but ending in -ska. As this is a spelling change, would this be possible to do with just a marriage certificate or would I need a deed poll? Tha",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wp0dlk",
-          "title": "Brick damage from neighbours garden work",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wp0dlk/brick_damage_from_neighbours_garden_work/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wp0dlk/brick_damage_from_neighbours_garden_work/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790253097,
-          "snippet": "I live in England. My neighbour is having gardening work completed and the company has leant around 2 tonne of hardcore against the side of my house. They have chipped a corner brick and said they can replace the brick, is it safe for me to allow them to replace the brick? Will i",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wp6xbc",
-          "title": "F16 Parents completing on new house tomorrow. I have a restraining order against neighbour.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wp6xbc/f16_parents_completing_on_new_house_tomorrow_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wp6xbc/f16_parents_completing_on_new_house_tomorrow_i/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790268635,
-          "snippet": "I was bullied by a older girl at school and when she left she continued to bully and attack me in the street. She was done for assaulting me and then my parents got a restraining order through the court because she would come up to me and embarrass me and harass me. She's not all",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wq4mpz",
-          "title": "Enhanced DBS that I have to request on my own",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq4mpz/enhanced_dbs_that_i_have_to_request_on_my_own/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq4mpz/enhanced_dbs_that_i_have_to_request_on_my_own/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790362499,
-          "snippet": "England- London I hope I can ask this here, and I apologise in advance if it a common topic but I couldn't find answers. I need to apply for enhanced DBS check. I did it quite a few times before but each time before an agency I used to look for the jobs through would request it f",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wpukv4",
-          "title": "England - Police closed an assault case I was victim of without telling me",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpukv4/england_police_closed_an_assault_case_i_was/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpukv4/england_police_closed_an_assault_case_i_was/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790337967,
-          "snippet": "Essentially I was assaulted, a couple days after an officer came to my home to take my account of the events, I told him there was 3 witnesses who were present and could be contacted but as far as I know from since speaking to them (with 1 having to physically intervene at the ti",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wq3g26",
-          "title": "Wife has a substance dependency. What are my legal options except divorce?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq3g26/wife_has_a_substance_dependency_what_are_my_legal/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq3g26/wife_has_a_substance_dependency_what_are_my_legal/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790359704,
-          "snippet": "TL;DR: My wife and mother of my two young children has a serious dependency on sleeping medication. This is the third time I’ve discovered it. I want to give her one final opportunity to get help, but I need safeguards to protect the children and myself if it happens again. Can w",
+          "createdUtc": 1790410008,
+          "snippet": "Hi all, Really need your help and advice. I started working at a place in August, and in my second week there I requested a meeting with my line manager to ask for time off later in the year as I had a regulatory hearing from a previous employment. He was fine with it and didn't ",
           "listingSource": "rss:hot"
         },
         {
@@ -242,15 +158,99 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wppvwt",
-          "title": "Ex estate agent claim ~11 year old rent arrears. Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wppvwt/ex_estate_agent_claim_11_year_old_rent_arrears/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wppvwt/ex_estate_agent_claim_11_year_old_rent_arrears/",
+          "id": "1wq4bgb",
+          "title": "England - Argos refuse to return Apple Watch",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq4bgb/england_argos_refuse_to_return_apple_watch/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq4bgb/england_argos_refuse_to_return_apple_watch/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790321012,
-          "snippet": "Morning, I stayed in a flat in Edinburgh from late 2014 to late 2019, I received an email yesterday saying I owe £500 rent from 10/02/2015. I can't easily see bank statements from that far back and not even sure which account to look at. I've looked at my emails, the following mo",
+          "createdUtc": 1790361761,
+          "snippet": "Hi, I bought Apple Watch SE 3 from Argos via online and collected it from store. When I tried to pair with my phone I realised the watch doesn't have celluar support, which I needed it to be. At this point I have not set up the watch or used it at all. I tried to return it in sto",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wps90h",
+          "title": "England - Vet practice is using \"client confidentiality\" to block my negligence complaint about a rescue cat, claiming a charity owns him. I paid the bill privately—am I the legal client?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wps90h/england_vet_practice_is_using_client/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wps90h/england_vet_practice_is_using_client/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790330265,
+          "snippet": "I have been caring for a stray cat for the past 3 years. We managed to capture him and spoke to an animal charity about covering his initial medical consultation which usually includes neutering, chip and a physical exam but the charity authorized additional testing because he wa",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wqmenq",
+          "title": "German debt collection firm (Astras Veritas) chasing Avis UK rental from 19 months ago - advice?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqmenq/german_debt_collection_firm_astras_veritas/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqmenq/german_debt_collection_firm_astras_veritas/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790415716,
+          "snippet": "Hi everyone, I live in England and just received a letter from a German law firm called Astras Veritas acting for Avis UK. They are demanding about £254 for a rental from February 2025, claiming it is for an administrative offence. It's been 19 months since the rental, and the le",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wqkava",
+          "title": "Work restructure asking me to travel to new region.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqkava/work_restructure_asking_me_to_travel_to_new_region/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqkava/work_restructure_asking_me_to_travel_to_new_region/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790407682,
+          "snippet": "I live in Essex, England. My current employer is nationwide. I have over 20 years service with them and have been in current job over 2 years. I work from home 3 days a week and travel to various sites in my region the other days. To date my role had involved supporting the South",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wq73pd",
+          "title": "Name change when married - spelling different to husband (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq73pd/name_change_when_married_spelling_different_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq73pd/name_change_when_married_spelling_different_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790368349,
+          "snippet": "Hi. I’m British and getting married to my Polish partner. His name ends in -ski and in Polish culture the wife’s name would be the same but ending in -ska. As this is a spelling change, would this be possible to do with just a marriage certificate or would I need a deed poll? Tha",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wq80zk",
+          "title": "NIP served but wife is separated and won’t provide address—England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq80zk/nip_served_but_wife_is_separated_and_wont_provide/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq80zk/nip_served_but_wife_is_separated_and_wont_provide/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790370589,
+          "snippet": "Posting on behalf of someone not on reddit. My friend has received a NIP for a speeding offence. He is the registered owner of the car and pays the insurance policy but his wife is the driver of the car. There is nobody else insured to drive the car. They are currently separated ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wpu9on",
+          "title": "I was a money mule at 19 and idk what to do",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpu9on/i_was_a_money_mule_at_19_and_idk_what_to_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpu9on/i_was_a_money_mule_at_19_and_idk_what_to_do/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790337063,
+          "snippet": "For context, 2 years have passed since I had a CIFAS marker placed on my name. I was living in a youth homeless hostel at the time, and I had absolutely no money for the next few days. A peer in the hostel was also skint and brought some lad to my attention on Snapchat who said h",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wqma8s",
+          "title": "Need to know if I'm legally entitled to back pay",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqma8s/need_to_know_if_im_legally_entitled_to_back_pay/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqma8s/need_to_know_if_im_legally_entitled_to_back_pay/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790415250,
+          "snippet": "UK based So I left my job at my company in August 1st in April they announced they were removing our market supplement ( time+1/3rd on a weekend) and instead replacing it with 53p per hour. I've just learned from another person I used to work with there that apparently they've be",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 12,
+      "postCount": 14,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wqk1r3",
+          "title": "Attachment of Earnings Order issued against me and I don’t know why",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqk1r3/attachment_of_earnings_order_issued_against_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqk1r3/attachment_of_earnings_order_issued_against_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790406733,
+          "snippet": "I’m in England and when I checked my payslip today I have had over £400 deducted as part of an attachment of earnings order. I do not have any debts so this was a shock. I have raised a query with my employers payroll department to get details as to why this has been done and I a",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wpyhhe",
           "title": "Scotland - I was fired while on annual leave after working there for three years",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpyhhe/scotland_i_was_fired_while_on_annual_leave_after/",
@@ -289,6 +301,18 @@
           "numComments": 0,
           "createdUtc": 1790348124,
           "snippet": "Employed in scotland for three years. I was employed by a company for three years and received a termination email for the week after where i would still be on annual leave. I was on approved annual leave, before this there was a time i swapped shifts , which manager approved and",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wqlxo5",
+          "title": "How does the construction industry get away with using CIS as the default for almost everyone? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqlxo5/how_does_the_construction_industry_get_away_with/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqlxo5/how_does_the_construction_industry_get_away_with/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790413900,
+          "snippet": "I have worked for several construction companies over more than ten years. 5 years continuous fixed day rate and hours for the current one. Every one of them paid me through CIS, and almost everyone I know in the trade is paid the same way. In all that time I have never had a day",
           "listingSource": "rss:hot"
         },
         {
@@ -304,27 +328,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wps90h",
-          "title": "England - Vet practice is using \"client confidentiality\" to block my negligence complaint about a rescue cat, claiming a charity owns him. I paid the bill privately—am I the legal client?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wps90h/england_vet_practice_is_using_client/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wps90h/england_vet_practice_is_using_client/",
+          "id": "1wqbn7c",
+          "title": "[ENGLAND] Gate onto rear alleyway/footpath installed around 16 years ago: can a neighbour demand it is removed?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqbn7c/england_gate_onto_rear_alleywayfootpath_installed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqbn7c/england_gate_onto_rear_alleywayfootpath_installed/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790330265,
-          "snippet": "I have been caring for a stray cat for the past 3 years. We managed to capture him and spoke to an animal charity about covering his initial medical consultation which usually includes neutering, chip and a physical exam but the charity authorized additional testing because he wa",
+          "createdUtc": 1790380098,
+          "snippet": "England. I bought my house in 2010. Soon afterwards I installed a small gate in my rear/side boundary fence. It leads onto an alleyway/footpath running behind or alongside a row of houses, near a residents’ car park. I do not yet know who owns the alleyway. It appears likely to b",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wpu9on",
-          "title": "I was a money mule at 19 and idk what to do",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpu9on/i_was_a_money_mule_at_19_and_idk_what_to_do/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpu9on/i_was_a_money_mule_at_19_and_idk_what_to_do/",
+          "id": "1wqkx5l",
+          "title": "Suspended from Work for breach of trust (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqkx5l/suspended_from_work_for_breach_of_trust_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqkx5l/suspended_from_work_for_breach_of_trust_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790337063,
-          "snippet": "For context, 2 years have passed since I had a CIFAS marker placed on my name. I was living in a youth homeless hostel at the time, and I had absolutely no money for the next few days. A peer in the hostel was also skint and brought some lad to my attention on Snapchat who said h",
+          "createdUtc": 1790410008,
+          "snippet": "Hi all, Really need your help and advice. I started working at a place in August, and in my second week there I requested a meeting with my line manager to ask for time off later in the year as I had a regulatory hearing from a previous employment. He was fine with it and didn't ",
           "listingSource": "rss:hot"
         },
         {
@@ -338,30 +362,6 @@
           "createdUtc": 1790361761,
           "snippet": "Hi, I bought Apple Watch SE 3 from Argos via online and collected it from store. When I tried to pair with my phone I realised the watch doesn't have celluar support, which I needed it to be. At this point I have not set up the watch or used it at all. I tried to return it in sto",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wpdoz9",
-          "title": "Police have lost the forensic medical examination I had done at a hospital. How does that even happen? What now?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpdoz9/police_have_lost_the_forensic_medical_examination/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpdoz9/police_have_lost_the_forensic_medical_examination/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790284114,
-          "snippet": "I was informed earlier this evening after work. They've conducted multiple thorough searches and can't locate the evidence with their DNAs on it. They've lost it and my clotjes too. Police say they can't charge him or his cousin because it has to go to the Crown Prosecutiom Servi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wq73pd",
-          "title": "Name change when married - spelling different to husband (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq73pd/name_change_when_married_spelling_different_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq73pd/name_change_when_married_spelling_different_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790368349,
-          "snippet": "Hi. I’m British and getting married to my Polish partner. His name ends in -ski and in Polish culture the wife’s name would be the same but ending in -ska. As this is a spelling change, would this be possible to do with just a marriage certificate or would I need a deed poll? Tha",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -386,6 +386,42 @@
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
           "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wql1a7",
+          "title": "Recommendations on how to still receive deliveries given landlord has removed means of finding my address (Northern Ireland)?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wql1a7/recommendations_on_how_to_still_receive/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wql1a7/recommendations_on_how_to_still_receive/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790410442,
+          "snippet": "Because of new fire safety regulations with certain properties, landlord is going through the process of replacing all of the doors in their properties. However, all tenants received a letter explaining that the doors were being replaced due to regulations but we were also advise",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "motoring-offences",
+      "label": "Motoring Offences",
+      "legalAreaSlug": "motoring_offences",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wqm4ob",
+          "title": "A regular customer is openly drink driving. What are our obligations? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqm4ob/a_regular_customer_is_openly_drink_driving_what/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqm4ob/a_regular_customer_is_openly_drink_driving_what/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790414651,
+          "snippet": "Hi, I'm currently pulling pints at a local pub. I'm bar staff on a zero-hours contract. Once a week we have live music. Most of the bands and musicians that play are great. And most of them get taxis, or have friends who drive, or use the designated driver system. However, there'",
+          "listingSource": "rss:hot"
         }
       ]
     },
@@ -393,7 +429,7 @@
       "slug": "debt",
       "label": "Debt",
       "legalAreaSlug": "debt",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -410,101 +446,17 @@
           "createdUtc": 1790355381,
           "snippet": "Hi, kid was at my exes. My ex has a debt that went to court and judgement made against her because she didnt handle them properly and she refused to pay the debt and its got to the point bailiffs turned up. I have only half the story, but it sounds like my lad left the side door ",
           "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "motoring-offences",
-      "label": "Motoring Offences",
-      "legalAreaSlug": "motoring_offences",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
+        },
         {
-          "id": "1wpv6ab",
-          "title": "In England. UK-based Debt Collection Agency chasing debt for a speeding ticket from Italy under a different name.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpv6ab/in_england_ukbased_debt_collection_agency_chasing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpv6ab/in_england_ukbased_debt_collection_agency_chasing/",
+          "id": "1wqmenq",
+          "title": "German debt collection firm (Astras Veritas) chasing Avis UK rental from 19 months ago - advice?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqmenq/german_debt_collection_firm_astras_veritas/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wqmenq/german_debt_collection_firm_astras_veritas/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790339701,
-          "snippet": "I posted about this two years ago ( original post ) when I received a speeding ticket for a hire car from Firenze Police addressed to my home but to someone with a Chinese name I've never heard of. I subsequently sent a note to Firenze Police stating that no one by that name has ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "garage-and-vehicle-repair-disputes",
-      "label": "Garage and Vehicle Repair Disputes",
-      "legalAreaSlug": "consumer_vehicle_repair",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wpyxgj",
-          "title": "Bought the car and it was towed. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpyxgj/bought_the_car_and_it_was_towed_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wpyxgj/bought_the_car_and_it_was_towed_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790349136,
-          "snippet": "I bought the car privately through a friend who knew somebody was selling a car. A day to two later , my car got towed and when i reported it to the police as stolen they said your car has been towed , its not been stolen because of unpaid debts etc. they gave me the contact numb",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "small-claims-and-county-court",
-      "label": "Small Claims and County Court",
-      "legalAreaSlug": "consumer_small_claims",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wprwcf",
-          "title": "UK dealer says it's liquidating after I issued a County Court claim – what happens now?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wprwcf/uk_dealer_says_its_liquidating_after_i_issued_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wprwcf/uk_dealer_says_its_liquidating_after_i_issued_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790328952,
-          "snippet": "I'm looking for advice from anyone familiar with UK/England small-company liquidations and existing County Court claims. I bought a used car from a Coventry dealer in July 2026 for £4,800. The car was advertised on AutoTrader with the seller type clearly shown as “TRADE”. I had s",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wq3g26",
-          "title": "Wife has a substance dependency. What are my legal options except divorce?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq3g26/wife_has_a_substance_dependency_what_are_my_legal/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wq3g26/wife_has_a_substance_dependency_what_are_my_legal/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790359704,
-          "snippet": "TL;DR: My wife and mother of my two young children has a serious dependency on sleeping medication. This is the third time I’ve discovered it. I want to give her one final opportunity to get help, but I need safeguards to protect the children and myself if it happens again. Can w",
+          "createdUtc": 1790415716,
+          "snippet": "Hi everyone, I live in England and just received a letter from a German law firm called Astras Veritas acting for Avis UK. They are demanding about £254 for a rental from February 2025, claiming it is for an administrative offence. It's been 19 months since the rental, and the le",
           "listingSource": "rss:hot"
         }
       ]
@@ -529,30 +481,6 @@
           "numComments": 0,
           "createdUtc": 1790370042,
           "snippet": "Hi all, I work for a large UK company (household name) and have worked there for nearly 10 years. I live and work in England. Today (Friday 25th) at about 3pm, I was invited to a 'Catch-up' and given two options: go onto a performance improvement plan, or take a severance package",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wppvwt",
-          "title": "Ex estate agent claim ~11 year old rent arrears. Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wppvwt/ex_estate_agent_claim_11_year_old_rent_arrears/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wppvwt/ex_estate_agent_claim_11_year_old_rent_arrears/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790321012,
-          "snippet": "Morning, I stayed in a flat in Edinburgh from late 2014 to late 2019, I received an email yesterday saying I owe £500 rent from 10/02/2015. I can't easily see bank statements from that far back and not even sure which account to look at. I've looked at my emails, the following mo",
           "listingSource": "rss:hot"
         }
       ]
