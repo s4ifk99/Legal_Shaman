@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-28T22:57:44.352Z",
-    "subredditCount": 1,
-    "postCount": 20,
-    "topicCount": 6,
+    "scrapedAt": "2026-09-29T11:54:13.474Z",
+    "subredditCount": 2,
+    "postCount": 40,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -50,6 +50,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wt3lk4",
+          "title": "Man threw themselves onto my car and threatened legal action",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt3lk4/man_threw_themselves_onto_my_car_and_threatened/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt3lk4/man_threw_themselves_onto_my_car_and_threatened/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790666670,
+          "snippet": "England - Pretty much as the title says, as I was leaving a retail park, some drunk looking or rough sleeper guy threw himself onto my car as I'm creeping to leave the junction. Obviously in a panic I roll down the window and ask if he's alright, and then he tells me to give him ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wsdujk",
           "title": "Landlord threw all of my things away - England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsdujk/landlord_threw_all_of_my_things_away_england/",
@@ -59,6 +71,30 @@
           "numComments": 0,
           "createdUtc": 1790600123,
           "snippet": "I am at a loss of what to do. Last week I moved into my accommodation. I met the team, collected my keys and did the full move in. After going on a weeks trip, i return to see all of my things have been thrown away by my landlord. Their excuse was that they thought all of my food",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wsxh2b",
+          "title": "Threatened by a man while waiting for my bus. How long does a police investigation take? I can't travel safely home from work until I know this has been sorted.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsxh2b/threatened_by_a_man_while_waiting_for_my_bus_how/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsxh2b/threatened_by_a_man_while_waiting_for_my_bus_how/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790646810,
+          "snippet": "I leave work at 8pm and get the bus around 8:25pm. Two nights in a row I've seen a man wearing a tracksuit. He demandex my snapchat on the first night. I ignored him and he started shouting at me, screaming \"You think your'ee too good to talk to me? Huh?\" Thankfully my bus camr a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wsts61",
+          "title": "Being made to pay over a Grand to Liverpool city council. Is this justifiable?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsts61/being_made_to_pay_over_a_grand_to_liverpool_city/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsts61/being_made_to_pay_over_a_grand_to_liverpool_city/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790636599,
+          "snippet": "I’m from England, Liverpool, I’ve gotten out the army and was admitted to a psych ward in May this year. Coming out of the ward in July, was denied emergency housing by the city council, so I’ve had a few lovely nights sleeping on pavements. I’ve finally found accommodation throu",
           "listingSource": "rss:hot"
         },
         {
@@ -74,6 +110,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wstm5f",
+          "title": "Someone Else’s Debt Effecting My Credit Score Because of Lowell Portfolio Ltd.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wstm5f/someone_elses_debt_effecting_my_credit_score/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wstm5f/someone_elses_debt_effecting_my_credit_score/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790636167,
+          "snippet": "In England. I did a routine check of my Experian credit score today (I’m in the process of moving house and like to make sure everything’s in order). Lo and behold it says that I have a “defaulted account” with “Lowell Portfolio”, over a missed payment of £506. It doesn’t say whe",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wt65ln",
+          "title": "dog bite/voluntary euthanasia advice needed!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt65ln/dog_bitevoluntary_euthanasia_advice_needed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt65ln/dog_bitevoluntary_euthanasia_advice_needed/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790676393,
+          "snippet": "Any legal advice welcome! My dog is a rescue and is fear reactive. Has was a street dog and has a severe burn on his face where humans hurt him. The worst thing happened and he bit someone on Sunday. He left two puncture marks in her arm, the skin was broken but not bleeding out.",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wsi38w",
           "title": "Car keeps blocking the only way in and out of our private mews. What can we actually do? (London, England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsi38w/car_keeps_blocking_the_only_way_in_and_out_of_our/",
@@ -83,6 +143,18 @@
           "numComments": 0,
           "createdUtc": 1790610209,
           "snippet": "Hi UK Legal people - long time lurker but first time poster here. We own a house on a small private mews in London. It's narrow, ungated, and there's one way in and out down a narrow road, so most people reverse out. Each property owns the bit of mews in front of it. For the last",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wt1lrr",
+          "title": "(Child maintenance) The receiving parent has left the country!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt1lrr/child_maintenance_the_receiving_parent_has_left/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt1lrr/child_maintenance_the_receiving_parent_has_left/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790659525,
+          "snippet": "My ex has left the country with my child I am living in England, I don’t have rights of responsibility but ive been paying CMS for around 6 years. It clearly states both parents need to live in the U.K. for this and she should get a remo agreement. I have photo evidence of her li",
           "listingSource": "rss:hot"
         },
         {
@@ -98,15 +170,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wsird1",
-          "title": "Letting agent allocated me a specific bedroom in tenancy agreement, but now says the room numbering was wrong and wants me to move – England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsird1/letting_agent_allocated_me_a_specific_bedroom_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsird1/letting_agent_allocated_me_a_specific_bedroom_in/",
+          "id": "1wt5q69",
+          "title": "'employer entitlement' deducted from my redundancy pay through insolvency in England, what does this mean?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt5q69/employer_entitlement_deducted_from_my_redundancy/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt5q69/employer_entitlement_deducted_from_my_redundancy/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790611643,
-          "snippet": "Hi all, looking for some advice on a slightly bizarre situation with my student tenancy in England. I recently moved into a 6-bedroom HMO with five other tenants. We are all named on one joint tenancy agreement, rather than having six separate tenancy agreements. Before signing, ",
+          "createdUtc": 1790674813,
+          "snippet": "Currently owed 1 months' salary plus holiday in lieu after being on contract for 1+ years, redundancy and the company's subsequent liquidation. Since a lot of back and forth between the insolvency service and the liquidator with myself as the middleman, I've been told I cannot cl",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wt5pzq",
+          "title": "Abusive ex refusing to sell house. If I force a sale, will he have to pay?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt5pzq/abusive_ex_refusing_to_sell_house_if_i_force_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt5pzq/abusive_ex_refusing_to_sell_house_if_i_force_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790674792,
+          "snippet": "England. I bought a house with my ex, I paid all the deposit and fees, and we agreed a tenants in common split of 90/10 protected by a declaration of trust (this reflected what he paid to the mortgage). We agreed to sell it and move in the summer. Shortly afterwards we broke up a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wt7m3s",
+          "title": "Are there collection laws in the UK?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt7m3s/are_there_collection_laws_in_the_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt7m3s/are_there_collection_laws_in_the_uk/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790681393,
+          "snippet": "I am having problem with a company called Debtist. A internet service company Anydesk doesn't provide a direct way of cancelling your subscription with them; there is no long to an option to do it it on their Anydesk Portal II, there no option that says \"click hear for informatio",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wt6q2s",
+          "title": "Please help i have cder group after me for a £16.60 fine which is now £95 with all their fees added England united kingdom",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt6q2s/please_help_i_have_cder_group_after_me_for_a_1660/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt6q2s/please_help_i_have_cder_group_after_me_for_a_1660/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790678387,
+          "snippet": "i payed my debt back in 2024 (it was a court fine) now i have reccived this email saying that i owe £95 i called up cder group and they told me that the debt was passed on to them at the price of £16.60 now they have added an extra £70 fee on there for me to pay i told them i am ",
           "listingSource": "rss:hot"
         },
         {
@@ -122,135 +230,275 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wslq13",
-          "title": "CCTV Being used by management to watch and monitor staff without purpose",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wslq13/cctv_being_used_by_management_to_watch_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wslq13/cctv_being_used_by_management_to_watch_and/",
+          "id": "1wsird1",
+          "title": "Letting agent allocated me a specific bedroom in tenancy agreement, but now says the room numbering was wrong and wants me to move – England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsird1/letting_agent_allocated_me_a_specific_bedroom_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsird1/letting_agent_allocated_me_a_specific_bedroom_in/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790618150,
-          "snippet": "I work at a large chain restaurant in England and we have CCTV. In the management office there is a tv screen with all of the camera live feeds. Management are known to stand and watch these cameras and if they see staff standing still or doing a task that is not the task managem",
+          "createdUtc": 1790611643,
+          "snippet": "Hi all, looking for some advice on a slightly bizarre situation with my student tenancy in England. I recently moved into a 6-bedroom HMO with five other tenants. We are all named on one joint tenancy agreement, rather than having six separate tenancy agreements. Before signing, ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wsb6s6",
-          "title": "Odd legal question about RAF Fairham incident",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsb6s6/odd_legal_question_about_raf_fairham_incident/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsb6s6/odd_legal_question_about_raf_fairham_incident/",
+          "id": "1wt4roo",
+          "title": "Issues with council tax on sold land England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt4roo/issues_with_council_tax_on_sold_land_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt4roo/issues_with_council_tax_on_sold_land_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790592083,
-          "snippet": "Being that Iran and the US are effectively at war with each other (even if the US considers it not technically at war), if the suspects arrested at RAF Fairham turned out to be members of the Iranian Army, and attempting to conduct action against a US person or equipment, what wo",
+          "createdUtc": 1790671176,
+          "snippet": "My grandfather sold some farmland a few years ago and the new owners have gotten planning permission on the land, however the addresses they have listed are \"the barn at [name of the farm]\" and \"the annex at [name of the farm] This has meant that the valuations office and local c",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "name": "uklaw",
+      "displayName": "r/uklaw",
+      "description": "UK law students and practitioners — statute, case law, and professional practice.",
+      "subscribers": null,
+      "posts": [
+        {
+          "id": "k2kvzd",
+          "title": "Help Post: List of Legal Recruitment Agencies",
+          "url": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1606555862,
+          "snippet": "Hey, since everyone is struggling to find work, here is a list of all of the legal recruitment agencies and legal job sites I have bookmarked. Across the whole list, you can find everything from temp/paralegal work to associate roles. https://www.lawsupport.co.uk/ https://lodlaw.",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wrygbw",
-          "title": "6-a-Side League threatening to take me to court - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wrygbw/6aside_league_threatening_to_take_me_to_court/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wrygbw/6aside_league_threatening_to_take_me_to_court/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1l8oqj7",
+          "title": "WEEKLY general chat/support post",
+          "url": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790550338,
-          "snippet": "UPDATE: Thank you everyone for your insight. My father is going to pay it off, who will then make my brother pay it back. I had emailed them before I posted this last night, and they essentially threatened escalating higher legal action against him. After reading through the comm",
+          "createdUtc": 1749636086,
+          "snippet": "General chat/support post - how are you all doing? :) submitted by /u/AutoModerator [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1ws4g3p",
-          "title": "Assaulted at a festival, serious laceration",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ws4g3p/assaulted_at_a_festival_serious_laceration/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ws4g3p/assaulted_at_a_festival_serious_laceration/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wt2x6d",
+          "title": "Law really isn’t worth it",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wt2x6d/law_really_isnt_worth_it/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wt2x6d/law_really_isnt_worth_it/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790568089,
-          "snippet": "Edit: Just found out he’s a professional boxer… I was assaulted at a festival in Brighton on Saturday 26 September and ended up in hospital with significant facial injuries. The incident started with him pushing me first. I then pushed him off me, and after that he hit me in the ",
+          "createdUtc": 1790664192,
+          "snippet": "I’m 25M, and I seriously regret choosing law as a career. This is genuinely the worst career ever. At 23, I started as a trainee at a large commercial law firm in Scotland on £29k. At the time, I genuinely thought I was starting a normal professional career — qualify, gain experi",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wscemf",
-          "title": "Appealing a parking fine for parking in a “ suspended bay” England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wscemf/appealing_a_parking_fine_for_parking_in_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wscemf/appealing_a_parking_fine_for_parking_in_a/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wt7874",
+          "title": "1 PQE Corporate solicitor, struggling to move firms, looking for advice",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wt7874/1_pqe_corporate_solicitor_struggling_to_move/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wt7874/1_pqe_corporate_solicitor_struggling_to_move/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790596080,
-          "snippet": "Hi all I hope you are all well I parked at Abbey Wood station car park before commuting into work using the Elizabeth line back in August I parked in a bay without checking and just parked in the first bay I saw I was shocked to see when I got back to my vehicle that I had receiv",
+          "createdUtc": 1790680118,
+          "snippet": "I’m a 1 PQE corporate solicitor currently working at a regional boutique firm, mainly doing private M&amp;A and general corporate work. I’ve been trying for around a year now to move into a medium-sized/national firm, ideally in London, but I’d also be very happy with a good regi",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wsdhlz",
-          "title": "Is it legal for a landlord to bundle deposits from separate tenant contracts into the same insured protection scheme? (Wales)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsdhlz/is_it_legal_for_a_landlord_to_bundle_deposits/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsdhlz/is_it_legal_for_a_landlord_to_bundle_deposits/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wt45de",
+          "title": "Does passing/not passing SQE determine your suitability for the profession?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wt45de/does_passingnot_passing_sqe_determine_your/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wt45de/does_passingnot_passing_sqe_determine_your/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790599156,
-          "snippet": "Sorry if it’s a slightly confusing question! Essentially I am in a dispute with my former student landlord because he is attempting to steal my deposit. While attempting to dispute this I found out that in the Deposit Protection Service’s insured scheme he had bundled all four te",
+          "createdUtc": 1790668802,
+          "snippet": "As above. Basically if you can’t pass the SQE first time, does that mean you’re more likely to struggle in a trainee role? Vice Versa too? I wasn’t the perfect paralegal by any stretch but I managed to pass SQE1 at least first time (waiting for SQE2) does that mean I just wasn’t ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wslh2v",
-          "title": "Flatmate signed a contract for wifi i didnt agreed to and made a mistake and bought the wrong contract and is threatening small claims court over the cancellation fee [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wslh2v/flatmate_signed_a_contract_for_wifi_i_didnt/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wslh2v/flatmate_signed_a_contract_for_wifi_i_didnt/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wsrj6z",
+          "title": "Corporate lawyers, what gets you out of bed?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wsrj6z/corporate_lawyers_what_gets_you_out_of_bed/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wsrj6z/corporate_lawyers_what_gets_you_out_of_bed/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790617618,
-          "snippet": "The flatmate who made the error is demanding I pay £132.30 for their obvious gaff. Why might I be liable? I never agreed although I know intent can be suggested from paying for monthly internet bills. I paid it mostly out of pier pressure. I made a verbal agreement to no use wifi",
+          "createdUtc": 1790630942,
+          "snippet": "As the title says - what gets you out of bed on a weekday and into the office? What do you love about your job (or be honest if you don’t, and how you cope)? Sincerely, a trainee struggling with motivation submitted by /u/Jaded_Pomegranate933 [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wryyb4",
-          "title": "Appealing dismissal with immediate effect - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wryyb4/appealing_dismissal_with_immediate_effect_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wryyb4/appealing_dismissal_with_immediate_effect_england/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wsq25y",
+          "title": "Moving to London from a regional firm",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wsq25y/moving_to_london_from_a_regional_firm/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wsq25y/moving_to_london_from_a_regional_firm/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790551708,
-          "snippet": "I've recently been dismissed with immediate effect for \"failing to stop an unsafe act\" after being employed at the company for 10+ years continuously. I witnessed an employee pressure test a valve, whereby the blanking arrangement failed causing an internal part of the valve to e",
+          "createdUtc": 1790627626,
+          "snippet": "I am set to start my TC in September 2027. It is with a Legal500 firm with a good regional presence, maybe ~250 employees total, full-service with a couple (not many) international businesses as clients. I am very excited and lucky to have secured this TC with the firm, although ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wscgtv",
-          "title": "Want to attempt Court 2nd time for SA against my dad, 1st attempt was 17y.o, now 27 - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wscgtv/want_to_attempt_court_2nd_time_for_sa_against_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wscgtv/want_to_attempt_court_2nd_time_for_sa_against_my/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wt2jk6",
+          "title": "Mills & Reeves Online Assessment Stage 2",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wt2jk6/mills_reeves_online_assessment_stage_2/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wt2jk6/mills_reeves_online_assessment_stage_2/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790596277,
-          "snippet": "Hello, apologies if how this is written isn’t the best- my adhd makes me jump a little but will try to keep contained. Thank you for anyone that takes the time to read this and provide any of their insight Question I was SA’d from the rough ages of 4-15(give or take a few years a",
+          "createdUtc": 1790662818,
+          "snippet": "Hello!!! I received a notice proceeding to Mills &amp; Reeves' Stage 2 of their online assessment. It ends with video response questions. Does anyone have any insight or tips? I only have 6 days to get this in, and i’m so in over my head about it, I struggle with the video sectio",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wstm5f",
-          "title": "Someone Else’s Debt Effecting My Credit Score Because of Lowell Portfolio Ltd.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wstm5f/someone_elses_debt_effecting_my_credit_score/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wstm5f/someone_elses_debt_effecting_my_credit_score/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wsvzxl",
+          "title": "28 y/o career changer from music to law - where to start?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wsvzxl/28_yo_career_changer_from_music_to_law_where_to/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wsvzxl/28_yo_career_changer_from_music_to_law_where_to/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790636167,
-          "snippet": "In England. I did a routine check of my Experian credit score today (I’m in the process of moving house and like to make sure everything’s in order). Lo and behold it says that I have a “defaulted account” with “Lowell Portfolio”, over a missed payment of £506. It doesn’t say whe",
+          "createdUtc": 1790642598,
+          "snippet": "Hi everyone, I am 28 years old, based in London and considering changing careers from music marketing to becoming a solicitor. My academics are: GCSEs: 10 A*s A-levels: AAB Degree: 2:1 in Classical Civilisation from the University of Warwick I’ve spent the past five years working",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wrxkc7",
-          "title": "My son has moved into a Unite student flat with 4 friends (England) and it’s in a disgusting state. They arrived yesterday…",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wrxkc7/my_son_has_moved_into_a_unite_student_flat_with_4/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wrxkc7/my_son_has_moved_into_a_unite_student_flat_with_4/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1wskic1",
+          "title": "Switching from employee to consultant/freelance at my law firm?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wskic1/switching_from_employee_to_consultantfreelance_at/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wskic1/switching_from_employee_to_consultantfreelance_at/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790547939,
-          "snippet": "Bedroom isn’t great but is liveable in. The kitchen however is disgusting, dirty and grimy. The preparation area was full of crumbs, food left in cupboards, large area of staining on the ‘sofa’, some of the appliances are old and semi functioning and there’s an all pervading disg",
+          "createdUtc": 1790615513,
+          "snippet": "I am currently a 5PQE litigation associate at a very small firm in the UK. It seems like the business model is struggling to support the current situation and my role may be becoming redundant. Otherwise, they are very happy with my performance and skills. Would it be a bad idea ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wsoj5r",
+          "title": "Warwick, KCL or Bath for Law",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wsoj5r/warwick_kcl_or_bath_for_law/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wsoj5r/warwick_kcl_or_bath_for_law/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790624265,
+          "snippet": "&#x200B; I applied to Warwick for BA Politics, Philosophy and Law, KCL for BA History and Modern Languages, and Bath for BSc Politics and International Relations; I'm looking into going into law afterwards (I didn't feel like doing law straight away because I enjoy these subjects",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wsfmsp",
+          "title": "TC revoked after SQE1 Fail. Direct tc apps now or wait till I pass?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wsfmsp/tc_revoked_after_sqe1_fail_direct_tc_apps_now_or/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wsfmsp/tc_revoked_after_sqe1_fail_direct_tc_apps_now_or/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790604531,
+          "snippet": "I'd appreciate advice on timing for applications. Background: A-levels: AAB 2:1 from a London Russell Group university in a non-law subject Law conversion: my prep course grades were good, but my GDL grades were a just a pass I had a MC training contract that was revoked after I ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wsr3xt",
+          "title": "Am I competitive for city law firms?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wsr3xt/am_i_competitive_for_city_law_firms/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wsr3xt/am_i_competitive_for_city_law_firms/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790629969,
+          "snippet": "Hello, I’m 18 and currently an undergraduate studying English and History at Warwick. I’m aiming to work in a big city firm, but I don’t feel I’m the most competitive candidate. My GCSEs were good- I got all 9s. But for A-levels (due to extenuating circumstances, and bad grade bo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wscj1k",
+          "title": "NQ check in! How you feeling (truly?)",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wscj1k/nq_check_in_how_you_feeling_truly/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wscj1k/nq_check_in_how_you_feeling_truly/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790596464,
+          "snippet": "To my fellow August/September NQs first off CONGRATULATIONS, qualification is an amazing thing! Second, how are you feeling? I am already feeling very anxious, lots of imposter syndrome and also still feeling like a trainee. Maybe that just means I have a good team who still want",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wsqdxl",
+          "title": "GDL personal statements - scholarships?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wsqdxl/gdl_personal_statements_scholarships/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wsqdxl/gdl_personal_statements_scholarships/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790628372,
+          "snippet": "I am applying for the GDL at City. As I understand it, pretty much anyone with a brain cell who applies and is able to pay will get accepted, so I'm wondering what the point of the personal statement section of the application is. I am going to be applying for scholarships and bu",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wryfc9",
+          "title": "Why did the Green Goblin apply for a training contract?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wryfc9/why_did_the_green_goblin_apply_for_a_training/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wryfc9/why_did_the_green_goblin_apply_for_a_training/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790550262,
+          "snippet": "He thought he was getting a job at Slaughter Aunt May submitted by /u/RealRedditUser217 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wt4imn",
+          "title": "Future as A Solicitor",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wt4imn/future_as_a_solicitor/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wt4imn/future_as_a_solicitor/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790670209,
+          "snippet": "Hi everyone, I am planning to give my SQE 1 in July 2027 and apply for SQE 2 exemption (as I have 2+ years of experience in India) in the coming months of November/December. Assuming that I clear SQE1 and gets exemption for SQE2, and become a Solicitor, how hard it will be for me",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wssnqg",
+          "title": "When to apply for vacation schemes",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wssnqg/when_to_apply_for_vacation_schemes/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wssnqg/when_to_apply_for_vacation_schemes/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790633702,
+          "snippet": "I am a second year at a non oxbridge russell group university doing Law LLB. I have got pretty good GCSE’s,ABB at A level’s and a 2:1 in first year. I am very interested in doing commercial law, particularly at firms like pinsent masons, Stephenson harwood, Osborne Clarke etc. I ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wru6el",
+          "title": "Why did the partner at Clifford Chance refuse to mow the lawn?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wru6el/why_did_the_partner_at_clifford_chance_refuse_to/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wru6el/why_did_the_partner_at_clifford_chance_refuse_to/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790539619,
+          "snippet": "Because they hate fresh fields submitted by /u/RealRedditUser217 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1ws3tbm",
+          "title": "Thank you emails after interviews",
+          "url": "https://www.reddit.com/r/uklaw/comments/1ws3tbm/thank_you_emails_after_interviews/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1ws3tbm/thank_you_emails_after_interviews/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790566067,
+          "snippet": "I have never sent a thank you email after an interview. Lately I have been seeing advice that you should. Is this normal in legal jobs? I can't explain it but it feels American. submitted by /u/Necessary-Shine-6699 [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,10 +509,11 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 11,
+      "postCount": 31,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "uklaw"
       ],
       "posts": [
         {
@@ -292,6 +541,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wt3lk4",
+          "title": "Man threw themselves onto my car and threatened legal action",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt3lk4/man_threw_themselves_onto_my_car_and_threatened/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt3lk4/man_threw_themselves_onto_my_car_and_threatened/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790666670,
+          "snippet": "England - Pretty much as the title says, as I was leaving a retail park, some drunk looking or rough sleeper guy threw himself onto my car as I'm creeping to leave the junction. Obviously in a panic I roll down the window and ask if he's alright, and then he tells me to give him ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wsts61",
+          "title": "Being made to pay over a Grand to Liverpool city council. Is this justifiable?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsts61/being_made_to_pay_over_a_grand_to_liverpool_city/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsts61/being_made_to_pay_over_a_grand_to_liverpool_city/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790636599,
+          "snippet": "I’m from England, Liverpool, I’ve gotten out the army and was admitted to a psych ward in May this year. Coming out of the ward in July, was denied emergency housing by the city council, so I’ve had a few lovely nights sleeping on pavements. I’ve finally found accommodation throu",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wt65ln",
+          "title": "dog bite/voluntary euthanasia advice needed!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt65ln/dog_bitevoluntary_euthanasia_advice_needed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt65ln/dog_bitevoluntary_euthanasia_advice_needed/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790676393,
+          "snippet": "Any legal advice welcome! My dog is a rescue and is fear reactive. Has was a street dog and has a severe burn on his face where humans hurt him. The worst thing happened and he bit someone on Sunday. He left two puncture marks in her arm, the skin was broken but not bleeding out.",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wsi38w",
           "title": "Car keeps blocking the only way in and out of our private mews. What can we actually do? (London, England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsi38w/car_keeps_blocking_the_only_way_in_and_out_of_our/",
@@ -301,6 +586,18 @@
           "numComments": 0,
           "createdUtc": 1790610209,
           "snippet": "Hi UK Legal people - long time lurker but first time poster here. We own a house on a small private mews in London. It's narrow, ungated, and there's one way in and out down a narrow road, so most people reverse out. Each property owns the bit of mews in front of it. For the last",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wt1lrr",
+          "title": "(Child maintenance) The receiving parent has left the country!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt1lrr/child_maintenance_the_receiving_parent_has_left/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt1lrr/child_maintenance_the_receiving_parent_has_left/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790659525,
+          "snippet": "My ex has left the country with my child I am living in England, I don’t have rights of responsibility but ive been paying CMS for around 6 years. It clearly states both parents need to live in the U.K. for this and she should get a remo agreement. I have photo evidence of her li",
           "listingSource": "rss:hot"
         },
         {
@@ -314,54 +611,6 @@
           "createdUtc": 1790586700,
           "snippet": "Hi everyone, looking for urgent advice on a UK (England) small claims case. In March I was involved in a very minor, low-speed rear-end bump. The photos show a small bumper scuff (plates blurred). My insurer refused to cover due to a commuting exclusion, but dealt with the third ",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wsglr7",
-          "title": "Someone trying to get me fired from afar",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsglr7/someone_trying_to_get_me_fired_from_afar/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsglr7/someone_trying_to_get_me_fired_from_afar/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790606832,
-          "snippet": "(UK) I have two jobs, someone has faked my email address (made one almost identical) and emailed both my employers, with a resignation, pretending to be me. I haven't been fired as HR and my boss have obviously spoke to me. I have absolutely no idea who it was... Is there anythin",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wslq13",
-          "title": "CCTV Being used by management to watch and monitor staff without purpose",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wslq13/cctv_being_used_by_management_to_watch_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wslq13/cctv_being_used_by_management_to_watch_and/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790618150,
-          "snippet": "I work at a large chain restaurant in England and we have CCTV. In the management office there is a tv screen with all of the camera live feeds. Management are known to stand and watch these cameras and if they see staff standing still or doing a task that is not the task managem",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wsb6s6",
-          "title": "Odd legal question about RAF Fairham incident",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsb6s6/odd_legal_question_about_raf_fairham_incident/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsb6s6/odd_legal_question_about_raf_fairham_incident/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790592083,
-          "snippet": "Being that Iran and the US are effectively at war with each other (even if the US considers it not technically at war), if the suspects arrested at RAF Fairham turned out to be members of the Iranian Army, and attempting to conduct action against a US person or equipment, what wo",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wrygbw",
-          "title": "6-a-Side League threatening to take me to court - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wrygbw/6aside_league_threatening_to_take_me_to_court/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wrygbw/6aside_league_threatening_to_take_me_to_court/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790550338,
-          "snippet": "UPDATE: Thank you everyone for your insight. My father is going to pay it off, who will then make my brother pay it back. I had emailed them before I posted this last night, and they essentially threatened escalating higher legal action against him. After reading through the comm",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -369,7 +618,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 5,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -410,29 +659,29 @@
           "createdUtc": 1790611643,
           "snippet": "Hi all, looking for some advice on a slightly bizarre situation with my student tenancy in England. I recently moved into a 6-bedroom HMO with five other tenants. We are all named on one joint tenancy agreement, rather than having six separate tenancy agreements. Before signing, ",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1wsdhlz",
-          "title": "Is it legal for a landlord to bundle deposits from separate tenant contracts into the same insured protection scheme? (Wales)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsdhlz/is_it_legal_for_a_landlord_to_bundle_deposits/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsdhlz/is_it_legal_for_a_landlord_to_bundle_deposits/",
+          "id": "1wsxh2b",
+          "title": "Threatened by a man while waiting for my bus. How long does a police investigation take? I can't travel safely home from work until I know this has been sorted.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsxh2b/threatened_by_a_man_while_waiting_for_my_bus_how/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wsxh2b/threatened_by_a_man_while_waiting_for_my_bus_how/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790599156,
-          "snippet": "Sorry if it’s a slightly confusing question! Essentially I am in a dispute with my former student landlord because he is attempting to steal my deposit. While attempting to dispute this I found out that in the Deposit Protection Service’s insured scheme he had bundled all four te",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wslh2v",
-          "title": "Flatmate signed a contract for wifi i didnt agreed to and made a mistake and bought the wrong contract and is threatening small claims court over the cancellation fee [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wslh2v/flatmate_signed_a_contract_for_wifi_i_didnt/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wslh2v/flatmate_signed_a_contract_for_wifi_i_didnt/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790617618,
-          "snippet": "The flatmate who made the error is demanding I pay £132.30 for their obvious gaff. Why might I be liable? I never agreed although I know intent can be suggested from paying for monthly internet bills. I paid it mostly out of pier pressure. I made a verbal agreement to no use wifi",
+          "createdUtc": 1790646810,
+          "snippet": "I leave work at 8pm and get the bus around 8:25pm. Two nights in a row I've seen a man wearing a tracksuit. He demandex my snapchat on the first night. I ignored him and he started shouting at me, screaming \"You think your'ee too good to talk to me? Huh?\" Thankfully my bus camr a",
           "listingSource": "rss:hot"
         }
       ]
@@ -462,54 +711,6 @@
       ]
     },
     {
-      "slug": "parking-and-pcns",
-      "label": "Parking and PCNs",
-      "legalAreaSlug": "parking_pcn",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wscemf",
-          "title": "Appealing a parking fine for parking in a “ suspended bay” England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wscemf/appealing_a_parking_fine_for_parking_in_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wscemf/appealing_a_parking_fine_for_parking_in_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790596080,
-          "snippet": "Hi all I hope you are all well I parked at Abbey Wood station car park before commuting into work using the Elizabeth line back in August I parked in a bay without checking and just parked in the first bay I saw I was shocked to see when I got back to my vehicle that I had receiv",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "prison_law",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wryyb4",
-          "title": "Appealing dismissal with immediate effect - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wryyb4/appealing_dismissal_with_immediate_effect_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wryyb4/appealing_dismissal_with_immediate_effect_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790551708,
-          "snippet": "I've recently been dismissed with immediate effect for \"failing to stop an unsafe act\" after being employed at the company for 10+ years continuously. I witnessed an employee pressure test a valve, whereby the blanking arrangement failed causing an internal part of the valve to e",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
       "slug": "debt",
       "label": "Debt",
       "legalAreaSlug": "debt",
@@ -529,6 +730,78 @@
           "numComments": 0,
           "createdUtc": 1790636167,
           "snippet": "In England. I did a routine check of my Experian credit score today (I’m in the process of moving house and like to make sure everything’s in order). Lo and behold it says that I have a “defaulted account” with “Lowell Portfolio”, over a missed payment of £506. It doesn’t say whe",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wt5q69",
+          "title": "'employer entitlement' deducted from my redundancy pay through insolvency in England, what does this mean?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt5q69/employer_entitlement_deducted_from_my_redundancy/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt5q69/employer_entitlement_deducted_from_my_redundancy/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790674813,
+          "snippet": "Currently owed 1 months' salary plus holiday in lieu after being on contract for 1+ years, redundancy and the company's subsequent liquidation. Since a lot of back and forth between the insolvency service and the liquidator with myself as the middleman, I've been told I cannot cl",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wt5pzq",
+          "title": "Abusive ex refusing to sell house. If I force a sale, will he have to pay?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt5pzq/abusive_ex_refusing_to_sell_house_if_i_force_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt5pzq/abusive_ex_refusing_to_sell_house_if_i_force_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790674792,
+          "snippet": "England. I bought a house with my ex, I paid all the deposit and fees, and we agreed a tenants in common split of 90/10 protected by a declaration of trust (this reflected what he paid to the mortgage). We agreed to sell it and move in the summer. Shortly afterwards we broke up a",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "energy-and-utilities",
+      "label": "Energy and Utilities",
+      "legalAreaSlug": "consumer_energy_utilities",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "uklaw"
+      ],
+      "posts": [
+        {
+          "id": "1wskic1",
+          "title": "Switching from employee to consultant/freelance at my law firm?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1wskic1/switching_from_employee_to_consultantfreelance_at/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1wskic1/switching_from_employee_to_consultantfreelance_at/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790615513,
+          "snippet": "I am currently a 5PQE litigation associate at a very small firm in the UK. It seems like the business model is struggling to support the current situation and my role may be becoming redundant. Otherwise, they are very happy with my performance and skills. Would it be a bad idea ",
           "listingSource": "rss:hot"
         }
       ]
