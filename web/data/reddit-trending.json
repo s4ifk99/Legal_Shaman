@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-09-30T11:41:22.522Z",
+    "scrapedAt": "2026-09-30T21:54:00.153Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 8,
+    "topicCount": 4,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wuczyy",
+          "title": "Can nothing be done to stop my neighbour stockpiling petrol in our block of flats? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuczyy/can_nothing_be_done_to_stop_my_neighbour/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuczyy/can_nothing_be_done_to_stop_my_neighbour/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790793488,
+          "snippet": "Neighbour is an odd guy. I’ve learned he keeps petrol in his flat (he’s a bit of a hoarder), I’ve asked why/how much and he just replied “because I’ve got insurance”- couldn’t get any more out of him. He is not competent enough to store it safely. He already poured half a jug of ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wu0b52",
           "title": "Sister was on PIP for obesity since 2018. She has not been obese since 2021. She is being investigated for failing to report a change in condition.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu0b52/sister_was_on_pip_for_obesity_since_2018_she_has/",
@@ -47,6 +59,30 @@
           "numComments": 0,
           "createdUtc": 1790760098,
           "snippet": "Parents have asked me to help her so I'm trying to figure out what to do. She went on ozempic or monjaro. Not sure which. She lost weight and was a normal BMI by around 2021 after a covid scare. She's no longer using a mobility scooter etc and can walk normally. She was reviewed ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wu064b",
+          "title": "Apparently the Police can act with impunity and there's nothing you can do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu064b/apparently_the_police_can_act_with_impunity_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu064b/apparently_the_police_can_act_with_impunity_and/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790759557,
+          "snippet": "In early 2021 I was arrested and accused of making threats online, they turned up at my door naming a person I was accused to have threatened (never had heard of them in my life) and put me in a cell. They searched my house and seized a number of computer devices. Two of which we",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wu6i84",
+          "title": "Mother took out debts in my name without me knowing and now my credit is ruined - Wales",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu6i84/mother_took_out_debts_in_my_name_without_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu6i84/mother_took_out_debts_in_my_name_without_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790778723,
+          "snippet": "Title says it all. For context, part of this story is old, while some of it is extremely recent. So. Fiance and I are saving for a house and he suggested I check my credit score, which I did and I was in absolute shock. There were two accounts; one with Lowells and one with Vodaf",
           "listingSource": "rss:hot"
         },
         {
@@ -74,6 +110,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wublql",
+          "title": "Someone broke into my car, and I confronted them - need advice, im in England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wublql/someone_broke_into_my_car_and_i_confronted_them/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wublql/someone_broke_into_my_car_and_i_confronted_them/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790790383,
+          "snippet": "Last night, at roughly 1 am someone broke into my car. The car is parked on a residential street in a resident zone parking with a pavement between the house and car. I caught them in the act and confronted them. I did grab a baseball bat when I headed out. I did not threaten him",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wu9dym",
+          "title": "Lost everything I built & put my life’s earnings into",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu9dym/lost_everything_i_built_put_my_lifes_earnings_into/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu9dym/lost_everything_i_built_put_my_lifes_earnings_into/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790785426,
+          "snippet": "60 year old male, UK. First moved into a small flat my girlfriend owned 20 years ago, did it up for her with my own labour time &amp; money, moved on and did up 2 more houses together (both were in her name) Finally we ended up living in a really big detached house (still in her ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wtyq9t",
           "title": "Never received job termination - it’s been a year since last shift, they won’t end it!",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtyq9t/never_received_job_termination_its_been_a_year/",
@@ -86,15 +146,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wtvhsv",
-          "title": "£15,000 loaned to friends who keep lying and owe money to everyone.. how can I get my money back? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtvhsv/15000_loaned_to_friends_who_keep_lying_and_owe/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtvhsv/15000_loaned_to_friends_who_keep_lying_and_owe/",
+          "id": "1wu3sc9",
+          "title": "Seeking employee-law advice (England): my company is asking me to relocate with a 5-day notice",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu3sc9/seeking_employeelaw_advice_england_my_company_is/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu3sc9/seeking_employeelaw_advice_england_my_company_is/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790742090,
-          "snippet": "I’m looking for some advice because I honestly don’t know what to do anymore. My partner has been friends with this couple for around 9 years. They had been working at the same kebab shop for about 15 years and recently decided to buy the business themselves. They asked us for £5",
+          "createdUtc": 1790771762,
+          "snippet": "After 2.5 years of service at my current office location, my company notified me today (30-09-2026) that they want me to work from a far away location by 05-10-2026. This location is at a 2-hour train journey (each way) from where I live, and I would have to perform tasks and act",
           "listingSource": "rss:hot"
         },
         {
@@ -110,87 +170,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wt9jns",
-          "title": "New owner of business refusing to return my property (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt9jns/new_owner_of_business_refusing_to_return_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt9jns/new_owner_of_business_refusing_to_return_my/",
+          "id": "1wu2kh3",
+          "title": "Amazon went back on a promise they made (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu2kh3/amazon_went_back_on_a_promise_they_made_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu2kh3/amazon_went_back_on_a_promise_they_made_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790686981,
-          "snippet": "Hello, so little bit of story here for background. So I had to move house urgently a few years ago and was in a shared place for a while with a friend, so space was limited and my friend stored some of my gaming property at his house. Now, this friend owned a tabletop gaming stor",
+          "createdUtc": 1790768174,
+          "snippet": "Hi guys, I'll try and keep this as brief as I can. I bought a pair of Corsair RAM sticks with the intent of building a computer back on November last year, from Amazon. With the RAM crisis (which I wasn't yet aware of) just kicking off, supplies were scarce (though prices hadn't ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wtni8r",
-          "title": "I F20 potentially believe I have a stalker ex abusive boyfriend M23 on my hands - received a 100 page letter from him today. England based.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtni8r/i_f20_potentially_believe_i_have_a_stalker_ex/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtni8r/i_f20_potentially_believe_i_have_a_stalker_ex/",
+          "id": "1wuhn8c",
+          "title": "Step child Adoption advice Scotland?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuhn8c/step_child_adoption_advice_scotland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuhn8c/step_child_adoption_advice_scotland/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790719208,
-          "snippet": "For a bit of context, I left this partner in May of 2026 this year following him raping me while I was unconscious and filming this. I woke up part way through and caught him, which caused me as a result to end the relationship and contact the police. The relationship was abusive",
+          "createdUtc": 1790804391,
+          "snippet": "Hi all, I have a toddler whos not bio related to my current partner, we have a 2nd child on the way and have spoke about him adopting my daughter before(within the next 3-4 years ideally) Google gives me different answers everytime I look things up. I’m mainly wondering, does the",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wthhbh",
-          "title": "Ex broke our sons computer. Need advice on how to get full custody and make her replace it - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wthhbh/ex_broke_our_sons_computer_need_advice_on_how_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wthhbh/ex_broke_our_sons_computer_need_advice_on_how_to/",
+          "id": "1wtvhsv",
+          "title": "£15,000 loaned to friends who keep lying and owe money to everyone.. how can I get my money back? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtvhsv/15000_loaned_to_friends_who_keep_lying_and_owe/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtvhsv/15000_loaned_to_friends_who_keep_lying_and_owe/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790705305,
-          "snippet": "Hello, I'm very angry at the current situation and my friend told me to try legal advice here. My ex have a 9 year old together. I have him on weekends and holidays and she has him on weekdays. I saved up and bought him a gaming laptop computer for his last birthday. He takes it ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wtwdg2",
-          "title": "Speeding ticket with expired short term license - ENGLAND",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtwdg2/speeding_ticket_with_expired_short_term_license/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtwdg2/speeding_ticket_with_expired_short_term_license/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790745078,
-          "snippet": "Hi all, My husband received a NIP speeding ticket yesterday (first one in 20 years : He drives on a short term medical license and has done for the last ten years. Usually he receives a renewal letter in the post every few years and we renew his license that way. We can’t find in",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wtjdxh",
-          "title": "England. Garage fire damaged some property in the garden of my neighbour. Neighbour doesn't have insurance and is threatening to take legal action to get me to pay for the damages.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtjdxh/england_garage_fire_damaged_some_property_in_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtjdxh/england_garage_fire_damaged_some_property_in_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790709585,
-          "snippet": "Hi LegalAdviceUK community. Need some advice on this matter. I had a garage fire that started in one of the hot days. The fire completely damaged my garage and shed, but partially damaged two of my neighbours property. Lets call them neighbour A and neighbour B. Neighbour A had i",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wu0q26",
-          "title": "What are the next steps legally? Neighbour boundary dispute / damp risk to our house",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu0q26/what_are_the_next_steps_legally_neighbour/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu0q26/what_are_the_next_steps_legally_neighbour/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790761729,
-          "snippet": "The extension at the back of our house is approx 4 inward from the boundary line, leaving a gap between our extension wall and neighbour's patio which sits approx 50cm-100cm higher than the damp proof course of our house. Neighbour has started work in the last couple of weeks re-",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wt8rjj",
-          "title": "Still no invoice for alcohol bill for my wedding (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt8rjj/still_no_invoice_for_alcohol_bill_for_my_wedding/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt8rjj/still_no_invoice_for_alcohol_bill_for_my_wedding/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790684848,
-          "snippet": "So I got married about 4 months ago. We paid 2/3 of the venue hire ahead of the wedding. We had some alcohol (wine on tables and prosecco after the ceremony), but we didn't get an absolute total ahead of time because they didn't want to charge us for bottles of prosecco we didn't",
+          "createdUtc": 1790742090,
+          "snippet": "I’m looking for some advice because I honestly don’t know what to do anymore. My partner has been friends with this couple for around 9 years. They had been working at the same kebab shop for about 15 years and recently decided to buy the business themselves. They asked us for £5",
           "listingSource": "rss:hot"
         },
         {
@@ -206,51 +218,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wtew32",
-          "title": "Husband left me now wants to take the kids abroad on holiday. SCOTLAND.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtew32/husband_left_me_now_wants_to_take_the_kids_abroad/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtew32/husband_left_me_now_wants_to_take_the_kids_abroad/",
+          "id": "1wuf211",
+          "title": "£12k owed , how should I proceed with legal action? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuf211/12k_owed_how_should_i_proceed_with_legal_action/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuf211/12k_owed_how_should_i_proceed_with_legal_action/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790699548,
-          "snippet": "My husband has decided to leave after me moving towns to be closer after being on a break. we have been married for three years. How is the best way to proceed regarding contact with the kids as he is refusing to see them unless its on his off week. He is also refusing to see the",
+          "createdUtc": 1790798166,
+          "snippet": "I invested £10,000 in a UK limited company in September 2025 under a signed investment agreement. Although it's described as an investment, it has a fixed one-year term, a specified repayment date of 7 September 2026, and a separate personal guarantee from the owner covering the ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wtei75",
-          "title": "I reported historic FGM against me and my sister, organised by my father who is a dual-national Egyptian. Police failed to take his passport when they started their investigation and now he's left the country.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtei75/i_reported_historic_fgm_against_me_and_my_sister/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtei75/i_reported_historic_fgm_against_me_and_my_sister/",
+          "id": "1wu1e30",
+          "title": "[England] I secretly recorded the MD of the company in a meeting, possible legal ramifications?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu1e30/england_i_secretly_recorded_the_md_of_the_company/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu1e30/england_i_secretly_recorded_the_md_of_the_company/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790698701,
-          "snippet": "Father is Egyptian, mother is English. Father took my sister and I to Egypt when we were both young to have FGM performed. This was in 2002 for me and 2004 for my sister. My mother was threatened and bullied into silence by him when she found out. My mother passed away in 2023 an",
+          "createdUtc": 1790764135,
+          "snippet": "For the last 2 1/2 years I was employed with a small engineering company which was bought-out by a much larger group just before I joined, and the MD of this company honestly has the temperment of Kevin the Teenager. Honest to god I suspect the guy is either a cokehead or schizop",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wts61h",
-          "title": "Could Manchester City face criminal charges? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wts61h/could_manchester_city_face_criminal_charges/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wts61h/could_manchester_city_face_criminal_charges/",
+          "id": "1wt9jns",
+          "title": "New owner of business refusing to return my property (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt9jns/new_owner_of_business_refusing_to_return_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt9jns/new_owner_of_business_refusing_to_return_my/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790731933,
-          "snippet": "Hi Sorry if this is not allowed but very curious, with the premier league statement today accusing \"false accounting\" and inflating sponsorship revenue, is this bordering on a criminal matter? There must have been intention to defraud by inflating the sponsorships? I am not sure ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wtm2ma",
-          "title": "England: what would he the legal actions if imprisoned in a taxi",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtm2ma/england_what_would_he_the_legal_actions_if/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtm2ma/england_what_would_he_the_legal_actions_if/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790715770,
-          "snippet": "Context: https://www.reddit.com/r/ThatsInsane/s/Qh2VUrbgFE It appears a customer is being held in a locked taxi for extra tips despite paying their fare. The comments are debating whether one could break the windows or whether to let police arrive on the scene. I am genuinely cur",
+          "createdUtc": 1790686981,
+          "snippet": "Hello, so little bit of story here for background. So I had to move house urgently a few years ago and was in a shared place for a while with a friend, so space was limited and my friend stored some of my gaming property at his house. Now, this friend owned a tabletop gaming stor",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 10,
+      "postCount": 16,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wuczyy",
+          "title": "Can nothing be done to stop my neighbour stockpiling petrol in our block of flats? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuczyy/can_nothing_be_done_to_stop_my_neighbour/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuczyy/can_nothing_be_done_to_stop_my_neighbour/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790793488,
+          "snippet": "Neighbour is an odd guy. I’ve learned he keeps petrol in his flat (he’s a bit of a hoarder), I’ve asked why/how much and he just replied “because I’ve got insurance”- couldn’t get any more out of him. He is not competent enough to store it safely. He already poured half a jug of ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wu064b",
+          "title": "Apparently the Police can act with impunity and there's nothing you can do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu064b/apparently_the_police_can_act_with_impunity_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu064b/apparently_the_police_can_act_with_impunity_and/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790759557,
+          "snippet": "In early 2021 I was arrested and accused of making threats online, they turned up at my door naming a person I was accused to have threatened (never had heard of them in my life) and put me in a cell. They searched my house and seized a number of computer devices. Two of which we",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wu6i84",
+          "title": "Mother took out debts in my name without me knowing and now my credit is ruined - Wales",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu6i84/mother_took_out_debts_in_my_name_without_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu6i84/mother_took_out_debts_in_my_name_without_me/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790778723,
+          "snippet": "Title says it all. For context, part of this story is old, while some of it is extremely recent. So. Fiance and I are saving for a house and he suggested I check my credit score, which I did and I was in absolute shock. There were two accounts; one with Lowells and one with Vodaf",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wty4v6",
           "title": "Male cleaner in Female changing room at the Gym taking photos",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wty4v6/male_cleaner_in_female_changing_room_at_the_gym/",
@@ -304,63 +340,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wtyq9t",
-          "title": "Never received job termination - it’s been a year since last shift, they won’t end it!",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtyq9t/never_received_job_termination_its_been_a_year/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtyq9t/never_received_job_termination_its_been_a_year/",
+          "id": "1wublql",
+          "title": "Someone broke into my car, and I confronted them - need advice, im in England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wublql/someone_broke_into_my_car_and_i_confronted_them/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wublql/someone_broke_into_my_car_and_i_confronted_them/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790753882,
-          "snippet": "Hi there, pretty much what the title says. I’ve worked for a small charity for about 3-4 years, my contract changed to zero hours in the last 8 months (when I was being given work) it’s now however, been a whole year since they’ve given me a shift. I told them the last time I was",
+          "createdUtc": 1790790383,
+          "snippet": "Last night, at roughly 1 am someone broke into my car. The car is parked on a residential street in a resident zone parking with a pavement between the house and car. I caught them in the act and confronted them. I did grab a baseball bat when I headed out. I did not threaten him",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wtvhsv",
-          "title": "£15,000 loaned to friends who keep lying and owe money to everyone.. how can I get my money back? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtvhsv/15000_loaned_to_friends_who_keep_lying_and_owe/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtvhsv/15000_loaned_to_friends_who_keep_lying_and_owe/",
+          "id": "1wu9dym",
+          "title": "Lost everything I built & put my life’s earnings into",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu9dym/lost_everything_i_built_put_my_lifes_earnings_into/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu9dym/lost_everything_i_built_put_my_lifes_earnings_into/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790742090,
-          "snippet": "I’m looking for some advice because I honestly don’t know what to do anymore. My partner has been friends with this couple for around 9 years. They had been working at the same kebab shop for about 15 years and recently decided to buy the business themselves. They asked us for £5",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wt9jns",
-          "title": "New owner of business refusing to return my property (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt9jns/new_owner_of_business_refusing_to_return_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt9jns/new_owner_of_business_refusing_to_return_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790686981,
-          "snippet": "Hello, so little bit of story here for background. So I had to move house urgently a few years ago and was in a shared place for a while with a friend, so space was limited and my friend stored some of my gaming property at his house. Now, this friend owned a tabletop gaming stor",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wtni8r",
-          "title": "I F20 potentially believe I have a stalker ex abusive boyfriend M23 on my hands - received a 100 page letter from him today. England based.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtni8r/i_f20_potentially_believe_i_have_a_stalker_ex/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtni8r/i_f20_potentially_believe_i_have_a_stalker_ex/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790719208,
-          "snippet": "For a bit of context, I left this partner in May of 2026 this year following him raping me while I was unconscious and filming this. I woke up part way through and caught him, which caused me as a result to end the relationship and contact the police. The relationship was abusive",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wt8rjj",
-          "title": "Still no invoice for alcohol bill for my wedding (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt8rjj/still_no_invoice_for_alcohol_bill_for_my_wedding/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wt8rjj/still_no_invoice_for_alcohol_bill_for_my_wedding/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790684848,
-          "snippet": "So I got married about 4 months ago. We paid 2/3 of the venue hire ahead of the wedding. We had some alcohol (wine on tables and prosecco after the ceremony), but we didn't get an absolute total ahead of time because they didn't want to charge us for bottles of prosecco we didn't",
+          "createdUtc": 1790785426,
+          "snippet": "60 year old male, UK. First moved into a small flat my girlfriend owned 20 years ago, did it up for her with my own labour time &amp; money, moved on and did up 2 more houses together (both were in her name) Finally we ended up living in a really big detached house (still in her ",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 3,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -385,18 +385,6 @@
           "numComments": 0,
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wu0q26",
-          "title": "What are the next steps legally? Neighbour boundary dispute / damp risk to our house",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu0q26/what_are_the_next_steps_legally_neighbour/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wu0q26/what_are_the_next_steps_legally_neighbour/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790761729,
-          "snippet": "The extension at the back of our house is approx 4 inward from the boundary line, leaving a gap between our extension wall and neighbour's patio which sits approx 50cm-100cm higher than the damp proof course of our house. Neighbour has started work in the last couple of weeks re-",
           "listingSource": "rss:hot"
         },
         {
@@ -457,114 +445,6 @@
           "numComments": 0,
           "createdUtc": 1790749222,
           "snippet": "Hi all, Any and all advice is welcomed. I’ll give you some brief background to help you understand the situation, I’m based in the England. I met a guy last year via Facebook after being fresh out of an abusive relationship. This man presented himself as a care kind, generous, ha",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wthhbh",
-          "title": "Ex broke our sons computer. Need advice on how to get full custody and make her replace it - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wthhbh/ex_broke_our_sons_computer_need_advice_on_how_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wthhbh/ex_broke_our_sons_computer_need_advice_on_how_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790705305,
-          "snippet": "Hello, I'm very angry at the current situation and my friend told me to try legal advice here. My ex have a 9 year old together. I have him on weekends and holidays and she has him on weekdays. I saved up and bought him a gaming laptop computer for his last birthday. He takes it ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "motoring-offences",
-      "label": "Motoring Offences",
-      "legalAreaSlug": "motoring_offences",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wtwdg2",
-          "title": "Speeding ticket with expired short term license - ENGLAND",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtwdg2/speeding_ticket_with_expired_short_term_license/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtwdg2/speeding_ticket_with_expired_short_term_license/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790745078,
-          "snippet": "Hi all, My husband received a NIP speeding ticket yesterday (first one in 20 years : He drives on a short term medical license and has done for the last ten years. Usually he receives a renewal letter in the post every few years and we renew his license that way. We can’t find in",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "consumer-law",
-      "label": "Consumer Law",
-      "legalAreaSlug": "consumer",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wtjdxh",
-          "title": "England. Garage fire damaged some property in the garden of my neighbour. Neighbour doesn't have insurance and is threatening to take legal action to get me to pay for the damages.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtjdxh/england_garage_fire_damaged_some_property_in_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtjdxh/england_garage_fire_damaged_some_property_in_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790709585,
-          "snippet": "Hi LegalAdviceUK community. Need some advice on this matter. I had a garage fire that started in one of the hot days. The fire completely damaged my garage and shed, but partially damaged two of my neighbours property. Lets call them neighbour A and neighbour B. Neighbour A had i",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wtei75",
-          "title": "I reported historic FGM against me and my sister, organised by my father who is a dual-national Egyptian. Police failed to take his passport when they started their investigation and now he's left the country.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtei75/i_reported_historic_fgm_against_me_and_my_sister/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wtei75/i_reported_historic_fgm_against_me_and_my_sister/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790698701,
-          "snippet": "Father is Egyptian, mother is English. Father took my sister and I to Egypt when we were both young to have FGM performed. This was in 2002 for me and 2004 for my sister. My mother was threatened and bullied into silence by him when she found out. My mother passed away in 2023 an",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wts61h",
-          "title": "Could Manchester City face criminal charges? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wts61h/could_manchester_city_face_criminal_charges/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wts61h/could_manchester_city_face_criminal_charges/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790731933,
-          "snippet": "Hi Sorry if this is not allowed but very curious, with the premier league statement today accusing \"false accounting\" and inflating sponsorship revenue, is this bordering on a criminal matter? There must have been intention to defraud by inflating the sponsorships? I am not sure ",
           "listingSource": "rss:hot"
         }
       ]
