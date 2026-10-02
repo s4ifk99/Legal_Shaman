@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-01T22:22:11.918Z",
-    "subredditCount": 2,
-    "postCount": 40,
-    "topicCount": 7,
+    "scrapedAt": "2026-10-02T11:40:34.421Z",
+    "subredditCount": 1,
+    "postCount": 20,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -50,39 +50,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wuwf22",
-          "title": "University withdrew my place 4 days before start after taking an £8,000 deposit. Can I recover costs beyond the deposit?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuwf22/university_withdrew_my_place_4_days_before_start/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuwf22/university_withdrew_my_place_4_days_before_start/",
+          "id": "1wvg0qi",
+          "title": "Can my employer legally make me arrive before my contracted hours to put on PPE? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvg0qi/can_my_employer_legally_make_me_arrive_before_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvg0qi/can_my_employer_legally_make_me_arrive_before_my/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790852369,
-          "snippet": "England Facts: - I received an unconditional offer in June 2026 for a 2-year postgraduate course starting 21 September 2026, with a £3,000 scholarship. I disclosed my existing master's throughout the application. - The offer email attached the university's Student Admissions Poli",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv0900",
-          "title": "My housemate won’t allow my boyfriend to stay over. Can my landlord tell me off/kick me out if I let him visit?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv0900/my_housemate_wont_allow_my_boyfriend_to_stay_over/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv0900/my_housemate_wont_allow_my_boyfriend_to_stay_over/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790863317,
-          "snippet": "Location: England, Cheshire, UK I (26F) am a renting a 2 bed property from a private landlord and have lived here for 3 years. My house mate (50F) has been renting the other room for 1 and a half years. About 13 months ago, my long term partner has unfortunately went into her roo",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv3mz8",
-          "title": "My ex is forcing me to reduce the house price by £55,000",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv3mz8/my_ex_is_forcing_me_to_reduce_the_house_price_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv3mz8/my_ex_is_forcing_me_to_reduce_the_house_price_by/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790871192,
-          "snippet": "So I separated from my ex August Bank holiday last year. We had 2 houses, which one has sold. The other she is living in with our two boys. This family home is on the market to be sold. We bought it for £620,000 and listed it for £630,000. I am currently living with my parents. I",
+          "createdUtc": 1790901459,
+          "snippet": "I work as a mechanic in a truck garage and I’m currently facing disciplinary proceedings for “time keeping”. The issue/complaint that has been raised is that I clock in too close to my contracted start time (7:30) so it doesn’t allow enough time for me to put on my PPE and be at ",
           "listingSource": "rss:hot"
         },
         {
@@ -98,39 +74,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wv2hcq",
-          "title": "England - Neighbors put up new fence and gate into my property.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv2hcq/england_neighbors_put_up_new_fence_and_gate_into/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv2hcq/england_neighbors_put_up_new_fence_and_gate_into/",
+          "id": "1wvamry",
+          "title": "Adding my second first name to the car insurance bumped up the price by £200 - is that legal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvamry/adding_my_second_first_name_to_the_car_insurance/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvamry/adding_my_second_first_name_to_the_car_insurance/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790868564,
-          "snippet": "Hi all, just returned from work to find the neighbor has put up a new fence, no issues with that part. But they have put in a gate on the fence that leads into what is essentially my property. I live in an old converted cottage that has been split into 3 houses, property 13, 11 a",
+          "createdUtc": 1790887129,
+          "snippet": "For context I'm called Mohammad *another first name* Surname. Let's just say Mohammad Haris Smith as an example. If I use Haris Smith on the car comparison website, I get the price of £979 to insure my car yearly. If I use Mohammad Haris Smith, the price goes up to £1179. Surely ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wutsty",
-          "title": "Landlord living in our HMO acting like a “house warden” + questionable addendum. What are our rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wutsty/landlord_living_in_our_hmo_acting_like_a_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wutsty/landlord_living_in_our_hmo_acting_like_a_house/",
+          "id": "1wuwf22",
+          "title": "University withdrew my place 4 days before start after taking an £8,000 deposit. Can I recover costs beyond the deposit?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuwf22/university_withdrew_my_place_4_days_before_start/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuwf22/university_withdrew_my_place_4_days_before_start/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790842451,
-          "snippet": "Hi all, I’m looking for some clarity on my rights as a tenant in an HMO in England. I recently moved into a room‑by‑room rented HMO on an assured periodic tenancy. The landlord’s permanent residence is in another city, but he has been staying in the property since before we moved",
+          "createdUtc": 1790852369,
+          "snippet": "England Facts: - I received an unconditional offer in June 2026 for a 2-year postgraduate course starting 21 September 2026, with a £3,000 scholarship. I disclosed my existing master's throughout the application. - The offer email attached the university's Student Admissions Poli",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wuczyy",
-          "title": "Can nothing be done to stop my neighbour stockpiling petrol in our block of flats? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuczyy/can_nothing_be_done_to_stop_my_neighbour/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuczyy/can_nothing_be_done_to_stop_my_neighbour/",
+          "id": "1wvpk4i",
+          "title": "[England] PCN Charge at a location I never attended - Unable to Appeal - Emails and Phone Calls ignored until a week after appeal period ended",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvpk4i/england_pcn_charge_at_a_location_i_never_attended/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvpk4i/england_pcn_charge_at_a_location_i_never_attended/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790793488,
-          "snippet": "Neighbour is an odd guy. I’ve learned he keeps petrol in his flat (he’s a bit of a hoarder), I’ve asked why/how much and he just replied “because I’ve got insurance”- couldn’t get any more out of him. He is not competent enough to store it safely. He already poured half a jug of ",
+          "createdUtc": 1790934181,
+          "snippet": "Hi all, Looking for some advice how to proceed here. On the 24th August I received a PCN notice from CUP Enforcement claiming that I had parked at a location in Aveley. There was two issues immediately with the PCN. One - I have never been to Aveley. Two - the photos in the pictu",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wv3mz8",
+          "title": "My ex is forcing me to reduce the house price by £55,000",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv3mz8/my_ex_is_forcing_me_to_reduce_the_house_price_by/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv3mz8/my_ex_is_forcing_me_to_reduce_the_house_price_by/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790871192,
+          "snippet": "So I separated from my ex August Bank holiday last year. We had 2 houses, which one has sold. The other she is living in with our two boys. This family home is on the market to be sold. We bought it for £620,000 and listed it for £630,000. I am currently living with my parents. I",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wvqsd8",
+          "title": "England | Saleswomen lied to us",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvqsd8/england_saleswomen_lied_to_us/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvqsd8/england_saleswomen_lied_to_us/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790938633,
+          "snippet": "Hi, so previously, around February time this year, we were with our internet provider, EE, until one day a woman came up on our door and knocked, and told us that he could get us better Wi-Fi, this was to be done through: The first 4 months free Faster internet speeds from EE to ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wvo32y",
+          "title": "Student accommodation became uninhabitable after a major water leak – agency has still not refunded me 10 months later, London, United Kingdom",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvo32y/student_accommodation_became_uninhabitable_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvo32y/student_accommodation_became_uninhabitable_after/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790928369,
+          "snippet": "I booked student accommodation at Chapter London Bridge , a luxury student residence next to The Shard, through an accommodation agency called Londonist . In December 2025, there was a major water leak at the building which caused significant damage and resulted in the building b",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wvq2yb",
+          "title": "Maintenance Company have done nothing for our estate - do we have to pay?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvq2yb/maintenance_company_have_done_nothing_for_our/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvq2yb/maintenance_company_have_done_nothing_for_our/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790936128,
+          "snippet": "Hi all. Our estate has a maintenance company that has done zero maintenance on the estate for quite some time now. They are responsible for a park area on the estate too, this has fallen into complete disrepair and has had no work done on it for the 9 years I've lived here. Every",
           "listingSource": "rss:hot"
         },
         {
@@ -146,359 +170,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wuwfhr",
-          "title": "Reported to DBS please can somebody help",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuwfhr/reported_to_dbs_please_can_somebody_help/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuwfhr/reported_to_dbs_please_can_somebody_help/",
+          "id": "1wv2hcq",
+          "title": "England - Neighbors put up new fence and gate into my property.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv2hcq/england_neighbors_put_up_new_fence_and_gate_into/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv2hcq/england_neighbors_put_up_new_fence_and_gate_into/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790852407,
-          "snippet": "England, UK – DBS/safeguarding issue after making a serious mistake at work. Looking for advice I’m in England and was working two jobs — one as a homecare assistant and one as a teaching assistant. At my care job, I supported a 16-year-old boy with learning disabilities. The rol",
+          "createdUtc": 1790868564,
+          "snippet": "Hi all, just returned from work to find the neighbor has put up a new fence, no issues with that part. But they have put in a gate on the fence that leads into what is essentially my property. I live in an old converted cottage that has been split into 3 houses, property 13, 11 a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wvb1m9",
-          "title": "Amazon auto-selecting \"Front Door\" as a preferred delivery location—legal implications for doorstep theft/CRA 2015?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvb1m9/amazon_autoselecting_front_door_as_a_preferred/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvb1m9/amazon_autoselecting_front_door_as_a_preferred/",
+          "id": "1wvayh2",
+          "title": "Can my employer discriminate against me because of the union I'm a part of?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvayh2/can_my_employer_discriminate_against_me_because/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvayh2/can_my_employer_discriminate_against_me_because/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790888134,
-          "snippet": "Hi, I’m looking for some clarity on how Amazon’s automated account features interact with the Consumer Rights Act 2015. Amazon has recently started rolling out a feature where they automatically assign a \"preferred delivery location\" to accounts based on past deliveries. I was bu",
+          "createdUtc": 1790887914,
+          "snippet": "Based in Scotland; not for me, but a close relation. What the title says, currently the local authority they work for is in the process of bringing in a new pay and grading structure (to correct a historical unfair pay dispute). Talks between one of the unions (there are three) o",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wuw85s",
-          "title": "Co-executor abroad and has gone silent for 5+ years, solicitors now withdrawing. What are my options? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuw85s/coexecutor_abroad_and_has_gone_silent_for_5_years/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuw85s/coexecutor_abroad_and_has_gone_silent_for_5_years/",
+          "id": "1wvraw4",
+          "title": "Witness statement changed without consent",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvraw4/witness_statement_changed_without_consent/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvraw4/witness_statement_changed_without_consent/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790851698,
-          "snippet": "I'm one of two executors of my late father's estate (England). He died in early 2016. The will also makes the two of us trustees of a life interest trust over his house. His widow (not my mother) lives there for life, and it then passes to two of his children. The other executor ",
+          "createdUtc": 1790940338,
+          "snippet": "Hi ENGLAND! A couple of months ago I went with a friend to meet her daughter and do some shopping. When we'd finished we went home and her daughter went back to the hotel she was staying in but then later on her mother texted me to say her daughter couldn't get in because the hot",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wv6q1l",
-          "title": "Utility Warehouse keeps recreating a debt they have already confirmed I do not owe – what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv6q1l/utility_warehouse_keeps_recreating_a_debt_they/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv6q1l/utility_warehouse_keeps_recreating_a_debt_they/",
+          "id": "1wvr902",
+          "title": "Car brakes failed 4 weeks ago, took to garage and collected just over 3 weeks ago. 2 days ago similar fault occurred. Garage said the warranty is only on part and will replace if part is failed. I feel like I am going to end up paying twice?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr902/car_brakes_failed_4_weeks_ago_took_to_garage_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr902/car_brakes_failed_4_weeks_ago_took_to_garage_and/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790878151,
-          "snippet": "I live in England I’m looking for advice because I’ve been dealing with Utility Warehouse (UW) over the same disputed electricity debt for nearly three years, and I feel like I’m going round in circles. I rented a property for 7 months from late 2023. When I moved in, the letting",
+          "createdUtc": 1790940155,
+          "snippet": "Four weeks ago, I had a brake failure on the motorway. My insurance-approved garage diagnosed a faulty brake pump and charged me £800 to fix it. Since then, I've only done very short, local nursery and shopping trips. However, during my second longer drive a couple of days ago, t",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wv4xie",
-          "title": "Continued PCNs and debt collection/court threats for a car park I pay for every week (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv4xie/continued_pcns_and_debt_collectioncourt_threats/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv4xie/continued_pcns_and_debt_collectioncourt_threats/",
+          "id": "1wvr468",
+          "title": "Buying a rural property in Shropshire, England - being split into 2 homes",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr468/buying_a_rural_property_in_shropshire_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr468/buying_a_rural_property_in_shropshire_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790874121,
-          "snippet": "I have been parking in an ASDA car park that I have paid for through the YourParkingSpace website/app since February 2024, every Tuesday and Thursday. I have always booked through the app, often weeks in advance. Recently I suddenly started receiving PCNs from “ParkingEye” - a pa",
+          "createdUtc": 1790939702,
+          "snippet": "Hi everyone, Apologies if I get any terminology wrong here. I just wanted to get an early view from this community on whether this is something I should dig further into or whether it's too messy and I should walk away. We've been looking at a move towards the Midlands to a more ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wv1140",
-          "title": "Front door failed fire inspection before flat purchase, but I wasn’t told until a year later. Am I liable for £1,500 repair?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv1140/front_door_failed_fire_inspection_before_flat/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv1140/front_door_failed_fire_inspection_before_flat/",
+          "id": "1wvr29y",
+          "title": "My personal details are on WHOIS history sites. How do I get them removed?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr29y/my_personal_details_are_on_whois_history_sites/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr29y/my_personal_details_are_on_whois_history_sites/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790865201,
-          "snippet": "I’m in England and bought a flat with a share of the freehold in November 2024. The building is managed by a management company/managing agent. I’ve since discovered that my flat entrance fire door was inspected before I bought the property and found to require remedial work. I’m",
+          "createdUtc": 1790939527,
+          "snippet": "I registered a domain through Google Workspace's sign-up and explicitly chose to keep my details private on the sign-up form. Despite that, my name, home address, phone number and email were public in the registration record. Google sent nothing after registration to say otherwis",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wva5ty",
-          "title": "Is it correct that I am excluded from the less than favourable terms law? Employment - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wva5ty/is_it_correct_that_i_am_excluded_from_the_less/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wva5ty/is_it_correct_that_i_am_excluded_from_the_less/",
+          "id": "1wvqxew",
+          "title": "ENGLAND - Belongings being held by ex-partner",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvqxew/england_belongings_being_held_by_expartner/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvqxew/england_belongings_being_held_by_expartner/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790885987,
-          "snippet": "Hi all, I am slightly confused about my contract, I have contacted HR but they have not got back to me. I am employed on a fixed-term contract in a scenario that is a little strange. I started in the summer, as I was coming to the end of my degree. I have now graduated as of this",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wva16s",
-          "title": "Wales - amazon advice needed please",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wva16s/wales_amazon_advice_needed_please/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wva16s/wales_amazon_advice_needed_please/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790885673,
-          "snippet": "Hey, I've ordered (and paid for) a sofa from Amazon that has no restrictions on deliveries on the page, however I have received a text message today saying they do not deliver to my postcode area (it is still mainland, and not that far away from a motorway, it isn't the middle of",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv9nq4",
-          "title": "Privatising parking space in front of house",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv9nq4/privatising_parking_space_in_front_of_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv9nq4/privatising_parking_space_in_front_of_house/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790884817,
-          "snippet": "In Scotland Sorry if not the right place for this post. I live in a new Barret homes development and we own the house (terraced). There are five houses in our “row” and five parking spaces directly in front of the houses. These are not allocated and there have been some issues wi",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "name": "uklaw",
-      "displayName": "r/uklaw",
-      "description": "UK law students and practitioners — statute, case law, and professional practice.",
-      "subscribers": null,
-      "posts": [
-        {
-          "id": "k2kvzd",
-          "title": "Help Post: List of Legal Recruitment Agencies",
-          "url": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1606555862,
-          "snippet": "Hey, since everyone is struggling to find work, here is a list of all of the legal recruitment agencies and legal job sites I have bookmarked. Across the whole list, you can find everything from temp/paralegal work to associate roles. https://www.lawsupport.co.uk/ https://lodlaw.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1l8oqj7",
-          "title": "WEEKLY general chat/support post",
-          "url": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1749636086,
-          "snippet": "General chat/support post - how are you all doing? :) submitted by /u/AutoModerator [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv0uui",
-          "title": "Partner just said “looks fine, please send to client” to a first draft",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wv0uui/partner_just_said_looks_fine_please_send_to/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wv0uui/partner_just_said_looks_fine_please_send_to/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790864793,
-          "snippet": "Celebrate those wins. submitted by /u/NeonSynthPulse [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wvciu6",
-          "title": "Law School Advice",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wvciu6/law_school_advice/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wvciu6/law_school_advice/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790891861,
-          "snippet": "Hi guys I’m a month in to my first year of Law at uni (Russell Group), I’m feeling overwhelmed and some advice would be greatly appreciated. The first thing that has blown me away is the sheer volume of content. I had this idea that the opening weeks of uni would be partying and ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv74za",
-          "title": "Starting your own law firm",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wv74za/starting_your_own_law_firm/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wv74za/starting_your_own_law_firm/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790879090,
-          "snippet": "How many in this sub have started their own firms and how was the process? I’ve always understood that this is a path that is made unnecessarily and almost prohibitively difficult due to regulation, is that correct? submitted by /u/thom4563 [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wuxb4h",
-          "title": "Desperately want to get into tech law!",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wuxb4h/desperately_want_to_get_into_tech_law/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wuxb4h/desperately_want_to_get_into_tech_law/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790855236,
-          "snippet": "So, I graduated in 2023. Since then, all I’ve done is personal injury work as a paralegal. It’s a bit niche in the sense that I’ve only done cases for victims of abuse. I was the head of a department I created at another firm that didn’t previously do this kind of claimant work. ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv2ctg",
-          "title": "Got a Commendation in LLM/SQE- any hope for TC?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wv2ctg/got_a_commendation_in_llmsqe_any_hope_for_tc/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wv2ctg/got_a_commendation_in_llmsqe_any_hope_for_tc/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790868282,
-          "snippet": "Got a 2.1 from Russel Group without a TC and decided to do the LLM/SQE to get it out of the way. Got very burned out from SQE1 (passed first time though!) and messed up on some coursework and even had to resit SQE2. I’ve passed the SQE now but unfortunately couldn’t make up for t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv22s1",
-          "title": "Advice for Inn of court scholarships",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wv22s1/advice_for_inn_of_court_scholarships/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wv22s1/advice_for_inn_of_court_scholarships/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790867629,
-          "snippet": "Hello everyone, I am currently in the process of applying for a scholarship for my BPC next year and was wondering if anyone had any advice to give me, both for creating a strong application and for succeeding at interview. I am currently stuck between Middle Temple and Gray's be",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv7glp",
-          "title": "A&O Shearman Online Assessment",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wv7glp/ao_shearman_online_assessment/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wv7glp/ao_shearman_online_assessment/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790879823,
-          "snippet": "Hey, anyone from the previous 2 recruitment cycles completed the 2nd stage of the A&amp;O Shearman process - the online assessment? I know its verbal, numerical and SJT, but anyone have any further insights/tips/guidance on how to succeed? submitted by /u/MainMaleficent9024 [link",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wvcump",
-          "title": "Looking for opinions & advice based on experience - law, relationships and commuting",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wvcump/looking_for_opinions_advice_based_on_experience/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wvcump/looking_for_opinions_advice_based_on_experience/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790892691,
-          "snippet": "Hey all, I’m looking to go into a pretty niche area of law (maritime) and I’ve found that out of the few firms that have this focus, all of them minus a couple at best are based in London. I’m really worried about my personal life. I’ve been with my partner for 4 years but his jo",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv6hf1",
-          "title": "Is it that normal to get a tc in 2nd year?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wv6hf1/is_it_that_normal_to_get_a_tc_in_2nd_year/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wv6hf1/is_it_that_normal_to_get_a_tc_in_2nd_year/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790877615,
-          "snippet": "Hey guys, I’ve made a few posts on here before regarding my experience as a non-rg student alongside with mediocre A-Levels and was just asking if I still stood a chance as my uni grades and experience was pretty good for a first year let alone someone from a non-rg. This parts n",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wva7ja",
-          "title": "[ Removed by Reddit ]",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wva7ja/removed_by_reddit/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wva7ja/removed_by_reddit/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790886098,
-          "snippet": "[ Removed by Reddit on account of violating the content policy . ] submitted by /u/lucasLibras [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv2p11",
-          "title": "Competition law focus for applications: does it help or limit me?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wv2p11/competition_law_focus_for_applications_does_it/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wv2p11/competition_law_focus_for_applications_does_it/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790869062,
-          "snippet": "I'm interested in a career in competition law and would appreciate some advice on how to approach training contract applications. Background: I have a 2:1 LLB in European Law from a well regarded university in the Netherlands. I have an objectively strong CV : done several intern",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wuxg9s",
-          "title": "Not reaching the AC stage for vacation schemes",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wuxg9s/not_reaching_the_ac_stage_for_vacation_schemes/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wuxg9s/not_reaching_the_ac_stage_for_vacation_schemes/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790855695,
-          "snippet": "I don't usually post but I think I do need to hear other people's opinions (pls don't be mean tho lol). I'm a recent law graduate and I graduated with a high 2.1 and decent grades (although first year was low) and I've been applying to vacation schemes in London alongside paraleg",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wuqo4l",
-          "title": "Looking for solicitors wanting to set up own law firm",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wuqo4l/looking_for_solicitors_wanting_to_set_up_own_law/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wuqo4l/looking_for_solicitors_wanting_to_set_up_own_law/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790830844,
-          "snippet": "Where is the best place to find solicitors in the UK interested in setting up their own law firm My business partner and I (non solicitors but have huge experience within enforcement, possession claims, disputes etc) are wanting to set up an ABS Law firm with one or more ambitiou",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wuxwuu",
-          "title": "Pre-employment check before TC question",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wuxwuu/preemployment_check_before_tc_question/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wuxwuu/preemployment_check_before_tc_question/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790857049,
-          "snippet": "Long story short, I’m a future trainee at a City firm. I did a vacation scheme with them last December and received a TC offer afterwards, with a set deadline. Shortly afterwards, I had another two-week vacation scheme with a different firm. I expressed financial issues so they h",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wu7bm1",
-          "title": "Seeing as no one else has mentioned it: farewell dear Chancery Division",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wu7bm1/seeing_as_no_one_else_has_mentioned_it_farewell/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wu7bm1/seeing_as_no_one_else_has_mentioned_it_farewell/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790780658,
-          "snippet": "Maybe we’ll rename the law ‘Da Roolz’ so people can understand it better too. submitted by /u/Das_Fish [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wvb1vf",
-          "title": "Is it worth becoming a qualified solicitor now, given the rise of AI?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wvb1vf/is_it_worth_becoming_a_qualified_solicitor_now/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wvb1vf/is_it_worth_becoming_a_qualified_solicitor_now/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790888149,
-          "snippet": "I am oversees lawyer, I work as Contracts Manager for a construction company, so I see a lot of legal staff from drafting contracts, negotiation to dispute and resolution. I am at £85k, which I don’t think it’s bad at all for the normal 9 to 5 pm.However, I think that with my qua",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wuu305",
-          "title": "Changing practice areas after qualification.",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wuu305/changing_practice_areas_after_qualification/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wuu305/changing_practice_areas_after_qualification/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790843586,
-          "snippet": "I’m set to qualify soon and I don’t want to do family law. I hate the court element and I am just not enjoying anything about it anymore. I want to get into residential conveyancing. Do you think it’s a good idea to take a pay cut upon qualification and look for conveyancing lega",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wuv76w",
-          "title": "A levels on applications",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wuv76w/a_levels_on_applications/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wuv76w/a_levels_on_applications/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790848010,
-          "snippet": "I’d appreciate any advice on whether I need to type in my A level results exactly as they appear on my transcript, or if I can write them a different (and more attractive) way. I retook A level Biology in 2022, after getting a D in 2021. Last application cycle I wrote ABB (Biolog",
+          "createdUtc": 1790939082,
+          "snippet": "I was in a relationship that was extremely narcissistically abusive towards me. During the beginning of the relationship I lent some items such as over-ear headphones to my ex-partner and some other things of sentimental value had been left at her place of residence (items that b",
           "listingSource": "rss:hot"
         }
       ]
@@ -509,11 +261,10 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 29,
+      "postCount": 9,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK",
-        "uklaw"
+        "LegalAdviceUK"
       ],
       "posts": [
         {
@@ -553,27 +304,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wv2hcq",
-          "title": "England - Neighbors put up new fence and gate into my property.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv2hcq/england_neighbors_put_up_new_fence_and_gate_into/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv2hcq/england_neighbors_put_up_new_fence_and_gate_into/",
+          "id": "1wvqsd8",
+          "title": "England | Saleswomen lied to us",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvqsd8/england_saleswomen_lied_to_us/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvqsd8/england_saleswomen_lied_to_us/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790868564,
-          "snippet": "Hi all, just returned from work to find the neighbor has put up a new fence, no issues with that part. But they have put in a gate on the fence that leads into what is essentially my property. I live in an old converted cottage that has been split into 3 houses, property 13, 11 a",
+          "createdUtc": 1790938633,
+          "snippet": "Hi, so previously, around February time this year, we were with our internet provider, EE, until one day a woman came up on our door and knocked, and told us that he could get us better Wi-Fi, this was to be done through: The first 4 months free Faster internet speeds from EE to ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wuczyy",
-          "title": "Can nothing be done to stop my neighbour stockpiling petrol in our block of flats? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuczyy/can_nothing_be_done_to_stop_my_neighbour/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuczyy/can_nothing_be_done_to_stop_my_neighbour/",
+          "id": "1wvq2yb",
+          "title": "Maintenance Company have done nothing for our estate - do we have to pay?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvq2yb/maintenance_company_have_done_nothing_for_our/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvq2yb/maintenance_company_have_done_nothing_for_our/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790793488,
-          "snippet": "Neighbour is an odd guy. I’ve learned he keeps petrol in his flat (he’s a bit of a hoarder), I’ve asked why/how much and he just replied “because I’ve got insurance”- couldn’t get any more out of him. He is not competent enough to store it safely. He already poured half a jug of ",
+          "createdUtc": 1790936128,
+          "snippet": "Hi all. Our estate has a maintenance company that has done zero maintenance on the estate for quite some time now. They are responsible for a park area on the estate too, this has fallen into complete disrepair and has had no work done on it for the 9 years I've lived here. Every",
           "listingSource": "rss:hot"
         },
         {
@@ -589,27 +340,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wuwfhr",
-          "title": "Reported to DBS please can somebody help",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuwfhr/reported_to_dbs_please_can_somebody_help/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuwfhr/reported_to_dbs_please_can_somebody_help/",
+          "id": "1wv2hcq",
+          "title": "England - Neighbors put up new fence and gate into my property.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv2hcq/england_neighbors_put_up_new_fence_and_gate_into/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv2hcq/england_neighbors_put_up_new_fence_and_gate_into/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790852407,
-          "snippet": "England, UK – DBS/safeguarding issue after making a serious mistake at work. Looking for advice I’m in England and was working two jobs — one as a homecare assistant and one as a teaching assistant. At my care job, I supported a 16-year-old boy with learning disabilities. The rol",
+          "createdUtc": 1790868564,
+          "snippet": "Hi all, just returned from work to find the neighbor has put up a new fence, no issues with that part. But they have put in a gate on the fence that leads into what is essentially my property. I live in an old converted cottage that has been split into 3 houses, property 13, 11 a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wvb1m9",
-          "title": "Amazon auto-selecting \"Front Door\" as a preferred delivery location—legal implications for doorstep theft/CRA 2015?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvb1m9/amazon_autoselecting_front_door_as_a_preferred/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvb1m9/amazon_autoselecting_front_door_as_a_preferred/",
+          "id": "1wvr29y",
+          "title": "My personal details are on WHOIS history sites. How do I get them removed?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr29y/my_personal_details_are_on_whois_history_sites/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr29y/my_personal_details_are_on_whois_history_sites/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790888134,
-          "snippet": "Hi, I’m looking for some clarity on how Amazon’s automated account features interact with the Consumer Rights Act 2015. Amazon has recently started rolling out a feature where they automatically assign a \"preferred delivery location\" to accounts based on past deliveries. I was bu",
+          "createdUtc": 1790939527,
+          "snippet": "I registered a domain through Google Workspace's sign-up and explicitly chose to keep my details private on the sign-up form. Despite that, my name, home address, phone number and email were public in the registration record. Google sent nothing after registration to say otherwis",
           "listingSource": "rss:hot"
         }
       ]
@@ -618,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 4,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -647,29 +398,41 @@
           "createdUtc": 1790852369,
           "snippet": "England Facts: - I received an unconditional offer in June 2026 for a 2-year postgraduate course starting 21 September 2026, with a £3,000 scholarship. I disclosed my existing master's throughout the application. - The offer email attached the university's Student Admissions Poli",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1wv0900",
-          "title": "My housemate won’t allow my boyfriend to stay over. Can my landlord tell me off/kick me out if I let him visit?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv0900/my_housemate_wont_allow_my_boyfriend_to_stay_over/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv0900/my_housemate_wont_allow_my_boyfriend_to_stay_over/",
+          "id": "1wvg0qi",
+          "title": "Can my employer legally make me arrive before my contracted hours to put on PPE? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvg0qi/can_my_employer_legally_make_me_arrive_before_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvg0qi/can_my_employer_legally_make_me_arrive_before_my/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790863317,
-          "snippet": "Location: England, Cheshire, UK I (26F) am a renting a 2 bed property from a private landlord and have lived here for 3 years. My house mate (50F) has been renting the other room for 1 and a half years. About 13 months ago, my long term partner has unfortunately went into her roo",
+          "createdUtc": 1790901459,
+          "snippet": "I work as a mechanic in a truck garage and I’m currently facing disciplinary proceedings for “time keeping”. The issue/complaint that has been raised is that I clock in too close to my contracted start time (7:30) so it doesn’t allow enough time for me to put on my PPE and be at ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wutsty",
-          "title": "Landlord living in our HMO acting like a “house warden” + questionable addendum. What are our rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wutsty/landlord_living_in_our_hmo_acting_like_a_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wutsty/landlord_living_in_our_hmo_acting_like_a_house/",
+          "id": "1wvayh2",
+          "title": "Can my employer discriminate against me because of the union I'm a part of?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvayh2/can_my_employer_discriminate_against_me_because/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvayh2/can_my_employer_discriminate_against_me_because/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790842451,
-          "snippet": "Hi all, I’m looking for some clarity on my rights as a tenant in an HMO in England. I recently moved into a room‑by‑room rented HMO on an assured periodic tenancy. The landlord’s permanent residence is in another city, but he has been staying in the property since before we moved",
+          "createdUtc": 1790887914,
+          "snippet": "Based in Scotland; not for me, but a close relation. What the title says, currently the local authority they work for is in the process of bringing in a new pay and grading structure (to correct a historical unfair pay dispute). Talks between one of the unions (there are three) o",
           "listingSource": "rss:hot"
         }
       ]
@@ -678,7 +441,7 @@
       "slug": "debt",
       "label": "Debt",
       "legalAreaSlug": "debt",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -695,41 +458,41 @@
           "createdUtc": 1790879691,
           "snippet": "Hi everyone, looking for some quick legal guidance on a debt recovery situation in England. ​Background: I was in a commercial dispute with a company. After negotiations with their debt collection team, we agreed on a payment of £22,370.20 to resolve the matter. ​The Agreement (i",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wv6q1l",
-          "title": "Utility Warehouse keeps recreating a debt they have already confirmed I do not owe – what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv6q1l/utility_warehouse_keeps_recreating_a_debt_they/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv6q1l/utility_warehouse_keeps_recreating_a_debt_they/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790878151,
-          "snippet": "I live in England I’m looking for advice because I’ve been dealing with Utility Warehouse (UW) over the same disputed electricity debt for nearly three years, and I feel like I’m going round in circles. I rented a property for 7 months from late 2023. When I moved in, the letting",
-          "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "wills-and-probate",
-      "label": "Wills and Probate",
-      "legalAreaSlug": "wills_probate",
-      "postCount": 1,
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
         {
-          "id": "1wuw85s",
-          "title": "Co-executor abroad and has gone silent for 5+ years, solicitors now withdrawing. What are my options? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuw85s/coexecutor_abroad_and_has_gone_silent_for_5_years/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wuw85s/coexecutor_abroad_and_has_gone_silent_for_5_years/",
+          "id": "1wvamry",
+          "title": "Adding my second first name to the car insurance bumped up the price by £200 - is that legal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvamry/adding_my_second_first_name_to_the_car_insurance/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvamry/adding_my_second_first_name_to_the_car_insurance/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790851698,
-          "snippet": "I'm one of two executors of my late father's estate (England). He died in early 2016. The will also makes the two of us trustees of a life interest trust over his house. His widow (not my mother) lives there for life, and it then passes to two of his children. The other executor ",
+          "createdUtc": 1790887129,
+          "snippet": "For context I'm called Mohammad *another first name* Surname. Let's just say Mohammad Haris Smith as an example. If I use Haris Smith on the car comparison website, I get the price of £979 to insure my car yearly. If I use Mohammad Haris Smith, the price goes up to £1179. Surely ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wvo32y",
+          "title": "Student accommodation became uninhabitable after a major water leak – agency has still not refunded me 10 months later, London, United Kingdom",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvo32y/student_accommodation_became_uninhabitable_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvo32y/student_accommodation_became_uninhabitable_after/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1790928369,
+          "snippet": "I booked student accommodation at Chapter London Bridge , a luxury student residence next to The Shard, through an accommodation agency called Londonist . In December 2025, there was a major water leak at the building which caused significant damage and resulted in the building b",
           "listingSource": "rss:hot"
         }
       ]
@@ -745,23 +508,23 @@
       ],
       "posts": [
         {
-          "id": "1wv4xie",
-          "title": "Continued PCNs and debt collection/court threats for a car park I pay for every week (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv4xie/continued_pcns_and_debt_collectioncourt_threats/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv4xie/continued_pcns_and_debt_collectioncourt_threats/",
+          "id": "1wvpk4i",
+          "title": "[England] PCN Charge at a location I never attended - Unable to Appeal - Emails and Phone Calls ignored until a week after appeal period ended",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvpk4i/england_pcn_charge_at_a_location_i_never_attended/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvpk4i/england_pcn_charge_at_a_location_i_never_attended/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790874121,
-          "snippet": "I have been parking in an ASDA car park that I have paid for through the YourParkingSpace website/app since February 2024, every Tuesday and Thursday. I have always booked through the app, often weeks in advance. Recently I suddenly started receiving PCNs from “ParkingEye” - a pa",
+          "createdUtc": 1790934181,
+          "snippet": "Hi all, Looking for some advice how to proceed here. On the 24th August I received a PCN notice from CUP Enforcement claiming that I had parked at a location in Aveley. There was two issues immediately with the PCN. One - I have never been to Aveley. Two - the photos in the pictu",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
+      "slug": "clinical-negligence",
+      "label": "Clinical Negligence",
+      "legalAreaSlug": "clinical_negligence",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -769,51 +532,63 @@
       ],
       "posts": [
         {
-          "id": "1wv1140",
-          "title": "Front door failed fire inspection before flat purchase, but I wasn’t told until a year later. Am I liable for £1,500 repair?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv1140/front_door_failed_fire_inspection_before_flat/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wv1140/front_door_failed_fire_inspection_before_flat/",
+          "id": "1wvraw4",
+          "title": "Witness statement changed without consent",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvraw4/witness_statement_changed_without_consent/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvraw4/witness_statement_changed_without_consent/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790865201,
-          "snippet": "I’m in England and bought a flat with a share of the freehold in November 2024. The building is managed by a management company/managing agent. I’ve since discovered that my flat entrance fire door was inspected before I bought the property and found to require remedial work. I’m",
+          "createdUtc": 1790940338,
+          "snippet": "Hi ENGLAND! A couple of months ago I went with a friend to meet her daughter and do some shopping. When we'd finished we went home and her daughter went back to the hotel she was staying in but then later on her mother texted me to say her daughter couldn't get in because the hot",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "planning-law",
-      "label": "Planning Law",
-      "legalAreaSlug": "planning_law",
-      "postCount": 2,
+      "slug": "garage-and-vehicle-repair-disputes",
+      "label": "Garage and Vehicle Repair Disputes",
+      "legalAreaSlug": "consumer_vehicle_repair",
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
-        "uklaw"
+        "LegalAdviceUK"
       ],
       "posts": [
         {
-          "id": "1wv2p11",
-          "title": "Competition law focus for applications: does it help or limit me?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wv2p11/competition_law_focus_for_applications_does_it/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wv2p11/competition_law_focus_for_applications_does_it/",
-          "subreddit": "uklaw",
+          "id": "1wvr902",
+          "title": "Car brakes failed 4 weeks ago, took to garage and collected just over 3 weeks ago. 2 days ago similar fault occurred. Garage said the warranty is only on part and will replace if part is failed. I feel like I am going to end up paying twice?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr902/car_brakes_failed_4_weeks_ago_took_to_garage_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr902/car_brakes_failed_4_weeks_ago_took_to_garage_and/",
+          "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790869062,
-          "snippet": "I'm interested in a career in competition law and would appreciate some advice on how to approach training contract applications. Background: I have a 2:1 LLB in European Law from a well regarded university in the Netherlands. I have an objectively strong CV : done several intern",
+          "createdUtc": 1790940155,
+          "snippet": "Four weeks ago, I had a brake failure on the motorway. My insurance-approved garage diagnosed a faulty brake pump and charged me £800 to fix it. Since then, I've only done very short, local nursery and shopping trips. However, during my second longer drive a couple of days ago, t",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "agricultural-and-rural-law",
+      "label": "Agricultural and Rural Law",
+      "legalAreaSlug": "agricultural_rural",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1wuv76w",
-          "title": "A levels on applications",
-          "url": "https://www.reddit.com/r/uklaw/comments/1wuv76w/a_levels_on_applications/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1wuv76w/a_levels_on_applications/",
-          "subreddit": "uklaw",
+          "id": "1wvr468",
+          "title": "Buying a rural property in Shropshire, England - being split into 2 homes",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr468/buying_a_rural_property_in_shropshire_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvr468/buying_a_rural_property_in_shropshire_england/",
+          "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790848010,
-          "snippet": "I’d appreciate any advice on whether I need to type in my A level results exactly as they appear on my transcript, or if I can write them a different (and more attractive) way. I retook A level Biology in 2022, after getting a D in 2021. Last application cycle I wrote ABB (Biolog",
+          "createdUtc": 1790939702,
+          "snippet": "Hi everyone, Apologies if I get any terminology wrong here. I just wanted to get an early view from this community on whether this is something I should dig further into or whether it's too messy and I should walk away. We've been looking at a move towards the Midlands to a more ",
           "listingSource": "rss:hot"
         }
       ]
