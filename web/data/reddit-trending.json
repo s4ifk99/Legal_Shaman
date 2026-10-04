@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-03T20:37:17.663Z",
+    "scrapedAt": "2026-10-04T11:37:19.345Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 5,
+    "topicCount": 6,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wxcau7",
+          "title": "Neighbours have moved next door to my mother in law and they’re progressively getting more disruptive. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxcau7/neighbours_have_moved_next_door_to_my_mother_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxcau7/neighbours_have_moved_next_door_to_my_mother_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791109259,
+          "snippet": "They recently moved in and they’re a family of Albanians, it’s 2 bedroom and about 8 people living in the house, the language barrier makes it difficult to explain to them they’re being disruptive and they’re quite aggressive. They have 5 removal vans which have taken over the ro",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wwlrrp",
           "title": "My solicitors lost my money and now I’m unsure on what to do .",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwlrrp/my_solicitors_lost_my_money_and_now_im_unsure_on/",
@@ -62,15 +74,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wwhk9j",
-          "title": "I saw my mate’s ex at work despite him telling CMS he’s unemployed - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwhk9j/i_saw_my_mates_ex_at_work_despite_him_telling_cms/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwhk9j/i_saw_my_mates_ex_at_work_despite_him_telling_cms/",
+          "id": "1wxax6n",
+          "title": "Halving my salary during notice period.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxax6n/halving_my_salary_during_notice_period/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxax6n/halving_my_salary_during_notice_period/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791014242,
-          "snippet": "My best mate’s ex is a nasty alcoholic who has not paid a penny of child support (3 kids) since they split 10yrs+ ago. At the time he was a headteacher, but his drinking led to him being let go. He has been telling CMS that he is unemployed and therefore cannot pay. He has a soli",
+          "createdUtc": 1791103922,
+          "snippet": "I’m about to put my notice in at work. Recently the company decided that for those that choose to leave, they will be taken off duty and only paid basic salary. My salary is made up in two parts, basic pay and variable pay. Variable pay makes up the vast majority of our monthly t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wx9hsw",
+          "title": "The company I subcontract for is pulling fast ones at every turn. Need advice.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wx9hsw/the_company_i_subcontract_for_is_pulling_fast/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wx9hsw/the_company_i_subcontract_for_is_pulling_fast/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791098458,
+          "snippet": "Location: Scotland It’s my first time working as a sole trader. I’ve been sub-contracting for a company for a couple of weeks now. The pay is decent, and because I’m currently waiting on a permanent role elsewhere, I can’t afford to walk away just yet. However, I am dealing with ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wwyioo",
+          "title": "Siblings contesting will - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwyioo/siblings_contesting_will_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwyioo/siblings_contesting_will_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791062909,
+          "snippet": "Looking for some advice - I was primary caregiver for my elderly and disabled mother from 2022-2025. During this time she had full mental capacity but wasn’t able to move to get to the bathroom or make any food or drink herself. My siblings very rarely visited and specifically sa",
           "listingSource": "rss:hot"
         },
         {
@@ -86,6 +122,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wxahg0",
+          "title": "Looking for advice on how to proceed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxahg0/looking_for_advice_on_how_to_proceed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxahg0/looking_for_advice_on_how_to_proceed/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791102213,
+          "snippet": "This happened in Scotland. Back in mid August I came home from work to find eon next had brocken into my house and changed my gas and electric meters. I also found every cupboard and wardrobe upstairs had been opened and looked through, nothing missing fortunately. I had no idea ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wwmpny",
           "title": "Owed £67 from a security shift as a stadium - company not replying",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwmpny/owed_67_from_a_security_shift_as_a_stadium/",
@@ -95,6 +143,18 @@
           "numComments": 0,
           "createdUtc": 1791032502,
           "snippet": "In April this year, I worked a shift for a security company at a football match, they posted that anyone with cheques owed could come collect but I wasnt available that day. They said they couldnt post it, so I offered to come by on my lunch on a match day and collect it (I work ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wwhk9j",
+          "title": "I saw my mate’s ex at work despite him telling CMS he’s unemployed - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwhk9j/i_saw_my_mates_ex_at_work_despite_him_telling_cms/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwhk9j/i_saw_my_mates_ex_at_work_despite_him_telling_cms/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791014242,
+          "snippet": "My best mate’s ex is a nasty alcoholic who has not paid a penny of child support (3 kids) since they split 10yrs+ ago. At the time he was a headteacher, but his drinking led to him being let go. He has been telling CMS that he is unemployed and therefore cannot pay. He has a soli",
           "listingSource": "rss:hot"
         },
         {
@@ -110,18 +170,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wwdx6s",
-          "title": "Can I report this? Liking kids is illegal or no? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwdx6s/can_i_report_this_liking_kids_is_illegal_or_no/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwdx6s/can_i_report_this_liking_kids_is_illegal_or_no/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791001095,
-          "snippet": "I’m looking for general information about UK law regarding something I discovered about my boyfriend. He is a 21-year-old British man. We are rn on Thailand holiday but soon we gonna go back UK. And in 19F Spanish girl. I discovered that he had created a separate Instagram accoun",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1wwvd59",
           "title": "False Allegation from Mother in Law who has dementia",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwvd59/false_allegation_from_mother_in_law_who_has/",
@@ -134,15 +182,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1ww3nmm",
-          "title": "[Scotland] partner arrested after stabbing violent dog that was attacking our neighbour",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww3nmm/scotland_partner_arrested_after_stabbing_violent/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww3nmm/scotland_partner_arrested_after_stabbing_violent/",
+          "id": "1wxcsgy",
+          "title": "Advice needed UK - House repossesiob",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxcsgy/advice_needed_uk_house_repossesiob/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxcsgy/advice_needed_uk_house_repossesiob/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790971300,
-          "snippet": "This evening we heard screaming outside and heard our neighbour (lady in her late 50s) screaming as a dog was mauling and dragging her. Our other neighbours were trying to help by throwing bricks at the dog and hitting it with a plank of wood but obviously did nothing. My partner",
+          "createdUtc": 1791111068,
+          "snippet": "Hi All, I currently reside in the UK and I need some advice. Context - My mum and step dad are on thr mortgage and Council Tax. However my mum passed away in November 2022. The mortgage and council tax has not been paid since. In September 2025, a warrant for repossesion of the h",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wxbr8o",
+          "title": "Clipped a cars wingmirror but unable to identify which car",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxbr8o/clipped_a_cars_wingmirror_but_unable_to_identify/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxbr8o/clipped_a_cars_wingmirror_but_unable_to_identify/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791107207,
+          "snippet": "This morning at around 1am I was driving down my narrow street (fits one car) and clipped what I think was a cars wingmirror. I stopped at the end of the road (didn’t want to block traffic) and saw a tiny mark on my wingmirror, I wrote a note and went to leave it but couldnt loca",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wxbj94",
+          "title": "Mother died, been made executor, how to proceed (Wales)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxbj94/mother_died_been_made_executor_how_to_proceed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxbj94/mother_died_been_made_executor_how_to_proceed/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791106318,
+          "snippet": "Hi all. Apologies if r/LegalAdviceUK is not the correct forum for this. I weighed up this and r/financialadviceuk , or even r/AskUK but chose this one for now. Might cross post depending on what traction I get here. My mum died suddenly yesterday morning. We found a stack of pape",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wwdx6s",
+          "title": "Can I report this? Liking kids is illegal or no? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwdx6s/can_i_report_this_liking_kids_is_illegal_or_no/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwdx6s/can_i_report_this_liking_kids_is_illegal_or_no/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791001095,
+          "snippet": "I’m looking for general information about UK law regarding something I discovered about my boyfriend. He is a 21-year-old British man. We are rn on Thailand holiday but soon we gonna go back UK. And in 19F Spanish girl. I discovered that he had created a separate Instagram accoun",
           "listingSource": "rss:hot"
         },
         {
@@ -158,99 +242,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1ww3wva",
-          "title": "Parent booked me on a family holiday that I said I won't go on / cannot afford. Am I legally obligated to pay?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww3wva/parent_booked_me_on_a_family_holiday_that_i_said/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww3wva/parent_booked_me_on_a_family_holiday_that_i_said/",
+          "id": "1ww3nmm",
+          "title": "[Scotland] partner arrested after stabbing violent dog that was attacking our neighbour",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww3nmm/scotland_partner_arrested_after_stabbing_violent/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww3nmm/scotland_partner_arrested_after_stabbing_violent/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1790971930,
-          "snippet": "My mum wants my family (16 of us) to go on a family holiday next year. I repeatedly told my mum that I didn't want to go on the holiday as I could not afford it and that I needed to save to move out. My mum still booked the holiday anyway and put me down for it. She refuses to ca",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wvth33",
-          "title": "My wheelchair was forcibly rolled out of an elevator to make room for other members of a group.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvth33/my_wheelchair_was_forcibly_rolled_out_of_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wvth33/my_wheelchair_was_forcibly_rolled_out_of_an/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790946765,
-          "snippet": "I need a wheelchair and mobility assistance when travelling through certain areas like airports, large venues and train stations. I was at a confererence and had been provided a wheelchair and assitance from a staff member at the venue to help get me to my room, which was a signi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwj875",
-          "title": "Assaulted by neighbour in Wales",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwj875/assaulted_by_neighbour_in_wales/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwj875/assaulted_by_neighbour_in_wales/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791020617,
-          "snippet": "Over the last couple of years I have had several run ins with an individual who owns a property nearby to mine. They don't live there as they inherited and have been trying to sell it. Previously the issues have been mostly confined to a bit of verbal, blocking my car from the hi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwfiu8",
-          "title": "Landlord says they need me to leave in 1 month to move in, but advertised the property for rent beforehand - England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwfiu8/landlord_says_they_need_me_to_leave_in_1_month_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwfiu8/landlord_says_they_need_me_to_leave_in_1_month_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791006719,
-          "snippet": "Hi everyone, I’m a tenant in London and I’m looking for some advice on my situation. I’m currently renting a room in a property on a rolling tenancy for over 1.5 years. My other flatmates have left recently and their rooms are vacant at the moment. My landlord recently sent me a ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwwc74",
-          "title": "Potential security issue at rented flat - what is the legal standing?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwwc74/potential_security_issue_at_rented_flat_what_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwwc74/potential_security_issue_at_rented_flat_what_is/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791057254,
-          "snippet": "My landlord insists on keeping their copy of the keys to my flat in a flimsy looking safe mounted on an external wall at eye level directly beside the front door to the building. The code is the first code you would guess (probably default). They refuse to change the code or to k",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1ww41vs",
-          "title": "Brother (18) arrested in London 40+ hours ago. Police did a Section 18(5) search and won’t tell us where he is. What can we do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww41vs/brother_18_arrested_in_london_40_hours_ago_police/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww41vs/brother_18_arrested_in_london_40_hours_ago_police/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790972268,
-          "snippet": "We live in London, England and on Wednesday night around 4 am, the police knocked on our door to tell us that my 18y brother was arrested. After that they asked us to point to his room and proceeded to search it using Section 18(5) (Entry and search after arrest - Inspector’s wri",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1ww7h8b",
-          "title": "Ex wants \"her\" dog back after 2 years of having no interest",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww7h8b/ex_wants_her_dog_back_after_2_years_of_having_no/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww7h8b/ex_wants_her_dog_back_after_2_years_of_having_no/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790981087,
-          "snippet": "Hi, I split from my ex in 2024. Before we split, she bought a dog but almost never gave her the time or attention she needed leaving her in a crate all day, so ended up having to take her with me and take responsibility. The situation with the dog was one of the reasons why I end",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwqrwx",
-          "title": "Accused of leaving scene of a car crash",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwqrwx/accused_of_leaving_scene_of_a_car_crash/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwqrwx/accused_of_leaving_scene_of_a_car_crash/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791043252,
-          "snippet": "Hello. A member of my family has asked for advice and I’m not sure how to help them. They have been accused of hitting a parked car with theirs and not stopping. This happened in England. What supposedly happened is that my family member was at a local walking spot and talking to",
+          "createdUtc": 1790971300,
+          "snippet": "This evening we heard screaming outside and heard our neighbour (lady in her late 50s) screaming as a dog was mauling and dragging her. Our other neighbours were trying to help by throwing bricks at the dog and hitting it with a plank of wood but obviously did nothing. My partner",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 14,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wxcau7",
+          "title": "Neighbours have moved next door to my mother in law and they’re progressively getting more disruptive. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxcau7/neighbours_have_moved_next_door_to_my_mother_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxcau7/neighbours_have_moved_next_door_to_my_mother_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791109259,
+          "snippet": "They recently moved in and they’re a family of Albanians, it’s 2 bedroom and about 8 people living in the house, the language barrier makes it difficult to explain to them they’re being disruptive and they’re quite aggressive. They have 5 removal vans which have taken over the ro",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wwlrrp",
           "title": "My solicitors lost my money and now I’m unsure on what to do .",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwlrrp/my_solicitors_lost_my_money_and_now_im_unsure_on/",
@@ -304,6 +316,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wx9hsw",
+          "title": "The company I subcontract for is pulling fast ones at every turn. Need advice.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wx9hsw/the_company_i_subcontract_for_is_pulling_fast/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wx9hsw/the_company_i_subcontract_for_is_pulling_fast/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791098458,
+          "snippet": "Location: Scotland It’s my first time working as a sole trader. I’ve been sub-contracting for a company for a couple of weeks now. The pay is decent, and because I’m currently waiting on a permanent role elsewhere, I can’t afford to walk away just yet. However, I am dealing with ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wwyioo",
+          "title": "Siblings contesting will - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwyioo/siblings_contesting_will_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwyioo/siblings_contesting_will_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791062909,
+          "snippet": "Looking for some advice - I was primary caregiver for my elderly and disabled mother from 2022-2025. During this time she had full mental capacity but wasn’t able to move to get to the bathroom or make any food or drink herself. My siblings very rarely visited and specifically sa",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wxahg0",
+          "title": "Looking for advice on how to proceed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxahg0/looking_for_advice_on_how_to_proceed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxahg0/looking_for_advice_on_how_to_proceed/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791102213,
+          "snippet": "This happened in Scotland. Back in mid August I came home from work to find eon next had brocken into my house and changed my gas and electric meters. I also found every cupboard and wardrobe upstairs had been opened and looked through, nothing missing fortunately. I had no idea ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wwhk9j",
           "title": "I saw my mate’s ex at work despite him telling CMS he’s unemployed - England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwhk9j/i_saw_my_mates_ex_at_work_despite_him_telling_cms/",
@@ -314,54 +362,6 @@
           "createdUtc": 1791014242,
           "snippet": "My best mate’s ex is a nasty alcoholic who has not paid a penny of child support (3 kids) since they split 10yrs+ ago. At the time he was a headteacher, but his drinking led to him being let go. He has been telling CMS that he is unemployed and therefore cannot pay. He has a soli",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwuayt",
-          "title": "Ear piercing for 4 year old- parents separated. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwuayt/ear_piercing_for_4_year_old_parents_separated/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwuayt/ear_piercing_for_4_year_old_parents_separated/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791052162,
-          "snippet": "Hi everyone, My partner shares a 4 year old with his ex. They were never married but he is on the birth certificate. Currently, they share 50/50 custody and is awaiting the outcome of a child arrangement order. Social services have also recently been involved due to concerns rais",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwdx6s",
-          "title": "Can I report this? Liking kids is illegal or no? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwdx6s/can_i_report_this_liking_kids_is_illegal_or_no/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwdx6s/can_i_report_this_liking_kids_is_illegal_or_no/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791001095,
-          "snippet": "I’m looking for general information about UK law regarding something I discovered about my boyfriend. He is a 21-year-old British man. We are rn on Thailand holiday but soon we gonna go back UK. And in 19F Spanish girl. I discovered that he had created a separate Instagram accoun",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwvd59",
-          "title": "False Allegation from Mother in Law who has dementia",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwvd59/false_allegation_from_mother_in_law_who_has/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwvd59/false_allegation_from_mother_in_law_who_has/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791054798,
-          "snippet": "Anon account for obvious reason. based in England I am the father of 2 primary school children, and I live with their mother, we get on very well, although we arent married. My Mother In Law is late 80s, and has been diagnosed with vascular dementia. She lives 1/2 a mile away in ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwkyh2",
-          "title": "Wife Returned from Maternity Leave to Effective Job Share - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwkyh2/wife_returned_from_maternity_leave_to_effective/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwkyh2/wife_returned_from_maternity_leave_to_effective/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791026968,
-          "snippet": "Hi all, My wife has been employed as a Manager of a department for a company based in England for over two years before taking a year’s maternity leave. Whilst away, the company hired a contractor (old friend of one of the Directors) as maternity cover. Since returning, her job t",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -386,18 +386,6 @@
           "createdUtc": 1776154094,
           "snippet": "submitted by /u/litigant-in-person [link] [comments]",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwfiu8",
-          "title": "Landlord says they need me to leave in 1 month to move in, but advertised the property for rent beforehand - England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwfiu8/landlord_says_they_need_me_to_leave_in_1_month_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwfiu8/landlord_says_they_need_me_to_leave_in_1_month_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791006719,
-          "snippet": "Hi everyone, I’m a tenant in London and I’m looking for some advice on my situation. I’m currently renting a room in a property on a rolling tenancy for over 1.5 years. My other flatmates have left recently and their rooms are vacant at the moment. My landlord recently sent me a ",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -405,12 +393,24 @@
       "slug": "employment-law",
       "label": "Employment Law",
       "legalAreaSlug": "employment",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
+        {
+          "id": "1wxax6n",
+          "title": "Halving my salary during notice period.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxax6n/halving_my_salary_during_notice_period/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxax6n/halving_my_salary_during_notice_period/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791103922,
+          "snippet": "I’m about to put my notice in at work. Recently the company decided that for those that choose to leave, they will be taken off duty and only paid basic salary. My salary is made up in two parts, basic pay and variable pay. Variable pay makes up the vast majority of our monthly t",
+          "listingSource": "rss:hot"
+        },
         {
           "id": "1wwsff2",
           "title": "Employer ended my employment early, took £1,700 from my pay, and threatened to contact my new employer. Is this even legal?",
@@ -429,7 +429,7 @@
       "slug": "banking-and-finance",
       "label": "Banking and Finance",
       "legalAreaSlug": "banking_finance",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -446,17 +446,29 @@
           "createdUtc": 1791032502,
           "snippet": "In April this year, I worked a shift for a security company at a football match, they posted that anyone with cheques owed could come collect but I wasnt available that day. They said they couldnt post it, so I offered to come by on my lunch on a match day and collect it (I work ",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "wills-and-probate",
+      "label": "Wills and Probate",
+      "legalAreaSlug": "wills_probate",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1wwwc74",
-          "title": "Potential security issue at rented flat - what is the legal standing?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwwc74/potential_security_issue_at_rented_flat_what_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwwc74/potential_security_issue_at_rented_flat_what_is/",
+          "id": "1wxbj94",
+          "title": "Mother died, been made executor, how to proceed (Wales)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxbj94/mother_died_been_made_executor_how_to_proceed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxbj94/mother_died_been_made_executor_how_to_proceed/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791057254,
-          "snippet": "My landlord insists on keeping their copy of the keys to my flat in a flimsy looking safe mounted on an external wall at eye level directly beside the front door to the building. The code is the first code you would guess (probably default). They refuse to change the code or to k",
+          "createdUtc": 1791106318,
+          "snippet": "Hi all. Apologies if r/LegalAdviceUK is not the correct forum for this. I weighed up this and r/financialadviceuk , or even r/AskUK but chose this one for now. Might cross post depending on what traction I get here. My mum died suddenly yesterday morning. We found a stack of pape",
           "listingSource": "rss:hot"
         }
       ]
@@ -465,7 +477,7 @@
       "slug": "prison-law",
       "label": "Prison Law",
       "legalAreaSlug": "criminal_defence",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -481,18 +493,6 @@
           "numComments": 0,
           "createdUtc": 1790971300,
           "snippet": "This evening we heard screaming outside and heard our neighbour (lady in her late 50s) screaming as a dog was mauling and dragging her. Our other neighbours were trying to help by throwing bricks at the dog and hitting it with a plank of wood but obviously did nothing. My partner",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1ww41vs",
-          "title": "Brother (18) arrested in London 40+ hours ago. Police did a Section 18(5) search and won’t tell us where he is. What can we do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww41vs/brother_18_arrested_in_london_40_hours_ago_police/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ww41vs/brother_18_arrested_in_london_40_hours_ago_police/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1790972268,
-          "snippet": "We live in London, England and on Wednesday night around 4 am, the police knocked on our door to tell us that my 18y brother was arrested. After that they asked us to point to his room and proceeded to search it using Section 18(5) (Entry and search after arrest - Inspector’s wri",
           "listingSource": "rss:hot"
         }
       ]
