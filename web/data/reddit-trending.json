@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-04T20:53:40.170Z",
+    "scrapedAt": "2026-10-05T13:11:56.261Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 5,
+    "topicCount": 10,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,15 +38,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxnl8h",
-          "title": "Disability discrimination at the NFL London game? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxnl8h/disability_discrimination_at_the_nfl_london_game/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxnl8h/disability_discrimination_at_the_nfl_london_game/",
+          "id": "1wxvv67",
+          "title": "Landlord wants to charge me £5000 for his time (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxvv67/landlord_wants_to_charge_me_5000_for_his_time/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxvv67/landlord_wants_to_charge_me_5000_for_his_time/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791140466,
-          "snippet": "I went to the NFL event in London today and had an issue that’s really pissed me off. I’m diabetic and carry a small medical bag (27cm x 20cm x 5cm) with essential supplies. The NFL UK clear bag policy literally says medically necessary items are allowed after inspection. Despite",
+          "createdUtc": 1791162987,
+          "snippet": "Please help, I recently gave my keys back after a 6 year tenancy, I had hoovered and cleaned property but carpets were beige to start with so are worn and a bit grubby, I have a carpet cleaner machine but didn't help. My landlord has since written up a document in which he wants ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wy4he1",
+          "title": "Car Damaged by BT Openreach outside my property.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4he1/car_damaged_by_bt_openreach_outside_my_property/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4he1/car_damaged_by_bt_openreach_outside_my_property/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791193895,
+          "snippet": "Hi all, (England based) Last Christmas Day/ Boxing Day my car was damaged by a road closure sign placed directly outside my garden gate. After contacting the council, BT Openreach and now M Group, they have all said it that they are not at fault and/or their staff have done the t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wy3s0u",
+          "title": "Police asked me to leave my home",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy3s0u/police_asked_me_to_leave_my_home/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy3s0u/police_asked_me_to_leave_my_home/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791191132,
+          "snippet": "Hey all, Apologies if this is the wrong subreddit for this and if someone can direct me to a more appropriate one I would be grateful. I feel like I’m airing my dirty laundry and I don’t mean to do that I’m just confused over something that happened last night which involved the ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wxu3ir",
+          "title": "My mum died and I maybe want to sue the hospital (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxu3ir/my_mum_died_and_i_maybe_want_to_sue_the_hospital/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxu3ir/my_mum_died_and_i_maybe_want_to_sue_the_hospital/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791157699,
+          "snippet": "I’ll keep this relatively brief. My mum died in hospital (Northern England) at the start of September. She had an operation a few days earlier to remove a mass in her abdomen which initially went well. She was then moved to a gynae ward which was not equipped to deal with large s",
           "listingSource": "rss:hot"
         },
         {
@@ -62,6 +98,66 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wxuhzm",
+          "title": "Octopus Energy took £400 from my bank (England) now I’m struggling financially.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxuhzm/octopus_energy_took_400_from_my_bank_england_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxuhzm/octopus_energy_took_400_from_my_bank_england_now/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791158835,
+          "snippet": "Hi, so Octopus Energy made a mistake with my direct debit, and instead of taking £200 a month they had set my direct debit to £200 a week. I noticed this 2 weeks ago when a payment bounced, I called them and they assured me the direct debit was changed back to monthly the date se",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wy3a2a",
+          "title": "High end GPU RMA - How do I respond if I don't agree with their remedy?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy3a2a/high_end_gpu_rma_how_do_i_respond_if_i_dont_agree/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy3a2a/high_end_gpu_rma_how_do_i_respond_if_i_dont_agree/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791189061,
+          "snippet": "Hi, I had a high end graphics card (RTX 5090) that failed after 1 year and 1 month of use with a melted power connector. This is a well documented fault with cards with this power connector and the industry knows about them. A few videos over the years about the issue: https://ww",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wxnl8h",
+          "title": "Disability discrimination at the NFL London game? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxnl8h/disability_discrimination_at_the_nfl_london_game/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxnl8h/disability_discrimination_at_the_nfl_london_game/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791140466,
+          "snippet": "I went to the NFL event in London today and had an issue that’s really pissed me off. I’m diabetic and carry a small medical bag (27cm x 20cm x 5cm) with essential supplies. The NFL UK clear bag policy literally says medically necessary items are allowed after inspection. Despite",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wy5f3l",
+          "title": "Scotland. Purchased souveneir tickets from ticketmaster since. They arrived several months late and damaged. Ticketmaster say they cannot replace nor refund them. Where does this fall within consumer rights laws?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5f3l/scotland_purchased_souveneir_tickets_from/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5f3l/scotland_purchased_souveneir_tickets_from/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791197369,
+          "snippet": "Honestly the title pretty much covers it but here's the detailed version: Bought tickets about a year in advance for a concert on the 4th of July. As part of this purchase I paid additional money for souveneir tickets since concert tickets are all digital these days. Ticketmaster",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wy5nsk",
+          "title": "Civil Enforcement got wrong details",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5nsk/civil_enforcement_got_wrong_details/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5nsk/civil_enforcement_got_wrong_details/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791198192,
+          "snippet": "Hi guys, Based in England I received a letter from Civil Enforcement claiming that I am the registered keeper of a car that I have never seen and parked in a car park in a city that i have never been to. I contacted DVLA and they provided me with a letter with proof that I do not",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wxjs23",
           "title": "Is my landlord obligated to deal with a fly infestation at the building level? (South West England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxjs23/is_my_landlord_obligated_to_deal_with_a_fly/",
@@ -74,183 +170,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxcau7",
-          "title": "Neighbours have moved next door to my mother in law and they’re progressively getting more disruptive. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxcau7/neighbours_have_moved_next_door_to_my_mother_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxcau7/neighbours_have_moved_next_door_to_my_mother_in/",
+          "id": "1wy5m8n",
+          "title": "Amazon stole my package - won't refund (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5m8n/amazon_stole_my_package_wont_refund_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5m8n/amazon_stole_my_package_wont_refund_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791109259,
-          "snippet": "They recently moved in and they’re a family of Albanians, it’s 2 bedroom and about 8 people living in the house, the language barrier makes it difficult to explain to them they’re being disruptive and they’re quite aggressive. They have 5 removal vans which have taken over the ro",
+          "createdUtc": 1791198058,
+          "snippet": "Hi all, During the heatwave we bought a portable aircon. It didn't really cool as much as expected so we decided to return. The Amazon driver asked \"is it still working?\", we said yes, he scanned. We got the refund. Days later we started to be charged back and after talking with ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxog41",
-          "title": "Is it worth seeking help - england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxog41/is_it_worth_seeking_help_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxog41/is_it_worth_seeking_help_england/",
+          "id": "1wy2av0",
+          "title": "Solicitors keeps making mistakes during property purchase.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy2av0/solicitors_keeps_making_mistakes_during_property/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy2av0/solicitors_keeps_making_mistakes_during_property/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791142558,
-          "snippet": "I’m a little shaken so I’m sorry if I can’t ask this here but if anyone could even guide me to where I can get help without being reported it would be helpful. 17F immigrant on a dependent visa I’ve lived in England since I was 10. Currently Im applying to go to university and I ",
+          "createdUtc": 1791185136,
+          "snippet": "Hi all, I was just looking for a bit of advice on how to proceed with this matter. My partner and I are in the process of buying our first home (in Scotland) and have totally lost confidence in our “highly regarded” solicitors. During the process they have repeatedly made mistake",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxax6n",
-          "title": "Halving my salary during notice period.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxax6n/halving_my_salary_during_notice_period/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxax6n/halving_my_salary_during_notice_period/",
+          "id": "1wy0tlt",
+          "title": "Ex has had my belongings for months and keeps delaying sending them back even though I paid for postage. What should I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy0tlt/ex_has_had_my_belongings_for_months_and_keeps/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy0tlt/ex_has_had_my_belongings_for_months_and_keeps/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791103922,
-          "snippet": "I’m about to put my notice in at work. Recently the company decided that for those that choose to leave, they will be taken off duty and only paid basic salary. My salary is made up in two parts, basic pay and variable pay. Variable pay makes up the vast majority of our monthly t",
+          "createdUtc": 1791179439,
+          "snippet": "My ex still has some of my belongings following our breakup. It’s been months now and I’ve repeatedly asked for them to be returned. She told me she needed money to ship everything, so I sent her £30 specifically for the postage. Despite that, my belongings still haven’t been sen",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxh4we",
-          "title": "Am I allowed to put a camera up because of dog fouling? - Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxh4we/am_i_allowed_to_put_a_camera_up_because_of_dog/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxh4we/am_i_allowed_to_put_a_camera_up_because_of_dog/",
+          "id": "1wxvs6f",
+          "title": "Flight with Lufthansa to Frankfurt from Heathrow delayed. Missing my connecting flight to Vienna and then Tokyo. They have rescheduled me for a flight 24 hours later. What are my rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxvs6f/flight_with_lufthansa_to_frankfurt_from_heathrow/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxvs6f/flight_with_lufthansa_to_frankfurt_from_heathrow/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791124376,
-          "snippet": "Our property (red) is next to an electrical box and then a private car park (yellow) and public grass (green) We maintain the grass because nobody else does. Council say it’s not theirs. Yet it’s not on anyone’s title deeds. Because it’s grass people let their dogs foul on it and",
+          "createdUtc": 1791162721,
+          "snippet": "I had a flight scheduled from London Heathrow (England) to Frankfurt at 06:30am to catch a connecting flight to Vienna at 11:10 and then from Vienna to Tokyo at 13:30. I received a notification in the Lufthansa app that the flight to Frankfurt has been delayed until 9am, and ther",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxf7ws",
-          "title": "Road rage incident: driver tried to open my locked car and broke the door handle after I honked/overtook him. What should I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxf7ws/road_rage_incident_driver_tried_to_open_my_locked/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxf7ws/road_rage_incident_driver_tried_to_open_my_locked/",
+          "id": "1wy4ody",
+          "title": "Debt company sent letters to previous address after I notified them I’m no longer at the address",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4ody/debt_company_sent_letters_to_previous_address/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4ody/debt_company_sent_letters_to_previous_address/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791119071,
-          "snippet": "This happened today in England. I’d appreciate some advice on what I should do next and whether there is anything I should be concerned about regarding my own driving. I was driving my wife to an ultrasound scan appointment and we were already late, so I was in a hurry. We came t",
+          "createdUtc": 1791194613,
+          "snippet": "I’m in Northern Ireland, the debt company is based in Scotland. I moved to a new address earlier this year, so emailed the company to let them know I was no longer at this address and would only be willing to communicate via email or phone from here on out. They emailed back and ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wwlrrp",
-          "title": "My solicitors lost my money and now I’m unsure on what to do .",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwlrrp/my_solicitors_lost_my_money_and_now_im_unsure_on/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwlrrp/my_solicitors_lost_my_money_and_now_im_unsure_on/",
+          "id": "1wy4jce",
+          "title": "CRS text for debt recovery from an ex partner (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4jce/crs_text_for_debt_recovery_from_an_ex_partner/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4jce/crs_text_for_debt_recovery_from_an_ex_partner/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791029657,
-          "snippet": "Im 21 f from England. A few years ago I inherited a property that went through probate. I want allowed access to the money afterwards due to being under the age of 21 as it said this in the will. My solicitor at the time said that it would be put in a trust for me I could collect",
+          "createdUtc": 1791194114,
+          "snippet": "Received this message this morning for debt recovery for Three. The name is an ex partner I've not had communication with them for at least 11 years. I've had not had any emails or letters so clearly the only information they have on me is my phone number. Can I just ignore this ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxglg7",
-          "title": "TFL claim needs person of the courts to sign form",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxglg7/tfl_claim_needs_person_of_the_courts_to_sign_form/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxglg7/tfl_claim_needs_person_of_the_courts_to_sign_form/",
+          "id": "1wy4cne",
+          "title": "England - used car rejection rights",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4cne/england_used_car_rejection_rights/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4cne/england_used_car_rejection_rights/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791122930,
-          "snippet": "Hellooo, Wondering if anyone could please help me. My partner was driving to work in London as he does multiple times a week where he never needs to go through the congestion charge zone. One afternoon on his way home they had a traffic diversion due to roadworks (which were one ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wxhut2",
-          "title": "Neighbours kid throwing things over fence and now ringing doorbell and running",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxhut2/neighbours_kid_throwing_things_over_fence_and_now/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxhut2/neighbours_kid_throwing_things_over_fence_and_now/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791126267,
-          "snippet": "&#x200B; UK England - A family moved in next door about a year ago. I believe they may be renting, as the property was advertised for rent shortly before they moved in, although I haven't been able to confirm this. We've had a few issues since they moved in. The main one initiall",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wx9hsw",
-          "title": "The company I subcontract for is pulling fast ones at every turn. Need advice.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wx9hsw/the_company_i_subcontract_for_is_pulling_fast/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wx9hsw/the_company_i_subcontract_for_is_pulling_fast/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791098458,
-          "snippet": "Location: Scotland It’s my first time working as a sole trader. I’ve been sub-contracting for a company for a couple of weeks now. The pay is decent, and because I’m currently waiting on a permanent role elsewhere, I can’t afford to walk away just yet. However, I am dealing with ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwyioo",
-          "title": "Siblings contesting will - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwyioo/siblings_contesting_will_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwyioo/siblings_contesting_will_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791062909,
-          "snippet": "Looking for some advice - I was primary caregiver for my elderly and disabled mother from 2022-2025. During this time she had full mental capacity but wasn’t able to move to get to the bathroom or make any food or drink herself. My siblings very rarely visited and specifically sa",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wxpz9m",
-          "title": "What is going on with wales police?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxpz9m/what_is_going_on_with_wales_police/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxpz9m/what_is_going_on_with_wales_police/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791146377,
-          "snippet": "I have made a post before but some people weren’t very helpful thinking it was bait and I got logged out of my account. The user is CROWLY33333. Me and my mum left the start of this year from her soon exhusband. He wasn’t physically abusive. He was mentally and emotionally. He al",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wxpw51",
-          "title": "How liable am I for broken property (NI)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxpw51/how_liable_am_i_for_broken_property_ni/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxpw51/how_liable_am_i_for_broken_property_ni/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791146155,
-          "snippet": "Hi, This incident happened in a gym when I went to lift my bag out of my locker and my (large and heavy) water bottle fell onto the bench under the lockers hit a woman's phone that she had left. This woman became very aggressive and insisted on taking my details including name, p",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwsff2",
-          "title": "Employer ended my employment early, took £1,700 from my pay, and threatened to contact my new employer. Is this even legal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwsff2/employer_ended_my_employment_early_took_1700_from/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwsff2/employer_ended_my_employment_early_took_1700_from/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791047485,
-          "snippet": "Location : England Bit of a long one, sorry. I've worked in a finance role at the same company for 4.5 years, clean record throughout. They paid for two accounting courses (around £2.6k each) and I signed a training agreement for each. Course 1 I finished. I'd have to pay it back",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wxahg0",
-          "title": "Looking for advice on how to proceed",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxahg0/looking_for_advice_on_how_to_proceed/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxahg0/looking_for_advice_on_how_to_proceed/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791102213,
-          "snippet": "This happened in Scotland. Back in mid August I came home from work to find eon next had brocken into my house and changed my gas and electric meters. I also found every cupboard and wardrobe upstairs had been opened and looked through, nothing missing fortunately. I had no idea ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wxo30s",
-          "title": "Bit of a difficult one, but wanted to ask if there is any issues if a person does food reviewing and posts on Instagram/tiktok (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxo30s/bit_of_a_difficult_one_but_wanted_to_ask_if_there/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxo30s/bit_of_a_difficult_one_but_wanted_to_ask_if_there/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791141656,
-          "snippet": "Hi all, I just wanted to know how the process is here I used to do it in a middle eastern country and didn't face any issues or anything. So just wanted to confirm how the food reviewing works initially thinking of starting with pictures and then probably videos but don't want to",
+          "createdUtc": 1791193377,
+          "snippet": "Hi - I've made a bit of a bad call buying a used car. I checked it out and it looked ok, but I've since discovered a problem with the central locking and last night had an engine warning light. I want to just reject the car. The purchase was about a week ago. I bought it from a u",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 8,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,87 +280,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxcau7",
-          "title": "Neighbours have moved next door to my mother in law and they’re progressively getting more disruptive. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxcau7/neighbours_have_moved_next_door_to_my_mother_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxcau7/neighbours_have_moved_next_door_to_my_mother_in/",
+          "id": "1wy4he1",
+          "title": "Car Damaged by BT Openreach outside my property.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4he1/car_damaged_by_bt_openreach_outside_my_property/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4he1/car_damaged_by_bt_openreach_outside_my_property/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791109259,
-          "snippet": "They recently moved in and they’re a family of Albanians, it’s 2 bedroom and about 8 people living in the house, the language barrier makes it difficult to explain to them they’re being disruptive and they’re quite aggressive. They have 5 removal vans which have taken over the ro",
+          "createdUtc": 1791193895,
+          "snippet": "Hi all, (England based) Last Christmas Day/ Boxing Day my car was damaged by a road closure sign placed directly outside my garden gate. After contacting the council, BT Openreach and now M Group, they have all said it that they are not at fault and/or their staff have done the t",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxog41",
-          "title": "Is it worth seeking help - england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxog41/is_it_worth_seeking_help_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxog41/is_it_worth_seeking_help_england/",
+          "id": "1wy3s0u",
+          "title": "Police asked me to leave my home",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy3s0u/police_asked_me_to_leave_my_home/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy3s0u/police_asked_me_to_leave_my_home/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791142558,
-          "snippet": "I’m a little shaken so I’m sorry if I can’t ask this here but if anyone could even guide me to where I can get help without being reported it would be helpful. 17F immigrant on a dependent visa I’ve lived in England since I was 10. Currently Im applying to go to university and I ",
+          "createdUtc": 1791191132,
+          "snippet": "Hey all, Apologies if this is the wrong subreddit for this and if someone can direct me to a more appropriate one I would be grateful. I feel like I’m airing my dirty laundry and I don’t mean to do that I’m just confused over something that happened last night which involved the ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxh4we",
-          "title": "Am I allowed to put a camera up because of dog fouling? - Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxh4we/am_i_allowed_to_put_a_camera_up_because_of_dog/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxh4we/am_i_allowed_to_put_a_camera_up_because_of_dog/",
+          "id": "1wxu3ir",
+          "title": "My mum died and I maybe want to sue the hospital (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxu3ir/my_mum_died_and_i_maybe_want_to_sue_the_hospital/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxu3ir/my_mum_died_and_i_maybe_want_to_sue_the_hospital/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791124376,
-          "snippet": "Our property (red) is next to an electrical box and then a private car park (yellow) and public grass (green) We maintain the grass because nobody else does. Council say it’s not theirs. Yet it’s not on anyone’s title deeds. Because it’s grass people let their dogs foul on it and",
+          "createdUtc": 1791157699,
+          "snippet": "I’ll keep this relatively brief. My mum died in hospital (Northern England) at the start of September. She had an operation a few days earlier to remove a mass in her abdomen which initially went well. She was then moved to a gynae ward which was not equipped to deal with large s",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxf7ws",
-          "title": "Road rage incident: driver tried to open my locked car and broke the door handle after I honked/overtook him. What should I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxf7ws/road_rage_incident_driver_tried_to_open_my_locked/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxf7ws/road_rage_incident_driver_tried_to_open_my_locked/",
+          "id": "1wxuhzm",
+          "title": "Octopus Energy took £400 from my bank (England) now I’m struggling financially.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxuhzm/octopus_energy_took_400_from_my_bank_england_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxuhzm/octopus_energy_took_400_from_my_bank_england_now/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791119071,
-          "snippet": "This happened today in England. I’d appreciate some advice on what I should do next and whether there is anything I should be concerned about regarding my own driving. I was driving my wife to an ultrasound scan appointment and we were already late, so I was in a hurry. We came t",
+          "createdUtc": 1791158835,
+          "snippet": "Hi, so Octopus Energy made a mistake with my direct debit, and instead of taking £200 a month they had set my direct debit to £200 a week. I noticed this 2 weeks ago when a payment bounced, I called them and they assured me the direct debit was changed back to monthly the date se",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wwlrrp",
-          "title": "My solicitors lost my money and now I’m unsure on what to do .",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwlrrp/my_solicitors_lost_my_money_and_now_im_unsure_on/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwlrrp/my_solicitors_lost_my_money_and_now_im_unsure_on/",
+          "id": "1wy3a2a",
+          "title": "High end GPU RMA - How do I respond if I don't agree with their remedy?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy3a2a/high_end_gpu_rma_how_do_i_respond_if_i_dont_agree/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy3a2a/high_end_gpu_rma_how_do_i_respond_if_i_dont_agree/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791029657,
-          "snippet": "Im 21 f from England. A few years ago I inherited a property that went through probate. I want allowed access to the money afterwards due to being under the age of 21 as it said this in the will. My solicitor at the time said that it would be put in a trust for me I could collect",
+          "createdUtc": 1791189061,
+          "snippet": "Hi, I had a high end graphics card (RTX 5090) that failed after 1 year and 1 month of use with a melted power connector. This is a well documented fault with cards with this power connector and the industry knows about them. A few videos over the years about the issue: https://ww",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxglg7",
-          "title": "TFL claim needs person of the courts to sign form",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxglg7/tfl_claim_needs_person_of_the_courts_to_sign_form/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxglg7/tfl_claim_needs_person_of_the_courts_to_sign_form/",
+          "id": "1wy0tlt",
+          "title": "Ex has had my belongings for months and keeps delaying sending them back even though I paid for postage. What should I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy0tlt/ex_has_had_my_belongings_for_months_and_keeps/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy0tlt/ex_has_had_my_belongings_for_months_and_keeps/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791122930,
-          "snippet": "Hellooo, Wondering if anyone could please help me. My partner was driving to work in London as he does multiple times a week where he never needs to go through the congestion charge zone. One afternoon on his way home they had a traffic diversion due to roadworks (which were one ",
+          "createdUtc": 1791179439,
+          "snippet": "My ex still has some of my belongings following our breakup. It’s been months now and I’ve repeatedly asked for them to be returned. She told me she needed money to ship everything, so I sent her £30 specifically for the postage. Despite that, my belongings still haven’t been sen",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wx9hsw",
-          "title": "The company I subcontract for is pulling fast ones at every turn. Need advice.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wx9hsw/the_company_i_subcontract_for_is_pulling_fast/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wx9hsw/the_company_i_subcontract_for_is_pulling_fast/",
+          "id": "1wxvs6f",
+          "title": "Flight with Lufthansa to Frankfurt from Heathrow delayed. Missing my connecting flight to Vienna and then Tokyo. They have rescheduled me for a flight 24 hours later. What are my rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxvs6f/flight_with_lufthansa_to_frankfurt_from_heathrow/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxvs6f/flight_with_lufthansa_to_frankfurt_from_heathrow/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791098458,
-          "snippet": "Location: Scotland It’s my first time working as a sole trader. I’ve been sub-contracting for a company for a couple of weeks now. The pay is decent, and because I’m currently waiting on a permanent role elsewhere, I can’t afford to walk away just yet. However, I am dealing with ",
+          "createdUtc": 1791162721,
+          "snippet": "I had a flight scheduled from London Heathrow (England) to Frankfurt at 06:30am to catch a connecting flight to Vienna at 11:10 and then from Vienna to Tokyo at 13:30. I received a notification in the Lufthansa app that the flight to Frankfurt has been delayed until 9am, and ther",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 2,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -388,6 +388,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wxvv67",
+          "title": "Landlord wants to charge me £5000 for his time (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxvv67/landlord_wants_to_charge_me_5000_for_his_time/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxvv67/landlord_wants_to_charge_me_5000_for_his_time/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791162987,
+          "snippet": "Please help, I recently gave my keys back after a 6 year tenancy, I had hoovered and cleaned property but carpets were beige to start with so are worn and a bit grubby, I have a carpet cleaner machine but didn't help. My landlord has since written up a document in which he wants ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wxjs23",
           "title": "Is my landlord obligated to deal with a fly infestation at the building level? (South West England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxjs23/is_my_landlord_obligated_to_deal_with_a_fly/",
@@ -397,6 +409,30 @@
           "numComments": 0,
           "createdUtc": 1791131101,
           "snippet": "Hi guys. In the last month, our kitchen windows have become an absolute haven for flies. Ill attach a photo for an example. The thing is, it's not like we have rotten food in our bins or something in our drains. The entire cladding of the building is rife with them. If you look a",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wxo1f7",
+          "title": "Partners Employer Called Me to confirm wife’s story/whereabouts",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxo1f7/partners_employer_called_me_to_confirm_wifes/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxo1f7/partners_employer_called_me_to_confirm_wifes/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791141548,
+          "snippet": "I used to work at the same place as my wife and on Friday, my ex boss who is still my wife’s boss called me at my new employer. To put some context on it. Our daughter was sick so under school rules she has to be off 48 hours after being sick. I was unable to look after her Thurs",
           "listingSource": "rss:hot"
         }
       ]
@@ -426,57 +462,45 @@
       ]
     },
     {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 3,
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
         {
-          "id": "1wxo1f7",
-          "title": "Partners Employer Called Me to confirm wife’s story/whereabouts",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxo1f7/partners_employer_called_me_to_confirm_wifes/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxo1f7/partners_employer_called_me_to_confirm_wifes/",
+          "id": "1wy5f3l",
+          "title": "Scotland. Purchased souveneir tickets from ticketmaster since. They arrived several months late and damaged. Ticketmaster say they cannot replace nor refund them. Where does this fall within consumer rights laws?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5f3l/scotland_purchased_souveneir_tickets_from/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5f3l/scotland_purchased_souveneir_tickets_from/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791141548,
-          "snippet": "I used to work at the same place as my wife and on Friday, my ex boss who is still my wife’s boss called me at my new employer. To put some context on it. Our daughter was sick so under school rules she has to be off 48 hours after being sick. I was unable to look after her Thurs",
+          "createdUtc": 1791197369,
+          "snippet": "Honestly the title pretty much covers it but here's the detailed version: Bought tickets about a year in advance for a concert on the 4th of July. As part of this purchase I paid additional money for souveneir tickets since concert tickets are all digital these days. Ticketmaster",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wxax6n",
-          "title": "Halving my salary during notice period.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxax6n/halving_my_salary_during_notice_period/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxax6n/halving_my_salary_during_notice_period/",
+          "id": "1wy5m8n",
+          "title": "Amazon stole my package - won't refund (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5m8n/amazon_stole_my_package_wont_refund_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5m8n/amazon_stole_my_package_wont_refund_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791103922,
-          "snippet": "I’m about to put my notice in at work. Recently the company decided that for those that choose to leave, they will be taken off duty and only paid basic salary. My salary is made up in two parts, basic pay and variable pay. Variable pay makes up the vast majority of our monthly t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wwsff2",
-          "title": "Employer ended my employment early, took £1,700 from my pay, and threatened to contact my new employer. Is this even legal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwsff2/employer_ended_my_employment_early_took_1700_from/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wwsff2/employer_ended_my_employment_early_took_1700_from/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791047485,
-          "snippet": "Location : England Bit of a long one, sorry. I've worked in a finance role at the same company for 4.5 years, clean record throughout. They paid for two accounting courses (around £2.6k each) and I signed a training agreement for each. Course 1 I finished. I'd have to pay it back",
+          "createdUtc": 1791198058,
+          "snippet": "Hi all, During the heatwave we bought a portable aircon. It didn't really cool as much as expected so we decided to return. The Amazon driver asked \"is it still working?\", we said yes, he scanned. We got the refund. Days later we started to be charged back and after talking with ",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "neighbour-disputes",
-      "label": "Neighbour Disputes",
-      "legalAreaSlug": "neighbour_dispute",
+      "slug": "planning-law",
+      "label": "Planning Law",
+      "legalAreaSlug": "planning_law",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -484,15 +508,111 @@
       ],
       "posts": [
         {
-          "id": "1wxhut2",
-          "title": "Neighbours kid throwing things over fence and now ringing doorbell and running",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxhut2/neighbours_kid_throwing_things_over_fence_and_now/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wxhut2/neighbours_kid_throwing_things_over_fence_and_now/",
+          "id": "1wy5nsk",
+          "title": "Civil Enforcement got wrong details",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5nsk/civil_enforcement_got_wrong_details/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy5nsk/civil_enforcement_got_wrong_details/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791126267,
-          "snippet": "&#x200B; UK England - A family moved in next door about a year ago. I believe they may be renting, as the property was advertised for rent shortly before they moved in, although I haven't been able to confirm this. We've had a few issues since they moved in. The main one initiall",
+          "createdUtc": 1791198192,
+          "snippet": "Hi guys, Based in England I received a letter from Civil Enforcement claiming that I am the registered keeper of a car that I have never seen and parked in a car park in a city that i have never been to. I contacted DVLA and they provided me with a letter with proof that I do not",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wy2av0",
+          "title": "Solicitors keeps making mistakes during property purchase.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy2av0/solicitors_keeps_making_mistakes_during_property/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy2av0/solicitors_keeps_making_mistakes_during_property/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791185136,
+          "snippet": "Hi all, I was just looking for a bit of advice on how to proceed with this matter. My partner and I are in the process of buying our first home (in Scotland) and have totally lost confidence in our “highly regarded” solicitors. During the process they have repeatedly made mistake",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wy4ody",
+          "title": "Debt company sent letters to previous address after I notified them I’m no longer at the address",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4ody/debt_company_sent_letters_to_previous_address/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4ody/debt_company_sent_letters_to_previous_address/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791194613,
+          "snippet": "I’m in Northern Ireland, the debt company is based in Scotland. I moved to a new address earlier this year, so emailed the company to let them know I was no longer at this address and would only be willing to communicate via email or phone from here on out. They emailed back and ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "commercial-law",
+      "label": "Commercial Law",
+      "legalAreaSlug": "commercial",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wy4jce",
+          "title": "CRS text for debt recovery from an ex partner (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4jce/crs_text_for_debt_recovery_from_an_ex_partner/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4jce/crs_text_for_debt_recovery_from_an_ex_partner/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791194114,
+          "snippet": "Received this message this morning for debt recovery for Three. The name is an ex partner I've not had communication with them for at least 11 years. I've had not had any emails or letters so clearly the only information they have on me is my phone number. Can I just ignore this ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "car-purchase-and-dealer-disputes",
+      "label": "Car Purchase and Dealer Disputes",
+      "legalAreaSlug": "consumer_motor_purchase",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wy4cne",
+          "title": "England - used car rejection rights",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4cne/england_used_car_rejection_rights/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wy4cne/england_used_car_rejection_rights/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791193377,
+          "snippet": "Hi - I've made a bit of a bad call buying a used car. I checked it out and it looked ok, but I've since discovered a problem with the central locking and last night had an engine warning light. I want to just reject the car. The purchase was about a week ago. I bought it from a u",
           "listingSource": "rss:hot"
         }
       ]
