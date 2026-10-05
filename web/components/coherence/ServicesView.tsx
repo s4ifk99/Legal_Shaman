@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { SessionState } from '@/lib/coherence/types'
 import { proposeLegalFrames, type LegalFrame } from '@/lib/coherence/frames'
 import {
@@ -43,10 +43,20 @@ import { captureProductEvent } from '@/components/analytics/posthog-provider'
 import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './ServicesView.css'
 
+export type ServicesFocus = 'solicitors' | 'free-help'
+
+const SERVICES_FOCUS_IDS: Record<ServicesFocus, string> = {
+  solicitors: 'matching-help-solicitors',
+  'free-help': 'matching-help-free',
+}
+
 interface Props {
   session: SessionState
   frames?: LegalFrame[]
   helpMatch?: HelpMatchResult | null
+  /** Section to scroll to once matches load (e.g. from an Overview option). */
+  focus?: ServicesFocus | null
+  onFocusHandled?: () => void
   onBack: () => void
   onOpenSraFirm?: (sraId: string) => void
   pageNavigation?: PageNavigationProps
@@ -241,6 +251,7 @@ function Item({
 }
 
 function Section({
+  id,
   title,
   lead,
   rows,
@@ -248,6 +259,7 @@ function Section({
   variant,
   mag,
 }: {
+  id?: string
   title: string
   lead?: string
   rows: Row[]
@@ -258,6 +270,7 @@ function Section({
   if (!rows.length) return null
   return (
     <section
+      id={id}
       className={[
         'services__section',
         variant === 'free' ? 'services__section--free' : '',
@@ -651,6 +664,8 @@ export function ServicesView({
   session,
   frames = [],
   helpMatch = null,
+  focus = null,
+  onFocusHandled,
   onBack,
   onOpenSraFirm,
   pageNavigation,
@@ -662,12 +677,19 @@ export function ServicesView({
   const [loading, setLoading] = useState(true)
   const [mag, setMag] = useState<SearchMagLevel>(SEARCH_MAG_DEFAULT)
 
+  const initialFocus = useRef(focus)
+
   useEffect(() => {
+    let level: SearchMagLevel = SEARCH_MAG_DEFAULT
     try {
-      setMag(parseSearchMagLevel(sessionStorage.getItem(MAG_STORAGE_KEY)))
+      level = parseSearchMagLevel(sessionStorage.getItem(MAG_STORAGE_KEY))
     } catch {
-      setMag(SEARCH_MAG_DEFAULT)
+      /* ignore */
     }
+    if (initialFocus.current === 'solicitors' && !showSolicitorsAtMag(level)) {
+      level = SEARCH_MAG_DEFAULT
+    }
+    setMag(level)
   }, [])
 
   function onMagChange(level: SearchMagLevel) {
@@ -960,6 +982,16 @@ export function ServicesView({
     })
   }, [loading, pack, solicitorRows.length, helpSession.matterType, helpSession.taxonomySlug])
 
+  useEffect(() => {
+    if (!focus || loading) return
+    if (focus === 'solicitors' && !showSolicitorsAtMag(mag)) return
+    const target =
+      document.getElementById(SERVICES_FOCUS_IDS[focus]) ||
+      document.getElementById('matching-help-who')
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    onFocusHandled?.()
+  }, [focus, loading, mag, onFocusHandled])
+
   const empty =
     !loading &&
     !freeRows.length &&
@@ -987,7 +1019,7 @@ export function ServicesView({
         <div className="services__main">
           <CaseContext session={helpSession} frames={helpFrames} />
 
-          <div className="services__matches">
+          <div className="services__matches" id="matching-help-who">
             <h2 className="services__band-title">Who to contact</h2>
             <SearchMagnificationSlider value={mag} onChange={onMagChange} />
             <p className="services__band-lead">
@@ -1019,6 +1051,7 @@ export function ServicesView({
                 ) : null}
                 {showSolicitorsAtMag(mag) ? (
                   <Section
+                    id={SERVICES_FOCUS_IDS.solicitors}
                     title="SRA-regulated solicitors"
                     lead={
                       visibleSolicitorRows.length
@@ -1038,6 +1071,7 @@ export function ServicesView({
                   </p>
                 ) : null}
                 <Section
+                  id={SERVICES_FOCUS_IDS['free-help']}
                   title="Free help"
                   lead="Charities and helplines matched to this dispute type."
                   rows={freeRows}

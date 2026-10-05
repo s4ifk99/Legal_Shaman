@@ -7,8 +7,11 @@ import type { LegalFrame } from '@/lib/coherence/frames'
 import {
   buildAnswerPackage,
   type AnswerFollowUp,
+  type AnswerOption,
   type AnswerPackage,
 } from '@/lib/coherence/answerPackage'
+import { parseSourceLine } from '@/lib/wiki/source-line'
+import type { ServicesFocus } from './ServicesView'
 import { matchOslawCourse } from '@/lib/coherence/wiki'
 import {
   runOslawPreflight,
@@ -33,6 +36,31 @@ function wikiArticleHref(path: string): string {
   return `/ask-the-shaman/wiki/${encodeURIComponent(id)}`
 }
 
+const LEGAL_ADVICE_RE =
+  /\b(legal advice|solicitors?|lawyers?|barristers?|legal aid|legal representation|conveyancers?)\b/i
+const SUPPORT_SERVICES_RE =
+  /\b(support services?|support organisations?|citizens advice|charit(?:y|ies)|helplines?|advice (?:services?|agenc(?:y|ies)|centres?)|free (?:help|advice)|independent help|shelter|law centres?|domestic (?:abuse|violence)|refuges?|mediation|advocacy)\b/i
+const HELP_SEEKING_TITLE_RE = /^(seek|get|contact|speak|talk|consult|ask|find|use|reach)\b/i
+
+function focusFor(text: string): ServicesFocus | null {
+  if (LEGAL_ADVICE_RE.test(text)) return 'solicitors'
+  if (SUPPORT_SERVICES_RE.test(text)) return 'free-help'
+  return null
+}
+
+/** Options that point at a kind of help link to where that help is listed in Matching help. */
+function optionServicesFocus(option: AnswerOption): ServicesFocus | null {
+  return (
+    focusFor(option.title) ||
+    (HELP_SEEKING_TITLE_RE.test(option.title.trim()) ? focusFor(option.description) : null)
+  )
+}
+
+function displaySource(s: AnswerPackage['sources'][number]): AnswerPackage['sources'][number] {
+  const parsed = parseSourceLine(s.title)
+  return { ...s, title: parsed.title || s.title, url: s.url || parsed.url }
+}
+
 interface Props {
   session: SessionState
   frames?: LegalFrame[]
@@ -40,7 +68,7 @@ interface Props {
   /** Master pipeline still running final synthesis — keep loading, do not show interim packs. */
   overviewLoading?: boolean
   onBack: () => void
-  onFindHelp: () => void
+  onFindHelp: (focus?: ServicesFocus) => void
   onFollowUp: (followUp: AnswerFollowUp) => void
   searchMode: SearchMode
   onStartPenumbraResearch: (message?: string) => void
@@ -122,15 +150,17 @@ function Recommendation({
   preflightNote,
   authorityHits,
   onFollowUp,
+  onFindHelp,
 }: {
   pack: AnswerPackage
   session: SessionState
   preflightNote?: string | null
   authorityHits?: SessionState['authorityHits']
   onFollowUp: (followUp: AnswerFollowUp) => void
+  onFindHelp: (focus?: ServicesFocus) => void
 }) {
   const pages = pack.wikiPages.slice(0, 6)
-  const sources = pack.sources.slice(0, 6)
+  const sources = pack.sources.slice(0, 6).map(displaySource)
   const firms = pack.recommendedFirms.slice(0, 3)
   const relatedTitle = pages[0]?.title
   const shamanAnswer = ensureShamanRecAnswer({
@@ -225,12 +255,31 @@ function Recommendation({
         <section className="oslaw__rec-section">
           <h3 className="oslaw__rec-h">Your options</h3>
           <div className="oslaw__options">
-            {pack.options.map((option) => (
-              <div className="oslaw__option" key={option.title}>
-                <h4>{option.title}</h4>
-                {option.description ? <p>{option.description}</p> : null}
-              </div>
-            ))}
+            {pack.options.map((option) => {
+              const focus = optionServicesFocus(option)
+              if (!focus) {
+                return (
+                  <div className="oslaw__option" key={option.title}>
+                    <h4>{option.title}</h4>
+                    {option.description ? <p>{option.description}</p> : null}
+                  </div>
+                )
+              }
+              return (
+                <button
+                  type="button"
+                  className="oslaw__option oslaw__option--link"
+                  key={option.title}
+                  onClick={() => onFindHelp(focus)}
+                >
+                  <h4>{option.title}</h4>
+                  {option.description ? <p>{option.description}</p> : null}
+                  <span className="oslaw__option-cta">
+                    {focus === 'solicitors' ? 'See matching solicitors →' : 'See matching support services →'}
+                  </span>
+                </button>
+              )
+            })}
           </div>
         </section>
       )}
@@ -744,6 +793,7 @@ export function OslawView({
             preflightNote={preflightNote}
             authorityHits={session.authorityHits}
             onFollowUp={onFollowUp}
+            onFindHelp={onFindHelp}
           />
           <PenumbraResearchPanel
             session={session}
@@ -751,7 +801,7 @@ export function OslawView({
             onUseFindings={onUsePenumbraResearch}
           />
           <div className="oslaw__actions">
-            <button type="button" className="oslaw__btn oslaw__btn--primary" onClick={onFindHelp}>
+            <button type="button" className="oslaw__btn oslaw__btn--primary" onClick={() => onFindHelp()}>
               Find people to help
             </button>
             <button type="button" className="oslaw__btn" onClick={onBack}>
@@ -765,7 +815,7 @@ export function OslawView({
         <div className="oslaw__body">
           <p className="oslaw__status">{error || 'No recommendation yet.'}</p>
           <div className="oslaw__actions">
-            <button type="button" className="oslaw__btn oslaw__btn--primary" onClick={onFindHelp}>
+            <button type="button" className="oslaw__btn oslaw__btn--primary" onClick={() => onFindHelp()}>
               Find people to help
             </button>
             <button type="button" className="oslaw__btn" onClick={onBack}>

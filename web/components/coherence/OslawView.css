@@ -310,6 +310,33 @@
   line-height: 1.45;
 }
 
+.oslaw__option--link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.oslaw__option--link:hover,
+.oslaw__option--link:focus-visible {
+  border-color: var(--action, var(--ink));
+  background: color-mix(in srgb, var(--action, var(--ink)) 5%, transparent);
+}
+
+.oslaw__option-cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--action, var(--ink));
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .oslaw__follow-up {
   padding: 0.9rem;
   border: 1px solid var(--ink-muted);

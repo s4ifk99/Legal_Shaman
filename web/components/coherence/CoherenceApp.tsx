@@ -6,7 +6,7 @@ import { PromptBlock } from './PromptBlock'
 import { PredictiveOptions } from './PredictiveOptions'
 import { InputBar } from './InputBar'
 import { ProgressFooter } from './ProgressFooter'
-import { ServicesView } from './ServicesView'
+import { ServicesView, type ServicesFocus } from './ServicesView'
 import { LawyerNotes } from './LawyerNotes'
 import { LawyerLogin } from './LawyerLogin'
 import { LawyerPortal } from './LawyerPortal'
@@ -496,6 +496,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   const [notesAutoDownload, setNotesAutoDownload] = useState(false)
   const [lawyer, setLawyer] = useState<LawyerSession | null>(() => loadLawyerSession())
   const [selectedSraId, setSelectedSraId] = useState<string | null>(null)
+  const [servicesFocus, setServicesFocus] = useState<ServicesFocus | null>(null)
   const [helpMatch, setHelpMatch] = useState<HelpMatchResult | null>(null)
   const [matterInspector, setMatterInspector] = useState<MasterResult['matterInspector']>(null)
   /** Matching Help / OSLAW deferred until matter is classified. */
@@ -1584,6 +1585,8 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         session={session}
         frames={frames}
         helpMatch={helpMatch}
+        focus={servicesFocus}
+        onFocusHandled={() => setServicesFocus(null)}
         onBack={() => navigatePage('intake')}
         onOpenSraFirm={(sraId) => {
           setSelectedSraId(sraId)
@@ -1602,7 +1605,10 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         masterAnswerPackage={answerPackage}
         overviewLoading={overviewLoading}
         onBack={() => navigatePage('intake')}
-        onFindHelp={() => requestSearch('services')}
+        onFindHelp={(focus) => {
+          setServicesFocus(focus ?? null)
+          requestSearch('services')
+        }}
         onFollowUp={handleFollowUp}
         searchMode={session.searchMode}
         onStartPenumbraResearch={(message) => {
