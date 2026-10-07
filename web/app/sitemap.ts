@@ -71,6 +71,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "Areas/Driving and Parking/Parking and PCNs/Parking ticket wrong registration: who helps",
       "Areas/Crime and Police/Victim Support/Assault costs after police CPS delay: who helps",
       "Areas/Consumer Rights/Faulty Goods and Services/Faulty goods outside warranty: who helps",
+      "Areas/Driving and Parking/Parking and PCNs/NHS Trust staff parking profit complaint: who helps",
+      "Areas/Home and Housing/Council and Social Housing/Housing association neighbour dementia succession plan: who helps",
+      "Areas/Home and Housing/Renting/MyDeposits landlord late evidence after deadline: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Parcel stolen by delivery driver: who helps",
+      "Areas/Neighbours and Property/Noise and Nuisance/Neighbour modified cars Northern Ireland police: who helps",
+      "Areas/Home and Housing/Renting/Rent repayment order settle or continue England: who helps",
+      "Areas/Driving and Parking/Parking and PCNs/APCOA parking charge never received original PCN: who helps",
+      "Areas/Neighbours and Property/Boundaries and Rights/Party wall bookcase removal building owner duty: who helps",
+      "Areas/Money, Benefits and Debt/Tax and Bills/Energy debt for an address I never lived at: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Parcel left at front door and stolen: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Employer makes me arrive early to put on PPE unpaid: who helps",
+      "Areas/Work and Employment/Discrimination at Work/Job restructure while on maternity leave: who helps",
+      "Areas/Driving and Parking/Parking and PCNs/Parking charge for a place I never visited, appeal deadline missed: who helps",
+      "Areas/Neighbours and Property/Boundaries and Rights/Neighbour parking in my allocated space: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Garage repair failed again, warranty covers parts only: who helps",
+      "Areas/Consumer Rights/Travel and Holidays/Jet2 holiday cancelled, refund or rebook: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Paid below minimum wage cash in hand: who helps",
     ]);
     const priority = index.pages.filter((p) => priorityIds.has(p.id));
     const areas = index.pages.filter(
