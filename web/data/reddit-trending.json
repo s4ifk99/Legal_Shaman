@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-07T12:24:40.886Z",
+    "scrapedAt": "2026-10-07T22:45:00.126Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 8,
+    "topicCount": 11,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wzy963",
+          "title": "Freelancer invoiced me £1,100 when I agreed to 2 days at £100/day – what am I actually obligated to pay? (UK)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzy963/freelancer_invoiced_me_1100_when_i_agreed_to_2/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzy963/freelancer_invoiced_me_1100_when_i_agreed_to_2/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791383979,
+          "snippet": "I’m a small business owner in the UK and would really appreciate some impartial advice on a disagreement I’m having with a freelancer. I hired a university student/freelancer to help with some email marketing/creative work. She had very little professional experience, so we agree",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wzrze7",
           "title": "I am a member of the Institution of Civil Engineers (ICE). I have been erroneously identified as a member of the, completely unrelated US Customs Enforcement agency... also called ICE.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzrze7/i_am_a_member_of_the_institution_of_civil/",
@@ -50,87 +62,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wzsfs4",
-          "title": "Turned away at AnE now I have permanent brain damage.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzsfs4/turned_away_at_ane_now_i_have_permanent_brain/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzsfs4/turned_away_at_ane_now_i_have_permanent_brain/",
+          "id": "1wzy7dk",
+          "title": "Bailiff turned up for ccj I’m unaware of, still parked out from of my house I’m really panicking. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzy7dk/bailiff_turned_up_for_ccj_im_unaware_of_still/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzy7dk/bailiff_turned_up_for_ccj_im_unaware_of_still/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791366692,
-          "snippet": "I was an alcoholic who was active try to seek help. I was hideously ill and needed to go to rehab. Because there were no places at a detox centre the idea between my gp and my alcohol workers was to before rehab go to a n e and have high doses of pabrinax/thiamine injections to p",
+          "createdUtc": 1791383856,
+          "snippet": "Nearly two years ago now our dog go hold of my sons chocolate and vomited, whilst vomiting he started to aspirate so I had to rush him to the emergency vets, I had pet insurance with a £200 excess but before they would give him the required treatment the vets insisted I paid £600",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wzt04y",
-          "title": "Accused of dangerous driving. Would have massive impact on my business. Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzt04y/accused_of_dangerous_driving_would_have_massive/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzt04y/accused_of_dangerous_driving_would_have_massive/",
+          "id": "1wzv3lr",
+          "title": "We are separated but she wont sell or buy me out of the house.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzv3lr/we_are_separated_but_she_wont_sell_or_buy_me_out/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzv3lr/we_are_separated_but_she_wont_sell_or_buy_me_out/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791368803,
-          "snippet": "Tl;dr accused of dangerous driving due to excessive smoke, and what officers deemed excessive speed - 30 in a 30 zone. Update: clearly it’s a one way street suggestions here, spoke to the solicitor, he’s very surprised it’s even gone to this stage and especially why it’s been cha",
+          "createdUtc": 1791375747,
+          "snippet": "Hi anyone who can help. Unfortunately me and my wife have separated and we own a property together. My wife wants to keep the house which I am ok with but for me to be able to move on and buy my own house I need my name removed from the joint mortgage and deeds etc and bit of the",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wztkkx",
-          "title": "Partner wanting my parents’ property in name",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wztkkx/partner_wanting_my_parents_property_in_name/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wztkkx/partner_wanting_my_parents_property_in_name/",
+          "id": "1wzwq4v",
+          "title": "Sacked by employer out of the blue, 20 months length of service, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzwq4v/sacked_by_employer_out_of_the_blue_20_months/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzwq4v/sacked_by_employer_out_of_the_blue_20_months/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791370869,
-          "snippet": "Scotland based. I’m married and we have a small child. My partner, due to a variety of factors, now feels entitled to ask me to get my parents’ property in my name so that he can build resources. He brilliantly is sidestepping asking for it directly as that would tantamount to do",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wzc6yl",
-          "title": "Used own card to fill compmay van with diesel",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzc6yl/used_own_card_to_fill_compmay_van_with_diesel/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzc6yl/used_own_card_to_fill_compmay_van_with_diesel/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791315814,
-          "snippet": "For context I am employed by a major uk supermarket as a driver I accidentally used my own bank card to fuel the compnay van My supervisor was understandably very angry and mentioned how theres no excuse and the compmay cant reimburse me The value was circa £100 Are they allowed ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wzqiel",
-          "title": "Former job made AI ad with my image uk",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzqiel/former_job_made_ai_ad_with_my_image_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzqiel/former_job_made_ai_ad_with_my_image_uk/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791359006,
-          "snippet": "Hello and thanks in advance for any advice! My former role at a brand was in social media and I regularly created content to feature in organic and paid media. Majority of the content was taken on my phone in my own home as they didn’t provide kit until much later into my employ.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wzkttb",
-          "title": "Have a holiday booked with my soon to be ex- need help regarding refund- England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzkttb/have_a_holiday_booked_with_my_soon_to_be_ex_need/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzkttb/have_a_holiday_booked_with_my_soon_to_be_ex_need/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791339001,
-          "snippet": "So long story short. Me and my boyfriend have a holiday booked for May 2027 that I paid for. We were supposed to do this last year for his birthday however I had health issues so we had to delay it. So basically the holiday is a gift for him and myself. I transferred him the £300",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wzdbss",
-          "title": "England - Bought an item from Amazon for £200, it never arrived. Now Amazon's refusing to give me a refund unless I upload photo ID (which I don't have) - is this a breach of my right to a refund under the Consumer Rights Act 2015?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzdbss/england_bought_an_item_from_amazon_for_200_it/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzdbss/england_bought_an_item_from_amazon_for_200_it/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791318448,
-          "snippet": "Basically the subject; I bought a £200 item from Amazon a week ago, and it never arrived. I've just been speaking to a CSR via Amazon's online chat, and she was very insistent that I had no right to a refund unless I gave Amazon my ID - even if I did have photo ID, which I honest",
+          "createdUtc": 1791380162,
+          "snippet": "Hi. Yesterday my boss and HR called me into a meeting, told me they had decided to \"exit [me] from the business\". All equipment (laptop, phone, pass) were handed over. I was told I'd be paid my 3 months' notice but had to leave immediately. I understand this is due to my access t",
           "listingSource": "rss:hot"
         },
         {
@@ -146,6 +110,138 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1wzwkuj",
+          "title": "Van accelerated to block a merge - resulted in 3 car collision - Police/Insurance outcomes? [NI]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzwkuj/van_accelerated_to_block_a_merge_resulted_in_3/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzwkuj/van_accelerated_to_block_a_merge_resulted_in_3/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791379788,
+          "snippet": "Hi all, long time lurker but unfortunately have an actual issue I need some advice on. Last week while driving home I was unfortunately involved in a car accident. On approach to a merge point I was travelling in the right hand lane. I drive this daily and know people can be self",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x02zp6",
+          "title": "England - Neighbour keeps moving my general waste bin so it doesn’t get emptied.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x02zp6/england_neighbour_keeps_moving_my_general_waste/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x02zp6/england_neighbour_keeps_moving_my_general_waste/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791394810,
+          "snippet": "Hi all, A neighbour (no idea who) keeps moving my bin the night before bin day, stopping my bin from being emptied. The street collectively take them to the end of the street in front of the ginnel. The past two collections I’ve gone to get my bin, only to find it hidden in the c",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wzt04y",
+          "title": "Accused of dangerous driving. Would have massive impact on my business. Scotland",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzt04y/accused_of_dangerous_driving_would_have_massive/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzt04y/accused_of_dangerous_driving_would_have_massive/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791368803,
+          "snippet": "Tl;dr accused of dangerous driving due to excessive smoke, and what officers deemed excessive speed - 30 in a 30 zone. Update: clearly it’s a one way street suggestions here, spoke to the solicitor, he’s very surprised it’s even gone to this stage and especially why it’s been cha",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x00gt8",
+          "title": "Foreign body from food requiring surgery",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x00gt8/foreign_body_from_food_requiring_surgery/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x00gt8/foreign_body_from_food_requiring_surgery/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791389076,
+          "snippet": "A small shard of metal was in a joint of meat, I purchased in Wales last week. It wasn't surface visible and while preparing it, it entered my hand, I bled over the meat before rinsing my hands. Unable to remove it, I had to go to minor injuries, they found it via xray, and tried",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wzqiel",
+          "title": "Former job made AI ad with my image uk",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzqiel/former_job_made_ai_ad_with_my_image_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzqiel/former_job_made_ai_ad_with_my_image_uk/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791359006,
+          "snippet": "Hello and thanks in advance for any advice! My former role at a brand was in social media and I regularly created content to feature in organic and paid media. Majority of the content was taken on my phone in my own home as they didn’t provide kit until much later into my employ.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wzc6yl",
+          "title": "Used own card to fill compmay van with diesel",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzc6yl/used_own_card_to_fill_compmay_van_with_diesel/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzc6yl/used_own_card_to_fill_compmay_van_with_diesel/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791315814,
+          "snippet": "For context I am employed by a major uk supermarket as a driver I accidentally used my own bank card to fuel the compnay van My supervisor was understandably very angry and mentioned how theres no excuse and the compmay cant reimburse me The value was circa £100 Are they allowed ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x05r7a",
+          "title": "England - Bought a service that I never received",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x05r7a/england_bought_a_service_that_i_never_received/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x05r7a/england_bought_a_service_that_i_never_received/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791401131,
+          "snippet": "I paid for a local service which has been going for a few years now that does pickups for things like old furniture, Things that need to go to the recycle centre etc... I paid as his reviews seemed decent going back from last month to 2024. He was meant to come do a pick up on Sa",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x04trt",
+          "title": "Company car. Beeping noise (82dB).",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x04trt/company_car_beeping_noise_82db/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x04trt/company_car_beeping_noise_82db/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791398989,
+          "snippet": "My company car has a telematic system, which normally you would swipe a fob to either drive it for personal use for business use. If you don't swipe either the car emits a loud, irritating, constant beeping noise. The fobs are currently not working. I reported it two days ago, an",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x08wql",
+          "title": "E.ON Next chasing £696 for 2021-2022 closed tenancy (via LCS) – claiming \"The Occupier\" letters invalidate 12-month back-billing protection? Need advice.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x08wql/eon_next_chasing_696_for_20212022_closed_tenancy/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x08wql/eon_next_chasing_696_for_20212022_closed_tenancy/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791408505,
+          "snippet": "Hi everyone, looking for some advice regarding a back-billed energy dispute with E.ON Next and debt collection agency LCS. Some background: Tenancy Period: 28 August 2021 – 27 August 2022 in London, UK. When I signed the tenancy, my letting agency gave me a letter stating that bi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x074rz",
+          "title": "Conveyancer dragging the process. Can I have the searches? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x074rz/conveyancer_dragging_the_process_can_i_have_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x074rz/conveyancer_dragging_the_process_can_i_have_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791404474,
+          "snippet": "I’m in the process of buying a property in cash, half gifted by my parents. They are high earning consultants in a non European country and the amount they gifted is significant for me but they could comfortably give away that amount of money. They are high earning professionals,",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wzdbss",
+          "title": "England - Bought an item from Amazon for £200, it never arrived. Now Amazon's refusing to give me a refund unless I upload photo ID (which I don't have) - is this a breach of my right to a refund under the Consumer Rights Act 2015?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzdbss/england_bought_an_item_from_amazon_for_200_it/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzdbss/england_bought_an_item_from_amazon_for_200_it/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791318448,
+          "snippet": "Basically the subject; I bought a £200 item from Amazon a week ago, and it never arrived. I've just been speaking to a CSR via Amazon's online chat, and she was very insistent that I had no right to a refund unless I gave Amazon my ID - even if I did have photo ID, which I honest",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1wzqemg",
           "title": "DNA test - what actually happens?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzqemg/dna_test_what_actually_happens/",
@@ -156,102 +252,6 @@
           "createdUtc": 1791358584,
           "snippet": "England. My ex, the father of our young child and our unborn baby, is in the depths of some kind of paranoid alcoholic delusions. He’s claiming the baby isn’t his. What is the process for enforcing a DNA test? Presumably he has to attend a clinic in person so it can’t be faked? C",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wzuhfa",
-          "title": "Amazon UK keeping both the item I returned and my refund - requesting ID to refund. Legality of refusing a refund in this way?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzuhfa/amazon_uk_keeping_both_the_item_i_returned_and_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzuhfa/amazon_uk_keeping_both_the_item_i_returned_and_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791373906,
-          "snippet": "I've returned an item to Amazon almost 2 months ago. The item shows as received by them. England. They are refusing to refund unless I provide my Photo ID, which I won't provide. I don't trust retailers or their relevant 3rd parties to properly handle sensitive information like t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wz78tk",
-          "title": "Need advice regarding extreme work pressure and forced to work without break for up to 9 hours",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wz78tk/need_advice_regarding_extreme_work_pressure_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wz78tk/need_advice_regarding_extreme_work_pressure_and/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791304509,
-          "snippet": "Hi everyone, I'm looking for advice on behalf of my wife, who works as a housekeeper at a Travelodge hotel in the UK. I wanted to get some opinions before we take formal steps. The situation: Housekeepers are being assigned around 20 rooms per shift, with roughly 15–20 minutes pe",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wz695y",
-          "title": "Forecourt Eye accusing me of fuel theft, but the car in their photo isn’t mine – what are my options? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wz695y/forecourt_eye_accusing_me_of_fuel_theft_but_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wz695y/forecourt_eye_accusing_me_of_fuel_theft_but_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791302211,
-          "snippet": "I’ve received a letter from Forecourt Eye regarding an alleged unpaid fuel incident. However, the car in the photo they've supplied is clearly a hatchback (mine is a saloon), does not show a readable reg, the person in the photo is not me, the incident happened about 200 miles fr",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wzifp1",
-          "title": "England - Long term friend taking cash from company we setup without asking (essentially fraud)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzifp1/england_long_term_friend_taking_cash_from_company/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzifp1/england_long_term_friend_taking_cash_from_company/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791331864,
-          "snippet": "A long time friend a couple of years ago knew I had spare cash and pestered me to start a property development company with him. We are 50/50 director shareholders, the company owns one rental property with no mortgage. I loaned the company 200k, his projections was that with pla",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wzu369",
-          "title": "Insurance company refusing to provide new build warranty certificate and won’t explain why",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzu369/insurance_company_refusing_to_provide_new_build/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzu369/insurance_company_refusing_to_provide_new_build/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791372624,
-          "snippet": "Premier guarantee won’t give us out New build Warranty Certificate So we’re currently selling our house which was built in 2019. Our buyer has had a survey and all came back fine, as part of the legal process they want proof of the warranty certificate which Premier Guarantee are",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wztddh",
-          "title": "Notice period extended at work after notice handed in, but I want to leave early. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wztddh/notice_period_extended_at_work_after_notice/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wztddh/notice_period_extended_at_work_after_notice/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791370150,
-          "snippet": "I work for a medium sized UK retailer in their ecommerce department, after 4.5 years working hybrid at their head office, I recently moved from where their office was based to another part of the UK that wouldn’t be commutable. I gave the business about 6 months ‘heads up’ that i",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wzsq25",
-          "title": "Neighbour repeatedly encroaching onto my property in Edinburgh Scotland?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzsq25/neighbour_repeatedly_encroaching_onto_my_property/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzsq25/neighbour_repeatedly_encroaching_onto_my_property/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791367757,
-          "snippet": "Hi, I’m looking for some advice/recommendations regarding an ongoing neighbour and property boundary dispute in Edinburgh. My upstairs neighbour has repeatedly been causing issues around the boundary between our properties: They have a large vehicle and regularly do not park prop",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1wz480q",
-          "title": "16year old boy in ireland sexting 11 and 12year old girls in england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wz480q/16year_old_boy_in_ireland_sexting_11_and_12year/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wz480q/16year_old_boy_in_ireland_sexting_11_and_12year/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791297361,
-          "snippet": "Hi, im looking for some advice and support on what to do here. We live in england and have recently discovered that our 12 year old daughter (who only turned 12 in the last couple of weeks) has been using snapchat and having conversations with an allegedly 16year old boy who is i",
-          "listingSource": "rss:hot"
         }
       ]
     }
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 11,
+      "postCount": 9,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,39 +280,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wzsfs4",
-          "title": "Turned away at AnE now I have permanent brain damage.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzsfs4/turned_away_at_ane_now_i_have_permanent_brain/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzsfs4/turned_away_at_ane_now_i_have_permanent_brain/",
+          "id": "1wzy963",
+          "title": "Freelancer invoiced me £1,100 when I agreed to 2 days at £100/day – what am I actually obligated to pay? (UK)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzy963/freelancer_invoiced_me_1100_when_i_agreed_to_2/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzy963/freelancer_invoiced_me_1100_when_i_agreed_to_2/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791366692,
-          "snippet": "I was an alcoholic who was active try to seek help. I was hideously ill and needed to go to rehab. Because there were no places at a detox centre the idea between my gp and my alcohol workers was to before rehab go to a n e and have high doses of pabrinax/thiamine injections to p",
+          "createdUtc": 1791383979,
+          "snippet": "I’m a small business owner in the UK and would really appreciate some impartial advice on a disagreement I’m having with a freelancer. I hired a university student/freelancer to help with some email marketing/creative work. She had very little professional experience, so we agree",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wztkkx",
-          "title": "Partner wanting my parents’ property in name",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wztkkx/partner_wanting_my_parents_property_in_name/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wztkkx/partner_wanting_my_parents_property_in_name/",
+          "id": "1wzv3lr",
+          "title": "We are separated but she wont sell or buy me out of the house.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzv3lr/we_are_separated_but_she_wont_sell_or_buy_me_out/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzv3lr/we_are_separated_but_she_wont_sell_or_buy_me_out/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791370869,
-          "snippet": "Scotland based. I’m married and we have a small child. My partner, due to a variety of factors, now feels entitled to ask me to get my parents’ property in my name so that he can build resources. He brilliantly is sidestepping asking for it directly as that would tantamount to do",
+          "createdUtc": 1791375747,
+          "snippet": "Hi anyone who can help. Unfortunately me and my wife have separated and we own a property together. My wife wants to keep the house which I am ok with but for me to be able to move on and buy my own house I need my name removed from the joint mortgage and deeds etc and bit of the",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wzc6yl",
-          "title": "Used own card to fill compmay van with diesel",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzc6yl/used_own_card_to_fill_compmay_van_with_diesel/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzc6yl/used_own_card_to_fill_compmay_van_with_diesel/",
+          "id": "1x02zp6",
+          "title": "England - Neighbour keeps moving my general waste bin so it doesn’t get emptied.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x02zp6/england_neighbour_keeps_moving_my_general_waste/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x02zp6/england_neighbour_keeps_moving_my_general_waste/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791315814,
-          "snippet": "For context I am employed by a major uk supermarket as a driver I accidentally used my own bank card to fuel the compnay van My supervisor was understandably very angry and mentioned how theres no excuse and the compmay cant reimburse me The value was circa £100 Are they allowed ",
+          "createdUtc": 1791394810,
+          "snippet": "Hi all, A neighbour (no idea who) keeps moving my bin the night before bin day, stopping my bin from being emptied. The street collectively take them to the end of the street in front of the ginnel. The past two collections I’ve gone to get my bin, only to find it hidden in the c",
           "listingSource": "rss:hot"
         },
         {
@@ -328,39 +328,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wzqemg",
-          "title": "DNA test - what actually happens?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzqemg/dna_test_what_actually_happens/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzqemg/dna_test_what_actually_happens/",
+          "id": "1wzc6yl",
+          "title": "Used own card to fill compmay van with diesel",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzc6yl/used_own_card_to_fill_compmay_van_with_diesel/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzc6yl/used_own_card_to_fill_compmay_van_with_diesel/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791358584,
-          "snippet": "England. My ex, the father of our young child and our unborn baby, is in the depths of some kind of paranoid alcoholic delusions. He’s claiming the baby isn’t his. What is the process for enforcing a DNA test? Presumably he has to attend a clinic in person so it can’t be faked? C",
+          "createdUtc": 1791315814,
+          "snippet": "For context I am employed by a major uk supermarket as a driver I accidentally used my own bank card to fuel the compnay van My supervisor was understandably very angry and mentioned how theres no excuse and the compmay cant reimburse me The value was circa £100 Are they allowed ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wz78tk",
-          "title": "Need advice regarding extreme work pressure and forced to work without break for up to 9 hours",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wz78tk/need_advice_regarding_extreme_work_pressure_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wz78tk/need_advice_regarding_extreme_work_pressure_and/",
+          "id": "1x05r7a",
+          "title": "England - Bought a service that I never received",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x05r7a/england_bought_a_service_that_i_never_received/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x05r7a/england_bought_a_service_that_i_never_received/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791304509,
-          "snippet": "Hi everyone, I'm looking for advice on behalf of my wife, who works as a housekeeper at a Travelodge hotel in the UK. I wanted to get some opinions before we take formal steps. The situation: Housekeepers are being assigned around 20 rooms per shift, with roughly 15–20 minutes pe",
+          "createdUtc": 1791401131,
+          "snippet": "I paid for a local service which has been going for a few years now that does pickups for things like old furniture, Things that need to go to the recycle centre etc... I paid as his reviews seemed decent going back from last month to 2024. He was meant to come do a pick up on Sa",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1wz695y",
-          "title": "Forecourt Eye accusing me of fuel theft, but the car in their photo isn’t mine – what are my options? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wz695y/forecourt_eye_accusing_me_of_fuel_theft_but_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wz695y/forecourt_eye_accusing_me_of_fuel_theft_but_the/",
+          "id": "1x04trt",
+          "title": "Company car. Beeping noise (82dB).",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x04trt/company_car_beeping_noise_82db/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x04trt/company_car_beeping_noise_82db/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791302211,
-          "snippet": "I’ve received a letter from Forecourt Eye regarding an alleged unpaid fuel incident. However, the car in the photo they've supplied is clearly a hatchback (mine is a saloon), does not show a readable reg, the person in the photo is not me, the incident happened about 200 miles fr",
+          "createdUtc": 1791398989,
+          "snippet": "My company car has a telematic system, which normally you would swipe a fob to either drive it for personal use for business use. If you don't swipe either the car emits a loud, irritating, constant beeping noise. The fobs are currently not working. I reported it two days ago, an",
           "listingSource": "rss:hot"
         }
       ]
@@ -414,6 +414,90 @@
       ]
     },
     {
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wzy7dk",
+          "title": "Bailiff turned up for ccj I’m unaware of, still parked out from of my house I’m really panicking. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzy7dk/bailiff_turned_up_for_ccj_im_unaware_of_still/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzy7dk/bailiff_turned_up_for_ccj_im_unaware_of_still/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791383856,
+          "snippet": "Nearly two years ago now our dog go hold of my sons chocolate and vomited, whilst vomiting he started to aspirate so I had to rush him to the emergency vets, I had pet insurance with a £200 excess but before they would give him the required treatment the vets insisted I paid £600",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1wzucwy",
+          "title": "Debt by unknown person, bailiffs refused to leave and bullied my friend into payment",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzucwy/debt_by_unknown_person_bailiffs_refused_to_leave/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzucwy/debt_by_unknown_person_bailiffs_refused_to_leave/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791373512,
+          "snippet": "Hi, This happened today in England. My friend recently moved into a new flat, and do not speak much English. The some people knocked on the door this morning and refused to leave unless they receive the payment. My friend was confused and scared and made a payment of over £1000 i",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wzwq4v",
+          "title": "Sacked by employer out of the blue, 20 months length of service, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzwq4v/sacked_by_employer_out_of_the_blue_20_months/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzwq4v/sacked_by_employer_out_of_the_blue_20_months/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791380162,
+          "snippet": "Hi. Yesterday my boss and HR called me into a meeting, told me they had decided to \"exit [me] from the business\". All equipment (laptop, phone, pass) were handed over. I was told I'd be paid my 3 months' notice but had to leave immediately. I understand this is due to my access t",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1wzwkuj",
+          "title": "Van accelerated to block a merge - resulted in 3 car collision - Police/Insurance outcomes? [NI]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzwkuj/van_accelerated_to_block_a_merge_resulted_in_3/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzwkuj/van_accelerated_to_block_a_merge_resulted_in_3/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791379788,
+          "snippet": "Hi all, long time lurker but unfortunately have an actual issue I need some advice on. Last week while driving home I was unfortunately involved in a car accident. On approach to a merge point I was travelling in the right hand lane. I drive this daily and know people can be self",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "motoring-offences",
       "label": "Motoring Offences",
       "legalAreaSlug": "motoring_offences",
@@ -438,49 +522,73 @@
       ]
     },
     {
-      "slug": "consumer-law",
-      "label": "Consumer Law",
-      "legalAreaSlug": "consumer",
-      "postCount": 3,
+      "slug": "clinical-negligence",
+      "label": "Clinical Negligence",
+      "legalAreaSlug": "clinical_negligence",
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
         {
-          "id": "1wzkttb",
-          "title": "Have a holiday booked with my soon to be ex- need help regarding refund- England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzkttb/have_a_holiday_booked_with_my_soon_to_be_ex_need/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzkttb/have_a_holiday_booked_with_my_soon_to_be_ex_need/",
+          "id": "1x00gt8",
+          "title": "Foreign body from food requiring surgery",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x00gt8/foreign_body_from_food_requiring_surgery/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x00gt8/foreign_body_from_food_requiring_surgery/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791339001,
-          "snippet": "So long story short. Me and my boyfriend have a holiday booked for May 2027 that I paid for. We were supposed to do this last year for his birthday however I had health issues so we had to delay it. So basically the holiday is a gift for him and myself. I transferred him the £300",
+          "createdUtc": 1791389076,
+          "snippet": "A small shard of metal was in a joint of meat, I purchased in Wales last week. It wasn't surface visible and while preparing it, it entered my hand, I bled over the meat before rinsing my hands. Unable to remove it, I had to go to minor injuries, they found it via xray, and tried",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "energy-and-utilities",
+      "label": "Energy and Utilities",
+      "legalAreaSlug": "consumer_energy_utilities",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1wzuhfa",
-          "title": "Amazon UK keeping both the item I returned and my refund - requesting ID to refund. Legality of refusing a refund in this way?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzuhfa/amazon_uk_keeping_both_the_item_i_returned_and_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzuhfa/amazon_uk_keeping_both_the_item_i_returned_and_my/",
+          "id": "1x08wql",
+          "title": "E.ON Next chasing £696 for 2021-2022 closed tenancy (via LCS) – claiming \"The Occupier\" letters invalidate 12-month back-billing protection? Need advice.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x08wql/eon_next_chasing_696_for_20212022_closed_tenancy/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x08wql/eon_next_chasing_696_for_20212022_closed_tenancy/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791373906,
-          "snippet": "I've returned an item to Amazon almost 2 months ago. The item shows as received by them. England. They are refusing to refund unless I provide my Photo ID, which I won't provide. I don't trust retailers or their relevant 3rd parties to properly handle sensitive information like t",
+          "createdUtc": 1791408505,
+          "snippet": "Hi everyone, looking for some advice regarding a back-billed energy dispute with E.ON Next and debt collection agency LCS. Some background: Tenancy Period: 28 August 2021 – 27 August 2022 in London, UK. When I signed the tenancy, my letting agency gave me a letter stating that bi",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1wzu369",
-          "title": "Insurance company refusing to provide new build warranty certificate and won’t explain why",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzu369/insurance_company_refusing_to_provide_new_build/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzu369/insurance_company_refusing_to_provide_new_build/",
+          "id": "1x074rz",
+          "title": "Conveyancer dragging the process. Can I have the searches? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x074rz/conveyancer_dragging_the_process_can_i_have_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x074rz/conveyancer_dragging_the_process_can_i_have_the/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791372624,
-          "snippet": "Premier guarantee won’t give us out New build Warranty Certificate So we’re currently selling our house which was built in 2019. Our buyer has had a survey and all came back fine, as part of the legal process they want proof of the warranty certificate which Premier Guarantee are",
+          "createdUtc": 1791404474,
+          "snippet": "I’m in the process of buying a property in cash, half gifted by my parents. They are high earning consultants in a non European country and the amount they gifted is significant for me but they could comfortably give away that amount of money. They are high earning professionals,",
           "listingSource": "rss:hot"
         }
       ]
@@ -505,54 +613,6 @@
           "numComments": 0,
           "createdUtc": 1791318448,
           "snippet": "Basically the subject; I bought a £200 item from Amazon a week ago, and it never arrived. I've just been speaking to a CSR via Amazon's online chat, and she was very insistent that I had no right to a refund unless I gave Amazon my ID - even if I did have photo ID, which I honest",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "debt",
-      "label": "Debt",
-      "legalAreaSlug": "debt",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wzucwy",
-          "title": "Debt by unknown person, bailiffs refused to leave and bullied my friend into payment",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzucwy/debt_by_unknown_person_bailiffs_refused_to_leave/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzucwy/debt_by_unknown_person_bailiffs_refused_to_leave/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791373512,
-          "snippet": "Hi, This happened today in England. My friend recently moved into a new flat, and do not speak much English. The some people knocked on the door this morning and refused to leave unless they receive the payment. My friend was confused and scared and made a payment of over £1000 i",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "fraud-and-financial-crime",
-      "label": "Fraud and Financial Crime",
-      "legalAreaSlug": "fraud_financial_crime",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1wzifp1",
-          "title": "England - Long term friend taking cash from company we setup without asking (essentially fraud)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzifp1/england_long_term_friend_taking_cash_from_company/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1wzifp1/england_long_term_friend_taking_cash_from_company/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791331864,
-          "snippet": "A long time friend a couple of years ago knew I had spare cash and pestered me to start a property development company with him. We are 50/50 director shareholders, the company owns one rental property with no mortgage. I loaned the company 200k, his projections was that with pla",
           "listingSource": "rss:hot"
         }
       ]
