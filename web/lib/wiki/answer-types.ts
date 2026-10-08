@@ -2,6 +2,7 @@ import type { WikiSearchHit } from "./search";
 
 export type WikiAnswerSource = {
   name: string;
+  url?: string;
   detail?: string;
 };
 

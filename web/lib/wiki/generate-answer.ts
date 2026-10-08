@@ -18,6 +18,7 @@ import {
   type WikiAnswerSource,
 } from "./answer-types";
 import { getWikiPageById, searchWikiPages } from "./search";
+import { parseSourceLine } from "./source-line";
 import {
   filterOffTopicPcnHits,
   filterOffTopicPropertyPurchaseHits,
@@ -299,15 +300,11 @@ function collectSources(hits: ReturnType<typeof searchWikiPages>): WikiAnswerSou
   for (const hit of hits) {
     const page = getWikiPageById(hit.id);
     for (const raw of page?.sources ?? []) {
-      const name = raw
-        .replace(/\*\*/g, "")
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-        .replace(/`[^`]+`/g, "")
-        .trim();
+      const { title: name, url } = parseSourceLine(raw);
       const key = name.toLowerCase();
       if (!name || seen.has(key)) continue;
       seen.add(key);
-      sources.push({ name: truncate(name, 180) });
+      sources.push(url ? { name: truncate(name, 180), url } : { name: truncate(name, 180) });
       if (sources.length >= 8) return sources;
     }
   }

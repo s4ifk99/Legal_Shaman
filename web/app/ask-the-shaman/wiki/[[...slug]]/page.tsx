@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getWikiPageById } from "@/lib/wiki/search";
 import { renderWikiInline } from "@/lib/wiki/render-inline";
 import { wikiPagePublicPath } from "@/lib/wiki/public-url";
+import { stripRawSourcePath } from "@/lib/wiki/source-line";
 
 type PageProps = {
   params: Promise<{ slug?: string[] }>;
@@ -108,7 +109,7 @@ export default async function WikiArticlePage({ params }: PageProps) {
                 <h2 className="font-serif text-lg font-semibold">Sources</h2>
                 <ul className="mt-2 list-disc space-y-2 pl-5 text-xs text-muted-foreground marker:text-gold">
                   {page.sources.slice(0, 10).map((source) => (
-                    <li key={source}>{renderWikiInline(source)}</li>
+                    <li key={source}>{renderWikiInline(stripRawSourcePath(source))}</li>
                   ))}
                 </ul>
               </CardContent>

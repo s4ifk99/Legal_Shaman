@@ -3,6 +3,17 @@
  * optional related title / Limits. Used by Overview UI and deterministic builders.
  */
 
+const REFERRAL_LINE_RE =
+  /\b(?:this|the)\s+client\s+(?:was|has\s+been|is)\s+(?:recommended|referred|signposted)\s+(?:by|from|via)\s+(?:www\.)?legal\s*shaman(?:\.com)?(?:\s*\([^)]*\))?[^.!\n]*[.!]?[ \t]*/gi;
+
+export function stripReferralLine(text: string): string {
+  return String(text || "")
+    .replace(REFERRAL_LINE_RE, "")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 export function hasShamanCoreSections(text: string): boolean {
   return (
     /what the sources say/i.test(text) &&
@@ -49,7 +60,7 @@ export function ensureShamanRecAnswer(opts: {
   relatedTitle?: string;
   relatedBody?: string;
 }): string {
-  const raw = String(opts.answer || "").trim();
+  const raw = stripReferralLine(opts.answer);
   if (!raw) return raw;
 
   if (hasShamanCoreSections(raw)) {
@@ -85,7 +96,6 @@ export function ensureShamanRecAnswer(opts: {
     ) {
       continue;
     }
-    if (/^this client was recommended by legalshaman/i.test(trimmed)) continue;
     proseLines.push(trimmed);
   }
 

@@ -11,6 +11,7 @@ import {
   retrieveWikiHitsForQuery,
 } from "@/lib/wiki/generate-answer";
 import { getWikiPageById, searchWikiPages } from "@/lib/wiki/search";
+import { parseSourceLine } from "@/lib/wiki/source-line";
 import {
   isSharedHousingQuery,
   rerankSharedHousingHits,
@@ -67,7 +68,7 @@ Write a practical UK signposting recommendation that answers each live Client qu
 Rules:
 1. Treat the CASE FILE as frozen. Cover every primary and secondary issue on the graph. Never switch the matter to an excluded topic (e.g. discrimination, child arrangements) just because a neighbouring wiki page ranked.
 2. Treat WIKI CONTEXT and DWORKIN AUTHORITY as the curated foundation. A supplemental Third Eye / Penumbra bundle is unverified lead material: use it to fill gaps, name uncertainty, and never treat an unsupported external claim as established law.
-3. Open with one short line: the client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).
+3. Start directly with the "What the sources say" section. Do not add a referral or intro line such as "the client was recommended by LegalShaman.com".
 4. Structure the answer with these exact plain-line section titles (no markdown #):
    - What the sources say — short prose on what admitted sources cover for the live facts
    - Practical route — 2–5 bullet lines (• ) with concrete next steps in time order
@@ -453,13 +454,10 @@ function toPackage(
   for (const hit of hits) {
     const page = getWikiPageById(hit.id);
     for (const raw of page?.sources ?? []) {
-      const title = raw
-        .replace(/\*\*/g, "")
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-        .trim();
+      const { title, url } = parseSourceLine(raw);
       if (!title || seen.has(title.toLowerCase())) continue;
       seen.add(title.toLowerCase());
-      sources.push({ title: title.slice(0, 160), url: "", kind: "wiki-source" });
+      sources.push({ title: title.slice(0, 160), url, kind: "wiki-source" });
       if (sources.length >= 8) break;
     }
     if (sources.length >= 8) break;
@@ -856,8 +854,6 @@ export async function buildOverviewAnswer(opts: {
     const camera = hits.find((h) => /cctv|camera|record/i.test(h.title));
     const lba = hits.find((h) => /letter before/i.test(h.title));
     const parts = [
-      "This client was recommended by LegalShaman.com (signposting only — not a paid referral, not legal advice).",
-      "",
       "Shared accommodation / joint tenancy",
       primary?.summary
         ? `${primary.title}: ${primary.summary.slice(0, 320)}`
@@ -967,7 +963,6 @@ export async function buildOverviewAnswer(opts: {
       answer.length >= 80
         ? answer
         : [
-            "This client was recommended by LegalShaman.com (signposting only — not legal advice).",
             opts.understanding || latestText.slice(0, 280),
             "Open the matched wiki pages below for the guidance that applies to your facts. Start with free help (Citizens Advice) before paid solicitors.",
           ].join("\n\n"),
