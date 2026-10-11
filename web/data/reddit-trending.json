@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-10T21:11:36.238Z",
+    "scrapedAt": "2026-10-11T11:54:00.158Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 8,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,51 +38,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x2b8eh",
-          "title": "Employer trying to force us to travel to Saudi during active conflict (and expects ME to find a replacement when I refuse)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2b8eh/employer_trying_to_force_us_to_travel_to_saudi/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2b8eh/employer_trying_to_force_us_to_travel_to_saudi/",
+          "id": "1x35cvx",
+          "title": "Removed minor siblings from abusive/neglectful situation last night - need to know where I stand legally going forward",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35cvx/removed_minor_siblings_from_abusiveneglectful/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35cvx/removed_minor_siblings_from_abusiveneglectful/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791625464,
-          "snippet": "Posting on a throwaway as I’m pretty stressed out and just need some perspective from anyone who’s dealt with similar corporate BS before. ​I work in the UK (England) as an operations manager for a tech company delivering services for live events. I’m scheduled to fly out to Saud",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x2d2gc",
-          "title": "Neighbour has installed a pipe to run his water onto my roof?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2d2gc/neighbour_has_installed_a_pipe_to_run_his_water/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2d2gc/neighbour_has_installed_a_pipe_to_run_his_water/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791631967,
-          "snippet": "My neighbour has installed drainage to run his water onto my property. The side on the right with the flat roof is mine and he's installed a drainage pipe to run his water off his roof onto mine. He has a damp problem he's been trying to fix and he just installed one to run strai",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x2ioxv",
-          "title": "Redundancy due to cv I didn't submit",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2ioxv/redundancy_due_to_cv_i_didnt_submit/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2ioxv/redundancy_due_to_cv_i_didnt_submit/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791647702,
-          "snippet": "Hi, My workplace is making my role redundant, and I am currently going through the consultation process. I did not submit a formal application for my current role. Instead, my employer engaged a recruitment agency, which headhunted me. I provided the agency with my CV, and I was ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x259q2",
-          "title": "I won £54k on William Hill. 2 weeks later I have been removed from my account and cannot log in (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x259q2/i_won_54k_on_william_hill_2_weeks_later_i_have/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x259q2/i_won_54k_on_william_hill_2_weeks_later_i_have/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791603973,
-          "snippet": "Two weeks ago I hit a jackpot on one of their online games, incredible, super happy, I happily hit withdraw and waited. The following day, whilst waiting, I had a little still in my account so I tried again and won a second time. I withdrew that too and decided to stop and just w",
+          "createdUtc": 1791716421,
+          "snippet": "(In England for context) Yesterday I (24yo) was made aware that my 2 sisters (16 and 11) had been left at home alone from Thursday night until my arrival last night. My mother was round at her boyfriend’s house with plans not to return until at least this afternoon. When I arrive",
           "listingSource": "rss:hot"
         },
         {
@@ -110,6 +74,78 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1x2b8eh",
+          "title": "Employer trying to force us to travel to Saudi during active conflict (and expects ME to find a replacement when I refuse)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2b8eh/employer_trying_to_force_us_to_travel_to_saudi/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2b8eh/employer_trying_to_force_us_to_travel_to_saudi/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791625464,
+          "snippet": "Posting on a throwaway as I’m pretty stressed out and just need some perspective from anyone who’s dealt with similar corporate BS before. ​I work in the UK (England) as an operations manager for a tech company delivering services for live events. I’m scheduled to fly out to Saud",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x2d2gc",
+          "title": "Neighbour has installed a pipe to run his water onto my roof?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2d2gc/neighbour_has_installed_a_pipe_to_run_his_water/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2d2gc/neighbour_has_installed_a_pipe_to_run_his_water/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791631967,
+          "snippet": "My neighbour has installed drainage to run his water onto my property. The side on the right with the flat roof is mine and he's installed a drainage pipe to run his water off his roof onto mine. He has a damp problem he's been trying to fix and he just installed one to run strai",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x34ubt",
+          "title": "[England] my harasser has to provide consent to release the CCTV footage that shows he is culpable",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34ubt/england_my_harasser_has_to_provide_consent_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34ubt/england_my_harasser_has_to_provide_consent_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791714571,
+          "snippet": "A few months ago, I, a university PhD student ended up bumping into some university staff members at the local pub. I was hanging with an older staff member and some other researchers. Once the younger researchers went home it was just me and my friend, a staff member. He suggest",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x2uerf",
+          "title": "Nightmare separation has left me out of the family home and struggling financially.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2uerf/nightmare_separation_has_left_me_out_of_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2uerf/nightmare_separation_has_left_me_out_of_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791678652,
+          "snippet": "M37 England. At the beginning of the August, my wife of 10 years asked me for a separation out of the blue. We have three children aged 11 months, 5 years and 9 years. She asked me to leave the home and stay at my parents. I refused and stated I would stay in the home until the d",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x2yc1f",
+          "title": "Divorce going on for 8 years (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2yc1f/divorce_going_on_for_8_years_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2yc1f/divorce_going_on_for_8_years_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791691135,
+          "snippet": "My husband started divorce proceedings in 2018 and said that I didn’t need my own solicitor as it was a clean split. No children or assets involved. I received papers to sign and return in 2020 and had confirmation that they were received. Then I was told the solicitor lost them ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x259q2",
+          "title": "I won £54k on William Hill. 2 weeks later I have been removed from my account and cannot log in (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x259q2/i_won_54k_on_william_hill_2_weeks_later_i_have/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x259q2/i_won_54k_on_william_hill_2_weeks_later_i_have/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791603973,
+          "snippet": "Two weeks ago I hit a jackpot on one of their online games, incredible, super happy, I happily hit withdraw and waited. The following day, whilst waiting, I had a little still in my account so I tried again and won a second time. I withdrew that too and decided to stop and just w",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1x2ipm7",
           "title": "Paid for a workspace after being told I could bring my own desk. On day one, they said I’d need to pay more. Can I get a full refund?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2ipm7/paid_for_a_workspace_after_being_told_i_could/",
@@ -122,27 +158,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x2h7tx",
-          "title": "My dad is selling a van, panicky that it may be a scam (From England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2h7tx/my_dad_is_selling_a_van_panicky_that_it_may_be_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2h7tx/my_dad_is_selling_a_van_panicky_that_it_may_be_a/",
+          "id": "1x35g7e",
+          "title": "UK – £7k used car, 3 failed repair attempts, independent engineer says unserviceable, dealer refusing rejection. Section 75 rejected too - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35g7e/uk_7k_used_car_3_failed_repair_attempts/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35g7e/uk_7k_used_car_3_failed_repair_attempts/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791643955,
-          "snippet": "So I helped my dad sell a small old van, a ford fiesta on a classic cars website. I got suspicious a bit too late 🫩. The buyer contacted, asking why it's been off road for 10years, never asked about the vehicle,just said he likes it, and he wants to buy it calling it a car and a",
+          "createdUtc": 1791716725,
+          "snippet": "Looking for advice from anyone who has dealt with a used-car rejection, a difficult dealership or a Section 75 dispute. Earlier this year, I bought a used diesel car from an established dealership with around 200 cars in stock, paying £7000. Within just a few days, it developed s",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x2djex",
-          "title": "Husband wants family mediation over childcare responsibilities but has also threatened separation over my independent decisions. Advice needed (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2djex/husband_wants_family_mediation_over_childcare/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2djex/husband_wants_family_mediation_over_childcare/",
+          "id": "1x34f3m",
+          "title": "England: Neighbour's building works breach planning permission. Council hasn't responded to my enforcement complaint after 3+ weeks. What next?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34f3m/england_neighbours_building_works_breach_planning/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34f3m/england_neighbours_building_works_breach_planning/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791633538,
-          "snippet": "I’m looking for some advice about family mediation and my rights as a mother in England. My husband and I are married, living together and have a four-month-old baby. I’m currently on maternity leave and have been our son’s primary caregiver since birth. I handle virtually all th",
+          "createdUtc": 1791713085,
+          "snippet": "My neighbour has permission for a single-storey rear extension and front porch (decided September 2025), and separately for a rear garden outbuilding (2019). I believe both are being built or used in breach of the approvals. Current works (still in progress) The approved rear ext",
           "listingSource": "rss:hot"
         },
         {
@@ -158,99 +194,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x2k6wp",
-          "title": "Company operating in the UK (Vinted) not providing a UK address for legal action. What’s the law here? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2k6wp/company_operating_in_the_uk_vinted_not_providing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2k6wp/company_operating_in_the_uk_vinted_not_providing/",
+          "id": "1x362xp",
+          "title": "Someone keeps trying to open bank and credit card accounts - what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x362xp/someone_keeps_trying_to_open_bank_and_credit_card/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x362xp/someone_keeps_trying_to_open_bank_and_credit_card/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791651449,
-          "snippet": "I sold an expensive item on Vinted. Buyer claimed that the box was damaged (the item was inside and undamaged- the damage must have happened in transit). I offered a refund and to pay the buyer’s postage. However, Vinted let the buyer keep the item and gave them a refund. Thus, I",
+          "createdUtc": 1791718868,
+          "snippet": "I’m in England. I now have two Cifas markers for victim of impersonation in the last 6 months, and I just checked Experian and someone has been trying to apply for credit most of this year at various places but not been successful thankfully but they have my current and old addre",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x24p7z",
-          "title": "Bet settled as loser after withdrawing",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x24p7z/bet_settled_as_loser_after_withdrawing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x24p7z/bet_settled_as_loser_after_withdrawing/",
+          "id": "1x35e3t",
+          "title": "Can my landlord enforce this move date?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35e3t/can_my_landlord_enforce_this_move_date/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35e3t/can_my_landlord_enforce_this_move_date/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791602066,
-          "snippet": "Hi all, last night i won a bet on sky bet @ 170/1, returning approx £850, it was settled as a winner so i withdrew the money and then a few hours after full time it was settled as a loser after id already withdrawn. (i bet on a player to be carded, the card was showed during a “s",
+          "createdUtc": 1791716524,
+          "snippet": "I am renting an appartment in England, I am planning give my 2 months notice, and This in my contract: “The Notice period must be for a minimum of two calendar months. The notice must comply with the statutory requirements in force at the time the notice is served and must comply",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x2bcg1",
-          "title": "Need help with caution +3 interview over alleged vehicle theft (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2bcg1/need_help_with_caution_3_interview_over_alleged/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2bcg1/need_help_with_caution_3_interview_over_alleged/",
+          "id": "1x34twk",
+          "title": "England - Landlord kicking us out after attempted illegal eviction. Advice on paying rent.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34twk/england_landlord_kicking_us_out_after_attempted/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34twk/england_landlord_kicking_us_out_after_attempted/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791625891,
-          "snippet": "Hiya. I'm a little bit stressed about an upcoming police interview so hopefully someone can help. Basically, a car was gifted for free to my ex partner and I four or five years ago but nothing was ever drawn up formally to say who owned it exactly. I was under the impression it w",
+          "createdUtc": 1791714529,
+          "snippet": "I am currently living in a HMO that I've lived in for close to 6 years. There have been 6 other tenants in the house until recently. The landlord had been using letting agents to run the property, in my time in this property, there have been 2 different letting agents working on ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x20ila",
-          "title": "Could I take myself into space?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x20ila/could_i_take_myself_into_space/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x20ila/could_i_take_myself_into_space/",
+          "id": "1x2djex",
+          "title": "Husband wants family mediation over childcare responsibilities but has also threatened separation over my independent decisions. Advice needed (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2djex/husband_wants_family_mediation_over_childcare/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2djex/husband_wants_family_mediation_over_childcare/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791589335,
-          "snippet": "I'm in England and I was having a conversation with my friend earlier and this came up. If I could build my own rocket, somewhere to safely launch it, etc. Can they legally stop me going to space? Are there like, licences I'd need to buy to go? submitted by /u/Little_Mog [link] [",
+          "createdUtc": 1791633538,
+          "snippet": "I’m looking for some advice about family mediation and my rights as a mother in England. My husband and I are married, living together and have a four-month-old baby. I’m currently on maternity leave and have been our son’s primary caregiver since birth. I handle virtually all th",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x2lblo",
-          "title": "I am due to receive compensation",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2lblo/i_am_due_to_receive_compensation/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2lblo/i_am_due_to_receive_compensation/",
+          "id": "1x2h7tx",
+          "title": "My dad is selling a van, panicky that it may be a scam (From England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2h7tx/my_dad_is_selling_a_van_panicky_that_it_may_be_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2h7tx/my_dad_is_selling_a_van_panicky_that_it_may_be_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791654258,
-          "snippet": "I am in England, due to receive compensation to the sum of £14,650. I am also currently in receipt of universal credit. I have read somewhere that criminal injuries compensation is disregarded by UC but unsure of the facts and also unsure of how I go about declaring this to UC. I",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x2pl24",
-          "title": "Buyers advice please? England, Kent",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2pl24/buyers_advice_please_england_kent/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2pl24/buyers_advice_please_england_kent/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791665065,
-          "snippet": "Bought a £150 custom sailboard on Etsy and it arrived damaged — seller won’t confirm a refund if courier doesn’t reimburse them. I recently bought a custom sailboard on Etsy for around £150. Unfortunately, it arrived with chipped and peeling paint, dents and damage along the edge",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x2piox",
-          "title": "A Company is threatening With a CCJ - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2piox/a_company_is_threatening_with_a_ccj_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2piox/a_company_is_threatening_with_a_ccj_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791664895,
-          "snippet": "I signed up for a free trial when I was 17 Years old. A weeks free trial. I’m sure you know where this is going, after a week, I didn’t cancel it and I lost access to the service. A year later they try to charge my bank and enforce a bill of £800 on me when I did not have access ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x2gl2y",
-          "title": "Can building management/contractors legally enter my flat without explicit notice? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2gl2y/can_building_managementcontractors_legally_enter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2gl2y/can_building_managementcontractors_legally_enter/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791642283,
-          "snippet": "I live in a flat building in England. I received a call yesterday from building management to inform me that a fire marshal has attended my property for an inspection and had found evidence of smoking indoors. I do not smoke indoors so I don’t know what evidence they have. I info",
+          "createdUtc": 1791643955,
+          "snippet": "So I helped my dad sell a small old van, a ford fiesta on a classic cars website. I got suspicious a bit too late 🫩. The buyer contacted, asking why it's been off road for 10years, never asked about the vehicle,just said he likes it, and he wants to buy it calling it a car and a",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 11,
+      "postCount": 8,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1x35cvx",
+          "title": "Removed minor siblings from abusive/neglectful situation last night - need to know where I stand legally going forward",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35cvx/removed_minor_siblings_from_abusiveneglectful/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35cvx/removed_minor_siblings_from_abusiveneglectful/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791716421,
+          "snippet": "(In England for context) Yesterday I (24yo) was made aware that my 2 sisters (16 and 11) had been left at home alone from Thursday night until my arrival last night. My mother was round at her boyfriend’s house with plans not to return until at least this afternoon. When I arrive",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1x2d2gc",
           "title": "Neighbour has installed a pipe to run his water onto my roof?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2d2gc/neighbour_has_installed_a_pipe_to_run_his_water/",
@@ -289,6 +301,18 @@
           "numComments": 0,
           "createdUtc": 1791631967,
           "snippet": "My neighbour has installed drainage to run his water onto my property. The side on the right with the flat roof is mine and he's installed a drainage pipe to run his water off his roof onto mine. He has a damp problem he's been trying to fix and he just installed one to run strai",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x2uerf",
+          "title": "Nightmare separation has left me out of the family home and struggling financially.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2uerf/nightmare_separation_has_left_me_out_of_the/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2uerf/nightmare_separation_has_left_me_out_of_the/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791678652,
+          "snippet": "M37 England. At the beginning of the August, my wife of 10 years asked me for a separation out of the blue. We have three children aged 11 months, 5 years and 9 years. She asked me to leave the home and stay at my parents. I refused and stated I would stay in the home until the d",
           "listingSource": "rss:hot"
         },
         {
@@ -304,18 +328,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x2h7tx",
-          "title": "My dad is selling a van, panicky that it may be a scam (From England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2h7tx/my_dad_is_selling_a_van_panicky_that_it_may_be_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2h7tx/my_dad_is_selling_a_van_panicky_that_it_may_be_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791643955,
-          "snippet": "So I helped my dad sell a small old van, a ford fiesta on a classic cars website. I got suspicious a bit too late 🫩. The buyer contacted, asking why it's been off road for 10years, never asked about the vehicle,just said he likes it, and he wants to buy it calling it a car and a",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1x2j9d3",
           "title": "PhD supervision dispute escalated to legal action, with no support from my university — looking for advice in Scotland",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2j9d3/phd_supervision_dispute_escalated_to_legal_action/",
@@ -328,39 +340,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x2k6wp",
-          "title": "Company operating in the UK (Vinted) not providing a UK address for legal action. What’s the law here? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2k6wp/company_operating_in_the_uk_vinted_not_providing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2k6wp/company_operating_in_the_uk_vinted_not_providing/",
+          "id": "1x362xp",
+          "title": "Someone keeps trying to open bank and credit card accounts - what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x362xp/someone_keeps_trying_to_open_bank_and_credit_card/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x362xp/someone_keeps_trying_to_open_bank_and_credit_card/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791651449,
-          "snippet": "I sold an expensive item on Vinted. Buyer claimed that the box was damaged (the item was inside and undamaged- the damage must have happened in transit). I offered a refund and to pay the buyer’s postage. However, Vinted let the buyer keep the item and gave them a refund. Thus, I",
+          "createdUtc": 1791718868,
+          "snippet": "I’m in England. I now have two Cifas markers for victim of impersonation in the last 6 months, and I just checked Experian and someone has been trying to apply for credit most of this year at various places but not been successful thankfully but they have my current and old addre",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x24p7z",
-          "title": "Bet settled as loser after withdrawing",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x24p7z/bet_settled_as_loser_after_withdrawing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x24p7z/bet_settled_as_loser_after_withdrawing/",
+          "id": "1x2h7tx",
+          "title": "My dad is selling a van, panicky that it may be a scam (From England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2h7tx/my_dad_is_selling_a_van_panicky_that_it_may_be_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2h7tx/my_dad_is_selling_a_van_panicky_that_it_may_be_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791602066,
-          "snippet": "Hi all, last night i won a bet on sky bet @ 170/1, returning approx £850, it was settled as a winner so i withdrew the money and then a few hours after full time it was settled as a loser after id already withdrawn. (i bet on a player to be carded, the card was showed during a “s",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x2bcg1",
-          "title": "Need help with caution +3 interview over alleged vehicle theft (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2bcg1/need_help_with_caution_3_interview_over_alleged/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2bcg1/need_help_with_caution_3_interview_over_alleged/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791625891,
-          "snippet": "Hiya. I'm a little bit stressed about an upcoming police interview so hopefully someone can help. Basically, a car was gifted for free to my ex partner and I four or five years ago but nothing was ever drawn up formally to say who owned it exactly. I was under the impression it w",
+          "createdUtc": 1791643955,
+          "snippet": "So I helped my dad sell a small old van, a ford fiesta on a classic cars website. I got suspicious a bit too late 🫩. The buyer contacted, asking why it's been off road for 10years, never asked about the vehicle,just said he likes it, and he wants to buy it calling it a car and a",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +369,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 3,
+      "postCount": 5,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -410,6 +410,30 @@
           "createdUtc": 1791657538,
           "snippet": "I started renting in London since I moved here for a few months cuz of my freelance gig. I live in stokey ( if that matters ) and currently paying 975 including all bills. My issue is that my contract does not mention that there is a heating timing ( 6am -8 am and 6pm -11pm) that",
           "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x35e3t",
+          "title": "Can my landlord enforce this move date?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35e3t/can_my_landlord_enforce_this_move_date/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35e3t/can_my_landlord_enforce_this_move_date/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791716524,
+          "snippet": "I am renting an appartment in England, I am planning give my 2 months notice, and This in my contract: “The Notice period must be for a minimum of two calendar months. The notice must comply with the statutory requirements in force at the time the notice is served and must comply",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x34twk",
+          "title": "England - Landlord kicking us out after attempted illegal eviction. Advice on paying rent.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34twk/england_landlord_kicking_us_out_after_attempted/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34twk/england_landlord_kicking_us_out_after_attempted/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791714529,
+          "snippet": "I am currently living in a HMO that I've lived in for close to 6 years. There have been 6 other tenants in the house until recently. The landlord had been using letting agents to run the property, in my time in this property, there have been 2 different letting agents working on ",
+          "listingSource": "rss:hot"
         }
       ]
     },
@@ -438,9 +462,9 @@
       ]
     },
     {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
+      "slug": "clinical-negligence",
+      "label": "Clinical Negligence",
+      "legalAreaSlug": "clinical_negligence",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -448,15 +472,39 @@
       ],
       "posts": [
         {
-          "id": "1x2ioxv",
-          "title": "Redundancy due to cv I didn't submit",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2ioxv/redundancy_due_to_cv_i_didnt_submit/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2ioxv/redundancy_due_to_cv_i_didnt_submit/",
+          "id": "1x34ubt",
+          "title": "[England] my harasser has to provide consent to release the CCTV footage that shows he is culpable",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34ubt/england_my_harasser_has_to_provide_consent_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34ubt/england_my_harasser_has_to_provide_consent_to/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1791647702,
-          "snippet": "Hi, My workplace is making my role redundant, and I am currently going through the consultation process. I did not submit a formal application for my current role. Instead, my employer engaged a recruitment agency, which headhunted me. I provided the agency with my CV, and I was ",
+          "createdUtc": 1791714571,
+          "snippet": "A few months ago, I, a university PhD student ended up bumping into some university staff members at the local pub. I was hanging with an older staff member and some other researchers. Once the younger researchers went home it was just me and my friend, a staff member. He suggest",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1x2yc1f",
+          "title": "Divorce going on for 8 years (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2yc1f/divorce_going_on_for_8_years_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2yc1f/divorce_going_on_for_8_years_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791691135,
+          "snippet": "My husband started divorce proceedings in 2018 and said that I didn’t need my own solicitor as it was a clean split. No children or assets involved. I received papers to sign and return in 2020 and had confirmation that they were received. Then I was told the solicitor lost them ",
           "listingSource": "rss:hot"
         }
       ]
@@ -486,6 +534,54 @@
       ]
     },
     {
+      "slug": "garage-and-vehicle-repair-disputes",
+      "label": "Garage and Vehicle Repair Disputes",
+      "legalAreaSlug": "consumer_vehicle_repair",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1x35g7e",
+          "title": "UK – £7k used car, 3 failed repair attempts, independent engineer says unserviceable, dealer refusing rejection. Section 75 rejected too - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35g7e/uk_7k_used_car_3_failed_repair_attempts/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x35g7e/uk_7k_used_car_3_failed_repair_attempts/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791716725,
+          "snippet": "Looking for advice from anyone who has dealt with a used-car rejection, a difficult dealership or a Section 75 dispute. Earlier this year, I bought a used diesel car from an established dealership with around 200 cars in stock, paying £7000. Within just a few days, it developed s",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "planning-law",
+      "label": "Planning Law",
+      "legalAreaSlug": "planning_law",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1x34f3m",
+          "title": "England: Neighbour's building works breach planning permission. Council hasn't responded to my enforcement complaint after 3+ weeks. What next?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34f3m/england_neighbours_building_works_breach_planning/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x34f3m/england_neighbours_building_works_breach_planning/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1791713085,
+          "snippet": "My neighbour has permission for a single-storey rear extension and front porch (decided September 2025), and separately for a rear garden outbuilding (2019). I believe both are being built or used in breach of the approvals. Current works (still in progress) The approved rear ext",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "nursery-and-childcare-fees",
       "label": "Nursery and Childcare Fees",
       "legalAreaSlug": "consumer_nursery_childcare",
@@ -505,54 +601,6 @@
           "numComments": 0,
           "createdUtc": 1791633538,
           "snippet": "I’m looking for some advice about family mediation and my rights as a mother in England. My husband and I are married, living together and have a four-month-old baby. I’m currently on maternity leave and have been our son’s primary caregiver since birth. I handle virtually all th",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "debt",
-      "label": "Debt",
-      "legalAreaSlug": "debt",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x2piox",
-          "title": "A Company is threatening With a CCJ - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2piox/a_company_is_threatening_with_a_ccj_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2piox/a_company_is_threatening_with_a_ccj_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791664895,
-          "snippet": "I signed up for a free trial when I was 17 Years old. A weeks free trial. I’m sure you know where this is going, after a week, I didn’t cancel it and I lost access to the service. A year later they try to charge my bank and enforce a bill of £800 on me when I did not have access ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "poor-services-and-traders",
-      "label": "Poor Services and Traders",
-      "legalAreaSlug": "consumer_services",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x2gl2y",
-          "title": "Can building management/contractors legally enter my flat without explicit notice? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2gl2y/can_building_managementcontractors_legally_enter/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x2gl2y/can_building_managementcontractors_legally_enter/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1791642283,
-          "snippet": "I live in a flat building in England. I received a call yesterday from building management to inform me that a fire marshal has attended my property for an inspection and had found evidence of smoking indoors. I do not smoke indoors so I don’t know what evidence they have. I info",
           "listingSource": "rss:hot"
         }
       ]
