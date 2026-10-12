@@ -88,6 +88,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "Areas/Consumer Rights/Faulty Goods and Services/Garage repair failed again, warranty covers parts only: who helps",
       "Areas/Consumer Rights/Travel and Holidays/Jet2 holiday cancelled, refund or rebook: who helps",
       "Areas/Work and Employment/Your Rights at Work/Paid below minimum wage cash in hand: who helps",
+      "Areas/Money, Benefits and Debt/Debt Solutions/Bank added a Cifas marker I think is wrong: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Training costs deducted from final pay: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Sickness policy changed without telling staff, now facing a meeting: who helps",
+      "Areas/Driving and Parking/Parking and PCNs/Forgot to register my car at the gym car park: who helps",
+      "Areas/Work and Employment/Your Rights at Work/No written contract until probation ends: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Employer not giving my guaranteed contract hours: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Pest control left a dead animal in my loft: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Garage damaged my car during a service and wants me to pay: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Sold on eBay, item stolen in transit and I'm out of pocket: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/IKEA kitchen mismeasured and paid on store credit: who helps",
     ]);
     const priority = index.pages.filter((p) => priorityIds.has(p.id));
     const areas = index.pages.filter(
