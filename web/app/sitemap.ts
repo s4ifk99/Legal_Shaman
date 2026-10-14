@@ -98,6 +98,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "Areas/Consumer Rights/Faulty Goods and Services/Garage damaged my car during a service and wants me to pay: who helps",
       "Areas/Consumer Rights/Faulty Goods and Services/Sold on eBay, item stolen in transit and I'm out of pocket: who helps",
       "Areas/Consumer Rights/Faulty Goods and Services/IKEA kitchen mismeasured and paid on store credit: who helps",
+      "Areas/Driving and Parking/Motoring Offences/Council vehicle hit my car and now denies liability: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Gym won't let me cancel within the cancellation period: who helps",
+      "Areas/Money, Benefits and Debt/Debt Solutions/Debt collector got a CCJ for a debt I never agreed to: who helps",
+      "Areas/Home and Housing/Renting/Former landlord claiming for repairs after I moved out: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Working long shifts with no breaks: who helps",
+      "Areas/Money, Benefits and Debt/Tax and Bills/Energy bill for a flat I moved out of a year ago: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Non compete clause after only a few months in a job: who helps",
+      "Areas/Home and Housing/Renting/Former housemate left rent arrears on our joint tenancy: who helps",
+      "Areas/Work and Employment/Redundancy and Dismissal/Facing redundancy after an MS diagnosis: who helps",
     ]);
     const priority = index.pages.filter((p) => priorityIds.has(p.id));
     const areas = index.pages.filter(
