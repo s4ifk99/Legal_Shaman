@@ -107,6 +107,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "Areas/Work and Employment/Your Rights at Work/Non compete clause after only a few months in a job: who helps",
       "Areas/Home and Housing/Renting/Former housemate left rent arrears on our joint tenancy: who helps",
       "Areas/Work and Employment/Redundancy and Dismissal/Facing redundancy after an MS diagnosis: who helps",
+      "Areas/Work and Employment/Your Rights at Work/Employer asking me to work during maternity leave: who helps",
+      "Areas/Work and Employment/Your Rights at Work/HR sent my pay and sickness details to all staff: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Phone insurance won't cover my new phone or let me cancel: who helps",
+      "Areas/Consumer Rights/Faulty Goods and Services/Hotel charged my card several times and won't refund: who helps",
+      "Areas/Courts and Disputes/Starting a Claim/They paid my small claim but not the court fee or interest: who helps",
+      "Areas/Driving and Parking/Parking and PCNs/Parking charge for parking in my own space: who helps",
+      "Areas/Crime and Police/If You Are Accused/Fly tipping fine and the deadline has passed: who helps",
+      "Areas/Health and Injury/Clinical Negligence/Pharmacy gave the wrong dose of medicine: who helps",
+      "Areas/Home and Housing/Renting/Landlord charging me for returning keys late: who helps",
+      "Areas/Neighbours and Property/Boundaries and Rights/Neighbour won't let broadband cables cross their land: who helps",
     ]);
     const priority = index.pages.filter((p) => priorityIds.has(p.id));
     const areas = index.pages.filter(
