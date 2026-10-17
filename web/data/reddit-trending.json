@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-17T09:57:38.139Z",
+    "scrapedAt": "2026-10-17T20:09:26.476Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 10,
+    "topicCount": 9,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -14,39 +14,15 @@
       "subscribers": null,
       "posts": [
         {
-          "id": "1u1ku10",
-          "title": "If you use generative AI to provide advice, you will be banned",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1u1ku10/if_you_use_generative_ai_to_provide_advice_you/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1u1ku10/if_you_use_generative_ai_to_provide_advice_you/",
+          "id": "1x88p6w",
+          "title": "Guidance on using AI to answer questions and telling OPs to use AI",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88p6w/guidance_on_using_ai_to_answer_questions_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88p6w/guidance_on_using_ai_to_answer_questions_and/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1781046142,
-          "snippet": "If OP wanted advice from AI, they would have asked AI, rather than posted on a forum containing humans. The AI advice that we see here is more often than not one (or more) of the following: completely lacking in nuance, fails to appreciate that there is no such thing as \"UK law\",",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1sl2ap6",
-          "title": "Labour’s New Renting Rules Explained - TLDR News",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1sl2ap6/labours_new_renting_rules_explained_tldr_news/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1sl2ap6/labours_new_renting_rules_explained_tldr_news/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1776154094,
-          "snippet": "submitted by /u/litigant-in-person [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x84wg2",
-          "title": "Scotland - Being sued by builder *Update*",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x84wg2/scotland_being_sued_by_builder_update/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x84wg2/scotland_being_sued_by_builder_update/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792225263,
-          "snippet": "Just thought I'd give a update on how this played out. Thanks to all who responded. https://www.reddit.com/r/LegalAdviceUK/s/Jpc825qfDc We found a lawyer to represent us. His first attempt got dropped when it became apparent the builder was suing the wrong entity and that the cou",
+          "createdUtc": 1792239070,
+          "snippet": "Hi all, Since we updated our subreddit rules to reflect the mods' policy on AI, we have continued to observe how AI is being used. We have seen two types of AI-related comments that we want to issue new (but not different) clarification on. TL;DR: Comments answering an OP's quest",
           "listingSource": "rss:hot"
         },
         {
@@ -62,15 +38,99 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x8667y",
-          "title": "Given the new \"Porn Laws\" coming into effect next month, I have some questions - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8667y/given_the_new_porn_laws_coming_into_effect_next/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8667y/given_the_new_porn_laws_coming_into_effect_next/",
+          "id": "1x86pjo",
+          "title": "Company refusing refund of concert 'postponed' for almost 2 years because it's not officially 'cancelled' - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86pjo/company_refusing_refund_of_concert_postponed_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86pjo/company_refusing_refund_of_concert_postponed_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792230183,
-          "snippet": "I'm sure a lot of you have seen already, but on the 5th of November, the new \"Crime and Policing Law\" comes into effect, which bans certain kinds of pornography. Personally, I'm not really interested in any of the categories outlined by these new laws, but it does raise two very ",
+          "createdUtc": 1792232178,
+          "snippet": "I bought tickets to a concert that was scheduled for December 2024. A few days before the concert, the ticket vendor contacted me to say the event was postponed for 2025. In September 2025, I reached out to ask for more information, and they said they didn't have any more info an",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x84wg2",
+          "title": "Scotland - Being sued by builder *Update*",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x84wg2/scotland_being_sued_by_builder_update/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x84wg2/scotland_being_sued_by_builder_update/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792225263,
+          "snippet": "Just thought I'd give a update on how this played out. Thanks to all who responded. https://www.reddit.com/r/LegalAdviceUK/s/Jpc825qfDc We found a lawyer to represent us. His first attempt got dropped when it became apparent the builder was suing the wrong entity and that the cou",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x88756",
+          "title": "Legality on owning endangered species - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88756/legality_on_owning_endangered_species_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88756/legality_on_owning_endangered_species_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792237449,
+          "snippet": "Repost with image/text change England - recently lost my grandmother and in the process of clearing her house we have found a Sawfish rostrum that will be staying within the family. Do we need to register it or anything? I understand that a CITES Certificate is required for Impor",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x8aoeo",
+          "title": "Nightmare social housing neighbour, trying to move but he’s threatening to sabotage our sale. What do we do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8aoeo/nightmare_social_housing_neighbour_trying_to_move/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8aoeo/nightmare_social_housing_neighbour_trying_to_move/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792244840,
+          "snippet": "Location: England,UK Please could someone advise what to do about our housing situation. We’ve had a nightmare social housing neighbour for the past few years. Constant noise from scrap vehicles on his driveway, the front and back of the property trashed, rubbish on our driveway ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x88tat",
+          "title": "Can my partner's ex get a restraining order against me for collecting his daughter? (England, UK)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88tat/can_my_partners_ex_get_a_restraining_order/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88tat/can_my_partners_ex_get_a_restraining_order/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792239427,
+          "snippet": "I'm looking for some advice about a situation that has happened recently, as I'm worried my partner's ex is going to try to get a restraining order against me. My partner has a daughter with her ex-partner. Social services had advised that the baby (3yo girl) must not be taken in",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x8fcxv",
+          "title": "£225 Penalty Fine for littering, appeal rejected - UK",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8fcxv/225_penalty_fine_for_littering_appeal_rejected_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8fcxv/225_penalty_fine_for_littering_appeal_rejected_uk/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792256526,
+          "snippet": "Hello, I have recieved a penalty charge for littering - lodged against me as I am the registered keeper of the vehicle that my wife was driving. I recieved the notice through the post a few weeks ago. I was shocked to see it. We aren't people who litter. To summarise the letter, ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x8iayg",
+          "title": "Car insurance claim with no injuries (England) going to court, do I need a solicitor?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8iayg/car_insurance_claim_with_no_injuries_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8iayg/car_insurance_claim_with_no_injuries_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792263754,
+          "snippet": "I'm (F48) currently in a nightmare and need some advice. July of 2025, I was turning at a mini roundabout, fully on it, indicating correctly and three quarters of the way through turning when a car hit the corner of my bumper by trying to cross in front of me. I would say we were",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x86zcm",
+          "title": "Deceased aunt, in correct name on all official documentation - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86zcm/deceased_aunt_in_correct_name_on_all_official/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86zcm/deceased_aunt_in_correct_name_on_all_official/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792233158,
+          "snippet": "Hi - not sure if this is the correct forum but I am not sure where to start. My elderly aunt passed away while I was on holiday. I am her only surviving relative, I have POA and I am executor and sole beneficiary in her will. She has been in a care home for the last 7 years. As w",
           "listingSource": "rss:hot"
         },
         {
@@ -98,6 +158,90 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1x8fey5",
+          "title": "Short term right to reject advice",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8fey5/short_term_right_to_reject_advice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8fey5/short_term_right_to_reject_advice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792256663,
+          "snippet": "In england. Hi, just hoping to check im doing everything correctly right now. I bought a used volvo xc40 2019 from a reputable dealership with 84000 miles. The same day while driving home from the dealership the eml illuminated, this was present at test drive but was gone along w",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x8f0zl",
+          "title": "England: employment IP clause and retaining personal AI productivity tools",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8f0zl/england_employment_ip_clause_and_retaining/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8f0zl/england_employment_ip_clause_and_retaining/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792255722,
+          "snippet": "I'm about to sign a contract for a new software engineering job, but there's one part of the IP clause I'm unsure about. I've been getting more into AI tooling lately and want to build my own reusable prompts and workflows for things like breaking down development tickets or anal",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x8jblv",
+          "title": "Rented studio kitchen has an active electrical hazard / repeatedly popping breakers. What are my rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8jblv/rented_studio_kitchen_has_an_active_electrical/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8jblv/rented_studio_kitchen_has_an_active_electrical/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792266302,
+          "snippet": "I am a postgraduate student living in a large, purpose-built private student accommodation block in England. My studio apartment has developed a dangerous electrical hazard in the kitchen, and management has effectively left me in limbo for over a week. The Timeline of the issue:",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x8iimo",
+          "title": "(England) Bought a van from dealer at discounted price due to issues found. More issues have come up since already paying for work done. Can I make the dealer repair the van under CRA?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8iimo/england_bought_a_van_from_dealer_at_discounted/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8iimo/england_bought_a_van_from_dealer_at_discounted/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792264284,
+          "snippet": "Hi all, 3 weeks ago I purchased a 2020 vw crafter from lutterworth van centre I intend to convert to a camper. When I went to see it I found both fwd driveshafts needed replacing. It was also due a service and cambelt change. I got £500 off the asking price because of this. I've ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x8es9u",
+          "title": "If we install our own sewage treatment plant, would we still have to pay towards the neighbour’s shared system?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8es9u/if_we_install_our_own_sewage_treatment_plant/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8es9u/if_we_install_our_own_sewage_treatment_plant/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792255149,
+          "snippet": "Hello community! I’m in the process of buying a property in England that shares a private sewage treatment plant with the neighbouring property. The plant is located entirely on the neighbour’s land. The 2003 Transfer Deed contains the following wording relating to the shared dra",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x8eopn",
+          "title": "FPN fly tipping in Camden-London, what should I do ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8eopn/fpn_fly_tipping_in_camdenlondon_what_should_i_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8eopn/fpn_fly_tipping_in_camdenlondon_what_should_i_do/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792254909,
+          "snippet": "Hi everyone, I just found a letter hidden in the bunch of letters of my building stating that the council found a cardboard with my name in the street. The deadline to pay for it is tomorrow and the fine is 500 pounds, then it becomes 1000 pounds the day after. The cardboard has ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x8eimb",
+          "title": "BBQ grate broke within 6 months, but seller is disputing responsibility",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8eimb/bbq_grate_broke_within_6_months_but_seller_is/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8eimb/bbq_grate_broke_within_6_months_but_seller_is/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792254513,
+          "snippet": "(England) I bought a BBQ from a third party seller on B&amp;Q’s website at the end of April. It arrived with a damaged part, which the seller replaced within a couple of weeks. After only a handful of uses (about 4-5 months later), one of the cast iron grates broke. I contacted t",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1x7f0az",
           "title": "Do I (F30) legally have to give my controlling ex (M35) our son’s original passport for a private healthcare appointment? (England).",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7f0az/do_i_f30_legally_have_to_give_my_controlling_ex/",
@@ -108,150 +252,6 @@
           "createdUtc": 1792154016,
           "snippet": "My ex and I have a six-year-old son. We both have parental responsibility, but our son primarily lives with me. My ex has a history of behaviour I consider coercive and controlling. He previously tried to change our son’s living arrangements and I believe he is building a case to",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x7vnrc",
-          "title": "I have been permanently banned on Eldorado for no reason (Wales) and I have £197 I earned fair and square in my wallet.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7vnrc/i_have_been_permanently_banned_on_eldorado_for_no/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7vnrc/i_have_been_permanently_banned_on_eldorado_for_no/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792194385,
-          "snippet": "As seen above I would like support I did nothing wrong I was ID verified, I was in good standing no issues with customers all positive ratings and orders delivered on time. (I was compromised as the 2FA doesn’t fully work it still lets people in without the pin which is ridiculou",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x7gsnr",
-          "title": "Bought used car in England today, broken down 3 times on the way home",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7gsnr/bought_used_car_in_england_today_broken_down_3/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7gsnr/bought_used_car_in_england_today_broken_down_3/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792158705,
-          "snippet": "Hi all, as in the title. Ive just completed a purchase via a dealership for a 2020 used car, myself and dealersgip are both based in England. I test drove the car and no issues so bought it, it's a 2020 petrol car, near full service history and it passed its MOT last week. It was",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x7dyls",
-          "title": "Recent UK law clarification: What exactly does the new strangulation offence prohibit?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7dyls/recent_uk_law_clarification_what_exactly_does_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7dyls/recent_uk_law_clarification_what_exactly_does_the/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792150975,
-          "snippet": "I'm looking for clarification on the new strangulation offence under section 104 of the Crime and Policing Act 2026,. I'm based in England and would appreciate answers from people with legal knowledge of the legislation. I'm not a legal professional!, and I'm struggling to unders",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x81h5r",
-          "title": "How do small businesses legally rent out parts of their commercial premises without huge legal fees?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x81h5r/how_do_small_businesses_legally_rent_out_parts_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x81h5r/how_do_small_businesses_legally_rent_out_parts_of/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792212911,
-          "snippet": "I’m a sole trader renting commercial premises to run my small crafting studio (South of England) I want to let two other people use small areas of the property for approximately £200/month each. The arrangements are slightly different: Space 1: An allocated area within an open-pl",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x86cjd",
-          "title": "Being investigated at work for sharing a photo of an accident in a private Snapchat group with colleagues. What should I expect? (UK)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86cjd/being_investigated_at_work_for_sharing_a_photo_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86cjd/being_investigated_at_work_for_sharing_a_photo_of/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792230848,
-          "snippet": "Hi everyone, I’m looking for some advice about a situation at work because I’ve been told I’m being investigated for potentially breaching company policy, and I’m genuinely confused and concerned. Recently, there was an accident at the store where I work. I wasn’t working that da",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x8661i",
-          "title": "Porn legality questions (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8661i/porn_legality_questions_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8661i/porn_legality_questions_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792230163,
-          "snippet": "Around a year ago I thought I'd developed feelings for a male online friend who was 19, turning 20. I'm a woman who is older and I discovered it was limerence linked to BPD. Just to give some context. During this time I looked up porn searches such as \"younger guy older woman\" . ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x85og0",
-          "title": "Does anybody have any advice on a claim i could make for an expensive TV that has started developing faults around 2 years old (England) No warranty",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85og0/does_anybody_have_any_advice_on_a_claim_i_could/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85og0/does_anybody_have_any_advice_on_a_claim_i_could/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792228271,
-          "snippet": "I purchased a TV 2 years ago and the backlights are failing. Under Section 9 of the Consumer Rights Act 2015, durability is specifically included as part of satisfactory quality. I could have got a cheap TV that would have lasted longer, my second TV is still going strong after 1",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x85n4n",
-          "title": "Crime and Policing Act 2026: Offences relating to pornography, do these examples apply? - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85n4n/crime_and_policing_act_2026_offences_relating_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85n4n/crime_and_policing_act_2026_offences_relating_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792228129,
-          "snippet": "Link to GOV page on the act: https://www.gov.uk/guidance/crime-and-policing-act-2026-offences-relating-to-pornography Following the announcement of this amendment to the law, does the possession of pornography that depicts animated instances that depict strangulation, incest etc.",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x7kvn0",
-          "title": "My housemate has been put on bail and is no-contact at the property. Can I as a joint tenant in a two-bed restrict them from allowing people access to the house?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7kvn0/my_housemate_has_been_put_on_bail_and_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7kvn0/my_housemate_has_been_put_on_bail_and_is/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792168175,
-          "snippet": "England here. My housemate has been put on a no-contact/no-entry to our property bail after a domestic incident. They are inviting family members to the house to collect possessions but they are ignoring my pleas of giving me proper notice and arranging it properly so that I can ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x7tv20",
-          "title": "Uni from England says I owe £5,751 from 2023-24, but they confirmed in 2024 that I’d overpaid. What should I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7tv20/uni_from_england_says_i_owe_5751_from_202324_but/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7tv20/uni_from_england_says_i_owe_5751_from_202324_but/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792189408,
-          "snippet": "Hi everyone, I’m an international student. I graduated in July and got my Graduate v1sa this afternoon. Two days ago, my university emailed my personal account about a payment error from 2023. This is what it said: “It has come to our attention that a payment that was allocated t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x7q7bi",
-          "title": "England. New hum and vibrations coming from commercial property next door make living area unusable. Council uninterested as not doesn't meet dB requirements. Next steps?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7q7bi/england_new_hum_and_vibrations_coming_from/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7q7bi/england_new_hum_and_vibrations_coming_from/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792180397,
-          "snippet": "There was a 24/7 high pitched noise coming from the commercial property's ventilation system for months that could be heard in our entire studio flat. They finally turned it off for a blissful week however now something is making a low pitched noise which is literally vibrating o",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x7uz6w",
-          "title": "[England] Car alignment place scraped expensive car - I have timestamped photos on location immediately before and a few hours after - paid bank transfer - next steps?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7uz6w/england_car_alignment_place_scraped_expensive_car/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7uz6w/england_car_alignment_place_scraped_expensive_car/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792192453,
-          "snippet": "*** images in comments below *** They were driving the car in and out of their place which was very tight for a car my size. They allowed me in to watch, so I have plenty of photos and videos of the car, the alignment being done, the vehicle being driven in (was interested) I don",
-          "listingSource": "rss:hot"
         }
       ]
     }
@@ -261,114 +261,114 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 9,
+      "postCount": 10,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
         {
-          "id": "1u1ku10",
-          "title": "If you use generative AI to provide advice, you will be banned",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1u1ku10/if_you_use_generative_ai_to_provide_advice_you/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1u1ku10/if_you_use_generative_ai_to_provide_advice_you/",
+          "id": "1x88p6w",
+          "title": "Guidance on using AI to answer questions and telling OPs to use AI",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88p6w/guidance_on_using_ai_to_answer_questions_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88p6w/guidance_on_using_ai_to_answer_questions_and/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1781046142,
-          "snippet": "If OP wanted advice from AI, they would have asked AI, rather than posted on a forum containing humans. The AI advice that we see here is more often than not one (or more) of the following: completely lacking in nuance, fails to appreciate that there is no such thing as \"UK law\",",
+          "createdUtc": 1792239070,
+          "snippet": "Hi all, Since we updated our subreddit rules to reflect the mods' policy on AI, we have continued to observe how AI is being used. We have seen two types of AI-related comments that we want to issue new (but not different) clarification on. TL;DR: Comments answering an OP's quest",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x8667y",
-          "title": "Given the new \"Porn Laws\" coming into effect next month, I have some questions - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8667y/given_the_new_porn_laws_coming_into_effect_next/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8667y/given_the_new_porn_laws_coming_into_effect_next/",
+          "id": "1x88756",
+          "title": "Legality on owning endangered species - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88756/legality_on_owning_endangered_species_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88756/legality_on_owning_endangered_species_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792230183,
-          "snippet": "I'm sure a lot of you have seen already, but on the 5th of November, the new \"Crime and Policing Law\" comes into effect, which bans certain kinds of pornography. Personally, I'm not really interested in any of the categories outlined by these new laws, but it does raise two very ",
+          "createdUtc": 1792237449,
+          "snippet": "Repost with image/text change England - recently lost my grandmother and in the process of clearing her house we have found a Sawfish rostrum that will be staying within the family. Do we need to register it or anything? I understand that a CITES Certificate is required for Impor",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x7vnrc",
-          "title": "I have been permanently banned on Eldorado for no reason (Wales) and I have £197 I earned fair and square in my wallet.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7vnrc/i_have_been_permanently_banned_on_eldorado_for_no/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7vnrc/i_have_been_permanently_banned_on_eldorado_for_no/",
+          "id": "1x88tat",
+          "title": "Can my partner's ex get a restraining order against me for collecting his daughter? (England, UK)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88tat/can_my_partners_ex_get_a_restraining_order/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88tat/can_my_partners_ex_get_a_restraining_order/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792194385,
-          "snippet": "As seen above I would like support I did nothing wrong I was ID verified, I was in good standing no issues with customers all positive ratings and orders delivered on time. (I was compromised as the 2FA doesn’t fully work it still lets people in without the pin which is ridiculou",
+          "createdUtc": 1792239427,
+          "snippet": "I'm looking for some advice about a situation that has happened recently, as I'm worried my partner's ex is going to try to get a restraining order against me. My partner has a daughter with her ex-partner. Social services had advised that the baby (3yo girl) must not be taken in",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x7dyls",
-          "title": "Recent UK law clarification: What exactly does the new strangulation offence prohibit?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7dyls/recent_uk_law_clarification_what_exactly_does_the/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7dyls/recent_uk_law_clarification_what_exactly_does_the/",
+          "id": "1x86zcm",
+          "title": "Deceased aunt, in correct name on all official documentation - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86zcm/deceased_aunt_in_correct_name_on_all_official/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86zcm/deceased_aunt_in_correct_name_on_all_official/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792150975,
-          "snippet": "I'm looking for clarification on the new strangulation offence under section 104 of the Crime and Policing Act 2026,. I'm based in England and would appreciate answers from people with legal knowledge of the legislation. I'm not a legal professional!, and I'm struggling to unders",
+          "createdUtc": 1792233158,
+          "snippet": "Hi - not sure if this is the correct forum but I am not sure where to start. My elderly aunt passed away while I was on holiday. I am her only surviving relative, I have POA and I am executor and sole beneficiary in her will. She has been in a care home for the last 7 years. As w",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x81h5r",
-          "title": "How do small businesses legally rent out parts of their commercial premises without huge legal fees?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x81h5r/how_do_small_businesses_legally_rent_out_parts_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x81h5r/how_do_small_businesses_legally_rent_out_parts_of/",
+          "id": "1x8fey5",
+          "title": "Short term right to reject advice",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8fey5/short_term_right_to_reject_advice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8fey5/short_term_right_to_reject_advice/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792212911,
-          "snippet": "I’m a sole trader renting commercial premises to run my small crafting studio (South of England) I want to let two other people use small areas of the property for approximately £200/month each. The arrangements are slightly different: Space 1: An allocated area within an open-pl",
+          "createdUtc": 1792256663,
+          "snippet": "In england. Hi, just hoping to check im doing everything correctly right now. I bought a used volvo xc40 2019 from a reputable dealership with 84000 miles. The same day while driving home from the dealership the eml illuminated, this was present at test drive but was gone along w",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x86cjd",
-          "title": "Being investigated at work for sharing a photo of an accident in a private Snapchat group with colleagues. What should I expect? (UK)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86cjd/being_investigated_at_work_for_sharing_a_photo_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86cjd/being_investigated_at_work_for_sharing_a_photo_of/",
+          "id": "1x8f0zl",
+          "title": "England: employment IP clause and retaining personal AI productivity tools",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8f0zl/england_employment_ip_clause_and_retaining/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8f0zl/england_employment_ip_clause_and_retaining/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792230848,
-          "snippet": "Hi everyone, I’m looking for some advice about a situation at work because I’ve been told I’m being investigated for potentially breaching company policy, and I’m genuinely confused and concerned. Recently, there was an accident at the store where I work. I wasn’t working that da",
+          "createdUtc": 1792255722,
+          "snippet": "I'm about to sign a contract for a new software engineering job, but there's one part of the IP clause I'm unsure about. I've been getting more into AI tooling lately and want to build my own reusable prompts and workflows for things like breaking down development tickets or anal",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x8661i",
-          "title": "Porn legality questions (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8661i/porn_legality_questions_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8661i/porn_legality_questions_england/",
+          "id": "1x8jblv",
+          "title": "Rented studio kitchen has an active electrical hazard / repeatedly popping breakers. What are my rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8jblv/rented_studio_kitchen_has_an_active_electrical/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8jblv/rented_studio_kitchen_has_an_active_electrical/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792230163,
-          "snippet": "Around a year ago I thought I'd developed feelings for a male online friend who was 19, turning 20. I'm a woman who is older and I discovered it was limerence linked to BPD. Just to give some context. During this time I looked up porn searches such as \"younger guy older woman\" . ",
+          "createdUtc": 1792266302,
+          "snippet": "I am a postgraduate student living in a large, purpose-built private student accommodation block in England. My studio apartment has developed a dangerous electrical hazard in the kitchen, and management has effectively left me in limbo for over a week. The Timeline of the issue:",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x7tv20",
-          "title": "Uni from England says I owe £5,751 from 2023-24, but they confirmed in 2024 that I’d overpaid. What should I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7tv20/uni_from_england_says_i_owe_5751_from_202324_but/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7tv20/uni_from_england_says_i_owe_5751_from_202324_but/",
+          "id": "1x8es9u",
+          "title": "If we install our own sewage treatment plant, would we still have to pay towards the neighbour’s shared system?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8es9u/if_we_install_our_own_sewage_treatment_plant/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8es9u/if_we_install_our_own_sewage_treatment_plant/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792189408,
-          "snippet": "Hi everyone, I’m an international student. I graduated in July and got my Graduate v1sa this afternoon. Two days ago, my university emailed my personal account about a payment error from 2023. This is what it said: “It has come to our attention that a payment that was allocated t",
+          "createdUtc": 1792255149,
+          "snippet": "Hello community! I’m in the process of buying a property in England that shares a private sewage treatment plant with the neighbouring property. The plant is located entirely on the neighbour’s land. The 2003 Transfer Deed contains the following wording relating to the shared dra",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "landlord-and-tenant",
-      "label": "Landlord and Tenant",
-      "legalAreaSlug": "housing",
+      "slug": "garage-and-vehicle-repair-disputes",
+      "label": "Garage and Vehicle Repair Disputes",
+      "legalAreaSlug": "consumer_vehicle_repair",
       "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
@@ -376,27 +376,51 @@
       ],
       "posts": [
         {
-          "id": "1sl2ap6",
-          "title": "Labour’s New Renting Rules Explained - TLDR News",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1sl2ap6/labours_new_renting_rules_explained_tldr_news/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1sl2ap6/labours_new_renting_rules_explained_tldr_news/",
+          "id": "1x85ccz",
+          "title": "Employer failed to insure work van, employee now being prosecuted for driving without insurance following an accident (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85ccz/employer_failed_to_insure_work_van_employee_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85ccz/employer_failed_to_insure_work_van_employee_now/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1776154094,
-          "snippet": "submitted by /u/litigant-in-person [link] [comments]",
+          "createdUtc": 1792226997,
+          "snippet": "Posting on behalf of a friend. She has worked for a small company in England for less than 6 months. Driving a company van is part of her job. Recently, she was involved in a road traffic collision in the work van (she was rear ended). Police and paramedics attended. It subsequen",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x7kvn0",
-          "title": "My housemate has been put on bail and is no-contact at the property. Can I as a joint tenant in a two-bed restrict them from allowing people access to the house?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7kvn0/my_housemate_has_been_put_on_bail_and_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7kvn0/my_housemate_has_been_put_on_bail_and_is/",
+          "id": "1x8iimo",
+          "title": "(England) Bought a van from dealer at discounted price due to issues found. More issues have come up since already paying for work done. Can I make the dealer repair the van under CRA?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8iimo/england_bought_a_van_from_dealer_at_discounted/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8iimo/england_bought_a_van_from_dealer_at_discounted/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792168175,
-          "snippet": "England here. My housemate has been put on a no-contact/no-entry to our property bail after a domestic incident. They are inviting family members to the house to collect possessions but they are ignoring my pleas of giving me proper notice and arranging it properly so that I can ",
+          "createdUtc": 1792264284,
+          "snippet": "Hi all, 3 weeks ago I purchased a 2020 vw crafter from lutterworth van centre I intend to convert to a camper. When I went to see it I found both fwd driveshafts needed replacing. It was also due a service and cambelt change. I got £500 off the asking price because of this. I've ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1x86pjo",
+          "title": "Company refusing refund of concert 'postponed' for almost 2 years because it's not officially 'cancelled' - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86pjo/company_refusing_refund_of_concert_postponed_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x86pjo/company_refusing_refund_of_concert_postponed_for/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792232178,
+          "snippet": "I bought tickets to a concert that was scheduled for December 2024. A few days before the concert, the ticket vendor contacted me to say the event was postponed for 2025. In September 2025, I reached out to ask for more information, and they said they didn't have any more info an",
           "listingSource": "rss:hot"
         }
       ]
@@ -426,9 +450,9 @@
       ]
     },
     {
-      "slug": "garage-and-vehicle-repair-disputes",
-      "label": "Garage and Vehicle Repair Disputes",
-      "legalAreaSlug": "consumer_vehicle_repair",
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
       "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
@@ -436,27 +460,75 @@
       ],
       "posts": [
         {
-          "id": "1x85ccz",
-          "title": "Employer failed to insure work van, employee now being prosecuted for driving without insurance following an accident (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85ccz/employer_failed_to_insure_work_van_employee_now/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85ccz/employer_failed_to_insure_work_van_employee_now/",
+          "id": "1x8aoeo",
+          "title": "Nightmare social housing neighbour, trying to move but he’s threatening to sabotage our sale. What do we do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8aoeo/nightmare_social_housing_neighbour_trying_to_move/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8aoeo/nightmare_social_housing_neighbour_trying_to_move/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792226997,
-          "snippet": "Posting on behalf of a friend. She has worked for a small company in England for less than 6 months. Driving a company van is part of her job. Recently, she was involved in a road traffic collision in the work van (she was rear ended). Police and paramedics attended. It subsequen",
+          "createdUtc": 1792244840,
+          "snippet": "Location: England,UK Please could someone advise what to do about our housing situation. We’ve had a nightmare social housing neighbour for the past few years. Constant noise from scrap vehicles on his driveway, the front and back of the property trashed, rubbish on our driveway ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x7gsnr",
-          "title": "Bought used car in England today, broken down 3 times on the way home",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7gsnr/bought_used_car_in_england_today_broken_down_3/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7gsnr/bought_used_car_in_england_today_broken_down_3/",
+          "id": "1x7qg5s",
+          "title": "Blocking sale of exes house after buyout already agreed",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7qg5s/blocking_sale_of_exes_house_after_buyout_already/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7qg5s/blocking_sale_of_exes_house_after_buyout_already/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792158705,
-          "snippet": "Hi all, as in the title. Ive just completed a purchase via a dealership for a 2020 used car, myself and dealersgip are both based in England. I test drove the car and no issues so bought it, it's a 2020 petrol car, near full service history and it passed its MOT last week. It was",
+          "createdUtc": 1792180970,
+          "snippet": "Ex and I bought a house together 4 years ago for £300k outright. It was his first purchase so I kept my name of the deed and signed a deed of trust. 2 years ago we broke up and put the house on the market which he stayed in while I rented. Fast forward 2 years and the house still",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "prison_law",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1x8fcxv",
+          "title": "£225 Penalty Fine for littering, appeal rejected - UK",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8fcxv/225_penalty_fine_for_littering_appeal_rejected_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8fcxv/225_penalty_fine_for_littering_appeal_rejected_uk/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792256526,
+          "snippet": "Hello, I have recieved a penalty charge for littering - lodged against me as I am the registered keeper of the vehicle that my wife was driving. I recieved the notice through the post a few weeks ago. I was shocked to see it. We aren't people who litter. To summarise the letter, ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "insurance-disputes",
+      "label": "Insurance Disputes",
+      "legalAreaSlug": "consumer_insurance",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1x8iayg",
+          "title": "Car insurance claim with no injuries (England) going to court, do I need a solicitor?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8iayg/car_insurance_claim_with_no_injuries_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8iayg/car_insurance_claim_with_no_injuries_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792263754,
+          "snippet": "I'm (F48) currently in a nightmare and need some advice. July of 2025, I was turning at a mini roundabout, fully on it, indicating correctly and three quarters of the way through turning when a car hit the corner of my bumper by trying to cross in front of me. I would say we were",
           "listingSource": "rss:hot"
         }
       ]
@@ -486,30 +558,6 @@
       ]
     },
     {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x7qg5s",
-          "title": "Blocking sale of exes house after buyout already agreed",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7qg5s/blocking_sale_of_exes_house_after_buyout_already/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7qg5s/blocking_sale_of_exes_house_after_buyout_already/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792180970,
-          "snippet": "Ex and I bought a house together 4 years ago for £300k outright. It was his first purchase so I kept my name of the deed and signed a deed of trust. 2 years ago we broke up and put the house on the market which he stayed in while I rented. Fast forward 2 years and the house still",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
       "slug": "private-healthcare-billing",
       "label": "Private Healthcare Billing",
       "legalAreaSlug": "consumer_private_healthcare",
@@ -529,78 +577,6 @@
           "numComments": 0,
           "createdUtc": 1792154016,
           "snippet": "My ex and I have a six-year-old son. We both have parental responsibility, but our son primarily lives with me. My ex has a history of behaviour I consider coercive and controlling. He previously tried to change our son’s living arrangements and I believe he is building a case to",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x85og0",
-          "title": "Does anybody have any advice on a claim i could make for an expensive TV that has started developing faults around 2 years old (England) No warranty",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85og0/does_anybody_have_any_advice_on_a_claim_i_could/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85og0/does_anybody_have_any_advice_on_a_claim_i_could/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792228271,
-          "snippet": "I purchased a TV 2 years ago and the backlights are failing. Under Section 9 of the Consumer Rights Act 2015, durability is specifically included as part of satisfactory quality. I could have got a cheap TV that would have lasted longer, my second TV is still going strong after 1",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x85n4n",
-          "title": "Crime and Policing Act 2026: Offences relating to pornography, do these examples apply? - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85n4n/crime_and_policing_act_2026_offences_relating_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x85n4n/crime_and_policing_act_2026_offences_relating_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792228129,
-          "snippet": "Link to GOV page on the act: https://www.gov.uk/guidance/crime-and-policing-act-2026-offences-relating-to-pornography Following the announcement of this amendment to the law, does the possession of pornography that depicts animated instances that depict strangulation, incest etc.",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "commercial-property",
-      "label": "Commercial Property",
-      "legalAreaSlug": "commercial_property",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x7q7bi",
-          "title": "England. New hum and vibrations coming from commercial property next door make living area unusable. Council uninterested as not doesn't meet dB requirements. Next steps?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7q7bi/england_new_hum_and_vibrations_coming_from/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x7q7bi/england_new_hum_and_vibrations_coming_from/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792180397,
-          "snippet": "There was a 24/7 high pitched noise coming from the commercial property's ventilation system for months that could be heard in our entire studio flat. They finally turned it off for a blissful week however now something is making a low pitched noise which is literally vibrating o",
           "listingSource": "rss:hot"
         }
       ]
