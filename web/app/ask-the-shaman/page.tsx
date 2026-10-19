@@ -27,6 +27,7 @@ type PageProps = {
     guided?: string;
     location?: string;
     classic?: string;
+    necessity?: string;
   }>;
 };
 
@@ -110,7 +111,7 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
     return (
       <div className="flex min-h-screen flex-col bg-background">
         <Header />
-        <CoherenceAskShell initialStory={initialQuery} />
+        <CoherenceAskShell initialStory={initialQuery} initialNecessity={sp.necessity || ""} />
         <Footer />
       </div>
     );

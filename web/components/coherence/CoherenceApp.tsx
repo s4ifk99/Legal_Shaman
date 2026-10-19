@@ -22,6 +22,8 @@ import { B2C_PAID_PRICE_LABEL } from '@/lib/billing/plan'
 import { captureProductEvent } from '@/components/analytics/posthog-provider'
 import type { SearchDestination } from './ReformulationGate'
 import { createInitialSession, isMetaCauseLine, isPhysicalNeedNotGoal, senseDetails } from '@/lib/coherence/sense'
+import { parseNecessitySlug } from '@/lib/necessity/categories'
+import { applyUserLocation } from '@/lib/coherence/serviceCoverage'
 import { inferredTimelineEvent, summariseToLabel } from '@/lib/coherence/timelineExtract'
 import { guessDatePrecision, sortTimelineEventsByDate } from '@/lib/coherence/timelineDates'
 import { matterClassifierPrompt, nextPrompt } from '@/lib/coherence/questions'
@@ -75,6 +77,8 @@ import type { Mode, Party, Prompt, SearchMode, SessionState, TimelineEvent } fro
 import './CoherenceApp.css'
 
 const PENUMBRA_SKIP_QUESTION = '__penumbra_skip_question__'
+const VERIFY_EMAIL_AGENT_ERROR =
+  'Confirm your email to analyse your matter — use the yellow banner at the top of the page to resend the link.'
 
 type View = 'intake' | 'services' | 'notes' | 'oslaw' | 'lawyer-login' | 'lawyer-portal' | 'sra-org'
 
@@ -414,7 +418,12 @@ function sessionForDeepLinkIntake(): SessionState {
   }
 }
 
-function initialFromStorage(initialStory = ''): {
+function withNecessity(session: SessionState, necessity: string): SessionState {
+  const necessitySlug = parseNecessitySlug(necessity) || session.necessitySlug
+  return necessitySlug ? { ...session, necessitySlug } : session
+}
+
+function initialFromStorage(initialStory = '', initialNecessity = ''): {
   session: SessionState
   view: View
   shouldAutoRun: boolean
@@ -429,10 +438,18 @@ function initialFromStorage(initialStory = ''): {
         stored.view === 'services' || stored.view === 'notes' || stored.view === 'oslaw'
           ? stored.view
           : 'intake'
-      return { session: normalizeSession(stored.session), view, shouldAutoRun: false }
+      return {
+        session: withNecessity(normalizeSession(stored.session), initialNecessity),
+        view,
+        shouldAutoRun: false,
+      }
     }
     clearPersisted()
-    return { session: sessionForDeepLinkIntake(), view: 'intake', shouldAutoRun: true }
+    return {
+      session: withNecessity(sessionForDeepLinkIntake(), initialNecessity),
+      view: 'intake',
+      shouldAutoRun: true,
+    }
   }
 
   if (stored) {
@@ -469,17 +486,21 @@ function shouldRunMasterPipeline(
 type CoherenceAppProps = {
   /** Prefill / auto-run when arriving via ?q= (classic search deep-link). */
   initialStory?: string
+  /** Home necessity card slug (?necessity=). */
+  initialNecessity?: string
 }
 
-export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
-  const { requireCoherenceAuth, emailVerified, authRequired, user } = useCoherenceAuth()
-  const boot = useMemo(() => initialFromStorage(initialStory), [])
+export default function CoherenceApp({ initialStory = '', initialNecessity = '' }: CoherenceAppProps) {
+  const { requireCoherenceAuth, emailVerified, authRequired, user, promptEmailVerification } =
+    useCoherenceAuth()
+  const boot = useMemo(() => initialFromStorage(initialStory, initialNecessity), [])
   const [session, setSession] = useState<SessionState>(boot.session)
   const [view, setView] = useState<View>(boot.view)
   const pageHistoryRef = useRef<View[]>([boot.view])
   const pageIndexRef = useRef(0)
   const [, setPageNavigationVersion] = useState(0)
   const [selectedNode, setSelectedNode] = useState<string | undefined>()
+  const [showTimeline, setShowTimeline] = useState(false)
   const [llmConfigured, setLlmConfigured] = useState(false)
   const [llmStatusReady, setLlmStatusReady] = useState(false)
   /** Deep-link ?q= : hide ModeFork until auto-run starts (avoids Third Eye flash → jump). */
@@ -511,6 +532,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   const autoStartedRef = useRef(false)
   const shouldAutoRunRef = useRef(boot.shouldAutoRun)
   const lastStoryRef = useRef(initialStory.trim())
+  const lastNecessityRef = useRef(initialNecessity.trim())
 
   function resetPageNavigation(nextView: View) {
     pageHistoryRef.current = [nextView]
@@ -569,7 +591,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       setClientBootReady(true)
       return
     }
-    const nextBoot = initialFromStorage(story)
+    const nextBoot = initialFromStorage(story, initialNecessity)
     shouldAutoRunRef.current = nextBoot.shouldAutoRun
     autoStartedRef.current = false
     masterRanRef.current = nextBoot.session.rawInputs.length > 0
@@ -584,9 +606,11 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
   // New ?q= (or changed q) replaces stale persisted OSLAW / intake.
   useEffect(() => {
     const story = initialStory.trim()
-    if (story === lastStoryRef.current) return
+    const necessity = initialNecessity.trim()
+    if (story === lastStoryRef.current && necessity === lastNecessityRef.current) return
     lastStoryRef.current = story
-    const nextBoot = initialFromStorage(story)
+    lastNecessityRef.current = necessity
+    const nextBoot = initialFromStorage(story, initialNecessity)
     shouldAutoRunRef.current = nextBoot.shouldAutoRun
     autoStartedRef.current = false
     masterInFlightRef.current = false
@@ -606,7 +630,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
     setLlmBusy(false)
     setLlmEnhancing(false)
     setLlmPhase('idle')
-  }, [initialStory])
+  }, [initialStory, initialNecessity])
 
   useEffect(() => {
     if (view === 'lawyer-login' || view === 'lawyer-portal') return
@@ -1073,9 +1097,8 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
 
     const runMasterPipeline = async () => {
       if (authRequired && user && !emailVerified) {
-        setAgentError(
-          'Verify your email before analysing your matter. Check your inbox or request a new verification link from account settings.',
-        )
+        setAgentError(VERIFY_EMAIL_AGENT_ERROR)
+        promptEmailVerification()
         return
       }
 
@@ -1117,7 +1140,8 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
             return
           }
           if (master.error === 'email_verification_required') {
-            setAgentError('Verify your email before analysing your matter.')
+            setAgentError(VERIFY_EMAIL_AGENT_ERROR)
+            promptEmailVerification()
             return
           }
           if (
@@ -1589,6 +1613,9 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
           setSelectedSraId(sraId)
           navigatePage('sra-org')
         }}
+        onLocationChange={(input, nation) =>
+          setSession((prev) => applyUserLocation(prev, input, nation))
+        }
         pageNavigation={pageNavigation}
       />
     )
@@ -1740,20 +1767,29 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         </p>
       ) : null}
 
-      <Timeline
-        session={session}
-        activeId={selectedNode}
-        banners={timelineBanners}
-        onSelect={setSelectedNode}
-        onUpdateEvent={updateEvent}
-        onDeleteEvent={deleteEvent}
-        onMoveEvent={moveEvent}
-        onAddEvent={addEvent}
-        onSortByDate={sortEventsByDate}
-        onUpdateGoal={(goal) => setSession((prev) => ({ ...prev, goal }))}
-      />
+      <div className="shell__timeline-toggle">
+        <button type="button" onClick={() => setShowTimeline((open) => !open)}>
+          {showTimeline ? "Back to the question" : "Show timeline"}
+        </button>
+      </div>
 
-      <FrameChips frames={frames} />
+      {showTimeline ? (
+        <>
+          <Timeline
+            session={session}
+            activeId={selectedNode}
+            banners={timelineBanners}
+            onSelect={setSelectedNode}
+            onUpdateEvent={updateEvent}
+            onDeleteEvent={deleteEvent}
+            onMoveEvent={moveEvent}
+            onAddEvent={addEvent}
+            onSortByDate={sortEventsByDate}
+            onUpdateGoal={(goal) => setSession((prev) => ({ ...prev, goal }))}
+          />
+          <FrameChips frames={frames} />
+        </>
+      ) : null}
 
       {showDeepLinkBoot ? (
         <p className="research-dialogue-note" aria-live="polite">
@@ -1771,7 +1807,7 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
         />
       )}
 
-      <main className="shell__main">
+      {!showTimeline ? <main className="shell__main">
         {showDeepLinkBoot ? (
           <div className="deep-link-boot" aria-live="polite">
             <LoadingScreen phase="compiling" />
@@ -1820,9 +1856,9 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
             />
           </>
         )}
-      </main>
+      </main> : null}
 
-      {view === 'intake' && matterInspector ? (
+      {view === 'intake' && showTimeline && matterInspector ? (
         <div className="coherence-matter-inspector-wrap px-4 pb-2 md:px-6">
           <MatterFrameInspector inspector={matterInspector} />
         </div>

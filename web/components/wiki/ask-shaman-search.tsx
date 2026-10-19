@@ -96,7 +96,7 @@ function SectionHeading({
 }
 
 export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: AskShamanSearchProps) {
-  const { openAuthForSearch, loading: authLoading } = useRequireAuth();
+  const { openAuthForSearch, promptEmailVerification, loading: authLoading } = useRequireAuth();
   const [query, setQuery] = useState(initialQuery);
   const [location, setLocation] = useState(initialLocation);
   const [loading, setLoading] = useState(false);
@@ -165,6 +165,10 @@ export function AskShamanSearch({ initialQuery = "", initialLocation = "" }: Ask
           );
         }
         if (!guidanceRes.value.ok) {
+          if (payload.error === "email_verification_required") {
+            promptEmailVerification();
+            throw new Error("Confirm your email to see results — check the banner at the top of the page.");
+          }
           throw new Error(payload.error || "guidance_search_failed");
         }
         setGuidance(payload);

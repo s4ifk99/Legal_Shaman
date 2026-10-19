@@ -1,4 +1,5 @@
 import type { FreeResourceCandidate } from '@/lib/coherence/researchBundle'
+import { matchesDispute } from '@/lib/coherence/matchingRelevance'
 import { freeHelpAdmissibleOnGeometry } from '@/lib/matter/graphAdmissibility'
 
 export type ThirdEyeHelpLead = FreeResourceCandidate & { fromSession: boolean }
@@ -28,6 +29,19 @@ export function visibleThirdEyeHelp(opts: {
         resource.title,
         `${resource.description || ''} ${resource.url || ''}`,
         opts.story,
+      )
+    ) {
+      return
+    }
+    if (
+      !matchesDispute(
+        {
+          title: resource.title,
+          blurb: resource.description,
+          url: resource.url,
+          type: resource.resourceType,
+        },
+        { matterType: opts.matterType, text: opts.story },
       )
     ) {
       return

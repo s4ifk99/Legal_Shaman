@@ -14,6 +14,7 @@ import type { PublicUser } from "@/lib/auth/user-session";
 import type { BookmarkInput, BookmarkKey, BookmarkRecord } from "@/lib/bookmarks/types";
 import { bookmarkKeyString } from "@/lib/bookmarks/types";
 import { AuthDialog, type AuthDialogReason } from "@/components/bookmarks/auth-dialog";
+import { VerifyEmailGate } from "@/components/auth/verify-email-gate";
 import { resolveApiUrl } from "@/lib/site/api-url";
 
 type BookmarksContextValue = {
@@ -29,6 +30,10 @@ type BookmarksContextValue = {
   isBookmarked: (key: BookmarkKey) => boolean;
   toggleBookmark: (input: BookmarkInput) => Promise<boolean>;
   refreshBookmarks: () => Promise<void>;
+  /** Re-reads the signed-in user without toggling `loading` (e.g. after email verification). */
+  refreshSession: () => Promise<PublicUser | null>;
+  /** Opens the blocking "confirm your email" dialog. */
+  promptEmailVerification: () => void;
   signOut: () => Promise<void>;
 };
 
@@ -49,6 +54,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   const [authOpen, setAuthOpen] = useState(false);
   const [authReason, setAuthReason] = useState<AuthDialogReason>("bookmark");
   const [pendingBookmark, setPendingBookmark] = useState<BookmarkInput | null>(null);
+  const [verifyPromptOpen, setVerifyPromptOpen] = useState(false);
   const pendingSearchActionRef = useRef<(() => void) | null>(null);
 
   const refreshBookmarks = useCallback(async () => {
@@ -86,6 +92,22 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     void loadSession();
   }, [loadSession]);
+
+  const refreshSession = useCallback(async (): Promise<PublicUser | null> => {
+    try {
+      const res = await fetch(resolveApiUrl("/api/auth/session"), { cache: "no-store" });
+      if (!res.ok) return null;
+      const data = (await res.json()) as { user: PublicUser | null };
+      setUser(data.user);
+      return data.user;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const promptEmailVerification = useCallback(() => {
+    setVerifyPromptOpen(true);
+  }, []);
 
   const addBookmark = useCallback(async (input: BookmarkInput): Promise<boolean> => {
     const res = await fetch(resolveApiUrl("/api/bookmarks"), {
@@ -200,6 +222,8 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       isBookmarked,
       toggleBookmark,
       refreshBookmarks,
+      refreshSession,
+      promptEmailVerification,
       signOut,
     }),
     [
@@ -214,12 +238,24 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       isBookmarked,
       toggleBookmark,
       refreshBookmarks,
+      refreshSession,
+      promptEmailVerification,
       signOut,
     ],
   );
 
   return (
     <BookmarksContext.Provider value={value}>
+      <VerifyEmailGate
+        user={user}
+        promptOpen={verifyPromptOpen}
+        onPromptOpenChange={setVerifyPromptOpen}
+        refreshSession={refreshSession}
+        onUseDifferentEmail={async () => {
+          await signOut();
+          openAuth("login");
+        }}
+      />
       {children}
       <AuthDialog
         open={authOpen}

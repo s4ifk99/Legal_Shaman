@@ -54,23 +54,16 @@
 }
 
 .loading-screen__track {
-  height: 0.45rem;
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--primary, #1f5c45) 14%, transparent);
-  border: 1px solid color-mix(in oklab, var(--primary, #1f5c45) 28%, transparent);
+  height: 2px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #111;
   overflow: hidden;
 }
 
 .loading-screen__fill {
   height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    var(--primary, #1f5c45) 0%,
-    color-mix(in oklab, var(--primary, #1f5c45) 70%, var(--accent, #c9a227)) 55%,
-    var(--accent, #c9a227) 100%
-  );
-  box-shadow: 0 0 12px color-mix(in oklab, var(--accent, #c9a227) 35%, transparent);
+  background: #111;
   transition: width 120ms linear;
 }
 
@@ -100,12 +93,12 @@
 
 .loading-screen__step.is-done {
   opacity: 0.85;
-  color: var(--primary, #1f5c45);
+  color: #111;
 }
 
 .loading-screen__step.is-active {
   opacity: 1;
-  color: var(--primary, #1f5c45);
+  color: #111;
   font-weight: 700;
 }
 
@@ -113,7 +106,7 @@
   font-size: 0.72rem;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.04em;
-  color: var(--primary, #1f5c45);
+  color: #111;
   font-weight: 600;
 }
 
@@ -139,7 +132,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--primary);
+  color: #111;
 }
 
 @media (prefers-reduced-motion: reduce) {

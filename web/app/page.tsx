@@ -1,6 +1,7 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { CategoryCards, type CategorySection } from "@/components/category-cards";
+import { NecessityEntry } from "@/components/necessity-entry";
 import { ProductEntryCards } from "@/components/product-entry-cards";
 import { SearchBar } from "@/components/search-bar";
 import { SpiralBackground } from "@/components/spiral-decoration";
@@ -21,12 +22,16 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="mb-8 text-center">
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              How can we help?
+              What problem do you need help resolving today?
             </h2>
             <p className="mt-3 mx-auto max-w-2xl text-muted-foreground md:text-lg">
               Guided matching or Signpost for trusted national resources. Signposting only — we are
               not a solicitor and we do not give legal advice.
             </p>
+          </div>
+          <NecessityEntry />
+          <div className="mb-4 mt-10 text-center">
+            <h3 className="font-serif text-xl font-semibold text-foreground">Or start another way</h3>
           </div>
           <ProductEntryCards />
         </div>

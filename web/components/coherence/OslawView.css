@@ -389,6 +389,15 @@
   background: color-mix(in oklab, var(--action, #1f5c45) 88%, black);
 }
 
+.oslaw__find-sticky {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  z-index: 30;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
 .oslaw__research-panel {
   display: flex;
   flex-direction: column;

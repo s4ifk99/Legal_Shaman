@@ -63,6 +63,23 @@
   opacity: 1;
 }
 
+.shell__timeline-toggle {
+  padding: 0.75rem 1.25rem 0;
+}
+
+.shell__timeline-toggle button {
+  background: var(--paper, #fff);
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+}
+
 .shell__main {
   flex: 1;
   display: flex;

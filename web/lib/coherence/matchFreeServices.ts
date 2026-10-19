@@ -2,6 +2,7 @@
  * Offline free-services index — dialable charities, helplines, trusts per indexed area.
  * Filled by seed + exa_free_services_fill.py; product never calls Exa live.
  */
+import { matchesDispute, withSingleCitizensAdviceLast } from './matchingRelevance'
 import { isParkingStoryText } from './signposting'
 import { buildRetrievalText } from './retrievalText'
 import {
@@ -409,9 +410,9 @@ function pinMatterSpecialists(
     ? (['fs-cab-adviceline-england'] as const)
     : isInsuranceComplaintStoryText(text)
       ? INSURANCE_SPECIALIST_IDS
-    : effectiveMatter
-      ? MATTER_SPECIALIST_IDS[effectiveMatter]
-      : undefined
+      : effectiveMatter
+        ? MATTER_SPECIALIST_IDS[effectiveMatter]?.filter((id) => id !== 'fs-cab-adviceline-england')
+        : undefined
   if (!specialistIds?.length) return ranked
 
   const byId = new Map(services.map((s) => [s.id, s]))
@@ -488,7 +489,18 @@ export function matchFreeServices(session: SessionState, limit = 10): FreeServic
     if (out.length >= limit) break
   }
 
-  return pinMatterSpecialists(out, matter, text, bundle.services, limit).filter((hit) =>
-    freeHelpAdmissibleOnGeometry(hit.title, hit.blurb, text),
+  const pinned = pinMatterSpecialists(out, matter, text, bundle.services, limit).filter(
+    (hit) =>
+      freeHelpAdmissibleOnGeometry(hit.title, hit.blurb, text) &&
+      matchesDispute(
+        { title: hit.title, blurb: hit.blurb, url: hit.url, type: hit.type },
+        {
+          matterType: matter,
+          taxonomySlug: session.taxonomySlug,
+          necessitySlug: session.necessitySlug,
+          text,
+        },
+      ),
   )
+  return withSingleCitizensAdviceLast(pinned)
 }

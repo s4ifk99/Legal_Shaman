@@ -36,7 +36,13 @@ export function LegalKnowledgeSearch({
   initialQuery = "",
   initialLocation = "",
 }: LegalKnowledgeSearchProps) {
-  const { requireAuth, openAuthForSearch, user, loading: authLoading } = useRequireAuth();
+  const {
+    requireAuth,
+    openAuthForSearch,
+    promptEmailVerification,
+    user,
+    loading: authLoading,
+  } = useRequireAuth();
   const [query, setQuery] = useState(initialQuery);
   const [location, setLocation] = useState(initialLocation);
   const [criteria, setCriteria] = useState<SearchCriterion[]>([]);
@@ -114,6 +120,10 @@ export function LegalKnowledgeSearch({
       if (res.status === 401) {
         openAuthForSearch(() => void runSearch(trimmed, loc));
         return;
+      }
+      if (payload.error === "email_verification_required") {
+        promptEmailVerification();
+        throw new Error("Confirm your email to see results — check the banner at the top of the page.");
       }
       if (!res.ok) throw new Error(payload.error || "search_failed");
       setResult(payload);

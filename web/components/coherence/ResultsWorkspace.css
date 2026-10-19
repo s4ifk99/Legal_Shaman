@@ -1,0 +1,139 @@
+.workspace {
+  margin: 1.25rem 0 1.75rem;
+  padding: 1rem 0 0.25rem;
+  border-top: 1px solid var(--ink, #1c1917);
+}
+
+.workspace__group {
+  scroll-margin-top: 1.25rem;
+}
+
+.workspace__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+}
+
+.workspace__lead,
+.workspace__count,
+.workspace__meta,
+.workspace__source {
+  margin: 0.2rem 0;
+  color: var(--ink-faint, #57534e);
+  font-size: 0.9rem;
+}
+
+.workspace__filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.75rem;
+  margin: 0.85rem 0;
+}
+
+.workspace__filters label,
+.workspace__notes label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.workspace__filters select,
+.workspace__notes input,
+.workspace__notes select,
+.workspace__notes textarea {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--ink, #1c1917);
+  background: transparent;
+  color: inherit;
+}
+
+.workspace__notes textarea {
+  min-height: 4.5rem;
+}
+
+.workspace__compare {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.workspace__compare article {
+  border: 1px solid var(--ink, #1c1917);
+  padding: 0.75rem;
+}
+
+.workspace__compare h3,
+.workspace__body h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.workspace__compare p,
+.workspace__body p {
+  margin: 0.15rem 0;
+  font-size: 0.85rem;
+}
+
+.workspace__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.workspace__item {
+  border-top: 1px solid var(--ink, #1c1917);
+  padding: 0.85rem 0;
+}
+
+.workspace__row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.workspace__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.workspace__actions button,
+.workspace__notes-actions button {
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--ink, #1c1917);
+  background: transparent;
+  cursor: pointer;
+}
+
+.workspace__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.workspace__notes {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--ink, #1c1917);
+}
+
+.workspace__notes-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+@media (max-width: 720px) {
+  .workspace__row {
+    grid-template-columns: 1fr;
+  }
+}

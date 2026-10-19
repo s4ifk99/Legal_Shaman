@@ -5,7 +5,7 @@ import type { AuthDialogReason } from "@/components/bookmarks/auth-dialog";
 import { requireCoherenceAuthEnabled } from "@/lib/auth/coherence-auth-config";
 
 export function useCoherenceAuth() {
-  const { user, requireAuth, loading } = useBookmarks();
+  const { user, requireAuth, promptEmailVerification, loading } = useBookmarks();
   const authRequired = requireCoherenceAuthEnabled();
 
   return {
@@ -14,6 +14,7 @@ export function useCoherenceAuth() {
     authRequired,
     emailVerified: user?.emailVerified !== false,
     isAuthenticated: Boolean(user),
+    promptEmailVerification,
     requireCoherenceAuth: (action: () => void) => {
       if (!authRequired) {
         action();

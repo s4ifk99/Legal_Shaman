@@ -33,6 +33,8 @@ export type MatterType =
 
 export type Jurisdiction = 'EnglandWales' | 'Scotland' | 'NorthernIreland' | 'Unknown'
 
+export type UkNation = 'england' | 'wales' | 'scotland' | 'northern_ireland'
+
 export type Mode = 'browse' | 'dispute' | 'info' | 'research' | 'urgent' | 'unknown'
 export type SearchMode = 'umbra' | 'penumbra'
 export type PenumbraResearchStatus = 'idle' | 'starting' | 'awaiting_input' | 'complete' | 'error'
@@ -68,6 +70,10 @@ export interface SessionState {
   matterType: MatterType
   jurisdiction: Jurisdiction
   locationHint: string
+  /** Home necessity card that started this session. Does not restrict later research. */
+  necessitySlug?: string
+  /** Nation the user chose or we resolved from the Matching help location field. */
+  locationNation?: UkNation
   mode: Mode
   /** Retrieval breadth preference; hard safety and grounding checks apply in both modes. */
   searchMode: SearchMode

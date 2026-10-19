@@ -5,7 +5,7 @@ import type { AuthDialogReason } from "@/components/bookmarks/auth-dialog";
 import { requireSearchAuthEnabled } from "@/lib/auth/search-auth-config";
 
 export function useRequireAuth() {
-  const { user, requireAuth, openAuthForSearch, loading } = useBookmarks();
+  const { user, requireAuth, openAuthForSearch, promptEmailVerification, loading } = useBookmarks();
   const searchAuthOn = requireSearchAuthEnabled();
   return {
     user,
@@ -24,6 +24,7 @@ export function useRequireAuth() {
       }
       openAuthForSearch(retry);
     },
+    promptEmailVerification,
     isAuthenticated: Boolean(user),
     searchAuthRequired: searchAuthOn,
   };

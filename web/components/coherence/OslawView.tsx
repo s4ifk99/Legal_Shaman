@@ -584,6 +584,19 @@ export function OslawView({
   const [preflightIssues, setPreflightIssues] = useState<PreflightIssue[]>([])
   const mountedAt = useRef(Date.now())
   const previousMode = useRef(searchMode)
+  const findHelpRef = useRef<HTMLDivElement>(null)
+  const [findHelpPinned, setFindHelpPinned] = useState(false)
+
+  useEffect(() => {
+    const node = findHelpRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setFindHelpPinned(entry ? !entry.isIntersecting : false),
+      { threshold: 0.4 },
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [loading])
 
   useEffect(() => {
     let cancelled = false
@@ -750,7 +763,7 @@ export function OslawView({
             onStart={onStartPenumbraResearch}
             onUseFindings={onUsePenumbraResearch}
           />
-          <div className="oslaw__actions">
+          <div className="oslaw__actions" ref={findHelpRef}>
             <button type="button" className="oslaw__btn oslaw__btn--primary" onClick={onFindHelp}>
               Find people to help
             </button>
@@ -760,6 +773,12 @@ export function OslawView({
           </div>
         </div>
       )}
+
+      {findHelpPinned ? (
+        <button type="button" className="oslaw__btn oslaw__btn--primary oslaw__find-sticky" onClick={onFindHelp}>
+          Find people to help
+        </button>
+      ) : null}
 
       {!loading && !ready && (
         <div className="oslaw__body">

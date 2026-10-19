@@ -650,6 +650,7 @@ model User {
   createdAt         DateTime                  @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt         DateTime                  @updatedAt @map("updated_at") @db.Timestamptz(3)
   bookmarks         Bookmark[]
+  providerNotes     ProviderNote[]
   usageEvents       UsageEvent[]
   verificationTokens EmailVerificationToken[]
   passwordResetTokens PasswordResetToken[]
@@ -734,6 +735,30 @@ model Bookmark {
   @@unique([userId, entityId, resultSource])
   @@index([userId, createdAt])
   @@map("bookmarks")
+}
+
+/// Private contact note for one organisation in a user's research workspace.
+model ProviderNote {
+  id                String   @id @default(cuid())
+  userId            String   @map("user_id")
+  providerKey       String   @map("provider_key") @db.VarChar(512)
+  displayName       String   @map("display_name") @db.VarChar(512)
+  url               String?  @db.VarChar(1024)
+  status            String   @default("not_contacted") @db.VarChar(32)
+  contactedOn       String?  @map("contacted_on") @db.VarChar(32)
+  contactName       String?  @map("contact_name") @db.VarChar(255)
+  whatTheySaid      String?  @map("what_they_said") @db.Text
+  feesOrEligibility String?  @map("fees_or_eligibility") @db.Text
+  followUp          String?  @map("follow_up") @db.Text
+  impression        String?  @db.Text
+  shortlisted       Boolean  @default(false)
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, providerKey])
+  @@index([userId, updatedAt])
+  @@map("provider_notes")
 }
 
 /// One triage summary email per session (Trustpilot AFS + consent audit).

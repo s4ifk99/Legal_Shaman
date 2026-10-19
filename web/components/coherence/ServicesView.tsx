@@ -1,5 +1,14 @@
-import { useEffect, useMemo, useState } from 'react'
-import type { SessionState } from '@/lib/coherence/types'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import type { SessionState, UkNation } from '@/lib/coherence/types'
+import {
+  availabilityAt,
+  coverageForService,
+  coverageLabel,
+  NATION_LABEL,
+  resolveSessionLocation,
+  type Alternative,
+  type UserLocation,
+} from '@/lib/coherence/serviceCoverage'
 import { proposeLegalFrames, type LegalFrame } from '@/lib/coherence/frames'
 import {
   buildHelpPack,
@@ -26,6 +35,16 @@ import {
   type SearchMagLevel,
 } from '@/lib/coherence/searchMagnification'
 import { visibleThirdEyeHelp } from '@/lib/coherence/thirdEyeMatchingHelp'
+import { toWorkspaceProviders, type WorkspaceSource } from '@/lib/coherence/providerRecords'
+import {
+  curateMatchingProviders,
+  disputeLens,
+  matchesDispute,
+  parkedOffMatchingHelp,
+  withSingleCitizensAdviceLast,
+} from '@/lib/coherence/matchingRelevance'
+import { housingDeadlineApplies, urgencyForNecessity } from '@/lib/necessity/categories'
+import { ResultsWorkspace, type WorkspaceSection } from './ResultsWorkspace'
 import type { HelpMatchResult } from '@/lib/coherence/masterAgent'
 import { buildLawyerBrief, briefToPlainText, placeForSummary } from '@/lib/coherence/brief'
 import { computeProgress } from '@/lib/coherence/slots'
@@ -41,6 +60,7 @@ import { SraAttribution } from '@/components/sra-attribution'
 import { sraLaneAlert, sraRegisterFootnote } from '@/lib/coherence/sraRegisterFootnote'
 import { captureProductEvent } from '@/components/analytics/posthog-provider'
 import { PageNavigation, type PageNavigationProps } from './PageNavigation'
+import { LocationField } from './LocationField'
 import './ServicesView.css'
 
 interface Props {
@@ -49,6 +69,7 @@ interface Props {
   helpMatch?: HelpMatchResult | null
   onBack: () => void
   onOpenSraFirm?: (sraId: string) => void
+  onLocationChange?: (input: string, nation: UkNation | null) => void
   pageNavigation?: PageNavigationProps
 }
 
@@ -64,6 +85,86 @@ type Row = {
   score?: number
   relevance?: string
   rawSource?: boolean
+  /** Coverage tag shown when the user hasn't given a location, e.g. "England only". */
+  coverage?: string
+  city?: string
+}
+
+type MissingRow = { id: string; title: string; reason: string; alternative?: Alternative }
+
+/**
+ * Keep rows that serve the user's location; record the rest in `missing`.
+ * Rows past `missingCutoff` are dropped silently (they would not have been shown anyway).
+ */
+function partitionByLocation(
+  rows: Row[],
+  loc: UserLocation | null,
+  missing: Map<string, MissingRow>,
+  missingCutoff = Infinity,
+): Row[] {
+  const out: Row[] = []
+  rows.forEach((row, index) => {
+    const coverage = coverageForService({
+      id: row.id,
+      title: row.title,
+      url: row.url,
+      type: row.type,
+      sraId: row.sraId,
+    })
+    const availability = availabilityAt(coverage, loc)
+    if (availability.available) {
+      out.push(loc ? row : { ...row, coverage: coverageLabel(coverage) ?? undefined })
+      return
+    }
+    if (index >= missingCutoff) return
+    const key = row.title.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+    if (!missing.has(key)) {
+      missing.set(key, {
+        id: row.id,
+        title: row.title,
+        reason: availability.reason,
+        alternative: availability.alternative,
+      })
+    }
+  })
+  return out
+}
+
+function MissingSection({ place, rows }: { place: string; rows: MissingRow[] }) {
+  if (!rows.length) return null
+  return (
+    <section
+      id="services-missing"
+      className="services__section services__section--missing"
+      aria-labelledby="services-missing-title"
+    >
+      <h2 id="services-missing-title" className="services__section-title">
+        Not available in {place} ({rows.length})
+      </h2>
+      <p className="services__section-lead">
+        These matched your situation but don&apos;t cover where you are, so we&apos;ve left them out
+        of the lists above.
+      </p>
+      <ul className="services__missing-list">
+        {rows.map((r) => (
+          <li key={r.id} className="services__missing-item">
+            <p className="services__missing-name">{r.title}</p>
+            <p className="services__missing-reason">{r.reason}</p>
+            {r.alternative ? (
+              <a
+                className="services__link"
+                href={r.alternative.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Try instead: {r.alternative.title} →
+              </a>
+            ) : null}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
 }
 
 function formatPhoneDisplay(phone: string): string {
@@ -188,6 +289,7 @@ function Item({
     <li className={s.rawSource ? 'services__item services__item--raw' : 'services__item'}>
       <div className="services__item-top">
         <span className="services__type">{shortTypeLabel(s.type)}</span>
+        {s.coverage ? <span className="services__coverage">{s.coverage}</span> : null}
         {showScore ? (
           <span className="services__relevance-score" title="Match strength">
             Relevance {Math.min(99, Math.round(s.score!))}
@@ -478,6 +580,7 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
   const propertyDamage = isPropertyDamageClaimText(story)
   const familyBelongings = isFamilyBelongingsDisputeText(story)
 
+  if (parkedOffMatchingHelp(row.title, `${row.blurb || ''} ${row.url || ''}`)) return false
   if (!freeHelpAdmissibleOnGeometry(row.title, `${row.blurb || ''} ${row.url || ''}`, story)) {
     return false
   }
@@ -517,11 +620,6 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
     )
   }
 
-  // Core free advice hubs — always OK when not parking-gated above
-  if (/citizens advice|advicenow|legal aid|lawworks|pro bono|civil legal advice|check if you are eligible/.test(hay)) {
-    return true
-  }
-
   // Family + damaged belongings / sue → consumer / small-claims free help, not DA packs
   if (familyBelongings || (matter === 'family' && propertyDamage)) {
     if (
@@ -536,10 +634,15 @@ function isRelevantFreeHelp(row: Row, session: SessionState): boolean {
     )
   }
 
-  if (matter === 'housing') {
-    return /hous|tenant|landlord|rent|deposit|shelter|homeless|evict|possession|flatmate|roommate|notice to quit|section 21|hlpas|leasehold/.test(
-      hay,
-    )
+  const dispute = {
+    necessitySlug: session.necessitySlug,
+    taxonomySlug: session.taxonomySlug,
+    matterType: session.matterType,
+    text: story,
+  }
+  if (!matchesDispute(row, dispute)) return false
+  if (matter === 'housing' || disputeLens(dispute) === 'neighbour' || disputeLens(dispute) === 'tenancy') {
+    return true
   }
   if (matter === 'consumer' || propertyDamage) {
     return /consumer|refund|trader|ombudsman|resolver|which\b|faulty|goods|small claim|money claim|citizens advice|advicenow/.test(
@@ -644,7 +747,12 @@ function mergeFreeHelp(
   }
   for (const row of probono) push(row)
 
-  return out.slice(0, limit)
+  const ordered = withSingleCitizensAdviceLast(out)
+  const fallback = ordered.at(-1)
+  const adviceLast = Boolean(fallback && /citizens advice/i.test(fallback.title))
+  const rest = adviceLast ? ordered.slice(0, -1) : ordered
+  const room = adviceLast ? limit - 1 : limit
+  return [...rest.slice(0, room), ...(adviceLast && fallback ? [fallback] : [])]
 }
 
 export function ServicesView({
@@ -653,8 +761,10 @@ export function ServicesView({
   helpMatch = null,
   onBack,
   onOpenSraFirm,
+  onLocationChange,
   pageNavigation,
 }: Props) {
+  const userLocation = useMemo(() => resolveSessionLocation(session), [session])
   const [pack, setPack] = useState<HelpPack | null>(null)
   const [cachedHelp, setCachedHelp] = useState<
     NonNullable<SessionState['penumbraResearch']>['bundle']['freeResources']
@@ -754,6 +864,7 @@ export function ServicesView({
       phone: s.phone,
       url: s.url,
       sraId: s.sraId,
+      city: s.city,
       score: s.score,
       relevance: s.blurb.split(' — ')[0],
     })) ?? []
@@ -837,8 +948,13 @@ export function ServicesView({
     url: resource.url,
     phone: resource.phone,
   }))
-  const visibleThirdEyeFree = showThirdEyeHelpAtMag(mag) ? thirdEyeFreeRows : []
-  const visibleThirdEyePaid = showThirdEyeHelpAtMag(mag) ? thirdEyePaidRows : []
+  const missing = new Map<string, MissingRow>()
+  const visibleThirdEyeFree = showThirdEyeHelpAtMag(mag)
+    ? partitionByLocation(thirdEyeFreeRows, userLocation, missing)
+    : []
+  const visibleThirdEyePaid = showThirdEyeHelpAtMag(mag)
+    ? partitionByLocation(thirdEyePaidRows, userLocation, missing)
+    : []
 
   const agentDirRows: Row[] =
     helpMatch?.directories.map((s) => ({
@@ -861,16 +977,21 @@ export function ServicesView({
       relevance: compactBlurb(s.blurb, 110),
     })) ?? []
 
-  const freeRowsUnsorted = mergeFreeHelp(
-    freeServiceRows,
-    authorityOfficialRows,
-    agentFreeRows,
-    signRows,
-    aidRows,
-    proRows,
-    session,
+  const freeRowsUnsorted = partitionByLocation(
+    mergeFreeHelp(
+      freeServiceRows,
+      authorityOfficialRows,
+      agentFreeRows,
+      signRows,
+      aidRows,
+      proRows,
+      session,
+      40,
+    ),
+    userLocation,
+    missing,
     12,
-  )
+  ).slice(0, 12)
   const peopleOrder = new Map(
     rankPeopleFirst(
       freeRowsUnsorted.map((r) => ({
@@ -912,8 +1033,27 @@ export function ServicesView({
 
   const directoryRows: Row[] = agentDirRows.length > 0 ? agentDirRows : dirRows
 
-  const visibleSolicitorRows = showSolicitorsAtMag(mag) ? solicitorRows : []
-  const visibleDirectoryRows = showDirectoriesAtMag(mag) ? directoryRows : []
+  const solicitorRowsAtMag = showSolicitorsAtMag(mag) ? solicitorRows : []
+  const visibleSolicitorRows = partitionByLocation(solicitorRowsAtMag, userLocation, missing)
+  const solicitorsHiddenByLocation = solicitorRowsAtMag.length > 0 && visibleSolicitorRows.length === 0
+  const visibleDirectoryRows = showDirectoriesAtMag(mag)
+    ? partitionByLocation(directoryRows, userLocation, missing)
+    : []
+  const missingRows = [...missing.values()]
+  const localHelpByUrl = new Map<string, { title: string; url: string; replaces: string[] }>()
+  for (const m of missingRows) {
+    if (!m.alternative) continue
+    const entry = localHelpByUrl.get(m.alternative.url) ?? { ...m.alternative, replaces: [] }
+    entry.replaces.push(m.title)
+    localHelpByUrl.set(m.alternative.url, entry)
+  }
+  const localHelpRows: Row[] = [...localHelpByUrl.values()].map((alt) => ({
+    id: `local-alt:${alt.url}`,
+    type: 'Free help',
+    title: alt.title,
+    blurb: `Covers ${userLocation?.nation ? NATION_LABEL[userLocation.nation] : 'your area'} — in place of ${alt.replaces.join(', ')}.`,
+    url: alt.url,
+  }))
   const rawSourceRows: Row[] = showRawSourcesAtMag(mag)
     ? [
         ...(pack?.phase2Wiki || []).map((s) => ({
@@ -948,7 +1088,32 @@ export function ServicesView({
     : []
 
   const showSraSolicitors = visibleSolicitorRows.some((r) => r.sraId) || (showSolicitorsAtMag(mag) && sraRows.length > 0)
-  const sraAlert = !loading && showSolicitorsAtMag(mag) ? sraLaneAlert(pack?.meta.sra, visibleSolicitorRows.length) : null
+  const sraAlert =
+    !loading && showSolicitorsAtMag(mag) && !solicitorsHiddenByLocation
+      ? sraLaneAlert(pack?.meta.sra, visibleSolicitorRows.length)
+      : null
+
+  const locationKey = userLocation ? `${userLocation.nation}:${userLocation.label}` : ''
+  const lastLocationEvent = useRef('')
+  useEffect(() => {
+    if (loading || !userLocation) return
+    const key = `${locationKey}:${missingRows.length}`
+    if (lastLocationEvent.current === key) return
+    lastLocationEvent.current = key
+    captureProductEvent('matching_help_location_filtered', {
+      nation: userLocation.nation ?? 'unknown',
+      london: userLocation.london,
+      hidden_count: missingRows.length,
+    })
+  }, [loading, locationKey, missingRows.length, userLocation])
+
+  function handleLocationChange(input: string, nation: UkNation | null) {
+    captureProductEvent('matching_help_location_set', {
+      nation: nation ?? 'cleared',
+      has_postcode: /\d/.test(input),
+    })
+    onLocationChange?.(input, nation)
+  }
 
   useEffect(() => {
     if (loading || !pack || solicitorRows.length > 0) return
@@ -960,8 +1125,108 @@ export function ServicesView({
     })
   }, [loading, pack, solicitorRows.length, helpSession.matterType, helpSession.taxonomySlug])
 
+  function asSource(rows: Row[], sourceLabel: string, loc: UserLocation | null): WorkspaceSource[] {
+    return rows.map((row) => {
+      const coverage = coverageForService({
+        id: row.id,
+        title: row.title,
+        url: row.url,
+        type: row.type,
+        sraId: row.sraId,
+      })
+      const label = row.coverage || coverageLabel(coverage) || undefined
+      const availability = loc ? availabilityAt(coverage, loc) : { available: true as const }
+      let coversPlace = availability.available
+      let unavailableReason = availability.available ? undefined : availability.reason
+      if (coversPlace && row.sraId && loc) {
+        const town = loc.label.split(',')[0]?.trim().toLowerCase()
+        const city = (row.city || '').trim().toLowerCase()
+        const near = Boolean(town && city && (city.includes(town) || town.includes(city)))
+        coversPlace = near
+        unavailableReason = near
+          ? undefined
+          : row.city
+            ? `Office listed in ${row.city}, not ${loc.label}`
+            : `No office town on the SRA row for ${loc.label}`
+      }
+      return {
+        id: row.id,
+        type: row.type,
+        title: row.title,
+        blurb: row.blurb,
+        url: row.url,
+        phone: row.phone,
+        sraId: row.sraId,
+        coverage: label,
+        city: row.city,
+        sourceLabel,
+        coversPlace,
+        unavailableReason,
+      }
+    })
+  }
+
+  const disputeContext = {
+    necessitySlug: session.necessitySlug,
+    taxonomySlug: helpSession.taxonomySlug,
+    matterType: helpSession.matterType,
+    text: thirdEyeStory,
+  }
+  const workspaceProviders = curateMatchingProviders(toWorkspaceProviders([
+    ...asSource(localHelpRows, 'Indexed free help', userLocation),
+    ...asSource(freeRows, 'Indexed free help', userLocation),
+    ...asSource(thirdEyeFreeRows, 'Third Eye', userLocation),
+    ...asSource(solicitorRows, 'SRA register', userLocation),
+    ...asSource(thirdEyePaidRows, 'Third Eye', userLocation),
+    ...asSource(directoryRows, 'Official directory', userLocation),
+  ]), disputeContext)
+  const wikiRows: Row[] = [
+    ...(pack?.phase2Wiki || []).map((s) => ({
+      id: `wiki-${s.id}`,
+      type: 'Wiki guide',
+      title: s.title,
+      blurb: s.description,
+      url: s.sourceUrl,
+    })),
+    ...(pack?.v1Wiki || []).map((s) => ({
+      id: `wiki-v1-${s.id}`,
+      type: 'Wiki guide',
+      title: s.title,
+      blurb: s.description,
+      url: s.sourceUrl,
+    })),
+  ]
+  const wikiProviders = toWorkspaceProviders(asSource(wikiRows, 'Wiki guide', userLocation)).filter((provider) =>
+    matchesDispute(
+      { title: provider.name, blurb: provider.blurb, type: 'Wiki guide' },
+      disputeContext,
+    ),
+  )
+  const solicitorProviders = workspaceProviders.filter(
+    (provider) => provider.sraId || provider.positioning === 'sra_firm' || provider.positioning === 'directory',
+  )
+  const solicitorKeys = new Set(solicitorProviders.map((provider) => provider.key))
+  const freeProviders = workspaceProviders.filter((provider) => !solicitorKeys.has(provider.key))
+  const resourceSections: WorkspaceSection[] = [
+    { id: 'free-services', title: 'Free services', providers: freeProviders },
+    { id: 'solicitors', title: 'Solicitors', providers: solicitorProviders },
+    { id: 'wiki-guides', title: 'Wiki guides', providers: wikiProviders },
+  ]
+
+  const urgency = housingDeadlineApplies({
+    necessitySlug: session.necessitySlug,
+    matterType: helpSession.matterType,
+    taxonomySlug: helpSession.taxonomySlug,
+    text: thirdEyeStory,
+  })
+    ? urgencyForNecessity('property-housing')
+    : isParkingStoryText(thirdEyeStory) || session.necessitySlug === 'pcn'
+      ? urgencyForNecessity('pcn')
+      : null
+
   const empty =
     !loading &&
+    !localHelpRows.length &&
     !freeRows.length &&
     !visibleSolicitorRows.length &&
     !visibleDirectoryRows.length &&
@@ -977,115 +1242,48 @@ export function ServicesView({
           ← Back to timeline
         </button>
         <h1 className="services__title">Matching help</h1>
-        <p className="services__sub">
-          {SEARCH_MAG_META[mag].hint} Not legal advice.
-        </p>
+        <nav className="services__jumps" aria-label="Resource groups">
+          <a href="#free-services">
+            Free services
+            <span>{freeProviders.length}</span>
+          </a>
+          <a href="#solicitors">
+            Solicitors
+            <span>{solicitorProviders.length}</span>
+          </a>
+          <a href="#wiki-guides">
+            Wiki guides
+            <span>{wikiProviders.length}</span>
+          </a>
+        </nav>
+        <p className="services__sub">Not legal advice.</p>
+        {urgency ? (
+          <div className="services__urgency" role="status">
+            <p className="services__urgency-title">{urgency.title}</p>
+            <p>{urgency.body}</p>
+            <p className="services__urgency-links">
+              {urgency.links.map((link) => (
+                <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                  {link.label}
+                </a>
+              ))}
+            </p>
+          </div>
+        ) : null}
       </header>
 
-      <div className="services__layout">
-        <StickyCaseRail session={helpSession} frames={helpFrames} />
+      <div className="services__layout services__layout--results">
         <div className="services__main">
-          <CaseContext session={helpSession} frames={helpFrames} />
-
           <div className="services__matches">
-            <h2 className="services__band-title">Who to contact</h2>
-            <SearchMagnificationSlider value={mag} onChange={onMagChange} />
-            <p className="services__band-lead">
-              {mag <= 2
-                ? 'People and official doors first. Slide toward Matched to include SRA firms.'
-                : mag === 5
-                  ? 'Raw retrieved sources are listed below the admitted doors. Verify every page yourself.'
-                  : 'Curated contacts for this dispute — free help and SRA-regulated firms.'}
-            </p>
-
             {loading ? (
               <p className="services__blurb">Loading matching guidance…</p>
-            ) : empty ? (
-              <p className="services__blurb">No matches yet — try adding a place or more detail.</p>
             ) : (
-              <>
-                {sraAlert ? (
-                  <div
-                    className={
-                      sraAlert.tone === 'alert'
-                        ? 'services__sra-banner services__sra-banner--alert'
-                        : 'services__sra-banner'
-                    }
-                    role={sraAlert.tone === 'alert' ? 'alert' : 'status'}
-                  >
-                    <p className="services__sra-banner-title">{sraAlert.title}</p>
-                    <p className="services__sra-banner-detail">{sraAlert.detail}</p>
-                  </div>
-                ) : null}
-                {showSolicitorsAtMag(mag) ? (
-                  <Section
-                    title="SRA-regulated solicitors"
-                    lead={
-                      visibleSolicitorRows.length
-                        ? session.locationHint
-                          ? `Firms for ${session.locationHint} and your dispute type — confirm they take your matter.`
-                          : 'Firms from the SRA register for this dispute type — add a town or postcode to rank nearby.'
-                        : undefined
-                    }
-                    rows={visibleSolicitorRows}
-                    mag={mag}
-                    onOpenSraFirm={onOpenSraFirm}
-                  />
-                ) : null}
-                {showSolicitorsAtMag(mag) && !visibleSolicitorRows.length && !sraAlert ? (
-                  <p className="services__empty-solicitors" role="status">
-                    No named SRA firms matched this dispute yet.
-                  </p>
-                ) : null}
-                <Section
-                  title="Free help"
-                  lead="Charities and helplines matched to this dispute type."
-                  rows={freeRows}
-                  variant="free"
-                  mag={mag}
-                  onOpenSraFirm={onOpenSraFirm}
-                />
-                {visibleThirdEyeFree.length > 0 && (
-                  <Section
-                    title="Third Eye · free help found"
-                    lead="Helplines and charities Third Eye found for this matter. Shown whether or not they have been approved into the trusted index. Verify before you contact them."
-                    rows={visibleThirdEyeFree}
-                    variant="free"
-                    mag={mag}
-                    onOpenSraFirm={onOpenSraFirm}
-                  />
-                )}
-                {visibleThirdEyePaid.length > 0 && (
-                  <Section
-                    title="Third Eye · paid / regulated directories"
-                    lead="Find-a-solicitor directories Third Eye found. They do not replace the live SRA matches above."
-                    rows={visibleThirdEyePaid}
-                    mag={mag}
-                    onOpenSraFirm={onOpenSraFirm}
-                  />
-                )}
-                {visibleDirectoryRows.length > 0 && (
-                  <Section
-                    title="Official directories"
-                    lead="Secondary — search the registers yourself if you need a wider list. Not a substitute for named SRA firms above."
-                    rows={visibleDirectoryRows}
-                    mag={mag}
-                    onOpenSraFirm={onOpenSraFirm}
-                  />
-                )}
-                {rawSourceRows.length > 0 && (
-                  <Section
-                    title="Raw search results"
-                    lead="What retrieval returned before people-first ranking. Signposting only — not advice."
-                    rows={rawSourceRows}
-                    mag={mag}
-                    onOpenSraFirm={onOpenSraFirm}
-                  />
-                )}
-                {showSraSolicitors ? (
-                  <SraAttribution className="services__sra-attribution" />
-                ) : null}
-              </>
+              <ResultsWorkspace
+                providers={[...freeProviders, ...solicitorProviders, ...wikiProviders]}
+                sections={resourceSections}
+                place={userLocation}
+                onPlaceChange={onLocationChange ? handleLocationChange : undefined}
+              />
             )}
           </div>
 

@@ -3,6 +3,7 @@
 import { LogOut } from "lucide-react";
 import Link from "next/link";
 
+import { ProviderNotesList } from "@/components/provider-notes/provider-notes-list";
 import { ExpandableDirectoryList } from "@/components/search/expandable-directory-list";
 import { useBookmarks } from "@/components/bookmarks/bookmarks-provider";
 import { Button } from "@/components/ui/button";
@@ -49,7 +50,9 @@ export function BookmarksPageClient() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-10">
+      <ProviderNotesList />
+      <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-muted-foreground">
           Signed in as <span className="font-medium text-foreground">{user.name}</span> ({user.email})
@@ -86,6 +89,7 @@ export function BookmarksPageClient() {
           />
         </div>
       )}
+      </div>
     </div>
   );
 }
