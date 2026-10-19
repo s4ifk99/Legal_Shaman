@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-19T11:43:17.133Z",
+    "scrapedAt": "2026-10-19T22:01:00.225Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 9,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -23,6 +23,66 @@
           "numComments": 0,
           "createdUtc": 1792239070,
           "snippet": "Hi all, Since we updated our subreddit rules to reflect the mods' policy on AI, we have continued to observe how AI is being used. We have seen two types of AI-related comments that we want to issue new (but not different) clarification on. TL;DR: Comments answering an OP's quest",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x9usog",
+          "title": "[England] Can I be liable for my neighbour's missing dog?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9usog/england_can_i_be_liable_for_my_neighbours_missing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9usog/england_can_i_be_liable_for_my_neighbours_missing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792410734,
+          "snippet": "Some background context: A couple live in a property whose back garden backs onto the back of mine. The boundary fence belongs to them (they are aware and acknowledge this). They have two small dogs, and whilst the guy is out most of the time, his wife is a housewife and stays at",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xa3xeo",
+          "title": "Neighbour has an inconvenience over a shared car port, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa3xeo/neighbour_has_an_inconvenience_over_a_shared_car/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa3xeo/neighbour_has_an_inconvenience_over_a_shared_car/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792432539,
+          "snippet": "When I moved into this property in April 2026, it had a large shared ‘car port’ to the rear, space for 3 vehicles and a large space for turning, plus my garage which is attached to my house. When viewing the property, the photos showed a car parked outside the garage parallel to ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x9vywv",
+          "title": "Pharmacy dispensed my medication to the wrong person - whats the next steps? (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9vywv/pharmacy_dispensed_my_medication_to_the_wrong/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9vywv/pharmacy_dispensed_my_medication_to_the_wrong/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792414049,
+          "snippet": "Hello - had a stranger come to my door this morning as they had been dispensed my medication via the pharmacy vending machine. They tracked me down due to my name and address being on a sticker. They said they received messages saying the prescription was ready, and phoned the ph",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xa2j0g",
+          "title": "Could I go to prison as an adult for something that happened when I was 14?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa2j0g/could_i_go_to_prison_as_an_adult_for_something/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa2j0g/could_i_go_to_prison_as_an_adult_for_something/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792429470,
+          "snippet": "I’m really struggling and looking for honest advice, particularly about the law in England and Wales. My younger sister is five years younger than me. We’re really close now after working hard to repair our relationship, and she wants me in her life. She has told me she feels num",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x9uyle",
+          "title": "Brother will not leave house after father died",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uyle/brother_will_not_leave_house_after_father_died/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uyle/brother_will_not_leave_house_after_father_died/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792411224,
+          "snippet": "My father died last July (15 months ago) and in his will left all his possessions/money and property to be split between his 4 children. Myself and my brother are executors of the estate. One of my brothers had been living with my father (rent/bill free) when he died. It was all ",
           "listingSource": "rss:hot"
         },
         {
@@ -46,7 +106,19 @@
           "score": 0,
           "numComments": 0,
           "createdUtc": 1792405305,
-          "snippet": "Hello, I have been parking on the driveway of the landlord of the building I work in for about 9 months. I received a fine 3 months ago, at the same time as a colleague of mine. I paid, she appealed and was denied, she went to tribunal and won. We carried on parking there. The dr",
+          "snippet": "EDIT: Thank you all, I have purchased the title plan and the boundary ends at the gates. Still confused that the first two appeals have been accepted but I guess I will have to pay these fines and move on! Hello, I have been parking on the driveway of the landlord of the building",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x9ynia",
+          "title": "Currys accused me of fraud over a £2,169 return, but DPD says the parcel was lost (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ynia/currys_accused_me_of_fraud_over_a_2169_return_but/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ynia/currys_accused_me_of_fraud_over_a_2169_return_but/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792420721,
+          "snippet": "I’m 19, live independently, and have been fighting Currys for months over a £2,169 refund. Currys accused my return of being linked to fraudulent activity and mentioned possible police involvement. But DPD has confirmed the parcel was lost and says it has no record of making the ",
           "listingSource": "rss:hot"
         },
         {
@@ -62,30 +134,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9furh",
-          "title": "Do I have a solid case for criminal negligence against a hospital in England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9furh/do_i_have_a_solid_case_for_criminal_negligence/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9furh/do_i_have_a_solid_case_for_criminal_negligence/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792361271,
-          "snippet": "I (20f) lost my younger brother (18m) three days ago. My little brother was diagnosed with schizophrenia about a year ago and a bit ago, we were distraught for him and tried to help the best we could but there was so much we just didn't know about his condition, so much we could'",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9u3xt",
-          "title": "Can I be forced outside the country at 18",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9u3xt/can_i_be_forced_outside_the_country_at_18/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9u3xt/can_i_be_forced_outside_the_country_at_18/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792408608,
-          "snippet": "Hi, so for context I am 18 and going on holiday next week to somewhere in Spain, I am from England and I wanted to fly home a day early to make an event happening. So on the 28th I'd fly home and stay 1 night on my own home alone and my parents would come back on the 29th. But th",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1x9qdcy",
           "title": "Judge No Show for Court Hearing - Can I Claim Compensation?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9qdcy/judge_no_show_for_court_hearing_can_i_claim/",
@@ -94,7 +142,7 @@
           "score": 0,
           "numComments": 0,
           "createdUtc": 1792394889,
-          "snippet": "As the title suggests, I was slated for an appearance at a final hearing for Family Court, which then did not go ahead as the Presiding Judge simply did not turn up on the day, and without any apparent explanation. Having had to travel to and stay overnight in a hotel in the city",
+          "snippet": "I was slated for an appearance at a final hearing for Family Court, which then did not go ahead as the Presiding Judge did not turn up on the day, and without any apparent explanation. Since all parties attended as scheduled, the legal costs for counsel for the day were then wast",
           "listingSource": "rss:hot"
         },
         {
@@ -110,147 +158,99 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9q6a4",
-          "title": "England – Executor and beneficiary being asked to agree to a Deed of Variation against the terms of a will",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9q6a4/england_executor_and_beneficiary_being_asked_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9q6a4/england_executor_and_beneficiary_being_asked_to/",
+          "id": "1x9furh",
+          "title": "Do I have a solid case for criminal negligence against a hospital in England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9furh/do_i_have_a_solid_case_for_criminal_negligence/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9furh/do_i_have_a_solid_case_for_criminal_negligence/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792394161,
-          "snippet": "I'm both an executor and a beneficiary of a relative's estate in England and Wales, and would appreciate some advice on the legal position. The deceased's will has been validly made and, as far as I am aware, there is no dispute about its validity. The deceased and their spouse h",
+          "createdUtc": 1792361271,
+          "snippet": "I (20f) lost my younger brother (18m) three days ago. My little brother was diagnosed with schizophrenia about a year ago and a bit ago, we were distraught for him and tried to help the best we could but there was so much we just didn't know about his condition, so much we could'",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9sabo",
-          "title": "Package holiday outbound flight cancelled, what are my rights? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9sabo/package_holiday_outbound_flight_cancelled_what/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9sabo/package_holiday_outbound_flight_cancelled_what/",
+          "id": "1xa9wnb",
+          "title": "S172 issued to passenger in a car which failed to stop for police, England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa9wnb/s172_issued_to_passenger_in_a_car_which_failed_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa9wnb/s172_issued_to_passenger_in_a_car_which_failed_to/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792402157,
-          "snippet": "The airline cancelled the outbound flight on our ATOL package holiday for early December. The package provider first said there were no alternatives available. I then found an equivalent same-day replacement on another airline myself. They've priced it, but the cost is a 40% incr",
+          "createdUtc": 1792445865,
+          "snippet": "My son was at a car meet and got into a car, driven by a person he vaguely knew (seen him at other car meets, knows him by his nickname - which includes first name - has a rough idea where he lives). The car failed to stop for an unmarked police car and the driver ran. Turns out ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9gv7w",
-          "title": "FB Marketplace buyer refused to send money (Eng)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9gv7w/fb_marketplace_buyer_refused_to_send_money_eng/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9gv7w/fb_marketplace_buyer_refused_to_send_money_eng/",
+          "id": "1xa46n4",
+          "title": "Renters’ Rights Act – can my letting agent insist on two months’ notice when my tenancy agreement says one month?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa46n4/renters_rights_act_can_my_letting_agent_insist_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa46n4/renters_rights_act_can_my_letting_agent_insist_on/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792364067,
-          "snippet": "I sold a mirror on Facebook marketplace for £38 - not much but times are hard so it’s not nothing. I put my bank details in the girl’s phone, she said “done”, but then as we went our separate ways the money never arrived. After 3 days of patiently and politely messaging her to se",
+          "createdUtc": 1792433084,
+          "snippet": "I know there have been a lot of queries on this already, but wanted to see if anyone could help us with our very specific situation. We had a 12-month fixed-term tenancy which expires on 1 June 2026, after the Renters’ Rights Act came into force on 1 May 2026. During the fixed te",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9spcj",
-          "title": "Father - Rights for child - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9spcj/father_rights_for_child_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9spcj/father_rights_for_child_england/",
+          "id": "1xa76my",
+          "title": "easyJet flight 2440 cancelled tonight",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa76my/easyjet_flight_2440_cancelled_tonight/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa76my/easyjet_flight_2440_cancelled_tonight/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792403756,
-          "snippet": "I'm just after abit of advice if possible or anyone with similar experiences. I am currently dad to a four year old boy. Me and his mom have been split up since he was 6 months old. We came to an informal arrangement that I would have him Friday, Saturday, Sunday overnight every ",
+          "createdUtc": 1792439675,
+          "snippet": "Good evening! I was on the flight EZY2440 from CDG to Luton with easyJet tonight (cancelled). Rebooked tomorrow to Gatwick, with easyJet. They announced the cancellation at 7:30 pm for a 10:40 pm flight, am I entitled for compensation under EU 261? At the airport, the reason for ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x8mxrg",
-          "title": "Could I be at risk of forced marriage (England)?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8mxrg/could_i_be_at_risk_of_forced_marriage_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8mxrg/could_i_be_at_risk_of_forced_marriage_england/",
+          "id": "1xa14xb",
+          "title": "Would I have to disclose this as a neighbour dispute? Is there anything I should do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa14xb/would_i_have_to_disclose_this_as_a_neighbour/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa14xb/would_i_have_to_disclose_this_as_a_neighbour/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792275725,
-          "snippet": "Basically I’m 17 still in full time education. My family have booked flight tickets to Pakistan for December and my mum mentioned that I will get people asking for my hand in marriage whilst I’m there. These people she’s talking about are my relatives btw. I’ve realised that no w",
+          "createdUtc": 1792426349,
+          "snippet": "Hey, first time homeowner here, grandad left me his semi detached property in 2024 + my mum sorted out the probate, I spent most of last year doing the place up with my fiancée. We arent immediately planning to move but havent ruled it out as the place is only a 2 bed and my OH w",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9um2r",
-          "title": "Called in an emergency plumber after the agency’s preferred contact didn’t reply - do I have a fair claim for reimbursement? Scotland.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9um2r/called_in_an_emergency_plumber_after_the_agencys/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9um2r/called_in_an_emergency_plumber_after_the_agencys/",
+          "id": "1xaabvs",
+          "title": "Website for paying for parking didn’t work. Now I have a parking ticket and a failed appeal.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaabvs/website_for_paying_for_parking_didnt_work_now_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaabvs/website_for_paying_for_parking_didnt_work_now_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792410161,
-          "snippet": "The issue: a leakage from the panel behind the toilet. Gradual leak, but would fill up the bathroom floor if left for hours. We noticed this on Sunday, reported it to the agency on Monday afternoon using their preferred method. On Monday evening the electricity turned itself off ",
+          "createdUtc": 1792446899,
+          "snippet": "My boyfriend and I went to a fishing shop in Coventry (England) with only a small car park at the front with no available spaces. After driving round the corner we found a car park to the back of the building. There were signs for JustPark in order to pay for the car park. When I",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9ugpe",
-          "title": "Gave a bus inspector wrong personal details Birmingham England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ugpe/gave_a_bus_inspector_wrong_personal_details/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ugpe/gave_a_bus_inspector_wrong_personal_details/",
+          "id": "1xa975p",
+          "title": "Criminal Injuries Compensation England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa975p/criminal_injuries_compensation_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa975p/criminal_injuries_compensation_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792409716,
-          "snippet": "I got stopped by an NX Bus ticket inspector in Birmingham this morning while travelling to work very early. I’m actually a genuine student, but I didn’t have my student ID with me, so they issued me an £80 Standard Fare Charge for “Student ID not shown”. I was frustrated and angr",
+          "createdUtc": 1792444183,
+          "snippet": "Hi, I would love some advice! TLDR: Over the last few weeks, I have been chasing up solicitors in my local area (all no win, no fee solicitors) for help with my CICA Claim, which was denied a few years back, due to lack of co-operation with investigation, my case is less straight",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9uecn",
-          "title": "Letter sent to my address saying someone has been appointed director of an AI company - scam or mistake?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uecn/letter_sent_to_my_address_saying_someone_has_been/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uecn/letter_sent_to_my_address_saying_someone_has_been/",
+          "id": "1xa8ipc",
+          "title": "Hotel cancelled booking and is now not responding",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa8ipc/hotel_cancelled_booking_and_is_now_not_responding/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa8ipc/hotel_cancelled_booking_and_is_now_not_responding/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792409512,
-          "snippet": "England. Letter arrived today. My address on it but with a Russian sounding name (not my name obviously) saying they’ve been appointed director of an AI company. What’s the scam here? Reporting it now to companies house. Whoever that person is, does not live here. Wondering if it",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9tk51",
-          "title": "Bought a used car and company has gone into administration - warranty no longer valid (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9tk51/bought_a_used_car_and_company_has_gone_into/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9tk51/bought_a_used_car_and_company_has_gone_into/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792406788,
-          "snippet": "Hello, need a bit of advice. In England. I bought a used car from a garage on the 1st October, paying £1k on CC and remainder via bank transfer. I also purchased 36 months warranty with a company recommended by the garage paying £99.10 per month for 10 months. On Saturday I exper",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9t61q",
-          "title": "Employer moving working day to cover them closing our workplace?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9t61q/employer_moving_working_day_to_cover_them_closing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9t61q/employer_moving_working_day_to_cover_them_closing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792405415,
-          "snippet": "It's just been announced at our company (England) that they have decided to close on Dec 24th, unfortunately they've announced that you either have to take the day as holiday or make up the hours on a Saturday. As this is being sprung on us at the end of the year most of us have ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x91q3z",
-          "title": "Cloned plates, found the other car - what to do re the police?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x91q3z/cloned_plates_found_the_other_car_what_to_do_re/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x91q3z/cloned_plates_found_the_other_car_what_to_do_re/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792325569,
-          "snippet": "My number plates have been cloned and the person who has cloned them is currently just using them to park in the same place (multiple tickets at this location). It’s nearby and I am sure they must be there overnight as the tickets are early morning and late evening. I can’t obvio",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9sixm",
-          "title": "Trying to recover outstanding loan that dates back 2018.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9sixm/trying_to_recover_outstanding_loan_that_dates/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9sixm/trying_to_recover_outstanding_loan_that_dates/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792403087,
-          "snippet": "I lent my sick uncle money towards the end of 2018, a total sum of £20k. He passed away July 2019. The executors of his estate were his wife and son. There was no formal contract but plenty of text messages form my uncle before he passed, my aunt and cousin after he passed. My au",
+          "createdUtc": 1792442671,
+          "snippet": "So as the title says me and my girlfriend booked a hotel in London for 4 days and two hours before we arrived we got a WhatsApp message claiming a gas leak had occurred and they'd have to cancel our booking promising a refund for the inconvenience, it's now been multiple days and",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 9,
+      "postCount": 12,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,27 +280,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9furh",
-          "title": "Do I have a solid case for criminal negligence against a hospital in England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9furh/do_i_have_a_solid_case_for_criminal_negligence/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9furh/do_i_have_a_solid_case_for_criminal_negligence/",
+          "id": "1x9usog",
+          "title": "[England] Can I be liable for my neighbour's missing dog?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9usog/england_can_i_be_liable_for_my_neighbours_missing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9usog/england_can_i_be_liable_for_my_neighbours_missing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792361271,
-          "snippet": "I (20f) lost my younger brother (18m) three days ago. My little brother was diagnosed with schizophrenia about a year ago and a bit ago, we were distraught for him and tried to help the best we could but there was so much we just didn't know about his condition, so much we could'",
+          "createdUtc": 1792410734,
+          "snippet": "Some background context: A couple live in a property whose back garden backs onto the back of mine. The boundary fence belongs to them (they are aware and acknowledge this). They have two small dogs, and whilst the guy is out most of the time, his wife is a housewife and stays at",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9u3xt",
-          "title": "Can I be forced outside the country at 18",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9u3xt/can_i_be_forced_outside_the_country_at_18/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9u3xt/can_i_be_forced_outside_the_country_at_18/",
+          "id": "1x9vywv",
+          "title": "Pharmacy dispensed my medication to the wrong person - whats the next steps? (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9vywv/pharmacy_dispensed_my_medication_to_the_wrong/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9vywv/pharmacy_dispensed_my_medication_to_the_wrong/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792408608,
-          "snippet": "Hi, so for context I am 18 and going on holiday next week to somewhere in Spain, I am from England and I wanted to fly home a day early to make an event happening. So on the 28th I'd fly home and stay 1 night on my own home alone and my parents would come back on the 29th. But th",
+          "createdUtc": 1792414049,
+          "snippet": "Hello - had a stranger come to my door this morning as they had been dispensed my medication via the pharmacy vending machine. They tracked me down due to my name and address being on a sticker. They said they received messages saying the prescription was ready, and phoned the ph",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xa2j0g",
+          "title": "Could I go to prison as an adult for something that happened when I was 14?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa2j0g/could_i_go_to_prison_as_an_adult_for_something/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa2j0g/could_i_go_to_prison_as_an_adult_for_something/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792429470,
+          "snippet": "I’m really struggling and looking for honest advice, particularly about the law in England and Wales. My younger sister is five years younger than me. We’re really close now after working hard to repair our relationship, and she wants me in her life. She has told me she feels num",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1x9uyle",
+          "title": "Brother will not leave house after father died",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uyle/brother_will_not_leave_house_after_father_died/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uyle/brother_will_not_leave_house_after_father_died/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792411224,
+          "snippet": "My father died last July (15 months ago) and in his will left all his possessions/money and property to be split between his 4 children. Myself and my brother are executors of the estate. One of my brothers had been living with my father (rent/bill free) when he died. It was all ",
           "listingSource": "rss:hot"
         },
         {
@@ -312,7 +336,7 @@
           "score": 0,
           "numComments": 0,
           "createdUtc": 1792394889,
-          "snippet": "As the title suggests, I was slated for an appearance at a final hearing for Family Court, which then did not go ahead as the Presiding Judge simply did not turn up on the day, and without any apparent explanation. Having had to travel to and stay overnight in a hotel in the city",
+          "snippet": "I was slated for an appearance at a final hearing for Family Court, which then did not go ahead as the Presiding Judge did not turn up on the day, and without any apparent explanation. Since all parties attended as scheduled, the legal costs for counsel for the day were then wast",
           "listingSource": "rss:hot"
         },
         {
@@ -328,39 +352,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9spcj",
-          "title": "Father - Rights for child - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9spcj/father_rights_for_child_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9spcj/father_rights_for_child_england/",
+          "id": "1x9furh",
+          "title": "Do I have a solid case for criminal negligence against a hospital in England.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9furh/do_i_have_a_solid_case_for_criminal_negligence/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9furh/do_i_have_a_solid_case_for_criminal_negligence/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792403756,
-          "snippet": "I'm just after abit of advice if possible or anyone with similar experiences. I am currently dad to a four year old boy. Me and his mom have been split up since he was 6 months old. We came to an informal arrangement that I would have him Friday, Saturday, Sunday overnight every ",
+          "createdUtc": 1792361271,
+          "snippet": "I (20f) lost my younger brother (18m) three days ago. My little brother was diagnosed with schizophrenia about a year ago and a bit ago, we were distraught for him and tried to help the best we could but there was so much we just didn't know about his condition, so much we could'",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "neighbour-disputes",
+      "label": "Neighbour Disputes",
+      "legalAreaSlug": "neighbour_dispute",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xa3xeo",
+          "title": "Neighbour has an inconvenience over a shared car port, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa3xeo/neighbour_has_an_inconvenience_over_a_shared_car/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa3xeo/neighbour_has_an_inconvenience_over_a_shared_car/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792432539,
+          "snippet": "When I moved into this property in April 2026, it had a large shared ‘car port’ to the rear, space for 3 vehicles and a large space for turning, plus my garage which is attached to my house. When viewing the property, the photos showed a car parked outside the garage parallel to ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9ugpe",
-          "title": "Gave a bus inspector wrong personal details Birmingham England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ugpe/gave_a_bus_inspector_wrong_personal_details/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ugpe/gave_a_bus_inspector_wrong_personal_details/",
+          "id": "1xa14xb",
+          "title": "Would I have to disclose this as a neighbour dispute? Is there anything I should do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa14xb/would_i_have_to_disclose_this_as_a_neighbour/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa14xb/would_i_have_to_disclose_this_as_a_neighbour/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792409716,
-          "snippet": "I got stopped by an NX Bus ticket inspector in Birmingham this morning while travelling to work very early. I’m actually a genuine student, but I didn’t have my student ID with me, so they issued me an £80 Standard Fare Charge for “Student ID not shown”. I was frustrated and angr",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9uecn",
-          "title": "Letter sent to my address saying someone has been appointed director of an AI company - scam or mistake?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uecn/letter_sent_to_my_address_saying_someone_has_been/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uecn/letter_sent_to_my_address_saying_someone_has_been/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792409512,
-          "snippet": "England. Letter arrived today. My address on it but with a Russian sounding name (not my name obviously) saying they’ve been appointed director of an AI company. What’s the scam here? Reporting it now to companies house. Whoever that person is, does not live here. Wondering if it",
+          "createdUtc": 1792426349,
+          "snippet": "Hey, first time homeowner here, grandad left me his semi detached property in 2024 + my mum sorted out the probate, I spent most of last year doing the place up with my fiancée. We arent immediately planning to move but havent ruled it out as the place is only a 2 bed and my OH w",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +405,7 @@
       "slug": "family-law",
       "label": "Family Law",
       "legalAreaSlug": "family",
-      "postCount": 3,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -385,30 +421,6 @@
           "numComments": 0,
           "createdUtc": 1792393725,
           "snippet": "Looking for some practical perspective on a stressful situation in England. Back in March 2022, after a hard-fought court battle, my ex-wife and I secured a formal 50/50 Child Arrangements Order for our two children (our eldest, who is about to turn 18 and head off to university ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x8mxrg",
-          "title": "Could I be at risk of forced marriage (England)?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8mxrg/could_i_be_at_risk_of_forced_marriage_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x8mxrg/could_i_be_at_risk_of_forced_marriage_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792275725,
-          "snippet": "Basically I’m 17 still in full time education. My family have booked flight tickets to Pakistan for December and my mum mentioned that I will get people asking for my hand in marriage whilst I’m there. These people she’s talking about are my relatives btw. I’ve realised that no w",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9um2r",
-          "title": "Called in an emergency plumber after the agency’s preferred contact didn’t reply - do I have a fair claim for reimbursement? Scotland.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9um2r/called_in_an_emergency_plumber_after_the_agencys/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9um2r/called_in_an_emergency_plumber_after_the_agencys/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792410161,
-          "snippet": "The issue: a leakage from the panel behind the toilet. Gradual leak, but would fill up the bathroom floor if left for hours. We noticed this on Sunday, reported it to the agency on Monday afternoon using their preferred method. On Monday evening the electricity turned itself off ",
           "listingSource": "rss:hot"
         }
       ]
@@ -432,7 +444,31 @@
           "score": 0,
           "numComments": 0,
           "createdUtc": 1792405305,
-          "snippet": "Hello, I have been parking on the driveway of the landlord of the building I work in for about 9 months. I received a fine 3 months ago, at the same time as a colleague of mine. I paid, she appealed and was denied, she went to tribunal and won. We carried on parking there. The dr",
+          "snippet": "EDIT: Thank you all, I have purchased the title plan and the boundary ends at the gates. Still confused that the first two appeals have been accepted but I guess I will have to pay these fines and move on! Hello, I have been parking on the driveway of the landlord of the building",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "fraud-and-financial-crime",
+      "label": "Fraud and Financial Crime",
+      "legalAreaSlug": "fraud_financial_crime",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1x9ynia",
+          "title": "Currys accused me of fraud over a £2,169 return, but DPD says the parcel was lost (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ynia/currys_accused_me_of_fraud_over_a_2169_return_but/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ynia/currys_accused_me_of_fraud_over_a_2169_return_but/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792420721,
+          "snippet": "I’m 19, live independently, and have been fighting Currys for months over a £2,169 refund. Currys accused my return of being linked to fraudulent activity and mentioned possible police involvement. But DPD has confirmed the parcel was lost and says it has no record of making the ",
           "listingSource": "rss:hot"
         }
       ]
@@ -441,7 +477,7 @@
       "slug": "employment-law",
       "label": "Employment Law",
       "legalAreaSlug": "employment",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -458,25 +494,13 @@
           "createdUtc": 1792372006,
           "snippet": "Hi everyone, I’m based in Scotland and I recently started a new job. I’m 20 years old and my signed employment contract clearly states that my hourly rate is £12.71 per hour. However, I have now been told by my Head Chef that the £12.71 rate in my contract was a mistake, and that",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9t61q",
-          "title": "Employer moving working day to cover them closing our workplace?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9t61q/employer_moving_working_day_to_cover_them_closing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9t61q/employer_moving_working_day_to_cover_them_closing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792405415,
-          "snippet": "It's just been announced at our company (England) that they have decided to close on Dec 24th, unfortunately they've announced that you either have to take the day as holiday or make up the hours on a Saturday. As this is being sprung on us at the end of the year most of us have ",
-          "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "wills-and-probate",
-      "label": "Wills and Probate",
-      "legalAreaSlug": "wills_probate",
+      "slug": "landlord-and-tenant",
+      "label": "Landlord and Tenant",
+      "legalAreaSlug": "housing",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -484,23 +508,23 @@
       ],
       "posts": [
         {
-          "id": "1x9q6a4",
-          "title": "England – Executor and beneficiary being asked to agree to a Deed of Variation against the terms of a will",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9q6a4/england_executor_and_beneficiary_being_asked_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9q6a4/england_executor_and_beneficiary_being_asked_to/",
+          "id": "1xa46n4",
+          "title": "Renters’ Rights Act – can my letting agent insist on two months’ notice when my tenancy agreement says one month?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa46n4/renters_rights_act_can_my_letting_agent_insist_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa46n4/renters_rights_act_can_my_letting_agent_insist_on/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792394161,
-          "snippet": "I'm both an executor and a beneficiary of a relative's estate in England and Wales, and would appreciate some advice on the legal position. The deceased's will has been validly made and, as far as I am aware, there is no dispute about its validity. The deceased and their spouse h",
+          "createdUtc": 1792433084,
+          "snippet": "I know there have been a lot of queries on this already, but wanted to see if anyone could help us with our very specific situation. We had a 12-month fixed-term tenancy which expires on 1 June 2026, after the Renters’ Rights Act came into force on 1 May 2026. During the fixed te",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "travel-and-holiday-disputes",
-      "label": "Travel and Holiday Disputes",
-      "legalAreaSlug": "consumer_travel_holidays",
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -508,87 +532,15 @@
       ],
       "posts": [
         {
-          "id": "1x9sabo",
-          "title": "Package holiday outbound flight cancelled, what are my rights? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9sabo/package_holiday_outbound_flight_cancelled_what/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9sabo/package_holiday_outbound_flight_cancelled_what/",
+          "id": "1xaabvs",
+          "title": "Website for paying for parking didn’t work. Now I have a parking ticket and a failed appeal.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaabvs/website_for_paying_for_parking_didnt_work_now_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaabvs/website_for_paying_for_parking_didnt_work_now_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792402157,
-          "snippet": "The airline cancelled the outbound flight on our ATOL package holiday for early December. The package provider first said there were no alternatives available. I then found an equivalent same-day replacement on another airline myself. They've priced it, but the cost is a 40% incr",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "online-shopping-and-distance-selling",
-      "label": "Online Shopping and Distance Selling",
-      "legalAreaSlug": "consumer_online_shopping",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x9gv7w",
-          "title": "FB Marketplace buyer refused to send money (Eng)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9gv7w/fb_marketplace_buyer_refused_to_send_money_eng/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9gv7w/fb_marketplace_buyer_refused_to_send_money_eng/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792364067,
-          "snippet": "I sold a mirror on Facebook marketplace for £38 - not much but times are hard so it’s not nothing. I put my bank details in the girl’s phone, she said “done”, but then as we went our separate ways the money never arrived. After 3 days of patiently and politely messaging her to se",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "garage-and-vehicle-repair-disputes",
-      "label": "Garage and Vehicle Repair Disputes",
-      "legalAreaSlug": "consumer_vehicle_repair",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x9tk51",
-          "title": "Bought a used car and company has gone into administration - warranty no longer valid (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9tk51/bought_a_used_car_and_company_has_gone_into/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9tk51/bought_a_used_car_and_company_has_gone_into/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792406788,
-          "snippet": "Hello, need a bit of advice. In England. I bought a used car from a garage on the 1st October, paying £1k on CC and remainder via bank transfer. I also purchased 36 months warranty with a company recommended by the garage paying £99.10 per month for 10 months. On Saturday I exper",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "banking-and-finance",
-      "label": "Banking and Finance",
-      "legalAreaSlug": "banking_finance",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x9sixm",
-          "title": "Trying to recover outstanding loan that dates back 2018.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9sixm/trying_to_recover_outstanding_loan_that_dates/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9sixm/trying_to_recover_outstanding_loan_that_dates/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792403087,
-          "snippet": "I lent my sick uncle money towards the end of 2018, a total sum of £20k. He passed away July 2019. The executors of his estate were his wife and son. There was no formal contract but plenty of text messages form my uncle before he passed, my aunt and cousin after he passed. My au",
+          "createdUtc": 1792446899,
+          "snippet": "My boyfriend and I went to a fishing shop in Coventry (England) with only a small car park at the front with no available spaces. After driving round the corner we found a car park to the back of the building. There were signs for JustPark in order to pay for the car park. When I",
           "listingSource": "rss:hot"
         }
       ]
