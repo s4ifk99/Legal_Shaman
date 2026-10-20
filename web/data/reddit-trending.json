@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-20T10:44:51.615Z",
+    "scrapedAt": "2026-10-20T21:16:44.430Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 10,
+    "topicCount": 5,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,6 +26,54 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xaqrac",
+          "title": "Booking.com Legal Nightmare - listing my property without permission",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqrac/bookingcom_legal_nightmare_listing_my_property/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqrac/bookingcom_legal_nightmare_listing_my_property/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792499126,
+          "snippet": "Hoping I can get some help/advice as I am at a loss as to what to do. My house is currently up for sale with a local estate agents in England which means online there is photos and details of my house which is all with my permission. The problem I am having is someone has stolen ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xasib7",
+          "title": "[England] 12yo daughter threatened with rape/murder at school. Police downplaying to Public Order, school refusing to suspend. What are our legal options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xasib7/england_12yo_daughter_threatened_with_rapemurder/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xasib7/england_12yo_daughter_threatened_with_rapemurder/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792503777,
+          "snippet": "Hello everyone, I am looking for urgent legal guidance regarding a severe safeguarding and criminal situation involving my 12-year-old autistic daughter at her secondary school in England. The Incident &amp; Investigation: Earlier this month, my daughter was subjected to explicit",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xapd13",
+          "title": "can my landlord evict me because he doesn't like me? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xapd13/can_my_landlord_evict_me_because_he_doesnt_like/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xapd13/can_my_landlord_evict_me_because_he_doesnt_like/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792494890,
+          "snippet": "tldr: my landlord came to the property to talk to another tenant about rent, I was in the kitchen and stuck my head out to ask if he'd given notice, and he ended up demanding i essentially grovel. I didn't, and he said he was going to go and start eviction proceedings. is that a ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xaqfzt",
+          "title": "Holiday pay canceled after taking it England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqfzt/holiday_pay_canceled_after_taking_it_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqfzt/holiday_pay_canceled_after_taking_it_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792498230,
+          "snippet": "Employed for over 9 years in a England based company, on the 1/9/2026 I was informed by my manager that I had 13 days holiday to use before December. On 4/9/26 I submitted a holiday request form for 3 days in September (23-25th) 5 days in October (12-16th) and 5 days in November ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xa95vj",
           "title": "Are we out of order with our landlord? England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa95vj/are_we_out_of_order_with_our_landlord_england/",
@@ -35,6 +83,30 @@
           "numComments": 0,
           "createdUtc": 1792444107,
           "snippet": "Hi! We recently moved in to a house (June 2026) and haven’t had any issue with our landlord until now. We this evening messaged her asking for advice on the thermostat - see pictures below. It’s completely blank and very old and we cannot tell the temperature of the heating, so a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xaqmhe",
+          "title": "Can the Hospital Place my Father in Care Against his Will? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqmhe/can_the_hospital_place_my_father_in_care_against/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqmhe/can_the_hospital_place_my_father_in_care_against/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792498735,
+          "snippet": "I'll try to keep this as succinct as possible, there's a lot to it. An important thing to mention as well is that he lives in Essex, I live in Leicestershire and am medically unfit to drive. Getting down to see him is incredibly awkward. He's in his seventies with multiple health",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xatg9f",
+          "title": "UK (Scotland) resident – easyJet refusing EU261 compensation for 7+ hour Athens–Milan delay. What enforcement route do I actually have?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xatg9f/uk_scotland_resident_easyjet_refusing_eu261/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xatg9f/uk_scotland_resident_easyjet_refusing_eu261/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792506081,
+          "snippet": "I'm a UK resident. I flew easyJet U23652 from Athens to Milan on 24 October 2025 and arrived more than 7 hours late. We were told the inbound pilot had become unwell and, as easyJet no longer had replacement crew based in Athens, another pilot had to be brought in. I claimed the ",
           "listingSource": "rss:hot"
         },
         {
@@ -50,6 +122,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xamfzu",
+          "title": "(England) SAR revealed my housing association refused my tenancy succession three years ago and never told me. Notice to quit may also be defective.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xamfzu/england_sar_revealed_my_housing_association/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xamfzu/england_sar_revealed_my_housing_association/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792484324,
+          "snippet": "England. Trying to work out where I stand before I speak to a solicitor this week. Background My mother was the sole tenant of a house I've lived in my whole adult life, just over 20 years. It started as a secure council tenancy and transferred to a housing association in a stock",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1x9usog",
           "title": "[England] Can I be liable for my neighbour's missing dog?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9usog/england_can_i_be_liable_for_my_neighbours_missing/",
@@ -59,6 +143,18 @@
           "numComments": 0,
           "createdUtc": 1792410734,
           "snippet": "Some background context: A couple live in a property whose back garden backs onto the back of mine. The boundary fence belongs to them (they are aware and acknowledge this). They have two small dogs, and whilst the guy is out most of the time, his wife is a housewife and stays at",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xav6f0",
+          "title": "Only one person registered for council tax in a shared rented property?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xav6f0/only_one_person_registered_for_council_tax_in_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xav6f0/only_one_person_registered_for_council_tax_in_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792510107,
+          "snippet": "I’m a bit stumped by this so hoping someone can help me out. I live in a house share in London, England with 3 others (all unrelated). We have a joint tenancy agreement and the property is not registered as a hmo. One of the housemates has been here by far the longest and is resp",
           "listingSource": "rss:hot"
         },
         {
@@ -74,27 +170,39 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xamfzu",
-          "title": "(England) SAR revealed my housing association refused my tenancy succession three years ago and never told me. Notice to quit may also be defective.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xamfzu/england_sar_revealed_my_housing_association/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xamfzu/england_sar_revealed_my_housing_association/",
+          "id": "1xb44jb",
+          "title": "Freehold offer via section 5a in UK",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb44jb/freehold_offer_via_section_5a_in_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb44jb/freehold_offer_via_section_5a_in_uk/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792484324,
-          "snippet": "England. Trying to work out where I stand before I speak to a solicitor this week. Background My mother was the sole tenant of a house I've lived in my whole adult life, just over 20 years. It started as a secure council tenancy and transferred to a housing association in a stock",
+          "createdUtc": 1792530187,
+          "snippet": "Our current freeholder has served a Section 5A notice and we’re trying to decide whether it’s worth buying the freehold. We already have an RTM company and manage block ourselves. Some of the leaseholders would rather leave things as they are, keep paying ground rent to whoever b",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9vywv",
-          "title": "Pharmacy dispensed my medication to the wrong person - whats the next steps? (Scotland)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9vywv/pharmacy_dispensed_my_medication_to_the_wrong/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9vywv/pharmacy_dispensed_my_medication_to_the_wrong/",
+          "id": "1xb3hrl",
+          "title": "13 month long dispute with O2. 3 different independent ombudsmen have said they can’t help, what do I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb3hrl/13_month_long_dispute_with_o2_3_different/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb3hrl/13_month_long_dispute_with_o2_3_different/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792414049,
-          "snippet": "Hello - had a stranger come to my door this morning as they had been dispensed my medication via the pharmacy vending machine. They tracked me down due to my name and address being on a sticker. They said they received messages saying the prescription was ready, and phoned the ph",
+          "createdUtc": 1792528669,
+          "snippet": "I'm in England and I'm looking for advice on what my legal options are. I've already tried every complaints route I can think of: The Communications Ombudsman can't help. CISAS can't help. The Financial Ombudsman can't help. I'm now at the point where O2 are threatening debt reco",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xb3dhy",
+          "title": "Can my detective sister check where i am?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb3dhy/can_my_detective_sister_check_where_i_am/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb3dhy/can_my_detective_sister_check_where_i_am/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792528385,
+          "snippet": "So i recently went no contact with family due to being in a abusive situation to university. I done this in secret and got a very lowkey private student accomdation that would be hard to find. Somehow after a few weeks, they found out and are ringing the accomdation place, could ",
           "listingSource": "rss:hot"
         },
         {
@@ -110,6 +218,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xb21lu",
+          "title": "Unsafe Working Conditions [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb21lu/unsafe_working_conditions_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb21lu/unsafe_working_conditions_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792525338,
+          "snippet": "I'm a housekeeper in a care home. We have to take curtains down and wash them and put them back up. Thing is, we're expected to stand on residents beds and chairs to do this. I'm a fatass so I don't wanna fall through these chairs and refuse. I've pulled a muscle in the past, in ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xa9wnb",
           "title": "S172 issued to passenger in a car which failed to stop for police, England.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa9wnb/s172_issued_to_passenger_in_a_car_which_failed_to/",
@@ -122,135 +242,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xab22t",
-          "title": "England | Grade Mobile bait-and-switch: quoted £156, portal says \"Great\", pays £47.50 without consent, then claims it’s \"Poor\" (plus a useless MoneySuperMarket fob-off)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xab22t/england_grade_mobile_baitandswitch_quoted_156/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xab22t/england_grade_mobile_baitandswitch_quoted_156/",
+          "id": "1xb1lco",
+          "title": "Advice about my late grandmothers outstanding debts",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb1lco/advice_about_my_late_grandmothers_outstanding/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb1lco/advice_about_my_late_grandmothers_outstanding/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792448666,
-          "snippet": "I recently used MoneySuperMarket to compare trade-in prices for an iPhone 13 (128GB). Grade Mobile offered the best valuation at £156 for a \"working\" device. I sent it off. Fast forward: their online portal literally displayed my device condition as \"Great\" with a reference numbe",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9ynia",
-          "title": "Currys accused me of fraud over a £2,169 return, but DPD says the parcel was lost (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ynia/currys_accused_me_of_fraud_over_a_2169_return_but/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ynia/currys_accused_me_of_fraud_over_a_2169_return_but/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792420721,
-          "snippet": "I’m 19, live independently, and have been fighting Currys for months over a £2,169 refund. Currys accused my return of being linked to fraudulent activity and mentioned possible police involvement. But DPD has confirmed the parcel was lost and says it has no record of making the ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9uyle",
-          "title": "Brother will not leave house after father died",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uyle/brother_will_not_leave_house_after_father_died/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uyle/brother_will_not_leave_house_after_father_died/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792411224,
-          "snippet": "My father died last July (15 months ago) and in his will left all his possessions/money and property to be split between his 4 children. Myself and my brother are executors of the estate. One of my brothers had been living with my father (rent/bill free) when he died. It was all ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xao0xh",
-          "title": "Consumer Rights Act 2015 vs dissolved unregistered company (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao0xh/consumer_rights_act_2015_vs_dissolved/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao0xh/consumer_rights_act_2015_vs_dissolved/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792490357,
-          "snippet": "I'm trying to pursue a CRA claim against a car dealership which ceased trading after I initially contacted them on 24th September. The owner has set up a new dealership at the same address. I can't find any answers anywhere about whether or not I can pursue the owner directly abo",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9q26a",
-          "title": "Ex-wife threatening to dismantle 50/50 child arrangements order right as our eldest turns 18 (CMS/Maintenance motive?) - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9q26a/exwife_threatening_to_dismantle_5050_child/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9q26a/exwife_threatening_to_dismantle_5050_child/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792393725,
-          "snippet": "Looking for some practical perspective on a stressful situation in England. Back in March 2022, after a hard-fought court battle, my ex-wife and I secured a formal 50/50 Child Arrangements Order for our two children (our eldest, who is about to turn 18 and head off to university ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9t50g",
-          "title": "Council fine appeal accepted, fined again in same spot appeal denied UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9t50g/council_fine_appeal_accepted_fined_again_in_same/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9t50g/council_fine_appeal_accepted_fined_again_in_same/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792405305,
-          "snippet": "EDIT: Thank you all, I have purchased the title plan and the boundary ends at the gates. Still confused that the first two appeals have been accepted but I guess I will have to pay these fines and move on! Hello, I have been parking on the driveway of the landlord of the building",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xajpa3",
-          "title": "DG10 What to expect in the next few months",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xajpa3/dg10_what_to_expect_in_the_next_few_months/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xajpa3/dg10_what_to_expect_in_the_next_few_months/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792474060,
-          "snippet": "I want to preface this post with an understanding that this is a major fuck up on my part, i'm not proud of it and i'm fully aware that this will be a very expensive kick up the arse in my life. Earlier this year I was arrested for a positive roadside swipe for cannabis having sm",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xaom0f",
-          "title": "Legal Advice with Tradesman Dispute",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaom0f/legal_advice_with_tradesman_dispute/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaom0f/legal_advice_with_tradesman_dispute/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792492385,
-          "snippet": "Hi all, To cut the long story short, I can a contractor who is working in my property and he has refused to complete the work or return my deposit. I am looking to get a legal advice/ raise a dispute. However, I don’t want to be spending a lot of money on legal fees. The money th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xao8zu",
-          "title": "Letting agent front-loaded month 1 rent to £6,000 and refuses to refund unearned portion after notice [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao8zu/letting_agent_frontloaded_month_1_rent_to_6000/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao8zu/letting_agent_frontloaded_month_1_rent_to_6000/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792491137,
-          "snippet": "Location: England (Bristol) Tenancy Type: Assured Shorthold Tenancy (AST) / Private Rent Hi everyone, looking for advice regarding a dispute over front-loaded rent and unearned advance payments. The Situation: 1. I am renting a property in Bristol through a private letting agency",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xao7pk",
-          "title": "[England] I'm a writer looking for details on guardianship in the past?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao7pk/england_im_a_writer_looking_for_details_on/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao7pk/england_im_a_writer_looking_for_details_on/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792491001,
-          "snippet": "Hi, I'm hoping this is an okay place to be asking this question! I'm a casual writer and struggling to find the right information online as I'm looking for how the process would have gone about 26 years ago. I'm trying to find information on what would have happened to a characte",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9jl2d",
-          "title": "Signed employment contract says £12.71/hour, but employer says it was a mistake and will only pay £10.85 — Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9jl2d/signed_employment_contract_says_1271hour_but/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9jl2d/signed_employment_contract_says_1271hour_but/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792372006,
-          "snippet": "Hi everyone, I’m based in Scotland and I recently started a new job. I’m 20 years old and my signed employment contract clearly states that my hourly rate is £12.71 per hour. However, I have now been told by my Head Chef that the £12.71 rate in my contract was a mistake, and that",
+          "createdUtc": 1792524329,
+          "snippet": "Hi there I need some advice In November of last year, my dear grandmother sadly passed away. Unbeknownst to me until after her passing, she had some outstanding debts (one was an unpaid electric bill, the other was a loan) Now, I was living with her prior to her passing (I am sti",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 8,
+      "postCount": 13,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xaqrac",
+          "title": "Booking.com Legal Nightmare - listing my property without permission",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqrac/bookingcom_legal_nightmare_listing_my_property/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqrac/bookingcom_legal_nightmare_listing_my_property/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792499126,
+          "snippet": "Hoping I can get some help/advice as I am at a loss as to what to do. My house is currently up for sale with a local estate agents in England which means online there is photos and details of my house which is all with my permission. The problem I am having is someone has stolen ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xasib7",
+          "title": "[England] 12yo daughter threatened with rape/murder at school. Police downplaying to Public Order, school refusing to suspend. What are our legal options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xasib7/england_12yo_daughter_threatened_with_rapemurder/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xasib7/england_12yo_daughter_threatened_with_rapemurder/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792503777,
+          "snippet": "Hello everyone, I am looking for urgent legal guidance regarding a severe safeguarding and criminal situation involving my 12-year-old autistic daughter at her secondary school in England. The Incident &amp; Investigation: Earlier this month, my daughter was subjected to explicit",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xaqmhe",
+          "title": "Can the Hospital Place my Father in Care Against his Will? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqmhe/can_the_hospital_place_my_father_in_care_against/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqmhe/can_the_hospital_place_my_father_in_care_against/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792498735,
+          "snippet": "I'll try to keep this as succinct as possible, there's a lot to it. An important thing to mention as well is that he lives in Essex, I live in Leicestershire and am medically unfit to drive. Getting down to see him is incredibly awkward. He's in his seventies with multiple health",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1x9usog",
           "title": "[England] Can I be liable for my neighbour's missing dog?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9usog/england_can_i_be_liable_for_my_neighbours_missing/",
@@ -289,6 +325,18 @@
           "numComments": 0,
           "createdUtc": 1792410734,
           "snippet": "Some background context: A couple live in a property whose back garden backs onto the back of mine. The boundary fence belongs to them (they are aware and acknowledge this). They have two small dogs, and whilst the guy is out most of the time, his wife is a housewife and stays at",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xav6f0",
+          "title": "Only one person registered for council tax in a shared rented property?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xav6f0/only_one_person_registered_for_council_tax_in_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xav6f0/only_one_person_registered_for_council_tax_in_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792510107,
+          "snippet": "I’m a bit stumped by this so hoping someone can help me out. I live in a house share in London, England with 3 others (all unrelated). We have a joint tenancy agreement and the property is not registered as a hmo. One of the housemates has been here by far the longest and is resp",
           "listingSource": "rss:hot"
         },
         {
@@ -304,63 +352,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1x9vywv",
-          "title": "Pharmacy dispensed my medication to the wrong person - whats the next steps? (Scotland)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9vywv/pharmacy_dispensed_my_medication_to_the_wrong/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9vywv/pharmacy_dispensed_my_medication_to_the_wrong/",
+          "id": "1xb44jb",
+          "title": "Freehold offer via section 5a in UK",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb44jb/freehold_offer_via_section_5a_in_uk/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xb44jb/freehold_offer_via_section_5a_in_uk/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792414049,
-          "snippet": "Hello - had a stranger come to my door this morning as they had been dispensed my medication via the pharmacy vending machine. They tracked me down due to my name and address being on a sticker. They said they received messages saying the prescription was ready, and phoned the ph",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xa9wnb",
-          "title": "S172 issued to passenger in a car which failed to stop for police, England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa9wnb/s172_issued_to_passenger_in_a_car_which_failed_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xa9wnb/s172_issued_to_passenger_in_a_car_which_failed_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792445865,
-          "snippet": "My son was at a car meet and got into a car, driven by a person he vaguely knew (seen him at other car meets, knows him by his nickname - which includes first name - has a rough idea where he lives). The car failed to stop for an unmarked police car and the driver ran. Turns out ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1x9uyle",
-          "title": "Brother will not leave house after father died",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uyle/brother_will_not_leave_house_after_father_died/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9uyle/brother_will_not_leave_house_after_father_died/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792411224,
-          "snippet": "My father died last July (15 months ago) and in his will left all his possessions/money and property to be split between his 4 children. Myself and my brother are executors of the estate. One of my brothers had been living with my father (rent/bill free) when he died. It was all ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xajpa3",
-          "title": "DG10 What to expect in the next few months",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xajpa3/dg10_what_to_expect_in_the_next_few_months/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xajpa3/dg10_what_to_expect_in_the_next_few_months/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792474060,
-          "snippet": "I want to preface this post with an understanding that this is a major fuck up on my part, i'm not proud of it and i'm fully aware that this will be a very expensive kick up the arse in my life. Earlier this year I was arrested for a positive roadside swipe for cannabis having sm",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xao7pk",
-          "title": "[England] I'm a writer looking for details on guardianship in the past?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao7pk/england_im_a_writer_looking_for_details_on/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao7pk/england_im_a_writer_looking_for_details_on/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792491001,
-          "snippet": "Hi, I'm hoping this is an okay place to be asking this question! I'm a casual writer and struggling to find the right information online as I'm looking for how the process would have gone about 26 years ago. I'm trying to find information on what would have happened to a characte",
+          "createdUtc": 1792530187,
+          "snippet": "Our current freeholder has served a Section 5A notice and we’re trying to decide whether it’s worth buying the freehold. We already have an RTM company and manage block ourselves. Some of the leaseholders would rather leave things as they are, keep paying ground rent to whoever b",
           "listingSource": "rss:hot"
         }
       ]
@@ -375,6 +375,18 @@
         "LegalAdviceUK"
       ],
       "posts": [
+        {
+          "id": "1xapd13",
+          "title": "can my landlord evict me because he doesn't like me? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xapd13/can_my_landlord_evict_me_because_he_doesnt_like/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xapd13/can_my_landlord_evict_me_because_he_doesnt_like/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792494890,
+          "snippet": "tldr: my landlord came to the property to talk to another tenant about rent, I was in the kitchen and stuck my head out to ask if he'd given notice, and he ended up demanding i essentially grovel. I didn't, and he said he was going to go and start eviction proceedings. is that a ",
+          "listingSource": "rss:hot"
+        },
         {
           "id": "1xa95vj",
           "title": "Are we out of order with our landlord? England",
@@ -410,17 +422,53 @@
           "createdUtc": 1792449336,
           "snippet": "so i moved out of my flat in the UK (England, London) and the estate agent suggested the replacement tenant (we’ll just call them that) just pays me my share of the deposit directly. sounded fine at the time. i signed a change of tenant document, and the agency's last email said ",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xao8zu",
-          "title": "Letting agent front-loaded month 1 rent to £6,000 and refuses to refund unearned portion after notice [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao8zu/letting_agent_frontloaded_month_1_rent_to_6000/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao8zu/letting_agent_frontloaded_month_1_rent_to_6000/",
+          "id": "1xaqfzt",
+          "title": "Holiday pay canceled after taking it England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqfzt/holiday_pay_canceled_after_taking_it_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaqfzt/holiday_pay_canceled_after_taking_it_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792491137,
-          "snippet": "Location: England (Bristol) Tenancy Type: Assured Shorthold Tenancy (AST) / Private Rent Hi everyone, looking for advice regarding a dispute over front-loaded rent and unearned advance payments. The Situation: 1. I am renting a property in Bristol through a private letting agency",
+          "createdUtc": 1792498230,
+          "snippet": "Employed for over 9 years in a England based company, on the 1/9/2026 I was informed by my manager that I had 13 days holiday to use before December. On 4/9/26 I submitted a holiday request form for 3 days in September (23-25th) 5 days in October (12-16th) and 5 days in November ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "planning-law",
+      "label": "Planning Law",
+      "legalAreaSlug": "planning_law",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xatg9f",
+          "title": "UK (Scotland) resident – easyJet refusing EU261 compensation for 7+ hour Athens–Milan delay. What enforcement route do I actually have?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xatg9f/uk_scotland_resident_easyjet_refusing_eu261/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xatg9f/uk_scotland_resident_easyjet_refusing_eu261/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792506081,
+          "snippet": "I'm a UK resident. I flew easyJet U23652 from Athens to Milan on 24 October 2025 and arrived more than 7 hours late. We were told the inbound pilot had become unwell and, as easyJet no longer had replacement crew based in Athens, another pilot had to be brought in. I claimed the ",
           "listingSource": "rss:hot"
         }
       ]
@@ -445,174 +493,6 @@
           "numComments": 0,
           "createdUtc": 1792432539,
           "snippet": "When I moved into this property in April 2026, it had a large shared ‘car port’ to the rear, space for 3 vehicles and a large space for turning, plus my garage which is attached to my house. When viewing the property, the photos showed a car parked outside the garage parallel to ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "clinical-negligence",
-      "label": "Clinical Negligence",
-      "legalAreaSlug": "clinical_negligence",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xab22t",
-          "title": "England | Grade Mobile bait-and-switch: quoted £156, portal says \"Great\", pays £47.50 without consent, then claims it’s \"Poor\" (plus a useless MoneySuperMarket fob-off)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xab22t/england_grade_mobile_baitandswitch_quoted_156/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xab22t/england_grade_mobile_baitandswitch_quoted_156/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792448666,
-          "snippet": "I recently used MoneySuperMarket to compare trade-in prices for an iPhone 13 (128GB). Grade Mobile offered the best valuation at £156 for a \"working\" device. I sent it off. Fast forward: their online portal literally displayed my device condition as \"Great\" with a reference numbe",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "fraud-and-financial-crime",
-      "label": "Fraud and Financial Crime",
-      "legalAreaSlug": "fraud_financial_crime",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x9ynia",
-          "title": "Currys accused me of fraud over a £2,169 return, but DPD says the parcel was lost (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ynia/currys_accused_me_of_fraud_over_a_2169_return_but/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9ynia/currys_accused_me_of_fraud_over_a_2169_return_but/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792420721,
-          "snippet": "I’m 19, live independently, and have been fighting Currys for months over a £2,169 refund. Currys accused my return of being linked to fraudulent activity and mentioned possible police involvement. But DPD has confirmed the parcel was lost and says it has no record of making the ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xao0xh",
-          "title": "Consumer Rights Act 2015 vs dissolved unregistered company (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao0xh/consumer_rights_act_2015_vs_dissolved/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xao0xh/consumer_rights_act_2015_vs_dissolved/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792490357,
-          "snippet": "I'm trying to pursue a CRA claim against a car dealership which ceased trading after I initially contacted them on 24th September. The owner has set up a new dealership at the same address. I can't find any answers anywhere about whether or not I can pursue the owner directly abo",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x9q26a",
-          "title": "Ex-wife threatening to dismantle 50/50 child arrangements order right as our eldest turns 18 (CMS/Maintenance motive?) - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9q26a/exwife_threatening_to_dismantle_5050_child/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9q26a/exwife_threatening_to_dismantle_5050_child/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792393725,
-          "snippet": "Looking for some practical perspective on a stressful situation in England. Back in March 2022, after a hard-fought court battle, my ex-wife and I secured a formal 50/50 Child Arrangements Order for our two children (our eldest, who is about to turn 18 and head off to university ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "prison_law",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x9t50g",
-          "title": "Council fine appeal accepted, fined again in same spot appeal denied UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9t50g/council_fine_appeal_accepted_fined_again_in_same/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9t50g/council_fine_appeal_accepted_fined_again_in_same/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792405305,
-          "snippet": "EDIT: Thank you all, I have purchased the title plan and the boundary ends at the gates. Still confused that the first two appeals have been accepted but I guess I will have to pay these fines and move on! Hello, I have been parking on the driveway of the landlord of the building",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "poor-services-and-traders",
-      "label": "Poor Services and Traders",
-      "legalAreaSlug": "consumer_services",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xaom0f",
-          "title": "Legal Advice with Tradesman Dispute",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaom0f/legal_advice_with_tradesman_dispute/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xaom0f/legal_advice_with_tradesman_dispute/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792492385,
-          "snippet": "Hi all, To cut the long story short, I can a contractor who is working in my property and he has refused to complete the work or return my deposit. I am looking to get a legal advice/ raise a dispute. However, I don’t want to be spending a lot of money on legal fees. The money th",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x9jl2d",
-          "title": "Signed employment contract says £12.71/hour, but employer says it was a mistake and will only pay £10.85 — Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9jl2d/signed_employment_contract_says_1271hour_but/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x9jl2d/signed_employment_contract_says_1271hour_but/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792372006,
-          "snippet": "Hi everyone, I’m based in Scotland and I recently started a new job. I’m 20 years old and my signed employment contract clearly states that my hourly rate is £12.71 per hour. However, I have now been told by my Head Chef that the £12.71 rate in my contract was a mistake, and that",
           "listingSource": "rss:hot"
         }
       ]
