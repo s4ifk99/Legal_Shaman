@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-23T21:00:43.061Z",
+    "scrapedAt": "2026-10-24T10:03:49.603Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 6,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xe12nl",
+          "title": "Father Died intestate. Siblings kept his death a secret for 3 months - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe12nl/father_died_intestate_siblings_kept_his_death_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe12nl/father_died_intestate_siblings_kept_his_death_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792822457,
+          "snippet": "My father died intestate a few months ago. Our relationship consisted of exchanging messages on Birthdays and Christmas. I found out yesterday via a tracing firm appointed by a solicitor on a contingency basis. The first thing they did was try to get me to sign a beneficiary agre",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xdfg71",
           "title": "Husband was involved in a small bump two years ago in a Lidl car park - now been contacted by Winn Solicitors for £24k (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdfg71/husband_was_involved_in_a_small_bump_two_years/",
@@ -59,6 +71,54 @@
           "numComments": 0,
           "createdUtc": 1792772568,
           "snippet": "This has been going on 3 weeks now. My Wise shut down. 2 days later my Revolut shut down. A few days after that my Starling. I tried to open other banks and they all rejected me. I emailed CEOs etc. and I got told that I wasn't entitled to receive a reason as to why. I don't unde",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xe3h6r",
+          "title": "The NHS is saying my Mum opted out of the pension scheme in 1992 to 1995, but she didn't? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3h6r/the_nhs_is_saying_my_mum_opted_out_of_the_pension/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3h6r/the_nhs_is_saying_my_mum_opted_out_of_the_pension/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792831287,
+          "snippet": "My mum has worked for the NHS since 1992 (when she was a student nurse), she paid into her pension for a year and then opted out unit she finished her study and became a Nurse in 1994. She has just come to claim part of her pension which is only available if she had paid in befor",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xe1qr8",
+          "title": "Employer sent out revised voluntary redundancy contract after I had already signed the original (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe1qr8/employer_sent_out_revised_voluntary_redundancy/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe1qr8/employer_sent_out_revised_voluntary_redundancy/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792824878,
+          "snippet": "I have applied for voluntary redundancy, (employed for 3 years), I received my contract with the end date specified and signed it using Docusign, I spoke to my new employer and arranged a start date based on the end date I had agreed with my current employer. My current employer ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xdnxea",
+          "title": "Obstructive co-freeholders are blocking the sale of our flat by refusing to sign the TR1 and have ghosted us. - London, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdnxea/obstructive_cofreeholders_are_blocking_the_sale/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdnxea/obstructive_cofreeholders_are_blocking_the_sale/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792784474,
+          "snippet": "We've been attempting to sell our flat, have found a buyer, accepted the offer and gone through the conveyancing process only to be utterly blocked at the last minute by one of the two other co-freeholders (I and my mum are both co-freeholders also). The property is a converted v",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xe2ygi",
+          "title": "Stamp duty surcharge: spouse co-owns a flat, agreed 95%/5% but solicitor recorded joint tenants. Can this be fixed before my wife's purchase completes?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe2ygi/stamp_duty_surcharge_spouse_coowns_a_flat_agreed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe2ygi/stamp_duty_surcharge_spouse_coowns_a_flat_agreed/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792829329,
+          "snippet": "Looking for advice from anyone who has dealt with something similar (England). Background: - In June 2023 I bought a new-build leasehold flat (about £385k) with a friend. We're both on the title and on a joint mortgage. - Before completion, we told our conveyancer by phone severa",
           "listingSource": "rss:hot"
         },
         {
@@ -86,51 +146,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xdncpn",
-          "title": "Ex registered my sons birth without me.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdncpn/ex_registered_my_sons_birth_without_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdncpn/ex_registered_my_sons_birth_without_me/",
+          "id": "1xe4lrv",
+          "title": "urgent help needed to appeal stage 2 meeting at college for SEN student",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe4lrv/urgent_help_needed_to_appeal_stage_2_meeting_at/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe4lrv/urgent_help_needed_to_appeal_stage_2_meeting_at/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792783145,
-          "snippet": "England. Terrible breakup and to punish me she is doing this. She said weeks ago that I wasn't his dad and I'm just the sperm donor, so I half expected this. Says we can discuss it at later date once I've \"proved myself\" to her. Basically need advice on what route to take from he",
+          "createdUtc": 1792835532,
+          "snippet": "hello. can any one please recommend where to get urgent help to appeal college stage 2 meeting, at a post 16 education college for a neurodivergent student. or advise how to write the appeal. ive contact local SENDIASS, but the take 7-10 days to get back and i have only 5 days to",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xd7p0p",
-          "title": "Scotland - random kids using my trampoline uninvited",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xd7p0p/scotland_random_kids_using_my_trampoline_uninvited/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xd7p0p/scotland_random_kids_using_my_trampoline_uninvited/",
+          "id": "1xe4jmg",
+          "title": "Receiving Money from Tribunal in Scotland",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe4jmg/receiving_money_from_tribunal_in_scotland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe4jmg/receiving_money_from_tribunal_in_scotland/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792741583,
-          "snippet": "I live in a block of flats with shared back garden that is not fenced off. Neighnorhood kids have discovered my large trampoline and invite themselves to jump on it. I have tried to have as little interaction with them as possible - it's several groups of kids now, not always the",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xdppoi",
-          "title": "Got hit by a car at a zebra crossing in England, what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdppoi/got_hit_by_a_car_at_a_zebra_crossing_in_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdppoi/got_hit_by_a_car_at_a_zebra_crossing_in_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792788679,
-          "snippet": "I was crossing the road at a zebra crossing, there was a line of cars waiting for me to cross on one lane, but on the other lane a car was driving down at quite a fast speed without slowing, as soon as I walked halfway across the road the car came into view and the left side of t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xddt9z",
-          "title": "England - Can the GRO require a married trans person to use their spouse’s surname on their new birth certificate following a GRC?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xddt9z/england_can_the_gro_require_a_married_trans/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xddt9z/england_can_the_gro_require_a_married_trans/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792761514,
-          "snippet": "I’m seeking advice on a policy applied by the General Register Office (GRO) following the issue of a Gender Recognition Certificate (GRC). For background, I’m trans and got married well before applying for my GRC. I adopted my husband’s surname. Consequently, all the evidence ava",
+          "createdUtc": 1792835308,
+          "snippet": "I went to a tribunal in Scotland to receive compensation from my landlord for an unprotected deposit and I was successful. However, the official order for the landlord to pay me was sent out over a week ago but it does not mention a deadline on it. I have heard nothing from the l",
           "listingSource": "rss:hot"
         },
         {
@@ -146,111 +182,75 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xcrvcb",
-          "title": "UPDATE - I accepted a caution and I got myself a new job. Sorta landed on my feet.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xcrvcb/update_i_accepted_a_caution_and_i_got_myself_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xcrvcb/update_i_accepted_a_caution_and_i_got_myself_a/",
+          "id": "1xe3my1",
+          "title": "Was I technically in police custody as a missing person at 14? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3my1/was_i_technically_in_police_custody_as_a_missing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3my1/was_i_technically_in_police_custody_as_a_missing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792696474,
-          "snippet": "https://www.reddit.com/r/LegalAdviceUK/comments/1wmbf1w/ive_lost_my_job_and_ive_been_asked_to_attend_a/ I accepted a caution at the station under the duty solicitors advice. As i thought I lost my job qt the bakery. I did luck out and get a job at a warehouse. It pays about £8k a",
+          "createdUtc": 1792831904,
+          "snippet": "When I was 14, I got very fed up with boarding school. I was being bullied badly and I’d begged my parents to let me come home but they wouldn’t let me - I reached a point one day where I couldn’t bear to spend one more moment at school being picked on and for some stupid reason ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xch8y0",
-          "title": "Ex wants to get Iranian passports for British children (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xch8y0/ex_wants_to_get_iranian_passports_for_british/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xch8y0/ex_wants_to_get_iranian_passports_for_british/",
+          "id": "1xe3ksb",
+          "title": "Suspended for over two months, poor communication, changing allegations and losing confidence in my employer. Is this normal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3ksb/suspended_for_over_two_months_poor_communication/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3ksb/suspended_for_over_two_months_poor_communication/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792672221,
-          "snippet": "My ex partner (never married) wants to obtain Iranian passports for our children to take them on holiday to Iran. I, for obvious reasons, do not want this to happen. Can he get an Iranian passport for them without my consent and if so do I have anyway of stopping him? submitted b",
+          "createdUtc": 1792831674,
+          "snippet": "Location: England UK I'm looking for some outside perspectives on how my employer has handled a prolonged suspension. I've worked for a large UK organisation for several years, in a senior role with management responsibilities. I've generally had a strong performance record, alth",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xdnxea",
-          "title": "Obstructive co-freeholders are blocking the sale of our flat by refusing to sign the TR1 and have ghosted us. - London, England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdnxea/obstructive_cofreeholders_are_blocking_the_sale/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdnxea/obstructive_cofreeholders_are_blocking_the_sale/",
+          "id": "1xd7p0p",
+          "title": "Scotland - random kids using my trampoline uninvited",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xd7p0p/scotland_random_kids_using_my_trampoline_uninvited/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xd7p0p/scotland_random_kids_using_my_trampoline_uninvited/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792784474,
-          "snippet": "We've been attempting to sell our flat, have found a buyer, accepted the offer and gone through the conveyancing process only to be utterly blocked at the last minute by one of the two other co-freeholders (I and my mum are both co-freeholders also). The property is a converted v",
+          "createdUtc": 1792741583,
+          "snippet": "I live in a block of flats with shared back garden that is not fenced off. Neighnorhood kids have discovered my large trampoline and invite themselves to jump on it. I have tried to have as little interaction with them as possible - it's several groups of kids now, not always the",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xda545",
-          "title": "I need out of my joint tenancy (Scotland)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xda545/i_need_out_of_my_joint_tenancy_scotland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xda545/i_need_out_of_my_joint_tenancy_scotland/",
+          "id": "1xe11zo",
+          "title": "Is a Fuel Allowance flat fee mentioned in an offer of employment a contracted payment (england, employed for 2 years 10 months)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe11zo/is_a_fuel_allowance_flat_fee_mentioned_in_an/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe11zo/is_a_fuel_allowance_flat_fee_mentioned_in_an/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792750623,
-          "snippet": "Me and my flatmate fell out at the start of the year and it’s been hellish to live with her ever since. She will come home and start screaming and shouting about things or complaining about me really loudly where I can hear her. She also has people over to visit almost 24/7 and o",
+          "createdUtc": 1792822393,
+          "snippet": "I started working for my company doing multi drop special deliveries in jan '24. My offer of employment stated work was zero hour contract, mon to fri, hours worked must be submitted to be paid, and 'fuel allowance £300 a month'. There was nothing about this being variable or pos",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xdi3gl",
-          "title": "(England) Final right to reject vehicle process - when to cancel insurance and tax",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdi3gl/england_final_right_to_reject_vehicle_process/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdi3gl/england_final_right_to_reject_vehicle_process/",
+          "id": "1xe0sio",
+          "title": "It’s a probate one, anyone please help ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe0sio/its_a_probate_one_anyone_please_help/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe0sio/its_a_probate_one_anyone_please_help/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792771330,
-          "snippet": "Hi there, Very brief Timeline: 7 weeks after purchasing a vehicle from a dealership, my car broke down unexpectedly. RAC breakdown came out, diagnosed the issue. I sent the diagnostic report and photos to the dealer, asking how he would like to proceed (as I need to give the deal",
+          "createdUtc": 1792821457,
+          "snippet": "I renounced my rights to act as executor for my mums will which is now null and void as a later one has been found. Any knowledgeable legal people here who could kindly tell me if the form PA15 still stands for the new will? Probate office is telling me it does and I can’t act as",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xdhsvn",
-          "title": "Neighbour modified shared fence (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdhsvn/neighbour_modified_shared_fence_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdhsvn/neighbour_modified_shared_fence_england/",
+          "id": "1xdthnh",
+          "title": "How can I help my mother win against my abusive father?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdthnh/how_can_i_help_my_mother_win_against_my_abusive/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdthnh/how_can_i_help_my_mother_win_against_my_abusive/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792770714,
-          "snippet": "Hi all, I seek an advice regarding our shared fence with one of our neighbours. We have had issues with them since they moved in (just over 2 years ago), but it was resolved (ish) by talking to them every time. The biggest issue was their dogs barking 24/7 at our fence. We talked",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xcc35u",
-          "title": "The court gave me a deadline that ended three days before they sent the letter -England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xcc35u/the_court_gave_me_a_deadline_that_ended_three/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xcc35u/the_court_gave_me_a_deadline_that_ended_three/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792654366,
-          "snippet": "Got done for speeding on the M1 (fair enough, my fault, I'm not here to argue that part). The court dealt with it on 19 October and the Notice of Financial Penalty is dated the same day. It landed on my doormat on 21 October. The deadline to pay in full? 16 October. So I was appa",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xde1y9",
-          "title": "Non compete clauses, are they enforceable?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xde1y9/non_compete_clauses_are_they_enforceable/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xde1y9/non_compete_clauses_are_they_enforceable/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792762129,
-          "snippet": "I've been on the lookout for a new job for a while now. A recruiter has just called me to check how things are going. I mentioned I could be interested in a change, he mentioned a territory sales job he will be recruiting for very shortly and asked if I would be interested in app",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xcxcgy",
-          "title": "How much access should I give police investigating my phone being stolen? - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xcxcgy/how_much_access_should_i_give_police/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xcxcgy/how_much_access_should_i_give_police/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792709519,
-          "snippet": "Two months ago, a group of kids took my phone off me after a night out and held it up to my face to gain access. They managed to use my Apple Pay to spend/send a substantial amount of money to a retail account over several rapid-fire transactions. They police were responsive and ",
+          "createdUtc": 1792798455,
+          "snippet": "Location: Hampshire, England, UK (Me:F17) (Mum:53) (Dad:51) (Sister:12) My dad is a very emotionally abusive man, a liar, manipulator and an overall prick. He thrives off attention, vulnerability, love-bombing, and anger. My parents are in the works of getting a divorce as my mot",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 10,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -292,6 +292,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xe12nl",
+          "title": "Father Died intestate. Siblings kept his death a secret for 3 months - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe12nl/father_died_intestate_siblings_kept_his_death_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe12nl/father_died_intestate_siblings_kept_his_death_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792822457,
+          "snippet": "My father died intestate a few months ago. Our relationship consisted of exchanging messages on Birthdays and Christmas. I found out yesterday via a tracing firm appointed by a solicitor on a contingency basis. The first thing they did was try to get me to sign a beneficiary agre",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xdinq8",
           "title": "I have been completely debanked. Nobody will tell me why. I have no CIFAS marker. What do I do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdinq8/i_have_been_completely_debanked_nobody_will_tell/",
@@ -304,51 +316,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xdncpn",
-          "title": "Ex registered my sons birth without me.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdncpn/ex_registered_my_sons_birth_without_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdncpn/ex_registered_my_sons_birth_without_me/",
+          "id": "1xe3h6r",
+          "title": "The NHS is saying my Mum opted out of the pension scheme in 1992 to 1995, but she didn't? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3h6r/the_nhs_is_saying_my_mum_opted_out_of_the_pension/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3h6r/the_nhs_is_saying_my_mum_opted_out_of_the_pension/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792783145,
-          "snippet": "England. Terrible breakup and to punish me she is doing this. She said weeks ago that I wasn't his dad and I'm just the sperm donor, so I half expected this. Says we can discuss it at later date once I've \"proved myself\" to her. Basically need advice on what route to take from he",
+          "createdUtc": 1792831287,
+          "snippet": "My mum has worked for the NHS since 1992 (when she was a student nurse), she paid into her pension for a year and then opted out unit she finished her study and became a Nurse in 1994. She has just come to claim part of her pension which is only available if she had paid in befor",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xd7p0p",
-          "title": "Scotland - random kids using my trampoline uninvited",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xd7p0p/scotland_random_kids_using_my_trampoline_uninvited/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xd7p0p/scotland_random_kids_using_my_trampoline_uninvited/",
+          "id": "1xe4jmg",
+          "title": "Receiving Money from Tribunal in Scotland",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe4jmg/receiving_money_from_tribunal_in_scotland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe4jmg/receiving_money_from_tribunal_in_scotland/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792741583,
-          "snippet": "I live in a block of flats with shared back garden that is not fenced off. Neighnorhood kids have discovered my large trampoline and invite themselves to jump on it. I have tried to have as little interaction with them as possible - it's several groups of kids now, not always the",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xdppoi",
-          "title": "Got hit by a car at a zebra crossing in England, what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdppoi/got_hit_by_a_car_at_a_zebra_crossing_in_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdppoi/got_hit_by_a_car_at_a_zebra_crossing_in_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792788679,
-          "snippet": "I was crossing the road at a zebra crossing, there was a line of cars waiting for me to cross on one lane, but on the other lane a car was driving down at quite a fast speed without slowing, as soon as I walked halfway across the road the car came into view and the left side of t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xddt9z",
-          "title": "England - Can the GRO require a married trans person to use their spouse’s surname on their new birth certificate following a GRC?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xddt9z/england_can_the_gro_require_a_married_trans/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xddt9z/england_can_the_gro_require_a_married_trans/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792761514,
-          "snippet": "I’m seeking advice on a policy applied by the General Register Office (GRO) following the issue of a Gender Recognition Certificate (GRC). For background, I’m trans and got married well before applying for my GRC. I adopted my husband’s surname. Consequently, all the evidence ava",
+          "createdUtc": 1792835308,
+          "snippet": "I went to a tribunal in Scotland to receive compensation from my landlord for an unprotected deposit and I was successful. However, the official order for the landlord to pay me was sent out over a week ago but it does not mention a deadline on it. I have heard nothing from the l",
           "listingSource": "rss:hot"
         },
         {
@@ -362,6 +350,18 @@
           "createdUtc": 1792763005,
           "snippet": "Hi everyone, looking for some advice regarding my brother’s situation with his former employer (DFS). My brother was suspended from work on 7th September 2026 , and was explicitly told that his suspension would be on full pay. (He would have been there 5 years at the end of Janua",
           "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xd7p0p",
+          "title": "Scotland - random kids using my trampoline uninvited",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xd7p0p/scotland_random_kids_using_my_trampoline_uninvited/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xd7p0p/scotland_random_kids_using_my_trampoline_uninvited/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792741583,
+          "snippet": "I live in a block of flats with shared back garden that is not fenced off. Neighnorhood kids have discovered my large trampoline and invite themselves to jump on it. I have tried to have as little interaction with them as possible - it's several groups of kids now, not always the",
+          "listingSource": "rss:hot"
         }
       ]
     },
@@ -369,7 +369,7 @@
       "slug": "family-law",
       "label": "Family Law",
       "legalAreaSlug": "family",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -386,17 +386,77 @@
           "createdUtc": 1792765364,
           "snippet": "Hi, I have seen that other people have had experiences with Winn solicitors but ours is from a different angle. My husband reversed out and bumped a car in 2023. Both drivers got out, assessed the damage but took each other’s details. There was no damage to either cars. My husban",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xch8y0",
-          "title": "Ex wants to get Iranian passports for British children (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xch8y0/ex_wants_to_get_iranian_passports_for_british/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xch8y0/ex_wants_to_get_iranian_passports_for_british/",
+          "id": "1xe1qr8",
+          "title": "Employer sent out revised voluntary redundancy contract after I had already signed the original (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe1qr8/employer_sent_out_revised_voluntary_redundancy/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe1qr8/employer_sent_out_revised_voluntary_redundancy/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792672221,
-          "snippet": "My ex partner (never married) wants to obtain Iranian passports for our children to take them on holiday to Iran. I, for obvious reasons, do not want this to happen. Can he get an Iranian passport for them without my consent and if so do I have anyway of stopping him? submitted b",
+          "createdUtc": 1792824878,
+          "snippet": "I have applied for voluntary redundancy, (employed for 3 years), I received my contract with the end date specified and signed it using Docusign, I spoke to my new employer and arranged a start date based on the end date I had agreed with my current employer. My current employer ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xe3ksb",
+          "title": "Suspended for over two months, poor communication, changing allegations and losing confidence in my employer. Is this normal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3ksb/suspended_for_over_two_months_poor_communication/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3ksb/suspended_for_over_two_months_poor_communication/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792831674,
+          "snippet": "Location: England UK I'm looking for some outside perspectives on how my employer has handled a prolonged suspension. I've worked for a large UK organisation for several years, in a senior role with management responsibilities. I've generally had a strong performance record, alth",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xdnxea",
+          "title": "Obstructive co-freeholders are blocking the sale of our flat by refusing to sign the TR1 and have ghosted us. - London, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdnxea/obstructive_cofreeholders_are_blocking_the_sale/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdnxea/obstructive_cofreeholders_are_blocking_the_sale/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792784474,
+          "snippet": "We've been attempting to sell our flat, have found a buyer, accepted the offer and gone through the conveyancing process only to be utterly blocked at the last minute by one of the two other co-freeholders (I and my mum are both co-freeholders also). The property is a converted v",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xe2ygi",
+          "title": "Stamp duty surcharge: spouse co-owns a flat, agreed 95%/5% but solicitor recorded joint tenants. Can this be fixed before my wife's purchase completes?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe2ygi/stamp_duty_surcharge_spouse_coowns_a_flat_agreed/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe2ygi/stamp_duty_surcharge_spouse_coowns_a_flat_agreed/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792829329,
+          "snippet": "Looking for advice from anyone who has dealt with something similar (England). Background: - In June 2023 I bought a new-build leasehold flat (about £385k) with a friend. We're both on the title and on a joint mortgage. - Before completion, we told our conveyancer by phone severa",
           "listingSource": "rss:hot"
         }
       ]
@@ -405,7 +465,7 @@
       "slug": "consumer-law",
       "label": "Consumer Law",
       "legalAreaSlug": "consumer",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -421,18 +481,6 @@
           "numComments": 0,
           "createdUtc": 1792755561,
           "snippet": "Fiance and I have paid about £2500 to our wedding caterer so far. This includes deposit and second payment. We hadn't heard anything from the caterer for a few months and then we get an email at the start of October from her Dad via her email address saying she's in the hospital ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xdi3gl",
-          "title": "(England) Final right to reject vehicle process - when to cancel insurance and tax",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdi3gl/england_final_right_to_reject_vehicle_process/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdi3gl/england_final_right_to_reject_vehicle_process/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792771330,
-          "snippet": "Hi there, Very brief Timeline: 7 weeks after purchasing a vehicle from a dealership, my car broke down unexpectedly. RAC breakdown came out, diagnosed the issue. I sent the diagnostic report and photos to the dealer, asking how he would like to proceed (as I need to give the deal",
           "listingSource": "rss:hot"
         }
       ]
@@ -462,33 +510,45 @@
       ]
     },
     {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
-      "postCount": 1,
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "prison_law",
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
         {
-          "id": "1xdnxea",
-          "title": "Obstructive co-freeholders are blocking the sale of our flat by refusing to sign the TR1 and have ghosted us. - London, England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdnxea/obstructive_cofreeholders_are_blocking_the_sale/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdnxea/obstructive_cofreeholders_are_blocking_the_sale/",
+          "id": "1xe4lrv",
+          "title": "urgent help needed to appeal stage 2 meeting at college for SEN student",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe4lrv/urgent_help_needed_to_appeal_stage_2_meeting_at/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe4lrv/urgent_help_needed_to_appeal_stage_2_meeting_at/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792784474,
-          "snippet": "We've been attempting to sell our flat, have found a buyer, accepted the offer and gone through the conveyancing process only to be utterly blocked at the last minute by one of the two other co-freeholders (I and my mum are both co-freeholders also). The property is a converted v",
+          "createdUtc": 1792835532,
+          "snippet": "hello. can any one please recommend where to get urgent help to appeal college stage 2 meeting, at a post 16 education college for a neurodivergent student. or advise how to write the appeal. ive contact local SENDIASS, but the take 7-10 days to get back and i have only 5 days to",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xe3my1",
+          "title": "Was I technically in police custody as a missing person at 14? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3my1/was_i_technically_in_police_custody_as_a_missing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3my1/was_i_technically_in_police_custody_as_a_missing/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792831904,
+          "snippet": "When I was 14, I got very fed up with boarding school. I was being bullied badly and I’d begged my parents to let me come home but they wouldn’t let me - I reached a point one day where I couldn’t bear to spend one more moment at school being picked on and for some stupid reason ",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "landlord-and-tenant",
-      "label": "Landlord and Tenant",
-      "legalAreaSlug": "housing",
+      "slug": "wills-and-probate",
+      "label": "Wills and Probate",
+      "legalAreaSlug": "wills_probate",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -496,15 +556,15 @@
       ],
       "posts": [
         {
-          "id": "1xda545",
-          "title": "I need out of my joint tenancy (Scotland)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xda545/i_need_out_of_my_joint_tenancy_scotland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xda545/i_need_out_of_my_joint_tenancy_scotland/",
+          "id": "1xe0sio",
+          "title": "It’s a probate one, anyone please help ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe0sio/its_a_probate_one_anyone_please_help/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe0sio/its_a_probate_one_anyone_please_help/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792750623,
-          "snippet": "Me and my flatmate fell out at the start of the year and it’s been hellish to live with her ever since. She will come home and start screaming and shouting about things or complaining about me really loudly where I can hear her. She also has people over to visit almost 24/7 and o",
+          "createdUtc": 1792821457,
+          "snippet": "I renounced my rights to act as executor for my mums will which is now null and void as a later one has been found. Any knowledgeable legal people here who could kindly tell me if the form PA15 still stands for the new will? Probate office is telling me it does and I can’t act as",
           "listingSource": "rss:hot"
         }
       ]
