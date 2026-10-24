@@ -1,0 +1,109 @@
+{
+  "date": "2026-09-22",
+  "generatedAt": "2026-09-22T22:04:31.749Z",
+  "pickCount": 10,
+  "thinDay": false,
+  "note": null,
+  "picks": [
+    {
+      "id": "1wnke7b",
+      "title": "[England] Is it justified asking for a refund for this terrible stay? Filthy accommodation",
+      "titleShape": "[England] Is it justified asking for a refund for this terrible stay? Filthy accommodation",
+      "matterGuess": "consumer",
+      "subreddit": "LegalAdviceUK",
+      "score": 80,
+      "whyPicked": "everyday, search-shaped, title length, uk cue",
+      "everyday": true
+    },
+    {
+      "id": "1wnh01c",
+      "title": "Should I take this traffic PCN appeal to London Tribunals?",
+      "titleShape": "Should take this traffic PCN appeal to London Tribunals?",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "score": 75,
+      "whyPicked": "everyday, search-shaped, title length",
+      "everyday": true
+    },
+    {
+      "id": "1wnm0kk",
+      "title": "NHS England Trust pocketing a net profit of £820,000 per year for staff parking",
+      "titleShape": "NHS England Trust pocketing a net profit of £820,000 per year for staff parking",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "score": 55,
+      "whyPicked": "everyday, title length, uk cue",
+      "everyday": true
+    },
+    {
+      "id": "1wnmh6u",
+      "title": "Holiday Pay + Irregular hours - Scotland",
+      "titleShape": "Holiday Pay + Irregular hours - Scotland",
+      "matterGuess": "employment",
+      "subreddit": "LegalAdviceUK",
+      "score": 55,
+      "whyPicked": "everyday, title length, uk cue",
+      "everyday": true
+    },
+    {
+      "id": "1wnm18m",
+      "title": "England – Private HMO tenant – ongoing noise/ASB dispute - London",
+      "titleShape": "England – Private HMO tenant – ongoing noise/ASB dispute - London",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "score": 55,
+      "whyPicked": "everyday, title length, uk cue",
+      "everyday": true
+    },
+    {
+      "id": "1wn3rqa",
+      "title": "Threats to kill and harrasment from neighbour.",
+      "titleShape": "Threats to kill and harrasment from neighbour.",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "score": 50,
+      "whyPicked": "everyday, title length",
+      "everyday": true
+    },
+    {
+      "id": "1wmrhwh",
+      "title": "Is it worth reporting a large electricity supplier for fraud after winning Ombudsman case?",
+      "titleShape": "Is it worth reporting a large electricity supplier for fraud after winning Ombudsman case?",
+      "matterGuess": "crime",
+      "subreddit": "LegalAdviceUK",
+      "score": 50,
+      "whyPicked": "matter:crime, search-shaped, title length",
+      "everyday": false
+    },
+    {
+      "id": "1wni63l",
+      "title": "new driver. parking ticket due to quoting wrong license plate",
+      "titleShape": "new driver. parking ticket due to quoting wrong license plate",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "score": 50,
+      "whyPicked": "everyday, title length",
+      "everyday": true
+    },
+    {
+      "id": "1wnn05p",
+      "title": "What recourse do I have (England) for claiming compensation for the costs incurred from an assault after investigating officer failed to correspond with CPS?",
+      "titleShape": "What recourse do have (England) for claiming compensation for the costs incurred from an assault after investigating officer failed to corre",
+      "matterGuess": "crime",
+      "subreddit": "LegalAdviceUK",
+      "score": 45,
+      "whyPicked": "matter:crime, search-shaped, uk cue",
+      "everyday": false
+    },
+    {
+      "id": "1wnktoe",
+      "title": "My rights relating to my aquarium light - light is faulty (seller says likely to be water ingress) but they are refusing to replace outside of warranty (England).",
+      "titleShape": "rights relating to aquarium light - light is faulty (seller says likely to be water ingress) but they are refusing to replace outside of war",
+      "matterGuess": "consumer",
+      "subreddit": "LegalAdviceUK",
+      "score": 45,
+      "whyPicked": "everyday, uk cue",
+      "everyday": true
+    }
+  ]
+}
