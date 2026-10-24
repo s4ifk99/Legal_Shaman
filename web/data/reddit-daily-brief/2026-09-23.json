@@ -1,0 +1,109 @@
+{
+  "date": "2026-09-23",
+  "generatedAt": "2026-09-23T22:11:15.347Z",
+  "pickCount": 10,
+  "thinDay": false,
+  "note": null,
+  "picks": [
+    {
+      "id": "1wodmbq",
+      "title": "Downstairs neighbour asking for details after water leak from my flat Am I liable? (Scotland)",
+      "titleShape": "Downstairs neighbour asking for details after water leak from flat Am liable? (Scotland)",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "score": 80,
+      "whyPicked": "everyday, search-shaped, title length, uk cue",
+      "everyday": true
+    },
+    {
+      "id": "1woiv02",
+      "title": "What can I do about this parking fine? - England",
+      "titleShape": "What can do about this parking fine? - England",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "score": 80,
+      "whyPicked": "everyday, search-shaped, title length, uk cue",
+      "everyday": true
+    },
+    {
+      "id": "1wofyf3",
+      "title": "(Northern Ireland) Are my neighbour's modified cars illegal? Can/would the police do anything about it?",
+      "titleShape": "(Northern Ireland) Are neighbour's modified cars illegal? Can/would the police do anything about it?",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "score": 75,
+      "whyPicked": "everyday, search-shaped, title length",
+      "everyday": true
+    },
+    {
+      "id": "1wnz0jq",
+      "title": "85yo neighbour who runs our housing association is showing signs of dementia and we don’t know what the plan after him. London, UK.",
+      "titleShape": "85yo neighbour who runs housing association is showing signs of dementia and don’t know what the plan after him. London, UK.",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "score": 55,
+      "whyPicked": "everyday, title length, uk cue",
+      "everyday": true
+    },
+    {
+      "id": "1wof92k",
+      "title": "England: parcel stolen by the driver who delivered it",
+      "titleShape": "England: parcel stolen by the driver who delivered it",
+      "matterGuess": "consumer",
+      "subreddit": "LegalAdviceUK",
+      "score": 55,
+      "whyPicked": "everyday, title length, uk cue",
+      "everyday": true
+    },
+    {
+      "id": "1wnm0kk",
+      "title": "NHS England Trust pocketing a net profit of £820,000 per year for staff parking",
+      "titleShape": "NHS England Trust pocketing a net profit of £820,000 per year for staff parking",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "score": 55,
+      "whyPicked": "everyday, title length, uk cue",
+      "everyday": true
+    },
+    {
+      "id": "1wohnf3",
+      "title": "APCOA Parking fine but never received original PCN (England)",
+      "titleShape": "APCOA Parking fine but never received original PCN (England)",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "score": 55,
+      "whyPicked": "everyday, title length, uk cue",
+      "everyday": true
+    },
+    {
+      "id": "1wog1u3",
+      "title": "Rent repayment order - should we settle (England)?",
+      "titleShape": "Rent repayment order - should settle (England)?",
+      "matterGuess": "housing",
+      "subreddit": "LegalAdviceUK",
+      "score": 55,
+      "whyPicked": "matter:housing, search-shaped, title length, uk cue",
+      "everyday": false
+    },
+    {
+      "id": "1wocped",
+      "title": "MyDeposits added 34 landlord evidence files after the evidence deadline, is this normal/fair?",
+      "titleShape": "MyDeposits added 34 landlord evidence files after the evidence deadline, is this normal/fair?",
+      "matterGuess": "housing",
+      "subreddit": "LegalAdviceUK",
+      "score": 50,
+      "whyPicked": "matter:housing, search-shaped, title length",
+      "everyday": false
+    },
+    {
+      "id": "1woiv09",
+      "title": "Party wall: neighbour claims the removal of a bookcase is the BO responsibility",
+      "titleShape": "Party wall: neighbour claims the removal of a bookcase is the BO responsibility",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "score": 50,
+      "whyPicked": "everyday, title length",
+      "everyday": true
+    }
+  ]
+}

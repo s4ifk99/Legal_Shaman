@@ -1,5 +1,86 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-21T17:11:10.241Z",
-  "entries": []
+  "updatedAt": "2026-09-23T22:11:15.347Z",
+  "entries": [
+    {
+      "id": "1wodmbq",
+      "titleShape": "Downstairs neighbour asking for details after water leak from flat Am liable? (Scotland)",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-23T22:11:15.347Z",
+      "normalisedTitle": "downstairs neighbour asking for details after water leak from my flat am i liable scotland"
+    },
+    {
+      "id": "1woiv02",
+      "titleShape": "What can do about this parking fine? - England",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-23T22:11:15.347Z",
+      "normalisedTitle": "what can i do about this parking fine england"
+    },
+    {
+      "id": "1wofyf3",
+      "titleShape": "(Northern Ireland) Are neighbour's modified cars illegal? Can/would the police do anything about it?",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-23T22:11:15.347Z",
+      "normalisedTitle": "northern ireland are my neighbour s modified cars illegal can would the police do anything about it"
+    },
+    {
+      "id": "1wnz0jq",
+      "titleShape": "85yo neighbour who runs housing association is showing signs of dementia and don’t know what the plan after him. London, UK.",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-23T22:11:15.347Z",
+      "normalisedTitle": "85yo neighbour who runs our housing association is showing signs of dementia and we don t know what the plan after him london uk"
+    },
+    {
+      "id": "1wof92k",
+      "titleShape": "England: parcel stolen by the driver who delivered it",
+      "matterGuess": "consumer",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-23T22:11:15.347Z",
+      "normalisedTitle": "england parcel stolen by the driver who delivered it"
+    },
+    {
+      "id": "1wnm0kk",
+      "titleShape": "NHS England Trust pocketing a net profit of £820,000 per year for staff parking",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-23T22:11:15.347Z",
+      "normalisedTitle": "nhs england trust pocketing a net profit of 820 000 per year for staff parking"
+    },
+    {
+      "id": "1wohnf3",
+      "titleShape": "APCOA Parking fine but never received original PCN (England)",
+      "matterGuess": "parking",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-23T22:11:15.347Z",
+      "normalisedTitle": "apcoa parking fine but never received original pcn england"
+    },
+    {
+      "id": "1wog1u3",
+      "titleShape": "Rent repayment order - should settle (England)?",
+      "matterGuess": "housing",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-23T22:11:15.347Z",
+      "normalisedTitle": "rent repayment order should we settle england"
+    },
+    {
+      "id": "1wocped",
+      "titleShape": "MyDeposits added 34 landlord evidence files after the evidence deadline, is this normal/fair?",
+      "matterGuess": "housing",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-23T22:11:15.347Z",
+      "normalisedTitle": "mydeposits added 34 landlord evidence files after the evidence deadline is this normal fair"
+    },
+    {
+      "id": "1woiv09",
+      "titleShape": "Party wall: neighbour claims the removal of a bookcase is the BO responsibility",
+      "matterGuess": "neighbours",
+      "subreddit": "LegalAdviceUK",
+      "pickedAt": "2026-09-23T22:11:15.347Z",
+      "normalisedTitle": "party wall neighbour claims the removal of a bookcase is the bo responsibility"
+    }
+  ]
 }
