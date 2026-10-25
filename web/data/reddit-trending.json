@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-24T20:15:29.009Z",
+    "scrapedAt": "2026-10-25T10:29:22.099Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 7,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,15 +26,75 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xe3h6r",
-          "title": "The NHS is saying my Mum opted out of the pension scheme in 1992 to 1995, but she didn't? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3h6r/the_nhs_is_saying_my_mum_opted_out_of_the_pension/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3h6r/the_nhs_is_saying_my_mum_opted_out_of_the_pension/",
+          "id": "1xeu4be",
+          "title": "Police deny having my pc after property search and electronics seized. Can i do anything?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeu4be/police_deny_having_my_pc_after_property_search/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeu4be/police_deny_having_my_pc_after_property_search/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792831287,
-          "snippet": "My mum has worked for the NHS since 1992 (when she was a student nurse), she paid into her pension for a year and then opted out unit she finished her study and became a Nurse in 1994. She has just come to claim part of her pension which is only available if she had paid in befor",
+          "createdUtc": 1792906677,
+          "snippet": "Can anyone help please. 2 years ago my property was searched and police seized all my electronic devices . Items seized were multiple phones most not working, 2 laptops, android box an old desktop fujitsu base and my pc. Which they're denying have taken. All other items were ridd",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xeiuoy",
+          "title": "A stranger keeps sending me 1p bank transfers with abusive messages in the reference. What can I do? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792873355,
+          "snippet": "Hi all, looking for some advice because I'm honestly not sure where this falls legally. Background: About five weeks ago, my banking app pinged with an incoming payment of 1p. I assumed it was a glitch or a scam test until I read the reference. Since then I've had 43 of these, so",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xeregb",
+          "title": "England: can I be fired for refusing to clean?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeregb/england_can_i_be_fired_for_refusing_to_clean/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeregb/england_can_i_be_fired_for_refusing_to_clean/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792897659,
+          "snippet": "I have been working for this company for about 2 months, and we recently have a customer who frequently smells of wee and leaves wee all over the seats. The manager has stated that we cannot bar them as they have said they have a disability that makes them unable to control their",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xeuelh",
+          "title": "Can my employer sack me for refusing overtime beyond my normal 10-hour shift? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792907706,
+          "snippet": "I’m looking for some advice regarding compulsory overtime at work. My employment contract states that my normal working hours are Monday to Friday, with 10-hour shifts (including a 30-minute unpaid break). However, it also states: “Overtime cannot be guaranteed however it is expe",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xevq8z",
+          "title": "This is a follow up post: Landlord is threatening to sue me and let my employers know about our bathroom situation.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xevq8z/this_is_a_follow_up_post_landlord_is_threatening/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xevq8z/this_is_a_follow_up_post_landlord_is_threatening/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792912443,
+          "snippet": "England - UK First post is here: https://www.reddit.com/r/LegalAdviceUK/s/AnjwYh6BhE A bit of context: I'm a lodger, and I've been living with a landlord and his family for 2 years. I have an en-suite bathroom on the second floor, and they live on the first floor. Recently, there",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xejap1",
+          "title": "Voluntary interview with the police in England. Serious allegations.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xejap1/voluntary_interview_with_the_police_in_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xejap1/voluntary_interview_with_the_police_in_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792874476,
+          "snippet": "Hello, people. I am in need of advice since they requested me to go to a voluntary interview, which is really stressing me out at the moment. I had a hook up with a friend from uni three months ago while the both of us were drunk. There was some kissing and touching and I remembe",
           "listingSource": "rss:hot"
         },
         {
@@ -50,6 +110,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xew8nf",
+          "title": "Disagreement on my holiday entitlement in employment contract with management",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xew8nf/disagreement_on_my_holiday_entitlement_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xew8nf/disagreement_on_my_holiday_entitlement_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792914292,
+          "snippet": "I live in England: I changed roles recently in the same company. My manager claims I have 195 hours holiday for 7 years employment, but the government website says the minimum should be 218.4 (no irregular hours, hours worked per week, for a full leave year, 39 hours over 5 days)",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xe9utx",
           "title": "(Scotland) New neighbour has informed me our building is listed",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe9utx/scotland_new_neighbour_has_informed_me_our/",
@@ -59,6 +131,42 @@
           "numComments": 0,
           "createdUtc": 1792851499,
           "snippet": "Hey folks Having a bit of a worry, I own a top floor flat in a block of 6. Building was built in the 1860s, I purchased in 2019. Since purchase I have renovated internally, including blocking off/capping an old gas fireplace, replacing timber cladding on my dormer windows with UP",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xey9io",
+          "title": "How do I legally continue to act as a trustee once the beneficiary reaches 18? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey9io/how_do_i_legally_continue_to_act_as_a_trustee/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey9io/how_do_i_legally_continue_to_act_as_a_trustee/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792921822,
+          "snippet": "Hi guys. I’ll keep this brief and just stick to the facts. Some years ago a good friend of mine died leaving a young son behind. He was not married to his partner and didn’t leave will. This led to his estate was divided between his son and an older son from a previous relationsh",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xewoqj",
+          "title": "Free Parking removed from event",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xewoqj/free_parking_removed_from_event/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xewoqj/free_parking_removed_from_event/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792915914,
+          "snippet": "Going to a fireworks event later today, when I booked the event, they mentioned free parking for all attendees and this is included in the email I have containing the tickets. Yesterday they sent out a sms message saying that you need to pay for parking and when I emailed custome",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xex1iz",
+          "title": "Family law advice needed urgently.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xex1iz/family_law_advice_needed_urgently/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xex1iz/family_law_advice_needed_urgently/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792917215,
+          "snippet": "My son is currently living with my nan &amp; is being extremely controlling about me seeing him, i need advice on how i can fix this. The short version, my nan has my son in her care &amp; is refusing to give me more time with him despite the courts saying she needs to. I am savi",
           "listingSource": "rss:hot"
         },
         {
@@ -74,51 +182,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xe12nl",
-          "title": "Father Died intestate. Siblings kept his death a secret for 3 months - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe12nl/father_died_intestate_siblings_kept_his_death_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe12nl/father_died_intestate_siblings_kept_his_death_a/",
+          "id": "1xel5nl",
+          "title": "Will advice - executor going against wishes.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xel5nl/will_advice_executor_going_against_wishes/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xel5nl/will_advice_executor_going_against_wishes/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792822457,
-          "snippet": "My father died intestate a few months ago. Our relationship consisted of exchanging messages on Birthdays and Christmas. I found out yesterday via a tracing firm appointed by a solicitor on a contingency basis. The first thing they did was try to get me to sign a beneficiary agre",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xe3my1",
-          "title": "Was I technically in police custody as a missing person at 14? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3my1/was_i_technically_in_police_custody_as_a_missing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3my1/was_i_technically_in_police_custody_as_a_missing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792831904,
-          "snippet": "When I was 14, I got very fed up with boarding school. I was being bullied badly and I’d begged my parents to let me come home but they wouldn’t let me - I reached a point one day where I couldn’t bear to spend one more moment at school being picked on and for some stupid reason ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xdig0m",
-          "title": "William Hill Payout £54k part 3 (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdig0m/william_hill_payout_54k_part_3_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdig0m/william_hill_payout_54k_part_3_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792772090,
-          "snippet": "The Jackpot! The jackpot is real! And it’s finally given to me! A loverly man from William Hill reached out to me today, after asking for a few more details, I received all £54k of my jackpot. It’s been a long month with 0 updates, but we finally did it people! We won! Thanks for",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xeb12q",
-          "title": "I'm in the process of moving out from a house share but LL is charging me a hefty price for a grout tile failings in the bathroom floor.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeb12q/im_in_the_process_of_moving_out_from_a_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeb12q/im_in_the_process_of_moving_out_from_a_house/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792854425,
-          "snippet": "England, UK Hello there, just to give a brief background, I'm located in England, and have been renting with a live-in Landlord for 2 years now until I have finally decided to move-out because of my living condition. I live on the 2nd floor in an en-suite room. Before I moved-in,",
+          "createdUtc": 1792879322,
+          "snippet": "In 2021 my wife lost her grandmother. Not long before she died she asked for my wife’s new address so her will can be updated. This week she has been having some issues with another executor and this brought back memories of her grandmother and if she ever did amend her will as s",
           "listingSource": "rss:hot"
         },
         {
@@ -134,123 +206,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xei58m",
-          "title": "Dispute resolution hearing on Monday",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xei58m/dispute_resolution_hearing_on_monday/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xei58m/dispute_resolution_hearing_on_monday/",
+          "id": "1xey8nd",
+          "title": "Resignation issues - 3 months.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey8nd/resignation_issues_3_months/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey8nd/resignation_issues_3_months/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792871601,
-          "snippet": "I am the applicant, so far we have only had an urgent directions hearing back in August where my Lives with &amp; PSO were granted, and Dad was denied any contact not even in a contact centre. Since then he has completely ignored Cafcass therefore they have recommended zero conta",
+          "createdUtc": 1792921730,
+          "snippet": "Hi everyone. For references I’m in England. I’m in a sticky situation as I have accepted a new job offer, who want me to start on 30th November and seem keen for me to start asap. I have signed a contract with them that states this as my start date. However my current employer is",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xdfg71",
-          "title": "Husband was involved in a small bump two years ago in a Lidl car park - now been contacted by Winn Solicitors for £24k (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdfg71/husband_was_involved_in_a_small_bump_two_years/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdfg71/husband_was_involved_in_a_small_bump_two_years/",
+          "id": "1xey0q2",
+          "title": "Scotland Should we be doing all the project management this insurance claim?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey0q2/scotland_should_we_be_doing_all_the_project/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey0q2/scotland_should_we_be_doing_all_the_project/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792765364,
-          "snippet": "Hi, I have seen that other people have had experiences with Winn solicitors but ours is from a different angle. My husband reversed out and bumped a car in 2023. Both drivers got out, assessed the damage but took each other’s details. There was no damage to either cars. My husban",
+          "createdUtc": 1792920899,
+          "snippet": "Someone backed into an old stone workshop/stables we own with their car. Complete accident but it caused stones to shift and large cracks. There was no issue from their insurance company who told us to go ahead and get structural engineer quotes and builders quotes. We've tried t",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xedgzy",
-          "title": "What’s fair child maintenance with a 70/30 custody split? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xedgzy/whats_fair_child_maintenance_with_a_7030_custody/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xedgzy/whats_fair_child_maintenance_with_a_7030_custody/",
+          "id": "1xexm5o",
+          "title": "Disciplinary hearing advice! UK England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexm5o/disciplinary_hearing_advice_uk_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexm5o/disciplinary_hearing_advice_uk_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792860344,
-          "snippet": "My ex and I have a 2-year-old son. We both earn around £50k and are planning a 70/30 custody split, with me having majority care. He’s proposed paying half the nursery fees (£275/month) plus a contribution towards our son’s share of my household bills, rather than using the CMS c",
+          "createdUtc": 1792919362,
+          "snippet": "My wife was invited to a disciplinary hearing and was ultimately suspended on full pay for reasons I won’t go into. The meeting was between herself and her line manager only in attendance, and no third party to take the minutes. Does this meeting have any substance or has her lin",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xe7brm",
-          "title": "Council refusing to enforce planning condition",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe7brm/council_refusing_to_enforce_planning_condition/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe7brm/council_refusing_to_enforce_planning_condition/",
+          "id": "1xexkn6",
+          "title": "John pye auction question - counterfeit item",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexkn6/john_pye_auction_question_counterfeit_item/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexkn6/john_pye_auction_question_counterfeit_item/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792844726,
-          "snippet": "Looking for some general advice. Land behind our homes has a planning condition stating: “informal recreation space only” and“shall not be laid out and used as formal playing pitches.” Two earlier applications for football pitches were refused. The officer report for the later pe",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xe1qr8",
-          "title": "Employer sent out revised voluntary redundancy contract after I had already signed the original (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe1qr8/employer_sent_out_revised_voluntary_redundancy/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe1qr8/employer_sent_out_revised_voluntary_redundancy/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792824878,
-          "snippet": "I have applied for voluntary redundancy, (employed for 3 years), I received my contract with the end date specified and signed it using Docusign, I spoke to my new employer and arranged a start date based on the end date I had agreed with my current employer. My current employer ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xebfwr",
-          "title": "Small claims court - getting landlord address",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xebfwr/small_claims_court_getting_landlord_address/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xebfwr/small_claims_court_getting_landlord_address/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792855443,
-          "snippet": "I'm preparing a small claim against my landlord. My challenge is I don't have their address, which I'd like to include in my letter before action (and which I'll need to make the claim). The address in my contract under the landlords name is the letting agency (e.g. landlord name",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xeemht",
-          "title": "England tempory accommodation not allowed to speak to anyone expect for breakfast?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeemht/england_tempory_accommodation_not_allowed_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeemht/england_tempory_accommodation_not_allowed_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792863117,
-          "snippet": "Is this legal I find it a bit weird that we can't talk to anyone outside our rooms or sit and talk in the dining room and talk they seem to enforce it differently with different people and it doesn't make sense there's 2 heveay drug users that always talk to eatch other outside t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xe63hk",
-          "title": "Rented a studio flat for the last 5 years, EPC rating \"F\"",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe63hk/rented_a_studio_flat_for_the_last_5_years_epc/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe63hk/rented_a_studio_flat_for_the_last_5_years_epc/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792840827,
-          "snippet": "Hello everyone, as title says , I have been renting a studio flat for over 5 years, and I just found out, that a private property cannot be rented to if the EPC rating it's below \"E\". I have checked also the exemption register, and there are none for my flat. What are my options,",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xe6odi",
-          "title": "Wedding venue Issues - Contract broken?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe6odi/wedding_venue_issues_contract_broken/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe6odi/wedding_venue_issues_contract_broken/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792842775,
-          "snippet": "This is a venue based in England. Had our wedding a couple of weeks ago. We booked this over two years ago, and during that time, the communication from the venue has been very poor, other than when staged payments were due. We've had at least 3 different sets of people dealing w",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xdinq8",
-          "title": "I have been completely debanked. Nobody will tell me why. I have no CIFAS marker. What do I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdinq8/i_have_been_completely_debanked_nobody_will_tell/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdinq8/i_have_been_completely_debanked_nobody_will_tell/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792772568,
-          "snippet": "This has been going on 3 weeks now. My Wise shut down. 2 days later my Revolut shut down. A few days after that my Starling. I tried to open other banks and they all rejected me. I emailed CEOs etc. and I got told that I wasn't entitled to receive a reason as to why. I don't unde",
+          "createdUtc": 1792919209,
+          "snippet": "Hi I bought an item yesterday in an auction and now I realise the device is a counterfeit, which is a common issue on John pye apparently I didn’t pay for it yet, I contacted them claiming it is a fake item, as it was announced as Apple. The total invoice is £92 So what to do her",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 11,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,15 +280,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xe3h6r",
-          "title": "The NHS is saying my Mum opted out of the pension scheme in 1992 to 1995, but she didn't? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3h6r/the_nhs_is_saying_my_mum_opted_out_of_the_pension/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3h6r/the_nhs_is_saying_my_mum_opted_out_of_the_pension/",
+          "id": "1xeu4be",
+          "title": "Police deny having my pc after property search and electronics seized. Can i do anything?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeu4be/police_deny_having_my_pc_after_property_search/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeu4be/police_deny_having_my_pc_after_property_search/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792831287,
-          "snippet": "My mum has worked for the NHS since 1992 (when she was a student nurse), she paid into her pension for a year and then opted out unit she finished her study and became a Nurse in 1994. She has just come to claim part of her pension which is only available if she had paid in befor",
+          "createdUtc": 1792906677,
+          "snippet": "Can anyone help please. 2 years ago my property was searched and police seized all my electronic devices . Items seized were multiple phones most not working, 2 laptops, android box an old desktop fujitsu base and my pc. Which they're denying have taken. All other items were ridd",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xeiuoy",
+          "title": "A stranger keeps sending me 1p bank transfers with abusive messages in the reference. What can I do? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792873355,
+          "snippet": "Hi all, looking for some advice because I'm honestly not sure where this falls legally. Background: About five weeks ago, my banking app pinged with an incoming payment of 1p. I assumed it was a glitch or a scam test until I read the reference. Since then I've had 43 of these, so",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xeregb",
+          "title": "England: can I be fired for refusing to clean?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeregb/england_can_i_be_fired_for_refusing_to_clean/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeregb/england_can_i_be_fired_for_refusing_to_clean/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792897659,
+          "snippet": "I have been working for this company for about 2 months, and we recently have a customer who frequently smells of wee and leaves wee all over the seats. The manager has stated that we cannot bar them as they have said they have a disability that makes them unable to control their",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xejap1",
+          "title": "Voluntary interview with the police in England. Serious allegations.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xejap1/voluntary_interview_with_the_police_in_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xejap1/voluntary_interview_with_the_police_in_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792874476,
+          "snippet": "Hello, people. I am in need of advice since they requested me to go to a voluntary interview, which is really stressing me out at the moment. I had a hook up with a friend from uni three months ago while the both of us were drunk. There was some kissing and touching and I remembe",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xew8nf",
+          "title": "Disagreement on my holiday entitlement in employment contract with management",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xew8nf/disagreement_on_my_holiday_entitlement_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xew8nf/disagreement_on_my_holiday_entitlement_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792914292,
+          "snippet": "I live in England: I changed roles recently in the same company. My manager claims I have 195 hours holiday for 7 years employment, but the government website says the minimum should be 218.4 (no irregular hours, hours worked per week, for a full leave year, 39 hours over 5 days)",
           "listingSource": "rss:hot"
         },
         {
@@ -304,63 +352,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xebin5",
-          "title": "England - Evacuated from building due to structural, no suitable accommodation provided. What are the legal options for these residents?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xebin5/england_evacuated_from_building_due_to_structural/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xebin5/england_evacuated_from_building_due_to_structural/",
+          "id": "1xewoqj",
+          "title": "Free Parking removed from event",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xewoqj/free_parking_removed_from_event/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xewoqj/free_parking_removed_from_event/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792855627,
-          "snippet": "submitted by /u/ferrettriathlete [link] [comments]",
+          "createdUtc": 1792915914,
+          "snippet": "Going to a fireworks event later today, when I booked the event, they mentioned free parking for all attendees and this is included in the email I have containing the tickets. Yesterday they sent out a sms message saying that you need to pay for parking and when I emailed custome",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xeuelh",
+          "title": "Can my employer sack me for refusing overtime beyond my normal 10-hour shift? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792907706,
+          "snippet": "I’m looking for some advice regarding compulsory overtime at work. My employment contract states that my normal working hours are Monday to Friday, with 10-hour shifts (including a 30-minute unpaid break). However, it also states: “Overtime cannot be guaranteed however it is expe",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xe12nl",
-          "title": "Father Died intestate. Siblings kept his death a secret for 3 months - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe12nl/father_died_intestate_siblings_kept_his_death_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe12nl/father_died_intestate_siblings_kept_his_death_a/",
+          "id": "1xevq8z",
+          "title": "This is a follow up post: Landlord is threatening to sue me and let my employers know about our bathroom situation.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xevq8z/this_is_a_follow_up_post_landlord_is_threatening/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xevq8z/this_is_a_follow_up_post_landlord_is_threatening/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792822457,
-          "snippet": "My father died intestate a few months ago. Our relationship consisted of exchanging messages on Birthdays and Christmas. I found out yesterday via a tracing firm appointed by a solicitor on a contingency basis. The first thing they did was try to get me to sign a beneficiary agre",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xdig0m",
-          "title": "William Hill Payout £54k part 3 (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdig0m/william_hill_payout_54k_part_3_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdig0m/william_hill_payout_54k_part_3_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792772090,
-          "snippet": "The Jackpot! The jackpot is real! And it’s finally given to me! A loverly man from William Hill reached out to me today, after asking for a few more details, I received all £54k of my jackpot. It’s been a long month with 0 updates, but we finally did it people! We won! Thanks for",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xeb12q",
-          "title": "I'm in the process of moving out from a house share but LL is charging me a hefty price for a grout tile failings in the bathroom floor.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeb12q/im_in_the_process_of_moving_out_from_a_house/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeb12q/im_in_the_process_of_moving_out_from_a_house/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792854425,
-          "snippet": "England, UK Hello there, just to give a brief background, I'm located in England, and have been renting with a live-in Landlord for 2 years now until I have finally decided to move-out because of my living condition. I live on the 2nd floor in an en-suite room. Before I moved-in,",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xei58m",
-          "title": "Dispute resolution hearing on Monday",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xei58m/dispute_resolution_hearing_on_monday/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xei58m/dispute_resolution_hearing_on_monday/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792871601,
-          "snippet": "I am the applicant, so far we have only had an urgent directions hearing back in August where my Lives with &amp; PSO were granted, and Dad was denied any contact not even in a contact centre. Since then he has completely ignored Cafcass therefore they have recommended zero conta",
+          "createdUtc": 1792912443,
+          "snippet": "England - UK First post is here: https://www.reddit.com/r/LegalAdviceUK/s/AnjwYh6BhE A bit of context: I'm a lodger, and I've been living with a landlord and his family for 2 years. I have an en-suite bathroom on the second floor, and they live on the first floor. Recently, there",
           "listingSource": "rss:hot"
         }
       ]
@@ -390,9 +426,45 @@
       ]
     },
     {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "prison_law",
+      "slug": "wills-and-probate",
+      "label": "Wills and Probate",
+      "legalAreaSlug": "wills_probate",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xey9io",
+          "title": "How do I legally continue to act as a trustee once the beneficiary reaches 18? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey9io/how_do_i_legally_continue_to_act_as_a_trustee/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey9io/how_do_i_legally_continue_to_act_as_a_trustee/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792921822,
+          "snippet": "Hi guys. I’ll keep this brief and just stick to the facts. Some years ago a good friend of mine died leaving a young son behind. He was not married to his partner and didn’t leave will. This led to his estate was divided between his son and an older son from a previous relationsh",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xel5nl",
+          "title": "Will advice - executor going against wishes.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xel5nl/will_advice_executor_going_against_wishes/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xel5nl/will_advice_executor_going_against_wishes/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792879322,
+          "snippet": "In 2021 my wife lost her grandmother. Not long before she died she asked for my wife’s new address so her will can be updated. This week she has been having some issues with another executor and this brought back memories of her grandmother and if she ever did amend her will as s",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -400,15 +472,15 @@
       ],
       "posts": [
         {
-          "id": "1xe3my1",
-          "title": "Was I technically in police custody as a missing person at 14? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3my1/was_i_technically_in_police_custody_as_a_missing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe3my1/was_i_technically_in_police_custody_as_a_missing/",
+          "id": "1xex1iz",
+          "title": "Family law advice needed urgently.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xex1iz/family_law_advice_needed_urgently/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xex1iz/family_law_advice_needed_urgently/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792831904,
-          "snippet": "When I was 14, I got very fed up with boarding school. I was being bullied badly and I’d begged my parents to let me come home but they wouldn’t let me - I reached a point one day where I couldn’t bear to spend one more moment at school being picked on and for some stupid reason ",
+          "createdUtc": 1792917215,
+          "snippet": "My son is currently living with my nan &amp; is being extremely controlling about me seeing him, i need advice on how i can fix this. The short version, my nan has my son in her care &amp; is refusing to give me more time with him despite the courts saying she needs to. I am savi",
           "listingSource": "rss:hot"
         }
       ]
@@ -438,45 +510,9 @@
       ]
     },
     {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xdfg71",
-          "title": "Husband was involved in a small bump two years ago in a Lidl car park - now been contacted by Winn Solicitors for £24k (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdfg71/husband_was_involved_in_a_small_bump_two_years/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xdfg71/husband_was_involved_in_a_small_bump_two_years/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792765364,
-          "snippet": "Hi, I have seen that other people have had experiences with Winn solicitors but ours is from a different angle. My husband reversed out and bumped a car in 2023. Both drivers got out, assessed the damage but took each other’s details. There was no damage to either cars. My husban",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xedgzy",
-          "title": "What’s fair child maintenance with a 70/30 custody split? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xedgzy/whats_fair_child_maintenance_with_a_7030_custody/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xedgzy/whats_fair_child_maintenance_with_a_7030_custody/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792860344,
-          "snippet": "My ex and I have a 2-year-old son. We both earn around £50k and are planning a 70/30 custody split, with me having majority care. He’s proposed paying half the nursery fees (£275/month) plus a contribution towards our son’s share of my household bills, rather than using the CMS c",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
+      "slug": "insurance-disputes",
+      "label": "Insurance Disputes",
+      "legalAreaSlug": "consumer_insurance",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -484,23 +520,23 @@
       ],
       "posts": [
         {
-          "id": "1xe1qr8",
-          "title": "Employer sent out revised voluntary redundancy contract after I had already signed the original (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe1qr8/employer_sent_out_revised_voluntary_redundancy/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe1qr8/employer_sent_out_revised_voluntary_redundancy/",
+          "id": "1xey0q2",
+          "title": "Scotland Should we be doing all the project management this insurance claim?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey0q2/scotland_should_we_be_doing_all_the_project/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey0q2/scotland_should_we_be_doing_all_the_project/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792824878,
-          "snippet": "I have applied for voluntary redundancy, (employed for 3 years), I received my contract with the end date specified and signed it using Docusign, I spoke to my new employer and arranged a start date based on the end date I had agreed with my current employer. My current employer ",
+          "createdUtc": 1792920899,
+          "snippet": "Someone backed into an old stone workshop/stables we own with their car. Complete accident but it caused stones to shift and large cracks. There was no issue from their insurance company who told us to go ahead and get structural engineer quotes and builders quotes. We've tried t",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "small-claims-and-county-court",
-      "label": "Small Claims and County Court",
-      "legalAreaSlug": "consumer_small_claims",
+      "slug": "sports-law",
+      "label": "Sports Law",
+      "legalAreaSlug": "sports_law",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -508,15 +544,15 @@
       ],
       "posts": [
         {
-          "id": "1xebfwr",
-          "title": "Small claims court - getting landlord address",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xebfwr/small_claims_court_getting_landlord_address/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xebfwr/small_claims_court_getting_landlord_address/",
+          "id": "1xexm5o",
+          "title": "Disciplinary hearing advice! UK England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexm5o/disciplinary_hearing_advice_uk_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexm5o/disciplinary_hearing_advice_uk_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792855443,
-          "snippet": "I'm preparing a small claim against my landlord. My challenge is I don't have their address, which I'd like to include in my letter before action (and which I'll need to make the claim). The address in my contract under the landlords name is the letting agency (e.g. landlord name",
+          "createdUtc": 1792919362,
+          "snippet": "My wife was invited to a disciplinary hearing and was ultimately suspended on full pay for reasons I won’t go into. The meeting was between herself and her line manager only in attendance, and no third party to take the minutes. Does this meeting have any substance or has her lin",
           "listingSource": "rss:hot"
         }
       ]
