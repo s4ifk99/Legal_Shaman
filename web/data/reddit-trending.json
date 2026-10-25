@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-25T10:29:22.099Z",
-    "subredditCount": 1,
-    "postCount": 20,
-    "topicCount": 8,
+    "scrapedAt": "2026-10-25T20:24:16.769Z",
+    "subredditCount": 2,
+    "postCount": 40,
+    "topicCount": 10,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,6 +26,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xf1ein",
+          "title": "Charged £200 for a Coke in Budapest. Bank says it's my fault because I tapped my card. Any chance with the Ombudsman? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf1ein/charged_200_for_a_coke_in_budapest_bank_says_its/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf1ein/charged_200_for_a_coke_in_budapest_bank_says_its/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792932205,
+          "snippet": "Was at a club in Budapest. A hostess was bugging me asking to buy her a drink, so I agreed to a Coke for a few quid. (Currency was in Hungarian forints) She later came back with an entire bottle of wine. I immediately told her I hadn't ordered that, but she reassured me it was on",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xeu4be",
           "title": "Police deny having my pc after property search and electronics seized. Can i do anything?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeu4be/police_deny_having_my_pc_after_property_search/",
@@ -38,15 +50,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xeiuoy",
-          "title": "A stranger keeps sending me 1p bank transfers with abusive messages in the reference. What can I do? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
+          "id": "1xf9yyr",
+          "title": "Holiday Park power outing - nothing provided",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf9yyr/holiday_park_power_outing_nothing_provided/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf9yyr/holiday_park_power_outing_nothing_provided/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792873355,
-          "snippet": "Hi all, looking for some advice because I'm honestly not sure where this falls legally. Background: About five weeks ago, my banking app pinged with an incoming payment of 1p. I assumed it was a glitch or a scam test until I read the reference. Since then I've had 43 of these, so",
+          "createdUtc": 1792953172,
+          "snippet": "Scotland (Forest Holidays) Edit: I understand the power outing is outside of their control, my question is regarding them being unable to provide us any basic necessities. Once they close at 6pm we have no access to water. Currently staying at a forest holiday park in Scotland (w",
           "listingSource": "rss:hot"
         },
         {
@@ -62,18 +74,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xeuelh",
-          "title": "Can my employer sack me for refusing overtime beyond my normal 10-hour shift? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792907706,
-          "snippet": "I’m looking for some advice regarding compulsory overtime at work. My employment contract states that my normal working hours are Monday to Friday, with 10-hour shifts (including a 30-minute unpaid break). However, it also states: “Overtime cannot be guaranteed however it is expe",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1xevq8z",
           "title": "This is a follow up post: Landlord is threatening to sue me and let my employers know about our bathroom situation.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xevq8z/this_is_a_follow_up_post_landlord_is_threatening/",
@@ -86,51 +86,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xejap1",
-          "title": "Voluntary interview with the police in England. Serious allegations.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xejap1/voluntary_interview_with_the_police_in_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xejap1/voluntary_interview_with_the_police_in_england/",
+          "id": "1xezpky",
+          "title": "Help with divorce after short marriage (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xezpky/help_with_divorce_after_short_marriage_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xezpky/help_with_divorce_after_short_marriage_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792874476,
-          "snippet": "Hello, people. I am in need of advice since they requested me to go to a voluntary interview, which is really stressing me out at the moment. I had a hook up with a friend from uni three months ago while the both of us were drunk. There was some kissing and touching and I remembe",
+          "createdUtc": 1792926829,
+          "snippet": "My husband left me after 5 months of marriage without explanation or his things. He’s blocked me on everything and made his family and our mutual friends block me. I have no idea what is going on with that. We had agreed that when he moved in the house I had purchased would alway",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xeei83",
-          "title": "England: Previous owner of flat did not clear their debts and housing association is making me responsible",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeei83/england_previous_owner_of_flat_did_not_clear/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeei83/england_previous_owner_of_flat_did_not_clear/",
+          "id": "1xeiuoy",
+          "title": "A stranger keeps sending me 1p bank transfers with abusive messages in the reference. What can I do? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792862830,
-          "snippet": "Hi. I am a first time buyer on a shared ownership flat (yes, I know!). I completed in early September, and in October a bill of £1040 was added to my service charge/rent. This is an end of year variance bill where the true cost of the service charge from 1 April 2025 and 31 March",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xew8nf",
-          "title": "Disagreement on my holiday entitlement in employment contract with management",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xew8nf/disagreement_on_my_holiday_entitlement_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xew8nf/disagreement_on_my_holiday_entitlement_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792914292,
-          "snippet": "I live in England: I changed roles recently in the same company. My manager claims I have 195 hours holiday for 7 years employment, but the government website says the minimum should be 218.4 (no irregular hours, hours worked per week, for a full leave year, 39 hours over 5 days)",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xe9utx",
-          "title": "(Scotland) New neighbour has informed me our building is listed",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe9utx/scotland_new_neighbour_has_informed_me_our/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe9utx/scotland_new_neighbour_has_informed_me_our/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792851499,
-          "snippet": "Hey folks Having a bit of a worry, I own a top floor flat in a block of 6. Building was built in the 1860s, I purchased in 2019. Since purchase I have renovated internally, including blocking off/capping an old gas fireplace, replacing timber cladding on my dormer windows with UP",
+          "createdUtc": 1792873355,
+          "snippet": "Hi all, looking for some advice because I'm honestly not sure where this falls legally. Background: About five weeks ago, my banking app pinged with an incoming payment of 1p. I assumed it was a glitch or a scam test until I read the reference. Since then I've had 43 of these, so",
           "listingSource": "rss:hot"
         },
         {
@@ -146,111 +122,383 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xewoqj",
-          "title": "Free Parking removed from event",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xewoqj/free_parking_removed_from_event/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xewoqj/free_parking_removed_from_event/",
+          "id": "1xf1bvy",
+          "title": "Never recieved my award from my employment tribunal - what's next?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf1bvy/never_recieved_my_award_from_my_employment/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf1bvy/never_recieved_my_award_from_my_employment/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792915914,
-          "snippet": "Going to a fireworks event later today, when I booked the event, they mentioned free parking for all attendees and this is included in the email I have containing the tickets. Yesterday they sent out a sms message saying that you need to pay for parking and when I emailed custome",
+          "createdUtc": 1792931988,
+          "snippet": "I'm going to construct this as TLDR as possible as I don't want to bore anyone, but I am looking for options on what to do next (If there ARE any options). Background of business: - Worked there for 7 years. - Its a complex business modal but I worked for both company a (contract",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xex1iz",
-          "title": "Family law advice needed urgently.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xex1iz/family_law_advice_needed_urgently/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xex1iz/family_law_advice_needed_urgently/",
+          "id": "1xeuelh",
+          "title": "Can my employer sack me for refusing overtime beyond my normal 10-hour shift? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792917215,
-          "snippet": "My son is currently living with my nan &amp; is being extremely controlling about me seeing him, i need advice on how i can fix this. The short version, my nan has my son in her care &amp; is refusing to give me more time with him despite the courts saying she needs to. I am savi",
+          "createdUtc": 1792907706,
+          "snippet": "I’m looking for some advice regarding compulsory overtime at work. My employment contract states that my normal working hours are Monday to Friday, with 10-hour shifts (including a 30-minute unpaid break). However, it also states: “Overtime cannot be guaranteed however it is expe",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xebin5",
-          "title": "England - Evacuated from building due to structural, no suitable accommodation provided. What are the legal options for these residents?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xebin5/england_evacuated_from_building_due_to_structural/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xebin5/england_evacuated_from_building_due_to_structural/",
+          "id": "1xf6gzd",
+          "title": "My ex wants to go to mediation for contact with our son",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf6gzd/my_ex_wants_to_go_to_mediation_for_contact_with/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf6gzd/my_ex_wants_to_go_to_mediation_for_contact_with/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792855627,
-          "snippet": "submitted by /u/ferrettriathlete [link] [comments]",
+          "createdUtc": 1792944914,
+          "snippet": "Hello I've never posted on here before I'm just looking to see if anyone has been in a similar position and knows the first steps to take? I'm 33 (mother) from UK England and share a 10 year old son with my ex partner, we split up when he was born and he's lived in different coun",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xel5nl",
-          "title": "Will advice - executor going against wishes.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xel5nl/will_advice_executor_going_against_wishes/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xel5nl/will_advice_executor_going_against_wishes/",
+          "id": "1xfa51x",
+          "title": "Charged for hire car damage I didn’t do",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfa51x/charged_for_hire_car_damage_i_didnt_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfa51x/charged_for_hire_car_damage_i_didnt_do/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792879322,
-          "snippet": "In 2021 my wife lost her grandmother. Not long before she died she asked for my wife’s new address so her will can be updated. This week she has been having some issues with another executor and this brought back memories of her grandmother and if she ever did amend her will as s",
+          "createdUtc": 1792953575,
+          "snippet": "Good evening everyone, I’m looking for a spot of advice please. In June 2026 I hired a car from Europcar, booked in England but for a rental in France. I took a video of the cars condition upon collection for my own protection - or so I thought! Upon returning the car the agent w",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xeeewv",
-          "title": "My work may be violating the licensing act 2003 (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeeewv/my_work_may_be_violating_the_licensing_act_2003/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeeewv/my_work_may_be_violating_the_licensing_act_2003/",
+          "id": "1xf9bl2",
+          "title": "mum not giving money that belongs to me and is currently spending it",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf9bl2/mum_not_giving_money_that_belongs_to_me_and_is/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf9bl2/mum_not_giving_money_that_belongs_to_me_and_is/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792862592,
-          "snippet": "My work (retail) is trying to have us sell alcohol. We got taken over a few weeks ago, and our premises only have a DPS of someone who isn't affiliated with our business anymore. This company doesn't seem well educated in UK law and has tried to have us sell things without it bei",
+          "createdUtc": 1792951616,
+          "snippet": "had been giving my mum £100 from my own money to cover her shortfall of rent due to a universal credit mistake. i've been paying her that money for 16 months. universal credit realised i'm a tenant and tenants are exempt from the -96 deduction (before they said one adult is suppo",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xey8nd",
-          "title": "Resignation issues - 3 months.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey8nd/resignation_issues_3_months/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey8nd/resignation_issues_3_months/",
+          "id": "1xfbj7e",
+          "title": "Car dealer refusing to return \"100% fully-refundable\" reservation fee / holding deposit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfbj7e/car_dealer_refusing_to_return_100_fullyrefundable/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfbj7e/car_dealer_refusing_to_return_100_fullyrefundable/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792921730,
-          "snippet": "Hi everyone. For references I’m in England. I’m in a sticky situation as I have accepted a new job offer, who want me to start on 30th November and seem keen for me to start asap. I have signed a contract with them that states this as my start date. However my current employer is",
+          "createdUtc": 1792956879,
+          "snippet": "I paid £100 by bank transfer to a car dealership as a reservation fee / holding deposit to reserve a car for viewing. Before I paid the fee, I was told on the phone that the fee was fully-refundable if I did not buy the car. I went to view the car and made an offer (it was overpr",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xey0q2",
-          "title": "Scotland Should we be doing all the project management this insurance claim?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey0q2/scotland_should_we_be_doing_all_the_project/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey0q2/scotland_should_we_be_doing_all_the_project/",
+          "id": "1xf3sya",
+          "title": "Demoted without discussion and notice - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf3sya/demoted_without_discussion_and_notice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf3sya/demoted_without_discussion_and_notice_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792920899,
-          "snippet": "Someone backed into an old stone workshop/stables we own with their car. Complete accident but it caused stones to shift and large cracks. There was no issue from their insurance company who told us to go ahead and get structural engineer quotes and builders quotes. We've tried t",
+          "createdUtc": 1792938521,
+          "snippet": "On the 15th of October I was demoted. I did not discover this until the 20th, I found out for myself. Incidentally during this period my Dad was dying. I had some days off compassionate leave but was in work on multiple days between the 7th (when managers were told) the and 20th.",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xexm5o",
-          "title": "Disciplinary hearing advice! UK England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexm5o/disciplinary_hearing_advice_uk_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexm5o/disciplinary_hearing_advice_uk_england/",
+          "id": "1xfbetd",
+          "title": "England: Inns of court disclosure issue.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfbetd/england_inns_of_court_disclosure_issue/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfbetd/england_inns_of_court_disclosure_issue/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792919362,
-          "snippet": "My wife was invited to a disciplinary hearing and was ultimately suspended on full pay for reasons I won’t go into. The meeting was between herself and her line manager only in attendance, and no third party to take the minutes. Does this meeting have any substance or has her lin",
+          "createdUtc": 1792956594,
+          "snippet": "I will be applying for one of the inns of court soon. But I need a practical legal advice in this regard. When I was enjoying vacation in my native country (Mauritius) in 2024, I became a victim of social media harrasment by my two male cousin, who used my pictures and name to cr",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xexkn6",
-          "title": "John pye auction question - counterfeit item",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexkn6/john_pye_auction_question_counterfeit_item/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexkn6/john_pye_auction_question_counterfeit_item/",
+          "id": "1xejap1",
+          "title": "Voluntary interview with the police in England. Serious allegations.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xejap1/voluntary_interview_with_the_police_in_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xejap1/voluntary_interview_with_the_police_in_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792919209,
-          "snippet": "Hi I bought an item yesterday in an auction and now I realise the device is a counterfeit, which is a common issue on John pye apparently I didn’t pay for it yet, I contacted them claiming it is a fake item, as it was announced as Apple. The total invoice is £92 So what to do her",
+          "createdUtc": 1792874476,
+          "snippet": "Hello, people. I am in need of advice since they requested me to go to a voluntary interview, which is really stressing me out at the moment. I had a hook up with a friend from uni three months ago while the both of us were drunk. There was some kissing and touching and I remembe",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xew8nf",
+          "title": "Disagreement on my holiday entitlement in employment contract with management",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xew8nf/disagreement_on_my_holiday_entitlement_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xew8nf/disagreement_on_my_holiday_entitlement_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792914292,
+          "snippet": "I live in England: I changed roles recently in the same company. My manager claims I have 195 hours holiday for 7 years employment, but the government website says the minimum should be 218.4 (no irregular hours, hours worked per week, for a full leave year, 39 hours over 5 days)",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf7gyv",
+          "title": "Have I been paid below minimum wage? North West England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf7gyv/have_i_been_paid_below_minimum_wage_north_west/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf7gyv/have_i_been_paid_below_minimum_wage_north_west/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792947260,
+          "snippet": "Ok so I have recently started a new job (did a series of trial shifts starting 2 months ago but have now been put on the payroll properly having signed a contract yesterday When I interviewed, I was told I would be paid minimum wage and no more and obviously legally he can’t pay ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "name": "uklaw",
+      "displayName": "r/uklaw",
+      "description": "UK law students and practitioners — statute, case law, and professional practice.",
+      "subscribers": null,
+      "posts": [
+        {
+          "id": "k2kvzd",
+          "title": "Help Post: List of Legal Recruitment Agencies",
+          "url": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1606555862,
+          "snippet": "Hey, since everyone is struggling to find work, here is a list of all of the legal recruitment agencies and legal job sites I have bookmarked. Across the whole list, you can find everything from temp/paralegal work to associate roles. https://www.lawsupport.co.uk/ https://lodlaw.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1l8oqj7",
+          "title": "WEEKLY general chat/support post",
+          "url": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1749636086,
+          "snippet": "General chat/support post - how are you all doing? :) submitted by /u/AutoModerator [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf6q8y",
+          "title": "Macfarlanes job simulation",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xf6q8y/macfarlanes_job_simulation/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xf6q8y/macfarlanes_job_simulation/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792945518,
+          "snippet": "Progressed to that stage and wondering if anyone had any advice particularly regarding the video interviews. what style are they? how to best prepare? thanks submitted by /u/ivorygreen0 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf91nv",
+          "title": "How does my oxford law application fare?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xf91nv/how_does_my_oxford_law_application_fare/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xf91nv/how_does_my_oxford_law_application_fare/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792950965,
+          "snippet": "submitted by /u/No_Lab_6747 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xeue0i",
+          "title": "Fashion Law(yer)",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xeue0i/fashion_lawyer/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xeue0i/fashion_lawyer/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792907645,
+          "snippet": "Hey guys! I'm really interested in the sector of fashion law. This is a basic question, but I would love to know the steps people take to be in a position where they are an in-house fashion lawyer. I'm mainly interested in asking you guys whether this can be feasible, it is very ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xfce0g",
+          "title": "I got a job as an Admin Assistant for a solicitors law firm! Any advice?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xfce0g/i_got_a_job_as_an_admin_assistant_for_a/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xfce0g/i_got_a_job_as_an_admin_assistant_for_a/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792958876,
+          "snippet": "It will also be my second job (I was a dog walker while searching for full time work after college) but my first “real” job. I know nothing at all about law! I knew I wanted to get into administration/receptionist, and applied for all sorts of fields but happened to get this. Wha",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf5zbr",
+          "title": "Repost again: Job application - previous coursework as a written sample",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xf5zbr/repost_again_job_application_previous_coursework/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xf5zbr/repost_again_job_application_previous_coursework/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792943804,
+          "snippet": "Base on the above text- I hv to provide a written example for the job but then I looked at my previous courseworks and realised how vague/ monotone I was writting before ... I feel like it lacks depth I see people saying it's ok to add to your previous coursework to make it bette",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xef9jl",
+          "title": "For those working at top law firms with unpredictable working hours - how do you manage your relationships?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xef9jl/for_those_working_at_top_law_firms_with/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xef9jl/for_those_working_at_top_law_firms_with/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792864677,
+          "snippet": "I’m talking about across the board, from those of you who are dating to those of you who are married and have children. submitted by /u/JackfruitNo8762 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf5emj",
+          "title": "Proof read my UCAS reference letter",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xf5emj/proof_read_my_ucas_reference_letter/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xf5emj/proof_read_my_ucas_reference_letter/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792942418,
+          "snippet": "submitted by /u/Hot-Scientist8375 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf0erc",
+          "title": "LPC exemption !",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xf0erc/lpc_exemption/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xf0erc/lpc_exemption/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792929185,
+          "snippet": "Hello everybody, I was just wondering if anyone here has submitted an application for an LPC exemption via equivalent means (SRA). I’m looking into this however there isn’t much online. I want to know if anyone has submitted an application for the exemption and has been granted i",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf10r7",
+          "title": "chances?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xf10r7/chances/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xf10r7/chances/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792931056,
+          "snippet": "gcse’s: 4a’s and 4b’s (contextual) ib predicted: 44/45 yet to give lnat pretty good personal statement want to apply to kcl ucl durham nottingham qmul be honest please🙂 submitted by /u/Specialist_Fruit_657 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xen4d1",
+          "title": "Advice on answering Vac Scheme application questions with a non UK degree",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xen4d1/advice_on_answering_vac_scheme_application/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xen4d1/advice_on_answering_vac_scheme_application/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792884835,
+          "snippet": "Hi everyone! I am currently in my last year of uni in the Netherlands (I am British but grew up abroad so the Netherlands was a more affordable choice for uni) and am applying for vac schemes at the minute. I am unsure about how to answer questions about my grades on applications",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xefy4w",
+          "title": "Job application - previous coursework as a written sample",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xefy4w/job_application_previous_coursework_as_a_written/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xefy4w/job_application_previous_coursework_as_a_written/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792866280,
+          "snippet": "Base on the above text- I hv to provide a written example for the job but then I looked at my previous courseworks and realised how vague/ monotone I was writting before … I feel like it lacks depth I see people saying it’s ok to add to your previous coursework to make it better ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xe3uj0",
+          "title": "Did anybody watch ”Defending the Guilty”? Opinions?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xe3uj0/did_anybody_watch_defending_the_guilty_opinions/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xe3uj0/did_anybody_watch_defending_the_guilty_opinions/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792832680,
+          "snippet": "I submitted by /u/QuebecNewspaper [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xe8sry",
+          "title": "TC as a Commonwealth qualified lawyer",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xe8sry/tc_as_a_commonwealth_qualified_lawyer/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xe8sry/tc_as_a_commonwealth_qualified_lawyer/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792848810,
+          "snippet": "I am a commonwealth qualified lawyer with just over 1PQE. I'm looking to apply to TCs but the direct route, is that something that firms take positively or are there firms that want you directly go for lateral roles? submitted by /u/PrintElectronic1955 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xe60yp",
+          "title": "A Cyber (Governance Risk and Compliance) professional with 5 years work experience thinking of transitioning into law",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xe60yp/a_cyber_governance_risk_and_compliance/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xe60yp/a_cyber_governance_risk_and_compliance/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792840586,
+          "snippet": "Hi all, I need your thoughts on this, I have been working in Cyber started off with technical roles and now in GRC(5 years experience), now realising that I love reviewing agreements, giving feedback on regulatory compliance work etc. I’ve been reading up a lot about IP law and T",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xdsdh5",
+          "title": "Just qualified as a solicitor and I want to change career",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xdsdh5/just_qualified_as_a_solicitor_and_i_want_to/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xdsdh5/just_qualified_as_a_solicitor_and_i_want_to/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792795389,
+          "snippet": "I’m looking for some advice, particularly from anyone who has moved away from practising as a solicitor. I recently qualified into family law after 7.5 years in the industry: 2.5 years as a paralegal, another 2.5 years waiting to start my training contract after securing it (whil",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xen6u2",
+          "title": "Friend charged with drink-driving and no insurance in Birmingham — what happens next?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xen6u2/friend_charged_with_drinkdriving_and_no_insurance/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xen6u2/friend_charged_with_drinkdriving_and_no_insurance/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792885044,
+          "snippet": "submitted by /u/Critical-Look5619 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xe3bns",
+          "title": "Best/More useful Non-Qualifying Law Degrees",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xe3bns/bestmore_useful_nonqualifying_law_degrees/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xe3bns/bestmore_useful_nonqualifying_law_degrees/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792830704,
+          "snippet": "I’m looking to pursue a career in law, but I have really mixed opinions about studying a traditional pure law LLB degree. I have heard from various individuals and, on a recent school visit to a MC firm, we met many lawyers from similar backgrounds, that didn’t do law LLB, both i",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xd9yvn",
+          "title": "When the SRA strike off a solicitor, do the screens in their office give them a bowling ball strike type scene, for the dopamine hit?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xd9yvn/when_the_sra_strike_off_a_solicitor_do_the/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xd9yvn/when_the_sra_strike_off_a_solicitor_do_the/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792750016,
+          "snippet": "I hope only the deserving are struck off, and the people who made minor mistakes are forgiven submitted by /u/RealRedditUser217 [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,10 +509,11 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 11,
+      "postCount": 28,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "uklaw"
       ],
       "posts": [
         {
@@ -292,15 +541,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xeiuoy",
-          "title": "A stranger keeps sending me 1p bank transfers with abusive messages in the reference. What can I do? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
+          "id": "1xf9yyr",
+          "title": "Holiday Park power outing - nothing provided",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf9yyr/holiday_park_power_outing_nothing_provided/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf9yyr/holiday_park_power_outing_nothing_provided/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792873355,
-          "snippet": "Hi all, looking for some advice because I'm honestly not sure where this falls legally. Background: About five weeks ago, my banking app pinged with an incoming payment of 1p. I assumed it was a glitch or a scam test until I read the reference. Since then I've had 43 of these, so",
+          "createdUtc": 1792953172,
+          "snippet": "Scotland (Forest Holidays) Edit: I understand the power outing is outside of their control, my question is regarding them being unable to provide us any basic necessities. Once they close at 6pm we have no access to water. Currently staying at a forest holiday park in Scotland (w",
           "listingSource": "rss:hot"
         },
         {
@@ -316,6 +565,42 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xeiuoy",
+          "title": "A stranger keeps sending me 1p bank transfers with abusive messages in the reference. What can I do? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeiuoy/a_stranger_keeps_sending_me_1p_bank_transfers/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792873355,
+          "snippet": "Hi all, looking for some advice because I'm honestly not sure where this falls legally. Background: About five weeks ago, my banking app pinged with an incoming payment of 1p. I assumed it was a glitch or a scam test until I read the reference. Since then I've had 43 of these, so",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf9bl2",
+          "title": "mum not giving money that belongs to me and is currently spending it",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf9bl2/mum_not_giving_money_that_belongs_to_me_and_is/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf9bl2/mum_not_giving_money_that_belongs_to_me_and_is/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792951616,
+          "snippet": "had been giving my mum £100 from my own money to cover her shortfall of rent due to a universal credit mistake. i've been paying her that money for 16 months. universal credit realised i'm a tenant and tenants are exempt from the -96 deduction (before they said one adult is suppo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf3sya",
+          "title": "Demoted without discussion and notice - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf3sya/demoted_without_discussion_and_notice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf3sya/demoted_without_discussion_and_notice_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792938521,
+          "snippet": "On the 15th of October I was demoted. I did not discover this until the 20th, I found out for myself. Incidentally during this period my Dad was dying. I had some days off compassionate leave but was in work on multiple days between the 7th (when managers were told) the and 20th.",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xejap1",
           "title": "Voluntary interview with the police in England. Serious allegations.",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xejap1/voluntary_interview_with_the_police_in_england/",
@@ -326,41 +611,29 @@
           "createdUtc": 1792874476,
           "snippet": "Hello, people. I am in need of advice since they requested me to go to a voluntary interview, which is really stressing me out at the moment. I had a hook up with a friend from uni three months ago while the both of us were drunk. There was some kissing and touching and I remembe",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "consumer-law",
+      "label": "Consumer Law",
+      "legalAreaSlug": "consumer",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xew8nf",
-          "title": "Disagreement on my holiday entitlement in employment contract with management",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xew8nf/disagreement_on_my_holiday_entitlement_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xew8nf/disagreement_on_my_holiday_entitlement_in/",
+          "id": "1xf1ein",
+          "title": "Charged £200 for a Coke in Budapest. Bank says it's my fault because I tapped my card. Any chance with the Ombudsman? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf1ein/charged_200_for_a_coke_in_budapest_bank_says_its/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf1ein/charged_200_for_a_coke_in_budapest_bank_says_its/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792914292,
-          "snippet": "I live in England: I changed roles recently in the same company. My manager claims I have 195 hours holiday for 7 years employment, but the government website says the minimum should be 218.4 (no irregular hours, hours worked per week, for a full leave year, 39 hours over 5 days)",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xe9utx",
-          "title": "(Scotland) New neighbour has informed me our building is listed",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe9utx/scotland_new_neighbour_has_informed_me_our/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xe9utx/scotland_new_neighbour_has_informed_me_our/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792851499,
-          "snippet": "Hey folks Having a bit of a worry, I own a top floor flat in a block of 6. Building was built in the 1860s, I purchased in 2019. Since purchase I have renovated internally, including blocking off/capping an old gas fireplace, replacing timber cladding on my dormer windows with UP",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xewoqj",
-          "title": "Free Parking removed from event",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xewoqj/free_parking_removed_from_event/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xewoqj/free_parking_removed_from_event/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792915914,
-          "snippet": "Going to a fireworks event later today, when I booked the event, they mentioned free parking for all attendees and this is included in the email I have containing the tickets. Yesterday they sent out a sms message saying that you need to pay for parking and when I emailed custome",
+          "createdUtc": 1792932205,
+          "snippet": "Was at a club in Budapest. A hostess was bugging me asking to buy her a drink, so I agreed to a Coke for a few quid. (Currency was in Hungarian forints) She later came back with an entire bottle of wine. I immediately told her I hadn't ordered that, but she reassured me it was on",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,24 +642,12 @@
       "slug": "employment-law",
       "label": "Employment Law",
       "legalAreaSlug": "employment",
-      "postCount": 2,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
-        {
-          "id": "1xeuelh",
-          "title": "Can my employer sack me for refusing overtime beyond my normal 10-hour shift? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792907706,
-          "snippet": "I’m looking for some advice regarding compulsory overtime at work. My employment contract states that my normal working hours are Monday to Friday, with 10-hour shifts (including a 30-minute unpaid break). However, it also states: “Overtime cannot be guaranteed however it is expe",
-          "listingSource": "rss:hot"
-        },
         {
           "id": "1xevq8z",
           "title": "This is a follow up post: Landlord is threatening to sue me and let my employers know about our bathroom situation.",
@@ -398,29 +659,65 @@
           "createdUtc": 1792912443,
           "snippet": "England - UK First post is here: https://www.reddit.com/r/LegalAdviceUK/s/AnjwYh6BhE A bit of context: I'm a lodger, and I've been living with a landlord and his family for 2 years. I have an en-suite bathroom on the second floor, and they live on the first floor. Recently, there",
           "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf1bvy",
+          "title": "Never recieved my award from my employment tribunal - what's next?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf1bvy/never_recieved_my_award_from_my_employment/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf1bvy/never_recieved_my_award_from_my_employment/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792931988,
+          "snippet": "I'm going to construct this as TLDR as possible as I don't want to bore anyone, but I am looking for options on what to do next (If there ARE any options). Background of business: - Worked there for 7 years. - Its a complex business modal but I worked for both company a (contract",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xeuelh",
+          "title": "Can my employer sack me for refusing overtime beyond my normal 10-hour shift? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeuelh/can_my_employer_sack_me_for_refusing_overtime/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792907706,
+          "snippet": "I’m looking for some advice regarding compulsory overtime at work. My employment contract states that my normal working hours are Monday to Friday, with 10-hour shifts (including a 30-minute unpaid break). However, it also states: “Overtime cannot be guaranteed however it is expe",
+          "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "landlord-and-tenant",
-      "label": "Landlord and Tenant",
-      "legalAreaSlug": "housing",
-      "postCount": 1,
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
         {
-          "id": "1xeei83",
-          "title": "England: Previous owner of flat did not clear their debts and housing association is making me responsible",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeei83/england_previous_owner_of_flat_did_not_clear/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeei83/england_previous_owner_of_flat_did_not_clear/",
+          "id": "1xezpky",
+          "title": "Help with divorce after short marriage (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xezpky/help_with_divorce_after_short_marriage_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xezpky/help_with_divorce_after_short_marriage_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792862830,
-          "snippet": "Hi. I am a first time buyer on a shared ownership flat (yes, I know!). I completed in early September, and in October a bill of £1040 was added to my service charge/rent. This is an end of year variance bill where the true cost of the service charge from 1 April 2025 and 31 March",
+          "createdUtc": 1792926829,
+          "snippet": "My husband left me after 5 months of marriage without explanation or his things. He’s blocked me on everything and made his family and our mutual friends block me. I have no idea what is going on with that. We had agreed that when he moved in the house I had purchased would alway",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xf6gzd",
+          "title": "My ex wants to go to mediation for contact with our son",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf6gzd/my_ex_wants_to_go_to_mediation_for_contact_with/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xf6gzd/my_ex_wants_to_go_to_mediation_for_contact_with/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792944914,
+          "snippet": "Hello I've never posted on here before I'm just looking to see if anyone has been in a similar position and knows the first steps to take? I'm 33 (mother) from UK England and share a 10 year old son with my ex partner, we split up when he was born and he's lived in different coun",
           "listingSource": "rss:hot"
         }
       ]
@@ -429,7 +726,7 @@
       "slug": "wills-and-probate",
       "label": "Wills and Probate",
       "legalAreaSlug": "wills_probate",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -446,25 +743,13 @@
           "createdUtc": 1792921822,
           "snippet": "Hi guys. I’ll keep this brief and just stick to the facts. Some years ago a good friend of mine died leaving a young son behind. He was not married to his partner and didn’t leave will. This led to his estate was divided between his son and an older son from a previous relationsh",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xel5nl",
-          "title": "Will advice - executor going against wishes.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xel5nl/will_advice_executor_going_against_wishes/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xel5nl/will_advice_executor_going_against_wishes/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792879322,
-          "snippet": "In 2021 my wife lost her grandmother. Not long before she died she asked for my wife’s new address so her will can be updated. This week she has been having some issues with another executor and this brought back memories of her grandmother and if she ever did amend her will as s",
-          "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
+      "slug": "garage-and-vehicle-repair-disputes",
+      "label": "Garage and Vehicle Repair Disputes",
+      "legalAreaSlug": "consumer_vehicle_repair",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -472,23 +757,23 @@
       ],
       "posts": [
         {
-          "id": "1xex1iz",
-          "title": "Family law advice needed urgently.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xex1iz/family_law_advice_needed_urgently/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xex1iz/family_law_advice_needed_urgently/",
+          "id": "1xfa51x",
+          "title": "Charged for hire car damage I didn’t do",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfa51x/charged_for_hire_car_damage_i_didnt_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfa51x/charged_for_hire_car_damage_i_didnt_do/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792917215,
-          "snippet": "My son is currently living with my nan &amp; is being extremely controlling about me seeing him, i need advice on how i can fix this. The short version, my nan has my son in her care &amp; is refusing to give me more time with him despite the courts saying she needs to. I am savi",
+          "createdUtc": 1792953575,
+          "snippet": "Good evening everyone, I’m looking for a spot of advice please. In June 2026 I hired a car from Europcar, booked in England but for a rental in France. I took a video of the cars condition upon collection for my own protection - or so I thought! Upon returning the car the agent w",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "intellectual-property",
-      "label": "Intellectual Property",
-      "legalAreaSlug": "intellectual_property",
+      "slug": "letting-agent-and-tenant-fees",
+      "label": "Letting Agent and Tenant Fees",
+      "legalAreaSlug": "consumer_landlord_agent_fees",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -496,23 +781,23 @@
       ],
       "posts": [
         {
-          "id": "1xeeewv",
-          "title": "My work may be violating the licensing act 2003 (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeeewv/my_work_may_be_violating_the_licensing_act_2003/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xeeewv/my_work_may_be_violating_the_licensing_act_2003/",
+          "id": "1xfbj7e",
+          "title": "Car dealer refusing to return \"100% fully-refundable\" reservation fee / holding deposit",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfbj7e/car_dealer_refusing_to_return_100_fullyrefundable/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfbj7e/car_dealer_refusing_to_return_100_fullyrefundable/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792862592,
-          "snippet": "My work (retail) is trying to have us sell alcohol. We got taken over a few weeks ago, and our premises only have a DPS of someone who isn't affiliated with our business anymore. This company doesn't seem well educated in UK law and has tried to have us sell things without it bei",
+          "createdUtc": 1792956879,
+          "snippet": "I paid £100 by bank transfer to a car dealership as a reservation fee / holding deposit to reserve a car for viewing. Before I paid the fee, I was told on the phone that the fee was fully-refundable if I did not buy the car. I went to view the car and made an offer (it was overpr",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "insurance-disputes",
-      "label": "Insurance Disputes",
-      "legalAreaSlug": "consumer_insurance",
+      "slug": "nursery-and-childcare-fees",
+      "label": "Nursery and Childcare Fees",
+      "legalAreaSlug": "consumer_nursery_childcare",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -520,39 +805,63 @@
       ],
       "posts": [
         {
-          "id": "1xey0q2",
-          "title": "Scotland Should we be doing all the project management this insurance claim?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey0q2/scotland_should_we_be_doing_all_the_project/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xey0q2/scotland_should_we_be_doing_all_the_project/",
+          "id": "1xfbetd",
+          "title": "England: Inns of court disclosure issue.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfbetd/england_inns_of_court_disclosure_issue/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xfbetd/england_inns_of_court_disclosure_issue/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792920899,
-          "snippet": "Someone backed into an old stone workshop/stables we own with their car. Complete accident but it caused stones to shift and large cracks. There was no issue from their insurance company who told us to go ahead and get structural engineer quotes and builders quotes. We've tried t",
+          "createdUtc": 1792956594,
+          "snippet": "I will be applying for one of the inns of court soon. But I need a practical legal advice in this regard. When I was enjoying vacation in my native country (Mauritius) in 2024, I became a victim of social media harrasment by my two male cousin, who used my pictures and name to cr",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "sports-law",
-      "label": "Sports Law",
-      "legalAreaSlug": "sports_law",
+      "slug": "charity-law",
+      "label": "Charity Law",
+      "legalAreaSlug": "charity_law",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "uklaw"
       ],
       "posts": [
         {
-          "id": "1xexm5o",
-          "title": "Disciplinary hearing advice! UK England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexm5o/disciplinary_hearing_advice_uk_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xexm5o/disciplinary_hearing_advice_uk_england/",
-          "subreddit": "LegalAdviceUK",
+          "id": "1xe60yp",
+          "title": "A Cyber (Governance Risk and Compliance) professional with 5 years work experience thinking of transitioning into law",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xe60yp/a_cyber_governance_risk_and_compliance/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xe60yp/a_cyber_governance_risk_and_compliance/",
+          "subreddit": "uklaw",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1792919362,
-          "snippet": "My wife was invited to a disciplinary hearing and was ultimately suspended on full pay for reasons I won’t go into. The meeting was between herself and her line manager only in attendance, and no third party to take the minutes. Does this meeting have any substance or has her lin",
+          "createdUtc": 1792840586,
+          "snippet": "Hi all, I need your thoughts on this, I have been working in Cyber started off with technical roles and now in GRC(5 years experience), now realising that I love reviewing agreements, giving feedback on regulatory compliance work etc. I’ve been reading up a lot about IP law and T",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "uklaw"
+      ],
+      "posts": [
+        {
+          "id": "1xen6u2",
+          "title": "Friend charged with drink-driving and no insurance in Birmingham — what happens next?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xen6u2/friend_charged_with_drinkdriving_and_no_insurance/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xen6u2/friend_charged_with_drinkdriving_and_no_insurance/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792885044,
+          "snippet": "submitted by /u/Critical-Look5619 [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
