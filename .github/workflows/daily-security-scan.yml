@@ -1,0 +1,131 @@
+name: Daily security scan
+
+# 02:00 Europe/London. GitHub cron accepts UTC only, so both UTC hours that
+# can be 02:00 in London are scheduled. london-schedule-gate.mjs keeps the
+# hour that is actually 02:00 London and skips the other one.
+on:
+  schedule:
+    - cron: "0 1 * * *"
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: daily-security-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SECURITY_SCAN_REPORT_KEY: ${{ secrets.SECURITY_SCAN_REPORT_KEY }}
+      SEMGREP_SEND_METRICS: "off"
+      SEMGREP_ENABLE_VERSION_CHECK: "0"
+    steps:
+      - name: Checkout code to scan
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.sha || github.event.repository.default_branch }}
+
+      - name: Decide whether this UTC slot is 02:00 in London
+        id: gate
+        run: |
+          set -euo pipefail
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            node .github/security/scripts/london-schedule-gate.mjs --manual >> "$GITHUB_OUTPUT"
+          else
+            node .github/security/scripts/london-schedule-gate.mjs >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Record skipped slot
+        if: steps.gate.outputs.run != 'true'
+        env:
+          SKIP_REASON: ${{ steps.gate.outputs.reason }}
+        run: |
+          {
+            echo "Skipped. GitHub Actions cron is UTC and cannot store Europe/London."
+            echo "This run is the UTC slot that is not 02:00 London time."
+            echo "Reason: ${SKIP_REASON}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Setup Node 22
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22"
+
+      - name: Install pinned scanners
+        if: steps.gate.outputs.run == 'true'
+        run: bash .github/security/scripts/install-scanners.sh /tmp/legalshaman-security-tools
+
+      - name: Dependency, secret, and static scans
+        if: steps.gate.outputs.run == 'true'
+        env:
+          SEMGREP_APP_TOKEN: ""
+        run: bash .github/security/scripts/run-code-scans.sh "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/security-reports/run" /tmp/legalshaman-security-tools
+
+      - name: OWASP ZAP baseline
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          set -euo pipefail
+          target="$(node -e 'const fs=require("fs"); const d=JSON.parse(fs.readFileSync("security-reports/run/target.json","utf8")); if(!d.ok){process.stderr.write(d.reason+"\n"); process.exit(2)} process.stdout.write(d.url)')"
+          bash .github/security/scripts/run-zap-baseline.sh "$GITHUB_WORKSPACE/security-reports/run" "$target"
+
+      - name: Record artifact status
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          set -euo pipefail
+          mkdir -p security-reports/run
+          if [ -z "${SECURITY_SCAN_REPORT_KEY}" ]; then
+            printf '%s\n' '{"status":"missing-key","reason":"SECURITY_SCAN_REPORT_KEY is not set. Plaintext reports were not uploaded because this repository is public."}' > security-reports/run/artifact-status.json
+          else
+            printf '%s\n' '{"status":"ready","reason":"Report is encrypted with SECURITY_SCAN_REPORT_KEY before upload."}' > security-reports/run/artifact-status.json
+          fi
+
+      - name: Build report
+        id: report
+        if: steps.gate.outputs.run == 'true'
+        continue-on-error: true
+        run: |
+          set +e
+          node .github/security/scripts/normalize-reports.mjs "$GITHUB_WORKSPACE/security-reports/run"
+          code=$?
+          set -e
+          echo "exitcode=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" -eq 0 ]; then
+            echo "No high or critical findings. Read the summary before treating the run as clean."
+          elif [ "$code" -eq 1 ]; then
+            echo "::error::High or critical findings. The scanners finished. This is not a clean result and not a scanner crash."
+          else
+            echo "::error::Scan incomplete or a scanner failed. This is not a clean result."
+          fi
+          exit "$code"
+
+      - name: Encrypt report
+        if: steps.gate.outputs.run == 'true' && env.SECURITY_SCAN_REPORT_KEY != ''
+        run: bash .github/security/scripts/publish-report.sh "$GITHUB_WORKSPACE/security-reports/run" "$GITHUB_WORKSPACE/security-reports/encrypted"
+
+      - name: Upload encrypted report
+        if: steps.gate.outputs.run == 'true' && env.SECURITY_SCAN_REPORT_KEY != ''
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: legalshaman-security-scan-${{ steps.gate.outputs.london_day }}
+          path: security-reports/encrypted/*.tar.gz.enc
+          retention-days: 14
+          if-no-files-found: error
+          compression-level: 0
+
+      - name: Fail the workflow when findings are high or the scan is incomplete
+        if: steps.gate.outputs.run == 'true' && steps.report.outputs.exitcode != '0'
+        env:
+          REPORT_EXIT: ${{ steps.report.outputs.exitcode }}
+        run: |
+          echo "Workflow failed with report exit ${REPORT_EXIT}."
+          echo "Exit 1 means high or critical findings. Exit 2 means a scanner or the private artifact step did not finish."
+          exit 1
