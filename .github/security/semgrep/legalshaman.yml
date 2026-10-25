@@ -1,0 +1,120 @@
+rules:
+  - id: legalshaman.injection.raw-sql-interpolation
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: >-
+      Unsafe raw SQL is built with string interpolation or concatenation.
+      Use a parameterised Prisma query so values cannot change the statement.
+    metadata:
+      category: injection
+      cwe: "CWE-89"
+      impact: HIGH
+      confidence: HIGH
+      likelihood: MEDIUM
+      suggestion: >-
+        Use prisma.$queryRaw or Prisma.sql with bound parameters. Do not insert
+        limits, table names, or caller input with ${} or string concatenation.
+    pattern-regex: \$(?:queryRawUnsafe|executeRawUnsafe)(?:\s*<[^>\n]{0,80}>)?\s*\([^)]{0,800}\$\{
+
+  - id: legalshaman.xss.interpolated-html
+    languages: [typescript, javascript]
+    severity: WARNING
+    message: >-
+      dangerouslySetInnerHTML is given HTML that includes interpolation.
+      If any interpolated value can come from a request, this is XSS.
+    metadata:
+      category: xss
+      cwe: "CWE-79"
+      impact: MEDIUM
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      suggestion: >-
+        Render text with React instead of HTML. If HTML is required, sanitise
+        it and keep every interpolated value on an allowlist.
+    pattern-regex: dangerouslySetInnerHTML\s*=\s*\{\s*\{[\s\S]*?__html\s*:[\s\S]*?\$\{
+
+  - id: legalshaman.xss.innerhtml-assignment
+    languages: [typescript, javascript]
+    severity: INFO
+    message: >-
+      innerHTML is assigned. Confirm the value is a constant empty clear or
+      otherwise cannot carry request data.
+    metadata:
+      category: xss
+      cwe: "CWE-79"
+      impact: LOW
+      confidence: MEDIUM
+      likelihood: LOW
+      suggestion: Use textContent, or assign an empty string only when clearing a node.
+    pattern-regex: \.innerHTML\s*=
+
+  - id: legalshaman.auth.cookie-httponly-disabled
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: A cookie is explicitly not HttpOnly, so browser script can read it.
+    metadata:
+      category: auth
+      cwe: "CWE-1004"
+      impact: HIGH
+      confidence: HIGH
+      likelihood: MEDIUM
+      suggestion: Set httpOnly true, secure true in production, and sameSite to lax or strict.
+    pattern-regex: httpOnly\s*:\s*false
+
+  - id: legalshaman.config.tls-verification-disabled
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: TLS certificate verification is disabled.
+    metadata:
+      category: insecure-config
+      cwe: "CWE-295"
+      impact: HIGH
+      confidence: HIGH
+      likelihood: MEDIUM
+      suggestion: Remove NODE_TLS_REJECT_UNAUTHORIZED=0 and trust the platform certificate store.
+    pattern-regex: NODE_TLS_REJECT_UNAUTHORIZED\s*=\s*['\"]0['\"]
+
+  - id: legalshaman.secrets.next-public-secret
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: >-
+      A NEXT_PUBLIC variable name looks like a server secret. Next.js inlines
+      NEXT_PUBLIC values into the browser bundle.
+    metadata:
+      category: secrets
+      cwe: "CWE-798"
+      impact: HIGH
+      confidence: MEDIUM
+      likelihood: HIGH
+      suggestion: >-
+        Keep secrets in server-only environment variables. Public client keys
+        must be publishable and named as site or project keys, not secrets.
+    pattern-regex: NEXT_PUBLIC_[A-Z0-9_]*(SECRET|PASSWORD|PRIVATE|SERVICE_ROLE|DATABASE)
+
+  - id: legalshaman.secrets.hardcoded-private-key
+    languages: [typescript, javascript, json, python]
+    severity: ERROR
+    message: A private key block is present in the tree.
+    metadata:
+      category: secrets
+      cwe: "CWE-798"
+      impact: CRITICAL
+      confidence: HIGH
+      likelihood: HIGH
+      suggestion: Revoke the key, remove it from the tree, and load it from a repository or host secret.
+    pattern-regex: -----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----
+
+  - id: legalshaman.code.dynamic-function-import
+    languages: [typescript, javascript]
+    severity: WARNING
+    message: >-
+      new Function builds a dynamic import. If the path includes caller input,
+      this can load an unintended module.
+    metadata:
+      category: injection
+      cwe: "CWE-94"
+      impact: MEDIUM
+      confidence: MEDIUM
+      likelihood: LOW
+      suggestion: Allowlist the module file name before building a file URL.
+    pattern-regex: new Function\(\s*['\"]u['\"]\s*,\s*['\"]return import\(u\)['\"]\s*\)

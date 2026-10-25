@@ -1,0 +1,31 @@
+title = "Legal Shaman current-tree secret scan"
+
+# Default gitleaks rules stay in force. The allowlists below are narrow and
+# explained. They are also recorded as coverage notes in the scan report.
+[extend]
+useDefault = true
+
+# Gitignored dependency and build trees are not source. The workflow also
+# fails if either path is tracked.
+[[allowlists]]
+description = "Dependency installs and Next.js build output are not source."
+paths = [
+  '''(^|/)node_modules/''',
+  '''(^|/)\.next/''',
+  '''(^|/)\.git/''',
+  '''(^|/)security-reports/''',
+]
+
+# The generated wiki index contains the letters LINKEDIN next to identifiers
+# that match the LinkedIn client-id rule. Other rules still apply to web/data.
+[[allowlists]]
+description = "Generated wiki text false-positives the LinkedIn client-id rule."
+paths = ['''(^|/)web/data/''']
+rules = ["linkedin-client-id"]
+
+# The Ahrefs browser analytics key is shipped to every visitor on purpose.
+# custom-checks.mjs still reports that hardcoded public key at low severity.
+[[allowlists]]
+description = "Public Ahrefs browser analytics key, not a server secret."
+paths = ['''(^|/)web/components/analytics/ahrefs-analytics\.tsx$''']
+rules = ["generic-api-key"]

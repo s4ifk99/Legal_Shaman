@@ -22,6 +22,9 @@ web/data/leads-no-booked-call-eval.json
 # Local ops logs
 web/logs/
 
+# Daily security scan output. Reports are encrypted workflow artifacts.
+/security-reports/
+
 # Exa batch runner
 scripts/exa/.venv/
 scripts/exa/runs/
