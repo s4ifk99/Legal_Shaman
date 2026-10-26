@@ -1,0 +1,88 @@
+name: Daily security scan
+
+on:
+  schedule:
+    # GitHub Actions cron is UTC only. It does not follow Europe/London.
+    # 01:00 UTC is 02:00 in London during British Summer Time (UTC+1).
+    # 02:00 UTC is 02:00 in London during Greenwich Mean Time (UTC+0).
+    # .github/security/scripts/london-schedule-gate.mjs keeps one of these slots.
+    - cron: "0 1 * * *"
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+    inputs:
+      scan_ref:
+        description: "Git ref to scan. Leave empty to scan the latest default branch."
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: daily-security-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    name: Security scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SECURITY_SCAN_REPORT_KEY: ${{ secrets.SECURITY_SCAN_REPORT_KEY }}
+    steps:
+      - name: Checkout code to scan
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.scan_ref != '' && inputs.scan_ref || github.event.repository.default_branch }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Choose the 02:00 Europe/London slot
+        id: gate
+        env:
+          GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
+        run: node .github/security/scripts/london-schedule-gate.mjs
+
+      - name: Record skipped UTC slot
+        if: steps.gate.outputs.run != 'true' && steps.gate.outputs.fail_closed != 'true'
+        run: |
+          {
+            echo "## Security scan: not run"
+            echo ""
+            echo "This scheduled slot is not 02:00 Europe/London."
+            echo "${{ steps.gate.outputs.reason }}"
+            echo ""
+            echo "No scanners ran. This is not a clean result."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Set up Node.js
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22"
+
+      - name: Run security scanners
+        id: scan
+        if: steps.gate.outputs.run == 'true'
+        env:
+          SCAN_REF: ${{ github.event_name == 'workflow_dispatch' && inputs.scan_ref != '' && inputs.scan_ref || github.event.repository.default_branch }}
+        run: bash .github/security/scripts/run-security-scan.sh
+
+      - name: Upload encrypted report
+        if: steps.gate.outputs.run == 'true' && steps.scan.outputs.artifact_ready == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: security-scan-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ steps.scan.outputs.artifact_dir }}
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Fail for findings or an incomplete scan
+        if: steps.gate.outputs.run == 'true' && steps.scan.outputs.conclusion != 'clean' && steps.scan.outputs.conclusion != 'no_high_critical'
+        run: |
+          echo "Security scan result: ${{ steps.scan.outputs.conclusion }}"
+          echo "This failure is either high or critical findings, or a scanner that did not finish."
+          echo "The job summary states which one. A skipped UTC slot does not mean the site is clean."
+          exit 1
