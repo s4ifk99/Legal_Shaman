@@ -1,0 +1,8 @@
+web/data
+data
+web/node_modules
+web/.next
+web/reports
+security-reports
+*.bin
+*.min.js

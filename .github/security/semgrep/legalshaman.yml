@@ -1,0 +1,23 @@
+rules:
+  - id: legalshaman-logged-password-reset-link
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: >-
+      A password reset link is a bearer credential. Do not write it to logs.
+      Log that the email provider is unconfigured, and put the link only in the outbound email.
+    metadata:
+      cwe: "CWE-532: Insertion of Sensitive Information into Log File"
+      category: sensitive-data
+      suggested_fix: Log that email is unconfigured. Do not log the reset URL or the token.
+    pattern-regex: console\.log\(\s*["'][^"']*reset URL
+
+  - id: legalshaman-dynamic-code-constructor
+    languages: [typescript, javascript]
+    severity: WARNING
+    message: >-
+      eval or new Function builds code at runtime. Remove eval. Replace a dynamic import shim with a static import map.
+    metadata:
+      cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code"
+      category: injection
+      suggested_fix: Remove eval and new Function. Use a static import map.
+    pattern-regex: new Function\s*\(|[^A-Za-z0-9_.]eval\s*\(

@@ -25,3 +25,6 @@ web/logs/
 # Exa batch runner
 scripts/exa/.venv/
 scripts/exa/runs/
+
+# Local copies of security scan reports
+/security-reports/
