@@ -1,0 +1,22 @@
+title = "Legal Shaman"
+
+[extend]
+useDefault = true
+
+# Generated directory content. These trees are large and are not application source.
+# Skipping them is a coverage gap, recorded in the scan report.
+[[allowlists]]
+description = "Generated data dumps and binaries"
+paths = [
+  '''(^|/)web/data/''',
+  '''(^|/)data/''',
+  '''\.bin$''',
+  '''(^|/)node_modules/''',
+  '''(^|/)\.next/''',
+]
+
+# Public Ahrefs Web Analytics data-key. The same value is in the current client snippet
+# and in older copies of web/app/layout.tsx. Do not add any other key here.
+[[allowlists]]
+description = "Public Ahrefs Web Analytics data-key"
+regexes = ['''(?i)^5ar5K5mpXwwkcFGOTKH51Q$''']
