@@ -1,0 +1,21 @@
+title = "Legal Shaman secret scan"
+
+[extend]
+useDefault = true
+
+# Exact public Ahrefs Web Analytics site key shipped in the client snippet.
+# Do not add other keys, tokens, or a whole-file allowlist here.
+[[allowlists]]
+description = "Public Ahrefs Web Analytics site key"
+regexTarget = "secret"
+regexes = ['''5ar5K5mpXwwkcFGOTKH51Q''']
+
+# Generated data dumps are not application source. They are large and can contain personal data.
+[[allowlists]]
+description = "Generated data dumps and scanner output"
+paths = [
+  '''(^|/)data/''',
+  '''(^|/)web/data/''',
+  '''(^|/)node_modules/''',
+  '''(^|/)\.security-scan-out/''',
+]
