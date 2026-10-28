@@ -1,0 +1,59 @@
+rules:
+  - id: legalshaman-raw-sql-interpolation
+    languages: [typescript, javascript]
+    severity: WARNING
+    message: >-
+      Raw SQL is built with string interpolation. Use a Prisma tagged template
+      so values are bound parameters, or keep the SQL fully static.
+    metadata:
+      category: injection
+      cwe: "CWE-89"
+      confidence: MEDIUM
+    patterns:
+      - pattern-either:
+          - pattern: $DB.$queryRawUnsafe(`...${$X}...`)
+          - pattern: $DB.$executeRawUnsafe(`...${$X}...`)
+          - pattern: $DB.$queryRawUnsafe("..." + $X)
+          - pattern: $DB.$executeRawUnsafe("..." + $X)
+
+  - id: legalshaman-dangerous-html-interpolation
+    languages: [typescript, javascript]
+    severity: WARNING
+    message: >-
+      dangerouslySetInnerHTML inserts interpolated text into HTML or CSS.
+      Encode untrusted values before insertion, or render them as React text.
+    metadata:
+      category: xss
+      cwe: "CWE-79"
+      confidence: MEDIUM
+    patterns:
+      - pattern-either:
+          - pattern: dangerouslySetInnerHTML={{__html: `...${$X}...`}}
+          - pattern: dangerouslySetInnerHTML={{ __html: `...${$X}...` }}
+
+  - id: legalshaman-dynamic-code-execution
+    languages: [typescript, javascript]
+    severity: WARNING
+    message: >-
+      eval or new Function executes dynamic code. Prefer a normal function or
+      import, and never pass request data into the executed text.
+    metadata:
+      category: injection
+      cwe: "CWE-95"
+      confidence: MEDIUM
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: new Function(...)
+
+  - id: legalshaman-next-public-secret
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: >-
+      A NEXT_PUBLIC environment variable is named like a server secret. Next.js
+      embeds NEXT_PUBLIC values in the browser bundle. Keep secrets in
+      server-only variables.
+    metadata:
+      category: secrets
+      cwe: "CWE-798"
+      confidence: HIGH
+    pattern-regex: NEXT_PUBLIC_[A-Z0-9_]*(SECRET|PASSWORD|PRIVATE_KEY|API_KEY)\b
