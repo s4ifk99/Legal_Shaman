@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-28T22:12:21.497Z",
+    "scrapedAt": "2026-10-29T12:02:22.407Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 6,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,15 +26,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xi1931",
-          "title": "Employee can’t come into office because travel is too expensive, but can’t be home because she’s lonely?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi1931/employee_cant_come_into_office_because_travel_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi1931/employee_cant_come_into_office_because_travel_is/",
+          "id": "1xidlgv",
+          "title": "5 Hours of Unpaid Trial Shifts",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidlgv/5_hours_of_unpaid_trial_shifts/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidlgv/5_hours_of_unpaid_trial_shifts/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793223179,
-          "snippet": "England - Posting for my partner who doesn’t have Reddit. He is managing a team with an employee who has been there for about 4.5 years. Recently the office has moved from one town to another. The required notice period was given by my partner however due to the landlord selling ",
+          "createdUtc": 1793259852,
+          "snippet": "Surely 5 Hours trial “in a real working environment” , performing productive labour and not getting paid at least minimum wage is unlawful in England. 3 Hours maximum unpaid is okay, and should be enough to asess your skill working in a restaurant. 5 Hours unpaid?! The duration w",
           "listingSource": "rss:hot"
         },
         {
@@ -47,6 +47,18 @@
           "numComments": 0,
           "createdUtc": 1793212701,
           "snippet": "Today, around 20 employees from different teams were told on a group call that, due to financial pressures, we were being dismissed with immediate effect. This is around half the team, they did not use the word ‘redundancy’ at any point and said they were reducing team sizes not ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xi4msd",
+          "title": "Landlord giving limited access to hot water.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi4msd/landlord_giving_limited_access_to_hot_water/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi4msd/landlord_giving_limited_access_to_hot_water/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793231573,
+          "snippet": "England. Hi I live in a self contained unit as a lodger. It's not cheap. Over the last year the rent has went up and access to warm water went down. The water is tepid at best but lately there has been no hot water. Today before work I had a brutally cold shower. I raised this is",
           "listingSource": "rss:hot"
         },
         {
@@ -74,99 +86,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xhjym5",
-          "title": "A neighboring 2 Bed House has been taken over by many foreign men with multiple mattresses in every room, what can be done?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhjym5/a_neighboring_2_bed_house_has_been_taken_over_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhjym5/a_neighboring_2_bed_house_has_been_taken_over_by/",
+          "id": "1xie7gz",
+          "title": "Looking for help & advice with disability discrimination.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xie7gz/looking_for_help_advice_with_disability/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xie7gz/looking_for_help_advice_with_disability/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793181879,
-          "snippet": "This is in England and the house is let out by one of or maybe even the largest Social Housing provider in the country. Neighbours have had their suspicions on the property with multiple cars filling the street in recent weeks at all hours of day / night since the property was le",
+          "createdUtc": 1793262151,
+          "snippet": "Hey all, I’m looking for a bit of advice, wanting a rant looking for tips really as I’m shocked and appalled by this last 7 days from my boss!! I have been diagnosed with endometriosis &amp; adenomyosis and had my pain management appointment which was amazing, but it did come wit",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xhl7v8",
-          "title": "Serious workplace incident. HR want to update me on the 2nd. But it has been kept informal.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhl7v8/serious_workplace_incident_hr_want_to_update_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhl7v8/serious_workplace_incident_hr_want_to_update_me/",
+          "id": "1xidxp7",
+          "title": "Problem neighbours that have caused criminal damage .",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidxp7/problem_neighbours_that_have_caused_criminal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidxp7/problem_neighbours_that_have_caused_criminal/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793186080,
-          "snippet": "TLDR, hr want to informally discuss a serious workplace incident and won't allow formal union representation. This is in England. I recently had an incident at work where someone sprayed wd40 into my cup while I was out on a job. This was done deliberately, and I have a suspect. ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xhhw05",
-          "title": "Cyber attack at work via my laptop - potential laptop misuse, can I be held liable? England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhhw05/cyber_attack_at_work_via_my_laptop_potential/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhhw05/cyber_attack_at_work_via_my_laptop_potential/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793173913,
-          "snippet": "Update: I’m in the clear. In fact, IT have had a good telling off for contacting me outside of work hours and on an unsecured line, as well as not being able to remotely access the laptop for reasons currently unknown. They also didn’t inform my manager they contacted me despite ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xhtfkc",
-          "title": "small youtuber copyright claim",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhtfkc/small_youtuber_copyright_claim/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhtfkc/small_youtuber_copyright_claim/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793206089,
-          "snippet": "hey all. i posted a video on youtube that had 5 seconds of a scenery clip from another youtuber (I was unaware of this as my editor added it in). the copyright owner had my video striked as a copyright infrigment and then has sent me a message saying that they are starting a lega",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xgv7s3",
-          "title": "How can I go about this? Illegal break practice at work.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xgv7s3/how_can_i_go_about_this_illegal_break_practice_at/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xgv7s3/how_can_i_go_about_this_illegal_break_practice_at/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793114036,
-          "snippet": "Hi guys, to start things off Ive been employed at this job since may 6th this year, so 6+ months. Towards the beginning of my employment maybe for around 1 and a bit months i was shadowing another colleague, so taking a break was no problem as my manager had said that if you are ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xhgme4",
-          "title": "AO.com installed induction hob into 2.5mm cable - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhgme4/aocom_installed_induction_hob_into_25mm_cable/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhgme4/aocom_installed_induction_hob_into_25mm_cable/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793168977,
-          "snippet": "Good morning. I've had an induction hob fitted by ao. Fitter came, swapped my old ceramic hob out with the new one, did some electrical testing, took some pictures and then left. Later on I did some cooking and I had smoke coming from the cooker fuse/switch thing on the wall. Tur",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xhy5ht",
-          "title": "Director of ltd company, pregnant not sure when I have to disclose to the company I'm contracting to",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhy5ht/director_of_ltd_company_pregnant_not_sure_when_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhy5ht/director_of_ltd_company_pregnant_not_sure_when_i/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793216163,
-          "snippet": "Hi I'm in England and I've been the director of my own ltd company since June 2024 but only recently started contracting through the company in July 2026. I'm the only employee. I'm contracting to company A, company A is contracted to company B and company B holds a mega contract",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xgz1so",
-          "title": "eBay refunded me for a lost parcel, but it arrived 2 months later. Seller refuses a return and demands payment. What are my legal obligations?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xgz1so/ebay_refunded_me_for_a_lost_parcel_but_it_arrived/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xgz1so/ebay_refunded_me_for_a_lost_parcel_but_it_arrived/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793122402,
-          "snippet": "Hi everyone, I'm in a rather unusual situation with an eBay UK purchase and would appreciate some advice regarding my legal obligations. For context, I live in Belfast in Northern Ireland and the seller lives in Isleworth, near London. On August 6, I purchased Pokémon products on",
+          "createdUtc": 1793261120,
+          "snippet": "Ok so we have petty neighbours in England . This all started when I parked up and she come out screaming at me how close I was to her car . Anyways it’s now escalated resulting in criminal damage . So we had a parcel left out ours for her I put it over the fence , she opened her ",
           "listingSource": "rss:hot"
         },
         {
@@ -182,6 +122,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xhjym5",
+          "title": "A neighboring 2 Bed House has been taken over by many foreign men with multiple mattresses in every room, what can be done?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhjym5/a_neighboring_2_bed_house_has_been_taken_over_by/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhjym5/a_neighboring_2_bed_house_has_been_taken_over_by/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793181879,
+          "snippet": "This is in England and the house is let out by one of or maybe even the largest Social Housing provider in the country. Neighbours have had their suspicions on the property with multiple cars filling the street in recent weeks at all hours of day / night since the property was le",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xhxyo9",
           "title": "Right of refusal of 3D printer - England",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhxyo9/right_of_refusal_of_3d_printer_england/",
@@ -194,63 +146,111 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xhxo52",
-          "title": "Salary Sacrifice Car early termination fee after leaving job",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhxo52/salary_sacrifice_car_early_termination_fee_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhxo52/salary_sacrifice_car_early_termination_fee_after/",
+          "id": "1xhl7v8",
+          "title": "Serious workplace incident. HR want to update me on the 2nd. But it has been kept informal.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhl7v8/serious_workplace_incident_hr_want_to_update_me/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhl7v8/serious_workplace_incident_hr_want_to_update_me/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793215092,
-          "snippet": "Hello LAUK, always see good and informative stuff on here and have a situation I want some opinions on. My brother worked for a company where he could sign up to an EV SalSac. Did so and then when he left the business he requested that he took on the lease himself. Got emails fro",
+          "createdUtc": 1793186080,
+          "snippet": "TLDR, hr want to informally discuss a serious workplace incident and won't allow formal union representation. This is in England. I recently had an incident at work where someone sprayed wd40 into my cup while I was out on a job. This was done deliberately, and I have a suspect. ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xi1mh2",
-          "title": "England - Moved into a flat in September 2025 and it has been in a state of disrepair, and in October 2026 it was given an emergency evacuation.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi1mh2/england_moved_into_a_flat_in_september_2025_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi1mh2/england_moved_into_a_flat_in_september_2025_and/",
+          "id": "1xih1pb",
+          "title": "Building control didn’t record visit (London, England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xih1pb/building_control_didnt_record_visit_london_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xih1pb/building_control_didnt_record_visit_london_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793224077,
-          "snippet": "Hi all, I was encouraged by my university to find a solicitor to put in a disrepair claim (Liverpool area). To make a very long story short, I started renting in my old flat block in September of last year, and when I moved in, it seemed as if there had been squatters living in t",
+          "createdUtc": 1793272253,
+          "snippet": "We are almost finished building a rear extension but have hit a hurdle with getting the building control final sign off). They asked us to dig the foundation deeper after first inspection, which we did. They made a second inspection, where the visiting inspector saw and verbally ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xi13dg",
-          "title": "Bonus pro rata - mat leave - Eng",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi13dg/bonus_pro_rata_mat_leave_eng/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi13dg/bonus_pro_rata_mat_leave_eng/",
+          "id": "1xif9kd",
+          "title": "Do I stand a chance of being compensated - Vinted(England )",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xif9kd/do_i_stand_a_chance_of_being_compensated/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xif9kd/do_i_stand_a_chance_of_being_compensated/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793222806,
-          "snippet": "What is my entitlement to a full bonus on mat leave? I’m currently on maternity leave. My employer pays an annual bonus. It is not contractual, nor is there any publicly available matrix for its calculation. I have been involved in the calibration of bonuses for my team in previo",
+          "createdUtc": 1793266249,
+          "snippet": "Hi all, First time posting so sorry if I miss details that are needed . I sold a pair of tracksuit bottoms on Vinted for £50 . Buyer received them and claimed they are damaged with a stain. Looking at the photos the packaging has random black marks and even a hole in which has ei",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xhvy2p",
-          "title": "Name different on birth certificate to passport",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhvy2p/name_different_on_birth_certificate_to_passport/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhvy2p/name_different_on_birth_certificate_to_passport/",
+          "id": "1xictqr",
+          "title": "Appealing party wall agreement or Further Award ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xictqr/appealing_party_wall_agreement_or_further_award/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xictqr/appealing_party_wall_agreement_or_further_award/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793211420,
-          "snippet": "Born and live in england So for example on my birth certificate my name reads First name: Jane Doe Surname: Smith But on my passport my name is Firstname: Jane Surname: Doe Smith The 2nd variation which is on my passport is what I go by in everyday life, its the name registered w",
+          "createdUtc": 1793256915,
+          "snippet": "Hi Our neighbour will serve us soon notice. How hard is to appeal award or further award if dispute arises? Is it expensive ? submitted by /u/Ancient-Dot1955 [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xhrbkq",
-          "title": "[England] Evasive litigant attempted to sue me using a trading name for their business, rather than a valid legal entity. I've been awarded witness expenses, but I am struggling to enforce them as a result, how should I proceed?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhrbkq/england_evasive_litigant_attempted_to_sue_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhrbkq/england_evasive_litigant_attempted_to_sue_me/",
+          "id": "1xhtfkc",
+          "title": "small youtuber copyright claim",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhtfkc/small_youtuber_copyright_claim/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhtfkc/small_youtuber_copyright_claim/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793201548,
-          "snippet": "Hi everyone, I attended a hearing at the County Court this morning. A claim was brought against me for libel by the owner of a business that I used to patronise. He is an absolute piece of work, and the claim had no legal basis whatsoever. The details of the claim itself are larg",
+          "createdUtc": 1793206089,
+          "snippet": "hey all. i posted a video on youtube that had 5 seconds of a scenery clip from another youtuber (I was unaware of this as my editor added it in). the copyright owner had my video striked as a copyright infrigment and then has sent me a message saying that they are starting a lega",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xibp0e",
+          "title": "Landlord refuses to clean communal areas(England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xibp0e/landlord_refuses_to_clean_communal_areasengland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xibp0e/landlord_refuses_to_clean_communal_areasengland/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793252710,
+          "snippet": "The building i live in used to be a hotel and still has a pool,launderette and a gym which is in a conservatory and can get extremely hot. Some gym users refuse to wipe down and the landlord refuses to clean it despite employing cleaners, i have had to clean the equipment over 30",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xih2hi",
+          "title": "Paying for eye test with insurance - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xih2hi/paying_for_eye_test_with_insurance_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xih2hi/paying_for_eye_test_with_insurance_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793272321,
+          "snippet": "My employer pays for basic private health insurance, with a cap on the amount one can claim in a year. They have said that my eye test for VDU use should come from that. Is this correct? Although I don't pay for the insurance, the cost would reduce how much I can claim for other ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xigwmv",
+          "title": "England: Laws regarding cremated remains (for fictional story)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xigwmv/england_laws_regarding_cremated_remains_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xigwmv/england_laws_regarding_cremated_remains_for/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793271792,
+          "snippet": "First I should specify this is for a story I’m writing, if I’ve overstepped posting my legal question here, I’m very sorry. Story takes place in 1990 if that matters, I’m just trying to be as accurate as possible. If someone is in possession of cremated remains of a family member",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xigq02",
+          "title": "Leaving before notice period ends due to bad taste comments and jokes (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xigq02/leaving_before_notice_period_ends_due_to_bad/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xigq02/leaving_before_notice_period_ends_due_to_bad/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793271223,
+          "snippet": "Hello, I've worked at my current company since December 2025. It's a small company (sub 30 employees), and let's just say things haven't been plain sailing overall. It's family run, which seems to mean the director must be involved in everything and simultaneously doesn't really ",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 14,
+      "postCount": 12,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,15 +280,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xi1931",
-          "title": "Employee can’t come into office because travel is too expensive, but can’t be home because she’s lonely?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi1931/employee_cant_come_into_office_because_travel_is/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi1931/employee_cant_come_into_office_because_travel_is/",
+          "id": "1xidlgv",
+          "title": "5 Hours of Unpaid Trial Shifts",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidlgv/5_hours_of_unpaid_trial_shifts/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidlgv/5_hours_of_unpaid_trial_shifts/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793223179,
-          "snippet": "England - Posting for my partner who doesn’t have Reddit. He is managing a team with an employee who has been there for about 4.5 years. Recently the office has moved from one town to another. The required notice period was given by my partner however due to the landlord selling ",
+          "createdUtc": 1793259852,
+          "snippet": "Surely 5 Hours trial “in a real working environment” , performing productive labour and not getting paid at least minimum wage is unlawful in England. 3 Hours maximum unpaid is okay, and should be enough to asess your skill working in a restaurant. 5 Hours unpaid?! The duration w",
           "listingSource": "rss:hot"
         },
         {
@@ -304,6 +304,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xidxp7",
+          "title": "Problem neighbours that have caused criminal damage .",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidxp7/problem_neighbours_that_have_caused_criminal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidxp7/problem_neighbours_that_have_caused_criminal/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793261120,
+          "snippet": "Ok so we have petty neighbours in England . This all started when I parked up and she come out screaming at me how close I was to her car . Anyways it’s now escalated resulting in criminal damage . So we had a parcel left out ours for her I put it over the fence , she opened her ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xi1eq7",
+          "title": "can I report a deepfake to the police with my mum without them alerting my dad?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi1eq7/can_i_report_a_deepfake_to_the_police_with_my_mum/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi1eq7/can_i_report_a_deepfake_to_the_police_with_my_mum/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793223560,
+          "snippet": "so basically long story short, im a minor and a group of people on the internet has been targeting me for weeks now, sending me death threats and now making deepfakes of me on explicit bodies and posting them [and i live in england] i told my mum but i am not willing whatsoever f",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xhjym5",
           "title": "A neighboring 2 Bed House has been taken over by many foreign men with multiple mattresses in every room, what can be done?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhjym5/a_neighboring_2_bed_house_has_been_taken_over_by/",
@@ -313,6 +337,18 @@
           "numComments": 0,
           "createdUtc": 1793181879,
           "snippet": "This is in England and the house is let out by one of or maybe even the largest Social Housing provider in the country. Neighbours have had their suspicions on the property with multiple cars filling the street in recent weeks at all hours of day / night since the property was le",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xhxyo9",
+          "title": "Right of refusal of 3D printer - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhxyo9/right_of_refusal_of_3d_printer_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhxyo9/right_of_refusal_of_3d_printer_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793215749,
+          "snippet": "We recently, within the two months, purchased a 3D printer from Elegoo. It was paid for outright via PayPal. It developed a fault with the lcd screen. We contacted Elegoo who sent out a replacement screen as a good will gesture. Upon looking at the instructional video on the Eleg",
           "listingSource": "rss:hot"
         },
         {
@@ -326,42 +362,6 @@
           "createdUtc": 1793186080,
           "snippet": "TLDR, hr want to informally discuss a serious workplace incident and won't allow formal union representation. This is in England. I recently had an incident at work where someone sprayed wd40 into my cup while I was out on a job. This was done deliberately, and I have a suspect. ",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xhhw05",
-          "title": "Cyber attack at work via my laptop - potential laptop misuse, can I be held liable? England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhhw05/cyber_attack_at_work_via_my_laptop_potential/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhhw05/cyber_attack_at_work_via_my_laptop_potential/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793173913,
-          "snippet": "Update: I’m in the clear. In fact, IT have had a good telling off for contacting me outside of work hours and on an unsecured line, as well as not being able to remotely access the laptop for reasons currently unknown. They also didn’t inform my manager they contacted me despite ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xgv7s3",
-          "title": "How can I go about this? Illegal break practice at work.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xgv7s3/how_can_i_go_about_this_illegal_break_practice_at/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xgv7s3/how_can_i_go_about_this_illegal_break_practice_at/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793114036,
-          "snippet": "Hi guys, to start things off Ive been employed at this job since may 6th this year, so 6+ months. Towards the beginning of my employment maybe for around 1 and a bit months i was shadowing another colleague, so taking a break was no problem as my manager had said that if you are ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xhgme4",
-          "title": "AO.com installed induction hob into 2.5mm cable - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhgme4/aocom_installed_induction_hob_into_25mm_cable/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhgme4/aocom_installed_induction_hob_into_25mm_cable/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793168977,
-          "snippet": "Good morning. I've had an induction hob fitted by ao. Fitter came, swapped my old ceramic hob out with the new one, did some electrical testing, took some pictures and then left. Later on I did some cooking and I had smoke coming from the cooker fuse/switch thing on the wall. Tur",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -369,7 +369,7 @@
       "slug": "employment-law",
       "label": "Employment Law",
       "legalAreaSlug": "employment",
-      "postCount": 2,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -386,17 +386,41 @@
           "createdUtc": 1793212701,
           "snippet": "Today, around 20 employees from different teams were told on a group call that, due to financial pressures, we were being dismissed with immediate effect. This is around half the team, they did not use the word ‘redundancy’ at any point and said they were reducing team sizes not ",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "landlord-and-tenant",
+      "label": "Landlord and Tenant",
+      "legalAreaSlug": "housing",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xhxo52",
-          "title": "Salary Sacrifice Car early termination fee after leaving job",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhxo52/salary_sacrifice_car_early_termination_fee_after/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhxo52/salary_sacrifice_car_early_termination_fee_after/",
+          "id": "1xi4msd",
+          "title": "Landlord giving limited access to hot water.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi4msd/landlord_giving_limited_access_to_hot_water/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi4msd/landlord_giving_limited_access_to_hot_water/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793215092,
-          "snippet": "Hello LAUK, always see good and informative stuff on here and have a situation I want some opinions on. My brother worked for a company where he could sign up to an EV SalSac. Did so and then when he left the business he requested that he took on the lease himself. Got emails fro",
+          "createdUtc": 1793231573,
+          "snippet": "England. Hi I live in a self contained unit as a lodger. It's not cheap. Over the last year the rent has went up and access to warm water went down. The water is tepid at best but lately there has been no hot water. Today before work I had a brutally cold shower. I raised this is",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xibp0e",
+          "title": "Landlord refuses to clean communal areas(England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xibp0e/landlord_refuses_to_clean_communal_areasengland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xibp0e/landlord_refuses_to_clean_communal_areasengland/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793252710,
+          "snippet": "The building i live in used to be a hotel and still has a pool,launderette and a gym which is in a conservatory and can get extremely hot. Some gym users refuse to wipe down and the landlord refuses to clean it despite employing cleaners, i have had to clean the equipment over 30",
           "listingSource": "rss:hot"
         }
       ]
@@ -421,6 +445,54 @@
           "numComments": 0,
           "createdUtc": 1793192982,
           "snippet": "During a visit to London, I met an escort. When payment was due, I initiated an international bank transfer in front of her. I understood that it would take some time to arrive. A couple of days later, I returned home. I subsequently discovered that my bank had flagged the transf",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "discrimination-and-equality",
+      "label": "Discrimination and Equality",
+      "legalAreaSlug": "discrimination_equality",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xie7gz",
+          "title": "Looking for help & advice with disability discrimination.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xie7gz/looking_for_help_advice_with_disability/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xie7gz/looking_for_help_advice_with_disability/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793262151,
+          "snippet": "Hey all, I’m looking for a bit of advice, wanting a rant looking for tips really as I’m shocked and appalled by this last 7 days from my boss!! I have been diagnosed with endometriosis &amp; adenomyosis and had my pain management appointment which was amazing, but it did come wit",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "prison_law",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xictqr",
+          "title": "Appealing party wall agreement or Further Award ?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xictqr/appealing_party_wall_agreement_or_further_award/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xictqr/appealing_party_wall_agreement_or_further_award/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793256915,
+          "snippet": "Hi Our neighbour will serve us soon notice. How hard is to appeal award or further award if dispute arises? Is it expensive ? submitted by /u/Ancient-Dot1955 [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
@@ -460,39 +532,15 @@
       ],
       "posts": [
         {
-          "id": "1xgz1so",
-          "title": "eBay refunded me for a lost parcel, but it arrived 2 months later. Seller refuses a return and demands payment. What are my legal obligations?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xgz1so/ebay_refunded_me_for_a_lost_parcel_but_it_arrived/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xgz1so/ebay_refunded_me_for_a_lost_parcel_but_it_arrived/",
+          "id": "1xih2hi",
+          "title": "Paying for eye test with insurance - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xih2hi/paying_for_eye_test_with_insurance_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xih2hi/paying_for_eye_test_with_insurance_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793122402,
-          "snippet": "Hi everyone, I'm in a rather unusual situation with an eBay UK purchase and would appreciate some advice regarding my legal obligations. For context, I live in Belfast in Northern Ireland and the seller lives in Isleworth, near London. On August 6, I purchased Pokémon products on",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "landlord-and-tenant",
-      "label": "Landlord and Tenant",
-      "legalAreaSlug": "housing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xi1mh2",
-          "title": "England - Moved into a flat in September 2025 and it has been in a state of disrepair, and in October 2026 it was given an emergency evacuation.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi1mh2/england_moved_into_a_flat_in_september_2025_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi1mh2/england_moved_into_a_flat_in_september_2025_and/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793224077,
-          "snippet": "Hi all, I was encouraged by my university to find a solicitor to put in a disrepair claim (Liverpool area). To make a very long story short, I started renting in my old flat block in September of last year, and when I moved in, it seemed as if there had been squatters living in t",
+          "createdUtc": 1793272321,
+          "snippet": "My employer pays for basic private health insurance, with a cap on the amount one can claim in a year. They have said that my eye test for VDU use should come from that. Is this correct? Although I don't pay for the insurance, the cost would reduce how much I can claim for other ",
           "listingSource": "rss:hot"
         }
       ]
