@@ -1,0 +1,94 @@
+# Daily security scan at 02:00 Europe/London.
+# GitHub cron is UTC and can start late. 01:00 UTC is 02:00 London during BST.
+# 02:00 UTC is 02:00 London during GMT. The gate runs only the matching slot,
+# and only while London time is still 02:00 through 05:59.
+# See .github/security/README.md.
+
+name: Daily security scan
+
+on:
+  schedule:
+    - cron: "0 1 * * *"
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: daily-security-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    name: Security scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Checkout scanner scripts
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: .github/security
+          sparse-checkout-cone-mode: true
+          path: scanner
+
+      - name: Checkout default branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+          fetch-depth: 1
+          path: target
+
+      - name: Decide whether this run should scan
+        id: gate
+        env:
+          SECURITY_SCAN_EVENT: ${{ github.event_name }}
+          SECURITY_SCAN_SCHEDULE: ${{ github.event.schedule }}
+        run: node scanner/.github/security/scripts/london-schedule-gate.mjs
+
+      - name: Setup Node
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22"
+
+      - name: Run security scanners
+        id: scan
+        if: steps.gate.outputs.run == 'true'
+        env:
+          TARGET_DIR: ${{ github.workspace }}/target
+          SCANNER_DIR: ${{ github.workspace }}/scanner/.github/security
+          OUT_DIR: ${{ github.workspace }}/out
+          SCAN_REF: ${{ github.event.repository.default_branch }}
+        run: bash scanner/.github/security/scripts/run-all.sh
+
+      - name: Encrypt report
+        id: encrypt
+        if: always() && steps.gate.outputs.run == 'true' && steps.scan.outcome == 'success'
+        env:
+          OUT_DIR: ${{ github.workspace }}/out
+          UPLOAD_DIR: ${{ github.workspace }}/upload
+          SECURITY_SCAN_REPORT_KEY: ${{ secrets.SECURITY_SCAN_REPORT_KEY }}
+        run: node scanner/.github/security/scripts/encrypt-report.mjs
+
+      - name: Upload encrypted report
+        if: always() && steps.encrypt.outputs.encrypted == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: security-report-${{ steps.encrypt.outputs.report_date }}
+          path: ${{ github.workspace }}/upload
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Fail unless the scan is clean
+        if: always() && steps.gate.outputs.run == 'true'
+        env:
+          ENCRYPTION_STATUS: ${{ steps.encrypt.outputs.encrypted }}
+          OUT_DIR: ${{ github.workspace }}/out
+        run: node scanner/.github/security/scripts/conclude.mjs
