@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-29T22:27:29.404Z",
+    "scrapedAt": "2026-10-30T11:55:58.642Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 5,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,6 +26,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xjbcj0",
+          "title": "Enterprise rental recharged my card to bypass a chargeback I already won (Gatwick, London)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjbcj0/enterprise_rental_recharged_my_card_to_bypass_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjbcj0/enterprise_rental_recharged_my_card_to_bypass_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793354803,
+          "snippet": "&#x200B; Hi everyone, looking for some advice on next steps regarding a car rental dispute that has escalated. A few months ago, I rented a car from Enterprise at Glasgow Scotland. On return, I handed the keys directly to an attendant who inspected the vehicle inside and out, acc",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xisehj",
           "title": "My (25F) uncle (54M) is forcing me to take out a joint mortgage with him. (England) What can I do to stop it?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xisehj/my_25f_uncle_54m_is_forcing_me_to_take_out_a/",
@@ -35,6 +47,30 @@
           "numComments": 0,
           "createdUtc": 1793299334,
           "snippet": "Hi all, My hands are literally shaking whilst I type this. I am a 25 year old woman living in northern England. I work a normal finance officer for 2 years. I earn under 30K yearly. I currently live with my mum and pay towards some of her mortgage. Recently, my uncle (54 years ol",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xiumcv",
+          "title": "£600 fly-tipping FPN for a single piece of cardboard I didn’t put on the ground - how likely am I to win in court?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiumcv/600_flytipping_fpn_for_a_single_piece_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiumcv/600_flytipping_fpn_for_a_single_piece_of/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793304309,
+          "snippet": "short version: I am in England. I’ve received a £600 (if paid now - otherwise £1500) fly-tipping FPN because a small Amazon cardboard sleeve bearing my name and address was found on the ground beside shared communal bins, by my property. I categorically did not put it there and h",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xiuxeo",
+          "title": "Door to door Jetwash scam. What do I do?England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiuxeo/door_to_door_jetwash_scam_what_do_i_doengland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiuxeo/door_to_door_jetwash_scam_what_do_i_doengland/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793304983,
+          "snippet": "My partner allowed two men to jetwash our drive, tiles in back garden, and front steps. It's not a large space done by any means. My partner asked for a quote but was brushed off and told he'll \"let him know\" They connected their jetwash to our neighbours water supply, which my p",
           "listingSource": "rss:hot"
         },
         {
@@ -50,6 +86,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xjc2cv",
+          "title": "A fraudster took all my money what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjc2cv/a_fraudster_took_all_my_money_what_can_i_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjc2cv/a_fraudster_took_all_my_money_what_can_i_do/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793357345,
+          "snippet": "Dear Community, Please help me. It's a long story and started in February 2024, a fraudster acting as a businessman conned me and took over £200k from me. I am not rich person, I remortgaged my property to pay for it, I hoped the investment would give me an income when I reach my",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xiyucg",
+          "title": "CDER Group are holding my car hostage for someone else’s debt and mocking me (7-day auction vs 10-day email reply)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiyucg/cder_group_are_holding_my_car_hostage_for_someone/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiyucg/cder_group_are_holding_my_car_hostage_for_someone/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793314297,
+          "snippet": "Hi everyone, I am in an absolute nightmare with CDER Group and desperately need advice to stop them from auctioning my car. Vehicle: Range Rover Sport Purchase: Bought 3 months ago from a dealer ( Revolve Collections Ltd ). I have the purchase invoice, sales contract, bank paymen",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xidlgv",
           "title": "5 Hours of Unpaid Trial Shifts",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidlgv/5_hours_of_unpaid_trial_shifts/",
@@ -59,18 +119,6 @@
           "numComments": 0,
           "createdUtc": 1793259852,
           "snippet": "Surely 5 Hours trial “in a real working environment” , performing productive labour and not getting paid at least minimum wage is unlawful in England. 3 Hours maximum unpaid is okay, and should be enough to asess your skill working in a restaurant. 5 Hours unpaid?! The duration w",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xiuxeo",
-          "title": "Door to door Jetwash scam. What do I do?England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiuxeo/door_to_door_jetwash_scam_what_do_i_doengland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiuxeo/door_to_door_jetwash_scam_what_do_i_doengland/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793304983,
-          "snippet": "My partner allowed two men to jetwash our drive, tiles in back garden, and front steps. It's not a large space done by any means. My partner asked for a quote but was brushed off and told he'll \"let him know\" They connected their jetwash to our neighbours water supply, which my p",
           "listingSource": "rss:hot"
         },
         {
@@ -98,27 +146,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xiumcv",
-          "title": "£600 fly-tipping FPN for a single piece of cardboard I didn’t put on the ground - how likely am I to win in court?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiumcv/600_flytipping_fpn_for_a_single_piece_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiumcv/600_flytipping_fpn_for_a_single_piece_of/",
+          "id": "1xja2sa",
+          "title": "England - Overdales chasing for a false debt, impacting credit score and telling us to seek legal advice. What is the next step?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xja2sa/england_overdales_chasing_for_a_false_debt/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xja2sa/england_overdales_chasing_for_a_false_debt/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793304309,
-          "snippet": "short version: I am in England. I’ve received a £600 (if paid now - potentially over £1000) fly-tipping FPN because a small Amazon cardboard sleeve bearing my name and address was found on the ground beside shared communal bins, by my property. I categorically did not put it ther",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xijrg0",
-          "title": "UK employment law. Can moving CCTV amount to gross misconduct?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xijrg0/uk_employment_law_can_moving_cctv_amount_to_gross/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xijrg0/uk_employment_law_can_moving_cctv_amount_to_gross/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793279958,
-          "snippet": "UK employment law – can moving CCTV amount to gross misconduct? I run a small UK business selling electronics, and we deal with expensive stock. We have visible CCTV cameras for security, they are not hidden. One camera wasn't fixed to the wall, so it could be physically moved. I",
+          "createdUtc": 1793350077,
+          "snippet": "About a year ago my partner began receiving letters from overdales for a debt that is not his. At first he ignored them thinking they were not legit. Luckily my partner has never been in the position to need to borrow money, and is a homeowner. In the last few months these letter",
           "listingSource": "rss:hot"
         },
         {
@@ -134,123 +170,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xijqdt",
-          "title": "Update 2: Insurance taken out in my name without consent — insurer now says it’s a civil matter despite receiving the crime reference they requested? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xijqdt/update_2_insurance_taken_out_in_my_name_without/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xijqdt/update_2_insurance_taken_out_in_my_name_without/",
+          "id": "1xj6eeb",
+          "title": "Bespoke Engagement ring purchase.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xj6eeb/bespoke_engagement_ring_purchase/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xj6eeb/bespoke_engagement_ring_purchase/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793279880,
-          "snippet": "Thank you to everyone who commented on my previous post. I followed your advice, reported the matter, obtained a crime reference number through the police and submitted it to the insurer as requested so they could investigate. They have now refused to treat this as identity theft",
+          "createdUtc": 1793336124,
+          "snippet": "UPDATE: Taylor and Hart contacted me and told me it was Thier oversight and the order has been updated to show 'ideal' cut! Thank you for those that took the time to reply. Seems I jumped the gun a bit. Hello, I've recently purchased a bespoke engagement ring from Taylor and Hart",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xituok",
-          "title": "Help - landlord trying to cancel contract 18 days before move",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xituok/help_landlord_trying_to_cancel_contract_18_days/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xituok/help_landlord_trying_to_cancel_contract_18_days/",
+          "id": "1xjdaea",
+          "title": "Should I complain about the solicitor/executor of my uncle's estate? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjdaea/should_i_complain_about_the_solicitorexecutor_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjdaea/should_i_complain_about_the_solicitorexecutor_of/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793302612,
-          "snippet": "Situation as follows. In England Tenancy agreement signed by me and spouse digitally on letting agent portal Deposit paid Had a move in date but yesterday when we are checking time to get keys to confirm with moving van they suddenly sound vague today at 430 - phone call to say t",
+          "createdUtc": 1793361224,
+          "snippet": "Apologies if this is the wrong place to ask. I am thinking about making a formal complaint about the solicitor and executor of a family member's estate. He passed in July 2025 and named myself and siblings as the main beneficiaries of his will. Issues: I contacted the solicitor i",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xix1cu",
-          "title": "England - Myself (Over 3 years at employer) and 75% of my team dismissed for Gross Misconduct due to off-topic Teams chat",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xix1cu/england_myself_over_3_years_at_employer_and_75_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xix1cu/england_myself_over_3_years_at_employer_and_75_of/",
+          "id": "1xjd6rl",
+          "title": "Won my Section 202 Review against the Council (Medical Priority Need/Band 2) – What to expect next? Uk",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjd6rl/won_my_section_202_review_against_the_council/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjd6rl/won_my_section_202_review_against_the_council/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793309883,
-          "snippet": "My case is that myself and at least 4 others have been dismissed for an off-topic Teams chat that included jokes at each other's expense. These jokes included ribs about each other's neurodivergence, non-targeted sex jokes, and general nonsense. We are all very friendly with each",
+          "createdUtc": 1793360921,
+          "snippet": "Hi everyone, I wanted to share a massive update on my housing case and ask what typically happens next with the bidding process based on your experiences. I have severe physical and mental health conditions—including recurrent DVT with chronic leg swelling/pain (high risk of fall",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xi4msd",
-          "title": "Landlord giving limited access to hot water.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi4msd/landlord_giving_limited_access_to_hot_water/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi4msd/landlord_giving_limited_access_to_hot_water/",
+          "id": "1xjd55z",
+          "title": "3 started new contract instead of upgrade England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjd55z/3_started_new_contract_instead_of_upgrade_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjd55z/3_started_new_contract_instead_of_upgrade_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793231573,
-          "snippet": "England. Hi I live in a self contained unit as a lodger. It's not cheap. Over the last year the rent has went up and access to warm water went down. The water is tepid at best but lately there has been no hot water. Today before work I had a brutally cold shower. I raised this is",
+          "createdUtc": 1793360788,
+          "snippet": "So a friend of mine has some severe health conditions and 2 years ago got am email to upgrade or cancel a contract for a tablet, she went in store with the email and upgraded the tablet, only now she has been retired has she noticed she has been paying double for over 2 years! I ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xhwjd1",
-          "title": "Dismissed with immediate effect and told company can’t afford to pay wages England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhwjd1/dismissed_with_immediate_effect_and_told_company/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhwjd1/dismissed_with_immediate_effect_and_told_company/",
+          "id": "1xjcsiq",
+          "title": "Credit Score Ruined - Advice Please (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjcsiq/credit_score_ruined_advice_please_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjcsiq/credit_score_ruined_advice_please_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793212701,
-          "snippet": "Today, around 20 employees from different teams were told on a group call that, due to financial pressures, we were being dismissed with immediate effect. This is around half the team, they did not use the word ‘redundancy’ at any point and said they were reducing team sizes not ",
+          "createdUtc": 1793359692,
+          "snippet": "Hi everyone, I need advice, please. I’m a professional in my mid-20s on a good salary. I have never had a credit card or loan (other than student loan). The only data on my credit report is utility payments, which were all on time. Until I moved rental property, and I was disputi",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xiwt2u",
-          "title": "Legal Aid solicitor not responding - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiwt2u/legal_aid_solicitor_not_responding_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiwt2u/legal_aid_solicitor_not_responding_england/",
+          "id": "1xjcqln",
+          "title": "English Law - Being chased by DCBL for a fuel drive-off a week after I sold the car – am I liable?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjcqln/english_law_being_chased_by_dcbl_for_a_fuel/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjcqln/english_law_being_chased_by_dcbl_for_a_fuel/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793309325,
-          "snippet": "I separated from my husband in July 2025 following ongoing domestic abuse against myself and our eldest child (5 at the time). He has pleaded guilty to ABH against myself in crown court but not guilty to the assault on or child, so we are scheduled for crown court summer 2027. In",
+          "createdUtc": 1793359533,
+          "snippet": "Hi all, looking for some advice. I sold my car privately on 17 June 2026 in England (Facebook Marketplace). I posted the V5C to the DVLA after the sale. On 24 June 2026, someone in that car filled up at an ASDA petrol station and drove off without paying (about £50 of fuel). On 1",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xipt9z",
-          "title": "Workplace underpaid by over £1,000 [Scotland]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xipt9z/workplace_underpaid_by_over_1000_scotland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xipt9z/workplace_underpaid_by_over_1000_scotland/",
+          "id": "1xjckwb",
+          "title": "Malicious data breach from medical provider enquiry form - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjckwb/malicious_data_breach_from_medical_provider/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjckwb/malicious_data_breach_from_medical_provider/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793293601,
-          "snippet": "Hi all, Just wondering what advice we can take? My partner has received her monthly payslip and has been underpaid by over £1000. As a % it’s even worse as she has received less than £300 when pre-tax for her hours she is owed more than £2,000 for the work. She’s contacted payrol",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xidxp7",
-          "title": "Problem neighbours that have caused criminal damage .",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidxp7/problem_neighbours_that_have_caused_criminal/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xidxp7/problem_neighbours_that_have_caused_criminal/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793261120,
-          "snippet": "Ok so we have petty neighbours in England . This all started when I parked up and she come out screaming at me how close I was to her car . Anyways it’s now escalated resulting in criminal damage . So we had a parcel left out ours for her I put it over the fence , she opened her ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1ximzxw",
-          "title": "Someone hit my parked car, their insurance are insisting that it's a write off despite it costing less to fix the car being substantially less than their quote. (one panel is dented)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ximzxw/someone_hit_my_parked_car_their_insurance_are/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ximzxw/someone_hit_my_parked_car_their_insurance_are/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793287448,
-          "snippet": "I am having to deal with the other party's insurance company because I am 3rd Party Fire and Theft so my insurance won't cover it. No issue on liability - they have admitted liability because their driver hit my parked car while trying to reverse. Damage is one dented panel. I ha",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xiq24e",
-          "title": "Question re 'strangulation' law change (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiq24e/question_re_strangulation_law_change_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiq24e/question_re_strangulation_law_change_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793294134,
-          "snippet": "Now some time has passed, is there any more clarity on the new anti-strangulation law that came in in the UK? To be clear, I'm all for the law and can't imagine ever getting sexual pleasure from watching someone being harmed in such a way. I'm not trying to skirt it is what I'm s",
+          "createdUtc": 1793359041,
+          "snippet": "Several months I was scoping out some treatment for a medical concern and filled in an enquiry form with a provider recommended to me by a friend. I ended up pursuing treatment elsewhere so didn't take forward a potential offer of treatment with them. On 20 October they emailed m",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 11,
+      "postCount": 12,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -292,6 +292,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xiumcv",
+          "title": "£600 fly-tipping FPN for a single piece of cardboard I didn’t put on the ground - how likely am I to win in court?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiumcv/600_flytipping_fpn_for_a_single_piece_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiumcv/600_flytipping_fpn_for_a_single_piece_of/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793304309,
+          "snippet": "short version: I am in England. I’ve received a £600 (if paid now - otherwise £1500) fly-tipping FPN because a small Amazon cardboard sleeve bearing my name and address was found on the ground beside shared communal bins, by my property. I categorically did not put it there and h",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xiuxeo",
+          "title": "Door to door Jetwash scam. What do I do?England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiuxeo/door_to_door_jetwash_scam_what_do_i_doengland/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiuxeo/door_to_door_jetwash_scam_what_do_i_doengland/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793304983,
+          "snippet": "My partner allowed two men to jetwash our drive, tiles in back garden, and front steps. It's not a large space done by any means. My partner asked for a quote but was brushed off and told he'll \"let him know\" They connected their jetwash to our neighbours water supply, which my p",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xiqyog",
           "title": "England: My former UK-based manager is stalking and harassing me. What can I do, legally?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiqyog/england_my_former_ukbased_manager_is_stalking_and/",
@@ -316,18 +340,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xiuxeo",
-          "title": "Door to door Jetwash scam. What do I do?England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiuxeo/door_to_door_jetwash_scam_what_do_i_doengland/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiuxeo/door_to_door_jetwash_scam_what_do_i_doengland/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793304983,
-          "snippet": "My partner allowed two men to jetwash our drive, tiles in back garden, and front steps. It's not a large space done by any means. My partner asked for a quote but was brushed off and told he'll \"let him know\" They connected their jetwash to our neighbours water supply, which my p",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1xiq5n1",
           "title": "What are the legal ramifications of the new November 6th Porn Ban?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiq5n1/what_are_the_legal_ramifications_of_the_new/",
@@ -337,18 +349,6 @@
           "numComments": 0,
           "createdUtc": 1793294337,
           "snippet": "I cannot believe honest to god I had to make a throwaway to ask reddit legal advice on porn because the UK has decided it wants to be more censored than a dystopian big brother movie but here we are. Can someone please explain to me the legal wording of this new law, what it does",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xiumcv",
-          "title": "£600 fly-tipping FPN for a single piece of cardboard I didn’t put on the ground - how likely am I to win in court?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiumcv/600_flytipping_fpn_for_a_single_piece_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiumcv/600_flytipping_fpn_for_a_single_piece_of/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793304309,
-          "snippet": "short version: I am in England. I’ve received a £600 (if paid now - potentially over £1000) fly-tipping FPN because a small Amazon cardboard sleeve bearing my name and address was found on the ground beside shared communal bins, by my property. I categorically did not put it ther",
           "listingSource": "rss:hot"
         },
         {
@@ -366,10 +366,94 @@
       ]
     },
     {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xjbcj0",
+          "title": "Enterprise rental recharged my card to bypass a chargeback I already won (Gatwick, London)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjbcj0/enterprise_rental_recharged_my_card_to_bypass_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjbcj0/enterprise_rental_recharged_my_card_to_bypass_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793354803,
+          "snippet": "&#x200B; Hi everyone, looking for some advice on next steps regarding a car rental dispute that has escalated. A few months ago, I rented a car from Enterprise at Glasgow Scotland. On return, I handed the keys directly to an attendant who inspected the vehicle inside and out, acc",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "fraud-and-financial-crime",
+      "label": "Fraud and Financial Crime",
+      "legalAreaSlug": "fraud_financial_crime",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xjc2cv",
+          "title": "A fraudster took all my money what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjc2cv/a_fraudster_took_all_my_money_what_can_i_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjc2cv/a_fraudster_took_all_my_money_what_can_i_do/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793357345,
+          "snippet": "Dear Community, Please help me. It's a long story and started in February 2024, a fraudster acting as a businessman conned me and took over £200k from me. I am not rich person, I remortgaged my property to pay for it, I hoped the investment would give me an income when I reach my",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "debt",
+      "label": "Debt",
+      "legalAreaSlug": "debt",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xiyucg",
+          "title": "CDER Group are holding my car hostage for someone else’s debt and mocking me (7-day auction vs 10-day email reply)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiyucg/cder_group_are_holding_my_car_hostage_for_someone/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiyucg/cder_group_are_holding_my_car_hostage_for_someone/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793314297,
+          "snippet": "Hi everyone, I am in an absolute nightmare with CDER Group and desperately need advice to stop them from auctioning my car. Vehicle: Range Rover Sport Purchase: Bought 3 months ago from a dealer ( Revolve Collections Ltd ). I have the purchase invoice, sales contract, bank paymen",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xja2sa",
+          "title": "England - Overdales chasing for a false debt, impacting credit score and telling us to seek legal advice. What is the next step?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xja2sa/england_overdales_chasing_for_a_false_debt/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xja2sa/england_overdales_chasing_for_a_false_debt/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793350077,
+          "snippet": "About a year ago my partner began receiving letters from overdales for a debt that is not his. At first he ignored them thinking they were not legit. Luckily my partner has never been in the position to need to borrow money, and is a homeowner. In the last few months these letter",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 3,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -386,121 +470,13 @@
           "createdUtc": 1793287712,
           "snippet": "Hi, I’m considering buying a property at auction in England, but there is a complicated tenant/legal issue and I’d appreciate some general guidance before I spend money on specialist legal advice. The property is currently occupied by a tenant. There is a written tenancy agreemen",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xituok",
-          "title": "Help - landlord trying to cancel contract 18 days before move",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xituok/help_landlord_trying_to_cancel_contract_18_days/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xituok/help_landlord_trying_to_cancel_contract_18_days/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793302612,
-          "snippet": "Situation as follows. In England Tenancy agreement signed by me and spouse digitally on letting agent portal Deposit paid Had a move in date but yesterday when we are checking time to get keys to confirm with moving van they suddenly sound vague today at 430 - phone call to say t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xi4msd",
-          "title": "Landlord giving limited access to hot water.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi4msd/landlord_giving_limited_access_to_hot_water/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xi4msd/landlord_giving_limited_access_to_hot_water/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793231573,
-          "snippet": "England. Hi I live in a self contained unit as a lodger. It's not cheap. Over the last year the rent has went up and access to warm water went down. The water is tepid at best but lately there has been no hot water. Today before work I had a brutally cold shower. I raised this is",
-          "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 3,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xijrg0",
-          "title": "UK employment law. Can moving CCTV amount to gross misconduct?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xijrg0/uk_employment_law_can_moving_cctv_amount_to_gross/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xijrg0/uk_employment_law_can_moving_cctv_amount_to_gross/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793279958,
-          "snippet": "UK employment law – can moving CCTV amount to gross misconduct? I run a small UK business selling electronics, and we deal with expensive stock. We have visible CCTV cameras for security, they are not hidden. One camera wasn't fixed to the wall, so it could be physically moved. I",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xix1cu",
-          "title": "England - Myself (Over 3 years at employer) and 75% of my team dismissed for Gross Misconduct due to off-topic Teams chat",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xix1cu/england_myself_over_3_years_at_employer_and_75_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xix1cu/england_myself_over_3_years_at_employer_and_75_of/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793309883,
-          "snippet": "My case is that myself and at least 4 others have been dismissed for an off-topic Teams chat that included jokes at each other's expense. These jokes included ribs about each other's neurodivergence, non-targeted sex jokes, and general nonsense. We are all very friendly with each",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xhwjd1",
-          "title": "Dismissed with immediate effect and told company can’t afford to pay wages England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhwjd1/dismissed_with_immediate_effect_and_told_company/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xhwjd1/dismissed_with_immediate_effect_and_told_company/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793212701,
-          "snippet": "Today, around 20 employees from different teams were told on a group call that, due to financial pressures, we were being dismissed with immediate effect. This is around half the team, they did not use the word ‘redundancy’ at any point and said they were reducing team sizes not ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "consumer-law",
-      "label": "Consumer Law",
-      "legalAreaSlug": "consumer",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xijqdt",
-          "title": "Update 2: Insurance taken out in my name without consent — insurer now says it’s a civil matter despite receiving the crime reference they requested? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xijqdt/update_2_insurance_taken_out_in_my_name_without/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xijqdt/update_2_insurance_taken_out_in_my_name_without/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793279880,
-          "snippet": "Thank you to everyone who commented on my previous post. I followed your advice, reported the matter, obtained a crime reference number through the police and submitted it to the insurer as requested so they could investigate. They have now refused to treat this as identity theft",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1ximzxw",
-          "title": "Someone hit my parked car, their insurance are insisting that it's a write off despite it costing less to fix the car being substantially less than their quote. (one panel is dented)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1ximzxw/someone_hit_my_parked_car_their_insurance_are/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1ximzxw/someone_hit_my_parked_car_their_insurance_are/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793287448,
-          "snippet": "I am having to deal with the other party's insurance company because I am 3rd Party Fire and Theft so my insurance won't cover it. No issue on liability - they have admitted liability because their driver hit my parked car while trying to reverse. Damage is one dented panel. I ha",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "welfare-benefits",
-      "label": "Welfare Benefits",
-      "legalAreaSlug": "welfare_benefits",
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -508,15 +484,63 @@
       ],
       "posts": [
         {
-          "id": "1xiwt2u",
-          "title": "Legal Aid solicitor not responding - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiwt2u/legal_aid_solicitor_not_responding_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xiwt2u/legal_aid_solicitor_not_responding_england/",
+          "id": "1xj6eeb",
+          "title": "Bespoke Engagement ring purchase.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xj6eeb/bespoke_engagement_ring_purchase/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xj6eeb/bespoke_engagement_ring_purchase/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793309325,
-          "snippet": "I separated from my husband in July 2025 following ongoing domestic abuse against myself and our eldest child (5 at the time). He has pleaded guilty to ABH against myself in crown court but not guilty to the assault on or child, so we are scheduled for crown court summer 2027. In",
+          "createdUtc": 1793336124,
+          "snippet": "UPDATE: Taylor and Hart contacted me and told me it was Thier oversight and the order has been updated to show 'ideal' cut! Thank you for those that took the time to reply. Seems I jumped the gun a bit. Hello, I've recently purchased a bespoke engagement ring from Taylor and Hart",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "wills-and-probate",
+      "label": "Wills and Probate",
+      "legalAreaSlug": "wills_probate",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xjdaea",
+          "title": "Should I complain about the solicitor/executor of my uncle's estate? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjdaea/should_i_complain_about_the_solicitorexecutor_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjdaea/should_i_complain_about_the_solicitorexecutor_of/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793361224,
+          "snippet": "Apologies if this is the wrong place to ask. I am thinking about making a formal complaint about the solicitor and executor of a family member's estate. He passed in July 2025 and named myself and siblings as the main beneficiaries of his will. Issues: I contacted the solicitor i",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "mental-health-law",
+      "label": "Mental Health Law",
+      "legalAreaSlug": "mental_health",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xjd6rl",
+          "title": "Won my Section 202 Review against the Council (Medical Priority Need/Band 2) – What to expect next? Uk",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjd6rl/won_my_section_202_review_against_the_council/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjd6rl/won_my_section_202_review_against_the_council/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793360921,
+          "snippet": "Hi everyone, I wanted to share a massive update on my housing case and ask what typically happens next with the bidding process based on your experiences. I have severe physical and mental health conditions—including recurrent DVT with chronic leg swelling/pain (high risk of fall",
           "listingSource": "rss:hot"
         }
       ]
