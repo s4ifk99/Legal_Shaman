@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-10-31T11:30:10.309Z",
-    "subredditCount": 2,
-    "postCount": 40,
-    "topicCount": 6,
+    "scrapedAt": "2026-10-31T21:00:54.423Z",
+    "subredditCount": 1,
+    "postCount": 20,
+    "topicCount": 4,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,15 +26,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xjv36e",
-          "title": "Boots phoned the police on me because they said I was shoplifting (I wasn’t) and I walked out the store. What could happen?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjv36e/boots_phoned_the_police_on_me_because_they_said_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjv36e/boots_phoned_the_police_on_me_because_they_said_i/",
+          "id": "1xkgqm4",
+          "title": "Council is making me pay £15,000 - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkgqm4/council_is_making_me_pay_15000_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkgqm4/council_is_making_me_pay_15000_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793403774,
-          "snippet": "I shopping in Boots for a gift. There’s one box left of some make up my friend wanted. when I picked it up, it felt empty so I opened it to have a look. It was empty so I put it back. A staff member stopped me, grabbed my arm and told me to put the make up back. I laughed and jus",
+          "createdUtc": 1793469241,
+          "snippet": "My wife and I rented a one-bedroom flat in a converted house from August 2021 through an estate agent. Before signing the tenancy, we specifically asked whether all bills, including Council Tax, were included in the rent. Both the estate agent and the landlord confirmed that they",
           "listingSource": "rss:hot"
         },
         {
@@ -50,27 +50,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xjt93i",
-          "title": "Bar just opened beneath my flat, what are my options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjt93i/bar_just_opened_beneath_my_flat_what_are_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjt93i/bar_just_opened_beneath_my_flat_what_are_my/",
+          "id": "1xkbbu4",
+          "title": "Rejecting a factory order brand new car from a official Dealership in London, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkbbu4/rejecting_a_factory_order_brand_new_car_from_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkbbu4/rejecting_a_factory_order_brand_new_car_from_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793398981,
-          "snippet": "Hi, I live in a flat that is on a street. I've been here for 2 months. A bar has just recently opened right underneath me, playing loud music into late at night that booms through the flat. I can't hear myself think. My upstairs neightbours can also hear it. It's causing so much ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjfbbl",
-          "title": "My family's lunch at McDonalds got lifted by another family who took it and left. McDonalds refused to make my family another lunch. We spent almost £40.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjfbbl/my_familys_lunch_at_mcdonalds_got_lifted_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjfbbl/my_familys_lunch_at_mcdonalds_got_lifted_by/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793366709,
-          "snippet": "We ordered at the self service kiosks things. It didnt print a receipt and told us to remember our order number - a 4 digit code likr 2971 Group was lingering near the collection point with their faces covered. When our number got called this man and woman and their kids in a dou",
+          "createdUtc": 1793456098,
+          "snippet": "Context: I ordered a car in June 2026. The car arrived in the UK safely in early October. I was due to pick up car in Oct 21, but day before the handover I was informed that my car was damaged during transit to the dealership. A tree branch hit the spoiler enough for it to requir",
           "listingSource": "rss:hot"
         },
         {
@@ -86,6 +74,78 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xjv36e",
+          "title": "Boots phoned the police on me because they said I was shoplifting (I wasn’t) and I walked out the store. What could happen?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjv36e/boots_phoned_the_police_on_me_because_they_said_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjv36e/boots_phoned_the_police_on_me_because_they_said_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793403774,
+          "snippet": "I shopping in Boots for a gift. There’s one box left of some make up my friend wanted. when I picked it up, it felt empty so I opened it to have a look. It was empty so I put it back. A staff member stopped me, grabbed my arm and told me to put the make up back. I laughed and jus",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xkdlaz",
+          "title": "Can I be forced to buy something after being sent a sample? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkdlaz/can_i_be_forced_to_buy_something_after_being_sent/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkdlaz/can_i_be_forced_to_buy_something_after_being_sent/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793461664,
+          "snippet": "I was looking for blinds for my new house. One site I looked at online offered to send samples of the fabric. I ordered some. I supposedly ticked a box to say I’m aware that by ordering the samples there is an obligation to make a purchase. I do not remember if I did, but I’ve lo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xkhkos",
+          "title": "Problem neighbour, complaining about our new extension.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkhkos/problem_neighbour_complaining_about_our_new/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkhkos/problem_neighbour_complaining_about_our_new/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793471200,
+          "snippet": "Hi everyone I granted permission for a gate to be attached to our outbuilding around 8 years ago (to the current owner's now ex husband). Earlier this year we had the outbuilding knocked down and rebuilt. The footprint is smaller and it doesn't go to the boundary now (we have put",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xk88eh",
+          "title": "My landlord keeps arranging visits with 24 hours notice, but the time slot is an entire day. Is this legal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk88eh/my_landlord_keeps_arranging_visits_with_24_hours/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk88eh/my_landlord_keeps_arranging_visits_with_24_hours/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793447555,
+          "snippet": "My landlord is a small letting agency, mostly a one-man band. When he's arranging routine visits for things like inspections and gas safety checks, he's started to send emails along the lines of \"I've booked them for Friday of next week; this is your 24 hours' notice; we'll give ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xjt93i",
+          "title": "Bar just opened beneath my flat, what are my options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjt93i/bar_just_opened_beneath_my_flat_what_are_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjt93i/bar_just_opened_beneath_my_flat_what_are_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793398981,
+          "snippet": "Hi, I live in a flat that is on a street. I've been here for 2 months. A bar has just recently opened right underneath me, playing loud music into late at night that booms through the flat. I can't hear myself think. My upstairs neightbours can also hear it. It's causing so much ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xk9dds",
+          "title": "HMO bedroom without an external window is it legal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk9dds/hmo_bedroom_without_an_external_window_is_it_legal/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk9dds/hmo_bedroom_without_an_external_window_is_it_legal/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793450963,
+          "snippet": "Daughter has the living room as her bedroom in an HMO. Window opens into dining room. There is an extractor fan. Please help. We live in Wales. submitted by /u/Ok_Escape_9517 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xk4x3j",
           "title": "Partners boss is asking for my sons medical information",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk4x3j/partners_boss_is_asking_for_my_sons_medical/",
@@ -95,6 +155,30 @@
           "numComments": 0,
           "createdUtc": 1793435692,
           "snippet": "This isn't me seeking for a tribunal or anything like that I'm just genuinely wondering if this is necessary. My partner was off last week to care for our one year old son as he was poorly and couldn't go to daycare, she ended up taking him to the doctors and on her return to wor",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xkjll8",
+          "title": "Unknown person blocking allocated parking spaces. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkjll8/unknown_person_blocking_allocated_parking_spaces/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkjll8/unknown_person_blocking_allocated_parking_spaces/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793476175,
+          "snippet": "I live in a house with separate self-contained rented flats with a private landlord. Each flat has an allocated off-road parking space at the rear of the building accessible by a driveway to one side. Today a car has been parked in such a way as to block cars of flat owners from ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xjfbbl",
+          "title": "My family's lunch at McDonalds got lifted by another family who took it and left. McDonalds refused to make my family another lunch. We spent almost £40.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjfbbl/my_familys_lunch_at_mcdonalds_got_lifted_by/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjfbbl/my_familys_lunch_at_mcdonalds_got_lifted_by/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793366709,
+          "snippet": "We ordered at the self service kiosks things. It didnt print a receipt and told us to remember our order number - a 4 digit code likr 2971 Group was lingering near the collection point with their faces covered. When our number got called this man and woman and their kids in a dou",
           "listingSource": "rss:hot"
         },
         {
@@ -110,6 +194,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xkd6kd",
+          "title": "I think my housemate is illegally subletting their room. (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkd6kd/i_think_my_housemate_is_illegally_subletting/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkd6kd/i_think_my_housemate_is_illegally_subletting/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793460662,
+          "snippet": "I live in an HMO in England with 3 other occupiers who each rent a room in the 4-bed house. One of them (who I’ll call Tenant 2) has had a few disputes with the letting agent before (disputing that they need to pay rent while back in their home country for a month, etc). Tenant 2",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xk6su9",
           "title": "iPhone purchase via Back Market",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk6su9/iphone_purchase_via_back_market/",
@@ -122,75 +218,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xjotd2",
-          "title": "Claiming abandoned land in England?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjotd2/claiming_abandoned_land_in_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjotd2/claiming_abandoned_land_in_england/",
+          "id": "1xkipx3",
+          "title": "Council parking fine appeal? - Sheffield, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkipx3/council_parking_fine_appeal_sheffield_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkipx3/council_parking_fine_appeal_sheffield_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793388336,
-          "snippet": "Hi all. I live next to a retail commercial site where, previously, the business built an extension next to my garden. When they did they walled off half a small plot of land leaving the other half empty. They have no access to it now, nor interest in it (been abandoned for 15+ ye",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjxyia",
-          "title": "Scotland: restaurant offered £8/hour after an unpaid 8-hour \"trial shift\" and insisted me to work exceeding allowed hours per week",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjxyia/scotland_restaurant_offered_8hour_after_an_unpaid/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjxyia/scotland_restaurant_offered_8hour_after_an_unpaid/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793411700,
-          "snippet": "M23 international student here. On October 30 from 4:00 pm to 12:00 am,I did an 8-hour “training session” at a restaurant. I stood in the kitchen shadowing the chef assisting him and helped wash dishes. I wasn’t told beforehand whether it would be paid. At the end of the shift, t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk7lz0",
-          "title": "My student loan was meant to be written off three years ago but Erudio refused to do so because I failed to defer that year in time, despite them knowing I have relevant disabilities (Scotland) - can I do anything?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk7lz0/my_student_loan_was_meant_to_be_written_off_three/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk7lz0/my_student_loan_was_meant_to_be_written_off_three/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793445434,
-          "snippet": "I took out a loan with the Student Loan Company for one year in 1998 before the automatic link up with HMRC, and had to apply for deferral every year re repayments as I was not earning enough to be required to pay. Erudio took it over many years later, at which time I was living ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjbcj0",
-          "title": "Enterprise rental recharged my card to bypass a chargeback I already won (Gatwick, London)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjbcj0/enterprise_rental_recharged_my_card_to_bypass_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjbcj0/enterprise_rental_recharged_my_card_to_bypass_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793354803,
-          "snippet": "&#x200B; Hi everyone, looking for some advice on next steps regarding a car rental dispute that has escalated. A few months ago, I rented a car from Enterprise at Glasgow Scotland. On return, I handed the keys directly to an attendant who inspected the vehicle inside and out, acc",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk5v2z",
-          "title": "Recovered funds seemingly vanished",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk5v2z/recovered_funds_seemingly_vanished/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk5v2z/recovered_funds_seemingly_vanished/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793439254,
-          "snippet": "Some funds were left to me by someone unrelated to my family as a child. This person is no longer alive. A year or two ago I had an appointment with the police after reporting something unrelated, during this meeting they told me about the money which was my first time hearing ab",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjm0xv",
-          "title": "Dealing with the aftermath of an unexpected death (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjm0xv/dealing_with_the_aftermath_of_an_unexpected_death/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjm0xv/dealing_with_the_aftermath_of_an_unexpected_death/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793382015,
-          "snippet": "My ex partner died by suicide last weekend in London. He wasn't a pleasant man, estranged from his family (who i never met), effectively abandoned our son, and hadn't spoken his daughter in about 3 years. I get on well with her, and because she has no support and mental health is",
+          "createdUtc": 1793474000,
+          "snippet": "There are parking restrictions on my road in Sheffield with a single yellow line - Mon-Sat, 8am to 6:30pm parking restrictions. It is a very busy street (upper allen). I recently bought some furniture on saturday 6pm, so parked on the single yellow outside our flat which is 4 sto",
           "listingSource": "rss:hot"
         },
         {
@@ -206,299 +242,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xjj9r1",
-          "title": "Advice needed, not sure where i stand",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjj9r1/advice_needed_not_sure_where_i_stand/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjj9r1/advice_needed_not_sure_where_i_stand/",
+          "id": "1xkedcr",
+          "title": "Small claim against Amazon, which company to file it against",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkedcr/small_claim_against_amazon_which_company_to_file/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkedcr/small_claim_against_amazon_which_company_to_file/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793375996,
-          "snippet": "Here is the story. I'm from England, and self employed decorator. Got a phone call 4 years ago from a customer i had done work for in the past, she has very high standards and is a bit of a pain in the arse but i answered the call anyway and she told me she wants me to come look ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk7189",
-          "title": "Online order missing parts returns",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk7189/online_order_missing_parts_returns/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk7189/online_order_missing_parts_returns/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793443524,
-          "snippet": "Hi there, I've recently ordered some shelving from a UK based online retailer. It arrived today missing a pack of screws integral to the safe functioning of the shelves. I would like to return it to the company for a full refund. In one of of the terms for returns it says \"[compa",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk6wla",
-          "title": "[ENGLAND] Being chased for agents fees in relation to a section 5 right of first refusal purchasing agreement.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk6wla/england_being_chased_for_agents_fees_in_relation/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk6wla/england_being_chased_for_agents_fees_in_relation/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793443062,
-          "snippet": "So, myself and other qualifying tenants have completed on our purchase of the freehold property last year. When served our section 5 notice, the agent added a clause stating we owe their fees (the sum seems excessive compared to the numbers I have seen quoted elsewhere for servin",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk44es",
-          "title": "Lookiero ignoring cancellation requests",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk44es/lookiero_ignoring_cancellation_requests/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk44es/lookiero_ignoring_cancellation_requests/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793432550,
-          "snippet": "Hi - I had a subscription with the online styling service Lookiero (they used to be called Stitch Fix, then were sold to an EU company) - they send you items of clothing, either chosen by you in advance via your account, or selected by them if you don't respond within a time wind",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "name": "HousingUK",
-      "displayName": "r/HousingUK",
-      "description": "Renting, landlords, deposits, eviction, and housing rights in the UK.",
-      "subscribers": null,
-      "posts": [
-        {
-          "id": "1xk7d8i",
-          "title": "My buyer has pulled out",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xk7d8i/my_buyer_has_pulled_out/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xk7d8i/my_buyer_has_pulled_out/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793444629,
-          "snippet": "(In England) 3 months after us accepting their offer and I am absolutely gutted. We were so close to completing and they have pulled out for very vague and silly reasons. They obviously just didnt want the house anymore and strung us along for months. We've put it back on the mar",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjrq8r",
-          "title": "Bizarre neighbours",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjrq8r/bizarre_neighbours/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjrq8r/bizarre_neighbours/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793395159,
-          "snippet": "I moved into a downstairs flat in August and our upstairs neighbours are unlike anything I've ever experienced. It seems to be a big group of guys in their late 20's - 30's who sit around all day in this 2 bed flat and have extremely loud, literally non-stop conversations, laughi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk2mr4",
-          "title": "I’ve completed!",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xk2mr4/ive_completed/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xk2mr4/ive_completed/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793426969,
-          "snippet": "Timeline 27th aug 1st viewing 28th Aug- Offer accepted 2nd sept- solicitor instructed 14th sept - source of funds accepted 7th sept- searches ordered 9th sept - survey booked 11th sept searches received 19th sept - survey completed 24th sept - survey report received 28th sept- 1s",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjbyku",
-          "title": "Offer accepted then seller decided they want more money",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjbyku/offer_accepted_then_seller_decided_they_want_more/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjbyku/offer_accepted_then_seller_decided_they_want_more/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793356986,
-          "snippet": "Update: wow was not expecting this many responses. As I think most people suggested we walked away. Couldn’t be bothered with anymore back and forth, didn’t trust we wouldn’t get screwed over at a later stage even if we got an offer accepted and honestly, it wasn’t worth it. Even",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk7nuq",
-          "title": "House sale fell through twice in 5 months.",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xk7nuq/house_sale_fell_through_twice_in_5_months/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xk7nuq/house_sale_fell_through_twice_in_5_months/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793445616,
-          "snippet": "Our house sale has fell through twice in 5 months due to buyers getting cold feet not far from exchange - on both occasions we were told there were no major issues/queries outstanding and talking about exchange dates within a month, then the buyers pulled out without any specific",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xji5hn",
-          "title": "Would you buy this 2-bedroom freehold terraced house? Neighbour has incorporated its loft space into their own extension and the garden is shared.",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xji5hn/would_you_buy_this_2bedroom_freehold_terraced/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xji5hn/would_you_buy_this_2bedroom_freehold_terraced/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793373463,
-          "snippet": "Hi I'm looking for some honest opinions and advice from people who have experience buying property in England, particularly anyone familiar with unusual property arrangements. link to house link to nextdoor house I've viewed a two-bedroom freehold terraced house that I'm consider",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjus48",
-          "title": "Completed today",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjus48/completed_today/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjus48/completed_today/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793402953,
-          "snippet": "My last house purchase was really stressful so I was expecting this one to be more of the same, but honestly it was great. Offered on 23/09, completed today. My solicitors and EA were really good throughout, never waited more than an hour for a response to anything. I thought 5 w",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk0rak",
-          "title": "Would you buy a non-standard construction property?",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xk0rak/would_you_buy_a_nonstandard_construction_property/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xk0rak/would_you_buy_a_nonstandard_construction_property/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793420384,
-          "snippet": "I am a cash buyer. I am planning to get survey checks (level 3 RICS) and I have been speaking to insurers. I do really like this property and am purchasing it as an investment property to let out. It’s a 3 bedroom and is going for £110,000. I know it can be hard to sell in the fu",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjt7fr",
-          "title": "Regret buying house: idk how to ride it out for a few more years",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjt7fr/regret_buying_house_idk_how_to_ride_it_out_for_a/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjt7fr/regret_buying_house_idk_how_to_ride_it_out_for_a/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793398858,
-          "snippet": "(Very long rant lol) We bought this house a year ago, and it’s been a dreadful year. We were in a flat, and the landlord wanted to sell ASAP so we were given an only few months to find a new place and move out. My partner and his family wanted us to buy a house (we live near his ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk1vsq",
-          "title": "Water is dripping from ceiling and getting worse",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xk1vsq/water_is_dripping_from_ceiling_and_getting_worse/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xk1vsq/water_is_dripping_from_ceiling_and_getting_worse/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793424230,
-          "snippet": "We rent an apartment through an agency. The apartment is on the second floor. On Wednesday morning, we noticed a damp patch on the ceiling next to the terrace, and water was slowly dripping. I reported it immediately on the agency's maintenance portal. I also reported it to the p",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk4zcg",
-          "title": "Attic useable / building control",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xk4zcg/attic_useable_building_control/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xk4zcg/attic_useable_building_control/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793435928,
-          "snippet": "We are currently in process of selling our first home. Sale agreed a few weeks ago and since then our buyers have had the mortgage valuation survey and a private surveyor was also out this week. The home is 20yr old and we’re the second owners and have been living here for about ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk42cr",
-          "title": "Woolwich dockyards",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xk42cr/woolwich_dockyards/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xk42cr/woolwich_dockyards/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793432324,
-          "snippet": "submitted by /u/Same-Dependent1151 [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjmvm9",
-          "title": "leasehold in London, high service charge and on main road- what do I do next",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjmvm9/leasehold_in_london_high_service_charge_and_on/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjmvm9/leasehold_in_london_high_service_charge_and_on/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793383925,
-          "snippet": "Hi all, I (28F) purchased a 2 bed 2 bath leasehold flat in London (~850 sq ft) by myself. Purchased in dec 2024, 5 year fix on 4.1%. Property since has gone a full renovation top to bottom everything is brand new) Service charge is £5k incl hot water and heating Live on a main ro",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk3bpz",
-          "title": "Is this normal?",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xk3bpz/is_this_normal/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xk3bpz/is_this_normal/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793429580,
-          "snippet": "I have viewed a private rented property, put forward a deposit and completed the references. I asked the agent on the 23rd of October how did the references go. He said they all went completely perfect. I asked whats next and he said we are gonna propose a contract for the 31st o",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjtlow",
-          "title": "26 Weeks to Completion",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjtlow/26_weeks_to_completion/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjtlow/26_weeks_to_completion/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793399869,
-          "snippet": "Three weeks ago, I posted the following: https://www.reddit.com/r/HousingUK/s/b2VaXPKBRn Today is our new completion date. I was expecting something to go wrong. I am now feeling elated about the fact that it was so incredibly smooth. We paid our deposit yesterday, exchanged cont",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjpwpv",
-          "title": "Anyone lived next door to a funeral home? What is it actually like?",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjpwpv/anyone_lived_next_door_to_a_funeral_home_what_is/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjpwpv/anyone_lived_next_door_to_a_funeral_home_what_is/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793390836,
-          "snippet": "I found a house I like but it is right next to a funeral home. I am trying to work out whether this is something I would notice day to day or whether it is a not an issue at all. For anyone who has lived next to one, or knows someone who does, I would love to hear what the experi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjdfkz",
-          "title": "Could my estate agent be deliberately withholding viewings to push me towards renting?",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjdfkz/could_my_estate_agent_be_deliberately_withholding/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjdfkz/could_my_estate_agent_be_deliberately_withholding/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793361630,
-          "snippet": "I’m currently selling my property in England and becoming increasingly suspicious of how my estate agent is handling things. When the property was first listed (last year) it was fairly run-down but attracting a reasonable number of viewings (by rundown the bathroom and garden ne",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xiyq44",
-          "title": "Why are British estate agents so utterly useless?",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xiyq44/why_are_british_estate_agents_so_utterly_useless/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xiyq44/why_are_british_estate_agents_so_utterly_useless/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793313997,
-          "snippet": "It's been said many times before, I know. But I experienced it again today and just have to rant. Went to look at a property that a friend is thinking of buying. Didn't get off to a great start because they'd forgotten about the appointment but fortunately you could see their off",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjuhe3",
-          "title": "Purchased a 2 bedroom flat in may 25, had a baby and it’s feeling snug",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjuhe3/purchased_a_2_bedroom_flat_in_may_25_had_a_baby/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjuhe3/purchased_a_2_bedroom_flat_in_may_25_had_a_baby/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793402173,
-          "snippet": "If we put the flat on the market in around 6 months to buy something bigger, would that ring alarm bells for prospective buyers? Our flat is small but rent was getting out of control in our area, we offered on it in may 25 and I found out I was pregnant a week later, with the bab",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjgkaq",
-          "title": "Update: to complete by December?",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjgkaq/update_to_complete_by_december/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjgkaq/update_to_complete_by_december/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793369773,
-          "snippet": "Asked a couple of months ago on here whether people thought we could complete by December if we put in an offer early Sept. https://www.reddit.com/r/HousingUK/s/hdrExB3pEB Consensus was mainly ‘no’ but some said it was possible. Our house sale was basically ready (offer received ",
+          "createdUtc": 1793463550,
+          "snippet": "I intend to make a claim against Amazon in the small claims court for undelivered items. The items were left outside my front door (which is a public place, visible and accessible by anyone) and stolen. The reason I want to do this is because Amazon is refusing to issue a refund ",
           "listingSource": "rss:hot"
         }
       ]
@@ -509,11 +261,10 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 30,
+      "postCount": 16,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK",
-        "HousingUK"
+        "LegalAdviceUK"
       ],
       "posts": [
         {
@@ -529,15 +280,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xjv36e",
-          "title": "Boots phoned the police on me because they said I was shoplifting (I wasn’t) and I walked out the store. What could happen?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjv36e/boots_phoned_the_police_on_me_because_they_said_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjv36e/boots_phoned_the_police_on_me_because_they_said_i/",
+          "id": "1xkgqm4",
+          "title": "Council is making me pay £15,000 - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkgqm4/council_is_making_me_pay_15000_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkgqm4/council_is_making_me_pay_15000_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793403774,
-          "snippet": "I shopping in Boots for a gift. There’s one box left of some make up my friend wanted. when I picked it up, it felt empty so I opened it to have a look. It was empty so I put it back. A staff member stopped me, grabbed my arm and told me to put the make up back. I laughed and jus",
+          "createdUtc": 1793469241,
+          "snippet": "My wife and I rented a one-bedroom flat in a converted house from August 2021 through an estate agent. Before signing the tenancy, we specifically asked whether all bills, including Council Tax, were included in the rent. Both the estate agent and the landlord confirmed that they",
           "listingSource": "rss:hot"
         },
         {
@@ -553,27 +304,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xjt93i",
-          "title": "Bar just opened beneath my flat, what are my options?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjt93i/bar_just_opened_beneath_my_flat_what_are_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjt93i/bar_just_opened_beneath_my_flat_what_are_my/",
+          "id": "1xkbbu4",
+          "title": "Rejecting a factory order brand new car from a official Dealership in London, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkbbu4/rejecting_a_factory_order_brand_new_car_from_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkbbu4/rejecting_a_factory_order_brand_new_car_from_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793398981,
-          "snippet": "Hi, I live in a flat that is on a street. I've been here for 2 months. A bar has just recently opened right underneath me, playing loud music into late at night that booms through the flat. I can't hear myself think. My upstairs neightbours can also hear it. It's causing so much ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjfbbl",
-          "title": "My family's lunch at McDonalds got lifted by another family who took it and left. McDonalds refused to make my family another lunch. We spent almost £40.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjfbbl/my_familys_lunch_at_mcdonalds_got_lifted_by/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjfbbl/my_familys_lunch_at_mcdonalds_got_lifted_by/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793366709,
-          "snippet": "We ordered at the self service kiosks things. It didnt print a receipt and told us to remember our order number - a 4 digit code likr 2971 Group was lingering near the collection point with their faces covered. When our number got called this man and woman and their kids in a dou",
+          "createdUtc": 1793456098,
+          "snippet": "Context: I ordered a car in June 2026. The car arrived in the UK safely in early October. I was due to pick up car in Oct 21, but day before the handover I was informed that my car was damaged during transit to the dealership. A tree branch hit the spoiler enough for it to requir",
           "listingSource": "rss:hot"
         },
         {
@@ -589,27 +328,75 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xk4x3j",
-          "title": "Partners boss is asking for my sons medical information",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk4x3j/partners_boss_is_asking_for_my_sons_medical/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk4x3j/partners_boss_is_asking_for_my_sons_medical/",
+          "id": "1xjv36e",
+          "title": "Boots phoned the police on me because they said I was shoplifting (I wasn’t) and I walked out the store. What could happen?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjv36e/boots_phoned_the_police_on_me_because_they_said_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjv36e/boots_phoned_the_police_on_me_because_they_said_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793435692,
-          "snippet": "This isn't me seeking for a tribunal or anything like that I'm just genuinely wondering if this is necessary. My partner was off last week to care for our one year old son as he was poorly and couldn't go to daycare, she ended up taking him to the doctors and on her return to wor",
+          "createdUtc": 1793403774,
+          "snippet": "I shopping in Boots for a gift. There’s one box left of some make up my friend wanted. when I picked it up, it felt empty so I opened it to have a look. It was empty so I put it back. A staff member stopped me, grabbed my arm and told me to put the make up back. I laughed and jus",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xk3vnq",
-          "title": "Thoughts on Aston Villa taking legal action against Jamie Carragher?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk3vnq/thoughts_on_aston_villa_taking_legal_action/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk3vnq/thoughts_on_aston_villa_taking_legal_action/",
+          "id": "1xkdlaz",
+          "title": "Can I be forced to buy something after being sent a sample? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkdlaz/can_i_be_forced_to_buy_something_after_being_sent/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkdlaz/can_i_be_forced_to_buy_something_after_being_sent/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793431603,
-          "snippet": "IAL and villa fan. Genuinely interested in what action people think the club might be taking and prospects of success. submitted by /u/05madame [link] [comments]",
+          "createdUtc": 1793461664,
+          "snippet": "I was looking for blinds for my new house. One site I looked at online offered to send samples of the fabric. I ordered some. I supposedly ticked a box to say I’m aware that by ordering the samples there is an obligation to make a purchase. I do not remember if I did, but I’ve lo",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xkhkos",
+          "title": "Problem neighbour, complaining about our new extension.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkhkos/problem_neighbour_complaining_about_our_new/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkhkos/problem_neighbour_complaining_about_our_new/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793471200,
+          "snippet": "Hi everyone I granted permission for a gate to be attached to our outbuilding around 8 years ago (to the current owner's now ex husband). Earlier this year we had the outbuilding knocked down and rebuilt. The footprint is smaller and it doesn't go to the boundary now (we have put",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "landlord-and-tenant",
+      "label": "Landlord and Tenant",
+      "legalAreaSlug": "housing",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xk88eh",
+          "title": "My landlord keeps arranging visits with 24 hours notice, but the time slot is an entire day. Is this legal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk88eh/my_landlord_keeps_arranging_visits_with_24_hours/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk88eh/my_landlord_keeps_arranging_visits_with_24_hours/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793447555,
+          "snippet": "My landlord is a small letting agency, mostly a one-man band. When he's arranging routine visits for things like inspections and gas safety checks, he's started to send emails along the lines of \"I've booked them for Friday of next week; this is your 24 hours' notice; we'll give ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xkd6kd",
+          "title": "I think my housemate is illegally subletting their room. (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkd6kd/i_think_my_housemate_is_illegally_subletting/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkd6kd/i_think_my_housemate_is_illegally_subletting/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793460662,
+          "snippet": "I live in an HMO in England with 3 other occupiers who each rent a room in the 4-bed house. One of them (who I’ll call Tenant 2) has had a few disputes with the letting agent before (disputing that they need to pay rent while back in their home country for a month, etc). Tenant 2",
           "listingSource": "rss:hot"
         }
       ]
@@ -618,11 +405,10 @@
       "slug": "conveyancing",
       "label": "Conveyancing",
       "legalAreaSlug": "conveyancing",
-      "postCount": 6,
+      "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK",
-        "HousingUK"
+        "LegalAdviceUK"
       ],
       "posts": [
         {
@@ -636,73 +422,13 @@
           "createdUtc": 1793442679,
           "snippet": "Hi - would really appreciate any advice. Thank you so much. I am based in London, England. I purchased a second hand iPhone from Back Market for £600. I paid and the phone was delivered. The phone was a gift and I gave it to a family member for their birthday. All fine. But the c",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk7nuq",
-          "title": "House sale fell through twice in 5 months.",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xk7nuq/house_sale_fell_through_twice_in_5_months/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xk7nuq/house_sale_fell_through_twice_in_5_months/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793445616,
-          "snippet": "Our house sale has fell through twice in 5 months due to buyers getting cold feet not far from exchange - on both occasions we were told there were no major issues/queries outstanding and talking about exchange dates within a month, then the buyers pulled out without any specific",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjmvm9",
-          "title": "leasehold in London, high service charge and on main road- what do I do next",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjmvm9/leasehold_in_london_high_service_charge_and_on/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjmvm9/leasehold_in_london_high_service_charge_and_on/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793383925,
-          "snippet": "Hi all, I (28F) purchased a 2 bed 2 bath leasehold flat in London (~850 sq ft) by myself. Purchased in dec 2024, 5 year fix on 4.1%. Property since has gone a full renovation top to bottom everything is brand new) Service charge is £5k incl hot water and heating Live on a main ro",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjdfkz",
-          "title": "Could my estate agent be deliberately withholding viewings to push me towards renting?",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjdfkz/could_my_estate_agent_be_deliberately_withholding/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjdfkz/could_my_estate_agent_be_deliberately_withholding/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793361630,
-          "snippet": "I’m currently selling my property in England and becoming increasingly suspicious of how my estate agent is handling things. When the property was first listed (last year) it was fairly run-down but attracting a reasonable number of viewings (by rundown the bathroom and garden ne",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xiyq44",
-          "title": "Why are British estate agents so utterly useless?",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xiyq44/why_are_british_estate_agents_so_utterly_useless/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xiyq44/why_are_british_estate_agents_so_utterly_useless/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793313997,
-          "snippet": "It's been said many times before, I know. But I experienced it again today and just have to rant. Went to look at a property that a friend is thinking of buying. Didn't get off to a great start because they'd forgotten about the appointment but fortunately you could see their off",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xjuhe3",
-          "title": "Purchased a 2 bedroom flat in may 25, had a baby and it’s feeling snug",
-          "url": "https://www.reddit.com/r/HousingUK/comments/1xjuhe3/purchased_a_2_bedroom_flat_in_may_25_had_a_baby/",
-          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xjuhe3/purchased_a_2_bedroom_flat_in_may_25_had_a_baby/",
-          "subreddit": "HousingUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793402173,
-          "snippet": "If we put the flat on the market in around 6 months to buy something bigger, would that ring alarm bells for prospective buyers? Our flat is small but rent was getting out of control in our area, we offered on it in may 25 and I found out I was pregnant a week later, with the bab",
-          "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "banking-and-finance",
-      "label": "Banking and Finance",
-      "legalAreaSlug": "banking_finance",
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -710,87 +436,15 @@
       ],
       "posts": [
         {
-          "id": "1xk7lz0",
-          "title": "My student loan was meant to be written off three years ago but Erudio refused to do so because I failed to defer that year in time, despite them knowing I have relevant disabilities (Scotland) - can I do anything?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk7lz0/my_student_loan_was_meant_to_be_written_off_three/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk7lz0/my_student_loan_was_meant_to_be_written_off_three/",
+          "id": "1xkipx3",
+          "title": "Council parking fine appeal? - Sheffield, England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkipx3/council_parking_fine_appeal_sheffield_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkipx3/council_parking_fine_appeal_sheffield_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793445434,
-          "snippet": "I took out a loan with the Student Loan Company for one year in 1998 before the automatic link up with HMRC, and had to apply for deferral every year re repayments as I was not earning enough to be required to pay. Erudio took it over many years later, at which time I was living ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xjbcj0",
-          "title": "Enterprise rental recharged my card to bypass a chargeback I already won (Gatwick, London)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjbcj0/enterprise_rental_recharged_my_card_to_bypass_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xjbcj0/enterprise_rental_recharged_my_card_to_bypass_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793354803,
-          "snippet": "&#x200B; Hi everyone, looking for some advice on next steps regarding a car rental dispute that has escalated. A few months ago, I rented a car from Enterprise at Glasgow Scotland. On return, I handed the keys directly to an attendant who inspected the vehicle inside and out, acc",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xk7189",
-          "title": "Online order missing parts returns",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk7189/online_order_missing_parts_returns/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk7189/online_order_missing_parts_returns/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793443524,
-          "snippet": "Hi there, I've recently ordered some shelving from a UK based online retailer. It arrived today missing a pack of screws integral to the safe functioning of the shelves. I would like to return it to the company for a full refund. In one of of the terms for returns it says \"[compa",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "private-healthcare-billing",
-      "label": "Private Healthcare Billing",
-      "legalAreaSlug": "consumer_private_healthcare",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xk44es",
-          "title": "Lookiero ignoring cancellation requests",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk44es/lookiero_ignoring_cancellation_requests/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk44es/lookiero_ignoring_cancellation_requests/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793432550,
-          "snippet": "Hi - I had a subscription with the online styling service Lookiero (they used to be called Stitch Fix, then were sold to an EU company) - they send you items of clothing, either chosen by you in advance via your account, or selected by them if you don't respond within a time wind",
+          "createdUtc": 1793474000,
+          "snippet": "There are parking restrictions on my road in Sheffield with a single yellow line - Mon-Sat, 8am to 6:30pm parking restrictions. It is a very busy street (upper allen). I recently bought some furniture on saturday 6pm, so parked on the single yellow outside our flat which is 4 sto",
           "listingSource": "rss:hot"
         }
       ]
