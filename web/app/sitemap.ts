@@ -1,24 +1,24 @@
 import type { MetadataRoute } from "next";
 import { getWikiIndex } from "@/lib/wiki/load-index";
 import { getAllSubcategories } from "@/lib/data";
+import { wikiPagePublicPath } from "@/lib/wiki/public-url";
+import {
+  SITEMAP_PRIORITY_WIKI_IDS,
+  outsideEnglandAndWales,
+} from "@/lib/wiki/sitemap-priority";
 
 const BASE = "https://www.legalshaman.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: BASE, lastModified: now, changeFrequency: "daily", priority: 1 },
-    { url: `${BASE}/search`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
-    { url: `${BASE}/ask-the-shaman`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
-    { url: `${BASE}/find-a-lawyer`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
-    { url: `${BASE}/signposting`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/bookmarks`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${BASE}/submit`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE}/signpost`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE}/for-firms`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
-    { url: `${BASE}/embed/install`, lastModified: now, changeFrequency: "monthly", priority: 0.55 },
-    { url: `${BASE}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${BASE}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: BASE, changeFrequency: "daily", priority: 1 },
+    { url: `${BASE}/search`, changeFrequency: "daily", priority: 0.95 },
+    { url: `${BASE}/ask-the-shaman`, changeFrequency: "daily", priority: 0.95 },
+    { url: `${BASE}/ask-the-shaman/who-helps`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/signposting`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/for-firms`, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${BASE}/terms`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE}/privacy`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   let categoryRoutes: MetadataRoute.Sitemap = [];
@@ -26,7 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const slugs = getAllSubcategories();
     categoryRoutes = slugs.map((cat) => ({
       url: `${BASE}/category/${cat.slug}`,
-      lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.7,
     }));
@@ -37,104 +36,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   let wikiRoutes: MetadataRoute.Sitemap = [];
   try {
     const index = getWikiIndex();
-    // Blog→wiki publishes must stay in the 500-URL budget (Areas alone is ~2.6k).
-    const priorityIds = new Set([
-      "Areas/Consumer Rights/Faulty Goods and Services/Courier left my parcel outside and it went missing — can I use Section 75",
-      "Areas/Consumer Rights/Faulty Goods and Services/A company called my private number with my name and job title — what can I do",
-      "Areas/Home and Housing/Buying and Selling/Ground rent reviewed every 10 years by RPI — what should a buyer check",
-      "Areas/Money, Benefits and Debt/Debt Solutions/Family spent on my credit card and won’t repay: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Non refundable train ticket but the train never came: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Garage fixed my car then it broke down again: who helps",
-      "Areas/Driving and Parking/Parking and PCNs/Private parking charge for a short hospital stay: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/In store return done but refund never arrived: who helps",
-      "Areas/Work and Employment/Discrimination at Work/Possible maternity discrimination at work: who helps",
-      "Areas/Work and Employment/Redundancy and Dismissal/Dismissed in under two weeks with a baby at home: who helps",
-      "Areas/Home and Housing/Repairs and Safety/House flooded from the water company's sewer again: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Plumber's work flooded the home with sewage: who helps",
-      "Areas/Driving and Parking/Motoring Offences/Parked motorcycle hit and the driver left: who helps",
-      "Areas/Neighbours and Property/Noise and Nuisance/Drone flying low over my back garden: who helps",
-      "Areas/Driving and Parking/Parking and PCNs/PayByPhone vs Pay By Phone parking fine: who helps",
-      "Areas/Consumer Rights/Travel and Holidays/Airline oversold my flight at the airport: who helps",
-      "Areas/Money, Benefits and Debt/Debt Solutions/Retailer collected goods then debt collector chased: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Rejected for a job over long term health: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Employer requires my personal phone for work: who helps",
-      "Areas/Neighbours and Property/Boundaries and Rights/Neighbours dumping rubbish in shared car park: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Skip hire wasted delivery fee dispute: who helps",
-      "Areas/Driving and Parking/Motoring Offences/Parked car owner has died: who can move the vehicle",
-      "Areas/Consumer Rights/Faulty Goods and Services/Long car repair dispute with ex client: who helps",
-      "Areas/Consumer Rights/Travel and Holidays/Filthy holiday stay refund: who helps",
-      "Areas/Neighbours and Property/Boundaries and Rights/Neighbour threats and harassment: who helps",
-      "Areas/Driving and Parking/Parking and PCNs/Traffic PCN to London Tribunals: who helps",
-      "Areas/Driving and Parking/Parking and PCNs/NHS staff parking charges: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Holiday pay on irregular hours Scotland: who helps",
-      "Areas/Neighbours and Property/Noise and Nuisance/HMO neighbour noise and ASB: who helps",
-      "Areas/Driving and Parking/Parking and PCNs/Parking ticket wrong registration: who helps",
-      "Areas/Crime and Police/Victim Support/Assault costs after police CPS delay: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Faulty goods outside warranty: who helps",
-      "Areas/Driving and Parking/Parking and PCNs/NHS Trust staff parking profit complaint: who helps",
-      "Areas/Home and Housing/Council and Social Housing/Housing association neighbour dementia succession plan: who helps",
-      "Areas/Home and Housing/Renting/MyDeposits landlord late evidence after deadline: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Parcel stolen by delivery driver: who helps",
-      "Areas/Neighbours and Property/Noise and Nuisance/Neighbour modified cars Northern Ireland police: who helps",
-      "Areas/Home and Housing/Renting/Rent repayment order settle or continue England: who helps",
-      "Areas/Driving and Parking/Parking and PCNs/APCOA parking charge never received original PCN: who helps",
-      "Areas/Neighbours and Property/Boundaries and Rights/Party wall bookcase removal building owner duty: who helps",
-      "Areas/Money, Benefits and Debt/Tax and Bills/Energy debt for an address I never lived at: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Parcel left at front door and stolen: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Employer makes me arrive early to put on PPE unpaid: who helps",
-      "Areas/Work and Employment/Discrimination at Work/Job restructure while on maternity leave: who helps",
-      "Areas/Driving and Parking/Parking and PCNs/Parking charge for a place I never visited, appeal deadline missed: who helps",
-      "Areas/Neighbours and Property/Boundaries and Rights/Neighbour parking in my allocated space: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Garage repair failed again, warranty covers parts only: who helps",
-      "Areas/Consumer Rights/Travel and Holidays/Jet2 holiday cancelled, refund or rebook: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Paid below minimum wage cash in hand: who helps",
-      "Areas/Money, Benefits and Debt/Debt Solutions/Bank added a Cifas marker I think is wrong: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Training costs deducted from final pay: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Sickness policy changed without telling staff, now facing a meeting: who helps",
-      "Areas/Driving and Parking/Parking and PCNs/Forgot to register my car at the gym car park: who helps",
-      "Areas/Work and Employment/Your Rights at Work/No written contract until probation ends: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Employer not giving my guaranteed contract hours: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Pest control left a dead animal in my loft: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Garage damaged my car during a service and wants me to pay: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Sold on eBay, item stolen in transit and I'm out of pocket: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/IKEA kitchen mismeasured and paid on store credit: who helps",
-      "Areas/Driving and Parking/Motoring Offences/Council vehicle hit my car and now denies liability: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Gym won't let me cancel within the cancellation period: who helps",
-      "Areas/Money, Benefits and Debt/Debt Solutions/Debt collector got a CCJ for a debt I never agreed to: who helps",
-      "Areas/Home and Housing/Renting/Former landlord claiming for repairs after I moved out: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Working long shifts with no breaks: who helps",
-      "Areas/Money, Benefits and Debt/Tax and Bills/Energy bill for a flat I moved out of a year ago: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Non compete clause after only a few months in a job: who helps",
-      "Areas/Home and Housing/Renting/Former housemate left rent arrears on our joint tenancy: who helps",
-      "Areas/Work and Employment/Redundancy and Dismissal/Facing redundancy after an MS diagnosis: who helps",
-      "Areas/Work and Employment/Your Rights at Work/Employer asking me to work during maternity leave: who helps",
-      "Areas/Work and Employment/Your Rights at Work/HR sent my pay and sickness details to all staff: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Phone insurance won't cover my new phone or let me cancel: who helps",
-      "Areas/Consumer Rights/Faulty Goods and Services/Hotel charged my card several times and won't refund: who helps",
-      "Areas/Courts and Disputes/Starting a Claim/They paid my small claim but not the court fee or interest: who helps",
-      "Areas/Driving and Parking/Parking and PCNs/Parking charge for parking in my own space: who helps",
-      "Areas/Crime and Police/If You Are Accused/Fly tipping fine and the deadline has passed: who helps",
-      "Areas/Health and Injury/Clinical Negligence/Pharmacy gave the wrong dose of medicine: who helps",
-      "Areas/Home and Housing/Renting/Landlord charging me for returning keys late: who helps",
-      "Areas/Neighbours and Property/Boundaries and Rights/Neighbour won't let broadband cables cross their land: who helps",
-    ]);
-    const priority = index.pages.filter((p) => priorityIds.has(p.id));
-    const areas = index.pages.filter(
-      (p) => p.id.startsWith("Areas/") && !priorityIds.has(p.id),
+    const priorityIds = new Set<string>(SITEMAP_PRIORITY_WIKI_IDS);
+    const priority = index.pages.filter(
+      (p) => priorityIds.has(p.id) && !outsideEnglandAndWales(p.id),
     );
-    const rest = index.pages.filter(
-      (p) => !p.id.startsWith("Areas/") && !priorityIds.has(p.id),
-    );
-    const capped = [...priority, ...areas, ...rest].slice(0, 500);
-    wikiRoutes = capped.map((page) => ({
-      url: `${BASE}/ask-the-shaman/wiki/${encodeURIComponent(page.id)}`,
-      lastModified: now,
+    wikiRoutes = priority.map((page) => ({
+      url: `${BASE}${wikiPagePublicPath(page.id)}`,
       changeFrequency: "monthly" as const,
-      priority: priorityIds.has(page.id)
-        ? 0.75
-        : page.id.startsWith("Areas/")
-          ? 0.65
-          : 0.5,
+      priority: 0.75,
     }));
   } catch {
     wikiRoutes = [];

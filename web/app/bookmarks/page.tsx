@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 export const metadata = {
   title: "Bookmarks | Legal Shaman",
   description: "Your saved law firms and legal providers.",
+  robots: { index: false, follow: false },
 };
 
 export default function BookmarksPage() {
