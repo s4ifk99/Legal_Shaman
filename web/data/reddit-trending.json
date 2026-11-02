@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-11-01T21:43:55.390Z",
+    "scrapedAt": "2026-11-02T14:23:15.129Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 8,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,15 +26,87 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xl4f6u",
-          "title": "Is it legal to sleep in my car?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl4f6u/is_it_legal_to_sleep_in_my_car/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl4f6u/is_it_legal_to_sleep_in_my_car/",
+          "id": "1xlvc7m",
+          "title": "Employer TUPE’d me, then dismissed me with zero process",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793543274,
-          "snippet": "Hi all, I’ve fallen on some hard times and I’m going to need to sleep in my car until next payday. Is that legal and feasible? I do have a house, but the living situation with my ex and her new girlfriend has made being there sort of intolerable, and a massive bill she’s racked u",
+          "createdUtc": 1793620948,
+          "snippet": "In England. Over 2 years service. Director level. Significant salary + benefits with 6 months notice period. I’ve no protected characteristics. Business sold and I TUPE’d across. During transaction, it was clear they didn’t want to TUPE senior team. So what came next wasn’t a sur",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlwfz7",
+          "title": "Caught teens on cctv stealing money from my takeaway shop",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlwfz7/caught_teens_on_cctv_stealing_money_from_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlwfz7/caught_teens_on_cctv_stealing_money_from_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793624196,
+          "snippet": "I’m in Scotland , we open our takeaway for lunch for the school kids, there was quite a bit of money missing from the counter after we closed and we checked the cctv a kid basically had went over the counter and stole some money not sure the amount but should be £30-£50. He was a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlsvq8",
+          "title": "Scuffed a car, left my details. Now they want cash. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlsvq8/scuffed_a_car_left_my_details_now_they_want_cash/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlsvq8/scuffed_a_car_left_my_details_now_they_want_cash/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793612382,
+          "snippet": "Hello everyone, Yesterday I scuffed the back wheel arch of a car. It was parked on a busy street so I took pictures and left my details. This morning they’ve message to say they’d prefer not to go through insurance and settle privately. My car looked to come off worse but after a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xljmfq",
+          "title": "Hit by a rented supercar while cycling. The driver and his mate who hit me called his cousins and they attacked me. It's 5 against 1 and police believe I institgated the fight.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xljmfq/hit_by_a_rented_supercar_while_cycling_the_driver/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xljmfq/hit_by_a_rented_supercar_while_cycling_the_driver/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793581009,
+          "snippet": "I was out cycling last week. It was fairly dark and I was wearing my high-vis jacket. While on the main road a Ferrari that was speeding knocked me off my bike. The metal bar on my handle grazed the paint down the side of the car. This turned out to be a rented Ferrari. Two guys ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlqvjo",
+          "title": "I think my stepfather uploaded explicit content of me. (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqvjo/i_think_my_stepfather_uploaded_explicit_content/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqvjo/i_think_my_stepfather_uploaded_explicit_content/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793604521,
+          "snippet": "Not sure if this is the right subreddit but ran into a dead end with YouTube customer service and didn't know where else to turn. Recently I logged onto a YouTube account I hadn't used in a long time and noticed two flagged videos that had been posted called \"Stepdaughter\" and we",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlv9os",
+          "title": "Grandfathers debts - what if he just doesn't pay? (North Wales)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlv9os/grandfathers_debts_what_if_he_just_doesnt_pay/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlv9os/grandfathers_debts_what_if_he_just_doesnt_pay/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793620778,
+          "snippet": "Hello - my grandfather, who is in his mid eighties has racked up around 30k in debt to some classic elder abuse companies. The repayments are now getting ridiculous (3k this month). Obviously these companies know the law and going after them for elder abuse is not feasible. He ca",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xluj7m",
+          "title": "Partner Has Just Been Arrested",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xluj7m/partner_has_just_been_arrested/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xluj7m/partner_has_just_been_arrested/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793618312,
+          "snippet": "My partner has just been arrested at home and taken to the station for some type of domestic offence. His ex partner has been going crazy since she learned he is now with me/moved on, threatening and showing up at his workplace, contacting me etc. we can be 100% certain it was he",
           "listingSource": "rss:hot"
         },
         {
@@ -50,6 +122,114 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xl4f6u",
+          "title": "Is it legal to sleep in my car?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl4f6u/is_it_legal_to_sleep_in_my_car/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl4f6u/is_it_legal_to_sleep_in_my_car/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793543274,
+          "snippet": "Hi all, I’ve fallen on some hard times and I’m going to need to sleep in my car until next payday. Is that legal and feasible? I do have a house, but the living situation with my ex and her new girlfriend has made being there sort of intolerable, and a massive bill she’s racked u",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlui45",
+          "title": "Forecourt Eye letter for fuel theft - but picture shows payment at the counter...",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlui45/forecourt_eye_letter_for_fuel_theft_but_picture/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlui45/forecourt_eye_letter_for_fuel_theft_but_picture/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793618204,
+          "snippet": "Hi! Posting on behalf of my partner in England... He got a letter this morning from forecourt eye saying he hadn't paid for petrol (to the tune of £12.88), back in May of this year. The pictures on their site show his car, and a receipt with the £12.88 amount on... But they also ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xli1j8",
+          "title": "(England) Neighbour claiming I am responsible for maintainance on a parcel of land I am certain is not mine, am I in the clear to do nothing?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xli1j8/england_neighbour_claiming_i_am_responsible_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xli1j8/england_neighbour_claiming_i_am_responsible_for/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793576543,
+          "snippet": "I live in a flat I own as a leasehold, with the freeholder being the local council. The entrance to my flat and the one above is down a path at the side of the building. The other side of the path is an elevated parcel of land with a small area of grass and some hedges. A few mon",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlqz57",
+          "title": "England - Covenant mandated tree cooked over summer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqz57/england_covenant_mandated_tree_cooked_over_summer/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqz57/england_covenant_mandated_tree_cooked_over_summer/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793604926,
+          "snippet": "I am the sole occupier of a bought new build property. The property came with the most frail tree I had ever seen in the back garden, that I am bound by covenant to maintain. Despite multiple times daily watering and care, the multiple heatwaves this summer left it with no leaves",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlx8ni",
+          "title": "England. Stuck helping my mother with her will and trust.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlx8ni/england_stuck_helping_my_mother_with_her_will_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlx8ni/england_stuck_helping_my_mother_with_her_will_and/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793626266,
+          "snippet": "My mother is setting up her will and a Right To Reside trust for my sister who lives with my mother in the house that my mother owns. I am 100% ok with this arrangement. My sister has full responsibility for the property written into the trust in exchange for not paying rent (thi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlqpif",
+          "title": "Putting up a rope swing on council owned land.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqpif/putting_up_a_rope_swing_on_council_owned_land/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqpif/putting_up_a_rope_swing_on_council_owned_land/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793603876,
+          "snippet": "Sorry if the subject of this question seems slightly inane compared to the more serious issues discussed on here, I'm mainly asking out of curiosity. My house backs onto a small green area. It's owned by the council, is very overgrown and poorly maintained and is mainly used as a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xls2zp",
+          "title": "England: Wren kitchen hob still under warranty – should I have to pay for a replacement?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xls2zp/england_wren_kitchen_hob_still_under_warranty/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xls2zp/england_wren_kitchen_hob_still_under_warranty/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793609264,
+          "snippet": "Hello everyone. I bought a kitchen from Wren in 2023, which included an induction hob supplied as part of the purchase. The hob came with a 5-year warranty on parts and a 2-year warranty on labour. Recently, the display lights/numbers on the hob suddenly stopped working. The touc",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlvmb7",
+          "title": "Personal injury small claim advice - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvmb7/personal_injury_small_claim_advice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvmb7/personal_injury_small_claim_advice_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793621796,
+          "snippet": "From a 2024 traffic collision, there has been a dispute ongoing and I have a court date in a few weeks time. The insurer appointed solicitor has a useful online portal but otherwise is very unresponsive to emails or messages. I've only had contact is with a 'legal advisor'. As it",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlfjtj",
+          "title": "Title: UK: Hire company’s AI promised £529 settlement and legal ownership, but human advisers contradicted it. What are my rights?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlfjtj/title_uk_hire_companys_ai_promised_529_settlement/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlfjtj/title_uk_hire_companys_ai_promised_529_settlement/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793569921,
+          "snippet": "I’m in England and looking for independent legal advice regarding an ongoing dispute with a technology hire company? In July 2025, I entered into a hire agreement for a MacBook at £51.95 per month. In September 2025, the MacBook was taken from my property without my consent. I re",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xl1s0x",
           "title": "House being built next door - builder is overstepping our agreement",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl1s0x/house_being_built_next_door_builder_is/",
@@ -62,195 +242,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xl0i18",
-          "title": "Would there be legal issues in altering a person's grave stone to be inline with the deceased's wishes but against the families?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl0i18/would_there_be_legal_issues_in_altering_a_persons/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl0i18/would_there_be_legal_issues_in_altering_a_persons/",
+          "id": "1xly9px",
+          "title": "Refund's from an obvious scam website - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xly9px/refunds_from_an_obvious_scam_website_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xly9px/refunds_from_an_obvious_scam_website_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793531609,
-          "snippet": "Truly hypothetical, just a thought that crossed my mind. We have a person who changed their name from x to y. All their legal documents are in the new name and their will states they want to be buried under their new name. But their family decided not to and buried them with a he",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xkx6og",
-          "title": "Received too many prizes in the mail - can I keep both? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkx6og/received_too_many_prizes_in_the_mail_can_i_keep/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkx6og/received_too_many_prizes_in_the_mail_can_i_keep/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793519040,
-          "snippet": "I won a ‘write this !word in chat’ style competition run by Twitch streamer a few weeks ago, and the prize was a cool bag from an external company, worth around £80. I can’t find any terms and conditions for the competition. I got my prize last week, shipping from a overseas ware",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xkzwms",
-          "title": "N.I. - Co-workers printing off A.I. pictures of me and posting them on office walls",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkzwms/ni_coworkers_printing_off_ai_pictures_of_me_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkzwms/ni_coworkers_printing_off_ai_pictures_of_me_and/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793529481,
-          "snippet": "I am an agency worker in Northern Ireland, working for a large housing/homelessness body for around 6 months: Recently some co-workers have been mocking me a lot, which I have tried to ignore, but it has evolved into them taking pictures of me at work and using them to make A.I. ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xkwrbo",
-          "title": "New car delivered at lower spec than salesman promised (distance sale, on finance, Scotland): can I insist on an exchange?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkwrbo/new_car_delivered_at_lower_spec_than_salesman/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkwrbo/new_car_delivered_at_lower_spec_than_salesman/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793517375,
-          "snippet": "I bought a new car from a main dealer on the manufacturer's finance, entirely remotely. It was a video of the exterior, then phone calls and emails, and I signed through the finance portal. I never saw the car until I collected it on Friday. I was part-exchanging the same model i",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xld44m",
-          "title": "Should I report my family member? I live in England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xld44m/should_i_report_my_family_member_i_live_in_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xld44m/should_i_report_my_family_member_i_live_in_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793563920,
-          "snippet": "I live in England. I’m a victim of voyeurism by a young male (teenage) family member. He recorded me changing without my knowledge or consent. We are now in counseling and he has expressed regret. I don’t want to prosecute because I don’t want to ruin his life. Is it worth me rep",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xkr09o",
-          "title": "Title: Caught thieves stealing our bags inside a Southern England Parkdean showbar, but management let them stay to harass and threaten my family all week. Can we Section 75 this?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkr09o/title_caught_thieves_stealing_our_bags_inside_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkr09o/title_caught_thieves_stealing_our_bags_inside_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793497150,
-          "snippet": "Body: Hey everyone, looking for some advice or to see if anyone has survived a similar nightmare with Parkdean Resorts. We just checked out and our family is completely traumatised. On night one, my two daughters had their handbags stolen from right inside the main showbar venue ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xle07l",
-          "title": "Hospitality agency not passing on tips to staff.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xle07l/hospitality_agency_not_passing_on_tips_to_staff/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xle07l/hospitality_agency_not_passing_on_tips_to_staff/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793566101,
-          "snippet": "Hi everyone (England) My daughter works for a very big hospitality agency (I don’t feel I can name them here?) They book and manage hundreds of staff for all of the large events, conventions, arenas and concerts in Birmingham across all the biggest venues. This includes some very",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xkgqm4",
-          "title": "Council is making me pay £15,000 - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkgqm4/council_is_making_me_pay_15000_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkgqm4/council_is_making_me_pay_15000_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793469241,
-          "snippet": "My wife and I rented a one-bedroom flat in a converted house from August 2021 through an estate agent. Before signing the tenancy, we specifically asked whether all bills, including Council Tax, were included in the rent. Both the estate agent and the landlord confirmed that they",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xkzy5m",
-          "title": "Landord has died, questions about what happens next. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkzy5m/landord_has_died_questions_about_what_happens/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkzy5m/landord_has_died_questions_about_what_happens/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793529636,
-          "snippet": "Hi all, not sure if this is the right place to post. Moved into my privately rented 1bed flat Oct 2019. In September I was made aware by the estate agent that my landlord had passed away. The estate agents have said to keep paying rent to them, which I have been doing. The estate",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xl7qlu",
-          "title": "Vinted stole my money and ban me",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl7qlu/vinted_stole_my_money_and_ban_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl7qlu/vinted_stole_my_money_and_ban_me/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793551342,
-          "snippet": "Hi so about a month ago I sent 7 parcels with Inpost locker , only 2 of them ever arrived at there destination. After 25 days of waiting I got compensation for 4 of the order but one of them they contacted vinted to say it never arrived. Waited 48 hours then Vinted sent me a emai",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xl6z53",
-          "title": "Estranged Husband - Divorce Process?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl6z53/estranged_husband_divorce_process/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl6z53/estranged_husband_divorce_process/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793549512,
-          "snippet": "I'd like a divorce, not seen or cannot contact my husband for 11 years. His family have no clue where he is... what can i do to proceed with a divorce in the UK? submitted by /u/Without-Consequence [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlbc4i",
-          "title": "Car dealer mis-sold me Cat N car - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlbc4i/car_dealer_missold_me_cat_n_car_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlbc4i/car_dealer_missold_me_cat_n_car_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793559715,
-          "snippet": "Hi guys I would like to find out if I have a good chance to receive compensation from an independent car dealership that has sold me a car as clean but has now turned out to be Cat N written off? Last year I purchased a car from an independent dealership in London, just over £22k",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xl9bnn",
-          "title": "Neighbour's extractor fan vents into shared covered alleyway - Bristol (England) - what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl9bnn/neighbours_extractor_fan_vents_into_shared/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl9bnn/neighbours_extractor_fan_vents_into_shared/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793554995,
-          "snippet": "I own a terrace and next door is a rental (three students, not HMO registered). Their kitchen extractor vents into the shared covered alleyway between our houses — walls both sides, roof overhead, fully enclosed. When the tenants cook I can smell and taste their food throughout m",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlea01",
-          "title": "Can my employer make me permanently reduce my hours?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlea01/can_my_employer_make_me_permanently_reduce_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlea01/can_my_employer_make_me_permanently_reduce_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793566770,
-          "snippet": "I'm in England and I have got stage 4 endometriosis which impacts me day to day and can be classed as a disability- I'm on a waiting list for more surgery at the moment but I don't have a date yet. I have worked for my current employer for nearly 4 years. In Feb 2026 I started ex",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xk6ale",
-          "title": "(England) 16 Year old Trans daughter refusing to return home, family she is living with asking for money.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk6ale/england_16_year_old_trans_daughter_refusing_to/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xk6ale/england_16_year_old_trans_daughter_refusing_to/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793440875,
-          "snippet": "I am dealing with a complex family situation involving multiple moving parts and am seeking general guidance, as well as recommendations for legal professionals or organisations best suited to assist. To provide context... I have a 16-year-old trans daughter who was recently diag",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xl3te1",
-          "title": "England: Institutional Build-to-Rent landlord proposing 40% rent increase despite CPI+1% formula and 5% cap in tenancy agreement AND Section 106 – can they do this?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl3te1/england_institutional_buildtorent_landlord/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl3te1/england_institutional_buildtorent_landlord/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793541720,
-          "snippet": "I'm looking for advice and experiences from other tenants, particularly those living in affordable housing units within institutional Build-to-Rent (BTR) developments in England. I live in an affordable housing unit within an institutionally owned and managed Build-to-Rent develo",
+          "createdUtc": 1793628795,
+          "snippet": "To summarise the issue, my mother is disabled after suffering a stroke a couple of years ago. As a result, me and my dad tend to check up on and monitor her spending, as she can be very lax when it comes to online purchases. Recently, she bought 3 items from this website: https:/",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 13,
+      "postCount": 14,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,15 +280,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xl4f6u",
-          "title": "Is it legal to sleep in my car?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl4f6u/is_it_legal_to_sleep_in_my_car/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl4f6u/is_it_legal_to_sleep_in_my_car/",
+          "id": "1xlwfz7",
+          "title": "Caught teens on cctv stealing money from my takeaway shop",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlwfz7/caught_teens_on_cctv_stealing_money_from_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlwfz7/caught_teens_on_cctv_stealing_money_from_my/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793543274,
-          "snippet": "Hi all, I’ve fallen on some hard times and I’m going to need to sleep in my car until next payday. Is that legal and feasible? I do have a house, but the living situation with my ex and her new girlfriend has made being there sort of intolerable, and a massive bill she’s racked u",
+          "createdUtc": 1793624196,
+          "snippet": "I’m in Scotland , we open our takeaway for lunch for the school kids, there was quite a bit of money missing from the counter after we closed and we checked the cctv a kid basically had went over the counter and stole some money not sure the amount but should be £30-£50. He was a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlsvq8",
+          "title": "Scuffed a car, left my details. Now they want cash. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlsvq8/scuffed_a_car_left_my_details_now_they_want_cash/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlsvq8/scuffed_a_car_left_my_details_now_they_want_cash/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793612382,
+          "snippet": "Hello everyone, Yesterday I scuffed the back wheel arch of a car. It was parked on a busy street so I took pictures and left my details. This morning they’ve message to say they’d prefer not to go through insurance and settle privately. My car looked to come off worse but after a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xljmfq",
+          "title": "Hit by a rented supercar while cycling. The driver and his mate who hit me called his cousins and they attacked me. It's 5 against 1 and police believe I institgated the fight.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xljmfq/hit_by_a_rented_supercar_while_cycling_the_driver/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xljmfq/hit_by_a_rented_supercar_while_cycling_the_driver/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793581009,
+          "snippet": "I was out cycling last week. It was fairly dark and I was wearing my high-vis jacket. While on the main road a Ferrari that was speeding knocked me off my bike. The metal bar on my handle grazed the paint down the side of the car. This turned out to be a rented Ferrari. Two guys ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlqvjo",
+          "title": "I think my stepfather uploaded explicit content of me. (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqvjo/i_think_my_stepfather_uploaded_explicit_content/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqvjo/i_think_my_stepfather_uploaded_explicit_content/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793604521,
+          "snippet": "Not sure if this is the right subreddit but ran into a dead end with YouTube customer service and didn't know where else to turn. Recently I logged onto a YouTube account I hadn't used in a long time and noticed two flagged videos that had been posted called \"Stepdaughter\" and we",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlv9os",
+          "title": "Grandfathers debts - what if he just doesn't pay? (North Wales)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlv9os/grandfathers_debts_what_if_he_just_doesnt_pay/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlv9os/grandfathers_debts_what_if_he_just_doesnt_pay/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793620778,
+          "snippet": "Hello - my grandfather, who is in his mid eighties has racked up around 30k in debt to some classic elder abuse companies. The repayments are now getting ridiculous (3k this month). Obviously these companies know the law and going after them for elder abuse is not feasible. He ca",
           "listingSource": "rss:hot"
         },
         {
@@ -304,63 +352,111 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xl0i18",
-          "title": "Would there be legal issues in altering a person's grave stone to be inline with the deceased's wishes but against the families?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl0i18/would_there_be_legal_issues_in_altering_a_persons/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl0i18/would_there_be_legal_issues_in_altering_a_persons/",
+          "id": "1xl4f6u",
+          "title": "Is it legal to sleep in my car?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl4f6u/is_it_legal_to_sleep_in_my_car/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl4f6u/is_it_legal_to_sleep_in_my_car/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793531609,
-          "snippet": "Truly hypothetical, just a thought that crossed my mind. We have a person who changed their name from x to y. All their legal documents are in the new name and their will states they want to be buried under their new name. But their family decided not to and buried them with a he",
+          "createdUtc": 1793543274,
+          "snippet": "Hi all, I’ve fallen on some hard times and I’m going to need to sleep in my car until next payday. Is that legal and feasible? I do have a house, but the living situation with my ex and her new girlfriend has made being there sort of intolerable, and a massive bill she’s racked u",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xkx6og",
-          "title": "Received too many prizes in the mail - can I keep both? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkx6og/received_too_many_prizes_in_the_mail_can_i_keep/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkx6og/received_too_many_prizes_in_the_mail_can_i_keep/",
+          "id": "1xlvc7m",
+          "title": "Employer TUPE’d me, then dismissed me with zero process",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793519040,
-          "snippet": "I won a ‘write this !word in chat’ style competition run by Twitch streamer a few weeks ago, and the prize was a cool bag from an external company, worth around £80. I can’t find any terms and conditions for the competition. I got my prize last week, shipping from a overseas ware",
+          "createdUtc": 1793620948,
+          "snippet": "In England. Over 2 years service. Director level. Significant salary + benefits with 6 months notice period. I’ve no protected characteristics. Business sold and I TUPE’d across. During transaction, it was clear they didn’t want to TUPE senior team. So what came next wasn’t a sur",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "criminal_defence",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xkzwms",
-          "title": "N.I. - Co-workers printing off A.I. pictures of me and posting them on office walls",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkzwms/ni_coworkers_printing_off_ai_pictures_of_me_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkzwms/ni_coworkers_printing_off_ai_pictures_of_me_and/",
+          "id": "1xluj7m",
+          "title": "Partner Has Just Been Arrested",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xluj7m/partner_has_just_been_arrested/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xluj7m/partner_has_just_been_arrested/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793529481,
-          "snippet": "I am an agency worker in Northern Ireland, working for a large housing/homelessness body for around 6 months: Recently some co-workers have been mocking me a lot, which I have tried to ignore, but it has evolved into them taking pictures of me at work and using them to make A.I. ",
+          "createdUtc": 1793618312,
+          "snippet": "My partner has just been arrested at home and taken to the station for some type of domestic offence. His ex partner has been going crazy since she learned he is now with me/moved on, threatening and showing up at his workplace, contacting me etc. we can be 100% certain it was he",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "faulty-goods-and-refunds",
+      "label": "Faulty Goods and Refunds",
+      "legalAreaSlug": "consumer_goods",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xld44m",
-          "title": "Should I report my family member? I live in England.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xld44m/should_i_report_my_family_member_i_live_in_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xld44m/should_i_report_my_family_member_i_live_in_england/",
+          "id": "1xls2zp",
+          "title": "England: Wren kitchen hob still under warranty – should I have to pay for a replacement?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xls2zp/england_wren_kitchen_hob_still_under_warranty/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xls2zp/england_wren_kitchen_hob_still_under_warranty/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793563920,
-          "snippet": "I live in England. I’m a victim of voyeurism by a young male (teenage) family member. He recorded me changing without my knowledge or consent. We are now in counseling and he has expressed regret. I don’t want to prosecute because I don’t want to ruin his life. Is it worth me rep",
+          "createdUtc": 1793609264,
+          "snippet": "Hello everyone. I bought a kitchen from Wren in 2023, which included an induction hob supplied as part of the purchase. The hob came with a 5-year warranty on parts and a 2-year warranty on labour. Recently, the display lights/numbers on the hob suddenly stopped working. The touc",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "personal-injury",
+      "label": "Personal Injury",
+      "legalAreaSlug": "personal_injury",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xle07l",
-          "title": "Hospitality agency not passing on tips to staff.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xle07l/hospitality_agency_not_passing_on_tips_to_staff/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xle07l/hospitality_agency_not_passing_on_tips_to_staff/",
+          "id": "1xlvmb7",
+          "title": "Personal injury small claim advice - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvmb7/personal_injury_small_claim_advice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvmb7/personal_injury_small_claim_advice_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793566101,
-          "snippet": "Hi everyone (England) My daughter works for a very big hospitality agency (I don’t feel I can name them here?) They book and manage hundreds of staff for all of the large events, conventions, arenas and concerts in Birmingham across all the biggest venues. This includes some very",
+          "createdUtc": 1793621796,
+          "snippet": "From a 2024 traffic collision, there has been a dispute ongoing and I have a court date in a few weeks time. The insurer appointed solicitor has a useful online portal but otherwise is very unresponsive to emails or messages. I've only had contact is with a 'legal advisor'. As it",
           "listingSource": "rss:hot"
         }
       ]
@@ -390,30 +486,6 @@
       ]
     },
     {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xkwrbo",
-          "title": "New car delivered at lower spec than salesman promised (distance sale, on finance, Scotland): can I insist on an exchange?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkwrbo/new_car_delivered_at_lower_spec_than_salesman/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkwrbo/new_car_delivered_at_lower_spec_than_salesman/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793517375,
-          "snippet": "I bought a new car from a main dealer on the manufacturer's finance, entirely remotely. It was a video of the exterior, then phone calls and emails, and I signed through the finance portal. I never saw the car until I collected it on Friday. I was part-exchanging the same model i",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
       "slug": "consumer-law",
       "label": "Consumer Law",
       "legalAreaSlug": "consumer",
@@ -424,111 +496,15 @@
       ],
       "posts": [
         {
-          "id": "1xkr09o",
-          "title": "Title: Caught thieves stealing our bags inside a Southern England Parkdean showbar, but management let them stay to harass and threaten my family all week. Can we Section 75 this?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkr09o/title_caught_thieves_stealing_our_bags_inside_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xkr09o/title_caught_thieves_stealing_our_bags_inside_a/",
+          "id": "1xly9px",
+          "title": "Refund's from an obvious scam website - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xly9px/refunds_from_an_obvious_scam_website_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xly9px/refunds_from_an_obvious_scam_website_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793497150,
-          "snippet": "Body: Hey everyone, looking for some advice or to see if anyone has survived a similar nightmare with Parkdean Resorts. We just checked out and our family is completely traumatised. On night one, my two daughters had their handbags stolen from right inside the main showbar venue ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xl6z53",
-          "title": "Estranged Husband - Divorce Process?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl6z53/estranged_husband_divorce_process/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl6z53/estranged_husband_divorce_process/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793549512,
-          "snippet": "I'd like a divorce, not seen or cannot contact my husband for 11 years. His family have no clue where he is... what can i do to proceed with a divorce in the UK? submitted by /u/Without-Consequence [link] [comments]",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "car-purchase-and-dealer-disputes",
-      "label": "Car Purchase and Dealer Disputes",
-      "legalAreaSlug": "consumer_motor_purchase",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xlbc4i",
-          "title": "Car dealer mis-sold me Cat N car - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlbc4i/car_dealer_missold_me_cat_n_car_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlbc4i/car_dealer_missold_me_cat_n_car_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793559715,
-          "snippet": "Hi guys I would like to find out if I have a good chance to receive compensation from an independent car dealership that has sold me a car as clean but has now turned out to be Cat N written off? Last year I purchased a car from an independent dealership in London, just over £22k",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xlea01",
-          "title": "Can my employer make me permanently reduce my hours?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlea01/can_my_employer_make_me_permanently_reduce_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlea01/can_my_employer_make_me_permanently_reduce_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793566770,
-          "snippet": "I'm in England and I have got stage 4 endometriosis which impacts me day to day and can be classed as a disability- I'm on a waiting list for more surgery at the moment but I don't have a date yet. I have worked for my current employer for nearly 4 years. In Feb 2026 I started ex",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "landlord-and-tenant",
-      "label": "Landlord and Tenant",
-      "legalAreaSlug": "housing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xl3te1",
-          "title": "England: Institutional Build-to-Rent landlord proposing 40% rent increase despite CPI+1% formula and 5% cap in tenancy agreement AND Section 106 – can they do this?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl3te1/england_institutional_buildtorent_landlord/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xl3te1/england_institutional_buildtorent_landlord/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793541720,
-          "snippet": "I'm looking for advice and experiences from other tenants, particularly those living in affordable housing units within institutional Build-to-Rent (BTR) developments in England. I live in an affordable housing unit within an institutionally owned and managed Build-to-Rent develo",
+          "createdUtc": 1793628795,
+          "snippet": "To summarise the issue, my mother is disabled after suffering a stroke a couple of years ago. As a result, me and my dad tend to check up on and monitor her spending, as she can be very lax when it comes to online purchases. Recently, she bought 3 items from this website: https:/",
           "listingSource": "rss:hot"
         }
       ]
