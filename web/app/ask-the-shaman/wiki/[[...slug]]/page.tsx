@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { getWikiPageById } from "@/lib/wiki/search";
+import { getWikiPageById, listSiblingWikiPages, resolveWikiConcept } from "@/lib/wiki/search";
 import { renderWikiInline } from "@/lib/wiki/render-inline";
 import { wikiPagePublicPath } from "@/lib/wiki/public-url";
+import { stripRawSourcePath } from "@/lib/wiki/source-line";
 
 type PageProps = {
   params: Promise<{ slug?: string[] }>;
@@ -19,13 +20,23 @@ function wikiIdFromSlugParam(slug: string[] | undefined): string {
   return slug.map((part) => decodeURIComponent(part)).join("/");
 }
 
+function redirectEncodedSlashForm(slug: string[] | undefined, id: string, exists: boolean) {
+  if (exists && slug?.length === 1 && id.includes("/")) {
+    permanentRedirect(wikiPagePublicPath(id));
+  }
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const id = wikiIdFromSlugParam(slug);
   const page = id ? getWikiPageById(id) : null;
+  redirectEncodedSlashForm(slug, id, Boolean(page));
   const canonical = id ? wikiPagePublicPath(id) : undefined;
   return {
-    title: page ? `${page.title} | Ask the Shaman` : "Wiki article | Ask the Shaman",
+    title: page?.title ?? "Wiki article",
+    description: page?.summary
+      ? page.summary.replace(/\*\*/g, "").replace(/\s+/g, " ").trim()
+      : undefined,
     alternates: canonical ? { canonical } : undefined,
     robots: page ? { index: true, follow: true } : { index: false, follow: false },
   };
@@ -35,7 +46,17 @@ export default async function WikiArticlePage({ params }: PageProps) {
   const { slug } = await params;
   const id = wikiIdFromSlugParam(slug);
   const page = id ? getWikiPageById(id) : null;
+  redirectEncodedSlashForm(slug, id, Boolean(page));
   if (!page) notFound();
+  const related = page.relatedConcepts.slice(0, 12).map((concept) => ({
+    concept,
+    label: concept.replace(/^\[\[|\]\]$/g, ""),
+    match: resolveWikiConcept(concept),
+  }));
+  const linkedIds = new Set(
+    related.flatMap((item) => (item.match && item.match.id !== page.id ? [item.match.id] : [])),
+  );
+  const siblings = listSiblingWikiPages(page.id, 8).filter((item) => !linkedIds.has(item.id)).slice(0, 5);
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -86,19 +107,45 @@ export default async function WikiArticlePage({ params }: PageProps) {
             </section>
           ) : null}
 
-          {page.relatedConcepts.length ? (
+          {related.length ? (
             <section>
               <h2 className="font-serif text-lg font-semibold">Related topics</h2>
               <div className="mt-2 flex flex-wrap gap-2">
-                {page.relatedConcepts.slice(0, 12).map((concept) => (
-                  <span
-                    key={concept}
-                    className="rounded-full border border-border bg-muted px-3 py-1 text-xs text-foreground"
-                  >
-                    {concept.replace(/^\[\[|\]\]$/g, "")}
-                  </span>
-                ))}
+                {related.map(({ concept, label, match }) => {
+                  const className =
+                    "rounded-full border border-border bg-muted px-3 py-1 text-xs text-foreground hover:border-gold/40";
+                  if (!match || match.id === page.id) {
+                    return (
+                      <span key={concept} className={className}>
+                        {label}
+                      </span>
+                    );
+                  }
+                  return (
+                    <Link key={concept} href={wikiPagePublicPath(match.id)} className={className}>
+                      {label}
+                    </Link>
+                  );
+                })}
               </div>
+            </section>
+          ) : null}
+
+          {siblings.length ? (
+            <section>
+              <h2 className="font-serif text-lg font-semibold">More in this area</h2>
+              <ul className="mt-2 space-y-2 text-sm">
+                {siblings.map((sibling) => (
+                  <li key={sibling.id}>
+                    <Link
+                      href={wikiPagePublicPath(sibling.id)}
+                      className="text-foreground underline-offset-2 hover:text-primary hover:underline"
+                    >
+                      {sibling.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </section>
           ) : null}
 
@@ -108,7 +155,7 @@ export default async function WikiArticlePage({ params }: PageProps) {
                 <h2 className="font-serif text-lg font-semibold">Sources</h2>
                 <ul className="mt-2 list-disc space-y-2 pl-5 text-xs text-muted-foreground marker:text-gold">
                   {page.sources.slice(0, 10).map((source) => (
-                    <li key={source}>{renderWikiInline(source)}</li>
+                    <li key={source}>{renderWikiInline(stripRawSourcePath(source))}</li>
                   ))}
                 </ul>
               </CardContent>

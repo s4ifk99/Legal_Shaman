@@ -13,13 +13,8 @@ import { resolveCoherenceUi } from "@/lib/coherence/mode";
 import { getCurrentUser } from "@/lib/auth/get-current-user";
 import { getWikiIndex } from "@/lib/wiki/load-index";
 import { listFeaturedWikiPages, listWikiCategories } from "@/lib/wiki/search";
+import { wikiPagePublicPath } from "@/lib/wiki/public-url";
 import { enableMapSearch, enableSearchDebug } from "@/lib/legal-search/config";
-
-export const metadata: Metadata = {
-  title: "Ask the Shaman | Legal Shaman",
-  description:
-    "One search across wiki guidance, lawyer directory, and OSLAW — UK legal signposting in one place. Not legal advice.",
-};
 
 type PageProps = {
   searchParams: Promise<{
@@ -30,6 +25,18 @@ type PageProps = {
     necessity?: string;
   }>;
 };
+
+export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
+  const sp = await searchParams;
+  const q = (sp.q || "").trim();
+  return {
+    title: "Ask the Shaman",
+    description:
+      "One search across wiki guidance, lawyer directory, and OSLAW — UK legal signposting in one place. Not legal advice.",
+    alternates: { canonical: "/ask-the-shaman" },
+    robots: q ? { index: false, follow: true } : { index: true, follow: true },
+  };
+}
 
 function WikiBrowseSections() {
   const index = getWikiIndex();
@@ -55,17 +62,25 @@ function WikiBrowseSections() {
       </section>
 
       <section className="mt-10">
-        <h2 className="flex items-center gap-2 font-serif text-xl font-semibold text-foreground">
-          <BookOpen className="h-5 w-5 text-gold" />
-          Popular guidance
-        </h2>
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <h2 className="flex items-center gap-2 font-serif text-xl font-semibold text-foreground">
+            <BookOpen className="h-5 w-5 text-gold" />
+            Popular guidance
+          </h2>
+          <Link
+            href="/ask-the-shaman/who-helps"
+            className="text-sm font-medium text-primary hover:underline"
+          >
+            Browse all who-helps guides →
+          </Link>
+        </div>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {featured.map((page) => (
             <Card key={page.id} className="border-border/70 hover:border-gold/30">
               <CardContent className="p-4">
                 <p className="text-xs uppercase tracking-wide text-gold">{page.category}</p>
                 <Link
-                  href={`/ask-the-shaman/wiki/${encodeURIComponent(page.id)}`}
+                  href={wikiPagePublicPath(page.id)}
                   className="mt-1 block font-medium text-foreground hover:text-primary"
                 >
                   {page.title}
@@ -127,7 +142,10 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
           </h1>
           <p className="max-w-3xl text-muted-foreground">
             One search for wiki guidance, lawyer matching, and live legal discussions — signposting
-            only, not legal advice.
+            only, not legal advice.{" "}
+            <Link href="/ask-the-shaman/who-helps" className="font-medium text-primary hover:underline">
+              Who helps guides
+            </Link>
           </p>
           {uiMode === "coherence" && forceClassic ? (
             <p className="text-sm text-muted-foreground">

@@ -3,9 +3,18 @@ export function wikiPageSlugFromRelativePath(relativePath: string): string {
   return relativePath.replace(/\.md$/i, "");
 }
 
-/** In-app path for a wiki article (matches sitemap and wiki/[slug] route). */
+/**
+ * In-app path for a wiki article (matches sitemap and wiki/[slug] route).
+ * Encode each segment only. Slashes stay slashes so the URL is not a second
+ * copy with %2F in place of the folder path.
+ */
 export function wikiPagePublicPath(slug: string): string {
-  return `/ask-the-shaman/wiki/${encodeURIComponent(slug)}`;
+  const id = slug.replace(/^\/+/, "").replace(/\/+$/, "");
+  const encoded = id
+    .split("/")
+    .map((segment) => encodeURIComponent(segment))
+    .join("/");
+  return `/ask-the-shaman/wiki/${encoded}`;
 }
 
 export function wikiPagePublicUrl(

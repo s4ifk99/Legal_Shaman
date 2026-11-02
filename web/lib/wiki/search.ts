@@ -222,6 +222,59 @@ export function getWikiPageById(id: string): WikiPageIndex | null {
   return getWikiIndex().pages.find((p) => p.id === normalized) ?? null;
 }
 
+function conceptKey(value: string): string {
+  return value
+    .replace(/^\[\[|\]\]$/g, "")
+    .trim()
+    .toLowerCase()
+    .replace(/\?+$/, "");
+}
+
+let pagesByConcept: Map<string, WikiPageIndex> | null = null;
+
+function conceptIndex(): Map<string, WikiPageIndex> {
+  if (pagesByConcept) return pagesByConcept;
+  const map = new Map<string, WikiPageIndex>();
+  for (const page of getWikiIndex().pages) {
+    map.set(conceptKey(page.title), page);
+    const leaf = page.id.split("/").pop();
+    if (leaf) map.set(conceptKey(leaf), page);
+  }
+  pagesByConcept = map;
+  return map;
+}
+
+/** Match a related-topic label to a wiki page by id or title. */
+export function resolveWikiConcept(concept: string): WikiPageIndex | null {
+  const cleaned = concept.replace(/^\[\[|\]\]$/g, "").trim();
+  if (!cleaned) return null;
+  return getWikiPageById(cleaned) ?? conceptIndex().get(conceptKey(cleaned)) ?? null;
+}
+
+/** Other articles in the same folder, longest summaries first. */
+export function listSiblingWikiPages(id: string, limit = 5): WikiPageIndex[] {
+  const parent = id.split("/").slice(0, -1).join("/");
+  if (!parent) return [];
+  const prefix = `${parent}/`;
+  return getWikiIndex()
+    .pages.filter(
+      (page) =>
+        page.id.startsWith(prefix) &&
+        page.id !== id &&
+        !page.relativePath.endsWith("_index.md"),
+    )
+    .sort((a, b) => b.summary.length - a.summary.length)
+    .slice(0, limit);
+}
+
+/** Situation pages pinned for search (who helps / who can). */
+export function listWhoHelpsWikiPages(ids: Iterable<string>): WikiPageIndex[] {
+  const wanted = new Set(ids);
+  return getWikiIndex()
+    .pages.filter((page) => wanted.has(page.id))
+    .sort((a, b) => a.title.localeCompare(b.title, "en-GB"));
+}
+
 export function listWikiCategories(): Array<{ category: string; count: number }> {
   const counts = new Map<string, number>();
   for (const page of getWikiIndex().pages) {
