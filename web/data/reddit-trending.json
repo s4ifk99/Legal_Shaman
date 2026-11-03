@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-11-03T00:33:22.158Z",
+    "scrapedAt": "2026-11-03T13:23:36.743Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 8,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xmeqr7",
+          "title": "Is it dramatic to file a police report for online death threats?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmeqr7/is_it_dramatic_to_file_a_police_report_for_online/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmeqr7/is_it_dramatic_to_file_a_police_report_for_online/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793666519,
+          "snippet": "I'm based in England and I've been doing a blog on Tumblr about beginning to have a rabbit. This blog came onto my page and left a lot of threatening comments under my posts and also sent me inboxes. I've reported it to Tumblr but I don't know whether it's dramatic or not to file",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmpcor",
+          "title": "What can I do if my landlocked house has it's easement blocked?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmpcor/what_can_i_do_if_my_landlocked_house_has_its/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmpcor/what_can_i_do_if_my_landlocked_house_has_its/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793701222,
+          "snippet": "Looking for advice. This is in England. I've lived in a generally really lovely house on a very small private estate for a couple of years now. The only problem is that it is landlocked and requires use of an easement for vehicular access. The easement is watertight - access was ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xmb1rq",
           "title": "HELP! - Student Finance England paid over £4,000 into a bank account that isn’t mine and are refusing to take responsibility - what can I do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmb1rq/help_student_finance_england_paid_over_4000_into/",
@@ -47,18 +71,6 @@
           "numComments": 0,
           "createdUtc": 1793657111,
           "snippet": "Hi everyone, I’m based in England and desperately need some advice regarding an ongoing dispute with Student Finance England (SFE). I am a first year student all over again after taking a gap year. I had a difficult start to my university experience and decided to start over agai",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlvc7m",
-          "title": "Employer TUPE’d me, then dismissed me with zero process",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793620948,
-          "snippet": "In England. Over 2 years service. Director level. Significant salary + benefits with 6 months notice period. I’ve no protected characteristics. Business sold and I TUPE’d across. During transaction, it was clear they didn’t want to TUPE senior team. So what came next wasn’t a sur",
           "listingSource": "rss:hot"
         },
         {
@@ -74,6 +86,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xlvc7m",
+          "title": "Employer TUPE’d me, then dismissed me with zero process",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793620948,
+          "snippet": "In England. Over 2 years service. Director level. Significant salary + benefits with 6 months notice period. I’ve no protected characteristics. Business sold and I TUPE’d across. During transaction, it was clear they didn’t want to TUPE senior team. So what came next wasn’t a sur",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmp87k",
+          "title": "Fixed penalty notice for handheld mobile phone use, but the phone was in a cradle",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793700786,
+          "snippet": "I was pulled over by police in England for using my phone while in stationary traffic at a red light. The phone was in a cradle mounted to my windscreen. The notice I've received is for handheld mobile phone use, offering a fixed penalty of 6 points and £200. I've been finding th",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xm47f9",
           "title": "Seatbelt safety recall has bricked my car. Dealer wants £288 to fix…",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm47f9/seatbelt_safety_recall_has_bricked_my_car_dealer/",
@@ -83,6 +119,42 @@
           "numComments": 0,
           "createdUtc": 1793641997,
           "snippet": "Hi all. England based. Taken my car (2017 Mustang GT) in for a safety recall relating to the seatbelt, and a service whilst it was in there. Received a call back from the dealership (that I won’t name as yet, depending how this goes) that whilst doing their inspection for the sea",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xm7g0u",
+          "title": "Land dispute: Neighbours threatening enforcement notices against us for fencing our private land (previously used by the public) in the middle of a residential estate",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm7g0u/land_dispute_neighbours_threatening_enforcement/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm7g0u/land_dispute_neighbours_threatening_enforcement/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793648916,
+          "snippet": "Location: England This has been ongoing for a few months now. We moved into our house (first-time buyers, so forgive our naivety) and were told a 0.3 acre green space parcel behind our house, which was used as a cut-through mostly by dog-walkers, would never be built on (it was a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmhtdz",
+          "title": "Won my appeal against a written warning, but my manager hasn't let up since. Do I have anything here? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmhtdz/won_my_appeal_against_a_written_warning_but_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmhtdz/won_my_appeal_against_a_written_warning_but_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793675143,
+          "snippet": "I've been at my company for over a year in a marketing role. I passed probation, and the account director I work with most has praised my work in writing all year. A client even told him I was one of the most responsive people he deals with. In the summer I asked about progressio",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmqb5q",
+          "title": "\"child benefit claim \"Ex doesnt want it but reported me for claiming it/ where do i stand legally UK",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmqb5q/child_benefit_claim_ex_doesnt_want_it_but/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmqb5q/child_benefit_claim_ex_doesnt_want_it_but/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793704603,
+          "snippet": "well first off some back story, me and my ex . broke up over 8 year ago now and for the most part have stayed good friends, me and his girlfriend also for the most part get along really well, i baby sit her kids from a previous relationship and we go out for lunches. for the last",
           "listingSource": "rss:hot"
         },
         {
@@ -122,135 +194,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xlsvq8",
-          "title": "Scuffed a car, left my details. Now they want cash. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlsvq8/scuffed_a_car_left_my_details_now_they_want_cash/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlsvq8/scuffed_a_car_left_my_details_now_they_want_cash/",
+          "id": "1xmrdtx",
+          "title": "Help with XBox repair dispute with a customer of mine in England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmrdtx/help_with_xbox_repair_dispute_with_a_customer_of/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmrdtx/help_with_xbox_repair_dispute_with_a_customer_of/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793612382,
-          "snippet": "Hello everyone, Yesterday I scuffed the back wheel arch of a car. It was parked on a busy street so I took pictures and left my details. This morning they’ve message to say they’d prefer not to go through insurance and settle privately. My car looked to come off worse but after a",
+          "createdUtc": 1793708063,
+          "snippet": "Hi, I'm hoping to get a bit of advice on a situation that has happened with a customer. A was given an Xbox Series X to repair as it had a damaged HDMI port. A simple fix I thought, but I don't do micro soldering, so took it to a another local repair shop that does micro solderin",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xm7g0u",
-          "title": "Land dispute: Neighbours threatening enforcement notices against us for fencing our private land (previously used by the public) in the middle of a residential estate",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm7g0u/land_dispute_neighbours_threatening_enforcement/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm7g0u/land_dispute_neighbours_threatening_enforcement/",
+          "id": "1xmphy1",
+          "title": "Shared care proposal for child - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmphy1/shared_care_proposal_for_child_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmphy1/shared_care_proposal_for_child_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793648916,
-          "snippet": "Location: England This has been ongoing for a few months now. We moved into our house (first-time buyers, so forgive our naivety) and were told a 0.3 acre green space parcel behind our house, which was used as a cut-through mostly by dog-walkers, would never be built on (it was a",
+          "createdUtc": 1793701778,
+          "snippet": "Shared care has been proposed (2-2-3), a big jump from 1/2 nights per week. (Primary school age). If taken to court, what kinds of things will the court consider for this arrangement? There is a safeguarding concern (drugs and alcohol) with historical evidence, and a recent convi",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xlqvjo",
-          "title": "I think my stepfather uploaded explicit content of me. (Scotland)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqvjo/i_think_my_stepfather_uploaded_explicit_content/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqvjo/i_think_my_stepfather_uploaded_explicit_content/",
+          "id": "1xmsq2i",
+          "title": "England - Physcially assaulted by ex, arrested for stalking, intially falsely accused of physcially harming ex and their children. How can I speed up process of potential CCTV footage being viewed that will demonstrate the initial false accusation?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsq2i/england_physcially_assaulted_by_ex_arrested_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsq2i/england_physcially_assaulted_by_ex_arrested_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793604521,
-          "snippet": "Not sure if this is the right subreddit but ran into a dead end with YouTube customer service and didn't know where else to turn. Recently I logged onto a YouTube account I hadn't used in a long time and noticed two flagged videos that had been posted called \"Stepdaughter\" and we",
+          "createdUtc": 1793711958,
+          "snippet": "Hi recently I was arrested for stalking however during the incident my ex physicially assaulted me and when I pointed this out to them they then started shouting it was in self defence for physically assaulting them and their children which was untrue (I never assaulted or touche",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xljmfq",
-          "title": "Hit by a rented supercar while cycling. The driver and his mate who hit me called his cousins and they attacked me. It's 5 against 1 and police believe I institgated the fight.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xljmfq/hit_by_a_rented_supercar_while_cycling_the_driver/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xljmfq/hit_by_a_rented_supercar_while_cycling_the_driver/",
+          "id": "1xmsoyu",
+          "title": "Employer says I can't use all my annual leave E&W",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793581009,
-          "snippet": "I was out cycling last week. It was fairly dark and I was wearing my high-vis jacket. While on the main road a Ferrari that was speeding knocked me off my bike. The metal bar on my handle grazed the paint down the side of the car. This turned out to be a rented Ferrari. Two guys ",
+          "createdUtc": 1793711873,
+          "snippet": "I started employment part way through the holiday year and my employer calculated my leave pro-rata as a number of hours. As a firm policy all holidays must be booked in increments of 7 hours (a full day) or 3.5 hours (a half day). This leaves me with 3 unusable hours from the pr",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xlwzzv",
-          "title": "New Amazon delivery rules about dropping items on doorstep?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlwzzv/new_amazon_delivery_rules_about_dropping_items_on/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlwzzv/new_amazon_delivery_rules_about_dropping_items_on/",
+          "id": "1xmsle9",
+          "title": "Can my employee disregard the 11 hour between shifts regulation?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsle9/can_my_employee_disregard_the_11_hour_between/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsle9/can_my_employee_disregard_the_11_hour_between/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793625656,
-          "snippet": "Hi all, Recently I’ve seen the news that Amazon no longer requires drivers to knock on your door (to save time) and to just drop your delivery at your doorstep photograph it and leave. But take today I’m at work and no one is home and have 3 packages due. If Amazon leaves them on",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xm1xvy",
-          "title": "I’m surrendering a flat and my landlord wants me to pay him to make it modern to rent out to new tenant. Is that possible? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm1xvy/im_surrendering_a_flat_and_my_landlord_wants_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm1xvy/im_surrendering_a_flat_and_my_landlord_wants_me/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793637110,
-          "snippet": "Hello everyone. This is a long one. Hoping someone can help please. I took over a mix use lease. Ground floor commercial business which I currently operate. Upper floor is a flat. Condition was not modern when I took over the lease. It was still liveable, everything works no issu",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xm36kt",
-          "title": "Scotland- Dad being sued regarding an issue with his dead brother.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm36kt/scotland_dad_being_sued_regarding_an_issue_with/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm36kt/scotland_dad_being_sued_regarding_an_issue_with/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793639797,
-          "snippet": "Hey everyone just looking for some advice please. My dad has received a writ and warrant letter from Edinburgh sheriff court stating he has been named in a lawsuit as a representative of his dead brother that he has been estranged from for over 30 years. He has spoken to the cour",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xluj7m",
-          "title": "Partner Has Just Been Arrested",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xluj7m/partner_has_just_been_arrested/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xluj7m/partner_has_just_been_arrested/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793618312,
-          "snippet": "My partner has just been arrested at home and taken to the station for some type of domestic offence. His ex partner has been going crazy since she learned he is now with me/moved on, threatening and showing up at his workplace, contacting me etc. we can be 100% certain it was he",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmbyqg",
-          "title": "England – Male domestic abuse complainant facing serious counter-allegations. Failed Family Court appeal, unresolved police reports and legal aid barriers. What options remain?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmbyqg/england_male_domestic_abuse_complainant_facing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmbyqg/england_male_domestic_abuse_complainant_facing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793659338,
-          "snippet": "This is the first time I've ever posted on reddit, I do apologise if I don't respond or do anything I should...I'm still getting used to it, but the situation has become extreme: I'm seeking legal guidance concerning a particularly complicated situation involving overlapping crim",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmcxs8",
-          "title": "QuoteMeHappy black-box cancellation dispute – insurance quotes jumped from £1,500 to £3,500 with a black box and £3,000 to £14,000 without. Do I have any legal options? - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmcxs8/quotemehappy_blackbox_cancellation_dispute/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmcxs8/quotemehappy_blackbox_cancellation_dispute/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793661800,
-          "snippet": "Hi everyone, I'm looking for some legal advice regarding an issue with my previous car insurance provider, QuoteMeHappy , and a massive increase in my insurance quotes following a dispute over a faulty black box. I previously owned a VW Polo insured through QuoteMeHappy on a blac",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmcc0l",
-          "title": "Are schools legally required to tell parents if their child has requested a letter of confirmation?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmcc0l/are_schools_legally_required_to_tell_parents_if/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmcc0l/are_schools_legally_required_to_tell_parents_if/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793660272,
-          "snippet": "16 in England. Asking because I am in a situation where I would need one without them being notified. Also curious if they are legally required to know why I would want this letter. Edit: I've already gotten the letter and my parent knows of it but this thread was very helpful. T",
+          "createdUtc": 1793711594,
+          "snippet": "England. Full time employee. I work in a betting shop and am on a regular basis required to work a close into an open which ends up looking like 1pm-10pm, then 7:40am-3pm the next day. It’s not a result of an unusual time for the business, it is once or twice every week. As far a",
           "listingSource": "rss:hot"
         }
       ]
@@ -292,6 +292,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xmeqr7",
+          "title": "Is it dramatic to file a police report for online death threats?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmeqr7/is_it_dramatic_to_file_a_police_report_for_online/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmeqr7/is_it_dramatic_to_file_a_police_report_for_online/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793666519,
+          "snippet": "I'm based in England and I've been doing a blog on Tumblr about beginning to have a rabbit. This blog came onto my page and left a lot of threatening comments under my posts and also sent me inboxes. I've reported it to Tumblr but I don't know whether it's dramatic or not to file",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xmb1rq",
           "title": "HELP! - Student Finance England paid over £4,000 into a bank account that isn’t mine and are refusing to take responsibility - what can I do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmb1rq/help_student_finance_england_paid_over_4000_into/",
@@ -301,6 +313,30 @@
           "numComments": 0,
           "createdUtc": 1793657111,
           "snippet": "Hi everyone, I’m based in England and desperately need some advice regarding an ongoing dispute with Student Finance England (SFE). I am a first year student all over again after taking a gap year. I had a difficult start to my university experience and decided to start over agai",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmp87k",
+          "title": "Fixed penalty notice for handheld mobile phone use, but the phone was in a cradle",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793700786,
+          "snippet": "I was pulled over by police in England for using my phone while in stationary traffic at a red light. The phone was in a cradle mounted to my windscreen. The notice I've received is for handheld mobile phone use, offering a fixed penalty of 6 points and £200. I've been finding th",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmqb5q",
+          "title": "\"child benefit claim \"Ex doesnt want it but reported me for claiming it/ where do i stand legally UK",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmqb5q/child_benefit_claim_ex_doesnt_want_it_but/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmqb5q/child_benefit_claim_ex_doesnt_want_it_but/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793704603,
+          "snippet": "well first off some back story, me and my ex . broke up over 8 year ago now and for the most part have stayed good friends, me and his girlfriend also for the most part get along really well, i baby sit her kids from a previous relationship and we go out for lunches. for the last",
           "listingSource": "rss:hot"
         },
         {
@@ -326,41 +362,29 @@
           "createdUtc": 1793620778,
           "snippet": "Hello - my grandfather, who is in his mid eighties has racked up around 30k in debt to some classic elder abuse companies. The repayments are now getting ridiculous (3k this month). Obviously these companies know the law and going after them for elder abuse is not feasible. He ca",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "neighbour-disputes",
+      "label": "Neighbour Disputes",
+      "legalAreaSlug": "neighbour_dispute",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xlsvq8",
-          "title": "Scuffed a car, left my details. Now they want cash. England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlsvq8/scuffed_a_car_left_my_details_now_they_want_cash/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlsvq8/scuffed_a_car_left_my_details_now_they_want_cash/",
+          "id": "1xmpcor",
+          "title": "What can I do if my landlocked house has it's easement blocked?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmpcor/what_can_i_do_if_my_landlocked_house_has_its/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmpcor/what_can_i_do_if_my_landlocked_house_has_its/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793612382,
-          "snippet": "Hello everyone, Yesterday I scuffed the back wheel arch of a car. It was parked on a busy street so I took pictures and left my details. This morning they’ve message to say they’d prefer not to go through insurance and settle privately. My car looked to come off worse but after a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlqvjo",
-          "title": "I think my stepfather uploaded explicit content of me. (Scotland)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqvjo/i_think_my_stepfather_uploaded_explicit_content/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlqvjo/i_think_my_stepfather_uploaded_explicit_content/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793604521,
-          "snippet": "Not sure if this is the right subreddit but ran into a dead end with YouTube customer service and didn't know where else to turn. Recently I logged onto a YouTube account I hadn't used in a long time and noticed two flagged videos that had been posted called \"Stepdaughter\" and we",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xljmfq",
-          "title": "Hit by a rented supercar while cycling. The driver and his mate who hit me called his cousins and they attacked me. It's 5 against 1 and police believe I institgated the fight.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xljmfq/hit_by_a_rented_supercar_while_cycling_the_driver/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xljmfq/hit_by_a_rented_supercar_while_cycling_the_driver/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793581009,
-          "snippet": "I was out cycling last week. It was fairly dark and I was wearing my high-vis jacket. While on the main road a Ferrari that was speeding knocked me off my bike. The metal bar on my handle grazed the paint down the side of the car. This turned out to be a rented Ferrari. Two guys ",
+          "createdUtc": 1793701222,
+          "snippet": "Looking for advice. This is in England. I've lived in a generally really lovely house on a very small private estate for a couple of years now. The only problem is that it is landlocked and requires use of an easement for vehicular access. The easement is watertight - access was ",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,24 +393,12 @@
       "slug": "employment-law",
       "label": "Employment Law",
       "legalAreaSlug": "employment",
-      "postCount": 3,
+      "postCount": 4,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
-        {
-          "id": "1xlvc7m",
-          "title": "Employer TUPE’d me, then dismissed me with zero process",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793620948,
-          "snippet": "In England. Over 2 years service. Director level. Significant salary + benefits with 6 months notice period. I’ve no protected characteristics. Business sold and I TUPE’d across. During transaction, it was clear they didn’t want to TUPE senior team. So what came next wasn’t a sur",
-          "listingSource": "rss:hot"
-        },
         {
           "id": "1xm90cs",
           "title": "Ex Employer took taxes from wages but didn't pay HMRC, now HMRC are asking me for the money and company has gone bust",
@@ -400,6 +412,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xlvc7m",
+          "title": "Employer TUPE’d me, then dismissed me with zero process",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793620948,
+          "snippet": "In England. Over 2 years service. Director level. Significant salary + benefits with 6 months notice period. I’ve no protected characteristics. Business sold and I TUPE’d across. During transaction, it was clear they didn’t want to TUPE senior team. So what came next wasn’t a sur",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xlyx9q",
           "title": "Started a new job, signed a contract, suffered a stroke weeks later, now employer says I never worked there",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlyx9q/started_a_new_job_signed_a_contract_suffered_a/",
@@ -409,6 +433,18 @@
           "numComments": 0,
           "createdUtc": 1793630344,
           "snippet": "Country is England. At the end of April, I was offered a Network Administrator position with a very small company. We agreed that my start date would be in June. A few days later, they contacted me and asked if I could start immediately instead. Having been unemployed for six mon",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmsoyu",
+          "title": "Employer says I can't use all my annual leave E&W",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793711873,
+          "snippet": "I started employment part way through the holiday year and my employer calculated my leave pro-rata as a number of hours. As a firm policy all holidays must be booked in increments of 7 hours (a full day) or 3.5 hours (a half day). This leaves me with 3 unusable hours from the pr",
           "listingSource": "rss:hot"
         }
       ]
@@ -462,9 +498,9 @@
       ]
     },
     {
-      "slug": "landlord-and-tenant",
-      "label": "Landlord and Tenant",
-      "legalAreaSlug": "housing",
+      "slug": "prison-law",
+      "label": "Prison Law",
+      "legalAreaSlug": "prison_law",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -472,15 +508,15 @@
       ],
       "posts": [
         {
-          "id": "1xm1xvy",
-          "title": "I’m surrendering a flat and my landlord wants me to pay him to make it modern to rent out to new tenant. Is that possible? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm1xvy/im_surrendering_a_flat_and_my_landlord_wants_me/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm1xvy/im_surrendering_a_flat_and_my_landlord_wants_me/",
+          "id": "1xmhtdz",
+          "title": "Won my appeal against a written warning, but my manager hasn't let up since. Do I have anything here? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmhtdz/won_my_appeal_against_a_written_warning_but_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmhtdz/won_my_appeal_against_a_written_warning_but_my/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793637110,
-          "snippet": "Hello everyone. This is a long one. Hoping someone can help please. I took over a mix use lease. Ground floor commercial business which I currently operate. Upper floor is a flat. Condition was not modern when I took over the lease. It was still liveable, everything works no issu",
+          "createdUtc": 1793675143,
+          "snippet": "I've been at my company for over a year in a marketing role. I passed probation, and the account director I work with most has praised my work in writing all year. A client even told him I was one of the most responsive people he deals with. In the summer I asked about progressio",
           "listingSource": "rss:hot"
         }
       ]
@@ -496,63 +532,15 @@
       ],
       "posts": [
         {
-          "id": "1xluj7m",
-          "title": "Partner Has Just Been Arrested",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xluj7m/partner_has_just_been_arrested/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xluj7m/partner_has_just_been_arrested/",
+          "id": "1xmsq2i",
+          "title": "England - Physcially assaulted by ex, arrested for stalking, intially falsely accused of physcially harming ex and their children. How can I speed up process of potential CCTV footage being viewed that will demonstrate the initial false accusation?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsq2i/england_physcially_assaulted_by_ex_arrested_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsq2i/england_physcially_assaulted_by_ex_arrested_for/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793618312,
-          "snippet": "My partner has just been arrested at home and taken to the station for some type of domestic offence. His ex partner has been going crazy since she learned he is now with me/moved on, threatening and showing up at his workplace, contacting me etc. we can be 100% certain it was he",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xmbyqg",
-          "title": "England – Male domestic abuse complainant facing serious counter-allegations. Failed Family Court appeal, unresolved police reports and legal aid barriers. What options remain?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmbyqg/england_male_domestic_abuse_complainant_facing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmbyqg/england_male_domestic_abuse_complainant_facing/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793659338,
-          "snippet": "This is the first time I've ever posted on reddit, I do apologise if I don't respond or do anything I should...I'm still getting used to it, but the situation has become extreme: I'm seeking legal guidance concerning a particularly complicated situation involving overlapping crim",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "private-healthcare-billing",
-      "label": "Private Healthcare Billing",
-      "legalAreaSlug": "consumer_private_healthcare",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xmcxs8",
-          "title": "QuoteMeHappy black-box cancellation dispute – insurance quotes jumped from £1,500 to £3,500 with a black box and £3,000 to £14,000 without. Do I have any legal options? - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmcxs8/quotemehappy_blackbox_cancellation_dispute/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmcxs8/quotemehappy_blackbox_cancellation_dispute/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793661800,
-          "snippet": "Hi everyone, I'm looking for some legal advice regarding an issue with my previous car insurance provider, QuoteMeHappy , and a massive increase in my insurance quotes following a dispute over a faulty black box. I previously owned a VW Polo insured through QuoteMeHappy on a blac",
+          "createdUtc": 1793711958,
+          "snippet": "Hi recently I was arrested for stalking however during the incident my ex physicially assaulted me and when I pointed this out to them they then started shouting it was in self defence for physically assaulting them and their children which was untrue (I never assaulted or touche",
           "listingSource": "rss:hot"
         }
       ]
