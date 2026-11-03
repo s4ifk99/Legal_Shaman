@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-11-03T13:23:36.743Z",
-    "subredditCount": 1,
-    "postCount": 20,
-    "topicCount": 7,
+    "scrapedAt": "2026-11-03T22:56:15.037Z",
+    "subredditCount": 2,
+    "postCount": 40,
+    "topicCount": 10,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,15 +26,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xm4j8w",
-          "title": "A teenager in the street spat in my face so I punched him. What can I realistically expect to happen to me going forward?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm4j8w/a_teenager_in_the_street_spat_in_my_face_so_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm4j8w/a_teenager_in_the_street_spat_in_my_face_so_i/",
+          "id": "1xmvcid",
+          "title": "left my suitcase on the train - the suitcase had drugs in it. what do i do? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmvcid/left_my_suitcase_on_the_train_the_suitcase_had/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmvcid/left_my_suitcase_on_the_train_the_suitcase_had/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793642684,
-          "snippet": "Location: Scotland This happened a week ago. I'm a 28 y/o woman. I had just left work, it's pitch black outside, and I was walking through the city centre to a bus stop. Up ahead there was a pair of teenage neds, maybe 13-14 years old, swinging on the frame of the open door of a ",
+          "createdUtc": 1793718312,
+          "snippet": "i m20 was travelling from uni to home, i had a small stash (about 7g) of cannabis in my bag for personal use only. i left my bag on the train like a genius and now im not sure what to do. the bag had expensive clothes and sentimental personal items and i am really tempted to get ",
           "listingSource": "rss:hot"
         },
         {
@@ -50,6 +50,54 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xmzf7c",
+          "title": "How long can a landlord (housing association) leave you without hot water/heating without offering alternative accommodation? Is it even a requirement that they do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmzf7c/how_long_can_a_landlord_housing_association_leave/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmzf7c/how_long_can_a_landlord_housing_association_leave/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793727335,
+          "snippet": "I have posted here previously about this, but just wanted to understand where we stand legally now. How long can a housing association leave you without hot water/heating without offering alternative accommodation? Are they even required to? We’ve had no working heating since Dec",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn6f81",
+          "title": "What can be done about baseless accusations?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn6f81/what_can_be_done_about_baseless_accusations/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn6f81/what_can_be_done_about_baseless_accusations/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793742885,
+          "snippet": "Trigger warning: Alleged sexual assault Hi everyone, I’m looking for some guidance on this situation. I am based in England. My son (M12) has had 7 accusations about him made by a girl in his year. These have spanned over 12 months where nobody has witnessed these alleged assault",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xm4j8w",
+          "title": "A teenager in the street spat in my face so I punched him. What can I realistically expect to happen to me going forward?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm4j8w/a_teenager_in_the_street_spat_in_my_face_so_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm4j8w/a_teenager_in_the_street_spat_in_my_face_so_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793642684,
+          "snippet": "Location: Scotland This happened a week ago. I'm a 28 y/o woman. I had just left work, it's pitch black outside, and I was walking through the city centre to a bus stop. Up ahead there was a pair of teenage neds, maybe 13-14 years old, swinging on the frame of the open door of a ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmsoyu",
+          "title": "Employer says I can't use all my annual leave E&W",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793711873,
+          "snippet": "I started employment part way through the holiday year and my employer calculated my leave pro-rata as a number of hours. As a firm policy all holidays must be booked in increments of 7 hours (a full day) or 3.5 hours (a half day). This leaves me with 3 unusable hours from the pr",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xmpcor",
           "title": "What can I do if my landlocked house has it's easement blocked?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmpcor/what_can_i_do_if_my_landlocked_house_has_its/",
@@ -62,6 +110,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xn0wxk",
+          "title": "Landlord unable to renew due to Renters Reform Act? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn0wxk/landlord_unable_to_renew_due_to_renters_reform/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn0wxk/landlord_unable_to_renew_due_to_renters_reform/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793730518,
+          "snippet": "We are currently living in a student house in Bristol, though finished being students a month into our tenancy. Our tenancy doesn't run out till June 2027 but the letting agency contacted us asking if we wanted to renew for another year, after this date, to which we said yes and ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmp87k",
+          "title": "Fixed penalty notice for handheld mobile phone use, but the phone was in a cradle",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793700786,
+          "snippet": "I was pulled over by police in England for using my phone while in stationary traffic at a red light. The phone was in a cradle mounted to my windscreen. The notice I've received is for handheld mobile phone use, offering a fixed penalty of 6 points and £200. I've been finding th",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xmb1rq",
           "title": "HELP! - Student Finance England paid over £4,000 into a bank account that isn’t mine and are refusing to take responsibility - what can I do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmb1rq/help_student_finance_england_paid_over_4000_into/",
@@ -71,6 +143,533 @@
           "numComments": 0,
           "createdUtc": 1793657111,
           "snippet": "Hi everyone, I’m based in England and desperately need some advice regarding an ongoing dispute with Student Finance England (SFE). I am a first year student all over again after taking a gap year. I had a difficult start to my university experience and decided to start over agai",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn4pku",
+          "title": "BT pole wayleave - can we have it removed? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn4pku/bt_pole_wayleave_can_we_have_it_removed_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn4pku/bt_pole_wayleave_can_we_have_it_removed_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793738891,
+          "snippet": "Hi, Hoping someone with relevant practical experience can advise. We have been in talks with Openreach about a pole that feeds one neighbour property that is on our property. It wasn't visible upon purchasing the property (hidden in trees and leylandi), but I digress. Openreach s",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmtf8v",
+          "title": "Knocking doors and running away",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmtf8v/knocking_doors_and_running_away/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmtf8v/knocking_doors_and_running_away/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793713811,
+          "snippet": "Location: England I live across the road from a secondary school, on the whole it's fine and it was there when we moved in. I also have a wide open fronted driveway and a video doorbell. Now and again kids will run down, press the bell and run off. While its annoying, I accept ki",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xm90cs",
+          "title": "Ex Employer took taxes from wages but didn't pay HMRC, now HMRC are asking me for the money and company has gone bust",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm90cs/ex_employer_took_taxes_from_wages_but_didnt_pay/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm90cs/ex_employer_took_taxes_from_wages_but_didnt_pay/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793652417,
+          "snippet": "Hi everyone, hope someone can help. As the title says, my former employer was taking the tax from my wages yet HMRC wasn't showing any earnings. I reported this back in Jan 2025 when I noticed (purchase of a house fell through when my mortgage company asked for a tax statement) I",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn55b9",
+          "title": "Private parking notice. Would POPLA appeal be successful?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn55b9/private_parking_notice_would_popla_appeal_be/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn55b9/private_parking_notice_would_popla_appeal_be/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793739881,
+          "snippet": "In England. My daughter parks in a private car park near her work (run by parkingeye). So a few weeks ago my daughter finished work at 8pm but her car wouldnt start so i went down to jump start her car. I was in and out in 11 minutes, the camera got me going in at 8:20 and out at",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmwov9",
+          "title": "I have a court case to set aside a CCJ given by a Civil Enforcement and they have offered me to settle (and pay a fine) before the court case, should I fight it? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmwov9/i_have_a_court_case_to_set_aside_a_ccj_given_by_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmwov9/i_have_a_court_case_to_set_aside_a_ccj_given_by_a/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793721363,
+          "snippet": "Parked in a pub car park had dinner and drinks in said pub - June 2023 Received parking fine letter - July 2023 Immediately messaged pub owner with bank statements showing I was in the pub at that time and had written confirmation they removed the charge - July 2023 Received no f",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmhtdz",
+          "title": "Won my appeal against a written warning, but my manager hasn't let up since. Do I have anything here? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmhtdz/won_my_appeal_against_a_written_warning_but_my/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmhtdz/won_my_appeal_against_a_written_warning_but_my/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793675143,
+          "snippet": "I've been at my company for over a year in a marketing role. I passed probation, and the account director I work with most has praised my work in writing all year. A client even told him I was one of the most responsive people he deals with. In the summer I asked about progressio",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlvc7m",
+          "title": "Employer TUPE’d me, then dismissed me with zero process",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793620948,
+          "snippet": "In England. Over 2 years service. Director level. Significant salary + benefits with 6 months notice period. I’ve no protected characteristics. Business sold and I TUPE’d across. During transaction, it was clear they didn’t want to TUPE senior team. So what came next wasn’t a sur",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn22x1",
+          "title": "Divorce England: short marriage settlement advice?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn22x1/divorce_england_short_marriage_settlement_advice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn22x1/divorce_england_short_marriage_settlement_advice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793733044,
+          "snippet": "My husband (33) and I (32) cohabited for 6 years total, and were married for the last 2.5 of them. We both had well paid jobs in the UK but we wanted to live abroad. As his career is more specialised, he found a job abroad that could support us both and we made the move. Despite ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn7vjr",
+          "title": "Can a small repair done before section 20 consultation count as part of the later major works?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn7vjr/can_a_small_repair_done_before_section_20/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn7vjr/can_a_small_repair_done_before_section_20/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793746430,
+          "snippet": "Location: England TL;DR: The managing agent knew a retaining wall needed rebuilding, did a £1,980 repair first (under the £250 per flat threshold), then started section 20 consultation for a full rebuild. The engineer says the repair didn’t fix anything. Could that count as part ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "name": "uklaw",
+      "displayName": "r/uklaw",
+      "description": "UK law students and practitioners — statute, case law, and professional practice.",
+      "subscribers": null,
+      "posts": [
+        {
+          "id": "k2kvzd",
+          "title": "Help Post: List of Legal Recruitment Agencies",
+          "url": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1606555862,
+          "snippet": "Hey, since everyone is struggling to find work, here is a list of all of the legal recruitment agencies and legal job sites I have bookmarked. Across the whole list, you can find everything from temp/paralegal work to associate roles. https://www.lawsupport.co.uk/ https://lodlaw.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1l8oqj7",
+          "title": "WEEKLY general chat/support post",
+          "url": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1749636086,
+          "snippet": "General chat/support post - how are you all doing? :) submitted by /u/AutoModerator [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmpbfb",
+          "title": "Rising caseloads in Judicial Review: a question of AI?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmpbfb/rising_caseloads_in_judicial_review_a_question_of/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmpbfb/rising_caseloads_in_judicial_review_a_question_of/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793701094,
+          "snippet": "https://ukconstitutionallaw.org/2026/10/30/sam-guy-joe-tomlinson-rising-caseloads-in-judicial-review-a-question-of-ai/ A most interesting article from the UK Constitutional Law Association; I really recommend their blog. In a nutshell: *In the Administrative Court User Group minu",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmu4r8",
+          "title": "Bringing notes to an interview?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmu4r8/bringing_notes_to_an_interview/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmu4r8/bringing_notes_to_an_interview/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793715502,
+          "snippet": "Hey all, I’ve got an in-person interview coming up for a paralegal role and was wondering whether it’s considered unprofessional to bring a small notepad with a few bullet-point prompts to refer to if needed? TIA! submitted by /u/Melodic_Outside_4718 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn6h9u",
+          "title": "Roast my CV - any feedback or criticism would be greatly appreciated",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xn6h9u/roast_my_cv_any_feedback_or_criticism_would_be/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xn6h9u/roast_my_cv_any_feedback_or_criticism_would_be/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793743024,
+          "snippet": "submitted by /u/Leather-Celebration1 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmouxr",
+          "title": "Hoe many law firms to apply to?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmouxr/hoe_many_law_firms_to_apply_to/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmouxr/hoe_many_law_firms_to_apply_to/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793699442,
+          "snippet": "Just want people’s opinions. I know trainees who applied to around 50 and secured 1 and others who applied to 20 and received multiple offers. For context, I’m not an ideal candidate. 65% law graduate from Durham but only legal work experience includes 2 day experience at a natio",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmwaao",
+          "title": "BIRKBECK UNI GDL",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmwaao/birkbeck_uni_gdl/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmwaao/birkbeck_uni_gdl/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793720433,
+          "snippet": "submitted by /u/LongjumpingOne228 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn1xxj",
+          "title": "stats for law pls help",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xn1xxj/stats_for_law_pls_help/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xn1xxj/stats_for_law_pls_help/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793732735,
+          "snippet": "submitted by /u/okay-not-okie [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmuryz",
+          "title": "Advice on postgraduate LLM",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmuryz/advice_on_postgraduate_llm/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmuryz/advice_on_postgraduate_llm/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793717012,
+          "snippet": "Dear all, I an currently looking to study a postgraduate masters in law in a UK university online. I am qualified locally in my country and looking for some international exposure. I am aware that the career prospects don't improve much with a LLM. Still wanna do it for the knowl",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn061f",
+          "title": "Could poor first year grades affect my vacation scheme and TC applications if i got a 67% overall in second year",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xn061f/could_poor_first_year_grades_affect_my_vacation/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xn061f/could_poor_first_year_grades_affect_my_vacation/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793728922,
+          "snippet": "So, I'm currently in my final year of university and have been applying to law firms without much success so far. I'm wondering whether my poor first-year grades could be a significant factor in my applications. For context, I finished my first year with an overall average of 53.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmyk2b",
+          "title": "Does bristol or durham care more about the LNAT for law?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmyk2b/does_bristol_or_durham_care_more_about_the_lnat/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmyk2b/does_bristol_or_durham_care_more_about_the_lnat/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793725469,
+          "snippet": "submitted by /u/PlasticStrange6350 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlww1p",
+          "title": "I HATE LAWFLUENCERS",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xlww1p/i_hate_lawfluencers/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xlww1p/i_hate_lawfluencers/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793625373,
+          "snippet": "Sorry if this is not the right subreddit for this, but where can those in UK law go to campaign against lawfluencers and how they are making the UK legal sector look so cheap? I mean, for years, those of us in the industry have been fighting tooth and nail to convince people that",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmwagf",
+          "title": "BIRKBECK UNI GDL",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmwagf/birkbeck_uni_gdl/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmwagf/birkbeck_uni_gdl/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793720443,
+          "snippet": "submitted by /u/LongjumpingOne228 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmeo10",
+          "title": "LLB (2:1), completed Bar Training Course, legal experience, but hundreds of applications and no job. What am I doing wrong?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmeo10/llb_21_completed_bar_training_course_legal/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmeo10/llb_21_completed_bar_training_course_legal/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793666299,
+          "snippet": "I'm a law graduate with a 2:1 LLB (non-Russel) and an LLM/BTC, due to be called to the Bar this November. I've been in the UK for just over two years, during which I've gained experience at a solicitors' firm, chambers, a university legal clinic, and Support Through Court. All my",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmukz9",
+          "title": "Foreign law qualification",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmukz9/foreign_law_qualification/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmukz9/foreign_law_qualification/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793716560,
+          "snippet": "I hold a foreign law qualification in a common law country and is looking for jobs (from paralegal to training contracts) in uk however didn't hear anything back. any advice on this situation? e.g. doing a sqe, doing a llm in uk and for work experiences, are there any other ways ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xm67un",
+          "title": "I LOVE LAWFLUENCERS",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xm67un/i_love_lawfluencers/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xm67un/i_love_lawfluencers/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793646214,
+          "snippet": "I already know this is a terrible career, I just wanna live vicariously through a happy person Edit: some people are taking this more as a troll or insulting than a joke. To those people, I am sorry and wish you a good evening Edit 2: it’s not a total joke, I do think “at least t",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xlwy1f",
+          "title": "What’s the binding ratio of Alien v Predator [2004] EW Odeon, 1 WLR 2846?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xlwy1f/whats_the_binding_ratio_of_alien_v_predator_2004/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xlwy1f/whats_the_binding_ratio_of_alien_v_predator_2004/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793625523,
+          "snippet": "Pls hurry up and help me, I got an assignment due tomorrow, getting marked by Circuit Judge Schwarzenegger submitted by /u/RealRedditUser217 [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmeqfr",
+          "title": "What causes of action arise from “manufactur[ing] an artificial reason to terminate a contract” without good faith?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmeqfr/what_causes_of_action_arise_from_manufacturing_an/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmeqfr/what_causes_of_action_arise_from_manufacturing_an/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793666495,
+          "snippet": "submitted by /u/Dr_shropshire [link] [comments]",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmeixp",
+          "title": "Career as a procurator fiscal",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmeixp/career_as_a_procurator_fiscal/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmeixp/career_as_a_procurator_fiscal/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793665900,
+          "snippet": "Hello! So for context, I live in Scotland and I am currently in my third year of law. I have emailed the COPFS recruitment a month ago but they have not responded. I was wondering if it is even worth my time doing my honours year as the website says you just need a law degree and",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmfsbc",
+          "title": "Please review my CV and suggest improvements. Is this good enough to secure an entry level job in the UK?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmfsbc/please_review_my_cv_and_suggest_improvements_is/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmfsbc/please_review_my_cv_and_suggest_improvements_is/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793669405,
+          "snippet": "Really struggling to get a job. I have been getting too many rejections, so here I am. Also, I would welcome other tips on the best way to crack the UK job market. Thanks! P.S. Russell Group University, if it matters. I know it's not a big deal, but I've seen people enquiring in ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    }
+  ],
+  "trendingTopics": [
+    {
+      "slug": "general-legal-discussion",
+      "label": "General legal discussion",
+      "legalAreaSlug": null,
+      "postCount": 26,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK",
+        "uklaw"
+      ],
+      "posts": [
+        {
+          "id": "1x88p6w",
+          "title": "Guidance on using AI to answer questions and telling OPs to use AI",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88p6w/guidance_on_using_ai_to_answer_questions_and/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88p6w/guidance_on_using_ai_to_answer_questions_and/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1792239070,
+          "snippet": "Hi all, Since we updated our subreddit rules to reflect the mods' policy on AI, we have continued to observe how AI is being used. We have seen two types of AI-related comments that we want to issue new (but not different) clarification on. TL;DR: Comments answering an OP's quest",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmvcid",
+          "title": "left my suitcase on the train - the suitcase had drugs in it. what do i do? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmvcid/left_my_suitcase_on_the_train_the_suitcase_had/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmvcid/left_my_suitcase_on_the_train_the_suitcase_had/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793718312,
+          "snippet": "i m20 was travelling from uni to home, i had a small stash (about 7g) of cannabis in my bag for personal use only. i left my bag on the train like a genius and now im not sure what to do. the bag had expensive clothes and sentimental personal items and i am really tempted to get ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmeqr7",
+          "title": "Is it dramatic to file a police report for online death threats?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmeqr7/is_it_dramatic_to_file_a_police_report_for_online/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmeqr7/is_it_dramatic_to_file_a_police_report_for_online/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793666519,
+          "snippet": "I'm based in England and I've been doing a blog on Tumblr about beginning to have a rabbit. This blog came onto my page and left a lot of threatening comments under my posts and also sent me inboxes. I've reported it to Tumblr but I don't know whether it's dramatic or not to file",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn6f81",
+          "title": "What can be done about baseless accusations?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn6f81/what_can_be_done_about_baseless_accusations/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn6f81/what_can_be_done_about_baseless_accusations/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793742885,
+          "snippet": "Trigger warning: Alleged sexual assault Hi everyone, I’m looking for some guidance on this situation. I am based in England. My son (M12) has had 7 accusations about him made by a girl in his year. These have spanned over 12 months where nobody has witnessed these alleged assault",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xm4j8w",
+          "title": "A teenager in the street spat in my face so I punched him. What can I realistically expect to happen to me going forward?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm4j8w/a_teenager_in_the_street_spat_in_my_face_so_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm4j8w/a_teenager_in_the_street_spat_in_my_face_so_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793642684,
+          "snippet": "Location: Scotland This happened a week ago. I'm a 28 y/o woman. I had just left work, it's pitch black outside, and I was walking through the city centre to a bus stop. Up ahead there was a pair of teenage neds, maybe 13-14 years old, swinging on the frame of the open door of a ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmp87k",
+          "title": "Fixed penalty notice for handheld mobile phone use, but the phone was in a cradle",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793700786,
+          "snippet": "I was pulled over by police in England for using my phone while in stationary traffic at a red light. The phone was in a cradle mounted to my windscreen. The notice I've received is for handheld mobile phone use, offering a fixed penalty of 6 points and £200. I've been finding th",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmb1rq",
+          "title": "HELP! - Student Finance England paid over £4,000 into a bank account that isn’t mine and are refusing to take responsibility - what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmb1rq/help_student_finance_england_paid_over_4000_into/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmb1rq/help_student_finance_england_paid_over_4000_into/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793657111,
+          "snippet": "Hi everyone, I’m based in England and desperately need some advice regarding an ongoing dispute with Student Finance England (SFE). I am a first year student all over again after taking a gap year. I had a difficult start to my university experience and decided to start over agai",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn4pku",
+          "title": "BT pole wayleave - can we have it removed? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn4pku/bt_pole_wayleave_can_we_have_it_removed_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn4pku/bt_pole_wayleave_can_we_have_it_removed_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793738891,
+          "snippet": "Hi, Hoping someone with relevant practical experience can advise. We have been in talks with Openreach about a pole that feeds one neighbour property that is on our property. It wasn't visible upon purchasing the property (hidden in trees and leylandi), but I digress. Openreach s",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "landlord-and-tenant",
+      "label": "Landlord and Tenant",
+      "legalAreaSlug": "housing",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xmzf7c",
+          "title": "How long can a landlord (housing association) leave you without hot water/heating without offering alternative accommodation? Is it even a requirement that they do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmzf7c/how_long_can_a_landlord_housing_association_leave/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmzf7c/how_long_can_a_landlord_housing_association_leave/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793727335,
+          "snippet": "I have posted here previously about this, but just wanted to understand where we stand legally now. How long can a housing association leave you without hot water/heating without offering alternative accommodation? Are they even required to? We’ve had no working heating since Dec",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn0wxk",
+          "title": "Landlord unable to renew due to Renters Reform Act? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn0wxk/landlord_unable_to_renew_due_to_renters_reform/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn0wxk/landlord_unable_to_renew_due_to_renters_reform/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793730518,
+          "snippet": "We are currently living in a student house in Bristol, though finished being students a month into our tenancy. Our tenancy doesn't run out till June 2027 but the letting agency contacted us asking if we wanted to renew for another year, after this date, to which we said yes and ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 3,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xmsoyu",
+          "title": "Employer says I can't use all my annual leave E&W",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793711873,
+          "snippet": "I started employment part way through the holiday year and my employer calculated my leave pro-rata as a number of hours. As a firm policy all holidays must be booked in increments of 7 hours (a full day) or 3.5 hours (a half day). This leaves me with 3 unusable hours from the pr",
           "listingSource": "rss:hot"
         },
         {
@@ -95,272 +694,6 @@
           "numComments": 0,
           "createdUtc": 1793620948,
           "snippet": "In England. Over 2 years service. Director level. Significant salary + benefits with 6 months notice period. I’ve no protected characteristics. Business sold and I TUPE’d across. During transaction, it was clear they didn’t want to TUPE senior team. So what came next wasn’t a sur",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmp87k",
-          "title": "Fixed penalty notice for handheld mobile phone use, but the phone was in a cradle",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793700786,
-          "snippet": "I was pulled over by police in England for using my phone while in stationary traffic at a red light. The phone was in a cradle mounted to my windscreen. The notice I've received is for handheld mobile phone use, offering a fixed penalty of 6 points and £200. I've been finding th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xm47f9",
-          "title": "Seatbelt safety recall has bricked my car. Dealer wants £288 to fix…",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm47f9/seatbelt_safety_recall_has_bricked_my_car_dealer/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm47f9/seatbelt_safety_recall_has_bricked_my_car_dealer/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793641997,
-          "snippet": "Hi all. England based. Taken my car (2017 Mustang GT) in for a safety recall relating to the seatbelt, and a service whilst it was in there. Received a call back from the dealership (that I won’t name as yet, depending how this goes) that whilst doing their inspection for the sea",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xm7g0u",
-          "title": "Land dispute: Neighbours threatening enforcement notices against us for fencing our private land (previously used by the public) in the middle of a residential estate",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm7g0u/land_dispute_neighbours_threatening_enforcement/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm7g0u/land_dispute_neighbours_threatening_enforcement/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793648916,
-          "snippet": "Location: England This has been ongoing for a few months now. We moved into our house (first-time buyers, so forgive our naivety) and were told a 0.3 acre green space parcel behind our house, which was used as a cut-through mostly by dog-walkers, would never be built on (it was a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmhtdz",
-          "title": "Won my appeal against a written warning, but my manager hasn't let up since. Do I have anything here? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmhtdz/won_my_appeal_against_a_written_warning_but_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmhtdz/won_my_appeal_against_a_written_warning_but_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793675143,
-          "snippet": "I've been at my company for over a year in a marketing role. I passed probation, and the account director I work with most has praised my work in writing all year. A client even told him I was one of the most responsive people he deals with. In the summer I asked about progressio",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmqb5q",
-          "title": "\"child benefit claim \"Ex doesnt want it but reported me for claiming it/ where do i stand legally UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmqb5q/child_benefit_claim_ex_doesnt_want_it_but/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmqb5q/child_benefit_claim_ex_doesnt_want_it_but/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793704603,
-          "snippet": "well first off some back story, me and my ex . broke up over 8 year ago now and for the most part have stayed good friends, me and his girlfriend also for the most part get along really well, i baby sit her kids from a previous relationship and we go out for lunches. for the last",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlyx9q",
-          "title": "Started a new job, signed a contract, suffered a stroke weeks later, now employer says I never worked there",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlyx9q/started_a_new_job_signed_a_contract_suffered_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlyx9q/started_a_new_job_signed_a_contract_suffered_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793630344,
-          "snippet": "Country is England. At the end of April, I was offered a Network Administrator position with a very small company. We agreed that my start date would be in June. A few days later, they contacted me and asked if I could start immediately instead. Having been unemployed for six mon",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlwfz7",
-          "title": "Caught teens on cctv stealing money from my takeaway shop",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlwfz7/caught_teens_on_cctv_stealing_money_from_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlwfz7/caught_teens_on_cctv_stealing_money_from_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793624196,
-          "snippet": "I’m in Scotland , we open our takeaway for lunch for the school kids, there was quite a bit of money missing from the counter after we closed and we checked the cctv a kid basically had went over the counter and stole some money not sure the amount but should be £30-£50. He was a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlv9os",
-          "title": "Grandfathers debts - what if he just doesn't pay? (North Wales)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlv9os/grandfathers_debts_what_if_he_just_doesnt_pay/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlv9os/grandfathers_debts_what_if_he_just_doesnt_pay/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793620778,
-          "snippet": "Hello - my grandfather, who is in his mid eighties has racked up around 30k in debt to some classic elder abuse companies. The repayments are now getting ridiculous (3k this month). Obviously these companies know the law and going after them for elder abuse is not feasible. He ca",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmrdtx",
-          "title": "Help with XBox repair dispute with a customer of mine in England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmrdtx/help_with_xbox_repair_dispute_with_a_customer_of/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmrdtx/help_with_xbox_repair_dispute_with_a_customer_of/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793708063,
-          "snippet": "Hi, I'm hoping to get a bit of advice on a situation that has happened with a customer. A was given an Xbox Series X to repair as it had a damaged HDMI port. A simple fix I thought, but I don't do micro soldering, so took it to a another local repair shop that does micro solderin",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmphy1",
-          "title": "Shared care proposal for child - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmphy1/shared_care_proposal_for_child_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmphy1/shared_care_proposal_for_child_england/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793701778,
-          "snippet": "Shared care has been proposed (2-2-3), a big jump from 1/2 nights per week. (Primary school age). If taken to court, what kinds of things will the court consider for this arrangement? There is a safeguarding concern (drugs and alcohol) with historical evidence, and a recent convi",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmsq2i",
-          "title": "England - Physcially assaulted by ex, arrested for stalking, intially falsely accused of physcially harming ex and their children. How can I speed up process of potential CCTV footage being viewed that will demonstrate the initial false accusation?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsq2i/england_physcially_assaulted_by_ex_arrested_for/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsq2i/england_physcially_assaulted_by_ex_arrested_for/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793711958,
-          "snippet": "Hi recently I was arrested for stalking however during the incident my ex physicially assaulted me and when I pointed this out to them they then started shouting it was in self defence for physically assaulting them and their children which was untrue (I never assaulted or touche",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmsoyu",
-          "title": "Employer says I can't use all my annual leave E&W",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793711873,
-          "snippet": "I started employment part way through the holiday year and my employer calculated my leave pro-rata as a number of hours. As a firm policy all holidays must be booked in increments of 7 hours (a full day) or 3.5 hours (a half day). This leaves me with 3 unusable hours from the pr",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmsle9",
-          "title": "Can my employee disregard the 11 hour between shifts regulation?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsle9/can_my_employee_disregard_the_11_hour_between/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsle9/can_my_employee_disregard_the_11_hour_between/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793711594,
-          "snippet": "England. Full time employee. I work in a betting shop and am on a regular basis required to work a close into an open which ends up looking like 1pm-10pm, then 7:40am-3pm the next day. It’s not a result of an unusual time for the business, it is once or twice every week. As far a",
-          "listingSource": "rss:hot"
-        }
-      ]
-    }
-  ],
-  "trendingTopics": [
-    {
-      "slug": "general-legal-discussion",
-      "label": "General legal discussion",
-      "legalAreaSlug": null,
-      "postCount": 11,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1x88p6w",
-          "title": "Guidance on using AI to answer questions and telling OPs to use AI",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88p6w/guidance_on_using_ai_to_answer_questions_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1x88p6w/guidance_on_using_ai_to_answer_questions_and/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1792239070,
-          "snippet": "Hi all, Since we updated our subreddit rules to reflect the mods' policy on AI, we have continued to observe how AI is being used. We have seen two types of AI-related comments that we want to issue new (but not different) clarification on. TL;DR: Comments answering an OP's quest",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xm4j8w",
-          "title": "A teenager in the street spat in my face so I punched him. What can I realistically expect to happen to me going forward?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm4j8w/a_teenager_in_the_street_spat_in_my_face_so_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm4j8w/a_teenager_in_the_street_spat_in_my_face_so_i/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793642684,
-          "snippet": "Location: Scotland This happened a week ago. I'm a 28 y/o woman. I had just left work, it's pitch black outside, and I was walking through the city centre to a bus stop. Up ahead there was a pair of teenage neds, maybe 13-14 years old, swinging on the frame of the open door of a ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmeqr7",
-          "title": "Is it dramatic to file a police report for online death threats?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmeqr7/is_it_dramatic_to_file_a_police_report_for_online/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmeqr7/is_it_dramatic_to_file_a_police_report_for_online/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793666519,
-          "snippet": "I'm based in England and I've been doing a blog on Tumblr about beginning to have a rabbit. This blog came onto my page and left a lot of threatening comments under my posts and also sent me inboxes. I've reported it to Tumblr but I don't know whether it's dramatic or not to file",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmb1rq",
-          "title": "HELP! - Student Finance England paid over £4,000 into a bank account that isn’t mine and are refusing to take responsibility - what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmb1rq/help_student_finance_england_paid_over_4000_into/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmb1rq/help_student_finance_england_paid_over_4000_into/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793657111,
-          "snippet": "Hi everyone, I’m based in England and desperately need some advice regarding an ongoing dispute with Student Finance England (SFE). I am a first year student all over again after taking a gap year. I had a difficult start to my university experience and decided to start over agai",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmp87k",
-          "title": "Fixed penalty notice for handheld mobile phone use, but the phone was in a cradle",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmp87k/fixed_penalty_notice_for_handheld_mobile_phone/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793700786,
-          "snippet": "I was pulled over by police in England for using my phone while in stationary traffic at a red light. The phone was in a cradle mounted to my windscreen. The notice I've received is for handheld mobile phone use, offering a fixed penalty of 6 points and £200. I've been finding th",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmqb5q",
-          "title": "\"child benefit claim \"Ex doesnt want it but reported me for claiming it/ where do i stand legally UK",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmqb5q/child_benefit_claim_ex_doesnt_want_it_but/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmqb5q/child_benefit_claim_ex_doesnt_want_it_but/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793704603,
-          "snippet": "well first off some back story, me and my ex . broke up over 8 year ago now and for the most part have stayed good friends, me and his girlfriend also for the most part get along really well, i baby sit her kids from a previous relationship and we go out for lunches. for the last",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlwfz7",
-          "title": "Caught teens on cctv stealing money from my takeaway shop",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlwfz7/caught_teens_on_cctv_stealing_money_from_my/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlwfz7/caught_teens_on_cctv_stealing_money_from_my/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793624196,
-          "snippet": "I’m in Scotland , we open our takeaway for lunch for the school kids, there was quite a bit of money missing from the counter after we closed and we checked the cctv a kid basically had went over the counter and stole some money not sure the amount but should be £30-£50. He was a",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlv9os",
-          "title": "Grandfathers debts - what if he just doesn't pay? (North Wales)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlv9os/grandfathers_debts_what_if_he_just_doesnt_pay/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlv9os/grandfathers_debts_what_if_he_just_doesnt_pay/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793620778,
-          "snippet": "Hello - my grandfather, who is in his mid eighties has racked up around 30k in debt to some classic elder abuse companies. The repayments are now getting ridiculous (3k this month). Obviously these companies know the law and going after them for elder abuse is not feasible. He ca",
           "listingSource": "rss:hot"
         }
       ]
@@ -390,69 +723,9 @@
       ]
     },
     {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 4,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xm90cs",
-          "title": "Ex Employer took taxes from wages but didn't pay HMRC, now HMRC are asking me for the money and company has gone bust",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm90cs/ex_employer_took_taxes_from_wages_but_didnt_pay/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm90cs/ex_employer_took_taxes_from_wages_but_didnt_pay/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793652417,
-          "snippet": "Hi everyone, hope someone can help. As the title says, my former employer was taking the tax from my wages yet HMRC wasn't showing any earnings. I reported this back in Jan 2025 when I noticed (purchase of a house fell through when my mortgage company asked for a tax statement) I",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlvc7m",
-          "title": "Employer TUPE’d me, then dismissed me with zero process",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlvc7m/employer_tuped_me_then_dismissed_me_with_zero/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793620948,
-          "snippet": "In England. Over 2 years service. Director level. Significant salary + benefits with 6 months notice period. I’ve no protected characteristics. Business sold and I TUPE’d across. During transaction, it was clear they didn’t want to TUPE senior team. So what came next wasn’t a sur",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xlyx9q",
-          "title": "Started a new job, signed a contract, suffered a stroke weeks later, now employer says I never worked there",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlyx9q/started_a_new_job_signed_a_contract_suffered_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xlyx9q/started_a_new_job_signed_a_contract_suffered_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793630344,
-          "snippet": "Country is England. At the end of April, I was offered a Network Administrator position with a very small company. We agreed that my start date would be in June. A few days later, they contacted me and asked if I could start immediately instead. Having been unemployed for six mon",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xmsoyu",
-          "title": "Employer says I can't use all my annual leave E&W",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsoyu/employer_says_i_cant_use_all_my_annual_leave_ew/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793711873,
-          "snippet": "I started employment part way through the holiday year and my employer calculated my leave pro-rata as a number of hours. As a firm policy all holidays must be booked in increments of 7 hours (a full day) or 3.5 hours (a half day). This leaves me with 3 unusable hours from the pr",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "car-purchase-and-dealer-disputes",
-      "label": "Car Purchase and Dealer Disputes",
-      "legalAreaSlug": "consumer_motor_purchase",
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -460,15 +733,15 @@
       ],
       "posts": [
         {
-          "id": "1xm47f9",
-          "title": "Seatbelt safety recall has bricked my car. Dealer wants £288 to fix…",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm47f9/seatbelt_safety_recall_has_bricked_my_car_dealer/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm47f9/seatbelt_safety_recall_has_bricked_my_car_dealer/",
+          "id": "1xn55b9",
+          "title": "Private parking notice. Would POPLA appeal be successful?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn55b9/private_parking_notice_would_popla_appeal_be/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn55b9/private_parking_notice_would_popla_appeal_be/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793641997,
-          "snippet": "Hi all. England based. Taken my car (2017 Mustang GT) in for a safety recall relating to the seatbelt, and a service whilst it was in there. Received a call back from the dealership (that I won’t name as yet, depending how this goes) that whilst doing their inspection for the sea",
+          "createdUtc": 1793739881,
+          "snippet": "In England. My daughter parks in a private car park near her work (run by parkingeye). So a few weeks ago my daughter finished work at 8pm but her car wouldnt start so i went down to jump start her car. I was in and out in 11 minutes, the camera got me going in at 8:20 and out at",
           "listingSource": "rss:hot"
         }
       ]
@@ -477,22 +750,47 @@
       "slug": "planning-law",
       "label": "Planning Law",
       "legalAreaSlug": "planning_law",
-      "postCount": 1,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "uklaw"
       ],
       "posts": [
         {
-          "id": "1xm7g0u",
-          "title": "Land dispute: Neighbours threatening enforcement notices against us for fencing our private land (previously used by the public) in the middle of a residential estate",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm7g0u/land_dispute_neighbours_threatening_enforcement/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xm7g0u/land_dispute_neighbours_threatening_enforcement/",
+          "id": "1xmwov9",
+          "title": "I have a court case to set aside a CCJ given by a Civil Enforcement and they have offered me to settle (and pay a fine) before the court case, should I fight it? England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmwov9/i_have_a_court_case_to_set_aside_a_ccj_given_by_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmwov9/i_have_a_court_case_to_set_aside_a_ccj_given_by_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793648916,
-          "snippet": "Location: England This has been ongoing for a few months now. We moved into our house (first-time buyers, so forgive our naivety) and were told a 0.3 acre green space parcel behind our house, which was used as a cut-through mostly by dog-walkers, would never be built on (it was a",
+          "createdUtc": 1793721363,
+          "snippet": "Parked in a pub car park had dinner and drinks in said pub - June 2023 Received parking fine letter - July 2023 Immediately messaged pub owner with bank statements showing I was in the pub at that time and had written confirmation they removed the charge - July 2023 Received no f",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xn061f",
+          "title": "Could poor first year grades affect my vacation scheme and TC applications if i got a 67% overall in second year",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xn061f/could_poor_first_year_grades_affect_my_vacation/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xn061f/could_poor_first_year_grades_affect_my_vacation/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793728922,
+          "snippet": "So, I'm currently in my final year of university and have been applying to law firms without much success so far. I'm wondering whether my poor first-year grades could be a significant factor in my applications. For context, I finished my first year with an overall average of 53.",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xmeo10",
+          "title": "LLB (2:1), completed Bar Training Course, legal experience, but hundreds of applications and no job. What am I doing wrong?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmeo10/llb_21_completed_bar_training_course_legal/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmeo10/llb_21_completed_bar_training_course_legal/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793666299,
+          "snippet": "I'm a law graduate with a 2:1 LLB (non-Russel) and an LLM/BTC, due to be called to the Bar this November. I've been in the UK for just over two years, during which I've gained experience at a solicitors' firm, chambers, a university legal clinic, and Support Through Court. All my",
           "listingSource": "rss:hot"
         }
       ]
@@ -522,9 +820,9 @@
       ]
     },
     {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -532,15 +830,63 @@
       ],
       "posts": [
         {
-          "id": "1xmsq2i",
-          "title": "England - Physcially assaulted by ex, arrested for stalking, intially falsely accused of physcially harming ex and their children. How can I speed up process of potential CCTV footage being viewed that will demonstrate the initial false accusation?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsq2i/england_physcially_assaulted_by_ex_arrested_for/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xmsq2i/england_physcially_assaulted_by_ex_arrested_for/",
+          "id": "1xn22x1",
+          "title": "Divorce England: short marriage settlement advice?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn22x1/divorce_england_short_marriage_settlement_advice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn22x1/divorce_england_short_marriage_settlement_advice/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793711958,
-          "snippet": "Hi recently I was arrested for stalking however during the incident my ex physicially assaulted me and when I pointed this out to them they then started shouting it was in self defence for physically assaulting them and their children which was untrue (I never assaulted or touche",
+          "createdUtc": 1793733044,
+          "snippet": "My husband (33) and I (32) cohabited for 6 years total, and were married for the last 2.5 of them. We both had well paid jobs in the UK but we wanted to live abroad. As his career is more specialised, he found a job abroad that could support us both and we made the move. Despite ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "mental-health-law",
+      "label": "Mental Health Law",
+      "legalAreaSlug": "mental_health",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xn7vjr",
+          "title": "Can a small repair done before section 20 consultation count as part of the later major works?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn7vjr/can_a_small_repair_done_before_section_20/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xn7vjr/can_a_small_repair_done_before_section_20/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793746430,
+          "snippet": "Location: England TL;DR: The managing agent knew a retaining wall needed rebuilding, did a £1,980 repair first (under the £250 per flat threshold), then started section 20 consultation for a full rebuild. The engineer says the repair didn’t fix anything. Could that count as part ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "public-law-and-judicial-review",
+      "label": "Public Law and Judicial Review",
+      "legalAreaSlug": "public_law",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "uklaw"
+      ],
+      "posts": [
+        {
+          "id": "1xmpbfb",
+          "title": "Rising caseloads in Judicial Review: a question of AI?",
+          "url": "https://www.reddit.com/r/uklaw/comments/1xmpbfb/rising_caseloads_in_judicial_review_a_question_of/",
+          "permalink": "https://www.reddit.com/r/uklaw/comments/1xmpbfb/rising_caseloads_in_judicial_review_a_question_of/",
+          "subreddit": "uklaw",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793701094,
+          "snippet": "https://ukconstitutionallaw.org/2026/10/30/sam-guy-joe-tomlinson-rising-caseloads-in-judicial-review-a-question-of-ai/ A most interesting article from the UK Constitutional Law Association; I really recommend their blog. In a nutshell: *In the Administrative Court User Group minu",
           "listingSource": "rss:hot"
         }
       ]
