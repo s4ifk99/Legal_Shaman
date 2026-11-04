@@ -10,6 +10,7 @@ import {
   type AppliedFilters,
   type PracticeAreaSlug,
 } from "@/lib/agent/types";
+import { useLocale } from "@/components/i18n/locale-provider";
 
 type Props = {
   value: AppliedFilters;
@@ -17,16 +18,16 @@ type Props = {
   disabled?: boolean;
 };
 
-const PRACTICE_AREA_LABELS: Record<PracticeAreaSlug, string> = {
-  employment: "Employment",
-  immigration: "Immigration",
-  family: "Family",
-  criminal_defence: "Criminal defence",
-  personal_injury: "Personal injury",
-  commercial: "Commercial",
-};
-
 export function LawyerFiltersSidebar({ value, onChange, disabled }: Props) {
+  const { t } = useLocale();
+  const practiceLabels: Record<PracticeAreaSlug, string> = {
+    employment: t.employment,
+    immigration: t.immigration,
+    family: t.family,
+    criminal_defence: t.criminalDefence,
+    personal_injury: t.personalInjury,
+    commercial: t.commercial,
+  };
   const set = <K extends keyof AppliedFilters>(key: K, v: AppliedFilters[K]) => {
     const next = { ...value, [key]: v };
     if (v === undefined || v === false || v === "") {
@@ -38,11 +39,11 @@ export function LawyerFiltersSidebar({ value, onChange, disabled }: Props) {
   return (
     <Card className="sticky top-4">
       <CardHeader className="pb-3">
-        <CardTitle className="text-base">Filters</CardTitle>
+        <CardTitle className="text-base">{t.filters}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-5">
         <div className="space-y-2">
-          <Label htmlFor="filter-practice">Practice area</Label>
+          <Label htmlFor="filter-practice">{t.practiceArea}</Label>
           <Select
             disabled={disabled}
             value={value.practiceArea ?? "any"}
@@ -54,10 +55,10 @@ export function LawyerFiltersSidebar({ value, onChange, disabled }: Props) {
               <SelectValue placeholder="Any" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="any">Any practice area</SelectItem>
+              <SelectItem value="any">{t.anyPractice}</SelectItem>
               {PRACTICE_AREA_SLUGS.map((slug) => (
                 <SelectItem key={slug} value={slug}>
-                  {PRACTICE_AREA_LABELS[slug]}
+                  {practiceLabels[slug]}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -65,11 +66,11 @@ export function LawyerFiltersSidebar({ value, onChange, disabled }: Props) {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="filter-language">Language</Label>
+          <Label htmlFor="filter-language">{t.filterLanguage}</Label>
           <Input
             id="filter-language"
             disabled={disabled}
-            placeholder="e.g. Urdu"
+            placeholder={t.languageExample}
             value={value.language ?? ""}
             onChange={(e) => set("language", e.target.value.trim() || undefined)}
           />
@@ -82,7 +83,7 @@ export function LawyerFiltersSidebar({ value, onChange, disabled }: Props) {
               onCheckedChange={(c) => set("freeConsultation", c === true ? true : undefined)}
               disabled={disabled}
             />
-            Free consultation
+            {t.freeConsultation}
           </label>
           <label className="flex items-center gap-2 text-sm">
             <Checkbox
@@ -90,7 +91,7 @@ export function LawyerFiltersSidebar({ value, onChange, disabled }: Props) {
               onCheckedChange={(c) => set("verifiedOnly", c === true ? true : undefined)}
               disabled={disabled}
             />
-            Verified credentials only
+            {t.verifiedOnly}
           </label>
         </div>
       </CardContent>

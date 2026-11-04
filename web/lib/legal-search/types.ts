@@ -1,6 +1,7 @@
 import { z } from "zod";
 import type { ResultDebugDiagnostics, SearchResponseDebug } from "@/lib/legal-search/search-diagnostics-types";
 import { FundingIntentSchema } from "@/lib/legal-search/funding-intent";
+import type { ProviderEvidence } from "@/lib/legal-search/evidence/types";
 
 /** Provenance of a unified hit. */
 export const SearchSourceSchema = z.enum([
@@ -71,6 +72,8 @@ export type SearchResult = {
   raw: unknown;
   scores: SearchResultScores;
   explanation: string;
+  /** Review and cost facts. A number is present only when a cited source supports it. */
+  providerEvidence?: ProviderEvidence;
   warnings?: string[];
   /** adl | adlGroup | sra — for legacy GET mapping */
   legacyKind?: "adl" | "adlGroup" | "sra";

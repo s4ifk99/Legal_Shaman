@@ -39,6 +39,7 @@ import { userFacingDegradedModes } from "@/lib/legal-search/degraded-modes";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 import type { AppliedFilters } from "@/lib/agent/types";
 import type { LatLng } from "@/lib/search/location";
+import { disputeTimescaleForSlug } from "@/lib/legal-search/evidence/dispute-timescales";
 
 export type TriageSearchContext = {
   appliedFilters?: AppliedFilters;
@@ -367,6 +368,9 @@ function resultsResponse(
       }),
     externalFallback: results.externalFallback,
     coverageNotice: results.coverageNotice,
+    disputeTimescale: disputeTimescaleForSlug(
+      updatedState.taxonomySlug ?? results.parsedQuery.taxonomySlug,
+    ),
     disclaimer: TRIAGE_DISCLAIMER,
   };
 }

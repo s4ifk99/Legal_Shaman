@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { SpiralDecoration } from "./spiral-decoration";
 import { cn } from "@/lib/utils";
 import { useRequireAuth } from "@/lib/auth/use-require-auth";
+import { useLocale } from "@/components/i18n/locale-provider";
 
 type SuggestListing = {
   id: string;
@@ -42,6 +43,7 @@ function looksLikeStoryQuery(q: string): boolean {
 export function SearchBar({ compact = false }: { compact?: boolean }) {
   const router = useRouter();
   const { requireAuth } = useRequireAuth();
+  const { t: copy, path } = useLocale();
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -100,12 +102,12 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
         const params = new URLSearchParams();
         params.set("q", query.trim());
         if (semantic) params.set("semantic", "1");
-        router.push(`/ask-the-shaman?${params.toString()}`);
+        router.push(path(`/ask-the-shaman?${params.toString()}`));
         setOpen(false);
       };
       requireAuth(run, "search");
     },
-    [router, requireAuth],
+    [path, router, requireAuth],
   );
 
   const onSubmit = (e: React.FormEvent) => {
@@ -157,7 +159,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
               <span className="text-secondary">Shaman</span>
             </h1>
             <p className="mb-1 text-base font-medium text-foreground md:text-lg">
-              Signposting, not legal advice
+              {copy.notAdviceShort}
             </p>
           </>
         ) : (
@@ -176,13 +178,12 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
               <span className="text-secondary">Shaman</span>
             </h1>
             <p className="mb-2 text-base font-medium text-foreground md:text-lg">
-              Signposting, not legal advice
+              {copy.notAdviceShort}
             </p>
           </>
         )}
         <p className={cn("text-muted-foreground", compact ? "mb-6 md:text-lg" : "mb-8")}>
-          Describe your situation. We point you to legal aid, free services, and solicitors. We do
-          not advise on your case.
+          {copy.homeLead}
         </p>
 
         <form
@@ -209,7 +210,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
                   if (q.trim()) goSearch(q, false);
                 }
               }}
-              placeholder="Describe your situation — we signpost, we do not advise…"
+              placeholder={copy.homePlaceholder}
               className="min-h-14 max-h-[220px] resize-none overflow-y-auto border-2 border-gold/30 bg-card py-3.5 pl-12 pr-4 text-base leading-relaxed placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-gold/30"
               autoComplete="off"
               aria-autocomplete="list"
@@ -224,7 +225,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
                 {loading && (
                   <div className="flex items-center gap-2 px-4 py-4 text-sm text-muted-foreground">
                     <Loader2 className="h-4 w-4 animate-spin text-primary" />
-                    Searching…
+                    {copy.searching}
                   </div>
                 )}
                 {!loading && hasHits && data && (
@@ -232,7 +233,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
                     {data.categories.length > 0 && (
                       <div className="border-b border-border px-2 py-2">
                         <div className="px-2 py-1 text-xs font-medium uppercase tracking-wide text-gold">
-                          Categories
+                          {copy.searchCategories}
                         </div>
                         {data.categories.map((c) => (
                           <button
@@ -241,7 +242,7 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
                             role="option"
                             className="flex w-full items-center gap-2 rounded-lg px-2 py-2.5 text-left text-sm hover:bg-primary/10"
                             onClick={() =>
-                              requireAuth(() => router.push(`/category/${c.slug}`), "search")
+                              requireAuth(() => router.push(path(`/category/${c.slug}`)), "search")
                             }
                           >
                             <FolderOpen className="h-4 w-4 shrink-0 text-primary" />

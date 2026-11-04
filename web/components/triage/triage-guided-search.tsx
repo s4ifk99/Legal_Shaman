@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
+import { useLocale } from "@/components/i18n/locale-provider";
 import { LawyerFiltersSidebar } from "@/components/lawyer-filters-sidebar";
 import { SearchLocationBar, type SearchOrigin } from "@/components/search/search-location-bar";
 import { SearchResultsLayout } from "@/components/search/search-results-layout";
@@ -77,6 +78,7 @@ export function TriageGuidedSearch({
   debugEnabled = false,
 }: TriageGuidedSearchProps) {
   const { requireAuth, openAuthForSearch } = useRequireAuth();
+  const { t } = useLocale();
   const [query, setQuery] = useState("");
   const [locationCity, setLocationCity] = useState("");
   const [searchOrigin, setSearchOrigin] = useState<SearchOrigin | null>(null);
@@ -326,6 +328,7 @@ export function TriageGuidedSearch({
           query={status.payload.triageState.mergedQuery}
           parsedPracticeArea={status.payload.parsedQuery.practiceAreaSlug ?? undefined}
           parsedLocation={status.payload.parsedQuery.location ?? locationCity.trim() ?? undefined}
+          disputeTimescale={status.payload.disputeTimescale}
         />
         {allResults.length > 0 ? <SraAttribution /> : null}
         <TriageResultsEmailCard
@@ -347,11 +350,11 @@ export function TriageGuidedSearch({
 
       <div className="order-1 space-y-6 lg:order-2">
         <DisclaimerBanner />
-        <p className="text-xs text-muted-foreground">{status.kind === "results" ? status.payload.disclaimer : "Guided search for signposting only — not legal advice."}</p>
+        <p className="text-xs text-muted-foreground">{status.kind === "results" ? status.payload.disclaimer : t.guidedDisclaimer}</p>
 
         <form onSubmit={onSubmit} className="space-y-3">
           <label htmlFor="triage-query" className="block text-sm font-medium">
-            What legal problem do you need help with?
+            {t.askLabel}
           </label>
           <Textarea
             id="triage-query"
@@ -373,18 +376,18 @@ export function TriageGuidedSearch({
               {isLoading ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  Working…
+                  {t.askWorking}
                 </>
               ) : (
                 <>
                   <Search className="h-4 w-4" />
-                  Start guided search
+                  {t.askSubmit}
                 </>
               )}
             </Button>
             <Button type="button" variant="outline" size="sm" onClick={startOver}>
               <RotateCcw className="mr-1 h-3 w-3" />
-              Start over
+              {t.askRestart}
             </Button>
             {EXAMPLE_QUERIES.map((ex) => (
               <button

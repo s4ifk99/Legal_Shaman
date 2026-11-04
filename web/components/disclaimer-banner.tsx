@@ -1,6 +1,10 @@
+"use client";
+
 import { Info } from "lucide-react";
+import { useLocale } from "@/components/i18n/locale-provider";
 
 export function DisclaimerBanner({ message }: { message?: string }) {
+  const { t } = useLocale();
   return (
     <div
       role="note"
@@ -8,10 +12,7 @@ export function DisclaimerBanner({ message }: { message?: string }) {
     >
       <div className="flex items-start gap-2">
         <Info className="mt-0.5 h-4 w-4 flex-shrink-0" />
-        <p className="leading-snug">
-          {message ??
-            "This is not legal advice. Matches are generated from stored profile data — they do not assess your specific case."}
-        </p>
+        <p className="leading-snug">{message ?? t.disclaimer}</p>
       </div>
     </div>
   );

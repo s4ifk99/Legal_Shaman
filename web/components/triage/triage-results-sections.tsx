@@ -11,6 +11,17 @@ import {
   publicResultTitle,
 } from "@/lib/legal-search/public-search-result";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  DisputeTimescaleBanner,
+  ResultEvidenceFilterBar,
+  ResultEvidenceLines,
+} from "@/components/search/result-evidence";
+import { countHiddenUnknown, evidenceMatchesFilters } from "@/lib/legal-search/evidence/filters";
+import {
+  DEFAULT_EVIDENCE_FILTERS,
+  type DisputeTimescale,
+  type ResultEvidenceFilters,
+} from "@/lib/legal-search/evidence/types";
 import { cn } from "@/lib/utils";
 
 type TriageResultsSectionsProps = {
@@ -19,6 +30,7 @@ type TriageResultsSectionsProps = {
   query: string;
   parsedPracticeArea?: string;
   parsedLocation?: string;
+  disputeTimescale?: DisputeTimescale;
 };
 
 export function TriageResultsSections({
@@ -27,8 +39,10 @@ export function TriageResultsSections({
   query,
   parsedPracticeArea,
   parsedLocation,
+  disputeTimescale,
 }: TriageResultsSectionsProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [evidenceFilters, setEvidenceFilters] = useState<ResultEvidenceFilters>(DEFAULT_EVIDENCE_FILTERS);
 
   const toggleExpand = useCallback((resultId: string) => {
     setExpandedId((current) => (current === resultId ? null : resultId));
@@ -43,26 +57,50 @@ export function TriageResultsSections({
 
   if (!sections.length) {
     return (
-      <p className="rounded-md border bg-card p-6 text-center text-sm text-muted-foreground">
-        No providers matched yet. Try widening your search or adjusting funding preference.
-      </p>
+      <div className="space-y-4">
+        {disputeTimescale ? <DisputeTimescaleBanner timescale={disputeTimescale} /> : null}
+        <p className="rounded-md border bg-card p-6 text-center text-sm text-muted-foreground">
+          No providers matched yet. Try widening your search or adjusting funding preference.
+        </p>
+      </div>
     );
   }
 
   const resultIndex = new Map<string, number>();
   let index = 0;
-  for (const section of sections) {
-    for (const r of section.results) {
-      resultIndex.set(r.id, index++);
-    }
+  const allResults = sections.flatMap((section) => section.results);
+  for (const r of allResults) {
+    resultIndex.set(r.id, index++);
   }
+  const visibleSections = sections
+    .map((section) => ({
+      ...section,
+      results: section.results.filter((result) =>
+        evidenceMatchesFilters(result.providerEvidence, evidenceFilters),
+      ),
+    }))
+    .filter((section) => section.results.length > 0);
+  const shown = visibleSections.reduce((count, section) => count + section.results.length, 0);
+  const hiddenUnknown = countHiddenUnknown(
+    allResults,
+    (result) => result.providerEvidence,
+    evidenceFilters,
+  );
 
   return (
     <div className="space-y-8">
+      {disputeTimescale ? <DisputeTimescaleBanner timescale={disputeTimescale} /> : null}
+      <ResultEvidenceFilterBar
+        value={evidenceFilters}
+        onChange={setEvidenceFilters}
+        shown={shown}
+        total={allResults.length}
+        hiddenUnknown={hiddenUnknown}
+      />
       <p className="text-sm text-muted-foreground">
         Click a result for full contact details and office information.
       </p>
-      {sections.map((section) => (
+      {visibleSections.map((section) => (
         <section key={section.kind} className="space-y-3">
           <h2 className="font-serif text-lg font-semibold text-primary">{section.title}</h2>
           <ul className="space-y-3">
@@ -161,6 +199,9 @@ function TriageResultItem({
             </div>
           </CardContent>
         </button>
+        <div className="px-4 pb-4">
+          <ResultEvidenceLines evidence={result.providerEvidence} />
+        </div>
 
         {isExpanded ? (
           <>

@@ -4,6 +4,7 @@ import type { SearchResponseDebug } from "@/lib/legal-search/search-diagnostics-
 import type { ExternalFallbackPayload } from "@/lib/legal-search/external-fallback/types";
 import type { TriageCompletenessReport } from "@/lib/legal-search/triage/completeness";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
+import type { DisputeTimescale } from "@/lib/legal-search/evidence/types";
 
 export type { TriageCompletenessReport } from "@/lib/legal-search/triage/completeness";
 
@@ -108,6 +109,8 @@ export type TriageResultsResponse = {
   triageState: TriageState;
   fundingRoutes: FundingRoute[];
   sections: TriageResultSection[];
+  /** How long this kind of dispute takes. One fact for the search, not each firm. */
+  disputeTimescale: DisputeTimescale;
   /** Separate from internal `sections` — trusted external signposts only. */
   externalFallback?: ExternalFallbackPayload;
   /** Shown when private/SRA family coverage in the index is limited. */

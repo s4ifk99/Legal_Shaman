@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRequireAuth } from "@/lib/auth/use-require-auth";
+import { useLocale } from "@/components/i18n/locale-provider";
 
 type SuggestListing = {
   id: string;
@@ -50,6 +51,7 @@ export function SearchFormWithSuggestions({
 }: Props) {
   const router = useRouter();
   const { requireAuth } = useRequireAuth();
+  const { t, path, parentCategory } = useLocale();
   const listId = useId();
   const [query, setQuery] = useState(initialQuery);
   const [freeOnly, setFreeOnly] = useState(initialFreeOnly);
@@ -97,12 +99,12 @@ export function SearchFormWithSuggestions({
     (qOverride?: string) => {
       const run = () => {
         const qs = buildSearchParams(qOverride ?? query, freeOnly, legalAidOnly, city);
-        router.push(`/search${qs ? `?${qs}` : ""}`);
+        router.push(path(`/search${qs ? `?${qs}` : ""}`));
         setOpen(false);
       };
       requireAuth(run, "search");
     },
-    [query, freeOnly, legalAidOnly, city, router, requireAuth],
+    [query, freeOnly, legalAidOnly, city, router, requireAuth, path],
   );
 
   useEffect(() => {
@@ -179,7 +181,7 @@ export function SearchFormWithSuggestions({
           }}
           onFocus={() => query.trim().length >= 2 && flatCount > 0 && setOpen(true)}
           onKeyDown={onKeyDown}
-          placeholder="e.g. mediation, legal aid, drink driving…"
+          placeholder={t.searchPlaceholder}
           className="h-12 border-2 border-primary/20 pl-11 text-base"
         />
         {open && query.trim().length >= 2 && flatCount > 0 && (
@@ -189,7 +191,7 @@ export function SearchFormWithSuggestions({
             className="absolute z-50 mt-1 max-h-64 w-full overflow-auto rounded-md border border-border bg-popover py-1 text-sm shadow-md"
           >
             {listings.length > 0 && (
-              <li className="px-2 py-1 text-xs font-medium text-muted-foreground">Listings</li>
+              <li className="px-2 py-1 text-xs font-medium text-muted-foreground">{t.listings}</li>
             )}
             {listings.map((L, i) => (
               <li key={L.id} role="option" aria-selected={activeIndex === i}>
@@ -212,7 +214,7 @@ export function SearchFormWithSuggestions({
               </li>
             ))}
             {categories.length > 0 && (
-              <li className="px-2 py-1 text-xs font-medium text-muted-foreground">Topics</li>
+              <li className="px-2 py-1 text-xs font-medium text-muted-foreground">{t.topics}</li>
             )}
             {categories.map((c, j) => {
               const idx = listings.length + j;
@@ -225,12 +227,12 @@ export function SearchFormWithSuggestions({
                     }`}
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={() => {
-                      router.push(`/category/${c.slug}`);
+                      router.push(path(`/category/${c.slug}`));
                       setOpen(false);
                     }}
                   >
                     <span className="font-medium text-foreground">{c.name}</span>
-                    <span className="text-xs text-muted-foreground">{c.parentCategory}</span>
+                    <span className="text-xs text-muted-foreground">{parentCategory(c.parentCategory)}</span>
                   </button>
                 </li>
               );
@@ -241,7 +243,7 @@ export function SearchFormWithSuggestions({
 
       <div className="flex flex-wrap items-center gap-4">
         <Button type="submit" className="h-11">
-          Search
+          {t.searchSubmit}
         </Button>
         <div className="flex items-center gap-2">
           <Checkbox
@@ -250,7 +252,7 @@ export function SearchFormWithSuggestions({
             onCheckedChange={(v) => setFreeOnly(v === true)}
           />
           <Label htmlFor="sf-free" className="cursor-pointer text-sm text-muted-foreground">
-            Free only
+            {t.searchFree}
           </Label>
         </div>
         <div className="flex items-center gap-2">
@@ -260,7 +262,7 @@ export function SearchFormWithSuggestions({
             onCheckedChange={(v) => setLegalAidOnly(v === true)}
           />
           <Label htmlFor="sf-la" className="cursor-pointer text-sm text-muted-foreground">
-            Legal aid listings only
+            {t.searchLegalAid}
           </Label>
         </div>
       </div>
@@ -268,7 +270,7 @@ export function SearchFormWithSuggestions({
       <div className="flex flex-wrap items-end gap-3">
         <div className="min-w-[180px]">
           <Label htmlFor="sf-city" className="mb-1 block text-xs font-medium text-muted-foreground">
-            City
+            {t.searchCity}
           </Label>
           <select
             id="sf-city"
@@ -276,7 +278,7 @@ export function SearchFormWithSuggestions({
             onChange={(e) => setCity(e.target.value)}
             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <option value="">Any city</option>
+            <option value="">{t.searchAnyCity}</option>
             {cities.map((c) => (
               <option key={c} value={c}>
                 {c}
