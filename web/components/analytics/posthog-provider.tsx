@@ -12,11 +12,31 @@ import {
 
 let posthogReady = false;
 
+type PendingCapture = {
+  event: string;
+  properties?: Record<string, string | number | boolean | null>;
+};
+
+/** Child effects can run before PostHogProvider init; queue until ready. */
+const pendingCaptures: PendingCapture[] = [];
+
+function flushPendingCaptures() {
+  if (!posthogReady) return;
+  while (pendingCaptures.length > 0) {
+    const next = pendingCaptures.shift();
+    if (!next) break;
+    posthog.capture(next.event, next.properties);
+  }
+}
+
 export function captureProductEvent(
   event: string,
   properties?: Record<string, string | number | boolean | null>,
 ) {
-  if (!posthogReady) return;
+  if (!posthogReady) {
+    pendingCaptures.push({ event, properties });
+    return;
+  }
   posthog.capture(event, properties);
 }
 
@@ -106,6 +126,7 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
       autocapture: false,
     });
     posthogReady = true;
+    flushPendingCaptures();
     trackVisitLifecycle();
   }, []);
 
