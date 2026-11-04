@@ -194,9 +194,37 @@ export async function POST(req: Request) {
     const latestText = String(body.latestText || "").trim();
     const submission = researchStory(latestText);
     const message = String(body.message || "").trim();
-    if (latestText.length < 8 || !caseKey) {
+    if (!caseKey) {
       await finishUsage("failed");
       return NextResponse.json({ error: "missing_research_context" }, { status: 400 });
+    }
+    // Homepage seeds like ?q=parking are often under 8 chars. Ask for the story
+    // instead of hard-failing Third Eye with a generic "research stopped" error.
+    if (latestText.length < 8) {
+      const seedLabel = latestText || "this";
+      const question = latestText
+        ? `You started with “${seedLabel}”. What happened — roughly when, who else was involved, and what do you need help with?`
+        : "Briefly what happened, when, who was involved, and what you need help with?";
+      const thinBundle = {
+        mode: "penumbra" as const,
+        status: "needs_input" as const,
+        questions: [question],
+        sources: [],
+        claims: [],
+        conflicts: [],
+        missingFacts: ["Need a short account of what happened before open-web research."],
+        nextActions: [],
+        freeResources: [],
+      };
+      await finishUsage("completed");
+      return NextResponse.json({
+        conversationId: String(body.conversationId || "").trim() || undefined,
+        status: "needs_input",
+        questions: [question],
+        bundle: thinBundle,
+        latencyMs: 0,
+        cacheHit: false,
+      });
     }
 
     if (shouldProxyArambToHomeBackend()) {
