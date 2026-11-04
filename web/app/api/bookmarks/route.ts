@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { accountsPrisma } from "@/lib/db/accounts";
 import { getCurrentUser } from "@/lib/auth/get-current-user";
+import { ensureBookmarkSchema } from "@/lib/bookmarks/schema";
 import {
   BookmarkDeleteSchema,
   BookmarkNoteSchema,
@@ -38,6 +39,7 @@ export async function GET() {
     return NextResponse.json({ error: "Sign in required" }, { status: 401 });
   }
 
+  await ensureBookmarkSchema();
   const rows = await accountsPrisma.bookmark.findMany({
     where: { userId: user.id },
     orderBy: { createdAt: "desc" },
@@ -69,6 +71,7 @@ export async function POST(req: Request) {
     );
   }
 
+  await ensureBookmarkSchema();
   const { entityId, resultSource, businessName } = parsed.data;
   const bookmark = await accountsPrisma.bookmark.upsert({
     where: {
@@ -112,6 +115,7 @@ export async function PATCH(req: Request) {
     );
   }
 
+  await ensureBookmarkSchema();
   const { entityId, resultSource, note, nextAction, status } = parsed.data;
   const existing = await accountsPrisma.bookmark.findUnique({
     where: {
@@ -159,6 +163,7 @@ export async function DELETE(req: Request) {
     );
   }
 
+  await ensureBookmarkSchema();
   await accountsPrisma.bookmark.deleteMany({
     where: {
       userId: user.id,

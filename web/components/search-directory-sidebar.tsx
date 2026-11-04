@@ -98,6 +98,52 @@ export function SearchDirectorySidebar(props: Props) {
           </Link>
         ))}
       </div>
+      <p className="mb-2 mt-4 font-medium text-foreground">{t.reviews}</p>
+      <div className="flex flex-wrap gap-1.5">
+        {(
+          [
+            { id: "all", label: t.all },
+            { id: "verified", label: t.verifiedReviews },
+            { id: "four_plus", label: t.fourStars },
+          ] as const
+        ).map(({ id, label }) => (
+          <Link
+            key={id}
+            href={href(locale, props, { reviews: id })}
+            className={`rounded-full border px-2 py-0.5 text-xs ${
+              (props.reviews || "all") === id
+                ? "border-primary bg-primary/10"
+                : "border-border hover:bg-muted"
+            }`}
+          >
+            {label}
+          </Link>
+        ))}
+      </div>
+      <p className="mb-2 mt-4 font-medium text-foreground">{t.cost}</p>
+      <div className="flex flex-wrap gap-1.5">
+        {(
+          [
+            { id: "all", label: t.all },
+            { id: "free", label: t.freeToYou },
+            { id: "legal_aid", label: t.legalAid },
+            { id: "published_fee", label: t.publishedPrice },
+            { id: "unpublished", label: t.priceUnknown },
+          ] as const
+        ).map(({ id, label }) => (
+          <Link
+            key={id}
+            href={href(locale, props, { cost: id })}
+            className={`rounded-full border px-2 py-0.5 text-xs ${
+              (props.cost || "all") === id
+                ? "border-primary bg-primary/10"
+                : "border-border hover:bg-muted"
+            }`}
+          >
+            {label}
+          </Link>
+        ))}
+      </div>
     </aside>
   );
 }

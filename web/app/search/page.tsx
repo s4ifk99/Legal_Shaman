@@ -45,6 +45,8 @@ type PageProps = {
     reviews?: string;
     cost?: string;
     landing?: string;
+    lat?: string;
+    lng?: string;
   }>;
 };
 
@@ -73,6 +75,10 @@ export default async function SearchPage({ searchParams }: PageProps) {
   const practiceArea = sp.practiceArea?.trim();
   const location = sp.location?.trim();
   const initialExpandedEntity = sp.entity?.trim() || undefined;
+  const lat = Number.parseFloat(sp.lat || "");
+  const lng = Number.parseFloat(sp.lng || "");
+  const origin =
+    Number.isFinite(lat) && Number.isFinite(lng) ? { lat, lng } : undefined;
 
   const cities = getDistinctCities({ max: 32 });
   const currentUser = await getCurrentUser();
@@ -92,6 +98,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
         source,
         practiceArea,
         location,
+        origin,
       })
     : null;
 
@@ -142,12 +149,14 @@ export default async function SearchPage({ searchParams }: PageProps) {
         <RedditResults query={q} enabled={redditEnabled && isAuthenticated} />
 
         <SearchFormWithSuggestions
-          key={`${q}|${freeOnly}|${legalAidOnly}|${cityFacet}`}
+          key={`${q}|${freeOnly}|${legalAidOnly}|${cityFacet}|${origin?.lat ?? ""}|${origin?.lng ?? ""}`}
           initialQuery={q}
           initialFreeOnly={freeOnly}
           initialLegalAidOnly={legalAidOnly}
           initialCity={cityFacet}
           cities={cities}
+          initialLat={origin?.lat}
+          initialLng={origin?.lng}
         />
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[260px_1fr]">

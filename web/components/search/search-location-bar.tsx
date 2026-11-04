@@ -52,7 +52,7 @@ export function SearchLocationBar({
           };
           if (!res.ok) throw new Error(data.error || "Could not resolve your area");
 
-          onOriginChange({ lat: latitude, longitude });
+          onOriginChange({ lat: latitude, lng: longitude });
           if (data.city) onCityChange(data.city);
           setGeoStatus("idle");
           setGeoMessage(data.label ? `Using ${data.label}` : "Using your current area");

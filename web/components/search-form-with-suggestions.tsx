@@ -9,6 +9,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRequireAuth } from "@/lib/auth/use-require-auth";
 import { useLocale } from "@/components/i18n/locale-provider";
+import {
+  SearchLocationBar,
+  type SearchOrigin,
+} from "@/components/search/search-location-bar";
 
 type SuggestListing = {
   id: string;
@@ -30,15 +34,27 @@ type Props = {
   initialLegalAidOnly: boolean;
   initialCity: string;
   cities: string[];
+  initialLat?: number;
+  initialLng?: number;
 };
 
-function buildSearchParams(q: string, freeOnly: boolean, legalAidOnly: boolean, city: string): string {
+function buildSearchParams(
+  q: string,
+  freeOnly: boolean,
+  legalAidOnly: boolean,
+  city: string,
+  origin: SearchOrigin | null,
+): string {
   const p = new URLSearchParams();
   const t = q.trim();
   if (t) p.set("q", t);
   if (freeOnly) p.set("free", "1");
   if (legalAidOnly) p.set("legalAid", "1");
   if (city.trim()) p.set("city", city.trim());
+  if (origin) {
+    p.set("lat", String(origin.lat));
+    p.set("lng", String(origin.lng));
+  }
   return p.toString();
 }
 
@@ -48,6 +64,8 @@ export function SearchFormWithSuggestions({
   initialLegalAidOnly,
   initialCity,
   cities,
+  initialLat,
+  initialLng,
 }: Props) {
   const router = useRouter();
   const { requireAuth } = useRequireAuth();
@@ -57,6 +75,14 @@ export function SearchFormWithSuggestions({
   const [freeOnly, setFreeOnly] = useState(initialFreeOnly);
   const [legalAidOnly, setLegalAidOnly] = useState(initialLegalAidOnly);
   const [city, setCity] = useState(initialCity);
+  const [origin, setOrigin] = useState<SearchOrigin | null>(() =>
+    typeof initialLat === "number" &&
+    Number.isFinite(initialLat) &&
+    typeof initialLng === "number" &&
+    Number.isFinite(initialLng)
+      ? { lat: initialLat, lng: initialLng }
+      : null,
+  );
   const [listings, setListings] = useState<SuggestListing[]>([]);
   const [categories, setCategories] = useState<SuggestCategory[]>([]);
   const [open, setOpen] = useState(false);
@@ -98,13 +124,13 @@ export function SearchFormWithSuggestions({
   const goSearch = useCallback(
     (qOverride?: string) => {
       const run = () => {
-        const qs = buildSearchParams(qOverride ?? query, freeOnly, legalAidOnly, city);
+        const qs = buildSearchParams(qOverride ?? query, freeOnly, legalAidOnly, city, origin);
         router.push(path(`/search${qs ? `?${qs}` : ""}`));
         setOpen(false);
       };
       requireAuth(run, "search");
     },
-    [query, freeOnly, legalAidOnly, city, router, requireAuth, path],
+    [query, freeOnly, legalAidOnly, city, origin, router, requireAuth, path],
   );
 
   useEffect(() => {
@@ -267,7 +293,14 @@ export function SearchFormWithSuggestions({
         </div>
       </div>
 
-      <div className="flex flex-wrap items-end gap-3">
+      <SearchLocationBar
+        city={city}
+        onCityChange={setCity}
+        origin={origin}
+        onOriginChange={setOrigin}
+      />
+
+      {cities.length > 0 ? (
         <div className="min-w-[180px]">
           <Label htmlFor="sf-city" className="mb-1 block text-xs font-medium text-muted-foreground">
             {t.searchCity}
@@ -275,7 +308,10 @@ export function SearchFormWithSuggestions({
           <select
             id="sf-city"
             value={city}
-            onChange={(e) => setCity(e.target.value)}
+            onChange={(e) => {
+              setOrigin(null);
+              setCity(e.target.value);
+            }}
             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <option value="">{t.searchAnyCity}</option>
@@ -286,7 +322,7 @@ export function SearchFormWithSuggestions({
             ))}
           </select>
         </div>
-      </div>
+      ) : null}
     </form>
   );
 }
