@@ -21,6 +21,10 @@ import { recordUsageEvent, releaseConcurrent } from "@/lib/coherence/usage";
 import type { MatterFrame } from "@/lib/matter";
 import { matchingGuidanceFromFrame, preferFrameMatching } from "@/lib/coherence/issueRouting";
 import { buildExaResearchBrief, cacheMatterKey } from "@/lib/penumbra/exaBrief";
+import {
+  moreDetailResearchQuestion,
+  needsMoreStoryDetail,
+} from "@/lib/coherence/penumbraResearch";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -198,13 +202,9 @@ export async function POST(req: Request) {
       await finishUsage("failed");
       return NextResponse.json({ error: "missing_research_context" }, { status: 400 });
     }
-    // Homepage seeds like ?q=parking are often under 8 chars. Ask for the story
-    // instead of hard-failing Third Eye with a generic "research stopped" error.
-    if (latestText.length < 8) {
-      const seedLabel = latestText || "this";
-      const question = latestText
-        ? `You started with “${seedLabel}”. What happened — roughly when, who else was involved, and what do you need help with?`
-        : "Briefly what happened, when, who was involved, and what you need help with?";
+    // Keyword seeds (e.g. ?q=parking) need a real account before open-web research.
+    if (needsMoreStoryDetail(latestText)) {
+      const question = moreDetailResearchQuestion(latestText);
       const thinBundle = {
         mode: "penumbra" as const,
         status: "needs_input" as const,

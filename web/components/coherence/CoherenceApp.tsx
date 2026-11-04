@@ -69,8 +69,11 @@ import { loadLawyerSession, type LawyerSession } from '@/lib/coherence/lawyerAut
 import { buildSearchContextProfile } from '@/lib/coherence/searchContext'
 import { styleTranslateForRetrieval } from '@/lib/coherence/styleTranslation'
 import {
+  moreDetailResearchQuestion,
+  needsMoreStoryDetail,
   newPenumbraCaseKey,
   requestPenumbraResearch,
+  sessionAnswerText,
 } from '@/lib/coherence/penumbraResearch'
 import type { Mode, Party, Prompt, SearchMode, SessionState, TimelineEvent } from '@/lib/coherence/types'
 import './CoherenceApp.css'
@@ -797,6 +800,24 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       return
     }
 
+    if (answeredId === 'penumbra_research_error') {
+      const next = {
+        ...(value.trim() ? senseDetails(value, session) : session),
+        answeredPromptIds: Array.from(new Set([...session.answeredPromptIds, answeredId])),
+        penumbraResearch: session.penumbraResearch
+          ? {
+              ...session.penumbraResearch,
+              status: 'idle' as const,
+              error: undefined,
+              updatedAt: new Date().toISOString(),
+            }
+          : session.penumbraResearch,
+      }
+      setSession(next)
+      void runPenumbraResearch(value.trim(), next)
+      return
+    }
+
     if (answeredId === 'penumbra_research_ready') {
       void applyPenumbraResearch(session)
       return
@@ -1380,15 +1401,6 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
 
   async function runPenumbraResearch(message = '', sourceSession: SessionState = session) {
     if (sourceSession.searchMode !== 'penumbra' || penumbraInFlightRef.current) return
-    penumbraInFlightRef.current = true
-    setPenumbraBusy(true)
-    setSkipEnhance(true)
-    setPrompt({
-      id: 'penumbra_research_running',
-      kind: 'open',
-      text: 'Third Eye is researching your case before asking for more detail.',
-      reason: 'The Shaman is reviewing curated Legal Shaman sources first, then checking wider public sources for genuine gaps.',
-    })
     const current = sourceSession.penumbraResearch
     const researchState = {
       status: 'starting' as const,
@@ -1400,6 +1412,45 @@ export default function CoherenceApp({ initialStory = '' }: CoherenceAppProps) {
       updatedAt: new Date().toISOString(),
     }
     const requestSession = { ...sourceSession, penumbraResearch: researchState }
+    const storyText = sessionAnswerText(requestSession)
+    // Keyword seeds like ?q=parking — ask for the account before calling research.
+    if (!message.trim() && needsMoreStoryDetail(storyText)) {
+      const question = moreDetailResearchQuestion(storyText)
+      setSkipEnhance(true)
+      setSession({
+        ...requestSession,
+        penumbraResearch: {
+          ...researchState,
+          status: 'awaiting_input' as const,
+          questions: [question],
+          updatedAt: new Date().toISOString(),
+        },
+      })
+      setPrompt({
+        id: 'penumbra_research_question',
+        kind: 'open',
+        text: question,
+        reason: 'Third Eye needs a short account of what happened before researching.',
+        options: [
+          {
+            id: 'penumbra-skip-question',
+            label: 'Skip this question and continue',
+            value: PENUMBRA_SKIP_QUESTION,
+          },
+        ],
+      })
+      return
+    }
+
+    penumbraInFlightRef.current = true
+    setPenumbraBusy(true)
+    setSkipEnhance(true)
+    setPrompt({
+      id: 'penumbra_research_running',
+      kind: 'open',
+      text: 'Third Eye is researching your case before asking for more detail.',
+      reason: 'The Shaman is reviewing curated Legal Shaman sources first, then checking wider public sources for genuine gaps.',
+    })
     setSession(requestSession)
     try {
       // Use Aramb's awaited run contract here. The SDK's WebSocket streaming

@@ -91,7 +91,7 @@ export async function requestPenumbraResearch(
   return data
 }
 
-function sessionAnswerText(session: SessionState): string {
+export function sessionAnswerText(session: SessionState): string {
   return [
     session.whatHappened,
     session.howCaused,
@@ -102,4 +102,28 @@ function sessionAnswerText(session: SessionState): string {
     .filter(Boolean)
     .join('\n\n')
     .slice(0, 6000)
+}
+
+/** Keyword / topic seeds (e.g. homepage ?q=parking) need a real account before research. */
+export function needsMoreStoryDetail(text: string): boolean {
+  const t = text.replace(/\s+/g, ' ').trim()
+  if (!t) return true
+  if (t.length < 8) return true
+  if (t.length < 60) {
+    const words = t.split(' ').filter(Boolean)
+    const hasPersonOrEvent =
+      /\b(i|we|my|our|me|us|they|he|she|got|received|happened|told|sent|paid|fined|evict|dismiss|hurt|injured|died|accused|charged)\b/i.test(
+        t,
+      ) || /[.!?]/.test(t)
+    if (words.length <= 6 && !hasPersonOrEvent) return true
+  }
+  return false
+}
+
+export function moreDetailResearchQuestion(seed: string): string {
+  const label = seed.replace(/\s+/g, ' ').trim()
+  if (label) {
+    return `Add more detail about “${label}” — what happened, roughly when, who was involved, and what you need help with.`
+  }
+  return 'Add more detail about what happened — roughly when, who was involved, and what you need help with.'
 }
