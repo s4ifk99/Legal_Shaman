@@ -24,6 +24,12 @@ import { OslawTrendingMarquee } from "@/components/oslaw/trending-marquee";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SearchResultsGate } from "@/components/search/search-results-gate";
+import { disputeTimescaleForSlug } from "@/lib/legal-search/evidence/dispute-timescales";
+import { evidenceFiltersFromQuery } from "@/lib/legal-search/evidence/filters";
+import { getRequestLocale } from "@/lib/i18n/get-locale";
+import { localePath } from "@/lib/i18n/locales";
+import { messagesFor } from "@/lib/i18n/messages";
+import { requireSearchAuthEnabled } from "@/lib/auth/search-auth-config";
 
 type PageProps = {
   searchParams: Promise<{
@@ -36,6 +42,9 @@ type PageProps = {
     practiceArea?: string;
     location?: string;
     entity?: string;
+    reviews?: string;
+    cost?: string;
+    landing?: string;
   }>;
 };
 
@@ -52,6 +61,8 @@ function impressionRowsFromLegacy(rows: LegacyGetRow[]): DirectoryImpressionRow[
 }
 
 export default async function SearchPage({ searchParams }: PageProps) {
+  const locale = await getRequestLocale();
+  const copy = messagesFor(locale);
   const sp = await searchParams;
   const q = (sp.q || "").trim();
   const freeOnly = sp.free === "1";
@@ -66,21 +77,23 @@ export default async function SearchPage({ searchParams }: PageProps) {
   const cities = getDistinctCities({ max: 32 });
   const currentUser = await getCurrentUser();
   const isAuthenticated = Boolean(currentUser);
+  const searchAuthOn = requireSearchAuthEnabled();
+  const canRunSearch = q.length >= 2 && (!searchAuthOn || isAuthenticated);
+  const landing = (sp.landing || "").trim() || undefined;
 
-  const dir =
-    q.length >= 2 && isAuthenticated
-      ? await runDirectorySearch({
-          query: q,
-          limit: 60,
-          semantic: false,
-          freeOnly,
-          legalAidOnly,
-          city: cityFacet,
-          source,
-          practiceArea,
-          location,
-        })
-      : null;
+  const dir = canRunSearch
+    ? await runDirectorySearch({
+        query: q,
+        limit: 60,
+        semantic: false,
+        freeOnly,
+        legalAidOnly,
+        city: cityFacet,
+        source,
+        practiceArea,
+        location,
+      })
+    : null;
 
   const rows: LegacyGetRow[] = (dir?.legacyRows ?? []) as LegacyGetRow[];
   const explanations = dir?.results.map((r) => r.explanation) ?? [];
@@ -97,7 +110,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <OslawTrendingMarquee />
-      {q.length >= 2 ? (
+      {q.length >= 2 && canRunSearch ? (
         <DirectorySearchTracking
           searchKey={`${q}|${freeOnly}|${legalAidOnly}|${cityFacet}|${source ?? ""}|${practiceArea ?? ""}`}
           q={q}
@@ -108,22 +121,21 @@ export default async function SearchPage({ searchParams }: PageProps) {
           freeOnly={freeOnly}
           legalAidOnly={legalAidOnly}
           city={cityFacet || undefined}
+          landing={landing}
         />
       ) : null}
-      <div className={`mx-auto flex-1 px-4 py-10 ${wideLayout ? "max-w-7xl" : "max-w-5xl"}`}>
+      <div data-read-aloud className={`mx-auto flex-1 px-4 py-10 ${wideLayout ? "max-w-7xl" : "max-w-5xl"}`}>
         <div className="mb-6 flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h1 className="mb-2 font-serif text-3xl font-semibold text-primary">Search directory</h1>
-            <p className="text-sm text-muted-foreground">
-              Search curated listings, legal aid providers, and SRA organisations. This is not legal advice.
-            </p>
+            <h1 className="mb-2 font-serif text-3xl font-semibold text-primary">{copy.searchTitle}</h1>
+            <p className="text-sm text-muted-foreground">{copy.searchIntro}</p>
           </div>
           <Link
-            href="/bookmarks"
+            href={localePath(locale, "/bookmarks")}
             className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/10"
           >
             <Bookmark className="h-4 w-4" />
-            Bookmarks
+            {copy.bookmarks}
           </Link>
         </div>
 
@@ -146,6 +158,8 @@ export default async function SearchPage({ searchParams }: PageProps) {
             city={cityFacet}
             source={source}
             practiceArea={practiceArea}
+            reviews={sp.reviews}
+            cost={sp.cost}
           />
 
           <div>
@@ -180,7 +194,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
               </Card>
             ) : null}
             {q.length > 0 && q.length < 2 && (
-              <p className="text-sm text-muted-foreground">Enter at least 2 characters to search.</p>
+              <p className="text-sm text-muted-foreground">{copy.searchTooShort}</p>
             )}
 
             {dir?.coverageNotice ? (
@@ -213,6 +227,14 @@ export default async function SearchPage({ searchParams }: PageProps) {
                   missingCoordinatesCount={mapPayload?.missingCoordinatesCount ?? 0}
                   externalFallback={dir?.externalFallback ?? null}
                   citizensFallback={citizensFallback}
+                  evidenceByIndex={dir?.results.map((result) => result.providerEvidence) ?? []}
+                  disputeTimescale={
+                    dir ? disputeTimescaleForSlug(dir.parsedQuery.taxonomySlug) : undefined
+                  }
+                  evidenceFilters={evidenceFiltersFromQuery({
+                    reviews: sp.reviews,
+                    cost: sp.cost,
+                  })}
                 />
               </SearchResultsGate>
             )}

@@ -116,6 +116,12 @@ export default function OpsClient() {
           <Link href="/admin/users" className="text-sm text-primary hover:underline">
             Users
           </Link>
+          <Link href="/admin/review-signals" className="text-sm text-primary hover:underline">
+            Review signals
+          </Link>
+          <Link href="/admin/provider-enquiries" className="text-sm text-primary hover:underline">
+            Provider enquiries
+          </Link>
           <Link href="/admin/provider-enrichment" className="text-sm text-primary hover:underline">
             Enrichment
           </Link>

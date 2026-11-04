@@ -5,6 +5,7 @@ import { ProductEntryCards } from "@/components/product-entry-cards";
 import { SearchBar } from "@/components/search-bar";
 import { SpiralBackground } from "@/components/spiral-decoration";
 import signpostingResources from "@/data/signposting-resources.json";
+import { PROBLEM_LANDINGS } from "@/lib/problems/catalog";
 import Link from "next/link";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
 
+      <div data-read-aloud>
       <SearchBar compact />
 
       <section className="relative border-b border-border py-12 md:py-16">
@@ -29,6 +31,22 @@ export default function Home() {
             </p>
           </div>
           <ProductEntryCards />
+          <div className="mt-8">
+            <p className="mb-3 text-center text-sm font-medium text-muted-foreground">
+              Or start from a specific problem
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {PROBLEM_LANDINGS.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/problems/${p.slug}`}
+                  className="rounded-full border border-border bg-card px-3 py-1.5 text-sm text-foreground transition hover:border-primary/40 hover:text-primary"
+                >
+                  {p.title}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -117,6 +135,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </div>
 
       <Footer />
     </div>

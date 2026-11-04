@@ -7,7 +7,81 @@ import {
   isAdminDevUnprotected,
   isAdminMisconfiguredProduction,
 } from "@/lib/admin/auth";
+import { isLocaleCode, localePath, stripLocalePrefix } from "@/lib/i18n/locales";
 import { isMaintenanceMode, MAINTENANCE_MESSAGE } from "@/lib/maintenance";
+
+const LOCALE_COOKIE = "ls_locale";
+
+function skipsLocale(pathname: string): boolean {
+  return (
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/embed") ||
+    pathname === "/maintenance" ||
+    pathname === "/robots.txt" ||
+    pathname === "/sitemap.xml" ||
+    pathname === "/llms.txt"
+  );
+}
+
+function withLocaleHeader(request: NextRequest, locale: string): Headers {
+  const headers = new Headers(request.headers);
+  headers.set("x-locale", locale);
+  return headers;
+}
+
+function localeResponse(request: NextRequest): NextResponse | null {
+  const { pathname } = request.nextUrl;
+  const bare = stripLocalePrefix(pathname);
+  if (skipsLocale(bare)) {
+    if (pathname !== bare) {
+      const url = request.nextUrl.clone();
+      url.pathname = bare;
+      return NextResponse.redirect(url);
+    }
+    return null;
+  }
+
+  if (request.nextUrl.searchParams.get("lang") === "en") {
+    const url = request.nextUrl.clone();
+    url.pathname = bare;
+    url.searchParams.delete("lang");
+    const res = NextResponse.redirect(url);
+    res.cookies.set(LOCALE_COOKIE, "", { path: "/", maxAge: 0 });
+    return res;
+  }
+
+  const prefixed = pathname.match(/^\/(cy|pl|ur|bn|ar|ro)(?=\/|$)/);
+  if (prefixed) {
+    const locale = prefixed[1];
+    const url = request.nextUrl.clone();
+    url.pathname = bare;
+    const res = NextResponse.rewrite(url, { request: { headers: withLocaleHeader(request, locale) } });
+    res.cookies.set(LOCALE_COOKIE, locale, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+    });
+    return res;
+  }
+
+  const saved = request.cookies.get(LOCALE_COOKIE)?.value;
+  const canRedirect = request.method === "GET" || request.method === "HEAD";
+  if (
+    canRedirect &&
+    saved &&
+    isLocaleCode(saved) &&
+    saved !== "en" &&
+    !bare.endsWith("/markdown") &&
+    !request.headers.has("next-action")
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = localePath(saved, bare);
+    return NextResponse.redirect(url);
+  }
+
+  return NextResponse.next({ request: { headers: withLocaleHeader(request, "en") } });
+}
 
 function isMaintenanceExempt(pathname: string): boolean {
   return (
@@ -66,12 +140,15 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(home);
   }
 
-  if (pathname === "/embed/signpost") {
+  if (pathname === "/embed/signpost" || stripLocalePrefix(pathname) === "/embed/signpost") {
     const res = NextResponse.next();
     res.headers.delete("X-Frame-Options");
     res.headers.set("Content-Security-Policy", "frame-ancestors *");
     return res;
   }
+
+  const localized = localeResponse(request);
+  if (localized) return localized;
 
   if (!pathname.startsWith("/admin") && !pathname.startsWith("/api/admin")) {
     return NextResponse.next();

@@ -4,7 +4,10 @@ import { MapPin, ChevronDown, Menu, X, Bookmark } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState, type ReactNode } from "react";
+import { Suspense, useState, type ReactNode } from "react";
+import { LanguageSwitcher } from "@/components/i18n/language-switcher";
+import { useLocale } from "@/components/i18n/locale-provider";
+import { stripLocalePrefix } from "@/lib/i18n/locales";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -96,7 +99,8 @@ const locations = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, openAuth, signOut } = useBookmarks();
-  const pathname = usePathname();
+  const { t, path } = useLocale();
+  const pathname = stripLocalePrefix(usePathname() || "/");
   const onShaman =
     pathname === "/ask-the-shaman" || pathname.startsWith("/ask-the-shaman/");
   const onSignpost = pathname === "/signposting" || pathname.startsWith("/signposting");
@@ -113,7 +117,7 @@ export function Header() {
 
       <div className="relative mx-auto max-w-6xl px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center group" aria-label="Legal Shaman home">
+          <Link href={path("/")} className="flex items-center group" aria-label="Legal Shaman home">
             <div className="relative">
               <Image
                 src="/legal-shaman-header-transparent.png"
@@ -147,31 +151,31 @@ export function Header() {
             </DropdownMenu>
 
             <nav className="hidden items-center gap-1.5 md:flex">
-              <NavBoxLink href="/ask-the-shaman" active={onShaman}>
-                Ask the Shaman
+              <NavBoxLink href={path("/ask-the-shaman")} active={onShaman}>
+                {t.navAsk}
               </NavBoxLink>
-              <NavBoxLink href="/signposting" active={onSignpost}>
-                Signpost
+              <NavBoxLink href={path("/signposting")} active={onSignpost}>
+                {t.navSignpost}
               </NavBoxLink>
-              <NavBoxLink href="/for-firms" active={onForFirms}>
-                For firms
+              <NavBoxLink href={path("/for-firms")} active={onForFirms}>
+                {t.navFirms}
               </NavBoxLink>
-              <NavBoxLink href="/bookmarks">
+              <NavBoxLink href={path("/bookmarks")}>
                 <Bookmark className="h-4 w-4" />
-                Bookmarks
+                {t.navBookmarks}
               </NavBoxLink>
               {!user ? (
                 <NavBoxButton variant="primary" onClick={() => openAuth("login")}>
-                  Login
+                  {t.navLogin}
                 </NavBoxButton>
               ) : (
-                <NavBoxButton onClick={() => void signOut()}>Log out</NavBoxButton>
+                <NavBoxButton onClick={() => void signOut()}>{t.navLogout}</NavBoxButton>
               )}
             </nav>
 
             <button
               type="button"
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={mobileMenuOpen ? t.closeMenu : t.openMenu}
               className={cn(navBoxBase, navBoxVariants.default, "px-2.5 md:hidden")}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
@@ -183,36 +187,36 @@ export function Header() {
         {mobileMenuOpen ? (
           <nav className="mt-4 grid gap-2 border-t border-border/70 pt-4 md:hidden">
             <NavBoxLink
-              href="/ask-the-shaman"
+              href={path("/ask-the-shaman")}
               active={onShaman}
               className="w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Ask the Shaman
+              {t.navAsk}
             </NavBoxLink>
             <NavBoxLink
-              href="/signposting"
+              href={path("/signposting")}
               active={onSignpost}
               className="w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Signpost
+              {t.navSignpost}
             </NavBoxLink>
             <NavBoxLink
-              href="/for-firms"
+              href={path("/for-firms")}
               active={onForFirms}
               className="w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
-              For firms
+              {t.navFirms}
             </NavBoxLink>
             <NavBoxLink
-              href="/bookmarks"
+              href={path("/bookmarks")}
               className="w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Bookmark className="h-4 w-4" />
-              Bookmarks
+              {t.navBookmarks}
             </NavBoxLink>
             {!user ? (
               <NavBoxButton
@@ -223,7 +227,7 @@ export function Header() {
                   openAuth("login");
                 }}
               >
-                Login
+                {t.navLogin}
               </NavBoxButton>
             ) : (
               <NavBoxButton
@@ -233,11 +237,14 @@ export function Header() {
                   void signOut();
                 }}
               >
-                Log out
+                {t.navLogout}
               </NavBoxButton>
             )}
           </nav>
         ) : null}
+        <Suspense fallback={null}>
+          <LanguageSwitcher className="mt-3" />
+        </Suspense>
       </div>
     </header>
   );

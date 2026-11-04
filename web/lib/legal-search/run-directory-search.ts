@@ -8,6 +8,7 @@ import { ensureSearchStartupLogged } from "@/lib/legal-search/search-startup";
 import { repairDirectorySearchResponse } from "@/lib/sra/runtime-name-repair";
 import { hydrateSraPracticeAreasOnResults } from "@/lib/legal-search/hydrate-sra-practice-areas";
 import { toLegacyGetResponse } from "@/lib/legal-search/legacy-get-response";
+import { attachProviderEvidence } from "@/lib/legal-search/evidence/attach-provider-evidence";
 
 /**
  * Unified directory search entrypoint for GET /api/search and /search page.
@@ -22,9 +23,13 @@ export async function runDirectorySearch(
     : await runTypesenseDirectorySearch(params);
 
   const hydratedResults = await hydrateSraPracticeAreasOnResults(response.results);
-  return repairDirectorySearchResponse({
+  const repaired = await repairDirectorySearchResponse({
     ...response,
     results: hydratedResults,
     legacyRows: toLegacyGetResponse(hydratedResults),
   });
+  return {
+    ...repaired,
+    results: await attachProviderEvidence(repaired.results),
+  };
 }

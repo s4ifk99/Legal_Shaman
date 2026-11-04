@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,13 +17,31 @@ import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 import type { MapMarker } from "@/lib/search/map-results";
 import {
   collapsedDirectorySummary,
+  directoryRowPhone,
   stableDirectoryRowKey,
 } from "@/lib/search/directory-row-display";
+import { formatPhoneForDisplay, telHref } from "@/lib/search/sra-display";
+import { useLocale } from "@/components/i18n/locale-provider";
 import { entityIdFromLegacyRow, searchUrlForListingName } from "@/lib/search/result-navigation";
 import type { Listing } from "@/lib/data";
 import type { ExternalFallbackPayload } from "@/lib/legal-search/external-fallback/types";
 import type { ResultDebugDiagnostics } from "@/lib/legal-search/search-diagnostics-types";
+import {
+  DisputeTimescaleBanner,
+  ResultEvidenceFilterBar,
+  ResultEvidenceLines,
+} from "@/components/search/result-evidence";
+import { ProviderComparisonPanel } from "@/components/search/provider-comparison-panel";
+import { ResultViewTracker } from "@/components/analytics/funnel-tracker";
+import { countHiddenUnknown, evidenceMatchesFilters } from "@/lib/legal-search/evidence/filters";
+import {
+  DEFAULT_EVIDENCE_FILTERS,
+  type DisputeTimescale,
+  type ProviderEvidence,
+  type ResultEvidenceFilters,
+} from "@/lib/legal-search/evidence/types";
 import { cn } from "@/lib/utils";
+import { compareParamEnabled } from "@/lib/search/compare-flag";
 
 function matchExplainAdl(sources: ("lexical" | "semantic")[]): string {
   const lex = sources.includes("lexical");
@@ -55,6 +74,9 @@ type DirectorySearchResultsProps = {
   externalFallback?: ExternalFallbackPayload | null;
   citizensFallback: Listing[];
   initialExpandedId?: string;
+  evidenceByIndex?: (ProviderEvidence | undefined)[];
+  disputeTimescale?: DisputeTimescale;
+  evidenceFilters?: ResultEvidenceFilters;
 };
 
 export function DirectorySearchResults({
@@ -72,8 +94,30 @@ export function DirectorySearchResults({
   externalFallback,
   citizensFallback,
   initialExpandedId,
+  evidenceByIndex = [],
+  disputeTimescale,
+  evidenceFilters = DEFAULT_EVIDENCE_FILTERS,
 }: DirectorySearchResultsProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const { t, path } = useLocale();
   const [expandedId, setExpandedId] = useState<string | null>(initialExpandedId ?? null);
+  const showCompare = compareParamEnabled(searchParams.get("compare"));
+
+  const setEvidenceFilters = useCallback(
+    (next: ResultEvidenceFilters) => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (next.reviews === "all") params.delete("reviews");
+      else params.set("reviews", next.reviews);
+      if (next.cost === "all") params.delete("cost");
+      else params.set("cost", next.cost);
+      const qs = params.toString();
+      const nextPath = path(pathname || "/search");
+      router.replace(qs ? `${nextPath}?${qs}` : nextPath, { scroll: false });
+    },
+    [path, pathname, router, searchParams],
+  );
 
   useEffect(() => {
     if (initialExpandedId) setExpandedId(initialExpandedId);
@@ -89,15 +133,64 @@ export function DirectorySearchResults({
     el?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }, [expandedId]);
 
+  const visible = rows
+    .map((row, index) => ({ row, index, evidence: evidenceByIndex[index] }))
+    .filter(({ evidence }) => evidenceMatchesFilters(evidence, evidenceFilters));
+  const hiddenUnknown = countHiddenUnknown(
+    rows.map((row, index) => ({ row, evidence: evidenceByIndex[index] })),
+    (item) => item.evidence,
+    evidenceFilters,
+  );
+
   return (
     <SearchResultsLayout markers={markers} missingCoordinatesCount={missingCoordinatesCount}>
+      {rows.length > 0 && disputeTimescale ? (
+        <div className="mb-4">
+          <DisputeTimescaleBanner timescale={disputeTimescale} />
+        </div>
+      ) : null}
+      {rows.length > 0 ? (
+        <div className="mb-4">
+          <ResultEvidenceFilterBar
+            value={evidenceFilters}
+            onChange={setEvidenceFilters}
+            shown={visible.length}
+            total={rows.length}
+            hiddenUnknown={hiddenUnknown}
+          />
+        </div>
+      ) : null}
+      {showCompare && visible.length > 0 ? (
+        <ProviderComparisonPanel
+          rows={visible.map(({ row, evidence }) => ({ row, evidence }))}
+        />
+      ) : null}
       <p className="mb-4 text-sm text-muted-foreground">
         {rows.length} result{rows.length === 1 ? "" : "s"}
         {(freeOnly || legalAidOnly || cityFacet) && " · filters applied"}
         {rows.length > 0 ? " · click a result for full details · bookmark firms to save them" : null}
+        {rows.length > 0 && !showCompare ? (
+          <>
+            {" · "}
+            <button
+              type="button"
+              className="text-primary underline"
+              onClick={() => {
+                const params = new URLSearchParams(searchParams.toString());
+                params.set("compare", "1");
+                const qs = params.toString();
+                router.replace(qs ? `${path(pathname || "/search")}?${qs}` : path(pathname || "/search"), {
+                  scroll: false,
+                });
+              }}
+            >
+              compare providers
+            </button>
+          </>
+        ) : null}
       </p>
       <ul className="space-y-3">
-        {rows.map((row, index) => {
+        {visible.map(({ row, index, evidence }) => {
           const explanation = explanations[index];
           const resultDebug = debugByIndex[index];
           const entityId = entityIdFromLegacyRow(row);
@@ -107,6 +200,11 @@ export function DirectorySearchResults({
 
           return (
             <li key={stableRowKey(row)} data-entity-id={entityId}>
+              <ResultViewTracker
+                entityId={entityId}
+                resultSource={bookmark.resultSource}
+                expanded={isExpanded}
+              />
               <Card
                 className={cn(
                   "overflow-hidden transition-shadow",
@@ -163,6 +261,25 @@ export function DirectorySearchResults({
                     </div>
                   </CardContent>
                 </button>
+                <div className="space-y-1 px-4 pb-4 text-sm leading-relaxed">
+                  <p>
+                    <span className="font-medium">{t.phone}: </span>
+                    {directoryRowPhone(row) ? (
+                      <a href={telHref(directoryRowPhone(row))} className="text-primary hover:underline">
+                        {formatPhoneForDisplay(directoryRowPhone(row))}
+                      </a>
+                    ) : (
+                      <span className="text-muted-foreground">{t.phoneMissing}</span>
+                    )}
+                  </p>
+                  {explanation ? (
+                    <p>
+                      <span className="font-medium">{t.whyShown}: </span>
+                      {explanation}
+                    </p>
+                  ) : null}
+                  <ResultEvidenceLines evidence={evidence} />
+                </div>
 
                 {isExpanded ? (
                   <>
@@ -196,9 +313,9 @@ export function DirectorySearchResults({
         <div className="space-y-4">
           <Card>
             <CardContent className="py-10 text-center text-muted-foreground">
-              No listings matched your search and filters. Try different words, clear filters, or browse{" "}
-              <Link href="/" className="text-primary underline">
-                categories
+              {t.searchEmpty}{" "}
+              <Link href={path("/")} className="text-primary underline">
+                {t.searchCategories}
               </Link>
               .
             </CardContent>
@@ -213,7 +330,7 @@ export function DirectorySearchResults({
                 <ul className="space-y-2 text-sm">
                   {citizensFallback.map((l) => (
                     <li key={l.id}>
-                      <Link href={searchUrlForListingName(l.businessName)} className="text-primary underline">
+                      <Link href={path(searchUrlForListingName(l.businessName))} className="text-primary underline">
                         {l.businessName}
                       </Link>
                       {l.phone ? <span className="text-muted-foreground"> · {l.phone}</span> : null}

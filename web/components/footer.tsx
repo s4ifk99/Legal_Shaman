@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Star, Youtube } from "lucide-react";
+import { useLocale } from "@/components/i18n/locale-provider";
 import { trustpilotUrl, youtubeUrl } from "@/lib/site/social-links";
 import { SpiralDecoration } from "./spiral-decoration";
 
@@ -8,6 +11,7 @@ const socialLinkClass =
   "inline-flex items-center gap-2 text-sm text-primary-foreground/70 transition-colors hover:text-gold";
 
 export function Footer() {
+  const { t, path } = useLocale();
   return (
     <footer className="relative overflow-hidden border-t-2 border-gold/30 bg-primary py-12 text-primary-foreground">
       {/* Decorative spirals */}
@@ -33,31 +37,40 @@ export function Footer() {
             </div>
             <div>
               <span className="font-serif text-2xl font-bold">Legal Shaman</span>
-              <p className="text-sm text-primary-foreground/70">Justice through Search</p>
+              <p className="text-sm text-primary-foreground/70">{t.footerTagline}</p>
             </div>
           </div>
           
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
-            <Link href="/ask-the-shaman" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Ask the Shaman
+            <Link href={path("/ask-the-shaman")} className="text-primary-foreground/70 transition-colors hover:text-gold">
+              {t.navAsk}
             </Link>
-            <Link href="/signposting" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Signpost
+            <Link href={path("/signposting")} className="text-primary-foreground/70 transition-colors hover:text-gold">
+              {t.navSignpost}
             </Link>
-            <Link href="/bookmarks" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Bookmarks
+            <Link href={path("/problems/housing")} className="text-primary-foreground/70 transition-colors hover:text-gold">
+              Housing help
             </Link>
-            <Link href="/terms" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Terms
+            <Link href={path("/launch")} className="text-primary-foreground/70 transition-colors hover:text-gold">
+              Launch
             </Link>
-            <Link href="/privacy" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Privacy
+            <Link href={path("/videos")} className="text-primary-foreground/70 transition-colors hover:text-gold">
+              Videos
             </Link>
-            <Link href="/for-firms" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              For firms
+            <Link href={path("/bookmarks")} className="text-primary-foreground/70 transition-colors hover:text-gold">
+              {t.navBookmarks}
+            </Link>
+            <Link href={path("/terms")} className="text-primary-foreground/70 transition-colors hover:text-gold">
+              {t.navTerms}
+            </Link>
+            <Link href={path("/privacy")} className="text-primary-foreground/70 transition-colors hover:text-gold">
+              {t.navPrivacy}
+            </Link>
+            <Link href={path("/for-firms")} className="text-primary-foreground/70 transition-colors hover:text-gold">
+              {t.navFirms}
             </Link>
             <Link href="https://www.linkedin.com/in/aleemthedreamm/" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Contact
+              {t.navContact}
             </Link>
             <a
               href={youtubeUrl}
@@ -84,7 +97,7 @@ export function Footer() {
         
         <div className="mt-10 border-t border-primary-foreground/20 pt-8 space-y-4">
           <p className="text-center font-serif text-lg font-medium text-gold">
-            Justice through Search
+            {t.footerTagline}
           </p>
           <p className="text-center text-sm text-primary-foreground/70 max-w-2xl mx-auto">
             Legal Shaman is the UK&apos;s agentic legal signposting platform — search solicitors, legal aid, and free advice; get guided lawyer matches; and explore wiki resources across the UK.
@@ -95,8 +108,7 @@ export function Footer() {
             <strong className="text-gold">legal aid</strong>, pro bono help, and charitable organisations across the UK.
           </p>
           <p className="text-center text-xs text-primary-foreground/60">
-            This site does not provide legal advice. Always consult with a qualified solicitor for legal matters. 
-            For urgent legal issues, contact Citizens Advice on 0800 144 8848.
+            {t.footerNotAdvice}
           </p>
           <p className="text-center text-sm font-medium text-gold pt-2">Follow us</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">

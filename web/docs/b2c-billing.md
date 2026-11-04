@@ -2,11 +2,18 @@
 
 The B2C plans are:
 
-- `free`: one distinct new case search per account (lifetime). Follow-up
-  questions and internal agent calls do not consume additional searches.
+- `free`: distinct case searches per account (see `B2C_FREE_SEARCH_LIMIT_DEFAULT`
+  / `COHERENCE_FREE_MONTHLY_SEARCH_LIMIT`). Follow-up questions and internal
+  agent calls do not consume additional searches. **November Exp 2:** search
+  may start before sign-up; accounts are still required to save providers/notes.
 - `paid`: £3.49 per week with unlimited product searches, subject to
   abuse and transport rate limits. Entitlement is tied to the signed-in
   account (`users.plan`).
+- `privacy_upgrade` (Exp 6 pilot): optional **99p** one-time Stripe payment
+  (`STRIPE_PRICE_PRIVACY_99P`). Search remains free; the upgrade is a privacy
+  option (no sharing search text with third-party providers for training for
+  30 days). Keep the weekly plan as the fallback entitlement. Interest can be
+  recorded before the Stripe price is configured.
 
 ## Provider setup
 

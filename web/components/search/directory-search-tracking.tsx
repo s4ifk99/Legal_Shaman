@@ -2,6 +2,7 @@
 
 import { SearchImpressionBeacon } from "@/components/search-analytics";
 import { SearchResultImpressions } from "@/components/search/search-result-impressions";
+import { SearchFunnelTracker } from "@/components/analytics/funnel-tracker";
 import type { SearchResultSource } from "@/lib/search-events/types";
 
 export type DirectoryImpressionRow = {
@@ -19,6 +20,7 @@ type DirectorySearchTrackingProps = {
   freeOnly?: boolean;
   legalAidOnly?: boolean;
   city?: string;
+  landing?: string;
 };
 
 export function DirectorySearchTracking({
@@ -31,9 +33,11 @@ export function DirectorySearchTracking({
   freeOnly,
   legalAidOnly,
   city,
+  landing,
 }: DirectorySearchTrackingProps) {
   return (
     <>
+      <SearchFunnelTracker query={q} resultCount={resultCount} landing={landing} />
       <SearchImpressionBeacon
         q={q}
         resultCount={resultCount}

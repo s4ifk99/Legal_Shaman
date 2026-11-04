@@ -3,6 +3,8 @@ import type Stripe from "stripe";
 
 import { stripeClient } from "@/lib/billing/stripe";
 import { syncStripeSubscription } from "@/lib/billing/subscriptions";
+import { accountsPrisma } from "@/lib/db/accounts";
+import { B2C_PRIVACY_COVER_DAYS } from "@/lib/billing/plan";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -28,11 +30,32 @@ export async function POST(req: Request) {
   try {
     if (event.type === "checkout.session.completed") {
       const session = event.data.object as Stripe.Checkout.Session;
-      const subscriptionId =
-        typeof session.subscription === "string" ? session.subscription : session.subscription?.id;
-      if (subscriptionId) {
-        const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-        await syncStripeSubscription(subscription, session.client_reference_id || undefined);
+      const product = String(session.metadata?.product || "");
+      if (product === "privacy_upgrade_99p") {
+        const userId =
+          String(session.metadata?.legalShamanUserId || session.client_reference_id || "").trim();
+        if (userId) {
+          await accountsPrisma.privacyUpgrade.upsert({
+            where: { stripeSessionId: session.id },
+            create: {
+              userId,
+              stripeSessionId: session.id,
+              status: "paid",
+              coversUntil: new Date(Date.now() + B2C_PRIVACY_COVER_DAYS * 24 * 60 * 60 * 1000),
+            },
+            update: {
+              status: "paid",
+              coversUntil: new Date(Date.now() + B2C_PRIVACY_COVER_DAYS * 24 * 60 * 60 * 1000),
+            },
+          });
+        }
+      } else {
+        const subscriptionId =
+          typeof session.subscription === "string" ? session.subscription : session.subscription?.id;
+        if (subscriptionId) {
+          const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+          await syncStripeSubscription(subscription, session.client_reference_id || undefined);
+        }
       }
     } else if (
       event.type === "customer.subscription.created" ||

@@ -3,7 +3,10 @@ import type { Metadata } from 'next'
 import { Libre_Baskerville, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AppProviders } from '@/components/app-providers'
+import { LocaleProvider } from '@/components/i18n/locale-provider'
 import { AhrefsAnalytics } from '@/components/analytics/ahrefs-analytics'
+import { getRequestLocale } from '@/lib/i18n/get-locale'
+import { localeMeta } from '@/lib/i18n/locales'
 import './globals.css'
 
 // Declare the Geist and Geist_Mono variables before using them
@@ -94,19 +97,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const locale = await getRequestLocale();
+  const meta = localeMeta(locale);
   return (
-    <html lang="en">
+    <html lang={meta.html} dir={meta.dir}>
       <head>
         <AhrefsAnalytics />
       </head>
       <body className={`${libreBaskerville.variable} ${playfairDisplay.variable} font-sans antialiased`}>
         <AppProviders>
-          {children}
+          <LocaleProvider locale={locale}>{children}</LocaleProvider>
         </AppProviders>
         <Analytics />
       </body>

@@ -6,6 +6,7 @@ import { useRequireAuth } from "@/lib/auth/use-require-auth";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Lock } from "lucide-react";
+import { useLocale } from "@/components/i18n/locale-provider";
 
 type SearchResultsGateProps = {
   query: string;
@@ -14,8 +15,9 @@ type SearchResultsGateProps = {
 };
 
 /**
- * Hides directory search results until the user signs in.
- * After auth, refreshes the page so SSR can load results.
+ * When search auth is required, hides results until sign-in.
+ * When off (Nov Exp 2 default), results render for anonymous visitors;
+ * save/notes still soft-wall via bookmark auth.
  */
 export function SearchResultsGate({
   query,
@@ -23,8 +25,10 @@ export function SearchResultsGate({
   children,
 }: SearchResultsGateProps) {
   const router = useRouter();
-  const { openAuthForSearch, user, loading } = useRequireAuth();
-  const gated = query.trim().length >= 2 && !isAuthenticated && !user;
+  const { openAuthForSearch, user, loading, searchAuthRequired } = useRequireAuth();
+  const { t, fill } = useLocale();
+  const gated =
+    searchAuthRequired && query.trim().length >= 2 && !isAuthenticated && !user;
 
   useEffect(() => {
     if (gated && !loading) {
@@ -41,15 +45,11 @@ export function SearchResultsGate({
       <CardContent className="flex flex-col items-center gap-4 p-8 text-center">
         <Lock className="h-10 w-10 text-primary" />
         <div className="space-y-2">
-          <h2 className="font-serif text-xl font-semibold text-foreground">
-            Create a free account to view results
-          </h2>
-          <p className="max-w-md text-sm text-muted-foreground">
-            Sign up with your email and password to see directory matches for &ldquo;{query}&rdquo;.
-          </p>
+          <h2 className="font-serif text-xl font-semibold text-foreground">{t.gateTitle}</h2>
+          <p className="max-w-md text-sm text-muted-foreground">{fill(t.gateBody, { query })}</p>
         </div>
         <Button type="button" onClick={() => openAuthForSearch(() => router.refresh())}>
-          Create free account
+          {t.gateButton}
         </Button>
       </CardContent>
     </Card>
