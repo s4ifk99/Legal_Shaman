@@ -80,6 +80,16 @@ export const SITEMAP_PRIORITY_WIKI_IDS = [
   "Areas/Health and Injury/Clinical Negligence/Pharmacy gave the wrong dose of medicine: who helps",
   "Areas/Home and Housing/Renting/Landlord charging me for returning keys late: who helps",
   "Areas/Neighbours and Property/Boundaries and Rights/Neighbour won't let broadband cables cross their land: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Faulty used car in the first week: who helps",
+  "Areas/Money, Benefits and Debt/Tax and Bills/Energy supplier took the wrong direct debit: who helps",
+  "Areas/Driving and Parking/Motoring Offences/Contractor damaged my parked car: who helps",
+  "Areas/Rights and Discrimination/Discrimination/Venue refused my medical bag: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Souvenir tickets arrived late and damaged: who helps",
+  "Areas/Driving and Parking/Parking and PCNs/Private parking charge for a car I never owned: who helps",
+  "Areas/Home and Housing/Renting/Landlord charging for time and worn carpets: who helps",
+  "Areas/Consumer Rights/Travel and Holidays/Missed connection after a flight delay: who helps",
+  "Areas/Money, Benefits and Debt/Debt Solutions/Debt collector text about an ex partner’s contract: who helps",
+  "Areas/Family and Relationships/Marriage and Cohabitation/Ex will not return my belongings: who helps",
 ] as const;
 
 export function outsideEnglandAndWales(id: string): boolean {

@@ -145,18 +145,32 @@ function ensureRelatedLink(md: string, label: string): string {
   return `${md.trimEnd()}\n\n## Related Concepts\n\n- ${needle}\n`;
 }
 
+const PRIORITY_PATH = resolve(process.cwd(), "lib/wiki/sitemap-priority.ts");
+
 function pinSitemap(wikiId: string) {
-  if (!existsSync(SITEMAP_PATH)) return;
-  let src = readFileSync(SITEMAP_PATH, "utf8");
+  const path = existsSync(PRIORITY_PATH) ? PRIORITY_PATH : SITEMAP_PATH;
+  if (!existsSync(path)) return;
+  let src = readFileSync(path, "utf8");
   if (src.includes(JSON.stringify(wikiId)) || src.includes(`"${wikiId}"`)) return;
-  src = src.replace(
-    /(const priorityIds = new Set\(\[\n)([\s\S]*?)(\n\s*\]\);)/,
-    (_m, open: string, body: string, close: string) => {
-      const indent = "      ";
-      return `${open}${body.trimEnd()}\n${indent}${JSON.stringify(wikiId)},${close}`;
-    },
-  );
-  writeFileSync(SITEMAP_PATH, src, "utf8");
+  // Prefer lib/wiki/sitemap-priority.ts (current). Fall back to inline Set in sitemap.ts.
+  if (path === PRIORITY_PATH) {
+    src = src.replace(
+      /(export const SITEMAP_PRIORITY_WIKI_IDS = \[\n)([\s\S]*?)(\n\] as const;)/,
+      (_m, open: string, body: string, close: string) => {
+        const indent = "  ";
+        return `${open}${body.trimEnd()}\n${indent}${JSON.stringify(wikiId)},${close}`;
+      },
+    );
+  } else {
+    src = src.replace(
+      /(const priorityIds = new Set\(\[\n)([\s\S]*?)(\n\s*\]\);)/,
+      (_m, open: string, body: string, close: string) => {
+        const indent = "      ";
+        return `${open}${body.trimEnd()}\n${indent}${JSON.stringify(wikiId)},${close}`;
+      },
+    );
+  }
+  writeFileSync(path, src, "utf8");
 }
 
 function main() {
