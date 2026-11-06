@@ -90,6 +90,13 @@ export const SITEMAP_PRIORITY_WIKI_IDS = [
   "Areas/Consumer Rights/Travel and Holidays/Missed connection after a flight delay: who helps",
   "Areas/Money, Benefits and Debt/Debt Solutions/Debt collector text about an ex partner’s contract: who helps",
   "Areas/Family and Relationships/Marriage and Cohabitation/Ex will not return my belongings: who helps",
+  "Areas/Driving and Parking/Parking and PCNs/Parking fine England first steps: who helps",
+  "Areas/Money, Benefits and Debt/Tax and Bills/Won energy ombudsman case: who helps with next steps",
+  "Areas/Consumer Rights/Travel and Holidays/Festival cancelled refund promoter or ticket seller: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Faulty sofa retailer refuses refund after 30 days: who helps",
+  "Areas/Driving and Parking/Parking and PCNs/Private parking charge on a residential estate: who helps",
+  "Areas/Neighbours and Property/Boundaries and Rights/Neighbour fence over the boundary line: who helps",
+  "Areas/Home and Housing/Renting/Ex will not return joint tenancy deposit: who helps",
 ] as const;
 
 export function outsideEnglandAndWales(id: string): boolean {
