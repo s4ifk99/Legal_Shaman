@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-11-07T12:13:15.337Z",
+    "scrapedAt": "2026-11-07T21:29:09.946Z",
     "subredditCount": 2,
     "postCount": 40,
-    "topicCount": 12,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,6 +26,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xq4pkp",
+          "title": "Paid an invoice to roofer, he's come back asking for more money",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4pkp/paid_an_invoice_to_roofer_hes_come_back_asking/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4pkp/paid_an_invoice_to_roofer_hes_come_back_asking/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794052783,
+          "snippet": "Hello all, I recently paid for my roof to be replaced, the total cost was £17000, the roofer originally asked for the payment to be partially cash, I told him I would need some time to get that amount (£8000) He then said that he would accept bank transfers and credit cards, I ma",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xq1nbe",
           "title": "Who inherits distant relative's estate?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq1nbe/who_inherits_distant_relatives_estate/",
@@ -38,15 +50,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpi3bw",
-          "title": "School wants to fine me - what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpi3bw/school_wants_to_fine_me_what_can_i_do/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpi3bw/school_wants_to_fine_me_what_can_i_do/",
+          "id": "1xqczf1",
+          "title": "I suspect a student has cloned my voice without my permission for commercial purposes...",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqczf1/i_suspect_a_student_has_cloned_my_voice_without/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqczf1/i_suspect_a_student_has_cloned_my_voice_without/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793984722,
-          "snippet": "I have to take my son (17) out of school due to his grandpa being seriously ill (has end stage cancer) and lives in Australia so he will have 7 days of non authorised absence because the headteacher has said this is not a valid excuse. As his condition is worsening the doctors ha",
+          "createdUtc": 1794075353,
+          "snippet": "I'm looking for some advice on a rather uncomfortable situation. I'm a Spanish tutor, and I have a British student who is working on a YouTube channel to teach Spanish. I've also helped him with his project by proofreading and correcting some of his video scripts, for which he pa",
           "listingSource": "rss:hot"
         },
         {
@@ -62,6 +74,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xpi3bw",
+          "title": "School wants to fine me - what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpi3bw/school_wants_to_fine_me_what_can_i_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpi3bw/school_wants_to_fine_me_what_can_i_do/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793984722,
+          "snippet": "I have to take my son (17) out of school due to his grandpa being seriously ill (has end stage cancer) and lives in Australia so he will have 7 days of non authorised absence because the headteacher has said this is not a valid excuse. As his condition is worsening the doctors ha",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xpspk4",
           "title": "[England] Very refusing £2,550 refund for missing RTX 5090 return – prepaid Royal Mail label, parcel locker and conflicting return reasons. Where do I stand?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpspk4/england_very_refusing_2550_refund_for_missing_rtx/",
@@ -71,6 +95,18 @@
           "numComments": 0,
           "createdUtc": 1794011194,
           "snippet": "I'm looking for some independent legal advice on a dispute with Very (Shop Direct) over a £2,550 graphics card. I've now issued a small claim and Very has filed a full defence. The claim has progressed to mediation. Background I purchased an MSI RTX 5090 from Very for £2,553.99, ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xqcq2i",
+          "title": "Dispute with roofer. Where do we go from here? (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqcq2i/dispute_with_roofer_where_do_we_go_from_here/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqcq2i/dispute_with_roofer_where_do_we_go_from_here/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794074695,
+          "snippet": "We paid a roofer £18k to replace main roof and work on flat roof on a house we moved into in May. It has taken him all summer, and during this there was significant water ingress due to him failing to secure tarps over the flat roof which has led to damage in the kitchen, which h",
           "listingSource": "rss:hot"
         },
         {
@@ -98,15 +134,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq4pkp",
-          "title": "Paid an invoice to roofer, he's come back asking for more money",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4pkp/paid_an_invoice_to_roofer_hes_come_back_asking/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4pkp/paid_an_invoice_to_roofer_hes_come_back_asking/",
+          "id": "1xq9npu",
+          "title": "Shared Utility Bills - payment advice (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq9npu/shared_utility_bills_payment_advice_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq9npu/shared_utility_bills_payment_advice_england/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794052783,
-          "snippet": "Hello all, I recently paid for my roof to be replaced, the roofer originally asked for the payment to be partially cash, I told him I would need some time to get that amount (£8000) He then said that he would accept bank transfers and credit cards, I made the payment two days ago",
+          "createdUtc": 1794066986,
+          "snippet": "I live in a house that has been converted into 3 flats. Each month we submit our meter readings to the estate agent and receive an amount due by email. This has always worked well previously and is cheaper for all of us because we are on sub meters, so the standing charge is shar",
           "listingSource": "rss:hot"
         },
         {
@@ -122,15 +158,75 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpqxsr",
-          "title": "Currys refusing replacement after failed repair on contract phone, they're claiming \"you bought it from iD Mobile, not us\". Legal rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpqxsr/currys_refusing_replacement_after_failed_repair/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpqxsr/currys_refusing_replacement_after_failed_repair/",
+          "id": "1xqgxzi",
+          "title": "Boohoo Refusing refund/replacement for missing items (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqgxzi/boohoo_refusing_refundreplacement_for_missing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqgxzi/boohoo_refusing_refundreplacement_for_missing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794006259,
-          "snippet": "In September, I took out a Samsung phone on a 24-month contract via iD Mobile inside a physical Currys store in England. The phone and the airtime contract were sold together as a single package at the till. After about a month, the phone developed a fault. Currys booked it in-st",
+          "createdUtc": 1794085605,
+          "snippet": "So had a strange one happen, Boohoo have \"investigated\" some missing items from a parcel my wife received. Its 3 items in total totalling £29.03, Boohoo have stated theyve watched the parcel being packed and the items where put into the parcel, they stated they've looked at the d",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xq30ng",
+          "title": "England-child going to college advice",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq30ng/englandchild_going_to_college_advice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq30ng/englandchild_going_to_college_advice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794046279,
+          "snippet": "Hey everyone, i'm looking for some advice regarding my daughter. Sorry if this is a bit long. My ex and i broke up 8 years or so ago and she took my daughter to live with her, which was fine at the time and she was happy. She didn't want me to see her much and so we went to court",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xqgbpb",
+          "title": "Sick pay issue, not sure where to go now. England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqgbpb/sick_pay_issue_not_sure_where_to_go_now_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqgbpb/sick_pay_issue_not_sure_where_to_go_now_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794083943,
+          "snippet": "My work offers company sick pay in my contract, I have been off for a few months now waiting for an occupational health refferal (dr has said I need adjustments for work). I have given sick notes to my work and am receiving SSP. The issue I am facing is that they are being very s",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xqfp5v",
+          "title": "Scottish Confirmation question/help..",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqfp5v/scottish_confirmation_questionhelp/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqfp5v/scottish_confirmation_questionhelp/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794082280,
+          "snippet": "My mother sadly died in the summer and I am her only child and executor of her estate. Everything in her will has been left to me. (My father is already deceased). Her home is mortgage free and she has some savings. I am trying to avoid solicitors fees and applying for Confirmati",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xqf439",
+          "title": "FTB House purchase with faulty heating - how do I proceed? (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqf439/ftb_house_purchase_with_faulty_heating_how_do_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqf439/ftb_house_purchase_with_faulty_heating_how_do_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794080782,
+          "snippet": "I purchased my first home in September, and did all the right things, checking everything within the first five days, even getting a plumber and electrician out to check stuff. One of the radiators did not work and required work to fix (£500 for temp fix, further £1500 quoted). T",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xq99lf",
+          "title": "Bank data/confidentiality breach",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq99lf/bank_dataconfidentiality_breach/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq99lf/bank_dataconfidentiality_breach/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794065977,
+          "snippet": "My wife and I both have sole bank accounts with the same UK bank - we live in England. We have never had a joint account with this bank, or any linked banks. We have previously received communication through the post addressed to us individually. However this week we received thr",
           "listingSource": "rss:hot"
         },
         {
@@ -146,359 +242,263 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpcbmi",
-          "title": "Implications of a death following RTA",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpcbmi/implications_of_a_death_following_rta/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpcbmi/implications_of_a_death_following_rta/",
+          "id": "1xqckzg",
+          "title": "How long does a company have to refund deposit?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqckzg/how_long_does_a_company_have_to_refund_deposit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqckzg/how_long_does_a_company_have_to_refund_deposit/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793970335,
-          "snippet": "Hi, keeping the details minimum as we are still in limbo with the police. Partner was involved in an accident where someone stepped out onto a dual carriage way and passed at the scene after being struck by the car. It seems like it was a suicide attempt. Partner was sole person ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xq2ddt",
-          "title": "England: Well-known blind company due to install on Oct 1st, have 50% deposit, and will not give a new install date",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq2ddt/england_wellknown_blind_company_due_to_install_on/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq2ddt/england_wellknown_blind_company_due_to_install_on/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794043699,
-          "snippet": "Posting on mobile so apologies if the formatting comes out badly. Brief timeline: 18th June 2026: 50% deposit paid (around £1500) and installation date of 1st October planned 1st October 2026: no call from installer and no installation, we contacted company to confirm installatio",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xq3ppn",
-          "title": "Years of Council Mishandling Records to Levy Max Council Tax/Refuse Benefits (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq3ppn/years_of_council_mishandling_records_to_levy_max/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq3ppn/years_of_council_mishandling_records_to_levy_max/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794049037,
-          "snippet": "edit: This is far longer than I realised I am currently cutting it down! If possible I'd like an idea of what, if anything, I can do about my local council. I have documentation showing them breaking several laws/pieces of legislation in how they've mishandled my accounts. One of",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xp7vhh",
-          "title": "This is against the law, right?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xp7vhh/this_is_against_the_law_right/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xp7vhh/this_is_against_the_law_right/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793954374,
-          "snippet": "Company I bought an item from is refusing to offer a refund in anything except store credit even though - as they have acknowledged- the item is not as described. I’m based in England and notified them within 30 days of receiving the item that it was not as described - with proof",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xq2x2w",
-          "title": "Will Trust - navigating being a lead trustee with a surviving parent / lifetime beneficiary England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq2x2w/will_trust_navigating_being_a_lead_trustee_with_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq2x2w/will_trust_navigating_being_a_lead_trustee_with_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794045873,
-          "snippet": "My parents made mirroring Wills which would put their share of the house in a will trust (my surviving parent being the life time beneficiary and myself the beneficiary on death of surviving parent). One parent died soon after and I was made aware of terms of will and I was trust",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xpd55u",
-          "title": "My fiancée’s estranged father refuses to leave her home, and after 3.5 years we’re at breaking point. We desperately need advice. (UK)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpd55u/my_fiancées_estranged_father_refuses_to_leave_her/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpd55u/my_fiancées_estranged_father_refuses_to_leave_her/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793972660,
-          "snippet": "I’m turning to Reddit because my fiancée and I are genuinely at our wits’ end. We feel completely helpless and don’t know where else to turn. In May 2023, my fiancée purchased her home in South London (UK) from her aunt, who had previously been renting it to her father. When the ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xq4wwc",
-          "title": "Domestic violence, moving belongings and bail conditions - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4wwc/domestic_violence_moving_belongings_and_bail/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4wwc/domestic_violence_moving_belongings_and_bail/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794053448,
-          "snippet": "Posting on behalf of a friend I'm currently supporting a friend through a difficult period where she was forced to flee a violent relationship. He has since been arrested and had bail conditions placed on him which prevent him from contacting at her and going to their jointly own",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xpf3zd",
-          "title": "Kitchen fitter wants me to sign a disclaimer before commencing the work. This wasn't mentioned when I paid.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpf3zd/kitchen_fitter_wants_me_to_sign_a_disclaimer/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpf3zd/kitchen_fitter_wants_me_to_sign_a_disclaimer/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793977701,
-          "snippet": "Scotland Hi, I recently moved into a new property. It has quite a large utility room so I thought I'd make the most of the space by adding some more kitchen cupboards. The builder put me in touch with the company they used to fit the kitchen and their Sales Director came out to q",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xp7xij",
-          "title": "England - Dismissed from a startup where I am a co-founder, being pressured to give up my shares for a small payment – is this normal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xp7xij/england_dismissed_from_a_startup_where_i_am_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xp7xij/england_dismissed_from_a_startup_where_i_am_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793954589,
-          "snippet": "Got founder shares in a small early-stage UK startup. Recently, at a review, I was told my employment was ending, without a review (I did have a disciplinary review, but only 1) The sus part is the equity. I hold a small percentage. They want me to sign something agreeing to my s",
+          "createdUtc": 1794074364,
+          "snippet": "England I recently got a quote for some new windows on a house renovation. The guy came out and it was a good price so the next day I agreed to go ahead but would be using finance to fund them. I paid a deposit (£1300) using my debit card over the phone and made an application fo",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "name": "uklaw",
-      "displayName": "r/uklaw",
-      "description": "UK law students and practitioners — statute, case law, and professional practice.",
+      "name": "HousingUK",
+      "displayName": "r/HousingUK",
+      "description": "Renting, landlords, deposits, eviction, and housing rights in the UK.",
       "subscribers": null,
       "posts": [
         {
-          "id": "k2kvzd",
-          "title": "Help Post: List of Legal Recruitment Agencies",
-          "url": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/k2kvzd/help_post_list_of_legal_recruitment_agencies/",
-          "subreddit": "uklaw",
+          "id": "1xq9ivh",
+          "title": "Letter From New Neighbours",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xq9ivh/letter_from_new_neighbours/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xq9ivh/letter_from_new_neighbours/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1606555862,
-          "snippet": "Hey, since everyone is struggling to find work, here is a list of all of the legal recruitment agencies and legal job sites I have bookmarked. Across the whole list, you can find everything from temp/paralegal work to associate roles. https://www.lawsupport.co.uk/ https://lodlaw.",
+          "createdUtc": 1794066632,
+          "snippet": "I'm after some advice on how to tackle this situation. I live in a 1950's first floor maisonette, of a block of four, with my partner and two children (8 and 4). It has a solid concrete floor between upstairs and downstairs (no soundproofing). We have LVT flooring in the hall, lo",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1l8oqj7",
-          "title": "WEEKLY general chat/support post",
-          "url": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1l8oqj7/weekly_general_chatsupport_post/",
-          "subreddit": "uklaw",
+          "id": "1xqbmau",
+          "title": "Seller won’t take this clause out of the transfer",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqbmau/seller_wont_take_this_clause_out_of_the_transfer/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqbmau/seller_wont_take_this_clause_out_of_the_transfer/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1749636086,
-          "snippet": "General chat/support post - how are you all doing? :) submitted by /u/AutoModerator [link] [comments]",
+          "createdUtc": 1794071906,
+          "snippet": "We’re buying a house in England and our solicitor flagged this bit in the transfer: For the purposes of Section 6(2)(a) of the Law of Property (Miscellaneous Provisions) Act 1994 all matters now recorded in registers open to public inspection are to be considered within the actua",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq3z9h",
-          "title": "‘why law’ in vs interview",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq3z9h/why_law_in_vs_interview/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq3z9h/why_law_in_vs_interview/",
-          "subreddit": "uklaw",
+          "id": "1xpi2sa",
+          "title": "Solar panels not included with house sale",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xpi2sa/solar_panels_not_included_with_house_sale/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xpi2sa/solar_panels_not_included_with_house_sale/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794050038,
-          "snippet": "i know this has probably been asked 1000 times but i’ve gone through all the posts and somehow i still can’t verbalise my answer. My genuine answer would be something like because it helps clients with their issues/objectives but then a critic would say well that’s not a good ans",
+          "createdUtc": 1793984687,
+          "snippet": "Several weeks after having my offer accepted, my solicitor tells me today out of the blue that the solar panels are not included with the house and the seller is \"taking them with them\". I viewed the house twice before putting the offer on, and both times had a conversation with ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xph1y8",
-          "title": "Comment purporting to be from a former SRA investigation manager",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xph1y8/comment_purporting_to_be_from_a_former_sra/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xph1y8/comment_purporting_to_be_from_a_former_sra/",
-          "subreddit": "uklaw",
+          "id": "1xpxzt6",
+          "title": "Ten year fix at 5.3%?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xpxzt6/ten_year_fix_at_53/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xpxzt6/ten_year_fix_at_53/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793982330,
-          "snippet": "Leaving this comment from RollonFriday here as I think more of those regulated by the SRA should see it. Reportedly made by a former SRA investigator/investigation manager. As my own proceedings against the SRA are ongoing (link in comments), I am limited in what I can say at thi",
+          "createdUtc": 1794027579,
+          "snippet": "I’ve just bought my first house post divorce. I’m late 40s, no dependents and not planning to marry again. My mortgage is £225k, which feels massive at this age though payments are just under 30% of my net take home. I’ve been quoted a five year fix at 4.9% or a ten year at 5.3%.",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq3hw9",
-          "title": "Am I being unrealistic? Please help manage my expectations",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq3hw9/am_i_being_unrealistic_please_help_manage_my/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq3hw9/am_i_being_unrealistic_please_help_manage_my/",
-          "subreddit": "uklaw",
+          "id": "1xps4ep",
+          "title": "Accidentally took Hive thermostat - buyers want £400",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xps4ep/accidentally_took_hive_thermostat_buyers_want_400/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xps4ep/accidentally_took_hive_thermostat_buyers_want_400/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794048187,
-          "snippet": "I'm a career changer applying to vacation schemes in Manchester and London. My profile: GCSE: Average, mostly Bs and Cs A-levels: BDD with significant extenuating circumstances Degree: High 2:1 LLB from an ex-poly Contextual info: Grew up in poverty First in family to go to uni W",
+          "createdUtc": 1794009605,
+          "snippet": "EDIT: My mother has confirmed that a thermostat has been dropped off to my old house. To those calling me a douchebag - it was helpful to hear the perspective that I should just return it asap without waiting to hear back from them. (even if your point was vehemently put!) For th",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpf04y",
-          "title": "I HATE AI INTERVIEWS",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xpf04y/i_hate_ai_interviews/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xpf04y/i_hate_ai_interviews/",
-          "subreddit": "uklaw",
+          "id": "1xqefgz",
+          "title": "Would you buy a house with a flat roof?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqefgz/would_you_buy_a_house_with_a_flat_roof/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqefgz/would_you_buy_a_house_with_a_flat_roof/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793977441,
-          "snippet": "You heard it right: firms are rolling AI INTERVIEWS now To name and shame them: Mischon, Cooley, and Penningtons are the main culprits. I think they all use BrightApply which is TERRIBLE I unfortunately sat one of these interviews and the experience was HORRIBLE - AI kept cutting",
+          "createdUtc": 1794079010,
+          "snippet": "Hi all, I viewed a property today with a flat roof, it looks like it's one of the felt roof ones, just wondering your thoughts on these. The house like nice in my opinion, just concerned about the roof, here is the link to the house, many thanks The house submitted by /u/Successf",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq3556",
-          "title": "As a barrister, what’s something you wish you did in your early career or during university?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq3556/as_a_barrister_whats_something_you_wish_you_did/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq3556/as_a_barrister_whats_something_you_wish_you_did/",
-          "subreddit": "uklaw",
+          "id": "1xq50wd",
+          "title": "Loft Conversion - No Building Regs",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xq50wd/loft_conversion_no_building_regs/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xq50wd/loft_conversion_no_building_regs/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794046770,
-          "snippet": "Is there anything you’d do differently in your early career life or when you had started studying law in university that could’ve helped you in your career or something? submitted by /u/Different_Insect_320 [link] [comments]",
+          "createdUtc": 1794053830,
+          "snippet": "Will keep this short. We love a house we’ve just viewed. It has a loft conversation which was completed two years ago. To the general shmuck (me), looks very well done and habitable. Current occupant uses it as an office space. New roofing and sky lights were added, all looks gre",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpl1gz",
-          "title": "How much sleep do you get?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xpl1gz/how_much_sleep_do_you_get/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xpl1gz/how_much_sleep_do_you_get/",
-          "subreddit": "uklaw",
+          "id": "1xqgnt9",
+          "title": "Will the Regeneration Project make any difference in Luton",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqgnt9/will_the_regeneration_project_make_any_difference/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqgnt9/will_the_regeneration_project_make_any_difference/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793991538,
-          "snippet": "On average, how many hours a night? What is your PQE + type of firm you are at? Do you have kids? I get 7 hours a night on average National firm. No kids. submitted by /u/Impossible_Money702 [link] [comments]",
+          "createdUtc": 1794084861,
+          "snippet": "Buying our first home and its in Luton. really worried about the negative comments Ive read so far about luton. Will the regeneration project make any difference? or is this one big mistake? submitted by /u/CommonBluebird2454 [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq4ti4",
-          "title": "I appreciate",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq4ti4/i_appreciate/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq4ti4/i_appreciate/",
-          "subreddit": "uklaw",
+          "id": "1xq2e77",
+          "title": "Selling questions",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xq2e77/selling_questions/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xq2e77/selling_questions/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794053112,
-          "snippet": "I’ve been looking for books recommendations. Can you help me out please. Ps: ive read all books written by the SB &amp; Lord Sumption. Thankss submitted by /u/rushh5 [link] [comments]",
+          "createdUtc": 1794043788,
+          "snippet": "First time selling a property here (3-bed, 1-bath, end terrace house in SE England). EA have already taken pics, signs up outside the property, due to go online next week. Just a couple questions: 1) Unfinished walls - should we paint over half-painted walls (staircase) and crayo",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq4hr8",
-          "title": "Thoughts on application reviews?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq4hr8/thoughts_on_application_reviews/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq4hr8/thoughts_on_application_reviews/",
-          "subreddit": "uklaw",
+          "id": "1xpne33",
+          "title": "Strange Buying Situation",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xpne33/strange_buying_situation/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xpne33/strange_buying_situation/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794051985,
-          "snippet": "How helpful are they? Thinking of availing of TCLA’s one. Thanks! submitted by /u/Practical-Panda-1724 [link] [comments]",
+          "createdUtc": 1793997226,
+          "snippet": "So we saw a house priced at 460k and liked it and the sellers were a downsizing couple wanting to move asap. It had previously been in a 5 month collapsed chain so being cheeky i put a price in 10% below (414k). Estate agent came back pretty instant said this wont be accepted and",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq4c4i",
-          "title": "Are my GCSEs holding me back from VS applications?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq4c4i/are_my_gcses_holding_me_back_from_vs_applications/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq4c4i/are_my_gcses_holding_me_back_from_vs_applications/",
-          "subreddit": "uklaw",
+          "id": "1xqdvjo",
+          "title": "Has anyone not regretted getting shared ownership?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqdvjo/has_anyone_not_regretted_getting_shared_ownership/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqdvjo/has_anyone_not_regretted_getting_shared_ownership/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794051410,
-          "snippet": "Hello all, This is my first cycle of applying and I really haven’t had any success so far. I had been aiming for a winter VS, but evidently that’s not possible now given the date. My GCSEs are: 77766665 and then a D* in a Btec My A levels are: 3 A*s I hold a first class (non law)",
+          "createdUtc": 1794077607,
+          "snippet": "FTB here, south east London. Max purchase budget is £238k due to affordability as my income is £32k plus PIP. I have moved 13-14 times in the past 11 years and would love to be able to be somewhere stable for a while. I need ground floor with garden access (can be communal) due t",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq4a2k",
-          "title": "Car finance redress scheme...",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq4a2k/car_finance_redress_scheme/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq4a2k/car_finance_redress_scheme/",
-          "subreddit": "uklaw",
+          "id": "1xqd7ub",
+          "title": "Why am I expected to bend over for my seller's mistakes?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqd7ub/why_am_i_expected_to_bend_over_for_my_sellers/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqd7ub/why_am_i_expected_to_bend_over_for_my_sellers/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794051187,
-          "snippet": "&#x200B; My family bought a Toyota years ago and have recieved a letter stating.....although we have suffered a financial loss through the scheme it falls below the threshold of compensation. I am writing the objection letter I am going to send to them. I'm a brickie this isn't m",
+          "createdUtc": 1794075942,
+          "snippet": "I am 5 months in this process as a FTB and still nowhere closer to exchange. The seller's solicitors failed to include a mortgage protection clause when submitting the lease renewal and they are NOT going to consider a Deed of Variation to rectify this. (\"We are not going to ente",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpt708",
-          "title": "How do you deal with bad circumstances?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xpt708/how_do_you_deal_with_bad_circumstances/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xpt708/how_do_you_deal_with_bad_circumstances/",
-          "subreddit": "uklaw",
+          "id": "1xqd2fn",
+          "title": "First time buyer LISA and chattel",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqd2fn/first_time_buyer_lisa_and_chattel/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqd2fn/first_time_buyer_lisa_and_chattel/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794012617,
-          "snippet": "Hi everyone, I've made a few posts on here about the conditions at my current job as a paralegal at a Conveyancing firm, and wanted to know how others may have dealt with similar conditions. Right now, im being paid £1,000 a month for 40hrs of work p/w (below minimum ik), and hav",
+          "createdUtc": 1794075562,
+          "snippet": "First time buyer here with a £450k limit as I’ll be using my LISA in London. I’ve read that when making an offer I can offer £450k and extra for the chattel left behind which can help bolster the offer. In the offer, do I state how much I’d pay for the chattel or is the actual fi",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq1qfs",
-          "title": "Senior associate salary",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq1qfs/senior_associate_salary/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq1qfs/senior_associate_salary/",
-          "subreddit": "uklaw",
+          "id": "1xqcg5w",
+          "title": "Insurance cancelled",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqcg5w/insurance_cancelled/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqcg5w/insurance_cancelled/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794041177,
-          "snippet": "I'm currently 5pqe and I'm looking to move firm and apply for senior position. What salary should I expect/ask for. I'm targeting international and other silver circle firms. Not really us or MC firms. submitted by /u/Shoddy-Attitude-5211 [link] [comments]",
+          "createdUtc": 1794074016,
+          "snippet": "Hi i had insurance cancelled due to a query that falls outside their underwriting acceptance criteria, received a letter of “notification of cancellation”, on the bottom it says that i dont need to inform my insurer, my worry is, is this now flagged on my records? if i make a cla",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpo4i7",
-          "title": "Been contacted by 6 separate recruitment agents...",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xpo4i7/been_contacted_by_6_separate_recruitment_agents/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xpo4i7/been_contacted_by_6_separate_recruitment_agents/",
-          "subreddit": "uklaw",
+          "id": "1xqbt7s",
+          "title": "How can i get out?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqbt7s/how_can_i_get_out/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqbt7s/how_can_i_get_out/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793999038,
-          "snippet": "about a role I was rejected from. It was my dream role and going back to what I did a few years ago. It stings a bit ngl. So if anyone's feeling a little testy this Friday eve by all means get in this thread and tell me it's because I'm rubbish and they were right to reject me. s",
+          "createdUtc": 1794072384,
+          "snippet": "Hi, i am 19m east yorkshire, i am gay and quite feminine (if that’s relevant) and i am living with my mum who has been on benefits my entire life. i am claiming UC + LCWRA and PIP due to my day to day struggles which i dont feel comfortable getting into on here but i am mobile (i",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpr3ph",
-          "title": "Be honest - am I being too ambitious?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xpr3ph/be_honest_am_i_being_too_ambitious/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xpr3ph/be_honest_am_i_being_too_ambitious/",
-          "subreddit": "uklaw",
+          "id": "1xqbawa",
+          "title": "Should I exchange contracts with an unknown leak still unaccounted for?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqbawa/should_i_exchange_contracts_with_an_unknown_leak/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqbawa/should_i_exchange_contracts_with_an_unknown_leak/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794006705,
-          "snippet": "I've recently endured my first round of vacation scheme applications, which were entirely unsuccessful. I'm not deterred by my lack of success, but instead am genuinely energised by the challenge to improve myself, except I need help and advice on where to do that. I haven't done",
+          "createdUtc": 1794071123,
+          "snippet": "submitted by /u/HB9903 [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpn8v7",
-          "title": "Is there any point to beginning the bar course before getting an offer for pupillage?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xpn8v7/is_there_any_point_to_beginning_the_bar_course/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xpn8v7/is_there_any_point_to_beginning_the_bar_course/",
-          "subreddit": "uklaw",
+          "id": "1xqfvpg",
+          "title": "Leaseholder looking for advice regarding carpet covevant",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqfvpg/leaseholder_looking_for_advice_regarding_carpet/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqfvpg/leaseholder_looking_for_advice_regarding_carpet/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793996855,
-          "snippet": "I'm a third year law student, predicted upper second class hons. I'll be applying for pupillage because I quite fancy having my confidence destroyed with 30 rejections. Is there any point to beginning the bar course before I get an offer for pupillage? If I am unsuccessful the ti",
+          "createdUtc": 1794082751,
+          "snippet": "Typo in title, covenant*** Hello dear Redditors. I am a leaseholder and Hammersmith &amp; Fulham Council are the landlords. When we moved into our ground floor apartment it already had wooden flooring. We requested permission to do some minor works in the bathroom/kitchen, and th",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpnr5k",
-          "title": "How easy is a distinction in the PGDL (BPP)",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xpnr5k/how_easy_is_a_distinction_in_the_pgdl_bpp/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xpnr5k/how_easy_is_a_distinction_in_the_pgdl_bpp/",
-          "subreddit": "uklaw",
+          "id": "1xq9q7i",
+          "title": "FTB — vendor’s side silent for 6 weeks on refurb compliance (unconsented roof/extension, covenant, Building Control). Lease extension due 23 Nov. Keep waiting?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xq9q7i/ftb_vendors_side_silent_for_6_weeks_on_refurb/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xq9q7i/ftb_vendors_side_silent_for_6_weeks_on_refurb/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793998126,
-          "snippet": "Hi guys. I have a TC at a US law firm and am currently in my first term of the PGDL. My question: everyone and their mum seems to have got a distinction from this place. However, most of my class averaged 1:1 Oxbridge and I was also Oxbridge but got a 2:1 and am a bit imposter sy",
+          "createdUtc": 1794067167,
+          "snippet": "submitted by /u/Pugs--Drugs [link] [comments]",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xps6vv",
-          "title": "Arctic Shores interpretation for law firm progressoin",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xps6vv/arctic_shores_interpretation_for_law_firm/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xps6vv/arctic_shores_interpretation_for_law_firm/",
-          "subreddit": "uklaw",
+          "id": "1xq15c3",
+          "title": "L3 Survey said tree \"does not pose a threat.\" Now we have clay/tree subsidence. Do I have a case?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xq15c3/l3_survey_said_tree_does_not_pose_a_threat_now_we/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xq15c3/l3_survey_said_tree_does_not_pose_a_threat_now_we/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794009732,
-          "snippet": "Got my Arctic Shores results for a law firm. Am I cooked? I went with my gut on the facial recognition one and probably didn’t think it through enough. I really struggled to tell fear, anger and disgust apart, plus a few others. Honestly, I think neutral and happy were the only o",
+          "createdUtc": 1794038869,
+          "snippet": "Hi everyone, Looking for advice on a potential surveyor omission. The Background: Nov 2025: Prior to purchasing, we had an L3 survey completed and it noted: \"Tree present in the front garden. This does not currently pose a threat to the building: continued monitoring is advised.\"",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpawde",
-          "title": "Interviewing for entry-level roles but then being told I don't have enough experience.",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xpawde/interviewing_for_entrylevel_roles_but_then_being/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xpawde/interviewing_for_entrylevel_roles_but_then_being/",
-          "subreddit": "uklaw",
+          "id": "1xprh8d",
+          "title": "Panicking and can’t tell if it’s actual regret or first night worries",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xprh8d/panicking_and_cant_tell_if_its_actual_regret_or/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xprh8d/panicking_and_cant_tell_if_its_actual_regret_or/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793965896,
-          "snippet": "Hi, basically what the title says. I have been getting some reception/interviews for legal admin roles but after every single interview (only 3 lol) they reject me because I don't have an 'estbalished level of administration' or legal experience (I did a month at a boutique pract",
+          "createdUtc": 1794007744,
+          "snippet": "Heya, we’ve finally completed on a property today after seven months of waiting. We are FTBs in Wales. We moved everything in and I’m suddenly very acutely aware of everything wrong with the place. I’m constantly finding myself noticing each problem we have. The stairs are really",
           "listingSource": "rss:hot"
         }
       ]
@@ -509,11 +509,11 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 26,
+      "postCount": 29,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK",
-        "uklaw"
+        "HousingUK"
       ],
       "posts": [
         {
@@ -529,6 +529,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xq4pkp",
+          "title": "Paid an invoice to roofer, he's come back asking for more money",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4pkp/paid_an_invoice_to_roofer_hes_come_back_asking/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4pkp/paid_an_invoice_to_roofer_hes_come_back_asking/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794052783,
+          "snippet": "Hello all, I recently paid for my roof to be replaced, the total cost was £17000, the roofer originally asked for the payment to be partially cash, I told him I would need some time to get that amount (£8000) He then said that he would accept bank transfers and credit cards, I ma",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xq1nbe",
           "title": "Who inherits distant relative's estate?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq1nbe/who_inherits_distant_relatives_estate/",
@@ -541,15 +553,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpi3bw",
-          "title": "School wants to fine me - what can I do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpi3bw/school_wants_to_fine_me_what_can_i_do/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpi3bw/school_wants_to_fine_me_what_can_i_do/",
+          "id": "1xqczf1",
+          "title": "I suspect a student has cloned my voice without my permission for commercial purposes...",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqczf1/i_suspect_a_student_has_cloned_my_voice_without/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqczf1/i_suspect_a_student_has_cloned_my_voice_without/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793984722,
-          "snippet": "I have to take my son (17) out of school due to his grandpa being seriously ill (has end stage cancer) and lives in Australia so he will have 7 days of non authorised absence because the headteacher has said this is not a valid excuse. As his condition is worsening the doctors ha",
+          "createdUtc": 1794075353,
+          "snippet": "I'm looking for some advice on a rather uncomfortable situation. I'm a Spanish tutor, and I have a British student who is working on a YouTube channel to teach Spanish. I've also helped him with his project by proofreading and correcting some of his video scripts, for which he pa",
           "listingSource": "rss:hot"
         },
         {
@@ -565,6 +577,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xpi3bw",
+          "title": "School wants to fine me - what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpi3bw/school_wants_to_fine_me_what_can_i_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpi3bw/school_wants_to_fine_me_what_can_i_do/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1793984722,
+          "snippet": "I have to take my son (17) out of school due to his grandpa being seriously ill (has end stage cancer) and lives in Australia so he will have 7 days of non authorised absence because the headteacher has said this is not a valid excuse. As his condition is worsening the doctors ha",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xqcq2i",
+          "title": "Dispute with roofer. Where do we go from here? (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqcq2i/dispute_with_roofer_where_do_we_go_from_here/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqcq2i/dispute_with_roofer_where_do_we_go_from_here/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794074695,
+          "snippet": "We paid a roofer £18k to replace main roof and work on flat roof on a house we moved into in May. It has taken him all summer, and during this there was significant water ingress due to him failing to secure tarps over the flat roof which has led to damage in the kitchen, which h",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xpazzw",
           "title": "New UK laws and video games (England)",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpazzw/new_uk_laws_and_video_games_england/",
@@ -575,42 +611,6 @@
           "createdUtc": 1793966246,
           "snippet": "One of my favourite video games is a game called Baldur’s gate 3. If you’re not familiar with the game it’s a fantasy role playing game where you assume the role of a hero trying to save the land from a parasite turning people into monsters. There are lots of companions you can r",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xq4pkp",
-          "title": "Paid an invoice to roofer, he's come back asking for more money",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4pkp/paid_an_invoice_to_roofer_hes_come_back_asking/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4pkp/paid_an_invoice_to_roofer_hes_come_back_asking/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794052783,
-          "snippet": "Hello all, I recently paid for my roof to be replaced, the roofer originally asked for the payment to be partially cash, I told him I would need some time to get that amount (£8000) He then said that he would accept bank transfers and credit cards, I made the payment two days ago",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xq293n",
-          "title": "Neighbours throwing food into garden",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq293n/neighbours_throwing_food_into_garden/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq293n/neighbours_throwing_food_into_garden/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794043220,
-          "snippet": "hey so i live in a terraced house in england and have 2 houses to the right of me, one being a retired man and his son and next to them is a Charity run HMO for homeless men with dogs and since around may time we've had on and off food constantly being thrown in my garden. at fir",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xpqyz2",
-          "title": "Assaulted by abusive neighbour (UK)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpqyz2/assaulted_by_abusive_neighbour_uk/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpqyz2/assaulted_by_abusive_neighbour_uk/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794006341,
-          "snippet": "Ive been harassed by a neighbour for 2 years, it's not just me but they harass everyone. Screaming shouting, fighting in the street and being arrested multiple times. On Monday night I was assualted quite badly and the police arrested them. They tried to push their fingers in my ",
-          "listingSource": "rss:hot"
         }
       ]
     },
@@ -618,10 +618,11 @@
       "slug": "consumer-law",
       "label": "Consumer Law",
       "legalAreaSlug": "consumer",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
-        "LegalAdviceUK"
+        "LegalAdviceUK",
+        "HousingUK"
       ],
       "posts": [
         {
@@ -634,6 +635,18 @@
           "numComments": 0,
           "createdUtc": 1794011194,
           "snippet": "I'm looking for some independent legal advice on a dispute with Very (Shop Direct) over a £2,550 graphics card. I've now issued a small claim and Very has filed a full defence. The claim has progressed to mediation. Background I purchased an MSI RTX 5090 from Very for £2,553.99, ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xqcg5w",
+          "title": "Insurance cancelled",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqcg5w/insurance_cancelled/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqcg5w/insurance_cancelled/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794074016,
+          "snippet": "Hi i had insurance cancelled due to a query that falls outside their underwriting acceptance criteria, received a letter of “notification of cancellation”, on the bottom it says that i dont need to inform my insurer, my worry is, is this now flagged on my records? if i make a cla",
           "listingSource": "rss:hot"
         }
       ]
@@ -661,15 +674,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq2ddt",
-          "title": "England: Well-known blind company due to install on Oct 1st, have 50% deposit, and will not give a new install date",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq2ddt/england_wellknown_blind_company_due_to_install_on/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq2ddt/england_wellknown_blind_company_due_to_install_on/",
+          "id": "1xqckzg",
+          "title": "How long does a company have to refund deposit?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqckzg/how_long_does_a_company_have_to_refund_deposit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqckzg/how_long_does_a_company_have_to_refund_deposit/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794043699,
-          "snippet": "Posting on mobile so apologies if the formatting comes out badly. Brief timeline: 18th June 2026: 50% deposit paid (around £1500) and installation date of 1st October planned 1st October 2026: no call from installer and no installation, we contacted company to confirm installatio",
+          "createdUtc": 1794074364,
+          "snippet": "England I recently got a quote for some new windows on a house renovation. The guy came out and it was a good price so the next day I agreed to go ahead but would be using finance to fund them. I paid a deposit (£1300) using my debit card over the phone and made an application fo",
           "listingSource": "rss:hot"
         }
       ]
@@ -685,233 +698,124 @@
       ],
       "posts": [
         {
-          "id": "1xpqxsr",
-          "title": "Currys refusing replacement after failed repair on contract phone, they're claiming \"you bought it from iD Mobile, not us\". Legal rights?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpqxsr/currys_refusing_replacement_after_failed_repair/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpqxsr/currys_refusing_replacement_after_failed_repair/",
+          "id": "1xqgxzi",
+          "title": "Boohoo Refusing refund/replacement for missing items (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqgxzi/boohoo_refusing_refundreplacement_for_missing/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqgxzi/boohoo_refusing_refundreplacement_for_missing/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794006259,
-          "snippet": "In September, I took out a Samsung phone on a 24-month contract via iD Mobile inside a physical Currys store in England. The phone and the airtime contract were sold together as a single package at the till. After about a month, the phone developed a fault. Currys booked it in-st",
+          "createdUtc": 1794085605,
+          "snippet": "So had a strange one happen, Boohoo have \"investigated\" some missing items from a parcel my wife received. Its 3 items in total totalling £29.03, Boohoo have stated theyve watched the parcel being packed and the items where put into the parcel, they stated they've looked at the d",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "personal-injury",
-      "label": "Personal Injury",
-      "legalAreaSlug": "personal_injury",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xpcbmi",
-          "title": "Implications of a death following RTA",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpcbmi/implications_of_a_death_following_rta/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xpcbmi/implications_of_a_death_following_rta/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793970335,
-          "snippet": "Hi, keeping the details minimum as we are still in limbo with the police. Partner was involved in an accident where someone stepped out onto a dual carriage way and passed at the scene after being struck by the car. It seems like it was a suicide attempt. Partner was sole person ",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "welfare-benefits",
-      "label": "Welfare Benefits",
-      "legalAreaSlug": "welfare_benefits",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xq3ppn",
-          "title": "Years of Council Mishandling Records to Levy Max Council Tax/Refuse Benefits (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq3ppn/years_of_council_mishandling_records_to_levy_max/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq3ppn/years_of_council_mishandling_records_to_levy_max/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794049037,
-          "snippet": "edit: This is far longer than I realised I am currently cutting it down! If possible I'd like an idea of what, if anything, I can do about my local council. I have documentation showing them breaking several laws/pieces of legislation in how they've mishandled my accounts. One of",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "wills-and-probate",
-      "label": "Wills and Probate",
-      "legalAreaSlug": "wills_probate",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xq2x2w",
-          "title": "Will Trust - navigating being a lead trustee with a surviving parent / lifetime beneficiary England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq2x2w/will_trust_navigating_being_a_lead_trustee_with_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq2x2w/will_trust_navigating_being_a_lead_trustee_with_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794045873,
-          "snippet": "My parents made mirroring Wills which would put their share of the house in a will trust (my surviving parent being the life time beneficiary and myself the beneficiary on death of surviving parent). One parent died soon after and I was made aware of terms of will and I was trust",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "family-law",
-      "label": "Family Law",
-      "legalAreaSlug": "family",
-      "postCount": 2,
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 4,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK",
-        "uklaw"
+        "HousingUK"
       ],
       "posts": [
         {
-          "id": "1xq4wwc",
-          "title": "Domestic violence, moving belongings and bail conditions - England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4wwc/domestic_violence_moving_belongings_and_bail/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xq4wwc/domestic_violence_moving_belongings_and_bail/",
+          "id": "1xqf439",
+          "title": "FTB House purchase with faulty heating - how do I proceed? (Scotland)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqf439/ftb_house_purchase_with_faulty_heating_how_do_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xqf439/ftb_house_purchase_with_faulty_heating_how_do_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794053448,
-          "snippet": "Posting on behalf of a friend I'm currently supporting a friend through a difficult period where she was forced to flee a violent relationship. He has since been arrested and had bail conditions placed on him which prevent him from contacting at her and going to their jointly own",
+          "createdUtc": 1794080782,
+          "snippet": "I purchased my first home in September, and did all the right things, checking everything within the first five days, even getting a plumber and electrician out to check stuff. One of the radiators did not work and required work to fix (£500 for temp fix, further £1500 quoted). T",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xpo4i7",
-          "title": "Been contacted by 6 separate recruitment agents...",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xpo4i7/been_contacted_by_6_separate_recruitment_agents/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xpo4i7/been_contacted_by_6_separate_recruitment_agents/",
-          "subreddit": "uklaw",
+          "id": "1xpi2sa",
+          "title": "Solar panels not included with house sale",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xpi2sa/solar_panels_not_included_with_house_sale/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xpi2sa/solar_panels_not_included_with_house_sale/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793999038,
-          "snippet": "about a role I was rejected from. It was my dream role and going back to what I did a few years ago. It stings a bit ngl. So if anyone's feeling a little testy this Friday eve by all means get in this thread and tell me it's because I'm rubbish and they were right to reject me. s",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK",
-        "uklaw"
-      ],
-      "posts": [
-        {
-          "id": "1xp7xij",
-          "title": "England - Dismissed from a startup where I am a co-founder, being pressured to give up my shares for a small payment – is this normal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xp7xij/england_dismissed_from_a_startup_where_i_am_a/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xp7xij/england_dismissed_from_a_startup_where_i_am_a/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1793954589,
-          "snippet": "Got founder shares in a small early-stage UK startup. Recently, at a review, I was told my employment was ending, without a review (I did have a disciplinary review, but only 1) The sus part is the equity. I hold a small percentage. They want me to sign something agreeing to my s",
+          "createdUtc": 1793984687,
+          "snippet": "Several weeks after having my offer accepted, my solicitor tells me today out of the blue that the solar panels are not included with the house and the seller is \"taking them with them\". I viewed the house twice before putting the offer on, and both times had a conversation with ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xq1qfs",
-          "title": "Senior associate salary",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq1qfs/senior_associate_salary/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq1qfs/senior_associate_salary/",
-          "subreddit": "uklaw",
+          "id": "1xqd2fn",
+          "title": "First time buyer LISA and chattel",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqd2fn/first_time_buyer_lisa_and_chattel/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqd2fn/first_time_buyer_lisa_and_chattel/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794041177,
-          "snippet": "I'm currently 5pqe and I'm looking to move firm and apply for senior position. What salary should I expect/ask for. I'm targeting international and other silver circle firms. Not really us or MC firms. submitted by /u/Shoddy-Attitude-5211 [link] [comments]",
+          "createdUtc": 1794075562,
+          "snippet": "First time buyer here with a £450k limit as I’ll be using my LISA in London. I’ve read that when making an offer I can offer £450k and extra for the chattel left behind which can help bolster the offer. In the offer, do I state how much I’d pay for the chattel or is the actual fi",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xqfvpg",
+          "title": "Leaseholder looking for advice regarding carpet covevant",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqfvpg/leaseholder_looking_for_advice_regarding_carpet/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqfvpg/leaseholder_looking_for_advice_regarding_carpet/",
+          "subreddit": "HousingUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794082751,
+          "snippet": "Typo in title, covenant*** Hello dear Redditors. I am a leaseholder and Hammersmith &amp; Fulham Council are the landlords. When we moved into our ground floor apartment it already had wooden flooring. We requested permission to do some minor works in the bathroom/kitchen, and th",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
+      "slug": "commercial-law",
+      "label": "Commercial Law",
+      "legalAreaSlug": "commercial",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
-        "uklaw"
+        "HousingUK"
       ],
       "posts": [
         {
-          "id": "1xph1y8",
-          "title": "Comment purporting to be from a former SRA investigation manager",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xph1y8/comment_purporting_to_be_from_a_former_sra/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xph1y8/comment_purporting_to_be_from_a_former_sra/",
-          "subreddit": "uklaw",
+          "id": "1xqbawa",
+          "title": "Should I exchange contracts with an unknown leak still unaccounted for?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xqbawa/should_i_exchange_contracts_with_an_unknown_leak/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xqbawa/should_i_exchange_contracts_with_an_unknown_leak/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1793982330,
-          "snippet": "Leaving this comment from RollonFriday here as I think more of those regulated by the SRA should see it. Reportedly made by a former SRA investigator/investigation manager. As my own proceedings against the SRA are ongoing (link in comments), I am limited in what I can say at thi",
+          "createdUtc": 1794071123,
+          "snippet": "submitted by /u/HB9903 [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "planning-law",
-      "label": "Planning Law",
-      "legalAreaSlug": "planning_law",
+      "slug": "clinical-negligence",
+      "label": "Clinical Negligence",
+      "legalAreaSlug": "clinical_negligence",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
-        "uklaw"
+        "HousingUK"
       ],
       "posts": [
         {
-          "id": "1xq4c4i",
-          "title": "Are my GCSEs holding me back from VS applications?",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq4c4i/are_my_gcses_holding_me_back_from_vs_applications/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq4c4i/are_my_gcses_holding_me_back_from_vs_applications/",
-          "subreddit": "uklaw",
+          "id": "1xq9q7i",
+          "title": "FTB — vendor’s side silent for 6 weeks on refurb compliance (unconsented roof/extension, covenant, Building Control). Lease extension due 23 Nov. Keep waiting?",
+          "url": "https://www.reddit.com/r/HousingUK/comments/1xq9q7i/ftb_vendors_side_silent_for_6_weeks_on_refurb/",
+          "permalink": "https://www.reddit.com/r/HousingUK/comments/1xq9q7i/ftb_vendors_side_silent_for_6_weeks_on_refurb/",
+          "subreddit": "HousingUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794051410,
-          "snippet": "Hello all, This is my first cycle of applying and I really haven’t had any success so far. I had been aiming for a winter VS, but evidently that’s not possible now given the date. My GCSEs are: 77766665 and then a D* in a Btec My A levels are: 3 A*s I hold a first class (non law)",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "car-finance-and-pcp-disputes",
-      "label": "Car Finance and PCP Disputes",
-      "legalAreaSlug": "consumer_car_finance",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "uklaw"
-      ],
-      "posts": [
-        {
-          "id": "1xq4a2k",
-          "title": "Car finance redress scheme...",
-          "url": "https://www.reddit.com/r/uklaw/comments/1xq4a2k/car_finance_redress_scheme/",
-          "permalink": "https://www.reddit.com/r/uklaw/comments/1xq4a2k/car_finance_redress_scheme/",
-          "subreddit": "uklaw",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794051187,
-          "snippet": "&#x200B; My family bought a Toyota years ago and have recieved a letter stating.....although we have suffered a financial loss through the scheme it falls below the threshold of compensation. I am writing the objection letter I am going to send to them. I'm a brickie this isn't m",
+          "createdUtc": 1794067167,
+          "snippet": "submitted by /u/Pugs--Drugs [link] [comments]",
           "listingSource": "rss:hot"
         }
       ]
