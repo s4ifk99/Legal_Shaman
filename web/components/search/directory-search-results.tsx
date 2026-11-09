@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { SearchResultsLayout } from "@/components/search/search-results-layout";
 import { DirectoryResultDetail } from "@/components/search/directory-result-detail";
+import { ProviderComparisonPanel } from "@/components/search/provider-comparison-panel";
 import { BookmarkButton } from "@/components/bookmarks/bookmark-button";
 import { bookmarkMetaFromLegacyRow } from "@/lib/bookmarks/types";
 import { ResultDebugSection } from "@/components/search/result-debug-section";
@@ -55,6 +56,10 @@ type DirectorySearchResultsProps = {
   externalFallback?: ExternalFallbackPayload | null;
   citizensFallback: Listing[];
   initialExpandedId?: string;
+  /** Exp 4: comparison table above the list (default on; `compare=0` hides). */
+  showCompare?: boolean;
+  /** Href that turns the comparison table back on when hidden. */
+  compareRestoreHref?: string;
 };
 
 export function DirectorySearchResults({
@@ -72,6 +77,8 @@ export function DirectorySearchResults({
   externalFallback,
   citizensFallback,
   initialExpandedId,
+  showCompare = true,
+  compareRestoreHref,
 }: DirectorySearchResultsProps) {
   const [expandedId, setExpandedId] = useState<string | null>(initialExpandedId ?? null);
 
@@ -96,6 +103,19 @@ export function DirectorySearchResults({
         {(freeOnly || legalAidOnly || cityFacet) && " · filters applied"}
         {rows.length > 0 ? " · click a result for full details · bookmark firms to save them" : null}
       </p>
+      {showCompare && rows.length > 0 ? <ProviderComparisonPanel rows={rows} /> : null}
+      {!showCompare && rows.length > 0 && compareRestoreHref ? (
+        <p className="mb-4 text-xs text-muted-foreground">
+          Comparison table hidden (
+          <Link
+            href={compareRestoreHref}
+            className="underline underline-offset-2 hover:text-foreground"
+          >
+            show compare providers
+          </Link>
+          ).
+        </p>
+      ) : null}
       <ul className="space-y-3">
         {rows.map((row, index) => {
           const explanation = explanations[index];

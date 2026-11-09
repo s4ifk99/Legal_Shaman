@@ -14,8 +14,9 @@ type SearchResultsGateProps = {
 };
 
 /**
- * Hides directory search results until the user signs in.
- * After auth, refreshes the page so SSR can load results.
+ * When search auth is required, hides results until sign-in.
+ * When off (Exp 2: REQUIRE_SEARCH_AUTH=false), results render for guests;
+ * bookmarks / notes still soft-wall via bookmark auth.
  */
 export function SearchResultsGate({
   query,
@@ -23,8 +24,9 @@ export function SearchResultsGate({
   children,
 }: SearchResultsGateProps) {
   const router = useRouter();
-  const { openAuthForSearch, user, loading } = useRequireAuth();
-  const gated = query.trim().length >= 2 && !isAuthenticated && !user;
+  const { openAuthForSearch, user, loading, searchAuthRequired } = useRequireAuth();
+  const gated =
+    searchAuthRequired && query.trim().length >= 2 && !isAuthenticated && !user;
 
   useEffect(() => {
     if (gated && !loading) {
