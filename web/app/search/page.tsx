@@ -24,6 +24,8 @@ import { OslawTrendingMarquee } from "@/components/oslaw/trending-marquee";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SearchResultsGate } from "@/components/search/search-results-gate";
+import { requireSearchAuthEnabled } from "@/lib/auth/search-auth-config";
+import { compareParamEnabled } from "@/lib/search/compare-flag";
 
 type PageProps = {
   searchParams: Promise<{
@@ -36,6 +38,7 @@ type PageProps = {
     practiceArea?: string;
     location?: string;
     entity?: string;
+    compare?: string;
   }>;
 };
 
@@ -62,13 +65,25 @@ export default async function SearchPage({ searchParams }: PageProps) {
   const practiceArea = sp.practiceArea?.trim();
   const location = sp.location?.trim();
   const initialExpandedEntity = sp.entity?.trim() || undefined;
+  const showCompare = compareParamEnabled(sp.compare);
 
   const cities = getDistinctCities({ max: 32 });
   const currentUser = await getCurrentUser();
   const isAuthenticated = Boolean(currentUser);
+  const searchAuthOn = requireSearchAuthEnabled();
+  const canRunSearch = q.length >= 2 && (!searchAuthOn || isAuthenticated);
 
-  const dir =
-    q.length >= 2 && isAuthenticated
+  const compareRestoreParams = new URLSearchParams();
+  if (q) compareRestoreParams.set("q", q);
+  if (freeOnly) compareRestoreParams.set("free", "1");
+  if (legalAidOnly) compareRestoreParams.set("legalAid", "1");
+  if (cityFacet) compareRestoreParams.set("city", cityFacet);
+  if (source) compareRestoreParams.set("source", source);
+  if (practiceArea) compareRestoreParams.set("practiceArea", practiceArea);
+  if (location) compareRestoreParams.set("location", location);
+  const compareRestoreHref = `/search?${compareRestoreParams.toString()}`;
+
+  const dir = canRunSearch
       ? await runDirectorySearch({
           query: q,
           limit: 60,
@@ -213,6 +228,8 @@ export default async function SearchPage({ searchParams }: PageProps) {
                   missingCoordinatesCount={mapPayload?.missingCoordinatesCount ?? 0}
                   externalFallback={dir?.externalFallback ?? null}
                   citizensFallback={citizensFallback}
+                  showCompare={showCompare}
+                  compareRestoreHref={compareRestoreHref}
                 />
               </SearchResultsGate>
             )}
