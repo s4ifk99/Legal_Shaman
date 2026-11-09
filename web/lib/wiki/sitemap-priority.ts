@@ -97,6 +97,12 @@ export const SITEMAP_PRIORITY_WIKI_IDS = [
   "Areas/Driving and Parking/Parking and PCNs/Private parking charge on a residential estate: who helps",
   "Areas/Neighbours and Property/Boundaries and Rights/Neighbour fence over the boundary line: who helps",
   "Areas/Home and Housing/Renting/Ex will not return joint tenancy deposit: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Gym kept charging after I cancelled: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Broadband mid contract price rise: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Train delay compensation refused: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Bank refused my Section 75 claim: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Bought a car privately with outstanding hire purchase: who helps",
+  "Areas/Work and Employment/Your Rights at Work/Agency withheld my TRONC tips: who helps",
 ] as const;
 
 export function outsideEnglandAndWales(id: string): boolean {
