@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { CategoryCards, type CategorySection } from "@/components/category-cards";
@@ -7,6 +8,12 @@ import { SearchBar } from "@/components/search-bar";
 import { SpiralBackground } from "@/components/spiral-decoration";
 import signpostingResources from "@/data/signposting-resources.json";
 import Link from "next/link";
+
+/** Explicit .com canonical so Google does not treat the homepage as a duplicate of .co.uk. */
+export const metadata: Metadata = {
+  alternates: { canonical: "https://www.legalshaman.com/" },
+  openGraph: { url: "https://www.legalshaman.com/" },
+};
 
 export default function Home() {
   const sections = signpostingResources.sections as CategorySection[];

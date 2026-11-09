@@ -21,6 +21,7 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, dirname, resolve } from "node:path";
+import { wikiPagePublicUrl } from "../lib/wiki/public-url";
 
 type WikiPageIndex = {
   id: string;
@@ -225,7 +226,7 @@ function main() {
 
   if (input.pinSitemap !== false) pinSitemap(entry.id);
 
-  const liveUrl = `${BASE}/ask-the-shaman/wiki/${encodeURIComponent(entry.id)}`;
+  const liveUrl = wikiPagePublicUrl(entry.id, BASE);
   console.log(
     JSON.stringify({
       event: "wiki_promote_done",
