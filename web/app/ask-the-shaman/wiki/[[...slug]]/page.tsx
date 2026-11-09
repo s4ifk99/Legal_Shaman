@@ -20,8 +20,14 @@ function wikiIdFromSlugParam(slug: string[] | undefined): string {
   return slug.map((part) => decodeURIComponent(part)).join("/");
 }
 
+/**
+ * Page-level backup for legacy %2F wiki URLs.
+ * Middleware also 308s these; keep this for cases where the catch-all still
+ * receives a single encoded segment.
+ */
 function redirectEncodedSlashForm(slug: string[] | undefined, id: string, exists: boolean) {
-  if (exists && slug?.length === 1 && id.includes("/")) {
+  if (!exists || !id.includes("/")) return;
+  if (slug?.length === 1) {
     permanentRedirect(wikiPagePublicPath(id));
   }
 }

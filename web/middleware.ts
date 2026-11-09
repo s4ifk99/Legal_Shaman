@@ -52,6 +52,37 @@ function maintenanceResponse(request: NextRequest): NextResponse {
   return res;
 }
 
+/** Legacy wiki links used encodeURIComponent(fullId), so slashes became %2F. */
+function redirectEncodedWikiSlash(request: NextRequest): NextResponse | null {
+  const marker = "/ask-the-shaman/wiki/";
+  const raw = request.url;
+  const at = raw.indexOf(marker);
+  if (at < 0) return null;
+
+  const rest = raw.slice(at + marker.length).split(/[?#]/)[0] ?? "";
+  if (!/%2[fF]/.test(rest)) return null;
+
+  let id = "";
+  try {
+    id = decodeURIComponent(rest);
+  } catch {
+    return null;
+  }
+  if (!id.includes("/")) return null;
+
+  const destPath =
+    marker +
+    id
+      .split("/")
+      .filter(Boolean)
+      .map((segment) => encodeURIComponent(segment))
+      .join("/");
+
+  const dest = new URL(destPath, request.nextUrl.origin);
+  dest.search = request.nextUrl.search;
+  return NextResponse.redirect(dest, 308);
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -65,6 +96,9 @@ export async function middleware(request: NextRequest) {
     home.search = "";
     return NextResponse.redirect(home);
   }
+
+  const wikiSlashRedirect = redirectEncodedWikiSlash(request);
+  if (wikiSlashRedirect) return wikiSlashRedirect;
 
   if (pathname === "/embed/signpost") {
     const res = NextResponse.next();
