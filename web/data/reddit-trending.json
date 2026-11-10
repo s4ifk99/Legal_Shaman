@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-11-10T14:02:41.711Z",
+    "scrapedAt": "2026-11-10T22:52:44.258Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 7,
+    "topicCount": 8,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -38,6 +38,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xsxxeg",
+          "title": "CMS says I owe £279/month because my ex says I have our son 3 nights a week. She lied. Mandatory reconsideration failed. What are my chances at tribunal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxxeg/cms_says_i_owe_279month_because_my_ex_says_i_have/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxxeg/cms_says_i_owe_279month_because_my_ex_says_i_have/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794342965,
+          "snippet": "Location: England. My son is 7. His mum and I have been separated since 2023. CMS have assessed me at £290/month. She told them I have him 3 nights a week - a blatant lie. I have him 7 nights a fortnight 50/50 during term time and holidays and demonstrated this with a log of What",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xsji5z",
           "title": "How do I remove a restraining order my mother placed on my sister towards me once i turn 18 in England?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsji5z/how_do_i_remove_a_restraining_order_my_mother/",
@@ -74,15 +86,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xs57xn",
-          "title": "Chat Gpt used in a doctor's appointment- England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xs57xn/chat_gpt_used_in_a_doctors_appointment_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xs57xn/chat_gpt_used_in_a_doctors_appointment_england/",
+          "id": "1xsmaiw",
+          "title": "Landlord says I must pay share of council works invoices + \"tenant tax\" + rent increase. Is this legal? (Birmingham, England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsmaiw/landlord_says_i_must_pay_share_of_council_works/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsmaiw/landlord_says_i_must_pay_share_of_council_works/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794261785,
-          "snippet": "Hello, So I went into a doctor's appointment for a problem with my breathing and persistent cough. Usual stuff. I stand up and lift the back of the shirt for the examination of my breathing. I see that the guy has his phone facing up. A notification of Listening is on and the log",
+          "createdUtc": 1794315632,
+          "snippet": "I rent a flat in Birmingham and my landlord sent me a message saying: Birmingham City Council sent him invoices for improvement/maintenance works on the flats. For my flat it's over £3,600, payable over 24 months. And I’m supposed to pay extra £70/month in \" services \" for two ye",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xsvq7v",
+          "title": "Unpaid work on salary - advise (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsvq7v/unpaid_work_on_salary_advise_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsvq7v/unpaid_work_on_salary_advise_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794337838,
+          "snippet": "I've been working for my current employer for approx 2 years. I started as part time (20 hrs) and moved to full time start of march this year. Since I started it has been made clear to me that I must arrive early to put the stock out and set up the till etc before we open. I am o",
           "listingSource": "rss:hot"
         },
         {
@@ -98,6 +122,102 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xsl5ke",
+          "title": "UK: Redundancy not yet confirmed, but IT is already sending offboarding emails.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsl5ke/uk_redundancy_not_yet_confirmed_but_it_is_already/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsl5ke/uk_redundancy_not_yet_confirmed_but_it_is_already/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794312201,
+          "snippet": "I’m a Consultant in the UK (more than 4 years at current company). I’ve been in scope for redundancy for a couple of months and was confirmed ‘at risk’ about three weeks ago. Confirmation of redundancy is due in the next few days. What’s happened: • Selection: I was scored agains",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xs57xn",
+          "title": "Chat Gpt used in a doctor's appointment- England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xs57xn/chat_gpt_used_in_a_doctors_appointment_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xs57xn/chat_gpt_used_in_a_doctors_appointment_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794261785,
+          "snippet": "Hello, So I went into a doctor's appointment for a problem with my breathing and persistent cough. Usual stuff. I stand up and lift the back of the shirt for the examination of my breathing. I see that the guy has his phone facing up. A notification of Listening is on and the log",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xt0xnh",
+          "title": "Google removing a core feature of my plan mid-term and refuse to cancel and refund?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt0xnh/google_removing_a_core_feature_of_my_plan_midterm/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt0xnh/google_removing_a_core_feature_of_my_plan_midterm/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794350241,
+          "snippet": "Hey, I'm in England. Recently Google removed the \"Google Home Premium\" feature from their \"Google AI Plus 2TB\" plan mid-term without any notification. You can see the only place they publicised this information is here in their support documentation. I only paid for this plan bec",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xsuy50",
+          "title": "URGENT: STUCK IN A JOINT TENANCY, HAVE TO LEAVE IN A WEEK, LANDLORD SAYS I CAN’T (ENGLAND)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsuy50/urgent_stuck_in_a_joint_tenancy_have_to_leave_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsuy50/urgent_stuck_in_a_joint_tenancy_have_to_leave_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794336064,
+          "snippet": "Hi everyone, I signed a contract and moved in to my current place in London (ex-council flat - this is relevant) on 21 September 2025. It was a joint fixed tenancy for 12 months, but in May when the Renters’ Rights Act went through, the lettings agency sent us an info sheet of ou",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xsr2jb",
+          "title": "robbed on a train out of london what can i do other than call the police",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsr2jb/robbed_on_a_train_out_of_london_what_can_i_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsr2jb/robbed_on_a_train_out_of_london_what_can_i_do/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794327425,
+          "snippet": "I had my first day off work for a long time today and travelled down to london for the harry potter store that's just opened. i had a magical time and bought a lot of goodies and presents, I don't have my receipt but i spent about £500 in total and had about 3 bags of things. I g",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xsxwf8",
+          "title": "Help, rented a car from Drivalia and I am now being charged £1580 for damage I did not do to the car. Any advice to fight this would be appreciated!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxwf8/help_rented_a_car_from_drivalia_and_i_am_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxwf8/help_rented_a_car_from_drivalia_and_i_am_now/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794342898,
+          "snippet": "As the title says, I rented a car from Drivalia on a 3 months subscription whilst I waited for my new car to be ready. 2 weeks before I was due to hand the car back, the drivers door broke. The car had been parked on my drive and no one had access to the car at all. To add contex",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xt10ay",
+          "title": "justeat cancelled order, 'there will be no refund for this order'",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794350427,
+          "snippet": "(England) i ordered on justeat and paid by paypal. delivery time slipped by over an hour. i cancelled the order, website said something like 'no problem, your order has probably not been prepared yet.' then i got a cancellation email stating \"if you have been charged there will b",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xsvrop",
+          "title": "Dart charge - first PCN never received, today received Charge certificate",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsvrop/dart_charge_first_pcn_never_received_today/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsvrop/dart_charge_first_pcn_never_received_today/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794337931,
+          "snippet": "Hi, Looking for advice on how to get this Dart Charge issue sorted out! I'm in England. I crossed on 19th September at 19:23. I only remembered to pay the charge after the deadline, so I processed a payment of £3.50 at 00:49 on 21st September (the deadline was midnight on the 20t",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xryyjx",
           "title": "Sainsbury’s ban and £200 solicitor letter. What should I do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xryyjx/sainsburys_ban_and_200_solicitor_letter_what/",
@@ -110,15 +230,15 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xrpkhq",
-          "title": "Wage deduction for me and coworker due to not working for an hour while waiting for delivery (England), Supermarket",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrpkhq/wage_deduction_for_me_and_coworker_due_to_not/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrpkhq/wage_deduction_for_me_and_coworker_due_to_not/",
+          "id": "1xsqfci",
+          "title": "[England] Housing association trying to impose service charges, but it's already included in my rent?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsqfci/england_housing_association_trying_to_impose/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsqfci/england_housing_association_trying_to_impose/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794224683,
-          "snippet": "Yesterday, i was scheduled at my supermarket job from 6am-3pm. Around 8am ish delivery was an hour or so late so me and a coworker stood doing nothing for around 30-40mins. My manager has taken an hours pay from me and this coworker because of this and actively changed my rota fr",
+          "createdUtc": 1794325976,
+          "snippet": "I live in a small block of flats, there's 4 buildings total, so we do receive some communal services. We have cleaners in every week for the landings and stairs etc, and gardeners come around to cut the grass and so on. I received a letter today explaining that these services wil",
           "listingSource": "rss:hot"
         },
         {
@@ -132,126 +252,6 @@
           "createdUtc": 1794226314,
           "snippet": "I accidentally knocked water over a cake display fridge at work and it got into the control panel so the fridge no longer works. Its always kept on the fridge with a knife and a pair of tongs for serving cakes. This is where ive been told to put it since I started here 4 years ag",
           "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xrpy0c",
-          "title": "Grandma paid the cleaner £40k for a series of sob stories",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrpy0c/grandma_paid_the_cleaner_40k_for_a_series_of_sob/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrpy0c/grandma_paid_the_cleaner_40k_for_a_series_of_sob/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794225869,
-          "snippet": "My wife found out her grandma has paid her cleaner hundreds of pounds a week regularly over the last couple of years, to the tune of 40k, her pension. The cleaner was doing 1-2 hours of cleaning a week (and not particularly well, often found her doing the nans crossword!). It was",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xsmaiw",
-          "title": "Landlord says I must pay share of council works invoices + \"tenant tax\" + rent increase. Is this legal? (Birmingham, England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsmaiw/landlord_says_i_must_pay_share_of_council_works/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsmaiw/landlord_says_i_must_pay_share_of_council_works/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794315632,
-          "snippet": "I rent a flat in Birmingham and my landlord sent me a message saying: Birmingham City Council sent him invoices for improvement/maintenance works on the flats. For my flat it's over £3,600, payable over 24 months. And I’m supposed to pay extra £70/month in \" services \" for two ye",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xscjqm",
-          "title": "Landlord is concerned about me keeping 'weapons' in my bedroom, anything I can do? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xscjqm/landlord_is_concerned_about_me_keeping_weapons_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xscjqm/landlord_is_concerned_about_me_keeping_weapons_in/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794281525,
-          "snippet": "Per title. Landlord has recently learned that I keep an axe in my bedroom. Its a very old mostly rusted axe that has been owned by my family for decades, and is only ever 'used' for hacking firewood apart (not very effectively). From some cursory googling it appears it becomes il",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xslfmf",
-          "title": "Walked away from a business I helped build, signed away my shares, but the lease is still in my name. Am I unreasonable asking for £ to transfer the lease? (Scotland)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xslfmf/walked_away_from_a_business_i_helped_build_signed/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xslfmf/walked_away_from_a_business_i_helped_build_signed/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794313070,
-          "snippet": "&#x200B; I helped establish a business which has had roughly £150k invested into it (primarily by the other partner) and ran it for just under two years. I was involved from the beginning, solely built the business through 19-20 hour days, carried out 3 to 4 roles in one and took",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xrtdae",
-          "title": "Attend Work Christmas Party or use annual leave. Is this legal? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrtdae/attend_work_christmas_party_or_use_annual_leave/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrtdae/attend_work_christmas_party_or_use_annual_leave/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794235251,
-          "snippet": "Hi there, My company are trying to force attendance at the Christmas Party. Not many people attend over all and from my particular depot, nobody attends. They have told us that they will be closing my depot on the day and if I don't attend the party then I will have to use my ann",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xs2erd",
-          "title": "Bought concert tickets from Viagogo and have seemingly been scammed. Is there anything I can do?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xs2erd/bought_concert_tickets_from_viagogo_and_have/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xs2erd/bought_concert_tickets_from_viagogo_and_have/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794255268,
-          "snippet": "Hi reddit. I'm based in England. I have an 11 year old daughter. For her Christmas present this year, I decided to take her to a Hatsune Mike concert in the O2 in London, which is being held next week. I've seldom bought concert tickets before, and when I googled this, the first ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xsl5ke",
-          "title": "UK: Redundancy not yet confirmed, but IT is already sending offboarding emails.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsl5ke/uk_redundancy_not_yet_confirmed_but_it_is_already/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsl5ke/uk_redundancy_not_yet_confirmed_but_it_is_already/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794312201,
-          "snippet": "I’m a Consultant in the UK (more than 4 years at current company). I’ve been in scope for redundancy for a couple of months and was confirmed ‘at risk’ about three weeks ago. Confirmation of redundancy is due in the next few days. What’s happened: • Selection: I was scored agains",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xrr5fy",
-          "title": "Parking blacked out? Can this still be enforced?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrr5fy/parking_blacked_out_can_this_still_be_enforced/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrr5fy/parking_blacked_out_can_this_still_be_enforced/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794229503,
-          "snippet": "Can these be enforced? all post within the area have been blacked out Not sure if vandalism or if council stopped enforcement Ring go still taking payment though England submitted by /u/thunder296 [link] [comments]",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xsjx0y",
-          "title": "Speaking out about inappropriate behaviour and now being threatened- should we go to the police? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsjx0y/speaking_out_about_inappropriate_behaviour_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsjx0y/speaking_out_about_inappropriate_behaviour_and/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794307958,
-          "snippet": "TLDR: coach sexually assaulted friend, she didn’t formally raise it at the time but now the gf is being threatening saying we’ve ruined everything so we’re feeling scared as well as guilty. Would we be over reacting to take it to the police Right. Posting on a second account so t",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xrwwd9",
-          "title": "Business in administration with personal belongings locked inside",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrwwd9/business_in_administration_with_personal/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrwwd9/business_in_administration_with_personal/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794243186,
-          "snippet": "Based in England My husband was unfortunately made redundant along with all his colleagues on Friday with immediate effect due to the business entering administration. As the notice was so short, my husband was unable to take his personal equipment and tooling with him due to hav",
-          "listingSource": "rss:hot"
         }
       ]
     }
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 12,
+      "postCount": 6,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -316,6 +316,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xsr2jb",
+          "title": "robbed on a train out of london what can i do other than call the police",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsr2jb/robbed_on_a_train_out_of_london_what_can_i_do/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsr2jb/robbed_on_a_train_out_of_london_what_can_i_do/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794327425,
+          "snippet": "I had my first day off work for a long time today and travelled down to london for the harry potter store that's just opened. i had a magical time and bought a lot of goodies and presents, I don't have my receipt but i spent about £500 in total and had about 3 bags of things. I g",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xryyjx",
           "title": "Sainsbury’s ban and £200 solicitor letter. What should I do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xryyjx/sainsburys_ban_and_200_solicitor_letter_what/",
@@ -326,41 +338,29 @@
           "createdUtc": 1794247680,
           "snippet": "I’m in London, England. I was distracted by a phone call in Sainsbury’s and started walking out without paying for a few items. It was a genuine mistake. Security stopped me, the store kept everything, and no police were involved. I’ve appealed the ban, but I’ve now received a le",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "welfare-benefits",
+      "label": "Welfare Benefits",
+      "legalAreaSlug": "welfare_benefits",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xrpkhq",
-          "title": "Wage deduction for me and coworker due to not working for an hour while waiting for delivery (England), Supermarket",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrpkhq/wage_deduction_for_me_and_coworker_due_to_not/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrpkhq/wage_deduction_for_me_and_coworker_due_to_not/",
+          "id": "1xsxxeg",
+          "title": "CMS says I owe £279/month because my ex says I have our son 3 nights a week. She lied. Mandatory reconsideration failed. What are my chances at tribunal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxxeg/cms_says_i_owe_279month_because_my_ex_says_i_have/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxxeg/cms_says_i_owe_279month_because_my_ex_says_i_have/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794224683,
-          "snippet": "Yesterday, i was scheduled at my supermarket job from 6am-3pm. Around 8am ish delivery was an hour or so late so me and a coworker stood doing nothing for around 30-40mins. My manager has taken an hours pay from me and this coworker because of this and actively changed my rota fr",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xrpy0c",
-          "title": "Grandma paid the cleaner £40k for a series of sob stories",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrpy0c/grandma_paid_the_cleaner_40k_for_a_series_of_sob/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrpy0c/grandma_paid_the_cleaner_40k_for_a_series_of_sob/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794225869,
-          "snippet": "My wife found out her grandma has paid her cleaner hundreds of pounds a week regularly over the last couple of years, to the tune of 40k, her pension. The cleaner was doing 1-2 hours of cleaning a week (and not particularly well, often found her doing the nans crossword!). It was",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xslfmf",
-          "title": "Walked away from a business I helped build, signed away my shares, but the lease is still in my name. Am I unreasonable asking for £ to transfer the lease? (Scotland)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xslfmf/walked_away_from_a_business_i_helped_build_signed/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xslfmf/walked_away_from_a_business_i_helped_build_signed/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794313070,
-          "snippet": "&#x200B; I helped establish a business which has had roughly £150k invested into it (primarily by the other partner) and ran it for just under two years. I was involved from the beginning, solely built the business through 19-20 hour days, carried out 3 to 4 roles in one and took",
+          "createdUtc": 1794342965,
+          "snippet": "Location: England. My son is 7. His mum and I have been separated since 2023. CMS have assessed me at £290/month. She told them I have him 3 nights a week - a blatant lie. I have him 7 nights a fortnight 50/50 during term time and holidays and demonstrated this with a log of What",
           "listingSource": "rss:hot"
         }
       ]
@@ -393,7 +393,7 @@
       "slug": "consumer-law",
       "label": "Consumer Law",
       "legalAreaSlug": "consumer",
-      "postCount": 1,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -410,65 +410,29 @@
           "createdUtc": 1794308947,
           "snippet": "Hi everyone, I recently posted asking for legal advice after spending three months chasing a £41.93 AppleCare+ refund. Link to original post: https://www.reddit.com/r/LegalAdviceUK/s/HLYp8Sm5Ck Some suggested small claims court wasn’t worth the cost, which I understood. I wanted ",
           "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "parking-and-pcns",
-      "label": "Parking and PCNs",
-      "legalAreaSlug": "parking_pcn",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
+        },
         {
-          "id": "1xskdso",
-          "title": "Received PCN on a matchday, do I have grounds for appeal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xskdso/received_pcn_on_a_matchday_do_i_have_grounds_for/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xskdso/received_pcn_on_a_matchday_do_i_have_grounds_for/",
+          "id": "1xt0xnh",
+          "title": "Google removing a core feature of my plan mid-term and refuse to cancel and refund?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt0xnh/google_removing_a_core_feature_of_my_plan_midterm/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt0xnh/google_removing_a_core_feature_of_my_plan_midterm/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794309625,
-          "snippet": "England I received a PCN for parking in a residential zone near a football stadium. I was outside of regular restricted hours for Saturdays, but special restrictions apply on a match day. I thought I was clear as I did not know it was a match day. Unfortunately, it turns out that",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xrq33w",
-          "title": "Can a £3000 fridge be taken out my wages for accidentally knocking water over it (england)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrq33w/can_a_3000_fridge_be_taken_out_my_wages_for/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrq33w/can_a_3000_fridge_be_taken_out_my_wages_for/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794226314,
-          "snippet": "I accidentally knocked water over a cake display fridge at work and it got into the control panel so the fridge no longer works. Its always kept on the fridge with a knife and a pair of tongs for serving cakes. This is where ive been told to put it since I started here 4 years ag",
+          "createdUtc": 1794350241,
+          "snippet": "Hey, I'm in England. Recently Google removed the \"Google Home Premium\" feature from their \"Google AI Plus 2TB\" plan mid-term without any notification. You can see the only place they publicised this information is here in their support documentation. I only paid for this plan bec",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xsl5ke",
-          "title": "UK: Redundancy not yet confirmed, but IT is already sending offboarding emails.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsl5ke/uk_redundancy_not_yet_confirmed_but_it_is_already/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsl5ke/uk_redundancy_not_yet_confirmed_but_it_is_already/",
+          "id": "1xt10ay",
+          "title": "justeat cancelled order, 'there will be no refund for this order'",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794312201,
-          "snippet": "I’m a Consultant in the UK (more than 4 years at current company). I’ve been in scope for redundancy for a couple of months and was confirmed ‘at risk’ about three weeks ago. Confirmation of redundancy is due in the next few days. What’s happened: • Selection: I was scored agains",
+          "createdUtc": 1794350427,
+          "snippet": "(England) i ordered on justeat and paid by paypal. delivery time slipped by over an hour. i cancelled the order, website said something like 'no problem, your order has probably not been prepared yet.' then i got a cancellation email stating \"if you have been charged there will b",
           "listingSource": "rss:hot"
         }
       ]
@@ -477,7 +441,7 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 2,
+      "postCount": 3,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -496,23 +460,119 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xscjqm",
-          "title": "Landlord is concerned about me keeping 'weapons' in my bedroom, anything I can do? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xscjqm/landlord_is_concerned_about_me_keeping_weapons_in/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xscjqm/landlord_is_concerned_about_me_keeping_weapons_in/",
+          "id": "1xsuy50",
+          "title": "URGENT: STUCK IN A JOINT TENANCY, HAVE TO LEAVE IN A WEEK, LANDLORD SAYS I CAN’T (ENGLAND)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsuy50/urgent_stuck_in_a_joint_tenancy_have_to_leave_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsuy50/urgent_stuck_in_a_joint_tenancy_have_to_leave_in/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794281525,
-          "snippet": "Per title. Landlord has recently learned that I keep an axe in my bedroom. Its a very old mostly rusted axe that has been owned by my family for decades, and is only ever 'used' for hacking firewood apart (not very effectively). From some cursory googling it appears it becomes il",
+          "createdUtc": 1794336064,
+          "snippet": "Hi everyone, I signed a contract and moved in to my current place in London (ex-council flat - this is relevant) on 21 September 2025. It was a joint fixed tenancy for 12 months, but in May when the Renters’ Rights Act went through, the lettings agency sent us an info sheet of ou",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xsqfci",
+          "title": "[England] Housing association trying to impose service charges, but it's already included in my rent?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsqfci/england_housing_association_trying_to_impose/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsqfci/england_housing_association_trying_to_impose/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794325976,
+          "snippet": "I live in a small block of flats, there's 4 buildings total, so we do receive some communal services. We have cleaners in every week for the landings and stairs etc, and gardeners come around to cut the grass and so on. I received a letter today explaining that these services wil",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "insolvency",
-      "label": "Insolvency",
-      "legalAreaSlug": "insolvency",
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 3,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xsvq7v",
+          "title": "Unpaid work on salary - advise (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsvq7v/unpaid_work_on_salary_advise_england/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsvq7v/unpaid_work_on_salary_advise_england/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794337838,
+          "snippet": "I've been working for my current employer for approx 2 years. I started as part time (20 hrs) and moved to full time start of march this year. Since I started it has been made clear to me that I must arrive early to put the stock out and set up the till etc before we open. I am o",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xsl5ke",
+          "title": "UK: Redundancy not yet confirmed, but IT is already sending offboarding emails.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsl5ke/uk_redundancy_not_yet_confirmed_but_it_is_already/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsl5ke/uk_redundancy_not_yet_confirmed_but_it_is_already/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794312201,
+          "snippet": "I’m a Consultant in the UK (more than 4 years at current company). I’ve been in scope for redundancy for a couple of months and was confirmed ‘at risk’ about three weeks ago. Confirmation of redundancy is due in the next few days. What’s happened: • Selection: I was scored agains",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xrq33w",
+          "title": "Can a £3000 fridge be taken out my wages for accidentally knocking water over it (england)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrq33w/can_a_3000_fridge_be_taken_out_my_wages_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrq33w/can_a_3000_fridge_be_taken_out_my_wages_for/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794226314,
+          "snippet": "I accidentally knocked water over a cake display fridge at work and it got into the control panel so the fridge no longer works. Its always kept on the fridge with a knife and a pair of tongs for serving cakes. This is where ive been told to put it since I started here 4 years ag",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xskdso",
+          "title": "Received PCN on a matchday, do I have grounds for appeal?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xskdso/received_pcn_on_a_matchday_do_i_have_grounds_for/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xskdso/received_pcn_on_a_matchday_do_i_have_grounds_for/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794309625,
+          "snippet": "England I received a PCN for parking in a residential zone near a football stadium. I was outside of regular restricted hours for Saturdays, but special restrictions apply on a match day. I thought I was clear as I did not know it was a match day. Unfortunately, it turns out that",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xsvrop",
+          "title": "Dart charge - first PCN never received, today received Charge certificate",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsvrop/dart_charge_first_pcn_never_received_today/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsvrop/dart_charge_first_pcn_never_received_today/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794337931,
+          "snippet": "Hi, Looking for advice on how to get this Dart Charge issue sorted out! I'm in England. I crossed on 19th September at 19:23. I only remembered to pay the charge after the deadline, so I processed a payment of £3.50 at 00:49 on 21st September (the deadline was midnight on the 20t",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "garage-and-vehicle-repair-disputes",
+      "label": "Garage and Vehicle Repair Disputes",
+      "legalAreaSlug": "consumer_vehicle_repair",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -520,15 +580,15 @@
       ],
       "posts": [
         {
-          "id": "1xrwwd9",
-          "title": "Business in administration with personal belongings locked inside",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrwwd9/business_in_administration_with_personal/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xrwwd9/business_in_administration_with_personal/",
+          "id": "1xsxwf8",
+          "title": "Help, rented a car from Drivalia and I am now being charged £1580 for damage I did not do to the car. Any advice to fight this would be appreciated!",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxwf8/help_rented_a_car_from_drivalia_and_i_am_now/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxwf8/help_rented_a_car_from_drivalia_and_i_am_now/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794243186,
-          "snippet": "Based in England My husband was unfortunately made redundant along with all his colleagues on Friday with immediate effect due to the business entering administration. As the notice was so short, my husband was unable to take his personal equipment and tooling with him due to hav",
+          "createdUtc": 1794342898,
+          "snippet": "As the title says, I rented a car from Drivalia on a 3 months subscription whilst I waited for my new car to be ready. 2 weeks before I was due to hand the car back, the drivers door broke. The car had been parked on my drive and no one had access to the car at all. To add contex",
           "listingSource": "rss:hot"
         }
       ]
