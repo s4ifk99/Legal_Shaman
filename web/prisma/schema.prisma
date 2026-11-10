@@ -650,6 +650,7 @@ model User {
   createdAt         DateTime                  @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt         DateTime                  @updatedAt @map("updated_at") @db.Timestamptz(3)
   bookmarks         Bookmark[]
+  privacyUpgrades   PrivacyUpgrade[]
   providerNotes     ProviderNote[]
   usageEvents       UsageEvent[]
   verificationTokens EmailVerificationToken[]
@@ -729,12 +730,50 @@ model Bookmark {
   entityId     String   @map("entity_id") @db.VarChar(128)
   resultSource String   @map("result_source") @db.VarChar(32)
   businessName String   @map("business_name") @db.VarChar(512)
+  note         String?  @db.VarChar(2000)
+  nextAction   String?  @map("next_action") @db.VarChar(500)
+  status       String   @default("not_contacted") @db.VarChar(32)
   createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, entityId, resultSource])
   @@index([userId, createdAt])
   @@map("bookmarks")
+}
+
+/// One-time 99p privacy upgrade purchases (Exp 6). Weekly plan remains separate.
+model PrivacyUpgrade {
+  id              String    @id @default(cuid())
+  userId          String    @map("user_id")
+  stripeSessionId String?   @unique @map("stripe_session_id") @db.VarChar(255)
+  status          String    @default("pending") @db.VarChar(32)
+  coversUntil     DateTime? @map("covers_until") @db.Timestamptz(3)
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@map("privacy_upgrades")
+}
+
+/// LegalShaman-identity solicitor fee/capacity enquiry log (Exp 7 discovery).
+model ProviderEnquiry {
+  id              String    @id @default(cuid())
+  firmName        String    @map("firm_name") @db.VarChar(512)
+  firmEmail       String?   @map("firm_email") @db.VarChar(255)
+  areaOfLaw       String    @map("area_of_law") @db.VarChar(255)
+  status          String    @default("sent") @db.VarChar(32)
+  costSummary     String?   @map("cost_summary") @db.VarChar(1000)
+  capacitySummary String?   @map("capacity_summary") @db.VarChar(1000)
+  eligibilityNote String?   @map("eligibility_note") @db.VarChar(1000)
+  respondedAt     DateTime? @map("responded_at") @db.Timestamptz(3)
+  notes           String?   @db.VarChar(2000)
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@index([createdAt])
+  @@index([status])
+  @@map("provider_enquiries")
 }
 
 /// Private contact note for one organisation in a user's research workspace.

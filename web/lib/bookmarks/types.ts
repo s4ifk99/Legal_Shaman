@@ -1,6 +1,17 @@
 import type { SearchResultSource } from "@/lib/search-events/types";
 import type { LegacyGetRow } from "@/lib/legal-search/legacy-get-response";
 
+export const BOOKMARK_STATUSES = [
+  "not_contacted",
+  "contacted",
+  "awaiting_response",
+  "follow_up_required",
+  "not_suitable",
+  "engaged",
+] as const;
+
+export type BookmarkStatus = (typeof BOOKMARK_STATUSES)[number];
+
 export type BookmarkKey = {
   entityId: string;
   resultSource: SearchResultSource;
@@ -9,11 +20,21 @@ export type BookmarkKey = {
 export type BookmarkRecord = BookmarkKey & {
   id: string;
   businessName: string;
+  note: string | null;
+  nextAction: string | null;
+  status: BookmarkStatus;
   createdAt: string;
+  updatedAt?: string;
 };
 
 export type BookmarkInput = BookmarkKey & {
   businessName: string;
+};
+
+export type BookmarkNoteUpdate = BookmarkKey & {
+  note?: string | null;
+  nextAction?: string | null;
+  status?: BookmarkStatus;
 };
 
 export function bookmarkKeyString(key: BookmarkKey): string {
