@@ -52,3 +52,20 @@ export const BookmarkDeleteSchema = z.object({
   entityId: z.string().trim().min(1).max(128),
   resultSource: z.enum(RESULT_SOURCES),
 });
+
+export const BookmarkNoteSchema = z.object({
+  entityId: z.string().trim().min(1).max(128),
+  resultSource: z.enum(RESULT_SOURCES),
+  note: z.string().trim().max(2000).nullable().optional(),
+  nextAction: z.string().trim().max(500).nullable().optional(),
+  status: z
+    .enum([
+      "not_contacted",
+      "contacted",
+      "awaiting_response",
+      "follow_up_required",
+      "not_suitable",
+      "engaged",
+    ])
+    .optional(),
+});

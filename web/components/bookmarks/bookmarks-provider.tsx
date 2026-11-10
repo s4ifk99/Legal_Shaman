@@ -11,11 +11,18 @@ import {
   type ReactNode,
 } from "react";
 import type { PublicUser } from "@/lib/auth/user-session";
-import type { BookmarkInput, BookmarkKey, BookmarkRecord } from "@/lib/bookmarks/types";
+import type {
+  BookmarkInput,
+  BookmarkKey,
+  BookmarkNoteUpdate,
+  BookmarkRecord,
+} from "@/lib/bookmarks/types";
 import { bookmarkKeyString } from "@/lib/bookmarks/types";
 import { AuthDialog, type AuthDialogReason } from "@/components/bookmarks/auth-dialog";
-import { VerifyEmailGate } from "@/components/auth/verify-email-gate";
+import { BookmarkNotePrompt } from "@/components/bookmarks/bookmark-note-prompt";
 import { resolveApiUrl } from "@/lib/site/api-url";
+import { captureProductEvent } from "@/components/analytics/posthog-provider";
+import { FUNNEL_EVENTS } from "@/lib/analytics/funnel-events";
 
 type BookmarksContextValue = {
   user: PublicUser | null;
@@ -29,11 +36,8 @@ type BookmarksContextValue = {
   openAuthForSearch: (retry?: () => void) => void;
   isBookmarked: (key: BookmarkKey) => boolean;
   toggleBookmark: (input: BookmarkInput) => Promise<boolean>;
+  updateBookmarkNotes: (input: BookmarkNoteUpdate) => Promise<boolean>;
   refreshBookmarks: () => Promise<void>;
-  /** Re-reads the signed-in user without toggling `loading` (e.g. after email verification). */
-  refreshSession: () => Promise<PublicUser | null>;
-  /** Opens the blocking "confirm your email" dialog. */
-  promptEmailVerification: () => void;
   signOut: () => Promise<void>;
 };
 
@@ -54,7 +58,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   const [authOpen, setAuthOpen] = useState(false);
   const [authReason, setAuthReason] = useState<AuthDialogReason>("bookmark");
   const [pendingBookmark, setPendingBookmark] = useState<BookmarkInput | null>(null);
-  const [verifyPromptOpen, setVerifyPromptOpen] = useState(false);
+  const [notePrompt, setNotePrompt] = useState<BookmarkInput | null>(null);
   const pendingSearchActionRef = useRef<(() => void) | null>(null);
 
   const refreshBookmarks = useCallback(async () => {
@@ -93,22 +97,6 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     void loadSession();
   }, [loadSession]);
 
-  const refreshSession = useCallback(async (): Promise<PublicUser | null> => {
-    try {
-      const res = await fetch(resolveApiUrl("/api/auth/session"), { cache: "no-store" });
-      if (!res.ok) return null;
-      const data = (await res.json()) as { user: PublicUser | null };
-      setUser(data.user);
-      return data.user;
-    } catch {
-      return null;
-    }
-  }, []);
-
-  const promptEmailVerification = useCallback(() => {
-    setVerifyPromptOpen(true);
-  }, []);
-
   const addBookmark = useCallback(async (input: BookmarkInput): Promise<boolean> => {
     const res = await fetch(resolveApiUrl("/api/bookmarks"), {
       method: "POST",
@@ -122,6 +110,14 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       const filtered = prev.filter((b) => bookmarkKeyString(b) !== key);
       return [data.bookmark, ...filtered];
     });
+    captureProductEvent(FUNNEL_EVENTS.providerSaved, {
+      entity_id: input.entityId,
+      result_source: input.resultSource,
+    });
+    captureProductEvent(FUNNEL_EVENTS.notePromptShown, {
+      entity_id: input.entityId,
+    });
+    setNotePrompt(input);
     return true;
   }, []);
 
@@ -133,6 +129,20 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     });
     if (!res.ok) return false;
     setBookmarks((prev) => prev.filter((b) => bookmarkKeyString(b) !== bookmarkKeyString(key)));
+    return true;
+  }, []);
+
+  const updateBookmarkNotes = useCallback(async (input: BookmarkNoteUpdate): Promise<boolean> => {
+    const res = await fetch(resolveApiUrl("/api/bookmarks"), {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(input),
+    });
+    if (!res.ok) return false;
+    const data = (await res.json()) as { bookmark: BookmarkRecord };
+    setBookmarks((prev) =>
+      prev.map((b) => (bookmarkKeyString(b) === bookmarkKeyString(input) ? data.bookmark : b)),
+    );
     return true;
   }, []);
 
@@ -174,7 +184,6 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
         return false;
       }
 
-      const key = bookmarkKeyString(input);
       if (isBookmarked(input)) {
         return removeBookmark(input);
       }
@@ -205,6 +214,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     setUser(null);
     setBookmarks([]);
     setPendingBookmark(null);
+    setNotePrompt(null);
     pendingSearchActionRef.current = null;
   }, []);
 
@@ -221,9 +231,8 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       openAuthForSearch,
       isBookmarked,
       toggleBookmark,
+      updateBookmarkNotes,
       refreshBookmarks,
-      refreshSession,
-      promptEmailVerification,
       signOut,
     }),
     [
@@ -237,25 +246,14 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       openAuthForSearch,
       isBookmarked,
       toggleBookmark,
+      updateBookmarkNotes,
       refreshBookmarks,
-      refreshSession,
-      promptEmailVerification,
       signOut,
     ],
   );
 
   return (
     <BookmarksContext.Provider value={value}>
-      <VerifyEmailGate
-        user={user}
-        promptOpen={verifyPromptOpen}
-        onPromptOpenChange={setVerifyPromptOpen}
-        refreshSession={refreshSession}
-        onUseDifferentEmail={async () => {
-          await signOut();
-          openAuth("login");
-        }}
-      />
       {children}
       <AuthDialog
         open={authOpen}
@@ -270,6 +268,13 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
         reason={authReason}
         pendingFirmName={pendingBookmark?.businessName}
       />
+      {notePrompt ? (
+        <BookmarkNotePrompt
+          bookmark={notePrompt}
+          open
+          onClose={() => setNotePrompt(null)}
+        />
+      ) : null}
     </BookmarksContext.Provider>
   );
 }
