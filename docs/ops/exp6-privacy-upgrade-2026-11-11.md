@@ -1,30 +1,27 @@
-# Exp 6 — 99p privacy upgrade pilot (11 Nov 2026)
+# Exp 6 — 99p privacy protection (sole paid model, Nov 2026)
+
+## Product decision (11 Nov)
+
+- **Only paid offer:** 99p privacy protection for search text.
+- **£3.49 / week unlimited:** paused / scraped from Ask UI for this pilot.
+- Goal: test whether people will pay to keep searches private.
+
+## What “private” means (pilot)
+
+- We will **not** share protected search text with third-party advertisers (or similar third parties for that purpose).
+- We will **not** keep that search text to use later for our own purposes.
+- Ask still uses the same models and tools; the purchase is about protecting the query data, not changing the research stack.
 
 ## Covered-data definition
 
-- **Covered (while upgrade active, 30 days):** free-text search / Ask queries the user submits.
+- **Covered (while protection active, 30 days):** free-text search / Ask queries the user submits.
 - **Not covered:** account email, payment metadata, or aggregated analytics that do not include query text.
-- UI copy lives in `PRIVACY_UPGRADE_COPY` (`web/lib/billing/plan.ts`) and must stay aligned with this note.
+- UI copy: `PRIVACY_UPGRADE_COPY` in `web/lib/billing/plan.ts`.
 
 ## Stripe 99p price
 
-**Skipped — interest-only this week.**  
-`STRIPE_PRICE_PRIVACY_99P` unset → `/api/billing/privacy-checkout` records `privacy_upgrades.status = interest` and does not charge. Charging path code is ready when the price ID is set.
+Interest-only until `STRIPE_PRICE_PRIVACY_99P` is set. Charging helpers already exist in `web/lib/billing/stripe.ts`.
 
-## Napkin math (£0.99 one-time)
+## Weekly £3.49
 
-Assumptions for one day of use after purchase:
-
-| Line | Estimate |
-| --- | --- |
-| Stripe UK card fee on £0.99 | ~£0.20 + 1.5% ≈ **£0.22** (ballpark; confirm live Stripe pricing) |
-| Avg LLM / Ask cost for a light day (few searches) | ~**£0.05–£0.25** depending on model + retrieval |
-| **Gross after Stripe** | ~£0.77 |
-| **Net vs light LLM day** | roughly **£0.50–£0.70** contribution before infra |
-| Heavy Ask day | can erase the margin; privacy SKU is a pilot signal, not a profit centre |
-
-One-liner: **£0.99 − ~£0.22 Stripe − ~£0.10 LLM ≈ ~£0.67 contribution on a light day; heavy usage can go negative — treat as willingness-to-pay signal.**
-
-## Weekly £3.49 plan
-
-Remains untouched (`B2CBillingBanner` + subscription checkout). Privacy card is additive only.
+`B2CBillingBanner` is a no-op. Legacy Stripe weekly price IDs remain in code for existing subscribers / rollback only.
