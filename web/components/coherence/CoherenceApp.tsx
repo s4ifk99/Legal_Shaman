@@ -18,6 +18,7 @@ import { SraOrganisationView } from './SraOrganisationView'
 import { LoadingScreen } from './LoadingScreen'
 import { PageNavigation } from './PageNavigation'
 import { B2CBillingBanner } from '@/components/billing/b2c-billing-banner'
+import { PrivacyUpgradeCard } from '@/components/billing/privacy-upgrade-card'
 import { B2C_PAID_PRICE_LABEL } from '@/lib/billing/plan'
 import { captureProductEvent } from '@/components/analytics/posthog-provider'
 import type { SearchDestination } from './ReformulationGate'
@@ -1750,6 +1751,9 @@ export default function CoherenceApp({ initialStory = '', initialNecessity = '' 
         </span>
       </div>
       <B2CBillingBanner />
+      <div className="mx-auto w-full max-w-5xl px-4 py-3">
+        <PrivacyUpgradeCard />
+      </div>
       <PageNavigation {...pageNavigation} />
       {agentError ? (
         <p role="alert" className="agent-error">
