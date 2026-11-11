@@ -10,7 +10,7 @@ import {
 } from "@/lib/billing/plan";
 import { Button } from "@/components/ui/button";
 
-/** Free search + optional 99p privacy upgrade (Exp 6). Weekly £3.49 remains separate. */
+/** Sole paid Ask offer in Nov: optional 99p privacy protection (Exp 6). */
 export function PrivacyUpgradeCard() {
   const { user, openAuth } = useBookmarks();
   const [busy, setBusy] = useState(false);
@@ -59,7 +59,7 @@ export function PrivacyUpgradeCard() {
         disabled={busy}
         onClick={() => void startPrivacy()}
       >
-        {busy ? "Working…" : `I'm interested · ${B2C_PRIVACY_PRICE_LABEL}`}
+        {busy ? "Working…" : `Protect my search · ${B2C_PRIVACY_PRICE_LABEL}`}
       </Button>
       {message ? <p className="mt-2 text-xs text-muted-foreground">{message}</p> : null}
     </div>
