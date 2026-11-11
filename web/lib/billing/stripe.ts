@@ -25,8 +25,17 @@ export function paidPriceId(): string {
   );
 }
 
+/** One-time 99p privacy upgrade price (Exp 6). Empty = interest-only UI (no charge). */
+export function privacyPriceId(): string {
+  return process.env.STRIPE_PRICE_PRIVACY_99P?.trim() || "";
+}
+
 export function billingConfigured(): boolean {
   return Boolean(stripeClient() && paidPriceId());
+}
+
+export function privacyCheckoutConfigured(): boolean {
+  return Boolean(stripeClient() && privacyPriceId());
 }
 
 export async function createPaidCheckout(input: {
@@ -58,5 +67,28 @@ export async function createPaidCheckout(input: {
     success_url: `${input.origin}/ask-the-shaman?billing=success`,
     cancel_url: `${input.origin}/ask-the-shaman?billing=cancelled`,
     allow_promotion_codes: true,
+  });
+}
+
+export async function createPrivacyCheckout(input: {
+  userId: string;
+  email: string;
+  origin: string;
+}): Promise<Stripe.Checkout.Session> {
+  const stripe = stripeClient();
+  const price = privacyPriceId();
+  if (!stripe || !price) throw new Error("privacy_billing_not_configured");
+
+  return stripe.checkout.sessions.create({
+    mode: "payment",
+    line_items: [{ price, quantity: 1 }],
+    customer_email: input.email,
+    client_reference_id: input.userId,
+    metadata: {
+      legalShamanUserId: input.userId,
+      product: "privacy_upgrade_99p",
+    },
+    success_url: `${input.origin}/ask-the-shaman?privacy=success`,
+    cancel_url: `${input.origin}/ask-the-shaman?privacy=cancelled`,
   });
 }
