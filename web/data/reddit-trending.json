@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-11-11T13:19:49.569Z",
+    "scrapedAt": "2026-11-12T00:05:22.592Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 8,
+    "topicCount": 10,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,6 +26,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xtkvt5",
+          "title": "I think my wife was spiked by her female friend and assaulted, what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtkvt5/i_think_my_wife_was_spiked_by_her_female_friend/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtkvt5/i_think_my_wife_was_spiked_by_her_female_friend/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794411440,
+          "snippet": "I’m in England - Throwaway One day after school pickup my wife stops over at a friend’s house and they have some drinks before she continues her way home. I speak to her maybe at 10pm and she barely making sense and she says the door is locked and she can’t get out. I assume she ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xtp59p",
+          "title": "Items thrown over fence by adjoining primary school children",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtp59p/items_thrown_over_fence_by_adjoining_primary/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtp59p/items_thrown_over_fence_by_adjoining_primary/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794420845,
+          "snippet": "England. Around 6 years ago the school next to my house built a 530m2 play ground against the adjoining boundary without planning permission, surveys or even notifying neighbors. They removed vedge patches, shrubs and ivy covered trees and built the play area so that it was at a ",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xteqfu",
           "title": "Anker Power Bank fried my phone and itself, manufacturer are denying responsibility [England]",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteqfu/anker_power_bank_fried_my_phone_and_itself/",
@@ -35,6 +59,18 @@
           "numComments": 0,
           "createdUtc": 1794394147,
           "snippet": "Context : I bought an Anker Power Bank from the official Amazon store in 2024, that product defected and melted itself and the cable it was plugged into in September 2025. Anker Support confirmed the original product was genuine and provided me with like-for-like unit to replace ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xtofzl",
+          "title": "How can someone know they're breaking an injuction, if the injuction itself is so secret? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtofzl/how_can_someone_know_theyre_breaking_an_injuction/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtofzl/how_can_someone_know_theyre_breaking_an_injuction/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794419285,
+          "snippet": "Inspired by the recent case of David Walliams. Hypothetically, let's say a big national news organisation tries to publish an investigation into an individual, and said individual gets an injuction against them. If an independent journalist had conducted their own research, built",
           "listingSource": "rss:hot"
         },
         {
@@ -50,51 +86,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xt6mji",
-          "title": "My employer has registered a vehicle into my name without my knowledge or consent (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
+          "id": "1xtmckb",
+          "title": "My ex is threatening to apply to court for an order for sale on our family home",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtmckb/my_ex_is_threatening_to_apply_to_court_for_an/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtmckb/my_ex_is_threatening_to_apply_to_court_for_an/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794365810,
-          "snippet": "For context, I work at a large car dealership, have done for 7 months now. The other day I received a brown envelope from the DVLA to the work address but my name, the letter was a tax refund cheque in my name but to a random 26 plate car that has nothing to do with me. Upon conf",
+          "createdUtc": 1794414758,
+          "snippet": "I’m a student who has recently separated from my ex partner who is on a high wage (over £80k). We have three young children. We were in the process of selling our jointly owned home. I have found it extremely difficult to secure rented accommodation due to my low income, with lan",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xsxxeg",
-          "title": "CMS says I owe £279/month because my ex says I have our son 3 nights a week. She lied. Mandatory reconsideration failed. What are my chances at tribunal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxxeg/cms_says_i_owe_279month_because_my_ex_says_i_have/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxxeg/cms_says_i_owe_279month_because_my_ex_says_i_have/",
+          "id": "1xtr3bw",
+          "title": "Overbooked flight but airline is refusing to refund",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtr3bw/overbooked_flight_but_airline_is_refusing_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtr3bw/overbooked_flight_but_airline_is_refusing_to/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794342965,
-          "snippet": "Location: England. My son is 7. His mum and I have been separated since 2023. CMS have assessed me at £290/month. She told them I have him 3 nights a week - a blatant lie. I have him 7 nights a fortnight 50/50 during term time and holidays and demonstrated this with a log of What",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xt10ay",
-          "title": "justeat cancelled order, 'there will be no refund for this order'",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794350427,
-          "snippet": "(England) i ordered on justeat and paid by paypal. delivery time slipped by over an hour. i cancelled the order, website said something like 'no problem, your order has probably not been prepared yet.' then i got a cancellation email stating \"if you have been charged there will b",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xt0xnh",
-          "title": "Google removing a core feature of my plan mid-term and refuse to cancel and refund?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt0xnh/google_removing_a_core_feature_of_my_plan_midterm/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt0xnh/google_removing_a_core_feature_of_my_plan_midterm/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794350241,
-          "snippet": "Hey, I'm in England. Recently Google removed the \"Google Home Premium\" feature from their \"Google AI Plus 2TB\" plan mid-term without any notification. You can see the only place they publicised this information is here in their support documentation. I only paid for this plan bec",
+          "createdUtc": 1794425191,
+          "snippet": "Hi all, back in Oct we had travel planned to fly to Istanbul from London Stansted we went to check in but at the checkin desk we were told the flight is overbooked and there is no seat available for us They offered to put us on next days flight or full refund we opted for full re",
           "listingSource": "rss:hot"
         },
         {
@@ -110,18 +122,6 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xsmg9w",
-          "title": "A thank you to this thread for its advice and support",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsmg9w/a_thank_you_to_this_thread_for_its_advice_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsmg9w/a_thank_you_to_this_thread_for_its_advice_and/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794316068,
-          "snippet": "A year ago I posted: https://www.reddit.com/r/LegalAdviceUK/s/CYJ3QTGTcZ Most of the comments encouraged me to report them - some were not so favourable but happily the minority. It gave me the strength I needed to stand up for myself A year on I get a call from the police to say",
-          "listingSource": "rss:hot"
-        },
-        {
           "id": "1xtgf4j",
           "title": "Euro Car Parks are taking me to court",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtgf4j/euro_car_parks_are_taking_me_to_court/",
@@ -134,123 +134,123 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xteycn",
-          "title": "Am I entitled to statutory neonatal pay during redundancy?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteycn/am_i_entitled_to_statutory_neonatal_pay_during/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteycn/am_i_entitled_to_statutory_neonatal_pay_during/",
+          "id": "1xthky6",
+          "title": "Sony refusing warranty repair due to water damage despite me never dropping these in water",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthky6/sony_refusing_warranty_repair_due_to_water_damage/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthky6/sony_refusing_warranty_repair_due_to_water_damage/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794394932,
-          "snippet": "I've been at my employer since 2020 and went on maternity leave on Sept 7th. My child spent 7days 17hours in special care from Sept 17th-23rd (born on 15th). On Oct 30th I was told I'm being made redundant. We're back-and-forth on a settlement agreement, and I've asked about neon",
+          "createdUtc": 1794403263,
+          "snippet": "Hello, im from England, i bought the new sony wf-1000xm6 in March and have had the previous 2 models too. I was a big fan of them, around 3 weeks ago I plugged them in to charge and around 15 minutes later I touched them and they were dangerously hot. Obviously I unplugged them a",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xte9l8",
-          "title": "Small claim vs Nexus (Tyne & Wear Metro): they admit their faulty equipment overcharged me. Directions hearing with early neutral evaluation in Feb. What should I expect? [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte9l8/small_claim_vs_nexus_tyne_wear_metro_they_admit/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte9l8/small_claim_vs_nexus_tyne_wear_metro_they_admit/",
+          "id": "1xtl07n",
+          "title": "Care home have not sent me invoices for a family member’s stay, but are now demanding all (unsent) invoices need to be paid in less than a week otherwise it’s being escalated to the office of the public guardian? Where do I stand with this?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtl07n/care_home_have_not_sent_me_invoices_for_a_family/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtl07n/care_home_have_not_sent_me_invoices_for_a_family/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794392436,
-          "snippet": "In summer 2025 I moved to be near the new Northumberland Line so I could use it for the school run with my daughter. The trip is a train (run by Northern) plus the Metro (run by Nexus). Nexus's Pop card works on both, and pay-as-you-go has a daily cap of £5.20 (£5 since April 202",
+          "createdUtc": 1794411730,
+          "snippet": "My family member has dementia and I have POA to manage their finances in England. They had an accident earlier this year, was in hospital for a lengthy amount of time and we’d been in touch with our social services team anyway who deemed my family member to be too unfit to return",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xte7mg",
-          "title": "Duplicate items sent from eBay. england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte7mg/duplicate_items_sent_from_ebay_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte7mg/duplicate_items_sent_from_ebay_england/",
+          "id": "1xtrigt",
+          "title": "UK Power Networks excavated my driveway, now I have a water leak. No insurance cover and no money to investigate – what can I do? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrigt/uk_power_networks_excavated_my_driveway_now_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrigt/uk_power_networks_excavated_my_driveway_now_i/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794392243,
-          "snippet": "I bought a fairly expensive car part from a seller on eBay. When the item arrived it was clear it was dropshipped from a nationwide motor factors company. (Didn't matter to me as still cheaper than me buying direct) However i got 2 separate packages (each 1 of 1) of exactly the s",
+          "createdUtc": 1794426140,
+          "snippet": "I’m looking for legal advice about suspected property damage following utility excavation works. Between March and April 2026, UK Power Networks excavated my concrete driveway to separate the electricity supply shared between neighbouring properties so I could install an EV charg",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xsji5z",
-          "title": "How do I remove a restraining order my mother placed on my sister towards me once i turn 18 in England?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsji5z/how_do_i_remove_a_restraining_order_my_mother/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsji5z/how_do_i_remove_a_restraining_order_my_mother/",
+          "id": "1xt6mji",
+          "title": "My employer has registered a vehicle into my name without my knowledge or consent (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794306465,
-          "snippet": "Hello, I’m 17 (F) and about to turn 18 in two days. At the beginning of this year, i found out my mother put a restraining order on my sister so she’s not allowed any form of contact with me. This was done without my knowledge and I’ve been furious about it as my sister has not d",
+          "createdUtc": 1794365810,
+          "snippet": "For context, I work at a large car dealership, have done for 7 months now. The other day I received a brown envelope from the DVLA to the work address but my name, the letter was a tax refund cheque in my name but to a random 26 plate car that has nothing to do with me. Upon conf",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtbz9v",
-          "title": "Royal mail (England) delivered item to wrong address, amazon 3rd party seller refusing to help.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtbz9v/royal_mail_england_delivered_item_to_wrong/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtbz9v/royal_mail_england_delivered_item_to_wrong/",
+          "id": "1xtsczg",
+          "title": "Looking for advice on inheritance for a friend.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtsczg/looking_for_advice_on_inheritance_for_a_friend/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtsczg/looking_for_advice_on_inheritance_for_a_friend/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794383662,
-          "snippet": "Hoping to seek some advice here as im unsure as to where I stand a what I can do. I ordered a parcel to be delivered Wednesday last week, the item was marked as delivered but not with me or any of my neighbours. The royal mail tracking portal shows a woman holding presumably my p",
+          "createdUtc": 1794428080,
+          "snippet": "So my friends aunt passed away about 3 weeks ago, and since then a lot of her relatives have come out of the woodwork, there was no legal will, her aunt was marries but her husband had passed away many years ago, they had no children, her aunts parents and siblings had also passe",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xthexh",
-          "title": "Composite fillings failed after 2 years - do I have the right to ask a refund? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthexh/composite_fillings_failed_after_2_years_do_i_have/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthexh/composite_fillings_failed_after_2_years_do_i_have/",
+          "id": "1xtw6y5",
+          "title": "Harassment,intimidating behaviour and destruction of property- Scotland",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtw6y5/harassmentintimidating_behaviour_and_destruction/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtw6y5/harassmentintimidating_behaviour_and_destruction/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794402815,
-          "snippet": "Just wanted some advice on how I should be handling this situation I have with my old dental practice. Two years ago I got three composite fillings from Practice A and paid over £600 for these fillings. I chose the private treatment as I wanted to invest in my teeth and was on a ",
+          "createdUtc": 1794437329,
+          "snippet": "Hi, this is a really weird one so this maybe a bit long About a year ago a farmer (who had no land) gained a backer to buy some land near my parents. Since then the farmer has used heavy machinery to destroy an old walkers right of way, tear down some ancient oaks, trees with bat",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xthedh",
-          "title": "No contract provided on rental flat (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthedh/no_contract_provided_on_rental_flat_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthedh/no_contract_provided_on_rental_flat_england/",
+          "id": "1xtqvxz",
+          "title": "Throwing a toxic substance - specific offence?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtqvxz/throwing_a_toxic_substance_specific_offence/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtqvxz/throwing_a_toxic_substance_specific_offence/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794402773,
-          "snippet": "An elderly colleague of mine is currently needing new broadband installed in her flat, however she can’t get through to the landlord or letting agency to ask for permission as it always goes to voicemail. I asked her to check her contract to see if there’s any information about n",
+          "createdUtc": 1794424720,
+          "snippet": "England. Last night I was the victim of an assault in which a person sprayed a bottle of (what I believe to be) motor oil in my face. It was in a squeezy disposable drink bottle and he had just threatened to spray it at me - at that point I feared it was acid and was terrified, b",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xthc7g",
-          "title": "England - large deposit deduction by rental agent.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthc7g/england_large_deposit_deduction_by_rental_agent/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthc7g/england_large_deposit_deduction_by_rental_agent/",
+          "id": "1xtpy00",
+          "title": "Parking ticket at hospital when I have permit (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtpy00/parking_ticket_at_hospital_when_i_have_permit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtpy00/parking_ticket_at_hospital_when_i_have_permit/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794402608,
-          "snippet": "I recently moved out of a flat and the agent has deducted almost half my deposit to cover replacing a stained carpet. The staining they have referenced was already on the carpet when I moved in; I was made aware of this before becoming a tenant, and I was happy to live with the s",
+          "createdUtc": 1794422627,
+          "snippet": "Received a parking ticket today form Colchester hospital, I have a permit but I only found out today after a colleague told me (been parking there for 2 weeks now) you have to pay £1.50 a day even with a permit? (£10 a day without). It doesn’t say this on the sign as shown, or in",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xt9oxq",
-          "title": "What union can I join if I work in social media/video content creation? ENGLAND",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt9oxq/what_union_can_i_join_if_i_work_in_social/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt9oxq/what_union_can_i_join_if_i_work_in_social/",
+          "id": "1xtrlgl",
+          "title": "Neighbour breaching Section 80 Abatement Notice. What happens next legally, and what are my options? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrlgl/neighbour_breaching_section_80_abatement_notice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrlgl/neighbour_breaching_section_80_abatement_notice/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794375450,
-          "snippet": "It seems to be a grey area with no defined industry and I just left a really toxic workplace where I could have used a good union rep. submitted by /u/Unhelpfulhelpful [link] [comments]",
+          "createdUtc": 1794426325,
+          "snippet": "I’m in London - I rent a flat. A tenant in another flat on my floor plays music with heavy bass, often late at night, waking me through earplugs and brown noise. After two warning letters, the council served a Section 80 Abatement Notice under the Environmental Protection Act 199",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xth2u5",
-          "title": "Terminated overseas contractor claiming redundancy/notice via ACAS and share buyout after system intrusions [Scotland]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xth2u5/terminated_overseas_contractor_claiming/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xth2u5/terminated_overseas_contractor_claiming/",
+          "id": "1xt10ay",
+          "title": "justeat cancelled order, 'there will be no refund for this order'",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794401878,
-          "snippet": "Looking for advice on handling an overseas contractor who has escalated to ACAS Early Conciliation demanding statutory employment payments and a share buyout. The Facts: Company &amp; Setup: Scottish web agency. The contractor (Polish national) worked on UK PAYE until moving perm",
+          "createdUtc": 1794350427,
+          "snippet": "(England) i ordered on justeat and paid by paypal. delivery time slipped by over an hour. i cancelled the order, website said something like 'no problem, your order has probably not been prepared yet.' then i got a cancellation email stating \"if you have been charged there will b",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 9,
+      "postCount": 8,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xtkvt5",
+          "title": "I think my wife was spiked by her female friend and assaulted, what can I do?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtkvt5/i_think_my_wife_was_spiked_by_her_female_friend/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtkvt5/i_think_my_wife_was_spiked_by_her_female_friend/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794411440,
+          "snippet": "I’m in England - Throwaway One day after school pickup my wife stops over at a friend’s house and they have some drinks before she continues her way home. I speak to her maybe at 10pm and she barely making sense and she says the door is locked and she can’t get out. I assume she ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xtofzl",
+          "title": "How can someone know they're breaking an injuction, if the injuction itself is so secret? [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtofzl/how_can_someone_know_theyre_breaking_an_injuction/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtofzl/how_can_someone_know_theyre_breaking_an_injuction/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794419285,
+          "snippet": "Inspired by the recent case of David Walliams. Hypothetically, let's say a big national news organisation tries to publish an investigation into an individual, and said individual gets an injuction against them. If an independent journalist had conducted their own research, built",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xte26l",
           "title": "Ikea didn’t deliver our full kitchen and have discontinued the model",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte26l/ikea_didnt_deliver_our_full_kitchen_and_have/",
@@ -289,18 +313,6 @@
           "numComments": 0,
           "createdUtc": 1794391706,
           "snippet": "We have about 90% of our ikea kitchen installed but we are missing a few cupboard doors and panels. We have been trying to get them from ikea for about 2 months now and have finally found out the model has been discontinued. Should ikea refund us for The full kitchen is there any",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xsmg9w",
-          "title": "A thank you to this thread for its advice and support",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsmg9w/a_thank_you_to_this_thread_for_its_advice_and/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsmg9w/a_thank_you_to_this_thread_for_its_advice_and/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794316068,
-          "snippet": "A year ago I posted: https://www.reddit.com/r/LegalAdviceUK/s/CYJ3QTGTcZ Most of the comments encouraged me to report them - some were not so favourable but happily the minority. It gave me the strength I needed to stand up for myself A year on I get a call from the police to say",
           "listingSource": "rss:hot"
         },
         {
@@ -316,51 +328,63 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xte7mg",
-          "title": "Duplicate items sent from eBay. england",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte7mg/duplicate_items_sent_from_ebay_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte7mg/duplicate_items_sent_from_ebay_england/",
+          "id": "1xtl07n",
+          "title": "Care home have not sent me invoices for a family member’s stay, but are now demanding all (unsent) invoices need to be paid in less than a week otherwise it’s being escalated to the office of the public guardian? Where do I stand with this?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtl07n/care_home_have_not_sent_me_invoices_for_a_family/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtl07n/care_home_have_not_sent_me_invoices_for_a_family/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794392243,
-          "snippet": "I bought a fairly expensive car part from a seller on eBay. When the item arrived it was clear it was dropshipped from a nationwide motor factors company. (Didn't matter to me as still cheaper than me buying direct) However i got 2 separate packages (each 1 of 1) of exactly the s",
+          "createdUtc": 1794411730,
+          "snippet": "My family member has dementia and I have POA to manage their finances in England. They had an accident earlier this year, was in hospital for a lengthy amount of time and we’d been in touch with our social services team anyway who deemed my family member to be too unfit to return",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xsji5z",
-          "title": "How do I remove a restraining order my mother placed on my sister towards me once i turn 18 in England?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsji5z/how_do_i_remove_a_restraining_order_my_mother/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsji5z/how_do_i_remove_a_restraining_order_my_mother/",
+          "id": "1xtsczg",
+          "title": "Looking for advice on inheritance for a friend.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtsczg/looking_for_advice_on_inheritance_for_a_friend/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtsczg/looking_for_advice_on_inheritance_for_a_friend/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794306465,
-          "snippet": "Hello, I’m 17 (F) and about to turn 18 in two days. At the beginning of this year, i found out my mother put a restraining order on my sister so she’s not allowed any form of contact with me. This was done without my knowledge and I’ve been furious about it as my sister has not d",
+          "createdUtc": 1794428080,
+          "snippet": "So my friends aunt passed away about 3 weeks ago, and since then a lot of her relatives have come out of the woodwork, there was no legal will, her aunt was marries but her husband had passed away many years ago, they had no children, her aunts parents and siblings had also passe",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtbz9v",
-          "title": "Royal mail (England) delivered item to wrong address, amazon 3rd party seller refusing to help.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtbz9v/royal_mail_england_delivered_item_to_wrong/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtbz9v/royal_mail_england_delivered_item_to_wrong/",
+          "id": "1xtqvxz",
+          "title": "Throwing a toxic substance - specific offence?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtqvxz/throwing_a_toxic_substance_specific_offence/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtqvxz/throwing_a_toxic_substance_specific_offence/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794383662,
-          "snippet": "Hoping to seek some advice here as im unsure as to where I stand a what I can do. I ordered a parcel to be delivered Wednesday last week, the item was marked as delivered but not with me or any of my neighbours. The royal mail tracking portal shows a woman holding presumably my p",
+          "createdUtc": 1794424720,
+          "snippet": "England. Last night I was the victim of an assault in which a person sprayed a bottle of (what I believe to be) motor oil in my face. It was in a squeezy disposable drink bottle and he had just threatened to spray it at me - at that point I feared it was acid and was terrified, b",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "family-law",
+      "label": "Family Law",
+      "legalAreaSlug": "family",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xthedh",
-          "title": "No contract provided on rental flat (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthedh/no_contract_provided_on_rental_flat_england/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthedh/no_contract_provided_on_rental_flat_england/",
+          "id": "1xtp59p",
+          "title": "Items thrown over fence by adjoining primary school children",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtp59p/items_thrown_over_fence_by_adjoining_primary/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtp59p/items_thrown_over_fence_by_adjoining_primary/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794402773,
-          "snippet": "An elderly colleague of mine is currently needing new broadband installed in her flat, however she can’t get through to the landlord or letting agency to ask for permission as it always goes to voicemail. I asked her to check her contract to see if there’s any information about n",
+          "createdUtc": 1794420845,
+          "snippet": "England. Around 6 years ago the school next to my house built a 530m2 play ground against the adjoining boundary without planning permission, surveys or even notifying neighbors. They removed vedge patches, shrubs and ivy covered trees and built the play area so that it was at a ",
           "listingSource": "rss:hot"
         }
       ]
@@ -369,7 +393,7 @@
       "slug": "faulty-goods-and-refunds",
       "label": "Faulty Goods and Refunds",
       "legalAreaSlug": "consumer_goods",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -386,61 +410,25 @@
           "createdUtc": 1794394147,
           "snippet": "Context : I bought an Anker Power Bank from the official Amazon store in 2024, that product defected and melted itself and the cable it was plugged into in September 2025. Anker Support confirmed the original product was genuine and provided me with like-for-like unit to replace ",
           "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 3,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xt6mji",
-          "title": "My employer has registered a vehicle into my name without my knowledge or consent (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794365810,
-          "snippet": "For context, I work at a large car dealership, have done for 7 months now. The other day I received a brown envelope from the DVLA to the work address but my name, the letter was a tax refund cheque in my name but to a random 26 plate car that has nothing to do with me. Upon conf",
-          "listingSource": "rss:hot"
         },
         {
-          "id": "1xteycn",
-          "title": "Am I entitled to statutory neonatal pay during redundancy?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteycn/am_i_entitled_to_statutory_neonatal_pay_during/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteycn/am_i_entitled_to_statutory_neonatal_pay_during/",
+          "id": "1xthky6",
+          "title": "Sony refusing warranty repair due to water damage despite me never dropping these in water",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthky6/sony_refusing_warranty_repair_due_to_water_damage/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthky6/sony_refusing_warranty_repair_due_to_water_damage/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794394932,
-          "snippet": "I've been at my employer since 2020 and went on maternity leave on Sept 7th. My child spent 7days 17hours in special care from Sept 17th-23rd (born on 15th). On Oct 30th I was told I'm being made redundant. We're back-and-forth on a settlement agreement, and I've asked about neon",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xth2u5",
-          "title": "Terminated overseas contractor claiming redundancy/notice via ACAS and share buyout after system intrusions [Scotland]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xth2u5/terminated_overseas_contractor_claiming/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xth2u5/terminated_overseas_contractor_claiming/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794401878,
-          "snippet": "Looking for advice on handling an overseas contractor who has escalated to ACAS Early Conciliation demanding statutory employment payments and a share buyout. The Facts: Company &amp; Setup: Scottish web agency. The contractor (Polish national) worked on UK PAYE until moving perm",
+          "createdUtc": 1794403263,
+          "snippet": "Hello, im from England, i bought the new sony wf-1000xm6 in March and have had the previous 2 models too. I was a big fan of them, around 3 weeks ago I plugged them in to charge and around 15 minutes later I touched them and they were dangerously hot. Obviously I unplugged them a",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "welfare-benefits",
-      "label": "Welfare Benefits",
-      "legalAreaSlug": "welfare_benefits",
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -448,15 +436,15 @@
       ],
       "posts": [
         {
-          "id": "1xsxxeg",
-          "title": "CMS says I owe £279/month because my ex says I have our son 3 nights a week. She lied. Mandatory reconsideration failed. What are my chances at tribunal?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxxeg/cms_says_i_owe_279month_because_my_ex_says_i_have/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xsxxeg/cms_says_i_owe_279month_because_my_ex_says_i_have/",
+          "id": "1xtmckb",
+          "title": "My ex is threatening to apply to court for an order for sale on our family home",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtmckb/my_ex_is_threatening_to_apply_to_court_for_an/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtmckb/my_ex_is_threatening_to_apply_to_court_for_an/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794342965,
-          "snippet": "Location: England. My son is 7. His mum and I have been separated since 2023. CMS have assessed me at £290/month. She told them I have him 3 nights a week - a blatant lie. I have him 7 nights a fortnight 50/50 during term time and holidays and demonstrated this with a log of What",
+          "createdUtc": 1794414758,
+          "snippet": "I’m a student who has recently separated from my ex partner who is on a high wage (over £80k). We have three young children. We were in the process of selling our jointly owned home. I have found it extremely difficult to secure rented accommodation due to my low income, with lan",
           "listingSource": "rss:hot"
         }
       ]
@@ -472,6 +460,30 @@
       ],
       "posts": [
         {
+          "id": "1xtr3bw",
+          "title": "Overbooked flight but airline is refusing to refund",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtr3bw/overbooked_flight_but_airline_is_refusing_to/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtr3bw/overbooked_flight_but_airline_is_refusing_to/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794425191,
+          "snippet": "Hi all, back in Oct we had travel planned to fly to Istanbul from London Stansted we went to check in but at the checkin desk we were told the flight is overbooked and there is no seat available for us They offered to put us on next days flight or full refund we opted for full re",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xtrigt",
+          "title": "UK Power Networks excavated my driveway, now I have a water leak. No insurance cover and no money to investigate – what can I do? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrigt/uk_power_networks_excavated_my_driveway_now_i/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrigt/uk_power_networks_excavated_my_driveway_now_i/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794426140,
+          "snippet": "I’m looking for legal advice about suspected property damage following utility excavation works. Between March and April 2026, UK Power Networks excavated my concrete driveway to separate the electricity supply shared between neighbouring properties so I could install an EV charg",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xt10ay",
           "title": "justeat cancelled order, 'there will be no refund for this order'",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
@@ -481,30 +493,6 @@
           "numComments": 0,
           "createdUtc": 1794350427,
           "snippet": "(England) i ordered on justeat and paid by paypal. delivery time slipped by over an hour. i cancelled the order, website said something like 'no problem, your order has probably not been prepared yet.' then i got a cancellation email stating \"if you have been charged there will b",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xt0xnh",
-          "title": "Google removing a core feature of my plan mid-term and refuse to cancel and refund?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt0xnh/google_removing_a_core_feature_of_my_plan_midterm/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt0xnh/google_removing_a_core_feature_of_my_plan_midterm/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794350241,
-          "snippet": "Hey, I'm in England. Recently Google removed the \"Google Home Premium\" feature from their \"Google AI Plus 2TB\" plan mid-term without any notification. You can see the only place they publicised this information is here in their support documentation. I only paid for this plan bec",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xthexh",
-          "title": "Composite fillings failed after 2 years - do I have the right to ask a refund? England",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthexh/composite_fillings_failed_after_2_years_do_i_have/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthexh/composite_fillings_failed_after_2_years_do_i_have/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794402815,
-          "snippet": "Just wanted some advice on how I should be handling this situation I have with my old dental practice. Two years ago I got three composite fillings from Practice A and paid over £600 for these fillings. I chose the private treatment as I wanted to invest in my teeth and was on a ",
           "listingSource": "rss:hot"
         }
       ]
@@ -534,9 +522,9 @@
       ]
     },
     {
-      "slug": "prison-law",
-      "label": "Prison Law",
-      "legalAreaSlug": "criminal_defence",
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -544,23 +532,23 @@
       ],
       "posts": [
         {
-          "id": "1xte9l8",
-          "title": "Small claim vs Nexus (Tyne & Wear Metro): they admit their faulty equipment overcharged me. Directions hearing with early neutral evaluation in Feb. What should I expect? [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte9l8/small_claim_vs_nexus_tyne_wear_metro_they_admit/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte9l8/small_claim_vs_nexus_tyne_wear_metro_they_admit/",
+          "id": "1xt6mji",
+          "title": "My employer has registered a vehicle into my name without my knowledge or consent (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794392436,
-          "snippet": "In summer 2025 I moved to be near the new Northumberland Line so I could use it for the school run with my daughter. The trip is a train (run by Northern) plus the Metro (run by Nexus). Nexus's Pop card works on both, and pay-as-you-go has a daily cap of £5.20 (£5 since April 202",
+          "createdUtc": 1794365810,
+          "snippet": "For context, I work at a large car dealership, have done for 7 months now. The other day I received a brown envelope from the DVLA to the work address but my name, the letter was a tax refund cheque in my name but to a random 26 plate car that has nothing to do with me. Upon conf",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "tenant-contents-and-deposit-damage",
-      "label": "Tenant Contents and Deposit Damage",
-      "legalAreaSlug": "consumer_property_repairs_tenant",
+      "slug": "neighbour-disputes",
+      "label": "Neighbour Disputes",
+      "legalAreaSlug": "neighbour_dispute",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -568,15 +556,63 @@
       ],
       "posts": [
         {
-          "id": "1xthc7g",
-          "title": "England - large deposit deduction by rental agent.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthc7g/england_large_deposit_deduction_by_rental_agent/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthc7g/england_large_deposit_deduction_by_rental_agent/",
+          "id": "1xtw6y5",
+          "title": "Harassment,intimidating behaviour and destruction of property- Scotland",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtw6y5/harassmentintimidating_behaviour_and_destruction/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtw6y5/harassmentintimidating_behaviour_and_destruction/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794402608,
-          "snippet": "I recently moved out of a flat and the agent has deducted almost half my deposit to cover replacing a stained carpet. The staining they have referenced was already on the carpet when I moved in; I was made aware of this before becoming a tenant, and I was happy to live with the s",
+          "createdUtc": 1794437329,
+          "snippet": "Hi, this is a really weird one so this maybe a bit long About a year ago a farmer (who had no land) gained a backer to buy some land near my parents. Since then the farmer has used heavy machinery to destroy an old walkers right of way, tear down some ancient oaks, trees with bat",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "parking-and-pcns",
+      "label": "Parking and PCNs",
+      "legalAreaSlug": "parking_pcn",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xtpy00",
+          "title": "Parking ticket at hospital when I have permit (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtpy00/parking_ticket_at_hospital_when_i_have_permit/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtpy00/parking_ticket_at_hospital_when_i_have_permit/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794422627,
+          "snippet": "Received a parking ticket today form Colchester hospital, I have a permit but I only found out today after a colleague told me (been parking there for 2 weeks now) you have to pay £1.50 a day even with a permit? (£10 a day without). It doesn’t say this on the sign as shown, or in",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "landlord-and-tenant",
+      "label": "Landlord and Tenant",
+      "legalAreaSlug": "housing",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xtrlgl",
+          "title": "Neighbour breaching Section 80 Abatement Notice. What happens next legally, and what are my options? (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrlgl/neighbour_breaching_section_80_abatement_notice/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrlgl/neighbour_breaching_section_80_abatement_notice/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794426325,
+          "snippet": "I’m in London - I rent a flat. A tenant in another flat on my floor plays music with heavy bass, often late at night, waking me through earplugs and brown noise. After two warning letters, the council served a Section 80 Abatement Notice under the Environmental Protection Act 199",
           "listingSource": "rss:hot"
         }
       ]
