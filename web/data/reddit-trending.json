@@ -1,9 +1,9 @@
 {
   "meta": {
-    "scrapedAt": "2026-11-12T00:05:22.592Z",
+    "scrapedAt": "2026-11-12T14:24:26.926Z",
     "subredditCount": 1,
     "postCount": 20,
-    "topicCount": 10,
+    "topicCount": 7,
     "ingestSource": "public"
   },
   "subreddits": [
@@ -26,6 +26,30 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xu2hqd",
+          "title": "Neighbour threatening to kill me and saying “I’m going to kill you and I won’t come out of prison if I kill you” now I’m genuinely worried to leave my flat. (England) what’s my options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu2hqd/neighbour_threatening_to_kill_me_and_saying_im/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu2hqd/neighbour_threatening_to_kill_me_and_saying_im/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794454980,
+          "snippet": "I moved in about a year ago and it was all safe and sound until my neighbour right opposite my door started shouting and screaming. At first it startled me and I was concerned so I waited a bit and when it was consistent , I decided to call the police as I was concerned for him a",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xubkwb",
+          "title": "Question about my employers, who are based in France and want to close their English company and sack everyone",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xubkwb/question_about_my_employers_who_are_based_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xubkwb/question_about_my_employers_who_are_based_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794486733,
+          "snippet": "[To be taken down soon] I work for an English limited liability company with about 20 employees and which according to company check is profitable. This company is owned by the managing director of a French company which is loss making and has filed for insolvency. The problem is",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xtkvt5",
           "title": "I think my wife was spiked by her female friend and assaulted, what can I do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtkvt5/i_think_my_wife_was_spiked_by_her_female_friend/",
@@ -38,27 +62,51 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtp59p",
-          "title": "Items thrown over fence by adjoining primary school children",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtp59p/items_thrown_over_fence_by_adjoining_primary/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtp59p/items_thrown_over_fence_by_adjoining_primary/",
+          "id": "1xube8o",
+          "title": "Online Site Removing Purchased Download / Stream (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xube8o/online_site_removing_purchased_download_stream/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xube8o/online_site_removing_purchased_download_stream/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794420845,
-          "snippet": "England. Around 6 years ago the school next to my house built a 530m2 play ground against the adjoining boundary without planning permission, surveys or even notifying neighbors. They removed vedge patches, shrubs and ivy covered trees and built the play area so that it was at a ",
+          "createdUtc": 1794486167,
+          "snippet": "This is less an advice request and more an opinion request. The firm Big Finish that produces Doctor Who audios has removed from its site a story featuring David Walliams. That includes it being removed from the download list of customer's accounts where that story has already be",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xteqfu",
-          "title": "Anker Power Bank fried my phone and itself, manufacturer are denying responsibility [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteqfu/anker_power_bank_fried_my_phone_and_itself/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteqfu/anker_power_bank_fried_my_phone_and_itself/",
+          "id": "1xu9ad9",
+          "title": "England - Got made redundant on phased return while in remission from Cancer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9ad9/england_got_made_redundant_on_phased_return_while/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9ad9/england_got_made_redundant_on_phased_return_while/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794394147,
-          "snippet": "Context : I bought an Anker Power Bank from the official Amazon store in 2024, that product defected and melted itself and the cable it was plugged into in September 2025. Anker Support confirmed the original product was genuine and provided me with like-for-like unit to replace ",
+          "createdUtc": 1794479037,
+          "snippet": "I'm a graphic designer working for a charity that's one of the largest in my city and I developed acute and aggressive cancer late 2024 and had to have pretty gruelling chemo for over a year that left me mentally and physically very rough. I'm in remission now and over the last y",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xud03a",
+          "title": "What would happen if I report a historical rape?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xud03a/what_would_happen_if_i_report_a_historical_rape/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xud03a/what_would_happen_if_i_report_a_historical_rape/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794490772,
+          "snippet": "I live in England. Roughly 15 years ago I was raped by my boyfriend at the time. It's a very similar scenario to Russell Brand's victim. It started off as consensual, then he put his penis somewhere I had not consented to and I repeatedly asked him to stop. He didn't stop, and th",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xud55h",
+          "title": "(wales nhs) possibly stuck with permanent condition due to a double booking of my specialist.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xud55h/wales_nhs_possibly_stuck_with_permanent_condition/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xud55h/wales_nhs_possibly_stuck_with_permanent_condition/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794491147,
+          "snippet": "over 3 years i had 6 ear infections which made me eligible to see an ENT specialist which i waited 2 years for an appointment to open, later to find out 2 days before my appointment it had been double booked and mine was cancelled due to my case not being urgent and had been resc",
           "listingSource": "rss:hot"
         },
         {
@@ -74,27 +122,27 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xte26l",
-          "title": "Ikea didn’t deliver our full kitchen and have discontinued the model",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte26l/ikea_didnt_deliver_our_full_kitchen_and_have/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte26l/ikea_didnt_deliver_our_full_kitchen_and_have/",
+          "id": "1xtp59p",
+          "title": "Items thrown over fence by adjoining primary school children",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtp59p/items_thrown_over_fence_by_adjoining_primary/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtp59p/items_thrown_over_fence_by_adjoining_primary/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794391706,
-          "snippet": "We have about 90% of our ikea kitchen installed but we are missing a few cupboard doors and panels. We have been trying to get them from ikea for about 2 months now and have finally found out the model has been discontinued. Should ikea refund us for The full kitchen is there any",
+          "createdUtc": 1794420845,
+          "snippet": "England. Around 6 years ago the school next to my house built a 530m2 play ground against the adjoining boundary without planning permission, surveys or even notifying neighbors. They removed vedge patches, shrubs and ivy covered trees and built the play area so that it was at a ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtmckb",
-          "title": "My ex is threatening to apply to court for an order for sale on our family home",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtmckb/my_ex_is_threatening_to_apply_to_court_for_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtmckb/my_ex_is_threatening_to_apply_to_court_for_an/",
+          "id": "1xu9q2a",
+          "title": "Help me please I have no idea what to do (homeless)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9q2a/help_me_please_i_have_no_idea_what_to_do_homeless/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9q2a/help_me_please_i_have_no_idea_what_to_do_homeless/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794414758,
-          "snippet": "I’m a student who has recently separated from my ex partner who is on a high wage (over £80k). We have three young children. We were in the process of selling our jointly owned home. I have found it extremely difficult to secure rented accommodation due to my low income, with lan",
+          "createdUtc": 1794480585,
+          "snippet": "Currently homeless, don’t speak to either parents and a sibling pass me this letter the other day. My ex parter got loads of catalogs stuff in my name before running away with her ex parter. Left me with the shit. I’m not working obviously so need to tell them all this but don’t ",
           "listingSource": "rss:hot"
         },
         {
@@ -110,147 +158,99 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtgn63",
-          "title": "Car sold to us nearly killed us, garage refusing to compensate.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtgn63/car_sold_to_us_nearly_killed_us_garage_refusing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtgn63/car_sold_to_us_nearly_killed_us_garage_refusing/",
+          "id": "1xudiv6",
+          "title": "Claiming compensation from a fuel station who's selling kerosene as diesel. It cost me a day's wage and £300 repairs. Where to go from here?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xudiv6/claiming_compensation_from_a_fuel_station_whos/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xudiv6/claiming_compensation_from_a_fuel_station_whos/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794400556,
-          "snippet": "Looking for advice on where to go forward with this as I’m concerned my partner may rush a decision that leaves us out of pocket and stuck with a deathmobile. Located in Dorset, UK. Our car broke in May. We’re with the AA so they gave us a hire car for a few days until we had tim",
+          "createdUtc": 1794492096,
+          "snippet": "Hi As the post says, i got £80 of diesel and didnt make it home before the car broke down. I have a photo of the miles of the car when the engine light came on and a video of it nit being abke to turn over. I also have a diesel recieot and the invoice for the repairs my car neede",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtgf4j",
-          "title": "Euro Car Parks are taking me to court",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtgf4j/euro_car_parks_are_taking_me_to_court/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtgf4j/euro_car_parks_are_taking_me_to_court/",
+          "id": "1xubdja",
+          "title": "DJI refusing £430 refund after return vanished in YEEP/DPD system. Do I have any legal recourse? - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xubdja/dji_refusing_430_refund_after_return_vanished_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xubdja/dji_refusing_430_refund_after_return_vanished_in/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794399870,
-          "snippet": "Euro car parks are taking me to court (England) I'll attempt to be as concise as possible but I apologise as I am probably way over thinking this post. I pulled into the car park at 13.14pm I went to the ticket machine and paid for 3 hrs parking. At first the machine said to ente",
+          "createdUtc": 1794486108,
+          "snippet": "Bought a DJI Action 6 which was faulty. DJI provided a DPD return label via a YEEP locker. I deposited the parcel into the locker 10th October and have video evidence showing the drop-off. The locker then went offline and failed to generate confirmation. I contacted YEEP immediat",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xthky6",
-          "title": "Sony refusing warranty repair due to water damage despite me never dropping these in water",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthky6/sony_refusing_warranty_repair_due_to_water_damage/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthky6/sony_refusing_warranty_repair_due_to_water_damage/",
+          "id": "1xu8u65",
+          "title": "England - Helping a homeless friend get back on their feet.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu8u65/england_helping_a_homeless_friend_get_back_on/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu8u65/england_helping_a_homeless_friend_get_back_on/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794403263,
-          "snippet": "Hello, im from England, i bought the new sony wf-1000xm6 in March and have had the previous 2 models too. I was a big fan of them, around 3 weeks ago I plugged them in to charge and around 15 minutes later I touched them and they were dangerously hot. Obviously I unplugged them a",
+          "createdUtc": 1794477423,
+          "snippet": "Hi, first time posting here so apologies for any mistakes. I'm looking for advice as to how best to handle a situation unfolding. I was contacted last night by an ex-colleague who I've not spoken to since we were both made redundant at the beginning of 2026. They explained that t",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtl07n",
-          "title": "Care home have not sent me invoices for a family member’s stay, but are now demanding all (unsent) invoices need to be paid in less than a week otherwise it’s being escalated to the office of the public guardian? Where do I stand with this?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtl07n/care_home_have_not_sent_me_invoices_for_a_family/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtl07n/care_home_have_not_sent_me_invoices_for_a_family/",
+          "id": "1xteqfu",
+          "title": "Anker Power Bank fried my phone and itself, manufacturer are denying responsibility [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteqfu/anker_power_bank_fried_my_phone_and_itself/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteqfu/anker_power_bank_fried_my_phone_and_itself/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794411730,
-          "snippet": "My family member has dementia and I have POA to manage their finances in England. They had an accident earlier this year, was in hospital for a lengthy amount of time and we’d been in touch with our social services team anyway who deemed my family member to be too unfit to return",
+          "createdUtc": 1794394147,
+          "snippet": "Context : I bought an Anker Power Bank from the official Amazon store in 2024, that product defected and melted itself and the cable it was plugged into in September 2025. Anker Support confirmed the original product was genuine and provided me with like-for-like unit to replace ",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtrigt",
-          "title": "UK Power Networks excavated my driveway, now I have a water leak. No insurance cover and no money to investigate – what can I do? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrigt/uk_power_networks_excavated_my_driveway_now_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrigt/uk_power_networks_excavated_my_driveway_now_i/",
+          "id": "1xuacew",
+          "title": "Uk Deposit and what to be aware with landlords protecting deposits",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xuacew/uk_deposit_and_what_to_be_aware_with_landlords/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xuacew/uk_deposit_and_what_to_be_aware_with_landlords/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794426140,
-          "snippet": "I’m looking for legal advice about suspected property damage following utility excavation works. Between March and April 2026, UK Power Networks excavated my concrete driveway to separate the electricity supply shared between neighbouring properties so I could install an EV charg",
+          "createdUtc": 1794482753,
+          "snippet": "So today i got a notification that my deposit has been protected and i noticed it been a long time and I'm pretty sure it has to be protected 30 days after i pay them. Also on the site it says the date paid is different from when i paid them luckily the portal the landlord uses m",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xt6mji",
-          "title": "My employer has registered a vehicle into my name without my knowledge or consent (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
+          "id": "1xu9x84",
+          "title": "UK non-compete and obligation to disclose it to a new employer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9x84/uk_noncompete_and_obligation_to_disclose_it_to_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9x84/uk_noncompete_and_obligation_to_disclose_it_to_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794365810,
-          "snippet": "For context, I work at a large car dealership, have done for 7 months now. The other day I received a brown envelope from the DVLA to the work address but my name, the letter was a tax refund cheque in my name but to a random 26 plate car that has nothing to do with me. Upon conf",
+          "createdUtc": 1794481273,
+          "snippet": "Hi, I am based in England and I’ve recently left a software sales role (employed for 14 months) and accepted an offer with a competitor in the same industry, starting in December 2026. For context, I was let go rather than resigning. My manager helped arrange an amicable exit wit",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtsczg",
-          "title": "Looking for advice on inheritance for a friend.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtsczg/looking_for_advice_on_inheritance_for_a_friend/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtsczg/looking_for_advice_on_inheritance_for_a_friend/",
+          "id": "1xuduq4",
+          "title": "Claiming compensation from accident after insuance pay out (england)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xuduq4/claiming_compensation_from_accident_after/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xuduq4/claiming_compensation_from_accident_after/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794428080,
-          "snippet": "So my friends aunt passed away about 3 weeks ago, and since then a lot of her relatives have come out of the woodwork, there was no legal will, her aunt was marries but her husband had passed away many years ago, they had no children, her aunts parents and siblings had also passe",
+          "createdUtc": 1794492911,
+          "snippet": "so i was in a minor accident a year ago, entirely my fault, i look down at my satnav and didn't see a car at a give way in a car park (so only going 5 miles an hour not fast). we both swapped info and reported to insurance, i paid out 500 for the excess and i was told the case wa",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtw6y5",
-          "title": "Harassment,intimidating behaviour and destruction of property- Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtw6y5/harassmentintimidating_behaviour_and_destruction/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtw6y5/harassmentintimidating_behaviour_and_destruction/",
+          "id": "1xudggc",
+          "title": "Leaving a tenancy early due to unresolved repairs - Notice period dispute",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xudggc/leaving_a_tenancy_early_due_to_unresolved_repairs/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xudggc/leaving_a_tenancy_early_due_to_unresolved_repairs/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794437329,
-          "snippet": "Hi, this is a really weird one so this maybe a bit long About a year ago a farmer (who had no land) gained a backer to buy some land near my parents. Since then the farmer has used heavy machinery to destroy an old walkers right of way, tear down some ancient oaks, trees with bat",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xtqvxz",
-          "title": "Throwing a toxic substance - specific offence?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtqvxz/throwing_a_toxic_substance_specific_offence/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtqvxz/throwing_a_toxic_substance_specific_offence/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794424720,
-          "snippet": "England. Last night I was the victim of an assault in which a person sprayed a bottle of (what I believe to be) motor oil in my face. It was in a squeezy disposable drink bottle and he had just threatened to spray it at me - at that point I feared it was acid and was terrified, b",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xtpy00",
-          "title": "Parking ticket at hospital when I have permit (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtpy00/parking_ticket_at_hospital_when_i_have_permit/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtpy00/parking_ticket_at_hospital_when_i_have_permit/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794422627,
-          "snippet": "Received a parking ticket today form Colchester hospital, I have a permit but I only found out today after a colleague told me (been parking there for 2 weeks now) you have to pay £1.50 a day even with a permit? (£10 a day without). It doesn’t say this on the sign as shown, or in",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xtrlgl",
-          "title": "Neighbour breaching Section 80 Abatement Notice. What happens next legally, and what are my options? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrlgl/neighbour_breaching_section_80_abatement_notice/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrlgl/neighbour_breaching_section_80_abatement_notice/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794426325,
-          "snippet": "I’m in London - I rent a flat. A tenant in another flat on my floor plays music with heavy bass, often late at night, waking me through earplugs and brown noise. After two warning letters, the council served a Section 80 Abatement Notice under the Environmental Protection Act 199",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xt10ay",
-          "title": "justeat cancelled order, 'there will be no refund for this order'",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794350427,
-          "snippet": "(England) i ordered on justeat and paid by paypal. delivery time slipped by over an hour. i cancelled the order, website said something like 'no problem, your order has probably not been prepared yet.' then i got a cancellation email stating \"if you have been charged there will b",
+          "createdUtc": 1794491948,
+          "snippet": "Hi everyone, I’m looking for some honest advice on our situation. We’re based in England and are trying to understand our legal position before deciding what to do. **Our tenancy** • We have a joint tenancy with our current letting agent/landlord. • Our original 12-month tenancy ",
           "listingSource": "rss:hot"
         }
       ]
@@ -261,7 +261,7 @@
       "slug": "general-legal-discussion",
       "label": "General legal discussion",
       "legalAreaSlug": null,
-      "postCount": 8,
+      "postCount": 11,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -280,6 +280,18 @@
           "listingSource": "rss:hot"
         },
         {
+          "id": "1xu2hqd",
+          "title": "Neighbour threatening to kill me and saying “I’m going to kill you and I won’t come out of prison if I kill you” now I’m genuinely worried to leave my flat. (England) what’s my options?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu2hqd/neighbour_threatening_to_kill_me_and_saying_im/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu2hqd/neighbour_threatening_to_kill_me_and_saying_im/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794454980,
+          "snippet": "I moved in about a year ago and it was all safe and sound until my neighbour right opposite my door started shouting and screaming. At first it startled me and I was concerned so I waited a bit and when it was consistent , I decided to call the police as I was concerned for him a",
+          "listingSource": "rss:hot"
+        },
+        {
           "id": "1xtkvt5",
           "title": "I think my wife was spiked by her female friend and assaulted, what can I do?",
           "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtkvt5/i_think_my_wife_was_spiked_by_her_female_friend/",
@@ -289,6 +301,42 @@
           "numComments": 0,
           "createdUtc": 1794411440,
           "snippet": "I’m in England - Throwaway One day after school pickup my wife stops over at a friend’s house and they have some drinks before she continues her way home. I speak to her maybe at 10pm and she barely making sense and she says the door is locked and she can’t get out. I assume she ",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xu9ad9",
+          "title": "England - Got made redundant on phased return while in remission from Cancer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9ad9/england_got_made_redundant_on_phased_return_while/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9ad9/england_got_made_redundant_on_phased_return_while/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794479037,
+          "snippet": "I'm a graphic designer working for a charity that's one of the largest in my city and I developed acute and aggressive cancer late 2024 and had to have pretty gruelling chemo for over a year that left me mentally and physically very rough. I'm in remission now and over the last y",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xud03a",
+          "title": "What would happen if I report a historical rape?",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xud03a/what_would_happen_if_i_report_a_historical_rape/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xud03a/what_would_happen_if_i_report_a_historical_rape/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794490772,
+          "snippet": "I live in England. Roughly 15 years ago I was raped by my boyfriend at the time. It's a very similar scenario to Russell Brand's victim. It started off as consensual, then he put his penis somewhere I had not consented to and I repeatedly asked him to stop. He didn't stop, and th",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xud55h",
+          "title": "(wales nhs) possibly stuck with permanent condition due to a double booking of my specialist.",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xud55h/wales_nhs_possibly_stuck_with_permanent_condition/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xud55h/wales_nhs_possibly_stuck_with_permanent_condition/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794491147,
+          "snippet": "over 3 years i had 6 ear infections which made me eligible to see an ENT specialist which i waited 2 years for an appointment to open, later to find out 2 days before my appointment it had been double booked and mine was cancelled due to my case not being urgent and had been resc",
           "listingSource": "rss:hot"
         },
         {
@@ -304,63 +352,75 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xte26l",
-          "title": "Ikea didn’t deliver our full kitchen and have discontinued the model",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte26l/ikea_didnt_deliver_our_full_kitchen_and_have/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xte26l/ikea_didnt_deliver_our_full_kitchen_and_have/",
+          "id": "1xu9q2a",
+          "title": "Help me please I have no idea what to do (homeless)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9q2a/help_me_please_i_have_no_idea_what_to_do_homeless/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9q2a/help_me_please_i_have_no_idea_what_to_do_homeless/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794391706,
-          "snippet": "We have about 90% of our ikea kitchen installed but we are missing a few cupboard doors and panels. We have been trying to get them from ikea for about 2 months now and have finally found out the model has been discontinued. Should ikea refund us for The full kitchen is there any",
+          "createdUtc": 1794480585,
+          "snippet": "Currently homeless, don’t speak to either parents and a sibling pass me this letter the other day. My ex parter got loads of catalogs stuff in my name before running away with her ex parter. Left me with the shit. I’m not working obviously so need to tell them all this but don’t ",
+          "listingSource": "rss:hot"
+        }
+      ]
+    },
+    {
+      "slug": "employment-law",
+      "label": "Employment Law",
+      "legalAreaSlug": "employment",
+      "postCount": 2,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
+        {
+          "id": "1xubkwb",
+          "title": "Question about my employers, who are based in France and want to close their English company and sack everyone",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xubkwb/question_about_my_employers_who_are_based_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xubkwb/question_about_my_employers_who_are_based_in/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794486733,
+          "snippet": "[To be taken down soon] I work for an English limited liability company with about 20 employees and which according to company check is profitable. This company is owned by the managing director of a French company which is loss making and has filed for insolvency. The problem is",
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtgf4j",
-          "title": "Euro Car Parks are taking me to court",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtgf4j/euro_car_parks_are_taking_me_to_court/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtgf4j/euro_car_parks_are_taking_me_to_court/",
+          "id": "1xu9x84",
+          "title": "UK non-compete and obligation to disclose it to a new employer",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9x84/uk_noncompete_and_obligation_to_disclose_it_to_a/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xu9x84/uk_noncompete_and_obligation_to_disclose_it_to_a/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794399870,
-          "snippet": "Euro car parks are taking me to court (England) I'll attempt to be as concise as possible but I apologise as I am probably way over thinking this post. I pulled into the car park at 13.14pm I went to the ticket machine and paid for 3 hrs parking. At first the machine said to ente",
+          "createdUtc": 1794481273,
+          "snippet": "Hi, I am based in England and I’ve recently left a software sales role (employed for 14 months) and accepted an offer with a competitor in the same industry, starting in December 2026. For context, I was let go rather than resigning. My manager helped arrange an amicable exit wit",
           "listingSource": "rss:hot"
-        },
+        }
+      ]
+    },
+    {
+      "slug": "conveyancing",
+      "label": "Conveyancing",
+      "legalAreaSlug": "conveyancing",
+      "postCount": 1,
+      "engagementScore": 0,
+      "subreddits": [
+        "LegalAdviceUK"
+      ],
+      "posts": [
         {
-          "id": "1xtl07n",
-          "title": "Care home have not sent me invoices for a family member’s stay, but are now demanding all (unsent) invoices need to be paid in less than a week otherwise it’s being escalated to the office of the public guardian? Where do I stand with this?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtl07n/care_home_have_not_sent_me_invoices_for_a_family/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtl07n/care_home_have_not_sent_me_invoices_for_a_family/",
+          "id": "1xube8o",
+          "title": "Online Site Removing Purchased Download / Stream (England)",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xube8o/online_site_removing_purchased_download_stream/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xube8o/online_site_removing_purchased_download_stream/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794411730,
-          "snippet": "My family member has dementia and I have POA to manage their finances in England. They had an accident earlier this year, was in hospital for a lengthy amount of time and we’d been in touch with our social services team anyway who deemed my family member to be too unfit to return",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xtsczg",
-          "title": "Looking for advice on inheritance for a friend.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtsczg/looking_for_advice_on_inheritance_for_a_friend/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtsczg/looking_for_advice_on_inheritance_for_a_friend/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794428080,
-          "snippet": "So my friends aunt passed away about 3 weeks ago, and since then a lot of her relatives have come out of the woodwork, there was no legal will, her aunt was marries but her husband had passed away many years ago, they had no children, her aunts parents and siblings had also passe",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xtqvxz",
-          "title": "Throwing a toxic substance - specific offence?",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtqvxz/throwing_a_toxic_substance_specific_offence/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtqvxz/throwing_a_toxic_substance_specific_offence/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794424720,
-          "snippet": "England. Last night I was the victim of an assault in which a person sprayed a bottle of (what I believe to be) motor oil in my face. It was in a squeezy disposable drink bottle and he had just threatened to spray it at me - at that point I feared it was acid and was terrified, b",
+          "createdUtc": 1794486167,
+          "snippet": "This is less an advice request and more an opinion request. The firm Big Finish that produces Doctor Who audios has removed from its site a story featuring David Walliams. That includes it being removed from the download list of customer's accounts where that story has already be",
           "listingSource": "rss:hot"
         }
       ]
@@ -390,70 +450,10 @@
       ]
     },
     {
-      "slug": "faulty-goods-and-refunds",
-      "label": "Faulty Goods and Refunds",
-      "legalAreaSlug": "consumer_goods",
-      "postCount": 2,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xteqfu",
-          "title": "Anker Power Bank fried my phone and itself, manufacturer are denying responsibility [England]",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteqfu/anker_power_bank_fried_my_phone_and_itself/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteqfu/anker_power_bank_fried_my_phone_and_itself/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794394147,
-          "snippet": "Context : I bought an Anker Power Bank from the official Amazon store in 2024, that product defected and melted itself and the cable it was plugged into in September 2025. Anker Support confirmed the original product was genuine and provided me with like-for-like unit to replace ",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xthky6",
-          "title": "Sony refusing warranty repair due to water damage despite me never dropping these in water",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthky6/sony_refusing_warranty_repair_due_to_water_damage/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xthky6/sony_refusing_warranty_repair_due_to_water_damage/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794403263,
-          "snippet": "Hello, im from England, i bought the new sony wf-1000xm6 in March and have had the previous 2 models too. I was a big fan of them, around 3 weeks ago I plugged them in to charge and around 15 minutes later I touched them and they were dangerously hot. Obviously I unplugged them a",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "conveyancing",
-      "label": "Conveyancing",
-      "legalAreaSlug": "conveyancing",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xtmckb",
-          "title": "My ex is threatening to apply to court for an order for sale on our family home",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtmckb/my_ex_is_threatening_to_apply_to_court_for_an/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtmckb/my_ex_is_threatening_to_apply_to_court_for_an/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794414758,
-          "snippet": "I’m a student who has recently separated from my ex partner who is on a high wage (over £80k). We have three young children. We were in the process of selling our jointly owned home. I have found it extremely difficult to secure rented accommodation due to my low income, with lan",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
       "slug": "consumer-law",
       "label": "Consumer Law",
       "legalAreaSlug": "consumer",
-      "postCount": 3,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
@@ -472,35 +472,23 @@
           "listingSource": "rss:hot"
         },
         {
-          "id": "1xtrigt",
-          "title": "UK Power Networks excavated my driveway, now I have a water leak. No insurance cover and no money to investigate – what can I do? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrigt/uk_power_networks_excavated_my_driveway_now_i/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrigt/uk_power_networks_excavated_my_driveway_now_i/",
+          "id": "1xubdja",
+          "title": "DJI refusing £430 refund after return vanished in YEEP/DPD system. Do I have any legal recourse? - England",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xubdja/dji_refusing_430_refund_after_return_vanished_in/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xubdja/dji_refusing_430_refund_after_return_vanished_in/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794426140,
-          "snippet": "I’m looking for legal advice about suspected property damage following utility excavation works. Between March and April 2026, UK Power Networks excavated my concrete driveway to separate the electricity supply shared between neighbouring properties so I could install an EV charg",
-          "listingSource": "rss:hot"
-        },
-        {
-          "id": "1xt10ay",
-          "title": "justeat cancelled order, 'there will be no refund for this order'",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt10ay/justeat_cancelled_order_there_will_be_no_refund/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794350427,
-          "snippet": "(England) i ordered on justeat and paid by paypal. delivery time slipped by over an hour. i cancelled the order, website said something like 'no problem, your order has probably not been prepared yet.' then i got a cancellation email stating \"if you have been charged there will b",
+          "createdUtc": 1794486108,
+          "snippet": "Bought a DJI Action 6 which was faulty. DJI provided a DPD return label via a YEEP locker. I deposited the parcel into the locker 10th October and have video evidence showing the drop-off. The locker then went offline and failed to generate confirmation. I contacted YEEP immediat",
           "listingSource": "rss:hot"
         }
       ]
     },
     {
-      "slug": "garage-and-vehicle-repair-disputes",
-      "label": "Garage and Vehicle Repair Disputes",
-      "legalAreaSlug": "consumer_vehicle_repair",
+      "slug": "faulty-goods-and-refunds",
+      "label": "Faulty Goods and Refunds",
+      "legalAreaSlug": "consumer_goods",
       "postCount": 1,
       "engagementScore": 0,
       "subreddits": [
@@ -508,87 +496,15 @@
       ],
       "posts": [
         {
-          "id": "1xtgn63",
-          "title": "Car sold to us nearly killed us, garage refusing to compensate.",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtgn63/car_sold_to_us_nearly_killed_us_garage_refusing/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtgn63/car_sold_to_us_nearly_killed_us_garage_refusing/",
+          "id": "1xteqfu",
+          "title": "Anker Power Bank fried my phone and itself, manufacturer are denying responsibility [England]",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteqfu/anker_power_bank_fried_my_phone_and_itself/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xteqfu/anker_power_bank_fried_my_phone_and_itself/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794400556,
-          "snippet": "Looking for advice on where to go forward with this as I’m concerned my partner may rush a decision that leaves us out of pocket and stuck with a deathmobile. Located in Dorset, UK. Our car broke in May. We’re with the AA so they gave us a hire car for a few days until we had tim",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "employment-law",
-      "label": "Employment Law",
-      "legalAreaSlug": "employment",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xt6mji",
-          "title": "My employer has registered a vehicle into my name without my knowledge or consent (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xt6mji/my_employer_has_registered_a_vehicle_into_my_name/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794365810,
-          "snippet": "For context, I work at a large car dealership, have done for 7 months now. The other day I received a brown envelope from the DVLA to the work address but my name, the letter was a tax refund cheque in my name but to a random 26 plate car that has nothing to do with me. Upon conf",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "neighbour-disputes",
-      "label": "Neighbour Disputes",
-      "legalAreaSlug": "neighbour_dispute",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xtw6y5",
-          "title": "Harassment,intimidating behaviour and destruction of property- Scotland",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtw6y5/harassmentintimidating_behaviour_and_destruction/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtw6y5/harassmentintimidating_behaviour_and_destruction/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794437329,
-          "snippet": "Hi, this is a really weird one so this maybe a bit long About a year ago a farmer (who had no land) gained a backer to buy some land near my parents. Since then the farmer has used heavy machinery to destroy an old walkers right of way, tear down some ancient oaks, trees with bat",
-          "listingSource": "rss:hot"
-        }
-      ]
-    },
-    {
-      "slug": "parking-and-pcns",
-      "label": "Parking and PCNs",
-      "legalAreaSlug": "parking_pcn",
-      "postCount": 1,
-      "engagementScore": 0,
-      "subreddits": [
-        "LegalAdviceUK"
-      ],
-      "posts": [
-        {
-          "id": "1xtpy00",
-          "title": "Parking ticket at hospital when I have permit (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtpy00/parking_ticket_at_hospital_when_i_have_permit/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtpy00/parking_ticket_at_hospital_when_i_have_permit/",
-          "subreddit": "LegalAdviceUK",
-          "score": 0,
-          "numComments": 0,
-          "createdUtc": 1794422627,
-          "snippet": "Received a parking ticket today form Colchester hospital, I have a permit but I only found out today after a colleague told me (been parking there for 2 weeks now) you have to pay £1.50 a day even with a permit? (£10 a day without). It doesn’t say this on the sign as shown, or in",
+          "createdUtc": 1794394147,
+          "snippet": "Context : I bought an Anker Power Bank from the official Amazon store in 2024, that product defected and melted itself and the cable it was plugged into in September 2025. Anker Support confirmed the original product was genuine and provided me with like-for-like unit to replace ",
           "listingSource": "rss:hot"
         }
       ]
@@ -597,22 +513,34 @@
       "slug": "landlord-and-tenant",
       "label": "Landlord and Tenant",
       "legalAreaSlug": "housing",
-      "postCount": 1,
+      "postCount": 2,
       "engagementScore": 0,
       "subreddits": [
         "LegalAdviceUK"
       ],
       "posts": [
         {
-          "id": "1xtrlgl",
-          "title": "Neighbour breaching Section 80 Abatement Notice. What happens next legally, and what are my options? (England)",
-          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrlgl/neighbour_breaching_section_80_abatement_notice/",
-          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xtrlgl/neighbour_breaching_section_80_abatement_notice/",
+          "id": "1xuacew",
+          "title": "Uk Deposit and what to be aware with landlords protecting deposits",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xuacew/uk_deposit_and_what_to_be_aware_with_landlords/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xuacew/uk_deposit_and_what_to_be_aware_with_landlords/",
           "subreddit": "LegalAdviceUK",
           "score": 0,
           "numComments": 0,
-          "createdUtc": 1794426325,
-          "snippet": "I’m in London - I rent a flat. A tenant in another flat on my floor plays music with heavy bass, often late at night, waking me through earplugs and brown noise. After two warning letters, the council served a Section 80 Abatement Notice under the Environmental Protection Act 199",
+          "createdUtc": 1794482753,
+          "snippet": "So today i got a notification that my deposit has been protected and i noticed it been a long time and I'm pretty sure it has to be protected 30 days after i pay them. Also on the site it says the date paid is different from when i paid them luckily the portal the landlord uses m",
+          "listingSource": "rss:hot"
+        },
+        {
+          "id": "1xudggc",
+          "title": "Leaving a tenancy early due to unresolved repairs - Notice period dispute",
+          "url": "https://www.reddit.com/r/LegalAdviceUK/comments/1xudggc/leaving_a_tenancy_early_due_to_unresolved_repairs/",
+          "permalink": "https://www.reddit.com/r/LegalAdviceUK/comments/1xudggc/leaving_a_tenancy_early_due_to_unresolved_repairs/",
+          "subreddit": "LegalAdviceUK",
+          "score": 0,
+          "numComments": 0,
+          "createdUtc": 1794491948,
+          "snippet": "Hi everyone, I’m looking for some honest advice on our situation. We’re based in England and are trying to understand our legal position before deciding what to do. **Our tenancy** • We have a joint tenancy with our current letting agent/landlord. • Our original 12-month tenancy ",
           "listingSource": "rss:hot"
         }
       ]
