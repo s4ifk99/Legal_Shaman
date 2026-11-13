@@ -1,0 +1,27 @@
+title = "Legal Shaman working tree"
+
+[extend]
+useDefault = true
+
+# Exact public Ahrefs web analytics site key. Do not add other keys here.
+[[allowlists]]
+description = "Public Ahrefs web analytics site key"
+regexTarget = "secret"
+regexes = ['''5ar5K5mpXwwkcFGOTKH51Q''']
+
+# Well-known local placeholder in web/.env.example. Not a production credential.
+[[allowlists]]
+description = "Local example Postgres URL"
+regexTarget = "secret"
+regexes = ['''postgresql://postgres:postgres@localhost:5432/legal_shaman''']
+
+# Generated datasets are outside the working-tree secret scan. Git history is not scanned.
+[[allowlists]]
+description = "Generated data, dependencies, and binaries"
+paths = [
+  '''(^|/)data(/|$)''',
+  '''(^|/)node_modules(/|$)''',
+  '''(^|/)\.next(/|$)''',
+  '''(^|/)\.git(/|$)''',
+  '''\.(bin|png|jpg|jpeg|gif|webp|ico|woff2?)$''',
+]
