@@ -161,6 +161,20 @@ function semgrepSeverity(value) {
   return "high";
 }
 
+function semgrepParseInfo(json) {
+  const errors = Array.isArray(json?.errors) ? json.errors : [];
+  const paths = [];
+  for (const error of errors) {
+    const raw = error?.path || error?.location?.path || error?.spans?.[0]?.file || "";
+    if (!raw) continue;
+    const cleaned = String(raw).replace(/\\/g, "/").replace(/^\/src\//, "");
+    if (!paths.includes(cleaned)) paths.push(cleaned);
+  }
+  const info = { parseWarnings: errors.length };
+  if (paths.length) info.parseWarningPaths = paths.slice(0, 20);
+  return info;
+}
+
 function parseSemgrep(json) {
   return (json?.results || []).map((row) => ({
     scanner: "semgrep",
@@ -220,10 +234,17 @@ function countSeverities(findings) {
   return counts;
 }
 
+function parseWarningNote(scanners) {
+  const count = scanners.reduce((sum, scanner) => sum + (Number(scanner.parseWarnings) || 0), 0);
+  if (!count) return "";
+  return ` Semgrep reported ${count} parse warning(s), so those files were not fully analysed.`;
+}
+
 export function classifyConclusion(scanners, findings) {
   const failed = scanners.filter((scanner) => scanner.status !== "completed").map((scanner) => scanner.name);
   const counts = countSeverities(findings);
   const highOrCritical = counts.critical + counts.high;
+  const note = parseWarningNote(scanners);
   if (failed.length) {
     const also =
       highOrCritical > 0
@@ -231,7 +252,7 @@ export function classifyConclusion(scanners, findings) {
         : "";
     return {
       conclusion: "incomplete",
-      conclusionReason: `Scanners did not complete: ${failed.join(", ")}. This is not a clean result.${also}`,
+      conclusionReason: `Scanners did not complete: ${failed.join(", ")}. This is not a clean result.${also}${note}`,
       counts,
       failed,
     };
@@ -239,7 +260,15 @@ export function classifyConclusion(scanners, findings) {
   if (highOrCritical > 0) {
     return {
       conclusion: "high_or_critical",
-      conclusionReason: "All scanners completed and high or critical findings are present. This is not a clean result.",
+      conclusionReason: `All scanners completed and high or critical findings are present. This is not a clean result.${note}`,
+      counts,
+      failed,
+    };
+  }
+  if (note) {
+    return {
+      conclusion: "incomplete",
+      conclusionReason: `${note.trim()} This is not a clean result.`,
       counts,
       failed,
     };
@@ -352,14 +381,12 @@ export function buildReport(outDir, env = process.env) {
   if (!semgrepJson || !Array.isArray(semgrepJson.results)) {
     scanners.push(scannerRecord("semgrep", "failed", metas.semgrep.stderrTail || "Semgrep did not produce results"));
   } else if (metas.semgrep.exitCode != null && metas.semgrep.exitCode > 1) {
-    scanners.push(scannerRecord("semgrep", "failed", metas.semgrep.stderrTail || `Semgrep exited ${metas.semgrep.exitCode}`, {
-      parseWarnings: Array.isArray(semgrepJson.errors) ? semgrepJson.errors.length : 0,
-    }));
+    scanners.push(scannerRecord("semgrep", "failed", metas.semgrep.stderrTail || `Semgrep exited ${metas.semgrep.exitCode}`, semgrepParseInfo(semgrepJson)));
     findings.push(...parseSemgrep(semgrepJson));
   } else {
     scanners.push(scannerRecord("semgrep", "completed", null, {
       exitCode: metas.semgrep.exitCode,
-      parseWarnings: Array.isArray(semgrepJson.errors) ? semgrepJson.errors.length : 0,
+      ...semgrepParseInfo(semgrepJson),
     }));
     findings.push(...parseSemgrep(semgrepJson));
   }
@@ -472,7 +499,10 @@ function renderMarkdown(report) {
   lines.push("## Scanners");
   lines.push("");
   for (const scanner of report.scanners) {
-    const extra = scanner.parseWarnings ? `, parse warnings ${scanner.parseWarnings}` : "";
+    const paths = Array.isArray(scanner.parseWarningPaths) && scanner.parseWarningPaths.length
+      ? ` (${scanner.parseWarningPaths.join(", ")})`
+      : "";
+    const extra = scanner.parseWarnings ? `, parse warnings ${scanner.parseWarnings}${paths}` : "";
     lines.push(`- ${scanner.name}: ${scanner.status}${scanner.error ? ` (${scanner.error})` : ""}${extra}`);
   }
   lines.push("");
@@ -511,7 +541,10 @@ export function summaryLines(report) {
     `Counts critical=${report.counts.critical} high=${report.counts.high} medium=${report.counts.medium} low=${report.counts.low} info=${report.counts.info}`,
   ];
   for (const scanner of report.scanners) {
-    const extra = scanner.parseWarnings ? ` parseWarnings=${scanner.parseWarnings}` : "";
+    const paths = Array.isArray(scanner.parseWarningPaths) && scanner.parseWarningPaths.length
+      ? ` paths=${scanner.parseWarningPaths.join(",")}`
+      : "";
+    const extra = scanner.parseWarnings ? ` parseWarnings=${scanner.parseWarnings}${paths}` : "";
     lines.push(`Scanner ${scanner.name}: ${scanner.status}${scanner.error ? ` error=${scanner.error}` : ""}${extra}`);
   }
   const important = report.findings.filter((item) => item.severity === "critical" || item.severity === "high");

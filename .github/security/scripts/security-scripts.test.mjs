@@ -186,6 +186,19 @@ test("report conclusion distinguishes clean, high, and incomplete", () => {
   );
   assert.equal(downSite.conclusion, "incomplete");
   assert.equal(downSite.conclusionReason.includes("critical"), false);
+  const unparsed = classifyConclusion(
+    [{ name: "semgrep", status: "completed", parseWarnings: 2 }],
+    [{ severity: "medium" }],
+  );
+  assert.equal(unparsed.conclusion, "incomplete");
+  assert.match(unparsed.conclusionReason, /not a clean result/);
+  assert.match(unparsed.conclusionReason, /parse warning/);
+  const unparsedHigh = classifyConclusion(
+    [{ name: "semgrep", status: "completed", parseWarnings: 2 }],
+    [{ severity: "high" }],
+  );
+  assert.equal(unparsedHigh.conclusion, "high_or_critical");
+  assert.match(unparsedHigh.conclusionReason, /parse warning/);
 });
 
 test("fixture report redacts evidence and fails closed on a missing scanner", () => {

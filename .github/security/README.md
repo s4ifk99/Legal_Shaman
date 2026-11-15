@@ -57,7 +57,7 @@ Before the baseline starts, the job requests that URL. The baseline runs only wh
 
 ## Scanners
 
-Versions are pinned in `versions.env`. Checksums and image digests were reconfirmed on 14 November 2026. Gitleaks 8.30.1 is the current release. osv-scanner 2.7.1, published 9 November 2026, is still the current release. Semgrep 1.185.0, published 10 November 2026, is the newest numbered image tag. Its index digest was reconfirmed on 14 November 2026. Docker Hub `latest` points at the older 1.184.0 digest, so the workflow pins 1.185.0 by digest. The ZAP `stable` and `latest` index digests are the same and unchanged since 10 November 2026. That image tracks the latest stable ZAP release (2.17.0, still the current upstream release on 14 November 2026) and refreshes add-ons at image build time. An older ZAP index from 29 October 2026 can still be fetched by digest. It is not the `stable` tag. On 14 November 2026, `zap.sh -version` and the baseline report `@version` in this same image digest were both ZAP 2.17.0. On 13 November 2026 both `https://www.legalshaman.com` and `https://legalshaman.com` returned HTTP 402 with `x-vercel-error: DEPLOYMENT_DISABLED`. On 14 November 2026 both hosts returned HTTP 200, and the baseline completed against `https://www.legalshaman.com`.
+Versions are pinned in `versions.env`. Checksums and image digests were reconfirmed on 15 November 2026. Gitleaks 8.30.1 is the current release. osv-scanner 2.7.1, published 9 November 2026, is still the current release. Semgrep 1.185.0, published 10 November 2026, is the newest numbered image tag. Its index digest was reconfirmed on 15 November 2026. Docker Hub `latest` points at the older 1.184.0 digest, so the workflow pins 1.185.0 by digest. The ZAP `stable` and `latest` index digests are the same and unchanged since 10 November 2026. That image tracks the latest stable ZAP release (2.17.0, still the current upstream release on 15 November 2026) and refreshes add-ons at image build time. An older ZAP index from 29 October 2026 can still be fetched by digest. It is not the `stable` tag. On 14 November 2026, `zap.sh -version` and the baseline report `@version` in this same image digest were both ZAP 2.17.0. On 13 November 2026 both `https://www.legalshaman.com` and `https://legalshaman.com` returned HTTP 402 with `x-vercel-error: DEPLOYMENT_DISABLED`. On 14 November 2026 and again on 15 November 2026 both hosts returned HTTP 200. The baseline target remains `https://www.legalshaman.com`.
 
 | Scanner | Role |
 | --- | --- |
@@ -65,16 +65,16 @@ Versions are pinned in `versions.env`. Checksums and image digests were reconfir
 | osv-scanner 2.7.1 | Same lockfile, plus `scripts/exa/requirements-exa.txt`. Package names and versions are sent to the OSV / deps.dev services. Source code is not. No `osv-scanner fix`. |
 | gitleaks 8.30.1 | Working tree only, with `--redact=100`. Git history is not scanned. `data/`, `web/data/`, and files over 2 MB are skipped. |
 | Application checks | Local Node checks for authentication, authorisation, exposed keys, injection, XSS, insecure configuration, and sensitive user data. |
-| Semgrep 1.185.0 | Local `semgrep scan` in a pinned image. Metrics and Semgrep App are off. `semgrep ci` is not used. Community rule packs, including GitHub Actions, are downloaded. Source is mounted read only. |
+| Semgrep 1.185.0 | Local `semgrep scan` in a pinned image. Metrics and Semgrep App are off. `semgrep ci` is not used. Community rule packs, including GitHub Actions, are downloaded. Source is mounted read only. Parse warnings are listed. If they are the only gap, the result is incomplete rather than clean. |
 | OWASP ZAP baseline | Unauthenticated passive baseline of the public site. The pinned index digest was still the `stable` tag on 14 November 2026. On 14 November 2026, `zap.sh -version` and the baseline report `@version` in that same image were both ZAP 2.17.0. The job uses `zap-baseline.py --autooff` so the spider honours `spider.postform=false`. It does not POST forms, log in, or run an active attack policy. Add-ons are not updated at runtime (`-silent`), and ZAP telemetry is off. Spider cap 5 minutes, depth 4, passive scan cap 20 minutes. A traditional spider can still request GET URLs, including GET forms. |
 
 ## Results
 
 The job summary prints one of these:
 
-- `clean`: every scanner completed and there are no high or critical findings. Medium and low findings can still be in the report.
-- `high_or_critical`: every scanner completed and at least one high or critical finding is present. The job fails.
-- `incomplete`: one or more scanners failed, or the encrypted artifact was not stored. The job fails. This is not a clean result, even when some scanners found nothing.
+- `clean`: every scanner completed, Semgrep reported no parse warnings, and there are no high or critical findings. Medium and low findings can still be in the report.
+- `high_or_critical`: every scanner completed and at least one high or critical finding is present. The job fails. Semgrep parse warnings are named in the reason and do not hide those findings.
+- `incomplete`: one or more scanners failed, Semgrep left files unparsed and there is no high or critical finding, or the encrypted artifact was not stored. The job fails. This is not a clean result, even when some scanners found nothing.
 - `skipped`: the UTC slot is not the London 02:00 window. No scan ran.
 
 High and critical findings fail the workflow. Medium and low findings are reported and do not, by themselves, fail it.
