@@ -24,16 +24,17 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.legalshaman.com"),
   title: {
-    default: "Legal Shaman | Navigate Your Legal Disputes",
+    default: "Legal Shaman | UK Legal Directory",
     template: "%s | Legal Shaman",
   },
   description:
-    "Legal Shaman helps you navigate UK legal disputes — search solicitors, legal aid, and free advice; get guided lawyer matches; and explore signposting resources. Not legal advice.",
+    "UK legal directory for legal information, financing options, matched providers, reviews and costs — plus a calm plan of action for your dispute. Not legal advice.",
   keywords: [
+    "UK legal directory",
     "legal aid UK",
     "find a solicitor",
     "free legal advice",
-    "legal directory",
+    "legal financing",
     "housing lawyer",
     "employment lawyer",
   ],
@@ -42,16 +43,16 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://www.legalshaman.com",
     siteName: "Legal Shaman",
-    title: "Legal Shaman | Navigate Your Legal Disputes",
+    title: "Legal Shaman | UK Legal Directory",
     description:
-      "Search the UK legal directory, get guided lawyer matches, and find free legal help — solicitors, legal aid, and signposting resources.",
+      "Find legal information, financing, matched providers, reviews and costs across the UK — then get a clear plan for your situation.",
     images: [{ url: "/logo.jpg", width: 512, height: 512, alt: "Legal Shaman" }],
   },
   twitter: {
     card: "summary",
-    title: "Legal Shaman | Navigate Your Legal Disputes",
+    title: "Legal Shaman | UK Legal Directory",
     description:
-      "Search solicitors, legal aid, and free advice across the UK. The Shaman does not advise, only guides.",
+      "UK legal directory: information, financing, providers, reviews and costs. Not a solicitor — we guide, we do not advise.",
     images: ["/logo.jpg"],
   },
   robots: {

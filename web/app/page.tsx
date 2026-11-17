@@ -8,6 +8,10 @@ import { SearchBar } from "@/components/search-bar";
 import { SpiralBackground } from "@/components/spiral-decoration";
 import signpostingResources from "@/data/signposting-resources.json";
 import Link from "next/link";
+import { isV3SimpleShellEnabled } from "@/lib/v3/feature";
+import { SimpleHeader } from "@/components/v3/simple-header";
+import { SimpleFooter } from "@/components/v3/simple-footer";
+import { ThirdEyeShell } from "@/components/v3/third-eye-shell";
 
 /** Explicit .com canonical so Google does not treat the homepage as a duplicate of .co.uk. */
 export const metadata: Metadata = {
@@ -16,6 +20,18 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  if (isV3SimpleShellEnabled()) {
+    return (
+      <div className="relative flex min-h-dvh flex-col bg-transparent">
+        <SimpleHeader />
+        <main className="relative z-10 flex min-h-0 flex-1 flex-col">
+          <ThirdEyeShell />
+        </main>
+        <SimpleFooter />
+      </div>
+    );
+  }
+
   const sections = signpostingResources.sections as CategorySection[];
 
   return (
@@ -32,8 +48,9 @@ export default function Home() {
               What problem do you need help resolving today?
             </h2>
             <p className="mt-3 mx-auto max-w-2xl text-muted-foreground md:text-lg">
-              Guided matching or Signpost for trusted national resources. Signposting only — we are
-              not a solicitor and we do not give legal advice.
+              UK legal directory for information, financing, matched providers, reviews and costs.
+              Guided matching when you need it — we are not a solicitor and we do not give legal
+              advice.
             </p>
           </div>
           <NecessityEntry />
@@ -98,7 +115,7 @@ export default function Home() {
                 Answers in seconds, not hours.
               </h3>
               <p className="mt-3 text-muted-foreground">
-                No more endless searching. Tell us your problem and get personalised signposting in seconds.
+                No more endless searching. Tell us your problem and get personalised directory matches in seconds.
               </p>
             </div>
           </div>
@@ -110,7 +127,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="mb-10 text-center">
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Signposting
+              Directory by area
             </h2>
             <p className="mt-3 text-muted-foreground md:text-lg">
               Housing, family, work, debt, and more — each section links to our wiki and trusted external help
@@ -124,7 +141,7 @@ export default function Home() {
               href="/signposting"
               className="inline-flex items-center rounded-xl border-2 border-primary/30 bg-primary/5 px-6 py-3 text-sm font-medium text-primary transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/10 hover:shadow-md"
             >
-              Open Signpost →
+              Open free help index →
             </Link>
           </div>
         </div>

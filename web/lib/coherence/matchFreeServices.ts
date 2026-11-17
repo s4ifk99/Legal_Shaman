@@ -69,6 +69,24 @@ const INSURANCE_SPECIALIST_IDS = [
 
 const INSURANCE_TOPIC = 'area-insurance-financial-ombudsman'
 
+/** Client unhappy with their solicitor / lawyer — Legal Ombudsman / SRA path. */
+export function isSolicitorComplaintStoryText(text: string): boolean {
+  const t = (text || '').toLowerCase()
+  if (!/\b(solicitor|lawyer|barrister|law firm|legal (?:aid )?advisor|legal adviser)\b/.test(t)) {
+    return false
+  }
+  return /\b(problem|complaint|complain|unhappy|poor service|negligen|missed|ignored|delay|delayed|stopped (?:replying|answering)|no response|fees?|bill|overcharg|dishonest|stole|steal|sra|ombudsman)\b/.test(
+    t,
+  )
+}
+
+const SOLICITOR_COMPLAINT_TOPIC = 'area-sra-legal-ombudsman'
+
+const SOLICITOR_SPECIALIST_IDS = [
+  'exa-gov-uk-complain-about-a-legal-adviser-gov-u',
+  'fs-cab-adviceline-england',
+] as const
+
 /** Motor / general insurer disputes a claim, cover, or non-disclosure — not faulty-goods CAB. */
 export function isInsuranceComplaintStoryText(text: string): boolean {
   const t = (text || '').toLowerCase()
@@ -156,6 +174,12 @@ function specialistBoost(svc: FreeServiceRecord, matter: MatterType, text: strin
   if (matter === 'debt' && /stepchange|national debtline/i.test(svc.title)) boost += 6
   if (isInsuranceComplaintStoryText(text) && /financial ombudsman/i.test(svc.title)) boost += 16
   if (isInsuranceComplaintStoryText(text) && svc.id === 'fs-moneyhelper') boost += 8
+  if (isSolicitorComplaintStoryText(text)) {
+    if (/legal ombudsman|complain about a (?:legal adviser|solicitor)|sra|solicitors regulation/i.test(svc.title)) {
+      boost += 20
+    }
+    if (svc.topicKeys.includes(SOLICITOR_COMPLAINT_TOPIC)) boost += 12
+  }
   return boost
 }
 
@@ -173,6 +197,12 @@ export function topicKeysForSession(session: SessionState): string[] {
   if (isInsuranceComplaintStoryText(text)) {
     keys.add(INSURANCE_TOPIC)
     keys.add('area-debt-bailiffs-finance')
+    return [...keys]
+  }
+
+  if (isSolicitorComplaintStoryText(text)) {
+    keys.add(SOLICITOR_COMPLAINT_TOPIC)
+    keys.add('area-common-unclassified')
     return [...keys]
   }
 
@@ -282,6 +312,14 @@ function scoreService(
     }
   }
 
+  if (isSolicitorComplaintStoryText(text)) {
+    if (/legal ombudsman|complain about a (?:legal adviser|solicitor)|solicitors regulation|\bsra\b/i.test(hay)) {
+      score += 24
+    }
+    if (svc.topicKeys.includes(SOLICITOR_COMPLAINT_TOPIC)) score += 14
+    if (/financial ombudsman|parking|popla|stepchange|debtline/i.test(hay)) score -= 30
+  }
+
   if ((propertyDamage || familyBelongings) && !isInsuranceComplaintStoryText(text)) {
     if (/citizens advice|consumer helpline|advicenow|small claims|money claim|civil legal advice|legal aid agency/i.test(hay)) {
       score += 14
@@ -357,6 +395,22 @@ function allowNonParkingHit(
     return false
   }
 
+  if (isSolicitorComplaintStoryText(text)) {
+    if (/age uk|send and you|supportive parents|aire centre|equality advisory|public law project|turn2us/i.test(hay)) {
+      return false
+    }
+    if (
+      /legal ombudsman|complain about a (?:legal adviser|solicitor)|solicitors regulation|\bsra\b|citizens advice adviceline|law centres? network/i.test(
+        hay,
+      )
+    ) {
+      return true
+    }
+    // Only keep Exa fills that are clearly on the solicitor-complaint topic.
+    if (s.topicKeys.includes(SOLICITOR_COMPLAINT_TOPIC) && score >= 12) return true
+    return false
+  }
+
   // For belongings / small-claims path: require consumer topic or seed CAB — not family matter alone
   if (propertyDamage || familyBelongings) {
     const consumerTopic = s.topicKeys.includes('area-consumer-goods-traders')
@@ -408,11 +462,13 @@ function pinMatterSpecialists(
       : matter
   const specialistIds = storyLooksEmployerSeizedKit(text)
     ? (['fs-cab-adviceline-england'] as const)
-    : isInsuranceComplaintStoryText(text)
-      ? INSURANCE_SPECIALIST_IDS
-      : effectiveMatter
-        ? MATTER_SPECIALIST_IDS[effectiveMatter]?.filter((id) => id !== 'fs-cab-adviceline-england')
-        : undefined
+    : isSolicitorComplaintStoryText(text)
+      ? SOLICITOR_SPECIALIST_IDS
+      : isInsuranceComplaintStoryText(text)
+        ? INSURANCE_SPECIALIST_IDS
+        : effectiveMatter
+          ? MATTER_SPECIALIST_IDS[effectiveMatter]?.filter((id) => id !== 'fs-cab-adviceline-england')
+          : undefined
   if (!specialistIds?.length) return ranked
 
   const byId = new Map(services.map((s) => [s.id, s]))
@@ -442,13 +498,14 @@ export function matchFreeServices(session: SessionState, limit = 10): FreeServic
 
   const parking = session.taxonomySlug === 'parking_pcn' || isParkingStoryText(text)
 
+  const solicitorComplaint = isSolicitorComplaintStoryText(text)
   const scored = bundle.services
     .filter((s) => {
       if (isWeakExaDuplicate(s)) return false
       const hasPhone = (s.phone || '').trim().length > 0
       const hasWeb = (s.website || '').trim().length > 0
-      // Parking appeal routes may be online-only; other areas still prefer dialable.
-      if (parking) return hasPhone || hasWeb
+      // Parking appeal routes and solicitor-complaint regulators may be online-first.
+      if (parking || solicitorComplaint) return hasPhone || hasWeb
       return hasPhone
     })
     .map((s) => ({

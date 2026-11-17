@@ -1,13 +1,15 @@
+import Script from "next/script";
+
 /**
- * Ahrefs Web Analytics — emit the exact vendor snippet.
- * React SSR turns `async` into `async=""`, which Ahrefs' HTML verifier often misses.
+ * Ahrefs Web Analytics via next/script (afterInteractive).
+ * Avoids the old </script> breakout snippet that caused React hydration mismatches.
  */
 export function AhrefsAnalytics() {
   return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `</script><script src="https://analytics.ahrefs.com/analytics.js" data-key="5ar5K5mpXwwkcFGOTKH51Q" async></script><script>`,
-      }}
+    <Script
+      src="https://analytics.ahrefs.com/analytics.js"
+      data-key="5ar5K5mpXwwkcFGOTKH51Q"
+      strategy="afterInteractive"
     />
-  )
+  );
 }

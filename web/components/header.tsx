@@ -156,9 +156,9 @@ export function Header() {
               <NavBoxLink href="/for-firms" active={onForFirms}>
                 For firms
               </NavBoxLink>
-              <NavBoxLink href="/bookmarks">
+              <NavBoxLink href="/my-case" active={pathname === "/my-case"}>
                 <Bookmark className="h-4 w-4" />
-                Bookmarks
+                Your case
               </NavBoxLink>
               {!user ? (
                 <NavBoxButton variant="primary" onClick={() => openAuth("login")}>
@@ -207,12 +207,13 @@ export function Header() {
               For firms
             </NavBoxLink>
             <NavBoxLink
-              href="/bookmarks"
+              href="/my-case"
+              active={pathname === "/my-case"}
               className="w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Bookmark className="h-4 w-4" />
-              Bookmarks
+              Your case
             </NavBoxLink>
             {!user ? (
               <NavBoxButton

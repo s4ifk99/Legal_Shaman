@@ -17,7 +17,7 @@ import { TurnstileField, type TurnstileHandle } from "@/components/auth/turnstil
 import { B2C_PAID_PRICE_LABEL } from "@/lib/billing/plan";
 import { resolveApiUrl } from "@/lib/site/api-url";
 
-export type AuthDialogReason = "bookmark" | "search" | "login" | "coherence";
+export type AuthDialogReason = "bookmark" | "search" | "login" | "coherence" | "case";
 
 type AuthDialogProps = {
   open: boolean;
@@ -34,6 +34,13 @@ function defaultTabForReason(reason: AuthDialogReason): "register" | "login" {
 }
 
 function copyForReason(reason: AuthDialogReason, pendingFirmName?: string) {
+  if (reason === "case") {
+    return {
+      title: "Create a free account to keep your plan safe",
+      description:
+        "We’ll work through your situation together — your plan of action stays on your account.",
+    };
+  }
   if (reason === "coherence") {
     return {
       title: "Create a free account to analyse your matter",
@@ -56,7 +63,7 @@ function copyForReason(reason: AuthDialogReason, pendingFirmName?: string) {
     return {
       title: "Sign in to Legal Shaman",
       description:
-        "Use your email and password to access bookmarks, search results, and your saved shortlist.",
+        "Use your email and password to access your case, directory shortlist, and saved notes.",
     };
   }
   return {
@@ -140,6 +147,7 @@ export function AuthDialog({
   const turnstileRef = useRef<TurnstileHandle>(null);
 
   const { title, description } = copyForReason(reason, pendingFirmName);
+  // Always require CAPTCHA when a public site key exists; localhost uses CF test keys.
   const turnstileRequired = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim());
 
   useEffect(() => {

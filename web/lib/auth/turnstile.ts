@@ -1,5 +1,10 @@
 import "server-only";
 
+import {
+  TURNSTILE_TEST_SECRET_KEY,
+  isLocalAuthHost,
+} from "@/lib/auth/turnstile-public";
+
 type TurnstileVerifyResponse = {
   success: boolean;
   "error-codes"?: string[];
@@ -9,6 +14,14 @@ function turnstileConfigured(): boolean {
   return Boolean(
     process.env.TURNSTILE_SECRET_KEY?.trim() && process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim(),
   );
+}
+
+function resolveSecretForHost(hostname?: string | null): string | undefined {
+  if (hostname && isLocalAuthHost(hostname)) {
+    // Local auth uses Cloudflare always-pass test sitekey; match with test secret.
+    return TURNSTILE_TEST_SECRET_KEY;
+  }
+  return process.env.TURNSTILE_SECRET_KEY?.trim();
 }
 
 async function callTurnstileSiteverify(
@@ -44,8 +57,9 @@ function turnstileUserError(codes: string[] | undefined): string {
 export async function verifyTurnstileToken(
   token: string,
   _remoteIp?: string,
+  hostname?: string | null,
 ): Promise<{ ok: boolean; error?: string }> {
-  const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
+  const secret = resolveSecretForHost(hostname) || process.env.TURNSTILE_SECRET_KEY?.trim();
   if (!secret) {
     if (process.env.NODE_ENV === "production") {
       return { ok: false, error: "CAPTCHA is not configured" };
@@ -81,4 +95,10 @@ export function clientIpFromRequest(req: Request): string | undefined {
   const forwarded = req.headers.get("x-forwarded-for");
   if (forwarded) return forwarded.split(",")[0]?.trim();
   return req.headers.get("x-real-ip") ?? undefined;
+}
+
+export function hostnameFromRequest(req: Request): string | undefined {
+  const host = req.headers.get("x-forwarded-host") || req.headers.get("host");
+  if (!host) return undefined;
+  return host.split(":")[0]?.trim().toLowerCase();
 }

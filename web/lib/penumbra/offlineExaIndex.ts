@@ -59,11 +59,16 @@ export function penumbraOfflineExaMinHits(): number {
   return Number.isFinite(parsed) && parsed > 0 ? Math.min(parsed, 12) : 4
 }
 
-/** When false, never call live Exa API — offline index + hybrid merge only. */
+/**
+ * When false, never call live Exa API — offline index + shared hits cache only.
+ * Default: on in local development (for testing), off in production (cost control).
+ * Override with PENUMBRA_EXA_LIVE_ENABLED=1|0.
+ */
 export function penumbraLiveExaEnabled(): boolean {
   const raw = process.env.PENUMBRA_EXA_LIVE_ENABLED?.trim().toLowerCase()
-  if (raw === '0' || raw === 'false' || raw === 'no') return false
-  return true
+  if (raw === '0' || raw === 'false' || raw === 'no' || raw === 'off') return false
+  if (raw === '1' || raw === 'true' || raw === 'yes' || raw === 'on') return true
+  return process.env.NODE_ENV !== 'production'
 }
 
 function stableWebSourceId(url: string): string {

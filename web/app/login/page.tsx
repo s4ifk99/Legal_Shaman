@@ -8,7 +8,7 @@ import { useBookmarks } from "@/components/bookmarks/bookmarks-provider";
 
 /**
  * Dedicated /login route so Sign in always has a page destination.
- * Opens the shared auth dialog on the Sign in tab; signed-in users go to bookmarks.
+ * Opens the shared auth dialog on the Sign in tab; signed-in users go to Your case.
  */
 export default function LoginPage() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function LoginPage() {
   useEffect(() => {
     if (loading) return;
     if (user) {
-      router.replace("/bookmarks");
+      router.replace("/my-case");
       return;
     }
     openAuth("login");
@@ -29,7 +29,7 @@ export default function LoginPage() {
       <main className="mx-auto flex w-full max-w-lg flex-1 flex-col items-center justify-center px-4 py-16 text-center">
         <h1 className="font-serif text-3xl font-bold text-foreground">Sign in</h1>
         <p className="mt-3 text-muted-foreground">
-          Sign in with your email and password to access bookmarks and search results.
+          Sign in with your email and password to access your case, plan of action, and directory shortlist.
         </p>
         {!user ? (
           <button

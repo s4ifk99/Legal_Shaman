@@ -1,25 +1,12 @@
-import { BookmarksPageClient } from "@/components/bookmarks/bookmarks-page-client";
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
+import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Bookmarks | Legal Shaman",
-  description: "Your saved law firms and legal providers.",
+  title: "Your case | Legal Shaman",
+  description: "Your plan of action and saved providers.",
   robots: { index: false, follow: false },
 };
 
+/** Bookmarks are now part of Your case (consumer Case CRM). */
 export default function BookmarksPage() {
-  return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <Header />
-      <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
-        <h1 className="mb-2 font-serif text-3xl font-semibold text-primary">Bookmarks</h1>
-        <p className="mb-8 text-sm text-muted-foreground">
-          Your shortlist of saved firms, plus private notes from the results workspace.
-        </p>
-        <BookmarksPageClient />
-      </div>
-      <Footer />
-    </div>
-  );
+  redirect("/my-case");
 }

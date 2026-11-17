@@ -44,8 +44,8 @@ export function Footer() {
             <Link href="/signposting" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Signpost
             </Link>
-            <Link href="/bookmarks" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Bookmarks
+            <Link href="/my-case" className="text-primary-foreground/70 transition-colors hover:text-gold">
+              Your case
             </Link>
             <Link href="/terms" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Terms
@@ -87,7 +87,7 @@ export function Footer() {
             Justice through Search
           </p>
           <p className="text-center text-sm text-primary-foreground/70 max-w-2xl mx-auto">
-            Legal Shaman is the UK&apos;s agentic legal signposting platform — search solicitors, legal aid, and free advice; get guided lawyer matches; and explore wiki resources across the UK.
+            Legal Shaman is the UK&apos;s agentic legal directory — find legal information, financing options, matched providers, reviews and costs; then build a calm plan for your dispute.
           </p>
           <p className="text-center text-xs text-primary-foreground/60 max-w-2xl mx-auto">
             We&apos;re building the future of legal assistance by combining intelligent AI agents with comprehensive legal resources — 

@@ -1,138 +1,191 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   getSpeechRecognitionConstructor,
   isSpeechRecognitionSupported,
   type SpeechRecognitionLike,
-} from '../speech'
+} from "../speech";
 
-export type DictationStatus = 'idle' | 'listening' | 'unsupported' | 'error'
+export type DictationStatus = "idle" | "listening" | "unsupported" | "error";
 
 interface UseDictationOptions {
-  lang?: string
-  onTranscript: (text: string, isFinal: boolean) => void
+  lang?: string;
+  onTranscript: (text: string, isFinal: boolean) => void;
 }
 
-export function useDictation({ lang = 'en-GB', onTranscript }: UseDictationOptions) {
-  const [status, setStatus] = useState<DictationStatus>(() =>
-    isSpeechRecognitionSupported() ? 'idle' : 'unsupported',
-  )
-  const [errorMessage, setErrorMessage] = useState<string | null>(null)
-  const recognitionRef = useRef<SpeechRecognitionLike | null>(null)
-  const onTranscriptRef = useRef(onTranscript)
-  const wantListeningRef = useRef(false)
+function insecureContextMessage(): string {
+  return "Microphone needs a secure page (https:// or localhost). Open http://localhost:3000 and try again.";
+}
+
+export function useDictation({ lang = "en-GB", onTranscript }: UseDictationOptions) {
+  // Start unsupported so SSR and first client paint match.
+  const [status, setStatus] = useState<DictationStatus>("unsupported");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
+  const onTranscriptRef = useRef(onTranscript);
+  const wantListeningRef = useRef(false);
+  const statusRef = useRef<DictationStatus>("unsupported");
 
   useEffect(() => {
-    onTranscriptRef.current = onTranscript
-  }, [onTranscript])
+    onTranscriptRef.current = onTranscript;
+  }, [onTranscript]);
 
   useEffect(() => {
-    const Ctor = getSpeechRecognitionConstructor()
-    if (!Ctor) {
-      setStatus('unsupported')
-      return
+    statusRef.current = status;
+  }, [status]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (!window.isSecureContext) {
+      setStatus("unsupported");
+      setErrorMessage(insecureContextMessage());
+      return;
     }
 
-    const recognition = new Ctor()
-    recognition.lang = lang
-    recognition.continuous = true
-    recognition.interimResults = true
-    recognition.maxAlternatives = 1
+    const Ctor = getSpeechRecognitionConstructor();
+    if (!Ctor || !isSpeechRecognitionSupported()) {
+      setStatus("unsupported");
+      setErrorMessage(
+        "Voice dictation isn’t available in this browser. Use Chrome/Edge, or type instead.",
+      );
+      return;
+    }
+
+    setStatus("idle");
+    setErrorMessage(null);
+    const recognition = new Ctor();
+    recognition.lang = lang;
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 1;
 
     recognition.onstart = () => {
-      setStatus('listening')
-      setErrorMessage(null)
-    }
+      setStatus("listening");
+      setErrorMessage(null);
+    };
 
     recognition.onresult = (event) => {
-      let interim = ''
-      let finalChunk = ''
+      let interim = "";
+      let finalChunk = "";
       for (let i = event.resultIndex; i < event.results.length; i++) {
-        const result = event.results[i]
-        const text = result[0]?.transcript ?? ''
-        if (result.isFinal) finalChunk += text
-        else interim += text
+        const result = event.results[i];
+        const text = result[0]?.transcript ?? "";
+        if (result.isFinal) finalChunk += text;
+        else interim += text;
       }
-      if (finalChunk) onTranscriptRef.current(finalChunk, true)
-      else if (interim) onTranscriptRef.current(interim, false)
-    }
+      if (finalChunk) onTranscriptRef.current(finalChunk, true);
+      else if (interim) onTranscriptRef.current(interim, false);
+    };
 
     recognition.onerror = (event) => {
-      if (event.error === 'aborted' || event.error === 'no-speech') return
-      wantListeningRef.current = false
-      setStatus('error')
-      if (event.error === 'not-allowed') {
-        setErrorMessage('Microphone permission blocked. Allow the mic, or type instead.')
-      } else {
-        setErrorMessage('Could not hear that. Try again, or type instead.')
+      // Benign / transient — keep listening intent if set.
+      if (event.error === "aborted") return;
+      if (event.error === "no-speech") {
+        // Chrome fires this after silence; onend may restart.
+        return;
       }
-    }
+
+      wantListeningRef.current = false;
+      setStatus("error");
+
+      if (event.error === "not-allowed" || event.error === "service-not-allowed") {
+        setErrorMessage(
+          "Microphone permission blocked. Allow the mic for this site in the browser address bar, then tap Mic again.",
+        );
+        return;
+      }
+      if (event.error === "network") {
+        setErrorMessage(
+          "Speech service couldn’t connect (Chrome needs network access). Check you’re online, or type instead.",
+        );
+        return;
+      }
+      if (event.error === "audio-capture") {
+        setErrorMessage("No microphone found. Plug one in, or type instead.");
+        return;
+      }
+      setErrorMessage(`Mic error (${event.error}). Tap Mic to try again, or type instead.`);
+    };
 
     recognition.onend = () => {
-      // Some browsers end after a pause; restart if user still wants listening
-      if (wantListeningRef.current) {
-        try {
-          recognition.start()
-        } catch {
-          wantListeningRef.current = false
-          setStatus('idle')
-        }
-      } else {
-        setStatus((s) => (s === 'unsupported' ? s : 'idle'))
+      if (wantListeningRef.current && recognitionRef.current === recognition) {
+        window.setTimeout(() => {
+          if (!wantListeningRef.current || recognitionRef.current !== recognition) return;
+          try {
+            recognition.start();
+          } catch {
+            wantListeningRef.current = false;
+            setStatus("idle");
+          }
+        }, 120);
+        return;
       }
-    }
+      setStatus((s) => (s === "unsupported" ? s : "idle"));
+    };
 
-    recognitionRef.current = recognition
+    recognitionRef.current = recognition;
     return () => {
-      wantListeningRef.current = false
+      wantListeningRef.current = false;
       try {
-        recognition.abort()
+        recognition.abort();
       } catch {
         /* ignore */
       }
-      recognitionRef.current = null
-    }
-  }, [lang])
+      recognitionRef.current = null;
+    };
+  }, [lang]);
 
   const start = useCallback(() => {
-    const recognition = recognitionRef.current
+    if (typeof window !== "undefined" && !window.isSecureContext) {
+      setStatus("unsupported");
+      setErrorMessage(insecureContextMessage());
+      return;
+    }
+
+    const recognition = recognitionRef.current;
     if (!recognition) {
-      setStatus('unsupported')
-      setErrorMessage('Voice dictation is not supported in this browser. Please type instead.')
-      return
+      setStatus("unsupported");
+      setErrorMessage(
+        "Voice dictation isn’t available in this browser. Use Chrome/Edge, or type instead.",
+      );
+      return;
     }
-    setErrorMessage(null)
-    wantListeningRef.current = true
+
+    setErrorMessage(null);
+    wantListeningRef.current = true;
+    // Must start in the same user-gesture turn — do not await getUserMedia first.
     try {
-      recognition.start()
-      setStatus('listening')
+      recognition.start();
+      setStatus("listening");
     } catch {
-      // Already started
-      setStatus('listening')
+      // Already started, or transient InvalidStateError — treat as listening.
+      setStatus("listening");
     }
-  }, [])
+  }, []);
 
   const stop = useCallback(() => {
-    wantListeningRef.current = false
+    wantListeningRef.current = false;
     try {
-      recognitionRef.current?.stop()
+      recognitionRef.current?.stop();
     } catch {
       /* ignore */
     }
-    setStatus((s) => (s === 'unsupported' ? s : 'idle'))
-  }, [])
+    setStatus((s) => (s === "unsupported" ? s : "idle"));
+  }, []);
 
   const toggle = useCallback(() => {
-    if (status === 'listening') stop()
-    else start()
-  }, [status, start, stop])
+    if (statusRef.current === "listening") stop();
+    else start();
+  }, [start, stop]);
 
   return {
     status,
     errorMessage,
-    supported: status !== 'unsupported',
-    listening: status === 'listening',
+    /** API present and page is secure enough to attempt mic. */
+    supported: status !== "unsupported",
+    listening: status === "listening",
     start,
     stop,
     toggle,
-  }
+  };
 }
