@@ -7,7 +7,11 @@ import {
   checkRateLimit,
   rateLimitKeyFromRequest,
 } from "@/lib/auth/quota-rate-limit";
-import { verifyTurnstileToken, clientIpFromRequest } from "@/lib/auth/turnstile";
+import {
+  verifyTurnstileToken,
+  clientIpFromRequest,
+  hostnameFromRequest,
+} from "@/lib/auth/turnstile";
 import { enableCoherenceAsk } from "@/lib/coherence/config";
 import {
   canStartCoherenceUsage,
@@ -162,6 +166,7 @@ export async function requireCoherenceAccess(
     const captcha = await verifyTurnstileToken(
       opts.captchaToken ?? "",
       clientIpFromRequest(req),
+      hostnameFromRequest(req),
     );
     if (!captcha.ok) {
       return NextResponse.json(

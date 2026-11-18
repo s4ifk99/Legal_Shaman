@@ -4,7 +4,11 @@ import { LoginSchema } from "@/lib/bookmarks/schemas";
 import { setUserSessionCookie } from "@/lib/auth/user-session";
 import { verifyPassword } from "@/lib/auth/password";
 import { authInfrastructureError, authUnexpectedError } from "@/lib/auth/auth-route-errors";
-import { clientIpFromRequest, verifyTurnstileToken } from "@/lib/auth/turnstile";
+import {
+  clientIpFromRequest,
+  hostnameFromRequest,
+  verifyTurnstileToken,
+} from "@/lib/auth/turnstile";
 import { authRateLimitKey, checkAuthRateLimit } from "@/lib/auth/rate-limit";
 
 export async function POST(req: Request) {
@@ -36,6 +40,7 @@ export async function POST(req: Request) {
     const captcha = await verifyTurnstileToken(
       parsed.data.captchaToken ?? "",
       clientIpFromRequest(req),
+      hostnameFromRequest(req),
     );
     if (!captcha.ok) {
       return NextResponse.json({ error: captcha.error ?? "CAPTCHA failed" }, { status: 400 });

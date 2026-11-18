@@ -9,12 +9,14 @@ import { AskShamanSearch } from "@/components/wiki/ask-shaman-search";
 import { LawyerSearchClient } from "@/app/find-a-lawyer/lawyer-search-client";
 import { Card, CardContent } from "@/components/ui/card";
 import { CoherenceAskShell } from "@/components/coherence/CoherenceAskShell";
+import { AskTheShamanV3 } from "@/components/v3/ask-the-shaman-v3";
 import { resolveCoherenceUi } from "@/lib/coherence/mode";
 import { getCurrentUser } from "@/lib/auth/get-current-user";
 import { getWikiIndex } from "@/lib/wiki/load-index";
 import { listFeaturedWikiPages, listWikiCategories } from "@/lib/wiki/search";
 import { wikiPagePublicPath } from "@/lib/wiki/public-url";
 import { enableMapSearch, enableSearchDebug } from "@/lib/legal-search/config";
+import { isV3LandingEnabled, isV3SimpleShellEnabled } from "@/lib/v3/feature";
 
 type PageProps = {
   searchParams: Promise<{
@@ -51,7 +53,7 @@ function WikiBrowseSections() {
           {categories.map(({ category, count }) => (
             <Link
               key={category}
-              href={`/ask-the-shaman?q=${encodeURIComponent(category.replace(/_/g, " "))}`}
+              href={`/ask-the-shaman?q=${encodeURIComponent(category.replace(/_/g, " "))}&classic=1`}
               className="rounded-xl border border-border/70 bg-card px-4 py-3 text-sm transition-colors hover:border-gold/40"
             >
               <span className="font-medium capitalize text-foreground">{category}</span>
@@ -116,12 +118,22 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
   const showGuided = sp.guided === "1";
   const forceClassic = sp.classic === "1";
 
+  // Landing mode (local): V3 agent lives on /ask-the-shaman.
+  // Production without landing: agent is on `/`; this route stays Coherence/classic.
+  // Escape hatches: ?classic=1, ?guided=1.
+  if (
+    isV3LandingEnabled() &&
+    isV3SimpleShellEnabled() &&
+    !forceClassic &&
+    !showGuided
+  ) {
+    return <AskTheShamanV3 />;
+  }
+
   const hdrs = await headers();
   const user = await getCurrentUser();
   const uiMode = await resolveCoherenceUi(hdrs.get("cookie"), user);
 
-  // Coherence intake — local dev or feature-flagged V2 on Vercel.
-  // Escape hatches: ?classic=1 (classic Ask), ?guided=1 (solicitor matching wizard).
   if (uiMode === "coherence" && !forceClassic && !showGuided) {
     return (
       <div className="flex min-h-screen flex-col bg-background">
@@ -147,11 +159,11 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
               Who helps guides
             </Link>
           </p>
-          {uiMode === "coherence" && forceClassic ? (
+          {isV3SimpleShellEnabled() && forceClassic ? (
             <p className="text-sm text-muted-foreground">
-              Classic Ask (local escape hatch).{" "}
+              Classic Ask escape hatch.{" "}
               <Link href="/ask-the-shaman" className="font-medium text-primary hover:underline">
-                Back to Coherence intake
+                Back to Ask the Shaman agent
               </Link>
             </p>
           ) : null}
@@ -170,7 +182,7 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
               />
               <p className="text-sm text-muted-foreground">
                 <Link href="/ask-the-shaman" className="font-medium text-primary hover:underline">
-                  ← Back to unified search
+                  ← Back to Ask the Shaman
                 </Link>
               </p>
             </div>

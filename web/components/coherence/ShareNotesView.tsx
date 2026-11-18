@@ -74,10 +74,10 @@ export function ShareNotesView({ brief, publishedAt, expiresAt }: Props) {
         </div>
         <a href="/" className="share-notes__wordmark" aria-label="Legal Shaman home">
           <img
-            src="/legal-shaman-header-transparent.png"
+            src="/legal-shaman-logo.svg"
             alt="Legal Shaman"
-            width={1024}
-            height={114}
+            width={720}
+            height={160}
           />
         </a>
         <div className="share-notes__actions no-print">
@@ -96,7 +96,7 @@ export function ShareNotesView({ brief, publishedAt, expiresAt }: Props) {
       <div className="share-notes__identity">
         <a href="/" aria-hidden="true" tabIndex={-1}>
           <img
-            src="/logo.jpg"
+            src="/legal-shaman-mark.svg"
             alt=""
             width={72}
             height={72}
@@ -243,7 +243,7 @@ export function ShareNotesView({ brief, publishedAt, expiresAt }: Props) {
       <footer className="share-notes__colophon">
         <a href="/" aria-label="Legal Shaman home">
           <img
-            src="/logo.jpg"
+            src="/legal-shaman-mark.svg"
             alt=""
             width={40}
             height={40}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { LegalShamanLogo } from "@/components/legal-shaman-logo";
 import { SpiralBackground } from "@/components/spiral-decoration";
 import { MAINTENANCE_MESSAGE } from "@/lib/maintenance";
 
@@ -17,12 +17,9 @@ export default function MaintenancePage() {
         <div className="mb-8 flex justify-center">
           <div className="relative">
             <div className="absolute -inset-2 rounded-full bg-gold/20 blur-md" />
-            <Image
-              src="/logo.jpg"
-              alt="Legal Shaman"
-              width={80}
-              height={80}
-              className="relative h-20 w-20 rounded-full border-2 border-gold/50"
+            <LegalShamanLogo
+              variant="mark"
+              className="relative h-20 w-20 rounded-full border-2 border-gold/50 bg-background p-1.5"
               priority
             />
           </div>

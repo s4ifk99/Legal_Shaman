@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { resolveTurnstileSiteKey } from "@/lib/auth/turnstile-public";
 
 declare global {
   interface Window {
@@ -48,7 +49,12 @@ export const TurnstileField = forwardRef<TurnstileHandle, TurnstileFieldProps>(
     const widgetIdRef = useRef<string | null>(null);
     const tokenRef = useRef<string | null>(null);
     const [scriptReady, setScriptReady] = useState(false);
-    const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() ?? "";
+    const [siteKey, setSiteKey] = useState("");
+    const [loadError, setLoadError] = useState<string | null>(null);
+
+    useEffect(() => {
+      setSiteKey(resolveTurnstileSiteKey());
+    }, []);
 
     useImperativeHandle(
       ref,
@@ -80,6 +86,7 @@ export const TurnstileField = forwardRef<TurnstileHandle, TurnstileFieldProps>(
 
     useEffect(() => {
       if (!siteKey) return;
+      setLoadError(null);
 
       if (window.turnstile) {
         setScriptReady(true);
@@ -88,8 +95,15 @@ export const TurnstileField = forwardRef<TurnstileHandle, TurnstileFieldProps>(
 
       if (document.getElementById(TURNSTILE_SCRIPT_ID)) {
         const existing = document.getElementById(TURNSTILE_SCRIPT_ID) as HTMLScriptElement;
-        existing.addEventListener("load", () => setScriptReady(true));
-        return;
+        const onLoad = () => setScriptReady(true);
+        const onError = () =>
+          setLoadError("Could not load Cloudflare CAPTCHA. Check your network and retry.");
+        existing.addEventListener("load", onLoad);
+        existing.addEventListener("error", onError);
+        return () => {
+          existing.removeEventListener("load", onLoad);
+          existing.removeEventListener("error", onError);
+        };
       }
 
       const script = document.createElement("script");
@@ -98,6 +112,8 @@ export const TurnstileField = forwardRef<TurnstileHandle, TurnstileFieldProps>(
       script.async = true;
       script.defer = true;
       script.onload = () => setScriptReady(true);
+      script.onerror = () =>
+        setLoadError("Could not load Cloudflare CAPTCHA. Check your network and retry.");
       document.head.appendChild(script);
     }, [siteKey]);
 
@@ -114,6 +130,7 @@ export const TurnstileField = forwardRef<TurnstileHandle, TurnstileFieldProps>(
       }
 
       tokenRef.current = null;
+      setLoadError(null);
       containerRef.current.innerHTML = "";
       widgetIdRef.current = window.turnstile.render(containerRef.current, {
         sitekey: siteKey,
@@ -126,6 +143,7 @@ export const TurnstileField = forwardRef<TurnstileHandle, TurnstileFieldProps>(
         },
         "error-callback": () => {
           tokenRef.current = null;
+          setLoadError("Cloudflare CAPTCHA could not connect. Retry or check blockers.");
         },
       });
 
@@ -143,18 +161,16 @@ export const TurnstileField = forwardRef<TurnstileHandle, TurnstileFieldProps>(
     }, [siteKey, scriptReady, resetKey]);
 
     if (!siteKey) {
-      if (process.env.NODE_ENV === "production") {
-        return (
-          <p className="text-sm text-destructive">CAPTCHA is not configured. Contact support.</p>
-        );
-      }
       return (
-        <p className="text-xs text-muted-foreground">
-          CAPTCHA skipped in development (set NEXT_PUBLIC_TURNSTILE_SITE_KEY).
-        </p>
+        <p className="text-xs text-muted-foreground">Loading CAPTCHA…</p>
       );
     }
 
-    return <div id={containerId} ref={containerRef} className="min-h-[65px]" />;
+    return (
+      <div className="space-y-2">
+        <div id={containerId} ref={containerRef} className="min-h-[65px]" />
+        {loadError ? <p className="text-xs text-destructive">{loadError}</p> : null}
+      </div>
+    );
   },
 );

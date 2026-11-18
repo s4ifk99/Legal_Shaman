@@ -31,7 +31,11 @@ import {
   checkRateLimit,
   rateLimitKeyFromRequest,
 } from "@/lib/auth/quota-rate-limit";
-import { verifyTurnstileToken, clientIpFromRequest } from "@/lib/auth/turnstile";
+import {
+  verifyTurnstileToken,
+  clientIpFromRequest,
+  hostnameFromRequest,
+} from "@/lib/auth/turnstile";
 import { accountsPrisma } from "@/lib/db/accounts";
 import { resolveFreeSearchKey } from "@/lib/billing/free-search-key";
 
@@ -171,7 +175,11 @@ export async function POST(req: Request) {
   }
 
   if (body.captchaToken) {
-    const captcha = await verifyTurnstileToken(body.captchaToken, clientIpFromRequest(req));
+    const captcha = await verifyTurnstileToken(
+      body.captchaToken,
+      clientIpFromRequest(req),
+      hostnameFromRequest(req),
+    );
     if (!captcha.ok) {
       return NextResponse.json({ error: captcha.error ?? "captcha_required" }, { status: 400 });
     }

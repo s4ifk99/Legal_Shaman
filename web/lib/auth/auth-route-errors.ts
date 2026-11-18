@@ -14,7 +14,7 @@ export function authInfrastructureError(err: unknown): NextResponse | null {
     return NextResponse.json(
       {
         error:
-          "Sign-in is temporarily unavailable — our database has hit its usage limit. Please try again in a few hours or contact support@legalshaman.com.",
+          "Sign-in is temporarily unavailable — our database has hit its usage limit. Please try again in a few hours or contact questions@legalshaman.com.",
       },
       { status: 503 },
     );

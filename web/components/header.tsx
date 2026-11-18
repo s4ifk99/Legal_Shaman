@@ -2,7 +2,6 @@
 
 import { MapPin, ChevronDown, Menu, X, Bookmark } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import {
@@ -11,6 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { LegalShamanLogo } from "@/components/legal-shaman-logo";
 import { SpiralDecoration } from "./spiral-decoration";
 import { useBookmarks } from "@/components/bookmarks/bookmarks-provider";
 import { cn } from "@/lib/utils";
@@ -114,15 +114,7 @@ export function Header() {
       <div className="relative mx-auto max-w-6xl px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center group" aria-label="Legal Shaman home">
-            <div className="relative">
-              <Image
-                src="/legal-shaman-header-transparent.png"
-                alt="Legal Shaman"
-                width={1024}
-                height={114}
-                className="relative h-auto w-[min(30rem,55vw)] max-w-full"
-              />
-            </div>
+            <LegalShamanLogo className="relative h-auto w-[min(30rem,55vw)] max-w-full" priority />
           </Link>
 
           <div className="flex items-center gap-2">
@@ -150,15 +142,21 @@ export function Header() {
               <NavBoxLink href="/ask-the-shaman" active={onShaman}>
                 Ask the Shaman
               </NavBoxLink>
+              <NavBoxLink href="/blog" active={pathname.startsWith("/blog")}>
+                Blog
+              </NavBoxLink>
+              <NavBoxLink href="/financing" active={pathname.startsWith("/financing")}>
+                Financing
+              </NavBoxLink>
               <NavBoxLink href="/signposting" active={onSignpost}>
                 Signpost
               </NavBoxLink>
               <NavBoxLink href="/for-firms" active={onForFirms}>
                 For firms
               </NavBoxLink>
-              <NavBoxLink href="/bookmarks">
+              <NavBoxLink href="/my-case" active={pathname === "/my-case"}>
                 <Bookmark className="h-4 w-4" />
-                Bookmarks
+                Your case
               </NavBoxLink>
               {!user ? (
                 <NavBoxButton variant="primary" onClick={() => openAuth("login")}>
@@ -191,6 +189,22 @@ export function Header() {
               Ask the Shaman
             </NavBoxLink>
             <NavBoxLink
+              href="/blog"
+              active={pathname.startsWith("/blog")}
+              className="w-full"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Blog
+            </NavBoxLink>
+            <NavBoxLink
+              href="/financing"
+              active={pathname.startsWith("/financing")}
+              className="w-full"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Financing
+            </NavBoxLink>
+            <NavBoxLink
               href="/signposting"
               active={onSignpost}
               className="w-full"
@@ -207,12 +221,13 @@ export function Header() {
               For firms
             </NavBoxLink>
             <NavBoxLink
-              href="/bookmarks"
+              href="/my-case"
+              active={pathname === "/my-case"}
               className="w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Bookmark className="h-4 w-4" />
-              Bookmarks
+              Your case
             </NavBoxLink>
             {!user ? (
               <NavBoxButton

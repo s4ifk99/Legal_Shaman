@@ -20,6 +20,8 @@ npm run dev
 
 Then open the URL shown in the terminal (usually `http://localhost:3000`).
 
+**V3 draft (Third Eye + Your case):** in local development the homepage is the simplified Third Eye shell by default. See [`web/docs/ops/v3-local-third-eye.md`](web/docs/ops/v3-local-third-eye.md). Set `NEXT_PUBLIC_V3_SIMPLE_SHELL=0` to keep the classic multi-card home.
+
 **Windows PowerShell — “running scripts is disabled” / `npm.ps1` error:** Node installs `npm.ps1`, which PowerShell may block. Use one of: **`npm.cmd run sra:probe`** (and other scripts) instead of `npm run …`; or open **Command Prompt** (`cmd.exe`) instead of PowerShell; or allow local scripts for your user: `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned` (review your org’s IT policy first).
 
 **Deploying the Next.js app** (e.g. Vercel): in the project **Settings → General → Root Directory**, set **`web`** (the folder that contains `package.json` and `next.config.mjs`). Leave the default install/build commands. If Root Directory stays at the repository root, the build may succeed but the deployment often returns **404** on every route because the serverless bundle is looked up in the wrong place. Do not rely on a root `vercel.json` that only runs `npm run build --prefix web` without this setting.

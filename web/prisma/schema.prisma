@@ -652,12 +652,41 @@ model User {
   bookmarks         Bookmark[]
   privacyUpgrades   PrivacyUpgrade[]
   providerNotes     ProviderNote[]
+  cases             ConsumerCase[]
   usageEvents       UsageEvent[]
   verificationTokens EmailVerificationToken[]
   passwordResetTokens PasswordResetToken[]
   billingSubscription BillingSubscription?
 
   @@map("users")
+}
+
+/// Consumer case CRM spine — one person's dispute, financing profile, and plan of action.
+model ConsumerCase {
+  id                 String   @id @default(cuid())
+  userId             String   @map("user_id")
+  title              String   @db.VarChar(512)
+  summary            String?
+  matterType         String?  @map("matter_type") @db.VarChar(128)
+  jurisdiction       String?  @db.VarChar(64)
+  locationHint       String?  @map("location_hint") @db.VarChar(255)
+  status             String   @default("open") @db.VarChar(32)
+  fundingKnowledge   String?  @map("funding_knowledge") @db.VarChar(32)
+  fundingPreference  String?  @map("funding_preference") @db.VarChar(32)
+  fundingNotes       String?  @map("funding_notes")
+  profileAnswers     Json?    @map("profile_answers")
+  actionPlan         Json?    @map("action_plan")
+  attachments        Json?
+  sessionSnapshot    Json?    @map("session_snapshot")
+  createdAt          DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt          DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookmarks          Bookmark[]
+  providerNotes      ProviderNote[]
+
+  @@index([userId, updatedAt])
+  @@index([userId, status])
+  @@map("cases")
 }
 
 /// Single-use email verification token (hashed at rest).
@@ -727,6 +756,7 @@ model BillingSubscription {
 model Bookmark {
   id           String   @id @default(cuid())
   userId       String   @map("user_id")
+  caseId       String?  @map("case_id")
   entityId     String   @map("entity_id") @db.VarChar(128)
   resultSource String   @map("result_source") @db.VarChar(32)
   businessName String   @map("business_name") @db.VarChar(512)
@@ -736,9 +766,11 @@ model Bookmark {
   createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  consumerCase ConsumerCase? @relation(fields: [caseId], references: [id], onDelete: SetNull)
 
   @@unique([userId, entityId, resultSource])
   @@index([userId, createdAt])
+  @@index([caseId])
   @@map("bookmarks")
 }
 
@@ -780,6 +812,7 @@ model ProviderEnquiry {
 model ProviderNote {
   id                String   @id @default(cuid())
   userId            String   @map("user_id")
+  caseId            String?  @map("case_id")
   providerKey       String   @map("provider_key") @db.VarChar(512)
   displayName       String   @map("display_name") @db.VarChar(512)
   url               String?  @db.VarChar(1024)
@@ -794,9 +827,11 @@ model ProviderNote {
   createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt         DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
   user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  consumerCase      ConsumerCase? @relation(fields: [caseId], references: [id], onDelete: SetNull)
 
   @@unique([userId, providerKey])
   @@index([userId, updatedAt])
+  @@index([caseId])
   @@map("provider_notes")
 }
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
+import { LegalShamanLogo } from "@/components/legal-shaman-logo";
 import { SpiralBackground } from "@/components/spiral-decoration";
 import { ArrowLeft } from "lucide-react";
 
@@ -30,12 +30,9 @@ export default function TermsPage() {
           <div className="mt-6 flex items-center gap-4">
             <div className="relative">
               <div className="absolute -inset-2 rounded-full bg-gold/20 blur-md" />
-              <Image
-                src="/logo.jpg"
-                alt="Legal Shaman Logo"
-                width={56}
-                height={56}
-                className="relative h-14 w-14 rounded-full border-2 border-gold/50"
+              <LegalShamanLogo
+                variant="mark"
+                className="relative h-14 w-14 rounded-full border-2 border-gold/50 bg-background p-1"
               />
             </div>
             <div>
