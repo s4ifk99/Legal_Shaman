@@ -215,3 +215,93 @@
     overflow-x: auto;
   }
 }
+
+/* V3 Rothko colour fields — kept in globals so production always ships them
+   (a separate CSS chunk was intermittently 404ing behind Cloudflare). */
+.ls-rothko {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.95;
+  transition: background-color 0.85s ease;
+}
+
+.ls-rothko--viewport {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.ls-rothko__zone {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  border-radius: 28px;
+  filter: blur(28px);
+  opacity: 0.55;
+  transition: background-color 0.85s ease, opacity 0.85s ease, transform 0.85s ease;
+}
+
+.ls-rothko__zone--output {
+  top: 2%;
+  height: 48%;
+  opacity: 0.45;
+}
+
+.ls-rothko__zone--output.is-on {
+  opacity: 0.72;
+}
+
+.ls-rothko__zone--mid {
+  top: 38%;
+  height: 28%;
+  left: 18%;
+  right: 18%;
+  opacity: 0.4;
+}
+
+.ls-rothko__zone--input {
+  bottom: 0%;
+  height: 34%;
+  opacity: 0.45;
+}
+
+.ls-rothko__zone--input.is-on {
+  opacity: 0.78;
+}
+
+.ls-rothko--pulse .ls-rothko__zone--output,
+.ls-rothko--pulse .ls-rothko__zone--input {
+  opacity: 0.95;
+  transform: scale(1.03);
+}
+
+@media (min-width: 62.5em) {
+  .ls-rothko__zone {
+    left: 14%;
+    right: 14%;
+  }
+  .ls-rothko__zone--mid {
+    left: 24%;
+    right: 24%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ls-rothko,
+  .ls-rothko__zone {
+    transition: none;
+  }
+  .ls-rothko--pulse .ls-rothko__zone--output,
+  .ls-rothko--pulse .ls-rothko__zone--input {
+    transform: none;
+  }
+}
+
+/* Let Rothko show through on the V3 shell */
+html:has(.ls-rothko--viewport),
+html:has(.ls-rothko--viewport) body {
+  background: transparent !important;
+}

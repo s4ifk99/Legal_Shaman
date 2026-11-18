@@ -5,6 +5,7 @@ import { getCurrentUser } from "@/lib/auth/get-current-user";
 import { ensureCaseSchema } from "@/lib/cases/schema";
 import { toCaseRecord } from "@/lib/cases/serialize";
 import type { CaseAttachment } from "@/lib/cases/types";
+import type { DocumentBrief } from "@/lib/cases/document-brief";
 import {
   UPLOAD_MAX_BYTES,
   UPLOAD_MAX_FILES,
@@ -35,7 +36,7 @@ export async function POST(req: Request, ctx: Ctx) {
   }
   if (file.size > UPLOAD_MAX_BYTES) {
     return NextResponse.json(
-      { error: "File too large (max about 2.5 MB for this draft)" },
+      { error: "File too large (max about 5 MB)" },
       { status: 400 },
     );
   }
@@ -58,6 +59,16 @@ export async function POST(req: Request, ctx: Ctx) {
     return NextResponse.json({ error: "Too many uploads on this case" }, { status: 400 });
   }
 
+  let extractedBrief: DocumentBrief | null = null;
+  const briefRaw = form.get("extractedBrief");
+  if (typeof briefRaw === "string" && briefRaw.trim()) {
+    try {
+      extractedBrief = JSON.parse(briefRaw) as DocumentBrief;
+    } catch {
+      extractedBrief = null;
+    }
+  }
+
   const dataUrl = `data:${safety.mime};base64,${buffer.toString("base64")}`;
   const attachment: CaseAttachment = {
     id: `att_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`,
@@ -66,6 +77,7 @@ export async function POST(req: Request, ctx: Ctx) {
     size: file.size,
     dataUrl,
     uploadedAt: new Date().toISOString(),
+    extractedBrief,
   };
 
   const next = [...prev, attachment];

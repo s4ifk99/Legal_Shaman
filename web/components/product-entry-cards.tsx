@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils";
 
 const entries = [
   {
-    href: "/find-a-lawyer",
+    href: "/ask-the-shaman",
     title: "Ask the Shaman",
     description:
-      "Guided matching for legal aid, free help, and solicitors — signposting only, not legal advice.",
+      "Chat with our AI guide — upload letters or photos, map rights, who can help, and next steps. Signposting only, not legal advice.",
     icon: BookOpen,
     accent: "border-primary/40 bg-primary/5 hover:border-primary hover:bg-primary/10",
     iconClass: "text-primary",

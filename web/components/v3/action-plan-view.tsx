@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type {
   ActionPlan,
   ActionPlanFinancingMap,
@@ -8,6 +9,19 @@ import type {
   ActionPlanSolicitor,
   ActionPlanUcMap,
 } from "@/lib/cases/types";
+import type { DisputeKind } from "@/lib/cases/dispute-context";
+import {
+  briefFilename,
+  buildLawyerBriefPdf,
+  type LawyerBriefInput,
+} from "@/lib/cases/lawyer-brief";
+import {
+  buildCostRequestEmail,
+  COST_REQUEST_BCC,
+  serviceLabelForKind,
+  sraRequiresPublishedPrices,
+} from "@/lib/cases/solicitor-costs";
+import { resolveApiUrl } from "@/lib/site/api-url";
 
 function ucLikelihoodLabel(v: ActionPlanUcMap["entitlementLikelihood"]) {
   switch (v) {
@@ -401,163 +415,538 @@ function FinancingMapSection({ map }: { map: ActionPlanFinancingMap }) {
   );
 }
 
-function googleReviewsSearchUrl(name: string, city?: string): string {
-  const q = [name, "reviews", city].filter(Boolean).join(" ");
-  return `https://www.google.com/search?q=${encodeURIComponent(q)}`;
+function downloadBriefPdf(brief: LawyerBriefInput) {
+  const bytes = buildLawyerBriefPdf(brief);
+  const blob = new Blob([Uint8Array.from(bytes)], { type: "application/pdf" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = briefFilename(brief.title);
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
-function MatchedSolicitorsList({
-  solicitors,
-  mode,
-  location,
+function filterFreeServicesForNation(
+  services: ActionPlanFreeService[],
+  nation?: "england" | "wales" | "scotland" | "unknown" | null,
+): ActionPlanFreeService[] {
+  if (!nation || nation === "unknown") return services;
+  return services.filter((s) => {
+    const id = s.id.toLowerCase();
+    const name = s.name.toLowerCase();
+    if (
+      nation === "england" &&
+      (id.includes("cymru") || id.includes("wales") || /\bwales\b/.test(name))
+    ) {
+      return false;
+    }
+    if (nation === "wales" && (id.includes("scotland") || /\bscotland\b/.test(name))) {
+      return false;
+    }
+    if (
+      nation === "scotland" &&
+      (id.includes("cymru") || id.includes("england") || /england\s*&\s*wales/.test(name))
+    ) {
+      return false;
+    }
+    return true;
+  });
+}
+
+function FreeServicesPanel({
+  services,
+  guide,
+  defaultOpen,
 }: {
-  solicitors: ActionPlanSolicitor[];
-  mode?: ActionPlan["solicitorMatchMode"];
-  location?: string | null;
+  services: ActionPlanFreeService[];
+  guide?: ActionPlan["freeAdviceGuide"];
+  defaultOpen?: boolean;
 }) {
-  if (!solicitors.length) return null;
-  const subtitle =
-    mode === "local" && location
-      ? `From our SRA register near ${location}.`
-      : mode === "local"
-        ? "From our SRA register near you."
-        : mode === "online"
-          ? "From our SRA register — firms you can approach online."
-          : mode === "reviews"
-            ? "From our SRA register — compare public reviews before you instruct."
-            : "From our SRA register.";
+  const [open, setOpen] = useState(Boolean(defaultOpen));
+  const visible = filterFreeServicesForNation(services, guide?.nation);
+  if (!visible.length) return null;
 
   return (
-    <section className="mt-8 border-t border-gold/20 pt-6">
-      <h3 className="font-serif text-xl font-semibold text-foreground">
-        Solicitors from our SRA register
-      </h3>
-      <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>
-      <ul className="mt-4 space-y-3">
-        {solicitors.map((s) => (
-          <li
-            key={s.id}
-            className="rounded-2xl border border-gold/25 bg-background/80 px-4 py-3"
-          >
-            <p className="font-medium text-foreground">{s.name}</p>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              {s.blurb}
-            </p>
-            <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-primary">
-              {[s.city, s.postcode].filter(Boolean).length ? (
-                <span className="text-muted-foreground">
-                  {[s.city, s.postcode].filter(Boolean).join(" · ")}
-                </span>
-              ) : null}
-              {s.phone ? <span>{s.phone}</span> : null}
-              {s.url ? (
+    <section className="mt-6 rounded-2xl border-2 border-primary/25 bg-primary/5 p-4 md:p-5">
+      <h3 className="font-serif text-xl font-semibold text-foreground">Free services</h3>
+      <p className="mt-1 text-sm text-muted-foreground">
+        Start here — people and organisations you can speak to without paying a solicitor first.
+        {guide ? ` Using the ${guide.nationLabel} free-advice guide.` : ""}
+      </p>
+      {!open ? (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 sm:w-auto"
+        >
+          Show me free services
+        </button>
+      ) : (
+        <>
+          <ul className="mt-4 space-y-3">
+            {visible.map((s) => (
+              <li
+                key={s.id}
+                className="rounded-2xl border border-gold/25 bg-background/90 px-4 py-3"
+              >
+                <p className="font-medium text-foreground">{s.name}</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{s.blurb}</p>
+                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-primary">
+                  {s.phone ? <span>{s.phone}</span> : null}
+                  {s.url ? (
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2"
+                    >
+                      Open {s.name.split("—")[0]?.trim() || "site"}
+                    </a>
+                  ) : null}
+                </div>
+              </li>
+            ))}
+          </ul>
+          {guide ? (
+            <div className="mt-4 space-y-2 text-xs text-muted-foreground">
+              {guide.notes.slice(0, 2).map((n, i) => (
+                <p key={i} className="leading-relaxed">
+                  {n}
+                </p>
+              ))}
+              <div className="flex flex-wrap gap-x-4 gap-y-2 text-primary">
                 <a
-                  href={s.url}
+                  href={guide.pdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline underline-offset-2"
                 >
-                  SRA profile
+                  {guide.pdfLabel}
                 </a>
-              ) : null}
-              <a
-                href={googleReviewsSearchUrl(s.name, s.city)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2"
-              >
-                Check reviews
-              </a>
+                <a
+                  href={guide.hubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2"
+                >
+                  All Pro Bono Week guides
+                </a>
+              </div>
             </div>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-3 text-xs text-muted-foreground">
-        Always verify the firm on the{" "}
-        <a
-          href="https://www.sra.org.uk/consumers/register/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary underline underline-offset-2"
-        >
-          SRA register
-        </a>{" "}
-        before you instruct anyone.
-      </p>
+          ) : null}
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="mt-3 text-xs font-medium text-muted-foreground underline underline-offset-2 hover:text-foreground"
+          >
+            Hide free services
+          </button>
+        </>
+      )}
     </section>
   );
 }
 
-function FreeServicesList({
-  services,
-  guide,
+function SolicitorFirmCard({
+  firm,
+  kind,
+  story,
+  title,
+  plan,
+  brief,
 }: {
-  services: ActionPlanFreeService[];
-  guide?: ActionPlan["freeAdviceGuide"];
+  firm: ActionPlanSolicitor;
+  kind?: DisputeKind | null;
+  story?: string;
+  title?: string;
+  plan?: ActionPlan | null;
+  brief?: LawyerBriefInput | null;
 }) {
-  if (!services.length) return null;
+  const [showReviews, setShowReviews] = useState(false);
+  const [costNote, setCostNote] = useState<string | null>(null);
+  const service = serviceLabelForKind(kind);
+  const sraRequired = sraRequiresPublishedPrices(kind);
+  const costs = firm.publishedCosts;
+  const reviews = firm.reviews;
+
+  function requestCosts() {
+    const { mailtoUrl } = buildCostRequestEmail({
+      firm,
+      kind,
+      story: brief?.summary || story,
+      plan: plan || brief?.actionPlan || null,
+      profileAnswers: brief?.profileAnswers || null,
+      fundingPreference: brief?.fundingPreference || null,
+      locationHint:
+        brief?.profileAnswers?.solicitorLocation ||
+        plan?.solicitorLocation ||
+        null,
+      clientName: brief?.clientName || null,
+    });
+    if (brief) {
+      try {
+        downloadBriefPdf(brief);
+        setCostNote(
+          `PDF brief downloaded — attach it in your email. We BCC ${COST_REQUEST_BCC} so we can learn typical costs.`,
+        );
+      } catch {
+        setCostNote(
+          `Opening your email. We BCC ${COST_REQUEST_BCC}. Download your brief from Your case if you want to attach the PDF.`,
+        );
+      }
+    } else {
+      setCostNote(
+        `Opening your email with a triage summary. We BCC ${COST_REQUEST_BCC}. Sign in and open Your case to attach a PDF brief.`,
+      );
+    }
+    window.location.href = mailtoUrl;
+  }
+
   return (
-    <section className="mt-8 border-t border-gold/20 pt-6">
-      <h3 className="font-serif text-xl font-semibold text-foreground">
-        Free services that may apply
-      </h3>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Named doors for this kind of problem — check them before you pay privately.
-        {guide
-          ? ` Mapped using the Pro Bono Week guides for ${guide.nationLabel}.`
-          : ""}
-      </p>
-      <ul className="mt-4 space-y-3">
-        {services.map((s) => (
-          <li
-            key={s.id}
-            className="rounded-2xl border border-gold/25 bg-background/80 px-4 py-3"
+    <li className="rounded-2xl border border-gold/25 bg-background/90 px-4 py-3">
+      <div className="flex flex-wrap items-start justify-between gap-2">
+        <p className="font-medium text-foreground">{firm.name}</p>
+        {firm.legalAid ? (
+          <span className="rounded-md bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+            Legal aid
+          </span>
+        ) : null}
+      </div>
+      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{firm.blurb}</p>
+      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-primary">
+        {[firm.city, firm.postcode].filter(Boolean).length ? (
+          <span className="text-muted-foreground">
+            {[firm.city, firm.postcode].filter(Boolean).join(" · ")}
+          </span>
+        ) : null}
+        {firm.phone ? <span>{firm.phone}</span> : null}
+        {firm.url ? (
+          <a
+            href={firm.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2"
           >
-            <p className="font-medium text-foreground">{s.name}</p>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{s.blurb}</p>
-            <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-primary">
-              {s.phone ? <span>{s.phone}</span> : null}
-              {s.url ? (
-                <a
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-2"
-                >
-                  Open {s.name.split("—")[0]?.trim() || "site"}
-                </a>
+            SRA profile
+          </a>
+        ) : null}
+        <button
+          type="button"
+          onClick={() => setShowReviews((v) => !v)}
+          className="underline underline-offset-2"
+        >
+          {showReviews ? "Hide reviews" : "Reviews"}
+        </button>
+      </div>
+
+      {showReviews ? (
+        <div className="mt-3 rounded-xl border border-border/50 bg-background/80 px-3 py-2.5 text-sm">
+          <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+            Reviews on Legal Shaman
+          </p>
+          {reviews?.rating || reviews?.reviewCount || reviews?.summary ? (
+            <>
+              {reviews.summary ? (
+                <p className="mt-1 text-foreground/90">{reviews.summary}</p>
+              ) : (
+                <p className="mt-1 text-foreground/90">
+                  {reviews.rating ? `${reviews.rating.toFixed(1)} rating` : "Rating on file"}
+                  {reviews.reviewCount
+                    ? ` · ${reviews.reviewCount} review${reviews.reviewCount === 1 ? "" : "s"}`
+                    : ""}
+                </p>
+              )}
+              {reviews.snippets?.length ? (
+                <ul className="mt-2 space-y-2">
+                  {reviews.snippets.map((snip, i) => (
+                    <li key={i} className="text-xs leading-relaxed text-muted-foreground">
+                      “{snip.text}”
+                      {snip.source ? (
+                        <span className="mt-0.5 block text-[10px] text-muted-foreground/80">
+                          {snip.source}
+                        </span>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
               ) : null}
-            </div>
-          </li>
-        ))}
-      </ul>
-      {guide ? (
-        <div className="mt-4 space-y-2 text-xs text-muted-foreground">
-          {guide.notes.slice(0, 2).map((n, i) => (
-            <p key={i} className="leading-relaxed">
-              {n}
+            </>
+          ) : (
+            <p className="mt-1 text-muted-foreground">
+              No reviews on Legal Shaman yet for this firm. We keep ratings here when we have them
+              so you do not have to leave the site.
             </p>
-          ))}
-          <div className="flex flex-wrap gap-x-4 gap-y-2 text-primary">
-            <a
-              href={guide.pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2"
-            >
-              {guide.pdfLabel}
-            </a>
-            <a
-              href={guide.hubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2"
-            >
-              All Pro Bono Week guides
-            </a>
-          </div>
+          )}
         </div>
       ) : null}
+
+      <div className="mt-3 rounded-xl border border-border/40 bg-background/60 px-3 py-2.5">
+        <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+          Costs for {service}
+        </p>
+        {costs ? (
+          <>
+            <p className="mt-1 text-sm leading-relaxed text-foreground/90">{costs.summary}</p>
+            {costs.sourceUrl ? (
+              <a
+                href={costs.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-block text-xs text-primary underline underline-offset-2"
+              >
+                Firm fees / website
+              </a>
+            ) : null}
+          </>
+        ) : (
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+            {sraRequired
+              ? `SRA rules usually require firms to publish prices for ${service}. We do not have their published figures here yet.`
+              : `We do not have published ${service} fees for this firm on Legal Shaman yet (family/divorce fees are often voluntary, not an SRA-mandated price list).`}
+          </p>
+        )}
+        <button
+          type="button"
+          onClick={requestCosts}
+          className="mt-2 inline-flex h-9 items-center justify-center rounded-lg border border-primary/35 bg-primary/5 px-3 text-xs font-semibold text-primary hover:bg-primary/10"
+        >
+          {firm.email ? "Email them for costs" : "Ask for costs (opens email)"}
+        </button>
+        {costNote ? <p className="mt-2 text-[11px] text-muted-foreground">{costNote}</p> : null}
+      </div>
+    </li>
+  );
+}
+
+function SolicitorSearchPanel({
+  initialSolicitors,
+  initialMode,
+  initialLocation,
+  kind,
+  story,
+  title,
+  plan,
+  brief,
+  onPlanPatch,
+}: {
+  initialSolicitors: ActionPlanSolicitor[];
+  initialMode?: ActionPlan["solicitorMatchMode"];
+  initialLocation?: string | null;
+  kind?: DisputeKind | null;
+  story?: string;
+  title?: string;
+  plan?: ActionPlan | null;
+  brief?: LawyerBriefInput | null;
+  onPlanPatch?: (patch: Partial<ActionPlan>) => void;
+}) {
+  // Always start behind the CTA — even if an older plan already had solicitor hits.
+  const [started, setStarted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [solicitors, setSolicitors] = useState<ActionPlanSolicitor[]>([]);
+  const [location, setLocation] = useState(initialLocation || "");
+  const [legalAidOnly, setLegalAidOnly] = useState(false);
+  const [mode, setMode] = useState<ActionPlan["solicitorMatchMode"]>(
+    initialMode || (initialLocation ? "local" : "unsure"),
+  );
+  const cachedInitial = initialSolicitors;
+
+  async function runSearch(opts: {
+    locationHint: string;
+    mode: ActionPlan["solicitorMatchMode"];
+    legalAidOnly: boolean;
+  }) {
+    if (!story?.trim()) {
+      setError("We need a short description of your matter before searching solicitors.");
+      return;
+    }
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(resolveApiUrl("/api/cases/recommend-solicitors"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          kind: kind || "general",
+          story,
+          mode: opts.mode || "unsure",
+          locationHint: opts.locationHint || "",
+          legalAidOnly: opts.legalAidOnly,
+        }),
+      });
+      if (!res.ok) {
+        setError("Solicitor search failed — try again in a moment.");
+        return;
+      }
+      const data = (await res.json()) as { solicitors?: ActionPlanSolicitor[] };
+      const next = data.solicitors || [];
+      setSolicitors(next);
+      setMode(opts.mode);
+      onPlanPatch?.({
+        matchedSolicitors: next,
+        solicitorMatchMode: opts.mode,
+        solicitorLocation: opts.locationHint || null,
+      });
+      if (!next.length) {
+        setError(
+          opts.legalAidOnly
+            ? opts.locationHint
+              ? `No legal aid matches near “${opts.locationHint}” yet — try a nearby town, or untick Legal aid.`
+              : "No legal aid matches yet — add a town or postcode, or untick Legal aid."
+            : opts.locationHint
+              ? `No SRA matches near “${opts.locationHint}” yet — try a nearby town or a broader postcode area.`
+              : "No solicitor matches yet — add a town or postcode to refine.",
+        );
+      }
+    } catch {
+      setError("Solicitor search failed — check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const subtitle = legalAidOnly
+    ? location.trim()
+      ? `Legal aid providers near ${location.trim()}.`
+      : "Legal aid providers from our index."
+    : mode === "local" && location.trim()
+      ? `From our SRA register near ${location.trim()}.`
+      : mode === "local"
+        ? "From our SRA register near you."
+        : "From our SRA register — refine by town or postcode if you want someone closer.";
+
+  return (
+    <section className="mt-6 rounded-2xl border border-border/60 bg-background/70 p-4 md:p-5">
+      <h3 className="font-serif text-xl font-semibold text-foreground">
+        Need a solicitor instead?
+      </h3>
+      <p className="mt-1 text-sm text-muted-foreground">
+        If the free services above are not enough, you can search regulated firms next. You can
+        refine by city or postcode, and tick Legal aid if you need a legal-aid provider.
+      </p>
+
+      {!started ? (
+        <button
+          type="button"
+          onClick={() => {
+            setStarted(true);
+            if (cachedInitial.length && !location.trim() && !legalAidOnly) {
+              setSolicitors(cachedInitial);
+              return;
+            }
+            void runSearch({
+              locationHint: location.trim(),
+              mode: location.trim() ? "local" : "unsure",
+              legalAidOnly,
+            });
+          }}
+          className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-xl border-2 border-primary/40 bg-background px-5 text-sm font-semibold text-primary hover:bg-primary/10 sm:w-auto"
+        >
+          If these don’t help, look for a solicitor
+        </button>
+      ) : (
+        <>
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
+            <label className="min-w-0 flex-1 text-sm">
+              <span className="mb-1 block font-medium text-foreground">
+                Refine by town or postcode (optional)
+              </span>
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                placeholder="e.g. Leeds or LS1"
+                className="h-11 w-full rounded-xl border border-border bg-background px-3 text-sm text-foreground outline-none ring-primary focus:ring-2"
+              />
+            </label>
+            <button
+              type="button"
+              disabled={loading}
+              onClick={() =>
+                void runSearch({
+                  locationHint: location.trim(),
+                  mode: location.trim() ? "local" : "unsure",
+                  legalAidOnly,
+                })
+              }
+              className="inline-flex h-11 shrink-0 items-center justify-center rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-60"
+            >
+              {loading ? "Searching…" : location.trim() ? "Refine search" : "Search solicitors"}
+            </button>
+          </div>
+
+          <label className="mt-3 flex cursor-pointer items-start gap-2 text-sm text-foreground">
+            <input
+              type="checkbox"
+              checked={legalAidOnly}
+              onChange={(e) => {
+                const next = e.target.checked;
+                setLegalAidOnly(next);
+                void runSearch({
+                  locationHint: location.trim(),
+                  mode: location.trim() ? "local" : "unsure",
+                  legalAidOnly: next,
+                });
+              }}
+              className="mt-0.5 h-4 w-4 rounded border-border text-primary focus:ring-primary"
+            />
+            <span>
+              Legal aid only{" "}
+              <span className="text-muted-foreground">
+                (show firms / providers that offer legal aid)
+              </span>
+              {legalAidOnly ? (
+                <a
+                  href="https://www.gov.uk/check-legal-aid"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 block text-xs text-primary underline underline-offset-2"
+                >
+                  Also check legal aid on GOV.UK
+                </a>
+              ) : null}
+            </span>
+          </label>
+
+          {error ? <p className="mt-3 text-sm text-destructive">{error}</p> : null}
+
+          {solicitors.length ? (
+            <>
+              <p className="mt-4 text-sm text-muted-foreground">{subtitle}</p>
+              <ul className="mt-3 space-y-3">
+                {solicitors.map((s) => (
+                  <SolicitorFirmCard
+                    key={s.id}
+                    firm={s}
+                    kind={kind}
+                    story={story}
+                    title={title}
+                    plan={plan}
+                    brief={brief}
+                  />
+                ))}
+              </ul>
+              <p className="mt-3 text-xs text-muted-foreground">
+                Always verify the firm on the{" "}
+                <a
+                  href="https://www.sra.org.uk/consumers/register/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2"
+                >
+                  SRA register
+                </a>{" "}
+                before you instruct anyone. Cost-request emails BCC Legal Shaman (
+                {COST_REQUEST_BCC}) so we can learn typical fees.
+              </p>
+            </>
+          ) : loading ? (
+            <p className="mt-4 text-sm text-muted-foreground">
+              {legalAidOnly ? "Searching legal aid providers…" : "Searching the SRA register…"}
+            </p>
+          ) : null}
+        </>
+      )}
     </section>
   );
 }
@@ -663,25 +1052,120 @@ function StepDetail({ detail }: { detail: string }) {
 export function ActionPlanView({
   plan,
   title = "Your results",
+  kind,
+  story,
+  preferFreeOpen = false,
+  brief,
+  onPlanPatch,
 }: {
   plan: ActionPlan;
   title?: string;
+  kind?: DisputeKind | null;
+  story?: string;
+  /** When true, expand free services without an extra click. Default stays behind the CTA. */
+  preferFreeOpen?: boolean;
+  /** Optional matter brief for cost-request PDF attachment. */
+  brief?: LawyerBriefInput | null;
+  onPlanPatch?: (patch: Partial<ActionPlan>) => void;
 }) {
   const freeServices = plan.freeServices || [];
   const matchedSolicitors = plan.matchedSolicitors || [];
   const financingMap = plan.financingMap || null;
   const legalAidMap = plan.legalAidMap || null;
   const ucMap = plan.universalCreditMap || null;
+  const timeline = plan.timeline || [];
+  const costBrief: LawyerBriefInput | null =
+    brief ||
+    ({
+      title: title || "Your situation",
+      summary: story || null,
+      matterType: kind || null,
+      actionPlan: plan,
+      profileAnswers: null,
+      fundingPreference: null,
+      generatedAt: new Date().toISOString(),
+    } satisfies LawyerBriefInput);
   return (
     <section className="rounded-3xl border-2 border-gold/30 bg-card/95 p-5 shadow-sm md:p-7">
       <h2 className="font-serif text-2xl font-semibold text-foreground md:text-3xl">{title}</h2>
       <p className="mt-1 text-sm text-muted-foreground">
-        A helpful map to access justice — we signpost options, claim next steps, legal aid, Universal Credit paths, financing, and solicitor costs. Not a solicitor; not legal advice.
+        Free help first. Then, only if you need it, search for a solicitor. Not a solicitor; not
+        legal advice.
       </p>
-      <ol className="mt-6 space-y-6">
+
+      {timeline.length ? (
+        <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/5 p-4">
+          <h3 className="font-serif text-lg font-semibold text-foreground">Your timeline</h3>
+          <ol className="mt-3 space-y-3">
+            {timeline.map((item) => (
+              <li key={item.id} className="text-sm">
+                <p className="font-medium text-foreground">
+                  {item.band === "this_week"
+                    ? "This week"
+                    : item.band === "before_deadline"
+                      ? "Before deadline"
+                      : "Later"}
+                  {" — "}
+                  {item.label}
+                </p>
+                <p className="mt-1 text-muted-foreground leading-relaxed">{item.detail}</p>
+                {item.dueHint ? (
+                  <p className="mt-1 text-xs font-medium text-primary">Diary: {item.dueHint}</p>
+                ) : null}
+                {item.wikiPath ? (
+                  <p className="mt-1 text-xs">
+                    <a
+                      href={item.wikiPath}
+                      className="font-medium text-primary underline-offset-2 hover:underline"
+                    >
+                      Read guide{item.wikiTitle ? `: ${item.wikiTitle}` : ""} →
+                    </a>
+                  </p>
+                ) : null}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ) : null}
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        <a
+          href={`/financing?kind=${encodeURIComponent(kind || "general")}&story=${encodeURIComponent((story || title || "").slice(0, 400))}`}
+          className="inline-flex h-9 items-center rounded-xl border border-primary/40 bg-background px-3 text-sm font-medium text-primary hover:bg-primary/10"
+        >
+          Explore financing options
+        </a>
+        <a
+          href="/blog"
+          className="inline-flex h-9 items-center rounded-xl border border-border/70 bg-background px-3 text-sm font-medium text-foreground/80 hover:border-primary/40"
+        >
+          Browse Blog / wiki
+        </a>
+      </div>
+
+      <FreeServicesPanel
+        services={freeServices}
+        guide={plan.freeAdviceGuide}
+        defaultOpen={preferFreeOpen}
+      />
+
+      <SolicitorSearchPanel
+        initialSolicitors={matchedSolicitors}
+        initialMode={plan.solicitorMatchMode}
+        initialLocation={plan.solicitorLocation}
+        kind={kind}
+        story={story}
+        title={title}
+        plan={plan}
+        brief={costBrief}
+        onPlanPatch={onPlanPatch}
+      />
+
+      <ol className="mt-8 space-y-6 border-t border-gold/20 pt-6">
         {plan.steps
           .filter((step) => {
             if (step.id === "free-services") return false;
+            if (step.id === "solicitor-match" || step.id === "solicitors") return false;
             // Rich sections below — avoid duplicating long menus in the numbered list.
             if (financingMap && step.id === "financing") return false;
             if (legalAidMap && step.id === "legal-aid-map") return false;
@@ -696,6 +1180,26 @@ export function ActionPlanView({
               <div className="min-w-0 flex-1 border-b border-border/40 pb-6 last:border-0 last:pb-0">
                 <h3 className="font-serif text-lg font-semibold text-foreground">{step.label}</h3>
                 <StepDetail detail={step.detail} />
+                {step.wikiPath ? (
+                  <p className="mt-2 text-xs">
+                    <a
+                      href={step.wikiPath}
+                      className="font-medium text-primary underline-offset-2 hover:underline"
+                    >
+                      Related guide{step.wikiTitle ? `: ${step.wikiTitle}` : ""} →
+                    </a>
+                  </p>
+                ) : null}
+                {step.url === "/financing" ? (
+                  <p className="mt-2 text-xs">
+                    <a
+                      href={`/financing?kind=${encodeURIComponent(kind || "general")}&story=${encodeURIComponent((story || "").slice(0, 400))}`}
+                      className="font-medium text-primary underline-offset-2 hover:underline"
+                    >
+                      Open financing tool →
+                    </a>
+                  </p>
+                ) : null}
                 {step.spendAdvice ? (
                   <p className="mt-3 text-xs font-medium text-primary">{step.spendAdvice}</p>
                 ) : null}
@@ -706,12 +1210,6 @@ export function ActionPlanView({
       {ucMap ? <UcMapSection map={ucMap} /> : null}
       {legalAidMap ? <LegalAidMapSection map={legalAidMap} /> : null}
       {financingMap ? <FinancingMapSection map={financingMap} /> : null}
-      <MatchedSolicitorsList
-        solicitors={matchedSolicitors}
-        mode={plan.solicitorMatchMode}
-        location={plan.solicitorLocation}
-      />
-      <FreeServicesList services={freeServices} guide={plan.freeAdviceGuide} />
     </section>
   );
 }

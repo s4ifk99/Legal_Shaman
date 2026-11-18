@@ -3,7 +3,7 @@
  * Blocks executables, HTML/SVG (XSS), polyglots, and odd double extensions.
  */
 
-export const UPLOAD_MAX_BYTES = 2_500_000;
+export const UPLOAD_MAX_BYTES = 5_000_000;
 export const UPLOAD_MAX_FILES = 12;
 
 const ALLOWED_MIME = new Set([

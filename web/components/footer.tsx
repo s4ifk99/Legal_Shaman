@@ -1,7 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Star, Youtube } from "lucide-react";
+import { mailtoQuestions, QUESTIONS_EMAIL } from "@/lib/site/contact-emails";
 import { trustpilotUrl, youtubeUrl } from "@/lib/site/social-links";
+import { LegalShamanLogo } from "@/components/legal-shaman-logo";
 import { SpiralDecoration } from "./spiral-decoration";
 
 const socialLinkClass =
@@ -23,12 +24,9 @@ export function Footer() {
           <div className="flex items-center gap-4">
             <div className="relative">
               <div className="absolute -inset-2 rounded-full bg-gold/20 blur-md" />
-              <Image
-                src="/logo.jpg"
-                alt="Legal Shaman Logo"
-                width={56}
-                height={56}
-                className="relative h-14 w-14 rounded-full border-2 border-gold/50"
+              <LegalShamanLogo
+                variant="mark"
+                className="relative h-14 w-14 rounded-full border-2 border-gold/50 bg-background p-1"
               />
             </div>
             <div>
@@ -40,6 +38,12 @@ export function Footer() {
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
             <Link href="/ask-the-shaman" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Ask the Shaman
+            </Link>
+            <Link href="/blog" className="text-primary-foreground/70 transition-colors hover:text-gold">
+              Blog
+            </Link>
+            <Link href="/financing" className="text-primary-foreground/70 transition-colors hover:text-gold">
+              Financing
             </Link>
             <Link href="/signposting" className="text-primary-foreground/70 transition-colors hover:text-gold">
               Signpost
@@ -56,8 +60,14 @@ export function Footer() {
             <Link href="/for-firms" className="text-primary-foreground/70 transition-colors hover:text-gold">
               For firms
             </Link>
+            <a
+              href={mailtoQuestions("Question about Legal Shaman")}
+              className="text-primary-foreground/70 transition-colors hover:text-gold"
+            >
+              Questions
+            </a>
             <Link href="https://www.linkedin.com/in/aleemthedreamm/" className="text-primary-foreground/70 transition-colors hover:text-gold">
-              Contact
+              LinkedIn
             </Link>
             <a
               href={youtubeUrl}
@@ -97,6 +107,15 @@ export function Footer() {
           <p className="text-center text-xs text-primary-foreground/60">
             This site does not provide legal advice. Always consult with a qualified solicitor for legal matters. 
             For urgent legal issues, contact Citizens Advice on 0800 144 8848.
+          </p>
+          <p className="text-center text-sm text-primary-foreground/80">
+            Questions?{" "}
+            <a
+              href={mailtoQuestions()}
+              className="font-medium text-gold underline underline-offset-2 hover:text-gold/90"
+            >
+              {QUESTIONS_EMAIL}
+            </a>
           </p>
           <p className="text-center text-sm font-medium text-gold pt-2">Follow us</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">

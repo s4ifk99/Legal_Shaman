@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { LegalShamanLogo } from "@/components/legal-shaman-logo";
 import { SpiralBackground } from "@/components/spiral-decoration";
 import { SignpostInstallPanel } from "@/components/signpost/signpost-install-panel";
 import { SignpostWidget } from "@/components/signpost/signpost-widget";
@@ -44,12 +44,9 @@ export default function ForFirmsPage() {
           <div className="mt-4 flex items-center gap-4">
             <div className="relative hidden sm:block">
               <div className="absolute -inset-2 rounded-full bg-gold/20 blur-md" />
-              <Image
-                src="/logo.jpg"
-                alt=""
-                width={56}
-                height={56}
-                className="relative h-14 w-14 rounded-full border-2 border-gold/50"
+              <LegalShamanLogo
+                variant="mark"
+                className="relative h-14 w-14 rounded-full border-2 border-gold/50 bg-background p-1"
               />
             </div>
             <h1 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
@@ -129,8 +126,8 @@ export default function ForFirmsPage() {
           </div>
           <p className="mt-10 text-sm text-muted-foreground">
             Questions:{" "}
-            <a href="mailto:support@legalshaman.com" className="text-primary underline">
-              support@legalshaman.com
+            <a href="mailto:questions@legalshaman.com" className="text-primary underline">
+              questions@legalshaman.com
             </a>{" "}
             or{" "}
             <a

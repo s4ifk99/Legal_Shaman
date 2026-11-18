@@ -17,6 +17,11 @@ export type CoherenceSraHit = {
   profileUrl: string;
   workArea: string;
   score: number;
+  email?: string;
+  legalAid?: boolean;
+  rating?: number;
+  reviewCount?: number;
+  fundingCapabilities?: string[];
 };
 
 function typesenseQueryForFlags(
@@ -113,39 +118,56 @@ export async function searchSraOrganisationsTypesense(opts: {
   >;
   limit: number;
   minScore: number;
+  /** Prefer / require legal-aid flagged firms and providers. */
+  legalAidOnly?: boolean;
 }): Promise<CoherenceSraHit[]> {
   if (!typesenseConfigured()) return [];
   const q = typesenseQueryForFlags(opts.flags);
+  const filterBy = opts.legalAidOnly
+    ? "legalAid:=true && entityType:=[`sra_organisation`,`legal_aid_provider`,`law_centre`]"
+    : "entityType:=`sra_organisation`";
   const { hits } = await searchLegalEntitiesMulti({
     q,
     expandedQ: q,
     limit: Math.min(40, Math.max(opts.limit * 6, 12)),
-    filterBy: "entityType:=`sra_organisation`",
+    filterBy,
   });
 
   const ranked: CoherenceSraHit[] = [];
   for (const hit of hits) {
     const doc = hit.document;
-    const sraId = String(doc.sraId || doc.exactSraId || "").trim();
-    if (!sraId) continue;
+    const sraId = String(doc.sraId || doc.exactSraId || doc.id || "").trim();
+    if (!sraId && !opts.legalAidOnly) continue;
     const workArea = workAreaFromDoc(doc);
     const hay = `${workArea} ${String(doc.title || "")} ${String(doc.searchText || "")}`;
     let score = scoreSraWorkAreaForMatching(hay, opts.flags);
     const phone = String(doc.phone || "").trim();
     if (phone) score += 8;
+    if (doc.legalAid === true) score += 6;
     if (score < opts.minScore) continue;
-    const name = String(doc.title || `SRA ${sraId}`);
+    const name = String(doc.title || doc.displayName || `SRA ${sraId || "firm"}`);
     if (!sraOrganisationAdmissible(name)) continue;
+    const ratingRaw = Number(doc.rating);
+    const reviewCountRaw = Number(doc.reviewCount);
+    const funding = Array.isArray(doc.fundingCapabilities)
+      ? (doc.fundingCapabilities as unknown[]).map(String)
+      : [];
     ranked.push({
-      sraId,
+      sraId: sraId || String(doc.id || name),
       name,
       city: String(doc.city || ""),
       postcode: String(doc.postcode || ""),
       phone,
       website: String(doc.website || ""),
-      profileUrl: String(doc.profileUrl || doc.contactPageUrl || sraProfileUrlForId(sraId)),
+      profileUrl: String(doc.profileUrl || doc.contactPageUrl || (sraId ? sraProfileUrlForId(sraId) : "")),
       workArea,
       score,
+      email: String(doc.email || "").trim() || undefined,
+      legalAid: doc.legalAid === true,
+      rating: Number.isFinite(ratingRaw) && ratingRaw > 0 ? ratingRaw : undefined,
+      reviewCount:
+        Number.isFinite(reviewCountRaw) && reviewCountRaw > 0 ? reviewCountRaw : undefined,
+      fundingCapabilities: funding,
     });
   }
 

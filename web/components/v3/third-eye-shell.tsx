@@ -9,6 +9,7 @@ import { ActionPlanView } from "@/components/v3/action-plan-view";
 import { RothkoField } from "@/components/v3/rothko-field";
 import {
   advanceFlow,
+  applyDocumentBrief,
   applyExplanation,
   createInitialFlow,
   localOptionsExplanation,
@@ -18,9 +19,11 @@ import {
   type FlowState,
 } from "@/lib/cases/flow";
 import type { CaseRecord } from "@/lib/cases/types";
+import type { DocumentBrief } from "@/lib/cases/document-brief";
 import { freeServicesForKind } from "@/lib/cases/free-services";
 import {
   CASE_SNAPSHOT_KEY,
+  clearFlowResume,
   consumeResultsIntent,
   loadFlowResume,
   markResultsIntent,
@@ -263,52 +266,18 @@ async function enrichPlanServices(state: FlowState): Promise<FlowState> {
     /* keep baseline free services */
   }
 
-  const mode = state.answers.solicitorMatchMode;
-  const wantsSolicitor =
-    Boolean(mode) ||
-    /\b(yes|solicitor|lawyer|find someone)\b/i.test(state.answers.wantSpeakToSomeone || "");
-
-  if (wantsSolicitor && next.actionPlan) {
-    try {
-      const res = await fetch(resolveApiUrl("/api/cases/recommend-solicitors"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          kind,
-          story,
-          mode: mode || "unsure",
-          locationHint: state.answers.solicitorLocation || "",
-        }),
-      });
-      if (res.ok) {
-        const data = (await res.json()) as {
-          solicitors?: Array<{
-            id: string;
-            name: string;
-            blurb: string;
-            url?: string;
-            phone?: string;
-            city?: string;
-            postcode?: string;
-            sraId?: string;
-            matchReason?: string;
-          }>;
-        };
-        if (data.solicitors?.length && next.actionPlan) {
-          next = {
-            ...next,
-            actionPlan: {
-              ...next.actionPlan,
-              matchedSolicitors: data.solicitors,
-              solicitorMatchMode: mode || "unsure",
-              solicitorLocation: state.answers.solicitorLocation || null,
-            },
-          };
-        }
-      }
-    } catch {
-      /* SRA match optional */
-    }
+  // Solicitors stay opt-in in the plan UI ("If these don’t help, look for a solicitor")
+  // so free services remain the first answer when someone only wants free advice.
+  if (next.actionPlan) {
+    next = {
+      ...next,
+      actionPlan: {
+        ...next.actionPlan,
+        matchedSolicitors: [],
+        solicitorMatchMode: undefined,
+        solicitorLocation: null,
+      },
+    };
   }
 
   return next;
@@ -461,6 +430,31 @@ export function ThirdEyeShell() {
     router.push("/my-case");
   }, [signedIn, openAuth, router]);
 
+  const restartChat = useCallback(() => {
+    submittingRef.current = false;
+    pendingPromptRef.current = null;
+    clearFlowResume();
+    try {
+      sessionStorage.removeItem(CASE_SNAPSHOT_KEY);
+    } catch {
+      /* ignore */
+    }
+    const fresh = createInitialFlow(true);
+    flowRef.current = fresh;
+    caseIdRef.current = null;
+    setFlow(fresh);
+    setCaseId(null);
+    setStatus(null);
+    setUploadNote(null);
+    setTyping(false);
+    setRothkoPulse((n) => n + 1);
+  }, []);
+
+  const canRestart =
+    flow.messages.some((m) => m.role === "you") ||
+    flow.phase !== "collect_story" ||
+    Boolean(flow.actionPlan);
+
   const onSubmit = useCallback(
     (text: string) => {
       const trimmed = text.trim();
@@ -527,64 +521,118 @@ export function ThirdEyeShell() {
 
   const onUpload = useCallback(
     async (file: File) => {
-      if (!signedIn) {
-        markResultsIntent();
-        openAuth("case");
-        setUploadNote("Sign in to upload letters or photos safely to your case.");
-        return;
-      }
-
       const safety = await validateUploadFile(file);
       if (!safety.ok) {
         setUploadNote(safety.error);
         return;
       }
 
-      let id = caseId;
-      if (!id) {
-        id = await withTimeout(persistCase(flowRef.current, null), PERSIST_MS, null);
-        if (id) setCaseId(id);
-      }
-      if (!id) {
-        setUploadNote("Couldn’t save your case yet — tell us what’s going on first.");
-        return;
-      }
+      setUploadNote(`Reading “${safety.safeName}”…`);
+      setStatus("Reading document…");
+
       const body = new FormData();
       body.append("file", file);
-      const res = await fetch(resolveApiUrl(`/api/cases/${id}/attachments`), {
-        method: "POST",
-        body,
-      });
-      if (!res.ok) {
-        const err = (await res.json().catch(() => ({}))) as { error?: string };
-        setUploadNote(err.error || "Upload failed — try a smaller photo or PDF.");
-        return;
+      let chatText = "";
+      let brief: DocumentBrief | null = null;
+      let storySeed = "";
+      try {
+        const res = await fetch(resolveApiUrl("/api/cases/analyze-document"), {
+          method: "POST",
+          body,
+        });
+        const data = (await res.json().catch(() => ({}))) as {
+          error?: string;
+          chatText?: string;
+          storySeed?: string;
+          brief?: DocumentBrief;
+          dataUrl?: string;
+        };
+        if (!res.ok) {
+          setUploadNote(data.error || "Couldn’t read that file — try another photo or PDF.");
+          setStatus(null);
+          return;
+        }
+        chatText = data.chatText || "";
+        brief = data.brief || null;
+        storySeed = data.storySeed || "";
+
+        if (brief && chatText) {
+          const next = applyDocumentBrief(flowRef.current, {
+            chatText,
+            brief,
+            fileName: safety.safeName,
+            storySeed,
+          });
+          flowRef.current = next;
+          setFlow(next);
+          saveFlowResume(next, caseIdRef.current);
+          saveCaseSnapshot(next);
+          setRothkoPulse((n) => n + 1);
+        }
+
+        // Persist to case when signed in (vault + brief).
+        if (signedIn) {
+          let id = caseId;
+          if (!id) {
+            id = await withTimeout(persistCase(flowRef.current, null), PERSIST_MS, null);
+            if (id) setCaseId(id);
+          }
+          if (id) {
+            const attachBody = new FormData();
+            attachBody.append("file", file);
+            if (brief) {
+              attachBody.append("extractedBrief", JSON.stringify(brief));
+            }
+            await fetch(resolveApiUrl(`/api/cases/${id}/attachments`), {
+              method: "POST",
+              body: attachBody,
+            }).catch(() => null);
+            setUploadNote(`Read and saved “${safety.safeName}” to Your case.`);
+          } else {
+            setUploadNote(`Read “${safety.safeName}”. Sign in to save it on Your case.`);
+          }
+        } else {
+          setUploadNote(
+            `Read “${safety.safeName}”. Sign in anytime to save uploads on Your case.`,
+          );
+        }
+      } catch {
+        setUploadNote("Upload failed — check your connection and try again.");
+      } finally {
+        setStatus(null);
       }
-      setUploadNote(`Saved “${safety.safeName}” to Your case.`);
-      await revealBurst(flowRef.current, [
-        `Got it — I’ve saved “${safety.safeName}” with your case. You can upload more, or keep talking. Tap the mic if speaking is easier.`,
-      ]);
     },
-    [signedIn, openAuth, caseId, revealBurst],
+    [signedIn, caseId, revealBurst],
   );
 
   return (
-    <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
+    <div className="relative flex min-h-0 flex-1 flex-col">
+      {/* Fixed colour fields sit at document level styles (globals.css). Keep outside
+          overflow clipping so production always paints the Rothko backdrop. */}
       <RothkoField pulseKey={rothkoPulse} highlightMessages highlightInput />
 
-      <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-3xl flex-1 flex-col px-3 py-3 md:px-4 md:py-4">
-        <header className="shrink-0 px-1 pb-2 text-center">
+      <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-3xl flex-1 flex-col overflow-hidden px-3 py-3 md:px-4 md:py-4">
+        <header className="relative shrink-0 px-1 pb-2 text-center">
           <p className="font-serif text-xs font-medium tracking-wide text-primary drop-shadow-sm">
             Legal Shaman
           </p>
           <h1 className="font-serif text-2xl font-bold text-foreground drop-shadow-sm md:text-3xl">
             Ask the Shaman
           </h1>
+          {canRestart ? (
+            <button
+              type="button"
+              onClick={restartChat}
+              className="absolute right-0 top-1 rounded-lg border border-white/40 bg-background/40 px-2.5 py-1 text-[11px] font-medium text-foreground/80 backdrop-blur-sm hover:bg-background/70 hover:text-foreground md:top-2 md:px-3 md:text-xs"
+            >
+              Restart chat
+            </button>
+          ) : null}
         </header>
 
         {!loading && !signedIn ? (
           <div className="mb-2 shrink-0 rounded-2xl border border-white/30 bg-background/20 px-4 py-2 text-center text-xs text-foreground/85 backdrop-blur-[2px]">
-            Chat freely — create a free account when you want saved results, PDF brief, or uploads.{" "}
+            Chat freely — upload letters or photos without an account. Sign in to save results and Your case.{" "}
             <button
               type="button"
               onClick={() => openAuth("case")}
@@ -640,6 +688,38 @@ export function ThirdEyeShell() {
                             ),
                     }}
                     title="Your results"
+                    kind={flow.disputeKind || flow.answers.disputeKind || null}
+                    story={flow.answers.disputeStory || flow.summary || flow.title}
+                    preferFreeOpen={false}
+                    brief={{
+                      title: flow.title || "Your situation",
+                      summary: flow.summary || flow.answers.disputeStory || null,
+                      matterType: flow.disputeKind || flow.answers.disputeKind || null,
+                      fundingPreference: flow.fundingPreference,
+                      profileAnswers: flow.answers,
+                      actionPlan: flow.actionPlan,
+                      generatedAt: new Date().toISOString(),
+                    }}
+                    onPlanPatch={(patch) => {
+                      setFlow((prev) => {
+                        if (!prev.actionPlan) return prev;
+                        const next = {
+                          ...prev,
+                          actionPlan: { ...prev.actionPlan, ...patch },
+                          answers: {
+                            ...prev.answers,
+                            solicitorMatchMode:
+                              patch.solicitorMatchMode ?? prev.answers.solicitorMatchMode,
+                            solicitorLocation:
+                              patch.solicitorLocation === undefined
+                                ? prev.answers.solicitorLocation
+                                : patch.solicitorLocation || undefined,
+                          },
+                        };
+                        saveFlowResume(next, caseIdRef.current);
+                        return next;
+                      });
+                    }}
                   />
                   <div className="mt-4 flex flex-wrap justify-center gap-3 pb-2">
                     <button
@@ -664,7 +744,7 @@ export function ThirdEyeShell() {
             </div>
           </div>
 
-          <div className="shrink-0 border-t border-white/25 bg-background/15 px-3 py-3 md:px-4 md:py-4">
+          <div className="shrink-0 bg-background/15 px-3 py-3 md:px-4 md:py-4">
             <ThirdEyeInput
               onSubmit={onSubmit}
               onUpload={(f) => onUpload(f)}

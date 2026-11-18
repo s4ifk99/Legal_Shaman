@@ -26,6 +26,22 @@ export type ActionPlanStep = {
   doorType?: ActionPlanDoorType;
   url?: string;
   spendAdvice?: string;
+  /** Optional when-to-do band for the timeline strip */
+  whenBand?: "this_week" | "before_deadline" | "later";
+  dueHint?: string;
+  wikiPath?: string;
+  wikiTitle?: string;
+};
+
+/** Dated checklist for the plan UI */
+export type ActionPlanTimelineItem = {
+  id: string;
+  band: "this_week" | "before_deadline" | "later";
+  label: string;
+  detail: string;
+  dueHint?: string;
+  wikiPath?: string;
+  wikiTitle?: string;
 };
 
 export type ActionPlanFreeService = {
@@ -36,6 +52,23 @@ export type ActionPlanFreeService = {
   phone?: string;
 };
 
+/** Published or indexed fee info for the matter the client is exploring. */
+export type ActionPlanSolicitorCosts = {
+  serviceLabel: string;
+  summary: string;
+  sourceUrl?: string;
+  /** True when SRA price-transparency rules cover this service category. */
+  sraRequired?: boolean;
+};
+
+/** On-platform review snapshot (we keep people on Legal Shaman). */
+export type ActionPlanSolicitorReview = {
+  rating?: number;
+  reviewCount?: number;
+  summary?: string;
+  snippets?: Array<{ text: string; source?: string }>;
+};
+
 /** SRA-register firm suggested after the client opts to speak to a solicitor. */
 export type ActionPlanSolicitor = {
   id: string;
@@ -43,10 +76,15 @@ export type ActionPlanSolicitor = {
   blurb: string;
   url?: string;
   phone?: string;
+  email?: string;
   city?: string;
   postcode?: string;
   sraId?: string;
   matchReason?: string;
+  legalAid?: boolean;
+  website?: string;
+  publishedCosts?: ActionPlanSolicitorCosts | null;
+  reviews?: ActionPlanSolicitorReview | null;
 };
 
 /** One door on the claim-financing map (free → insurance → CFA/ATE → funders). */
@@ -138,6 +176,8 @@ export type ActionPlanUcMap = {
 
 export type ActionPlan = {
   steps: ActionPlanStep[];
+  /** Dated “this week / before deadline / later” strip */
+  timeline?: ActionPlanTimelineItem[];
   /** Relevant free doors for this dispute type */
   freeServices?: ActionPlanFreeService[];
   /** Matched SRA firms when the client asked for a solicitor */
@@ -170,10 +210,19 @@ export type CaseAttachment = {
   /** Local data URL for small uploads in v1 */
   dataUrl?: string;
   uploadedAt: string;
+  /** Vision/OCR extract when the document was analysed */
+  extractedBrief?: import("@/lib/cases/document-brief").DocumentBrief | null;
 };
 
 export type CaseProfileAnswers = {
   disputeStory?: string;
+  /** Latest document extract summary seeded into the story */
+  documentBriefSummary?: string;
+  documentBriefs?: Array<{
+    fileName: string;
+    analyzedAt: string;
+    brief: import("@/lib/cases/document-brief").DocumentBrief;
+  }>;
   disputeKind?: DisputeKind;
   /** How many times we asked the client to flesh out a thin story */
   storyDeepenCount?: number;

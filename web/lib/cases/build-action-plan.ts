@@ -3,6 +3,7 @@ import type {
   ActionPlanFinancingMap,
   ActionPlanLegalAidMap,
   ActionPlanStep,
+  ActionPlanTimelineItem,
   ActionPlanUcMap,
   CaseProfileAnswers,
   FundingKnowledge,
@@ -32,6 +33,102 @@ import {
   nationLabel,
   pdfForNation,
 } from "@/lib/cases/pro-bono-guide-knowledge";
+/** Client-safe Blog deep link (avoids importing server-only wiki index into the browser bundle). */
+function wikiLinkForStory(story: string, kind: DisputeKind | null): {
+  wikiPath?: string;
+  wikiTitle?: string;
+} {
+  const q = [kind && kind !== "general" ? kind.replace(/_/g, " ") : "", story]
+    .filter(Boolean)
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 80);
+  if (!q) return { wikiPath: "/blog", wikiTitle: "Browse Blog / wiki" };
+  return {
+    wikiPath: `/blog?q=${encodeURIComponent(q)}`,
+    wikiTitle: "Related guides on the Blog",
+  };
+}
+
+function documentDeadlines(answers: CaseProfileAnswers): string[] {
+  const fromBriefs =
+    answers.documentBriefs?.flatMap((b) => b.brief.deadlines || []) || [];
+  return [...new Set(fromBriefs.map((d) => d.trim()).filter(Boolean))].slice(0, 4);
+}
+
+function buildTimeline(opts: {
+  steps: ActionPlanStep[];
+  answers: CaseProfileAnswers;
+  kind: DisputeKind | null;
+  story: string;
+}): ActionPlanTimelineItem[] {
+  const deadlines = documentDeadlines(opts.answers);
+  const wiki = wikiLinkForStory(opts.story, opts.kind);
+  const items: ActionPlanTimelineItem[] = [];
+
+  items.push({
+    id: "tl-week",
+    band: "this_week",
+    label: "This week",
+    detail:
+      "Gather the letter/photo, note any deadline, and contact a free advice door from your plan before you pay anyone.",
+    wikiPath: wiki.wikiPath,
+    wikiTitle: wiki.wikiTitle,
+  });
+
+  if (deadlines.length) {
+    items.push({
+      id: "tl-deadline",
+      band: "before_deadline",
+      label: "Before the deadline on your papers",
+      detail: `Your documents mention: ${deadlines.join("; ")}. Diary the date, keep proof of sending, and use the appeal/response route named in the notice if there is one.`,
+      dueHint: deadlines[0],
+      wikiPath: wiki.wikiPath,
+      wikiTitle: wiki.wikiTitle,
+    });
+  } else {
+    items.push({
+      id: "tl-deadline",
+      band: "before_deadline",
+      label: "Before any response window closes",
+      detail:
+        "If the letter has a pay/appeal/reply date, treat that as urgent. If none is clear, ask the issuer or a free adviser what the time limit is — don’t guess.",
+      wikiPath: wiki.wikiPath,
+      wikiTitle: wiki.wikiTitle,
+    });
+  }
+
+  items.push({
+    id: "tl-later",
+    band: "later",
+    label: "Later — if free doors aren’t enough",
+    detail:
+      "Map financing (legal aid, insurance, no win no fee, or private fixed fee) before instructing a solicitor on a complex matter. Open Financing from your plan when you’re ready.",
+  });
+
+  // Tag a few plan steps with bands for UI hints
+  for (const step of opts.steps) {
+    if (step.id === "gather" || step.id === "understand" || step.id === "free-services") {
+      step.whenBand = "this_week";
+      if (wiki.wikiPath) {
+        step.wikiPath = wiki.wikiPath;
+        step.wikiTitle = wiki.wikiTitle;
+      }
+    } else if (step.id === "who-helps" || step.id === "options") {
+      step.whenBand = deadlines.length ? "before_deadline" : "this_week";
+      if (deadlines[0]) step.dueHint = deadlines[0];
+      if (wiki.wikiPath) {
+        step.wikiPath = wiki.wikiPath;
+        step.wikiTitle = wiki.wikiTitle;
+      }
+    } else if (step.id === "financing" || step.id === "spend") {
+      step.whenBand = "later";
+    }
+  }
+
+  return items;
+}
 
 function spendAdviceFor(preference: FundingPreference | null): string {
   switch (preference) {
@@ -509,8 +606,26 @@ export function buildActionPlan(input: {
     spendAdvice: spendAdviceFor(pref),
   });
 
+  steps.push({
+    id: "financing",
+    label: "Financing access to justice",
+    detail:
+      "Open the financing map for no win no fee, legal aid, insurance, and specialist funders when the dispute is complex. Free advice first.",
+    doorType: "paid",
+    whenBand: "later",
+    url: "/financing",
+  });
+
+  const timeline = buildTimeline({
+    steps,
+    answers: input.answers,
+    kind,
+    story: input.story,
+  });
+
   return {
     steps,
+    timeline,
     freeServices,
     matchedSolicitors: [],
     solicitorMatchMode: input.answers.solicitorMatchMode,

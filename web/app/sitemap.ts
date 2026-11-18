@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/search`, changeFrequency: "daily", priority: 0.95 },
     { url: `${BASE}/ask-the-shaman`, changeFrequency: "daily", priority: 0.95 },
     { url: `${BASE}/ask-the-shaman/who-helps`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/blog`, changeFrequency: "daily", priority: 0.92 },
+    { url: `${BASE}/financing`, changeFrequency: "weekly", priority: 0.88 },
     { url: `${BASE}/signposting`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/for-firms`, changeFrequency: "weekly", priority: 0.85 },
     { url: `${BASE}/terms`, changeFrequency: "yearly", priority: 0.3 },

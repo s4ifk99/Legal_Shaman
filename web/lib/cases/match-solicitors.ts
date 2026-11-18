@@ -1,13 +1,20 @@
 import "server-only";
 
 import type { DisputeKind } from "@/lib/cases/dispute-context";
-import type { ActionPlanSolicitor } from "@/lib/cases/types";
+import type { ActionPlanSolicitor, ActionPlanSolicitorCosts } from "@/lib/cases/types";
 import {
   resolveSraSearchFlags,
   hasPracticeRoute,
   postcodePrefixesForLocation,
 } from "@/lib/coherence/sraQuery";
-import { searchSraOrganisationsTypesense } from "@/lib/coherence/server/sra-typesense-search";
+import {
+  searchSraOrganisationsTypesense,
+  type CoherenceSraHit,
+} from "@/lib/coherence/server/sra-typesense-search";
+import {
+  serviceLabelForKind,
+  sraRequiresPublishedPrices,
+} from "@/lib/cases/solicitor-costs";
 
 export type SolicitorMatchMode = "local" | "online" | "reviews" | "unsure";
 
@@ -30,6 +37,33 @@ function matterTypeForKind(kind: DisputeKind | null | undefined): string {
     default:
       return "unknown";
   }
+}
+
+function publishedCostsForHit(
+  hit: CoherenceSraHit,
+  kind: DisputeKind | null,
+): ActionPlanSolicitorCosts | null {
+  const serviceLabel = serviceLabelForKind(kind);
+  const sraRequired = sraRequiresPublishedPrices(kind);
+  const funding = hit.fundingCapabilities || [];
+  const hasFixedFee = funding.some((f) => /fixed_fee|fixed fee/i.test(f));
+  // We only surface a concrete costs card when the index has a fee signal.
+  // Otherwise the UI offers “Ask for costs” (mailto + brief PDF).
+  if (!hasFixedFee && !sraRequired) return null;
+  if (hasFixedFee) {
+    return {
+      serviceLabel,
+      summary: `This firm signals fixed-fee options in our index for work that may cover ${serviceLabel}. Confirm the exact package and inclusions with the firm before you instruct.`,
+      sourceUrl: hit.website || hit.profileUrl || undefined,
+      sraRequired,
+    };
+  }
+  return {
+    serviceLabel,
+    summary: `SRA price-transparency rules usually require firms to publish prices for ${serviceLabel}. We do not yet have their published figures on Legal Shaman — ask them for costs, or check their website fees page.`,
+    sourceUrl: hit.website || undefined,
+    sraRequired: true,
+  };
 }
 
 function sraRegisterUrl(sraId?: string, name?: string): string {
@@ -89,6 +123,7 @@ export async function matchSolicitorsForCase(input: {
   mode: SolicitorMatchMode;
   locationHint?: string | null;
   limit?: number;
+  legalAidOnly?: boolean;
 }): Promise<{
   solicitors: ActionPlanSolicitor[];
   source: "sra_typesense" | "none";
@@ -98,6 +133,7 @@ export async function matchSolicitorsForCase(input: {
   const mode = input.mode || "unsure";
   const locationHint = (input.locationHint || "").trim();
   const limit = Math.min(Math.max(input.limit || 5, 1), 8);
+  const legalAidOnly = Boolean(input.legalAidOnly);
 
   if (mode === "local" && !locationHint) {
     return {
@@ -119,17 +155,23 @@ export async function matchSolicitorsForCase(input: {
     wantLitigation: input.kind === "neighbour" || input.kind === "general" ? true : undefined,
   });
 
-  if (!hasPracticeRoute(flags) && !locationHint) {
+  if (!hasPracticeRoute(flags) && !locationHint && !legalAidOnly) {
     return { solicitors: [], source: "none", emptyReason: "no_practice_route" };
   }
 
-  const minScore =
-    mode === "reviews" || mode === "online" ? 10 : locationHint ? 12 : 14;
+  const minScore = legalAidOnly
+    ? 6
+    : mode === "reviews" || mode === "online"
+      ? 10
+      : locationHint
+        ? 12
+        : 14;
 
   const pool = await searchSraOrganisationsTypesense({
     flags: { ...flags, query: story.slice(0, 500), matterType },
     limit: Math.min(40, limit * 8),
     minScore,
+    legalAidOnly,
   });
 
   let ranked = [...pool];
@@ -139,7 +181,14 @@ export async function matchSolicitorsForCase(input: {
     ranked = local.length ? local : ranked;
   }
 
-  if (mode === "online") {
+  if (legalAidOnly) {
+    ranked.sort(
+      (a, b) =>
+        Number(Boolean(b.legalAid)) - Number(Boolean(a.legalAid)) ||
+        b.score - a.score ||
+        a.name.localeCompare(b.name),
+    );
+  } else if (mode === "online") {
     ranked.sort(
       (a, b) =>
         Number(Boolean(b.website)) - Number(Boolean(a.website)) ||
@@ -147,11 +196,11 @@ export async function matchSolicitorsForCase(input: {
         a.name.localeCompare(b.name),
     );
   } else if (mode === "reviews") {
-    // Prefer firms with a website (public footprint) then score — reviews checked via Google link in UI.
     ranked.sort(
       (a, b) =>
+        Number(Boolean(b.rating)) - Number(Boolean(a.rating)) ||
+        (b.reviewCount || 0) - (a.reviewCount || 0) ||
         Number(Boolean(b.website)) - Number(Boolean(a.website)) ||
-        Number(Boolean(b.phone)) - Number(Boolean(a.phone)) ||
         b.score - a.score ||
         a.name.localeCompare(b.name),
     );
@@ -164,24 +213,45 @@ export async function matchSolicitorsForCase(input: {
     );
   }
 
-  const solicitors: ActionPlanSolicitor[] = ranked.slice(0, limit).map((h) => ({
-    id: `sra:${h.sraId}`,
-    name: h.name,
-    blurb: matchReasonFor(mode, h, locationHint),
-    url: h.profileUrl || h.website || sraRegisterUrl(h.sraId, h.name),
-    phone: h.phone || undefined,
-    city: h.city || undefined,
-    postcode: h.postcode || undefined,
-    sraId: h.sraId,
-    matchReason:
-      mode === "local"
-        ? "Matched from the SRA register near you"
-        : mode === "online"
-          ? "Matched from the SRA register for online-friendly contact"
-          : mode === "reviews"
-            ? "Matched from the SRA register — compare public reviews before instructing"
-            : "Matched from the SRA register",
-  }));
+  const solicitors: ActionPlanSolicitor[] = ranked.slice(0, limit).map((h) => {
+    const costs = publishedCostsForHit(h, input.kind);
+    const reviews =
+      h.rating || h.reviewCount
+        ? {
+            rating: h.rating,
+            reviewCount: h.reviewCount,
+            summary: h.rating
+              ? `Rated ${h.rating.toFixed(1)}${h.reviewCount ? ` from ${h.reviewCount} review${h.reviewCount === 1 ? "" : "s"}` : ""} on Legal Shaman’s index.`
+              : h.reviewCount
+                ? `${h.reviewCount} review${h.reviewCount === 1 ? "" : "s"} on Legal Shaman’s index.`
+                : undefined,
+          }
+        : null;
+    return {
+      id: h.sraId.startsWith("sra:") || h.sraId.includes(":") ? h.sraId : `sra:${h.sraId}`,
+      name: h.name,
+      blurb: matchReasonFor(mode, h, locationHint),
+      url: h.profileUrl || h.website || sraRegisterUrl(h.sraId, h.name),
+      phone: h.phone || undefined,
+      email: h.email,
+      city: h.city || undefined,
+      postcode: h.postcode || undefined,
+      sraId: h.sraId,
+      website: h.website || undefined,
+      legalAid: h.legalAid || legalAidOnly || undefined,
+      publishedCosts: costs,
+      reviews,
+      matchReason: legalAidOnly
+        ? "Matched as a legal aid provider / legal-aid flagged firm"
+        : mode === "local"
+          ? "Matched from the SRA register near you"
+          : mode === "online"
+            ? "Matched from the SRA register for online-friendly contact"
+            : mode === "reviews"
+              ? "Matched from the SRA register — compare reviews on Legal Shaman before instructing"
+              : "Matched from the SRA register",
+    };
+  });
 
   return {
     solicitors,

@@ -242,7 +242,30 @@ export function MyCaseClient() {
       </header>
 
       {plan ? (
-        <ActionPlanView plan={plan} title="Plan of action" />
+        <ActionPlanView
+          plan={plan}
+          title="Plan of action"
+          kind={kind}
+          story={story || undefined}
+          preferFreeOpen={false}
+          brief={{
+            title: row.title,
+            summary: row.summary,
+            matterType: row.matterType,
+            fundingPreference: row.fundingPreference,
+            profileAnswers: row.profileAnswers,
+            actionPlan: plan,
+            clientName: user.name || user.email,
+            generatedAt: new Date().toISOString(),
+          }}
+          onPlanPatch={(patch) => {
+            setRow((prev) =>
+              prev && prev.actionPlan
+                ? { ...prev, actionPlan: { ...prev.actionPlan, ...patch } }
+                : prev,
+            );
+          }}
+        />
       ) : (
         <div className="rounded-2xl border border-dashed border-border p-6 text-sm text-muted-foreground">
           Your plan is still forming.{" "}
@@ -276,13 +299,31 @@ export function MyCaseClient() {
           <p className="mt-1 text-xs text-muted-foreground">
             Photos, PDFs, and text letters only — scanned for unsafe file types.
           </p>
-          <ul className="mt-4 space-y-2">
+          <ul className="mt-4 space-y-3">
             {row.attachments.map((a) => (
               <li key={a.id} className="rounded-2xl border border-border/60 bg-background/70 px-4 py-3 text-sm">
-                <p className="font-medium text-foreground">{a.name}</p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {(a.size / 1024).toFixed(0)} KB · {new Date(a.uploadedAt).toLocaleString("en-GB")}
-                </p>
+                <div className="flex gap-3">
+                  {a.dataUrl && a.mime.startsWith("image/") ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={a.dataUrl}
+                      alt=""
+                      className="h-16 w-16 shrink-0 rounded-lg object-cover border border-border/50"
+                    />
+                  ) : null}
+                  <div className="min-w-0 flex-1">
+                    <p className="font-medium text-foreground">{a.name}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {(a.size / 1024).toFixed(0)} KB ·{" "}
+                      {new Date(a.uploadedAt).toLocaleString("en-GB")}
+                    </p>
+                    {a.extractedBrief?.summary ? (
+                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                        {a.extractedBrief.summary}
+                      </p>
+                    ) : null}
+                  </div>
+                </div>
               </li>
             ))}
           </ul>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import "./rothko-field.css";
 
 type Props = {
   className?: string;

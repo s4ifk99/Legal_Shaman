@@ -32,6 +32,8 @@ import {
   ucScreenQuestionsFor,
 } from "@/lib/cases/universal-credit-knowledge";
 import { detectGuideNation } from "@/lib/cases/pro-bono-guide-knowledge";
+import type { DocumentBrief } from "@/lib/cases/document-brief";
+import { documentBriefToStorySeed } from "@/lib/cases/document-brief";
 
 export type FlowPhase =
   | "need_account"
@@ -123,16 +125,80 @@ export function createInitialFlow(_signedIn = true): FlowState {
     phase: "collect_story",
     messages: [
       {
-        id: "welcome-collect-story",
+        id: "welcome-1",
         role: "shaman",
-        text:
-          "This is the Shaman — a helpful tool to access justice. We signpost and help you map the path: what happened, claim forms and next steps, how to finance help, through to solicitor costs where needed. " +
-          "We do this for all kinds of claims; financing matters most when a case is complex. Tell me what’s going on in your own words. " +
-          MIC,
+        text: "This is the Shaman, a helpful tool to access justice.",
+      },
+      {
+        id: "welcome-2",
+        role: "shaman",
+        text: "We signpost and help you map the path: what happened, claim forms and next steps, how to finance help, through to solicitor costs where needed.",
+      },
+      {
+        id: "welcome-3",
+        role: "shaman",
+        text: "We do this for all kinds of claims. Financing matters most when a case is complex.",
+      },
+      {
+        id: "welcome-4",
+        role: "shaman",
+        text: "Tell me what’s going on in your own words — or upload a letter, PCN, or photo.",
+      },
+      {
+        id: "welcome-5",
+        role: "shaman",
+        text: MIC,
       },
     ],
     ...emptyAnswersBase(),
-    inputHint: "Tell me what happened — mic welcome",
+    inputHint: "Tell me what happened",
+  };
+}
+
+/**
+ * Inject a vision/OCR document brief into the chat and seed the dispute story when empty.
+ */
+export function applyDocumentBrief(
+  state: FlowState,
+  opts: { chatText: string; brief: DocumentBrief; fileName: string; storySeed?: string },
+): FlowState {
+  const youLine: FlowMessage = {
+    id: mid(),
+    role: "you",
+    text: `Uploaded: ${opts.fileName}`,
+  };
+  const shamanLine: FlowMessage = {
+    id: mid(),
+    role: "shaman",
+    text: opts.chatText,
+  };
+  const seed = (opts.storySeed || documentBriefToStorySeed(opts.brief)).trim();
+  const existingStory = (state.answers.disputeStory || "").trim();
+  const nextStory = existingStory || seed;
+  const briefs = [
+    ...(state.answers.documentBriefs || []),
+    {
+      fileName: opts.fileName,
+      analyzedAt: new Date().toISOString(),
+      brief: opts.brief,
+    },
+  ].slice(-8);
+
+  return {
+    ...state,
+    messages: [...state.messages, youLine, shamanLine],
+    answers: {
+      ...state.answers,
+      disputeStory: nextStory || state.answers.disputeStory,
+      documentBriefSummary: opts.brief.summary,
+      documentBriefs: briefs,
+    },
+    title: state.title || (nextStory ? titleFromStory(nextStory) : state.title),
+    summary: state.summary || opts.brief.summary || state.summary,
+    inputHint:
+      state.phase === "collect_story"
+        ? "Add anything missing, or continue"
+        : state.inputHint,
   };
 }
 

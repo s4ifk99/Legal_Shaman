@@ -25,6 +25,7 @@ export async function POST(req: Request) {
     story?: string;
     mode?: string;
     locationHint?: string;
+    legalAidOnly?: boolean;
   };
   try {
     body = (await req.json()) as typeof body;
@@ -49,6 +50,7 @@ export async function POST(req: Request) {
     story,
     mode,
     locationHint: body.locationHint || "",
+    legalAidOnly: Boolean(body.legalAidOnly),
   });
 
   return NextResponse.json(result);

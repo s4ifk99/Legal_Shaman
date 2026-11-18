@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, Loader2, Building2, FolderOpen } from "lucide-react";
-import Image from "next/image";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { LegalShamanLogo } from "@/components/legal-shaman-logo";
 import { SpiralDecoration } from "./spiral-decoration";
 import { cn } from "@/lib/utils";
 import { useRequireAuth } from "@/lib/auth/use-require-auth";
@@ -140,12 +140,9 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
           <div className="mb-6 flex justify-center">
             <div className="relative">
               <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 blur-lg" />
-              <Image
-                src="/logo.jpg"
-                alt="Legal Shaman Logo"
-                width={100}
-                height={100}
-                className="relative h-24 w-24 rounded-full border-4 border-gold/50 shadow-lg"
+              <LegalShamanLogo
+                variant="mark"
+                className="relative h-24 w-24 rounded-full border-4 border-gold/50 bg-background p-1.5 shadow-lg"
               />
             </div>
           </div>
@@ -163,12 +160,9 @@ export function SearchBar({ compact = false }: { compact?: boolean }) {
         ) : (
           <>
             <div className="mb-4 flex justify-center">
-              <Image
-                src="/logo.jpg"
-                alt="Legal Shaman Logo"
-                width={72}
-                height={72}
-                className="h-16 w-16 rounded-full border-2 border-gold/50 shadow-md md:h-[4.5rem] md:w-[4.5rem]"
+              <LegalShamanLogo
+                variant="mark"
+                className="h-16 w-16 rounded-full border-2 border-gold/50 bg-background p-1 shadow-md md:h-[4.5rem] md:w-[4.5rem]"
               />
             </div>
             <h1 className="mb-1 font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">

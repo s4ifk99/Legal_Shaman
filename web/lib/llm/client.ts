@@ -102,9 +102,16 @@ function getEmbedClient(): OpenAI {
   return _embedClient;
 }
 
+export type ChatTextPart = { type: "text"; text: string };
+export type ChatImagePart = {
+  type: "image_url";
+  image_url: { url: string; detail?: "low" | "high" | "auto" };
+};
+export type ChatContentPart = ChatTextPart | ChatImagePart;
+
 export type ChatMessage = {
   role: "system" | "user" | "assistant";
-  content: string;
+  content: string | ChatContentPart[];
 };
 
 export type ChatOptions = {
@@ -121,6 +128,14 @@ export type ChatOptions = {
   retryReason?: string;
 };
 
+function messageCharLength(content: ChatMessage["content"]): number {
+  if (typeof content === "string") return content.length;
+  return content.reduce((sum, part) => {
+    if (part.type === "text") return sum + part.text.length;
+    return sum + 200;
+  }, 0);
+}
+
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -134,7 +149,8 @@ async function chatWithModel(
   const response = await client.chat.completions.create(
     {
       model,
-      messages,
+      // Multimodal parts (image_url) are valid on OpenRouter/OpenAI vision models.
+      messages: messages as OpenAI.Chat.ChatCompletionMessageParam[],
       temperature: options.temperature ?? 0.2,
       max_tokens: options.maxTokens ?? 400,
       response_format: options.jsonMode ? { type: "json_object" } : undefined,
@@ -160,7 +176,7 @@ export async function chat(
 
   const client = getChatClient();
   const model = resolveChatModel(options.model);
-  const inputChars = messages.reduce((s, m) => s + (m.content?.length || 0), 0);
+  const inputChars = messages.reduce((s, m) => s + messageCharLength(m.content), 0);
   const t0 = Date.now();
   let attempt = options.attempt || 1;
   let usedModel = model;
