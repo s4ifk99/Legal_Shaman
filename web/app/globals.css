@@ -278,6 +278,67 @@
   transform: scale(1.03);
 }
 
+/* Research / explain in flight — breathe + colour shuffle */
+.ls-rothko--researching {
+  transition: background-color 1.2s ease;
+}
+
+.ls-rothko--researching .ls-rothko__zone {
+  transition: background-color 1.2s ease, opacity 1.2s ease, transform 1.4s ease;
+  animation: ls-rothko-breathe 2.8s ease-in-out infinite;
+}
+
+.ls-rothko--researching .ls-rothko__zone--output {
+  animation-delay: 0s;
+}
+
+.ls-rothko--researching .ls-rothko__zone--mid {
+  animation-delay: 0.45s;
+}
+
+.ls-rothko--researching .ls-rothko__zone--input {
+  animation-delay: 0.9s;
+}
+
+@keyframes ls-rothko-breathe {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.92;
+    transform: scale(1.045);
+  }
+}
+
+.ls-research-hourglass {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--primary, #3759b3);
+  animation: ls-hourglass-flip 2s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.ls-research-hourglass--sm {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+@keyframes ls-hourglass-flip {
+  0%,
+  40% {
+    transform: rotate(0deg);
+  }
+  50%,
+  90% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (min-width: 62.5em) {
   .ls-rothko__zone {
     left: 14%;
@@ -293,10 +354,14 @@
   .ls-rothko,
   .ls-rothko__zone {
     transition: none;
+    animation: none !important;
   }
   .ls-rothko--pulse .ls-rothko__zone--output,
   .ls-rothko--pulse .ls-rothko__zone--input {
     transform: none;
+  }
+  .ls-research-hourglass {
+    animation: none;
   }
 }
 

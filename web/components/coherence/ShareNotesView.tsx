@@ -96,7 +96,7 @@ export function ShareNotesView({ brief, publishedAt, expiresAt }: Props) {
       <div className="share-notes__identity">
         <a href="/" aria-hidden="true" tabIndex={-1}>
           <img
-            src="/legal-shaman-mark.svg"
+            src="/spiral-mark.svg"
             alt=""
             width={72}
             height={72}
@@ -243,7 +243,7 @@ export function ShareNotesView({ brief, publishedAt, expiresAt }: Props) {
       <footer className="share-notes__colophon">
         <a href="/" aria-label="Legal Shaman home">
           <img
-            src="/legal-shaman-mark.svg"
+            src="/spiral-mark.svg"
             alt=""
             width={40}
             height={40}

@@ -229,6 +229,11 @@ export type CaseProfileAnswers = {
   /** Answers keyed by dispute question id */
   disputeAnswers?: Record<string, string>;
   processAwareness?: string;
+  /**
+   * After the story: researching the law vs finding someone local to speak to.
+   * Local help (solicitor / free advice) only when they ask for a person.
+   */
+  helpIntent?: "research" | "local";
   /** Early interest in speaking to a human (e.g. about divorce). */
   wantSpeakToSomeone?: string;
   /** How to match an SRA solicitor: local, online, or by reviews. */

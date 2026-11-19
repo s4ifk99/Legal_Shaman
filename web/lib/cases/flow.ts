@@ -38,6 +38,7 @@ import { documentBriefToStorySeed } from "@/lib/cases/document-brief";
 export type FlowPhase =
   | "need_account"
   | "collect_story"
+  | "intent_fork"
   | "speak_to_someone"
   | "solicitor_match_mode"
   | "solicitor_location"
@@ -376,19 +377,38 @@ function resolvePreference(answers: CaseProfileAnswers): FundingPreference {
   return "pro_bono";
 }
 
-function speakToSomeonePrompt(kind: DisputeKind | null): string {
-  if (kind === "divorce") {
-    return (
-      "Most people going through divorce want to speak to someone. " +
-      "Shall we shape this so you can find the right person when you’re ready — family adviser, mediator, or solicitor? " +
-      MIC
-    );
-  }
+/** After hearing the story: research the law vs find someone local. */
+function researchOrLocalPrompt(_kind: DisputeKind | null): string {
   return (
-    "Most people in your shoes want to speak to a person. " +
-    "Shall we shape this so you can find the right adviser or solicitor when you’re ready? " +
+    "Got it. Are you researching what the law says on this, " +
+    "or looking for someone local to speak to — a solicitor or free advice centre? " +
     MIC
   );
+}
+
+function parseHelpIntent(text: string): "research" | "local" | "unsure" {
+  const t = text.toLowerCase().trim();
+  if (
+    /\b(research|researching|look(ing)?\s+up|find\s+out|what\s+(does|is)\s+the\s+law|legal\s+position|know\s+(the|my)\s+rights|information|just\s+(want\s+to\s+)?know|understand\s+the\s+law)\b/.test(
+      t,
+    ) ||
+    /^(research|researching|look\s*up|find\s*out)\b/.test(t)
+  ) {
+    return "research";
+  }
+  if (
+    /\b(speak|talk|local|solicitor|lawyer|adviser|advisor|advice\s+cent(re|er)|someone|a\s+person|help\s+me\s+find|find\s+(someone|a\s+solicitor|local))\b/.test(
+      t,
+    ) ||
+    /^(local|solicitor|speak|talk|person|someone)\b/.test(t)
+  ) {
+    return "local";
+  }
+  // Legacy speak_to_someone answers
+  const yn = yesNoUnsure(text);
+  if (yn === "yes") return "local";
+  if (yn === "no") return "research";
+  return "unsure";
 }
 
 function solicitorMatchModePrompt(): string {
@@ -439,13 +459,25 @@ function continueAfterSolicitorPrefs(
             ? "We’ll look on the SRA register and you can compare public reviews before instructing."
             : "We’ll keep SRA solicitor matches open if you want them later.";
 
+  // Local-help path: match a person / free advice — do not dump a rigid process template.
+  if (next.answers.helpIntent === "local" || next.answers.wantSpeakToSomeone) {
+    const cont = beginFreeServicesTried(
+      messages,
+      next,
+      `${modeNote} Next we’ll map free advice centres and how you might fund a solicitor if you need one.`,
+    );
+    return { next: cont.next, shamanBurst: cont.shamanBurst, needsExplain: false };
+  }
+
   if (storyIsRichEnough(story)) {
     if (kind === "benefits") {
       const uc = beginUcRightsScreen(messages, next, modeNote);
       return { next: uc.next, shamanBurst: uc.shamanBurst, needsExplain: false };
     }
-    const delivered = beginOptionsDelivery(messages, kind);
-    const waiting = delivered.shamanBurst[0] || "I’ll share the main options in plain English first…";
+    const delivered = beginResearchDelivery();
+    const waiting =
+      delivered.shamanBurst[0] ||
+      "I’ll check official guidance for your question…";
     const burst = withBurst(messages, [modeNote, waiting]);
     next.phase = delivered.phase;
     next.messages = burst.messages;
@@ -522,24 +554,73 @@ function freeServicesPrompt(kind: DisputeKind | null): string {
   }
 }
 
-function beginOptionsDelivery(
-  _messages: FlowMessage[],
-  _kind: DisputeKind,
-): {
+/** Research path: measured gov / Exa signpost loop via /api/cases/explain. */
+function beginResearchDelivery(): {
   phase: FlowPhase;
-  messages: FlowMessage[];
   inputHint: string;
   needsExplain: boolean;
   shamanBurst: string[];
 } {
   const waiting =
-    "I’ll set out the main doors in plain English — so you can see who to speak to and what each path involves…";
+    "I’ll check official government guidance and trusted sources for your question, then put a clear answer together. This can take a minute or two…";
   return {
     phase: "await_explain",
-    messages: [..._messages, { id: mid(), role: "shaman", text: waiting }],
     inputHint: "One moment…",
     needsExplain: true,
     shamanBurst: [waiting],
+  };
+}
+
+function beginLocalHelpPath(
+  messages: FlowMessage[],
+  next: FlowState,
+  leadIn?: string,
+): { next: FlowState; shamanBurst: string[] } {
+  next.answers.helpIntent = "local";
+  const bridge =
+    leadIn ||
+    "Good — we’ll help you find someone local: a solicitor on the SRA register, or a free advice centre.";
+  const ask = solicitorMatchModePrompt();
+  const burst = withBurst(messages, [bridge, ask]);
+  next.phase = "solicitor_match_mode";
+  next.messages = burst.messages;
+  next.inputHint = "Local / online / by reviews";
+  return { next, shamanBurst: burst.shamanBurst };
+}
+
+function beginResearchPath(
+  messages: FlowMessage[],
+  next: FlowState,
+  leadIn?: string,
+): {
+  next: FlowState;
+  shamanBurst: string[];
+  needsExplain: boolean;
+} {
+  next.answers.helpIntent = "research";
+  const kind = next.disputeKind || next.answers.disputeKind || "general";
+  const story = next.answers.disputeStory || next.summary || "";
+
+  if (kind === "benefits" && storyIsRichEnough(story)) {
+    const uc = beginUcRightsScreen(
+      messages,
+      next,
+      leadIn ||
+        "I’ll map your Universal Credit rights first, then pull official guidance for your situation.",
+    );
+    return { next: uc.next, shamanBurst: uc.shamanBurst, needsExplain: false };
+  }
+
+  const delivered = beginResearchDelivery();
+  const lines = [leadIn, delivered.shamanBurst[0]].filter(Boolean) as string[];
+  const burst = withBurst(messages, lines);
+  next.phase = delivered.phase;
+  next.messages = burst.messages;
+  next.inputHint = delivered.inputHint;
+  return {
+    next,
+    shamanBurst: burst.shamanBurst,
+    needsExplain: delivered.needsExplain,
   };
 }
 
@@ -588,10 +669,12 @@ function finishUcRightsAndExplain(
       .slice(0, 2000);
   }
 
+  next.answers.helpIntent = next.answers.helpIntent || "research";
   const rightsBurst = (map?.rightsMessages || []).slice(0, 6);
   const bridge =
-    "Next I’ll map your process options (mandatory reconsideration, appeal, and free help) — then financing if you need a solicitor.";
-  const burst = withBurst(messages, [...rightsBurst, bridge]);
+    "Next I’ll pull official guidance on mandatory reconsideration, appeal, and free help for your situation.";
+  const waiting = beginResearchDelivery().shamanBurst[0]!;
+  const burst = withBurst(messages, [...rightsBurst, bridge, waiting]);
   next.phase = "await_explain";
   next.messages = burst.messages;
   next.inputHint = "One moment…";
@@ -683,6 +766,31 @@ export function advanceFlow(state: FlowState, userText: string): FlowAdvanceResu
   switch (state.phase) {
     case "need_account":
     case "collect_story": {
+      const priorStory = (next.answers.disputeStory || "").trim();
+      const earlyIntent = parseHelpIntent(text);
+      const wordCount = text.split(/\s+/).filter(Boolean).length;
+      // During deepen, a short “researching / find someone local” is a fork answer, not more story.
+      if (
+        priorStory.length > 40 &&
+        earlyIntent !== "unsure" &&
+        wordCount <= 18
+      ) {
+        if (earlyIntent === "local") {
+          next.answers.wantSpeakToSomeone = text;
+          const local = beginLocalHelpPath(messages, next);
+          next = local.next;
+          shamanBurst = local.shamanBurst;
+          needsExplain = false;
+        } else {
+          const research = beginResearchPath(messages, next);
+          next = research.next;
+          shamanBurst = research.shamanBurst;
+          needsExplain = research.needsExplain;
+        }
+        shouldPersist = true;
+        break;
+      }
+
       const combined = appendStory(next.answers.disputeStory, text);
       next.answers.disputeStory = combined;
       next.title = titleFromStory(combined);
@@ -707,19 +815,77 @@ export function advanceFlow(state: FlowState, userText: string): FlowAdvanceResu
       }
 
       const ack = humanAcknowledge(kind, combined);
-      const speak = speakToSomeonePrompt(kind);
-      const burst = withBurst(messages, [ack, speak]);
-      next.phase = "speak_to_someone";
+      const fork = researchOrLocalPrompt(kind);
+      const burst = withBurst(messages, [ack, fork]);
+      next.phase = "intent_fork";
       next.messages = burst.messages;
       shamanBurst = burst.shamanBurst;
-      next.inputHint = "Yes — help me find the right person / not yet";
+      next.inputHint = "Researching the law / find someone local";
+      shouldPersist = true;
+      break;
+    }
+
+    case "intent_fork": {
+      // If they keep telling the story instead of choosing, fold it in and re-ask.
+      if (
+        text.split(/\s+/).length > 18 &&
+        parseHelpIntent(text) === "unsure" &&
+        !/^(research|local|speak|solicitor)/i.test(text)
+      ) {
+        next.answers.disputeStory = appendStory(next.answers.disputeStory, text);
+        next.summary = next.answers.disputeStory;
+        next.title = titleFromStory(next.answers.disputeStory || text);
+        const refreshed = detectDisputeKind(next.answers.disputeStory || text);
+        next.disputeKind = refreshed;
+        next.answers.disputeKind = refreshed;
+        const burst = withBurst(messages, [
+          "Thanks — I’ve added that. " + researchOrLocalPrompt(refreshed),
+        ]);
+        next.phase = "intent_fork";
+        next.messages = burst.messages;
+        shamanBurst = burst.shamanBurst;
+        next.inputHint = "Researching the law / find someone local";
+        shouldPersist = true;
+        break;
+      }
+
+      const intent = parseHelpIntent(text);
+      if (intent === "unsure") {
+        const burst = withBurst(messages, [
+          "Just so I point you the right way: are you researching what the law says on this, " +
+            "or looking for someone local to speak to — a solicitor or free advice centre? " +
+            MIC,
+        ]);
+        next.phase = "intent_fork";
+        next.messages = burst.messages;
+        shamanBurst = burst.shamanBurst;
+        next.inputHint = "Researching / find someone local";
+        shouldPersist = true;
+        break;
+      }
+
+      if (intent === "local") {
+        next.answers.wantSpeakToSomeone = text;
+        const local = beginLocalHelpPath(messages, next);
+        next = local.next;
+        shamanBurst = local.shamanBurst;
+        needsExplain = false;
+        shouldPersist = true;
+        break;
+      }
+
+      // Research — measured gov / Exa loop (main path).
+      const research = beginResearchPath(messages, next);
+      next = research.next;
+      shamanBurst = research.shamanBurst;
+      needsExplain = research.needsExplain;
       shouldPersist = true;
       break;
     }
 
     case "speak_to_someone": {
+      // Legacy resume: treat as research-vs-local fork.
       next.answers.wantSpeakToSomeone = text;
-      // If they keep telling the story instead of yes/no, fold it in.
       if (text.split(/\s+/).length > 12 && !/^(yes|yeah|yep|no|nope|nah)\b/i.test(text)) {
         next.answers.disputeStory = appendStory(next.answers.disputeStory, text);
         next.summary = next.answers.disputeStory;
@@ -729,60 +895,30 @@ export function advanceFlow(state: FlowState, userText: string): FlowAdvanceResu
         next.answers.disputeKind = refreshed;
       }
 
-      const interest = yesNoUnsure(text);
-      const wantsSolicitor =
-        interest === "yes" ||
-        /\b(solicitor|lawyer|find someone|speak to|talk to)\b/i.test(text);
-
-      if (wantsSolicitor && interest !== "no") {
-        const bridge =
-          "Good — we’ll shape this so you can find the right person. I’m not a solicitor; I help you get ready to speak to one.";
-        const ask = solicitorMatchModePrompt();
-        const burst = withBurst(messages, [bridge, ask]);
-        next.phase = "solicitor_match_mode";
-        next.messages = burst.messages;
-        shamanBurst = burst.shamanBurst;
-        next.inputHint = "Local / online / by reviews";
+      const intent = parseHelpIntent(text);
+      if (intent === "local" || (yesNoUnsure(text) === "yes" && intent !== "research")) {
+        const local = beginLocalHelpPath(
+          messages,
+          next,
+          "Good — we’ll help you find the right person. I’m not a solicitor; I help you get ready to speak to one.",
+        );
+        next = local.next;
+        shamanBurst = local.shamanBurst;
+        needsExplain = false;
         shouldPersist = true;
         break;
       }
 
-      const kind = next.disputeKind || next.answers.disputeKind || "general";
-      const story = next.answers.disputeStory || next.summary || "";
-      const bridge =
-        interest === "no"
-          ? "That’s fine. We’ll still shape your matter clearly so the options make sense when you are ready."
-          : "Okay — we’ll keep that open and shape the problem so the right people can help.";
-
-      if (storyIsRichEnough(story)) {
-        if (kind === "benefits") {
-          const uc = beginUcRightsScreen(messages, next, bridge);
-          next = uc.next;
-          shamanBurst = uc.shamanBurst;
-          needsExplain = false;
-        } else {
-          const delivered = beginOptionsDelivery(messages, kind);
-          const waiting =
-            delivered.shamanBurst[0] || "I’ll share the main options in plain English first…";
-          const burst = withBurst(messages, [bridge, waiting]);
-          next.phase = delivered.phase;
-          next.messages = burst.messages;
-          shamanBurst = burst.shamanBurst;
-          next.inputHint = delivered.inputHint;
-          needsExplain = delivered.needsExplain;
-        }
-      } else {
-        const q = disputeQuestionAt(kind, 0);
-        const ask =
-          q?.ask ||
-          "In your own words, what should the right person understand first about what happened?";
-        const burst = withBurst(messages, [bridge, ask]);
-        next.phase = "dispute_context";
-        next.disputeQIndex = 0;
-        next.messages = burst.messages;
-        shamanBurst = burst.shamanBurst;
-        next.inputHint = q?.placeholder || "What they need to grasp first…";
-      }
+      const research = beginResearchPath(
+        messages,
+        next,
+        intent === "research"
+          ? "Understood — I’ll research the official guidance for your question."
+          : "That’s fine. I’ll research the official guidance for your situation first.",
+      );
+      next = research.next;
+      shamanBurst = research.shamanBurst;
+      needsExplain = research.needsExplain;
       shouldPersist = true;
       break;
     }
@@ -838,25 +974,38 @@ export function advanceFlow(state: FlowState, userText: string): FlowAdvanceResu
           [q.id]: text,
         };
       }
-      // One shaping prompt only — then UC rights (benefits) or options.
       next.disputeQIndex = state.disputeQIndex + 1;
-      const lead =
-        "That’s enough to shape a clear picture. I’ll set out the main doors in plain English so you can choose who to speak to.";
-      if (kind === "benefits") {
-        const uc = beginUcRightsScreen(messages, next, lead);
-        next = uc.next;
-        shamanBurst = uc.shamanBurst;
-        needsExplain = false;
-      } else {
-        const delivered = beginOptionsDelivery(messages, kind);
-        const waiting =
-          delivered.shamanBurst[0] || "I’ll share the main options in plain English first…";
-        const burst = withBurst(messages, [lead, waiting]);
-        next.phase = delivered.phase;
+
+      // Honour prior fork; otherwise ask research vs local.
+      if (!next.answers.helpIntent) {
+        const lead = "That’s enough to shape a clear picture.";
+        const burst = withBurst(messages, [lead, researchOrLocalPrompt(kind)]);
+        next.phase = "intent_fork";
         next.messages = burst.messages;
         shamanBurst = burst.shamanBurst;
-        next.inputHint = delivered.inputHint;
-        needsExplain = delivered.needsExplain;
+        next.inputHint = "Researching the law / find someone local";
+        shouldPersist = true;
+        break;
+      }
+
+      if (next.answers.helpIntent === "local") {
+        const local = beginLocalHelpPath(
+          messages,
+          next,
+          "That’s enough to shape a clear picture. Let’s find someone local to speak to.",
+        );
+        next = local.next;
+        shamanBurst = local.shamanBurst;
+        needsExplain = false;
+      } else {
+        const research = beginResearchPath(
+          messages,
+          next,
+          "That’s enough to shape a clear picture. I’ll pull official guidance next.",
+        );
+        next = research.next;
+        shamanBurst = research.shamanBurst;
+        needsExplain = research.needsExplain;
       }
       shouldPersist = true;
       break;
@@ -903,7 +1052,10 @@ export function advanceFlow(state: FlowState, userText: string): FlowAdvanceResu
     }
 
     case "await_explain": {
-      const line = "Still putting your options together — hang on. " + MIC;
+      const line =
+        next.answers.helpIntent === "research"
+          ? "Still checking official sources for your question — hang on. " + MIC
+          : "Still putting this together — hang on. " + MIC;
       const burst = withBurst(messages, [line]);
       next.messages = burst.messages;
       shamanBurst = burst.shamanBurst;
@@ -913,6 +1065,25 @@ export function advanceFlow(state: FlowState, userText: string): FlowAdvanceResu
 
     case "options_clarify": {
       next.answers.optionsClarify = text;
+
+      // After research: they may now want a local person.
+      if (
+        /\b(speak|talk|local|solicitor|lawyer|advice\s+cent(re|er)|find\s+someone)\b/i.test(
+          text,
+        ) &&
+        !/\b(legal aid|pay|privat|financ)\b/i.test(text)
+      ) {
+        const local = beginLocalHelpPath(
+          messages,
+          next,
+          "Understood — let’s find someone local to speak to about this.",
+        );
+        next = local.next;
+        shamanBurst = local.shamanBurst;
+        shouldPersist = true;
+        break;
+      }
+
       // Honour money / free-services / skip intent even when they also asked for clarify.
       if (
         /\b(money|financ|ready|next|legal aid|privat|pay|done|free service|skip)\b/i.test(text) ||
@@ -1219,7 +1390,7 @@ export function advanceFlow(state: FlowState, userText: string): FlowAdvanceResu
 
 /**
  * Apply server-built explanation as separate short turns (not one dump),
- * then ask how they’d fund help — legal aid vs paying — instead of dumping money notes.
+ * then offer deepen / local help / financing — not a rigid doors dump.
  */
 export function applyExplanation(
   state: FlowState,
@@ -1237,13 +1408,25 @@ export function applyExplanation(
     .filter(Boolean);
 
   const optionLines =
-    lines.length > 0 ? lines : ["Here are the usual options in plain English."];
+    lines.length > 0
+      ? lines
+      : [
+          "I couldn’t pull a solid official answer just now. Tell me which part matters most, or ask to find someone local.",
+        ];
+
+  const researchAsk =
+    "Want me to dig into any of that further, or would you like help finding someone local — a solicitor or free advice centre? " +
+    "If you’re ready to map financing (legal aid / private pay / free services), say so. " +
+    MIC;
 
   const financeAsk =
     "Next we map financing — from free doors and legal aid through to private solicitor costs if you instruct someone. For complex claims that map is especially important. Would you expect to check legal aid, or pay privately? You can also ask me to clarify any option first. " +
     MIC;
 
-  const burst = withBurst(state.messages, [...optionLines, financeAsk]);
+  const followUp =
+    state.answers.helpIntent === "research" ? researchAsk : financeAsk;
+
+  const burst = withBurst(state.messages, [...optionLines, followUp]);
   const stored = optionLines.join("\n\n");
   return {
     ...state,
@@ -1251,15 +1434,33 @@ export function applyExplanation(
     answers: {
       ...state.answers,
       optionsExplanation: stored,
+      helpIntent: state.answers.helpIntent || "research",
     },
     phase: "options_clarify",
     messages: burst.messages,
-    inputHint: "Clarify an option / legal aid / pay privately",
+    inputHint:
+      state.answers.helpIntent === "research"
+        ? "Dig deeper / find someone local / financing"
+        : "Clarify an option / legal aid / pay privately",
   };
+}
+
+/**
+ * Soft fallback when research explain is slow/fails — never the rigid process template.
+ */
+export function researchExplainFallback(_state: FlowState): string[] {
+  return [
+    "I’m still pulling official guidance for your question — that can take a minute or two. " +
+      "Hang on, or tell me which part matters most (what the law says, deadlines, or who can help).",
+  ];
 }
 
 /** Sync fallback options when explain API is slow — used by the client timeout path. */
 export function localOptionsExplanation(state: FlowState): string[] {
+  // Research path must not fall back to the rigid dispute-process template.
+  if (state.answers.helpIntent === "research" || !state.answers.helpIntent) {
+    return researchExplainFallback(state);
+  }
   const kind = state.disputeKind || state.answers.disputeKind || "general";
   return formatOptionsMessages(getProcessGuide(kind));
 }

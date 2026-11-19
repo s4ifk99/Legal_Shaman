@@ -16,7 +16,7 @@ import { getWikiIndex } from "@/lib/wiki/load-index";
 import { listFeaturedWikiPages, listWikiCategories } from "@/lib/wiki/search";
 import { wikiPagePublicPath } from "@/lib/wiki/public-url";
 import { enableMapSearch, enableSearchDebug } from "@/lib/legal-search/config";
-import { isV3LandingEnabled, isV3SimpleShellEnabled } from "@/lib/v3/feature";
+import { isV3SimpleShellEnabled } from "@/lib/v3/feature";
 
 type PageProps = {
   searchParams: Promise<{
@@ -118,15 +118,9 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
   const showGuided = sp.guided === "1";
   const forceClassic = sp.classic === "1";
 
-  // Landing mode (local): V3 agent lives on /ask-the-shaman.
-  // Production without landing: agent is on `/`; this route stays Coherence/classic.
+  // V3 agent is always on /ask-the-shaman (homepage is the What is landing).
   // Escape hatches: ?classic=1, ?guided=1.
-  if (
-    isV3LandingEnabled() &&
-    isV3SimpleShellEnabled() &&
-    !forceClassic &&
-    !showGuided
-  ) {
+  if (isV3SimpleShellEnabled() && !forceClassic && !showGuided) {
     return <AskTheShamanV3 />;
   }
 

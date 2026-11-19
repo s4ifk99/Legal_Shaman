@@ -7,6 +7,8 @@ import { CategoryCards, type CategorySection } from "@/components/category-cards
 import { LegalShamanLogo } from "@/components/legal-shaman-logo";
 import { RothkoField } from "@/components/v3/rothko-field";
 import { TypewriterHeadline } from "@/components/v3/typewriter-headline";
+import { captureProductEvent } from "@/components/analytics/posthog-provider";
+import { JOURNEY_EVENTS } from "@/lib/analytics/journey-events";
 
 type Props = {
   sections: CategorySection[];
@@ -18,6 +20,10 @@ type Props = {
  */
 export function LandingShell({ sections }: Props) {
   const [pulseKey, setPulseKey] = useState(0);
+
+  useEffect(() => {
+    captureProductEvent(JOURNEY_EVENTS.landingViewed, { path: "/" });
+  }, []);
 
   useEffect(() => {
     // Gentle colour field shifts while browsing the landing.
@@ -54,6 +60,12 @@ export function LandingShell({ sections }: Props) {
               <div className="mt-8 flex justify-center">
                 <Link
                   href="/ask-the-shaman"
+                  onClick={() =>
+                    captureProductEvent(JOURNEY_EVENTS.landingCtaAsk, {
+                      path: "/",
+                      cta: "hero",
+                    })
+                  }
                   className="inline-flex min-w-[14rem] items-center justify-center rounded-xl bg-primary px-10 py-4 text-lg font-semibold text-primary-foreground shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-lg"
                 >
                   Ask the Shaman
@@ -103,6 +115,12 @@ export function LandingShell({ sections }: Props) {
             <div className="mt-10 text-center">
               <Link
                 href="/ask-the-shaman"
+                onClick={() =>
+                  captureProductEvent(JOURNEY_EVENTS.landingCtaAsk, {
+                    path: "/",
+                    cta: "what_is",
+                  })
+                }
                 className="inline-flex items-center justify-center rounded-xl bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-lg"
               >
                 Start with Ask the Shaman
@@ -129,6 +147,12 @@ export function LandingShell({ sections }: Props) {
             <div className="mt-10 text-center">
               <Link
                 href="/blog"
+                onClick={() =>
+                  captureProductEvent(JOURNEY_EVENTS.landingDirectoryClick, {
+                    path: "/",
+                    target: "/blog",
+                  })
+                }
                 className="inline-flex items-center rounded-xl border-2 border-white/40 bg-background/35 px-6 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-background/55"
               >
                 Read the Blog

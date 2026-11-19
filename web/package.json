@@ -139,7 +139,9 @@
     "reddit:daily-pick": "tsx scripts/reddit-daily-pick.ts",
     "wiki:clawback": "tsx scripts/wiki-clawback.ts",
     "wiki:promote-approved": "tsx scripts/wiki-promote-approved.ts",
-    "auth:cleanup:legacy-users": "tsx scripts/auth-cleanup-legacy-users.ts"
+    "auth:cleanup:legacy-users": "tsx scripts/auth-cleanup-legacy-users.ts",
+    "test:signpost-loop": "tsx --test lib/wiki/signpost-loop/admit.test.ts",
+    "test:signpost-loop-acceptance": "tsx scripts/signpost-loop-acceptance.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

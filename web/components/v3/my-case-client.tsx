@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useBookmarks } from "@/components/bookmarks/bookmarks-provider";
 import { ActionPlanView } from "@/components/v3/action-plan-view";
@@ -10,6 +10,8 @@ import { CASE_SNAPSHOT_KEY } from "@/lib/cases/flow-resume";
 import type { ActionPlan, CaseRecord } from "@/lib/cases/types";
 import type { DisputeKind } from "@/lib/cases/dispute-context";
 import { resolveApiUrl } from "@/lib/site/api-url";
+import { captureProductEvent } from "@/components/analytics/posthog-provider";
+import { JOURNEY_EVENTS } from "@/lib/analytics/journey-events";
 
 type MineResponse = {
   case: CaseRecord | null;
@@ -97,6 +99,7 @@ export function MyCaseClient() {
   const [error, setError] = useState<string | null>(null);
   const [savingTitle, setSavingTitle] = useState(false);
   const [fromSnapshot, setFromSnapshot] = useState(false);
+  const trackedCaseKey = useRef<string | null>(null);
 
   const load = useCallback(async () => {
     if (!user) {
@@ -137,6 +140,32 @@ export function MyCaseClient() {
   useEffect(() => {
     void load();
   }, [load]);
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) {
+      if (trackedCaseKey.current === "auth") return;
+      trackedCaseKey.current = "auth";
+      captureProductEvent(JOURNEY_EVENTS.myCaseAuthPrompt, { path: "/my-case" });
+      return;
+    }
+    const key = `${row?.id || "none"}:${fromSnapshot ? "snap" : "db"}`;
+    if (trackedCaseKey.current === key) return;
+    trackedCaseKey.current = key;
+    captureProductEvent(JOURNEY_EVENTS.myCaseViewed, {
+      path: "/my-case",
+      has_case: Boolean(row),
+      from_snapshot: fromSnapshot,
+      matter_type: row?.matterType || null,
+    });
+    if (row?.actionPlan) {
+      captureProductEvent(JOURNEY_EVENTS.planViewed, {
+        path: "/my-case",
+        steps: row.actionPlan.steps?.length || 0,
+        free_services: row.actionPlan.freeServices?.length || 0,
+      });
+    }
+  }, [loading, user, row, fromSnapshot]);
 
   async function saveTitle(title: string) {
     if (!row || !title.trim() || row.id === "local-snapshot") return;

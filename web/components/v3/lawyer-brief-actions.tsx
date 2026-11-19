@@ -8,6 +8,8 @@ import {
   type LawyerBriefInput,
 } from "@/lib/cases/lawyer-brief";
 import { resolveApiUrl } from "@/lib/site/api-url";
+import { captureProductEvent } from "@/components/analytics/posthog-provider";
+import { JOURNEY_EVENTS } from "@/lib/analytics/journey-events";
 
 type Props = {
   brief: LawyerBriefInput;
@@ -83,6 +85,10 @@ export function LawyerBriefActions({
         setStatus(data.error || "Couldn’t send just now.");
         return;
       }
+      captureProductEvent(JOURNEY_EVENTS.briefEmailSent, {
+        case_id: caseId || null,
+        logged: Boolean(data.logged),
+      });
       setStatus(
         data.logged
           ? `Brief queued for ${data.to || email} (dev mode).`
@@ -100,6 +106,9 @@ export function LawyerBriefActions({
       return;
     }
     downloadPdf(brief);
+    captureProductEvent(JOURNEY_EVENTS.briefPdfDownloaded, {
+      case_id: caseId || null,
+    });
     setStatus("PDF downloaded — share it with your lawyer.");
   }
 
@@ -110,6 +119,9 @@ export function LawyerBriefActions({
       return;
     }
     openPrintable(brief);
+    captureProductEvent(JOURNEY_EVENTS.briefPrintOpened, {
+      case_id: caseId || null,
+    });
   }
 
   return (

@@ -31,7 +31,9 @@ import {
   wikiAnchorsForQuery,
 } from "./rerank-hits";
 import { applyDworkinBoostToWikiHits } from "./dworkin-tags";
+import { runMeasuredSignpostLoop } from "./signpost-loop/run";
 import type { WikiPageIndex } from "./types";
+import type { WikiSearchHit } from "./search";
 
 const MIN_RETRIEVAL_SCORE = 4;
 const RETRIEVAL_LIMIT = 8;
@@ -758,27 +760,119 @@ Respond with JSON only. The "answer" field must be practical plain-English signp
   }
 }
 
+function wikiHitsFromAdmitted(
+  admitted: { wikiId?: string; title: string; excerpt: string; url: string }[],
+): WikiSearchHit[] {
+  const hits: WikiSearchHit[] = [];
+  for (const row of admitted) {
+    if (!row.wikiId) continue;
+    const page = getWikiPageById(row.wikiId);
+    if (!page) continue;
+    hits.push({
+      id: page.id,
+      title: page.title,
+      category: page.category,
+      summary: page.summary,
+      keyInformation: page.keyInformation,
+      practicalGuidance: page.practicalGuidance,
+      relatedConcepts: page.relatedConcepts,
+      relatedOrganisations: page.relatedOrganisations,
+      score: 10,
+    });
+  }
+  return hits;
+}
+
 async function generateWikiAnswerUncached(query: string): Promise<WikiAnswerPayload> {
   const trimmed = processSearchQuery(query);
+
+  if (llmConfigured() && enableLlmAnswer()) {
+    try {
+      const loop = await runMeasuredSignpostLoop(trimmed);
+      const sources: WikiAnswerSource[] = loop.admitted.map((a) => ({
+        name: a.title.slice(0, 180),
+        detail: a.date,
+        url: a.url,
+      }));
+      const wikiPages = wikiHitsFromAdmitted(loop.admitted);
+      const recommendedFirms = pickRecommendedFirms(trimmed, wikiPages, 3);
+
+      if (loop.mode === "insufficient" || !loop.answer) {
+        return {
+          query: trimmed,
+          mode: "insufficient",
+          answer: null,
+          wikiPages,
+          sources,
+          recommendedFirms,
+          disclaimer: WIKI_ANSWER_DISCLAIMER,
+          retrievalScore: sources.length,
+          message: loop.message || "No admitted official sources for this question.",
+          synthesisMeta: { used: "none" },
+        };
+      }
+
+      return {
+        query: trimmed,
+        mode: "synthesis",
+        answer: sanitizeWikiAnswer(loop.answer),
+        wikiPages,
+        sources,
+        recommendedFirms,
+        disclaimer: WIKI_ANSWER_DISCLAIMER,
+        retrievalScore: sources.length,
+        synthesisMeta: { used: "llm", llmAnswer: loop.answer },
+      };
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      console.warn("[wiki.generate-answer] signpost loop failed:", message);
+      // Fall through to legacy retrieval path.
+    }
+  }
+
   const hits = filterHits(trimmed, RETRIEVAL_LIMIT);
   return generateWikiAnswerFromHits(trimmed, hits);
 }
 
-export async function generateWikiAnswer(query: string): Promise<WikiAnswerPayload> {
-  const key = processSearchQuery(query).toLowerCase();
-  const existing = answerCache.get(key);
-  if (existing) return existing;
+/** Maps normalised query → full cache key (question + sorted admitted URLs). */
+const queryToAnswerCacheKey = new Map<string, string>();
 
-  const pending = generateWikiAnswerUncached(query).finally(() => {
+export async function generateWikiAnswer(query: string): Promise<WikiAnswerPayload> {
+  const norm = processSearchQuery(query).toLowerCase();
+  const priorKey = queryToAnswerCacheKey.get(norm);
+  if (priorKey) {
+    const existing = answerCache.get(priorKey);
+    if (existing) return existing;
+  }
+
+  const pending = generateWikiAnswerUncached(query).then((payload) => {
+    const urls = (payload.sources || [])
+      .map((s) => s.url?.toLowerCase().trim())
+      .filter((u): u is string => Boolean(u))
+      .sort();
+    const key = `${norm}|${urls.join("|")}`;
+    queryToAnswerCacheKey.set(norm, key);
+    answerCache.set(key, Promise.resolve(payload));
     setTimeout(() => {
-      if (answerCache.get(key) === pending) answerCache.delete(key);
+      if (queryToAnswerCacheKey.get(norm) === key) queryToAnswerCacheKey.delete(norm);
+      if (answerCache.get(key)) answerCache.delete(key);
     }, ANSWER_CACHE_TTL_MS);
+    return payload;
   });
-  answerCache.set(key, pending);
+
+  // Coalesce concurrent callers for the same normalised question.
+  const coalesceKey = `inflight:${norm}`;
+  const existingInflight = answerCache.get(coalesceKey);
+  if (existingInflight) return existingInflight;
+  answerCache.set(coalesceKey, pending);
+  pending.finally(() => {
+    if (answerCache.get(coalesceKey) === pending) answerCache.delete(coalesceKey);
+  });
   return pending;
 }
 
 /** Test helper — clears the short-lived answer cache. */
 export function clearWikiAnswerCacheForTests(): void {
   answerCache.clear();
+  queryToAnswerCacheKey.clear();
 }

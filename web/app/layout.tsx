@@ -46,14 +46,14 @@ export const metadata: Metadata = {
     title: "Legal Shaman | UK Legal Directory",
     description:
       "Find legal information, financing, matched providers, reviews and costs across the UK — then get a clear plan for your situation.",
-    images: [{ url: "/logo.png", width: 512, height: 512, alt: "Legal Shaman" }],
+    images: [{ url: "/spiral-mark.svg", width: 512, height: 512, alt: "Legal Shaman" }],
   },
   twitter: {
     card: "summary",
     title: "Legal Shaman | UK Legal Directory",
     description:
       "UK legal directory: information, financing, providers, reviews and costs. Not a solicitor — we guide, we do not advise.",
-    images: ["/logo.png"],
+    images: ["/spiral-mark.svg"],
   },
   robots: {
     index: true,

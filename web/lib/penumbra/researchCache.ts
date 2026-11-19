@@ -137,10 +137,16 @@ export async function putPenumbraExaHitsCache(opts: {
   query: string
   matterSlug?: string
   hits: HitsPayload['hits']
+  /** Override default Penumbra TTL (14d). Volatile signpost facets use 1. */
+  ttlDays?: number
 }): Promise<void> {
   if (!penumbraCacheEnabled() || !opts.hits.length) return
   const payload = { hits: opts.hits } as unknown as ResearchBundle
-  const expiresAt = Date.now() + cacheTtlDays() * 86_400_000
+  const ttl =
+    typeof opts.ttlDays === 'number' && Number.isFinite(opts.ttlDays) && opts.ttlDays > 0
+      ? opts.ttlDays
+      : cacheTtlDays()
+  const expiresAt = Date.now() + ttl * 86_400_000
   memoryCache.set(opts.cacheKey, { bundle: payload, expiresAt })
   trimMemoryCache()
   if (!coherenceDatabaseUrl()) return
@@ -166,7 +172,7 @@ export async function putPenumbraExaHitsCache(opts: {
         normalizePenumbraCacheQuery(opts.query).slice(0, 2000),
         JSON.stringify({ hits: opts.hits }),
         opts.hits.length,
-        String(cacheTtlDays()),
+        String(ttl),
       ],
     )
   } catch (error) {

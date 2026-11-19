@@ -10,13 +10,14 @@ export function isV3SimpleShellEnabled(): boolean {
 }
 
 /**
- * When on: marketing landing on `/`, V3 agent on `/ask-the-shaman`.
- * When off (production default): V3 agent on `/` — the previous Ask the Shaman homepage.
- * Local: set NEXT_PUBLIC_V3_LANDING=1 in `.env.local`.
+ * Legacy flag. Homepage is always the What is / marketing landing;
+ * V3 agent is always on `/ask-the-shaman` when simple shell is on.
+ * Kept so older call sites compile; prefer routing on those pages directly.
  */
 export function isV3LandingEnabled(): boolean {
   const flag = process.env.NEXT_PUBLIC_V3_LANDING?.trim().toLowerCase();
   if (flag === "0" || flag === "false" || flag === "off") return false;
   if (flag === "1" || flag === "true" || flag === "on") return true;
-  return false;
+  // Default on: What is landing on `/`.
+  return true;
 }
