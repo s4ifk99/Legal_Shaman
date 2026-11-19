@@ -794,6 +794,36 @@ export default function CoherenceApp({ initialStory = '', initialNecessity = '' 
     }
   }
 
+  function penumbraAuthPrompt(): Prompt {
+    return {
+      id: 'penumbra_research_auth',
+      kind: 'closed',
+      text: 'Create a free account to continue.',
+      reason: 'Your case is saved. Third Eye research starts after you sign up or sign in.',
+      options: [{
+        id: 'penumbra-auth-retry',
+        label: 'Create a free account to continue',
+        value: 'retry',
+      }],
+    }
+  }
+
+  /** Auth-gated Third Eye launch; a dismissed sign-up dialog swaps the frozen running prompt for a retry. */
+  function launchPenumbraResearch(sourceSession: SessionState) {
+    const launch = () => {
+      void runPenumbraResearch('', sourceSession)
+    }
+    if (authRequired) {
+      requireCoherenceAuth(launch, () =>
+        setPrompt((current) =>
+          current.id === 'penumbra_research_running' ? penumbraAuthPrompt() : current,
+        ),
+      )
+    } else {
+      launch()
+    }
+  }
+
   async function handleAnswer(value: string) {
     setAddingDetail(false)
     setAgentError(null)
@@ -802,6 +832,11 @@ export default function CoherenceApp({ initialStory = '', initialNecessity = '' 
     setPendingFollowUp(null)
 
     if (answeredId === 'penumbra_research_running') return
+
+    if (answeredId === 'penumbra_research_auth') {
+      launchPenumbraResearch(session)
+      return
+    }
 
     if (answeredId === 'penumbra_research_question') {
       const skipped = value === PENUMBRA_SKIP_QUESTION
@@ -873,11 +908,7 @@ export default function CoherenceApp({ initialStory = '', initialNecessity = '' 
               locked.penumbraResearch?.bundle ? nextPrompt(locked) : penumbraRunningPrompt(),
             )
             if (!locked.penumbraResearch?.bundle && locked.searchMode === 'penumbra') {
-              const launch = () => {
-                void runPenumbraResearch('', locked)
-              }
-              if (authRequired) requireCoherenceAuth(launch)
-              else launch()
+              launchPenumbraResearch(locked)
             }
             return
           }
@@ -1019,11 +1050,7 @@ export default function CoherenceApp({ initialStory = '', initialNecessity = '' 
               next.penumbraResearch?.bundle ? nextPrompt(next) : penumbraRunningPrompt(),
             )
             if (!next.penumbraResearch?.bundle && next.searchMode === 'penumbra') {
-              const launch = () => {
-                void runPenumbraResearch('', next)
-              }
-              if (authRequired) requireCoherenceAuth(launch)
-              else launch()
+              launchPenumbraResearch(next)
             }
             return
           }
@@ -1078,14 +1105,7 @@ export default function CoherenceApp({ initialStory = '', initialNecessity = '' 
       (next.researchDialogue?.status === 'committed' ||
         next.hypothesisProbe?.status === 'committed')
     ) {
-      const launch = () => {
-        void runPenumbraResearch('', next)
-      }
-      if (authRequired) {
-        requireCoherenceAuth(launch)
-      } else {
-        launch()
-      }
+      launchPenumbraResearch(next)
       return
     }
 

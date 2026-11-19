@@ -607,6 +607,31 @@ export function ThirdEyeShell() {
     [signedIn, runExplain, revealBurst],
   );
 
+  // A reload during research restores `await_explain`, but only onSubmit starts runExplain.
+  // Resume it once (after the session check, so persistCase sees the real sign-in state).
+  const resumedExplainRef = useRef(false);
+  useEffect(() => {
+    if (!hydrated || loading || resumedExplainRef.current) return;
+    resumedExplainRef.current = true;
+    if (flowRef.current.phase !== "await_explain" || submittingRef.current) return;
+    submittingRef.current = true;
+    void (async () => {
+      try {
+        const revealed = await runExplain(flowRef.current, caseIdRef.current);
+        captureProductEvent(JOURNEY_EVENTS.shamanOptionsShown, {
+          phase: revealed.phase,
+          dispute_kind: revealed.disputeKind || revealed.answers.disputeKind || null,
+          resumed: true,
+        });
+      } finally {
+        submittingRef.current = false;
+        const pending = pendingPromptRef.current;
+        pendingPromptRef.current = null;
+        if (pending) onSubmit(pending);
+      }
+    })();
+  }, [hydrated, loading, runExplain, onSubmit]);
+
   const onUpload = useCallback(
     async (file: File) => {
       const safety = await validateUploadFile(file);

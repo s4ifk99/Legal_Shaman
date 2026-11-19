@@ -32,7 +32,7 @@ type BookmarksContextValue = {
   authReason: AuthDialogReason;
   setAuthOpen: (open: boolean) => void;
   openAuth: (reason?: AuthDialogReason) => void;
-  requireAuth: (action: () => void, reason?: AuthDialogReason) => void;
+  requireAuth: (action: () => void, reason?: AuthDialogReason, onCancel?: () => void) => void;
   openAuthForSearch: (retry?: () => void) => void;
   isBookmarked: (key: BookmarkKey) => boolean;
   toggleBookmark: (input: BookmarkInput) => Promise<boolean>;
@@ -60,6 +60,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   const [pendingBookmark, setPendingBookmark] = useState<BookmarkInput | null>(null);
   const [notePrompt, setNotePrompt] = useState<BookmarkInput | null>(null);
   const pendingSearchActionRef = useRef<(() => void) | null>(null);
+  const pendingCancelRef = useRef<(() => void) | null>(null);
 
   const refreshBookmarks = useCallback(async () => {
     const res = await fetch(resolveApiUrl("/api/bookmarks"));
@@ -157,12 +158,13 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const requireAuth = useCallback(
-    (action: () => void, reason: AuthDialogReason = "search") => {
+    (action: () => void, reason: AuthDialogReason = "search", onCancel?: () => void) => {
       if (user) {
         action();
         return;
       }
       pendingSearchActionRef.current = action;
+      pendingCancelRef.current = onCancel ?? null;
       openAuth(reason);
     },
     [user, openAuth],
@@ -171,6 +173,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   const openAuthForSearch = useCallback(
     (retry?: () => void) => {
       if (retry) pendingSearchActionRef.current = retry;
+      pendingCancelRef.current = null;
       openAuth("search");
     },
     [openAuth],
@@ -196,6 +199,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     async (nextUser: PublicUser) => {
       setUser(nextUser);
       setAuthOpen(false);
+      pendingCancelRef.current = null;
       if (pendingBookmark) {
         await addBookmark(pendingBookmark);
         setPendingBookmark(null);
@@ -216,6 +220,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     setPendingBookmark(null);
     setNotePrompt(null);
     pendingSearchActionRef.current = null;
+    pendingCancelRef.current = null;
   }, []);
 
   const value = useMemo(
@@ -262,6 +267,9 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
           if (!open) {
             setPendingBookmark(null);
             pendingSearchActionRef.current = null;
+            const onCancel = pendingCancelRef.current;
+            pendingCancelRef.current = null;
+            onCancel?.();
           }
         }}
         onSuccess={handleAuthSuccess}
