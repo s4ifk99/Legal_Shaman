@@ -15,12 +15,12 @@ export function useCoherenceAuth() {
     emailVerified: user?.emailVerified !== false,
     isAuthenticated: Boolean(user),
     promptEmailVerification,
-    requireCoherenceAuth: (action: () => void) => {
+    requireCoherenceAuth: (action: () => void, onCancel?: () => void) => {
       if (!authRequired) {
         action();
         return;
       }
-      requireAuth(action, "coherence");
+      requireAuth(action, "coherence", onCancel);
     },
   };
 }
