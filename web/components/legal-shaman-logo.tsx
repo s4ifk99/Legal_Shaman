@@ -16,7 +16,7 @@ export function LegalShamanLogo({
   priority = false,
   alt = "Legal Shaman",
 }: Props) {
-  const src = variant === "mark" ? "/legal-shaman-mark.svg" : "/legal-shaman-logo.svg";
+  const src = variant === "mark" ? "/spiral-mark.svg" : "/legal-shaman-logo.svg";
   const size =
     variant === "mark"
       ? { width: 200, height: 200 }

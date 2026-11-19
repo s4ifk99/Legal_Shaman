@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { resolveApiUrl } from "@/lib/site/api-url";
+import { captureProductEvent } from "@/components/analytics/posthog-provider";
+import { JOURNEY_EVENTS } from "@/lib/analytics/journey-events";
 
 type Option = {
   id: string;
@@ -62,6 +64,13 @@ export function FinancingToolClient({
   const [options, setOptions] = useState<Option[]>([]);
   const [contacts, setContacts] = useState<Contact[]>([]);
 
+  useEffect(() => {
+    captureProductEvent(JOURNEY_EVENTS.financingViewed, {
+      path: "/financing",
+      kind: initialKind || "general",
+    });
+  }, [initialKind]);
+
   const run = useCallback(async () => {
     const trimmed = story.trim();
     if (trimmed.length < 12) {
@@ -97,6 +106,13 @@ export function FinancingToolClient({
       setHonestNote(data.honestNote || null);
       setOptions(data.options || []);
       setContacts(data.contacts || []);
+      captureProductEvent(JOURNEY_EVENTS.financingMapped, {
+        kind,
+        preference: preference || "unsure",
+        complexity: data.complexity || null,
+        options: (data.options || []).length,
+        contacts: (data.contacts || []).length,
+      });
     } catch {
       setError("Network error — try again.");
     } finally {

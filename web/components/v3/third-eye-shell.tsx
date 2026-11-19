@@ -31,9 +31,12 @@ import {
 } from "@/lib/cases/flow-resume";
 import { validateUploadFile } from "@/lib/cases/upload-safety";
 import { resolveApiUrl } from "@/lib/site/api-url";
+import { captureProductEvent } from "@/components/analytics/posthog-provider";
+import { JOURNEY_EVENTS } from "@/lib/analytics/journey-events";
 
 const PERSIST_MS = 12_000;
-const EXPLAIN_MS = 45_000;
+/** Loop budget is ~45s server-side; headroom for compile + network. */
+const EXPLAIN_MS = 70_000;
 
 function saveCaseSnapshot(state: FlowState) {
   try {
@@ -155,27 +158,51 @@ async function fetchExplanation(state: FlowState): Promise<string[]> {
   }
 }
 
-/** Render markdown-style [Source](url) and bare https links in chat. */
+function clipLinkLabel(label: string, href: string): string {
+  const cleaned = label.replace(/\s+/g, " ").trim();
+  if (cleaned && cleaned.toLowerCase() !== "source") {
+    return cleaned.length > 44 ? `${cleaned.slice(0, 42)}…` : cleaned;
+  }
+  try {
+    const path = href.startsWith("http") ? new URL(href).pathname : href;
+    const seg = decodeURIComponent(path.split("/").filter(Boolean).pop() || "");
+    const pretty = seg.replace(/[-_]+/g, " ").replace(/\.md$/i, "").trim();
+    if (pretty) return pretty.length > 44 ? `${pretty.slice(0, 42)}…` : pretty;
+  } catch {
+    /* keep fallback */
+  }
+  return "Source";
+}
+
+function linkClass(isYou: boolean): string {
+  return isYou
+    ? "break-all underline decoration-white/70 underline-offset-2 hover:decoration-white"
+    : "break-all font-medium text-primary underline decoration-primary/50 underline-offset-2 hover:decoration-primary";
+}
+
+/** Render markdown [label](url) — http(s) or site-relative — and bare https links. */
 function ChatText({ text, isYou }: { text: string; isYou: boolean }) {
-  const parts = text.split(/(\[[^\]]+\]\(https?:\/\/[^)\s]+\)|https?:\/\/[^\s)]+)/g);
+  const parts = text.split(
+    /(\[[^\]]+\]\((?:https?:\/\/[^)\s]+|\/[^)\s]+)\)|https?:\/\/[^\s)]+)/g,
+  );
   return (
     <>
       {parts.map((part, i) => {
-        const md = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)$/);
+        const md = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)\s]+|\/[^)\s]+)\)$/);
         if (md) {
+          const href = md[2]!;
+          const external = /^https?:\/\//i.test(href);
           return (
             <a
               key={i}
-              href={md[2]}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={
-                isYou
-                  ? "underline decoration-white/70 underline-offset-2 hover:decoration-white"
-                  : "font-medium text-primary underline decoration-primary/50 underline-offset-2 hover:decoration-primary"
-              }
+              href={href}
+              {...(external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className={linkClass(isYou)}
+              title={href}
             >
-              {md[1]}
+              {clipLinkLabel(md[1]!, href)}
             </a>
           );
         }
@@ -186,13 +213,10 @@ function ChatText({ text, isYou }: { text: string; isYou: boolean }) {
               href={part}
               target="_blank"
               rel="noopener noreferrer"
-              className={
-                isYou
-                  ? "underline decoration-white/70 underline-offset-2 hover:decoration-white"
-                  : "font-medium text-primary underline decoration-primary/50 underline-offset-2 hover:decoration-primary"
-              }
+              className={linkClass(isYou)}
+              title={part}
             >
-              Source
+              {clipLinkLabel("Source", part)}
             </a>
           );
         }
@@ -291,6 +315,8 @@ export function ThirdEyeShell() {
   const [status, setStatus] = useState<string | null>(null);
   const [uploadNote, setUploadNote] = useState<string | null>(null);
   const [typing, setTyping] = useState(false);
+  /** Measured research / explain in flight — hourglass + Rothko cycling. */
+  const [researching, setResearching] = useState(false);
   const [rothkoPulse, setRothkoPulse] = useState(0);
   const [hydrated, setHydrated] = useState(false);
   const flowRef = useRef(flow);
@@ -298,6 +324,7 @@ export function ThirdEyeShell() {
   const submittingRef = useRef(false);
   const pendingPromptRef = useRef<string | null>(null);
   const threadEndRef = useRef<HTMLDivElement>(null);
+  const lastTrackedPhase = useRef<string | null>(null);
   const signedIn = Boolean(user);
   const wasSignedIn = useRef(false);
 
@@ -308,6 +335,19 @@ export function ThirdEyeShell() {
   useEffect(() => {
     caseIdRef.current = caseId;
   }, [caseId]);
+
+  // Journey: every flow phase change (story → options → legal aid → plan…).
+  useEffect(() => {
+    if (!hydrated) return;
+    if (lastTrackedPhase.current === flow.phase) return;
+    lastTrackedPhase.current = flow.phase;
+    captureProductEvent(JOURNEY_EVENTS.shamanPhaseChanged, {
+      phase: flow.phase,
+      dispute_kind: flow.disputeKind || flow.answers.disputeKind || null,
+      has_plan: Boolean(flow.actionPlan),
+      signed_in: signedIn,
+    });
+  }, [flow.phase, flow.disputeKind, flow.answers.disputeKind, flow.actionPlan, hydrated, signedIn]);
 
   // Restore in-progress chat (guest or returning user).
   useEffect(() => {
@@ -389,31 +429,46 @@ export function ThirdEyeShell() {
 
   const runExplain = useCallback(
     async (state: FlowState, id: string | null) => {
-      setStatus("Putting options together…");
+      const isResearch =
+        state.answers.helpIntent === "research" || !state.answers.helpIntent;
+      setResearching(true);
+      setStatus(
+        isResearch
+          ? "Looking up official guidance…"
+          : "Putting options together…",
+      );
       setTyping(true);
-      const explanation = await withTimeout(
-        fetchExplanation(state),
-        EXPLAIN_MS,
-        localOptionsExplanation(state),
-      );
-      setTyping(false);
-      const next = applyExplanation(state, explanation);
-      const burst: string[] = [];
-      for (let i = state.messages.length; i < next.messages.length; i += 1) {
-        const m = next.messages[i];
-        if (m?.role === "shaman") burst.push(m.text);
+      try {
+        const explanation = await withTimeout(
+          fetchExplanation(state),
+          EXPLAIN_MS,
+          localOptionsExplanation(state),
+        );
+        // Stop the hourglass once answers arrive; Rothko keeps cycling until reveal finishes.
+        setTyping(false);
+        setResearching(false);
+        setRothkoPulse((n) => n + 1);
+        const next = applyExplanation(state, explanation);
+        const burst: string[] = [];
+        for (let i = state.messages.length; i < next.messages.length; i += 1) {
+          const m = next.messages[i];
+          if (m?.role === "shaman") burst.push(m.text);
+        }
+        const revealed = await revealBurst(
+          { ...next, messages: state.messages },
+          burst.length ? burst : explanation,
+        );
+        if (signedIn) {
+          const savedId = await withTimeout(persistCase(revealed, id), PERSIST_MS, id);
+          if (savedId) setCaseId(savedId);
+        }
+        saveFlowResume(revealed, caseIdRef.current);
+        setStatus(null);
+        return revealed;
+      } finally {
+        setTyping(false);
+        setResearching(false);
       }
-      const revealed = await revealBurst(
-        { ...next, messages: state.messages },
-        burst.length ? burst : explanation,
-      );
-      if (signedIn) {
-        const savedId = await withTimeout(persistCase(revealed, id), PERSIST_MS, id);
-        if (savedId) setCaseId(savedId);
-      }
-      saveFlowResume(revealed, caseIdRef.current);
-      setStatus(null);
-      return revealed;
     },
     [revealBurst, signedIn],
   );
@@ -421,6 +476,13 @@ export function ThirdEyeShell() {
   const openResults = useCallback(() => {
     saveCaseSnapshot(flowRef.current);
     saveFlowResume(flowRef.current, caseIdRef.current);
+    captureProductEvent(JOURNEY_EVENTS.shamanResultsIntent, {
+      phase: flowRef.current.phase,
+      dispute_kind:
+        flowRef.current.disputeKind || flowRef.current.answers.disputeKind || null,
+      signed_in: signedIn,
+      has_plan: Boolean(flowRef.current.actionPlan),
+    });
     if (!signedIn) {
       markResultsIntent();
       openAuth("case");
@@ -433,6 +495,11 @@ export function ThirdEyeShell() {
   const restartChat = useCallback(() => {
     submittingRef.current = false;
     pendingPromptRef.current = null;
+    captureProductEvent(JOURNEY_EVENTS.shamanRestart, {
+      from_phase: flowRef.current.phase,
+      dispute_kind:
+        flowRef.current.disputeKind || flowRef.current.answers.disputeKind || null,
+    });
     clearFlowResume();
     try {
       sessionStorage.removeItem(CASE_SNAPSHOT_KEY);
@@ -441,12 +508,14 @@ export function ThirdEyeShell() {
     }
     const fresh = createInitialFlow(true);
     flowRef.current = fresh;
+    lastTrackedPhase.current = null;
     caseIdRef.current = null;
     setFlow(fresh);
     setCaseId(null);
     setStatus(null);
     setUploadNote(null);
     setTyping(false);
+    setResearching(false);
     setRothkoPulse((n) => n + 1);
   }, []);
 
@@ -469,6 +538,13 @@ export function ThirdEyeShell() {
       submittingRef.current = true;
       setUploadNote(null);
       setStatus(null);
+      const fromPhase = flowRef.current.phase;
+      captureProductEvent(JOURNEY_EVENTS.shamanMessageSent, {
+        phase: fromPhase,
+        dispute_kind: flowRef.current.disputeKind || flowRef.current.answers.disputeKind || null,
+        message_len: trimmed.length,
+        signed_in: signedIn,
+      });
       const result = advanceFlow(flowRef.current, trimmed);
       void (async () => {
         try {
@@ -478,6 +554,10 @@ export function ThirdEyeShell() {
           if (result.needsExplain) {
             revealed = (await runExplain(revealed, id)) || revealed;
             id = caseIdRef.current;
+            captureProductEvent(JOURNEY_EVENTS.shamanOptionsShown, {
+              phase: revealed.phase,
+              dispute_kind: revealed.disputeKind || revealed.answers.disputeKind || null,
+            });
           }
 
           if (result.planReady || revealed.actionPlan) {
@@ -491,6 +571,14 @@ export function ThirdEyeShell() {
             flowRef.current = withServices;
             saveCaseSnapshot(withServices);
             saveFlowResume(withServices, id);
+            captureProductEvent(JOURNEY_EVENTS.shamanPlanReady, {
+              phase: withServices.phase,
+              dispute_kind:
+                withServices.disputeKind || withServices.answers.disputeKind || null,
+              free_services: withServices.actionPlan?.freeServices?.length || 0,
+              solicitors: withServices.actionPlan?.matchedSolicitors?.length || 0,
+              signed_in: signedIn,
+            });
             if (signedIn) {
               setStatus("Saving your results…");
               id =
@@ -568,6 +656,12 @@ export function ThirdEyeShell() {
           saveFlowResume(next, caseIdRef.current);
           saveCaseSnapshot(next);
           setRothkoPulse((n) => n + 1);
+          captureProductEvent(JOURNEY_EVENTS.shamanDocumentUploaded, {
+            phase: next.phase,
+            dispute_kind: next.disputeKind || next.answers.disputeKind || null,
+            file_kind: safety.safeName.split(".").pop() || "file",
+            signed_in: signedIn,
+          });
         }
 
         // Persist to case when signed in (vault + brief).
@@ -609,7 +703,12 @@ export function ThirdEyeShell() {
     <div className="relative flex min-h-0 flex-1 flex-col">
       {/* Fixed colour fields sit at document level styles (globals.css). Keep outside
           overflow clipping so production always paints the Rothko backdrop. */}
-      <RothkoField pulseKey={rothkoPulse} highlightMessages highlightInput />
+      <RothkoField
+        pulseKey={rothkoPulse}
+        researching={researching}
+        highlightMessages
+        highlightInput
+      />
 
       <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-3xl flex-1 flex-col overflow-hidden px-3 py-3 md:px-4 md:py-4">
         <header className="relative shrink-0 px-1 pb-2 text-center">
@@ -653,7 +752,7 @@ export function ThirdEyeShell() {
                   className={`flex ${m.role === "you" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[92%] whitespace-pre-wrap rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-sm md:text-base ${
+                    className={`max-w-[92%] min-w-0 overflow-hidden break-words whitespace-pre-wrap rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-sm [overflow-wrap:anywhere] md:text-base ${
                       m.role === "you"
                         ? "bg-primary/95 text-primary-foreground"
                         : "border border-white/40 bg-background/55 text-foreground backdrop-blur-sm"
@@ -663,7 +762,36 @@ export function ThirdEyeShell() {
                   </div>
                 </div>
               ))}
-              {typing ? (
+              {researching ? (
+                <div className="flex justify-start" aria-live="polite" aria-busy="true">
+                  <div className="inline-flex max-w-[92%] items-center gap-3 rounded-2xl border border-white/40 bg-background/55 px-4 py-3 text-sm text-foreground shadow-sm backdrop-blur-sm">
+                    <span className="ls-research-hourglass" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                        <path
+                          d="M6 3h12M6 21h12M8 3v3.2c0 1.5.7 2.9 1.9 3.8L12 12l-2.1 2c-1.2.9-1.9 2.3-1.9 3.8V21M16 3v3.2c0 1.5-.7 2.9-1.9 3.8L12 12l2.1 2c1.2.9 1.9 2.3 1.9 3.8V21"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M9.2 6.5h5.6M9.2 17.5h5.6"
+                          stroke="currentColor"
+                          strokeWidth="1.4"
+                          strokeLinecap="round"
+                          opacity="0.55"
+                        />
+                      </svg>
+                    </span>
+                    <span className="leading-snug">
+                      <span className="font-medium text-foreground">Researching</span>
+                      <span className="mt-0.5 block text-xs text-muted-foreground">
+                        Checking official guidance — this can take a minute or two…
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              ) : typing ? (
                 <div className="flex justify-start">
                   <div className="rounded-2xl border border-white/40 bg-background/55 px-4 py-3 text-sm text-muted-foreground shadow-sm backdrop-blur-sm">
                     <span className="inline-flex gap-1">
@@ -752,7 +880,18 @@ export function ThirdEyeShell() {
               placeholder={shamanPromptForPhase(flow)}
             />
             {status ? (
-              <p className="mt-2 text-center text-xs text-foreground/75">{status}</p>
+              <p className="mt-2 text-center text-xs text-foreground/75">
+                {researching ? (
+                  <span className="inline-flex items-center justify-center gap-1.5">
+                    <span className="ls-research-hourglass ls-research-hourglass--sm" aria-hidden="true">
+                      ⌛
+                    </span>
+                    {status}
+                  </span>
+                ) : (
+                  status
+                )}
+              </p>
             ) : null}
             {uploadNote ? (
               <p className="mt-2 text-center text-xs text-primary">{uploadNote}</p>

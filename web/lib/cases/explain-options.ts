@@ -23,6 +23,32 @@ import {
   isSolicitorComplaintStory,
   solicitorComplaintSearchQuery,
 } from "@/lib/cases/solicitor-complaint";
+import { runMeasuredSignpostLoop } from "@/lib/wiki/signpost-loop/run";
+import type { AdmittedEvidence } from "@/lib/wiki/signpost-loop/types";
+
+/** Turn measured-loop prose + admitted URLs into chat bursts for V3. */
+function measuredLoopMessages(
+  answer: string,
+  admitted: AdmittedEvidence[],
+): string[] {
+  const parts = answer
+    .split(/\n\n+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const messages = parts.length > 0 ? parts : [answer.trim()];
+  const linked = admitted
+    .filter((s) => s.url)
+    .slice(0, 8)
+    .map((s) => {
+      const title = (s.title || "Source").replace(/\s+/g, " ").trim().slice(0, 48);
+      return `[${title || "Source"}](${s.url})`;
+    });
+  if (linked.length) {
+    messages.push(`Sources\n${linked.join("\n")}`);
+  }
+  messages.push("This is guidance to help you act — not legal advice.");
+  return messages.filter(Boolean);
+}
 
 function wikiDomainFor(kind: DisputeKind): WikiDomainId {
   switch (kind) {
@@ -219,12 +245,48 @@ export async function explainDisputeOptions(input: {
   disputeAnswers?: Record<string, string>;
 }): Promise<ExplainOptionsResult> {
   const guide = getProcessGuide(input.kind);
+
+  // Prefer the measured UK signpost loop (facet → admit → Exa → write) so V3
+  // Ask the Shaman does not fall through to the old keyword wiki path.
+  try {
+    console.info("[cases/explain] running measured signpost loop");
+    const measured = await runMeasuredSignpostLoop(input.story);
+    if (measured.mode === "synthesis" && measured.answer?.trim()) {
+      const explanationMessages = measuredLoopMessages(
+        measured.answer,
+        measured.admitted,
+      );
+      console.info(
+        "[cases/explain] measured loop ok — admitted",
+        measured.admitted.length,
+      );
+      return {
+        kind: input.kind,
+        explanationMessages,
+        explanationText: explanationMessages.join("\n\n"),
+        options: guide.options,
+        financingNotes: guide.financingNotes,
+        gapFillSource: "wiki",
+      };
+    }
+    console.warn(
+      "[cases/explain] measured loop insufficient — falling back:",
+      measured.message || measured.mode,
+    );
+  } catch (error) {
+    console.warn(
+      "[cases/explain] measured signpost loop failed:",
+      error instanceof Error ? error.message : error,
+    );
+  }
+
   const fromWiki = await wikiExtras(input.kind, input.story);
   let extras: OptionExtraNote[] = fromWiki;
   let gapFillSource: ExplainOptionsResult["gapFillSource"] =
     fromWiki.length >= 2 ? "wiki" : "guide_only";
 
   // Always Exa-fill solicitor complaints — wiki packs rarely cover LeO/SRA paths.
+  // Also Exa-fill when measured research admitted nothing, so we don't dump the rigid doors template.
   if (fromWiki.length < 2 || isSolicitorComplaintStory(input.story)) {
     const filled = await exaFillGaps(input.kind, input.story);
     if (filled.extras.length) {
@@ -235,6 +297,28 @@ export async function explainDisputeOptions(input: {
       gapFillSource =
         filled.source === "none" ? "guide_only" : (filled.source as ExplainOptionsResult["gapFillSource"]);
     }
+  }
+
+  // Research path: prefer source notes over the old dispute-process dump.
+  if (extras.length >= 1) {
+    const researchMessages = [
+      "Here’s what official sources say that relates to your question:",
+      ...extras.slice(0, 5).map((e) => {
+        const body = stripUrls(e.text);
+        if (!e.url) return body;
+        const label = body.split(/[:.]/)[0]?.trim().slice(0, 48) || "Source";
+        return `${body}\n[${label}](${e.url})`;
+      }),
+      "This is general information, not legal advice. Say if you want me to dig further or find someone local.",
+    ];
+    return {
+      kind: input.kind,
+      explanationMessages: researchMessages,
+      explanationText: researchMessages.join("\n\n"),
+      options: guide.options,
+      financingNotes: guide.financingNotes,
+      gapFillSource,
+    };
   }
 
   // Personalise lightly from dispute answers without inventing advice
