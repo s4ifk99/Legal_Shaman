@@ -25,3 +25,6 @@ web/logs/
 # Exa batch runner
 scripts/exa/.venv/
 scripts/exa/runs/
+
+# Local output from the daily security scan. Reports are workflow artifacts.
+.security-scan-out/
