@@ -1,0 +1,35 @@
+rules:
+  - id: legalshaman-reset-link-logged
+    languages: [generic]
+    severity: ERROR
+    message: A password reset URL is written to a log. Remove that log so the token is only delivered by email.
+    metadata:
+      cwe: "CWE-532"
+      category: sensitive-data
+    paths:
+      include:
+        - "*.ts"
+        - "*.tsx"
+        - "*.js"
+        - "*.mjs"
+    pattern-regex: console\.(log|info|debug|warn)\([^\n]*reset URL
+
+  - id: legalshaman-private-key-block
+    languages: [generic]
+    severity: ERROR
+    message: A private key block is in the tree. Remove it and rotate the key.
+    metadata:
+      cwe: "CWE-321"
+      category: exposed-api-key
+    paths:
+      include:
+        - "*.ts"
+        - "*.tsx"
+        - "*.js"
+        - "*.mjs"
+        - "*.yml"
+        - "*.yaml"
+        - "*.json"
+        - "*.env"
+        - "*.example"
+    pattern-regex: -----BEGIN [A-Z0-9 ]*PRIVATE KEY-----
