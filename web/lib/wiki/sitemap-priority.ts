@@ -103,6 +103,20 @@ export const SITEMAP_PRIORITY_WIKI_IDS = [
   "Areas/Consumer Rights/Faulty Goods and Services/Bank refused my Section 75 claim: who helps",
   "Areas/Consumer Rights/Faulty Goods and Services/Bought a car privately with outstanding hire purchase: who helps",
   "Areas/Work and Employment/Your Rights at Work/Agency withheld my TRONC tips: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Conditional sale car repossessed: who helps",
+  "Areas/Neighbours and Property/Boundaries and Rights/Shared driveway rules in the UK: who helps when a neighbour blocks it",
+  "Areas/Work and Employment/Your Rights at Work/Workplace withheld final payslip and P45: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Car wash damaged my vehicle: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Subscription charged after I cancelled: who helps",
+  "Areas/Work and Employment/Your Rights at Work/Zero hours shifts cancelled last minute with no pay: who helps",
+  "Areas/Family and Relationships/Children/Applying for sole custody in the UK: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Does car insurance cover a stolen car? Who helps if the insurer refuses",
+  "Areas/Work and Employment/Your Rights at Work/Maternity discrimination solicitors and free legal advice: who helps",
+  "Areas/Driving and Parking/Parking and PCNs/Parking charge when the pay machine was broken: who helps",
+  "Areas/Work and Employment/Your Rights at Work/Employer withheld my final pay after I resigned: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Refurbished phone bought online stopped working: who helps",
+  "Areas/Family and Relationships/Children/Child maintenance solicitors and free legal advice: who helps",
+  "Areas/Consumer Rights/Travel and Holidays/Hotel cancelled my booking and refused a refund: who helps",
 ] as const;
 
 export function outsideEnglandAndWales(id: string): boolean {

@@ -3,11 +3,11 @@
     "Car wash damaged my vehicle: who helps?",
     "Car wash damaged my vehicle",
     "An automatic car wash scratched my paint and they deny it. England. Who helps?",
-    "An automatic car wash scratched my paint and they deny it. England. Who helps?"
+    "Car wash damaged my vehicle: who helps"
   ],
   "title": "Car wash damaged my vehicle: who helps",
-  "wikiId": "",
-  "liveUrl": "",
+  "wikiId": "Areas/Consumer Rights/Faulty Goods and Services/Car wash damaged my vehicle: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Car%20wash%20damaged%20my%20vehicle%3A%20who%20helps",
   "freeHelp": [
     {
       "id": "exa-gov-uk-complain-about-a-legal-adviser-gov-u",
@@ -39,6 +39,6 @@
       ]
     }
   ],
-  "publishedAt": "2026-11-23T16:30:37.474Z",
-  "stage": "draft"
+  "publishedAt": "2026-11-23T18:23:41.425Z",
+  "stage": "published"
 }

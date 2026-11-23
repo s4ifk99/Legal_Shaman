@@ -1,0 +1,60 @@
+{
+  "queryKeys": [
+    "Does car insurance cover a stolen car? Who helps if the insurer refuses",
+    "Does car insurance cover a stolen car? Who helps if the insurer refuses",
+    "My car was stolen and my car insurance company is refusing to pay out on the theft claim. England. Who helps?",
+    "My car was stolen and my car insurance company is refusing to pay out on the theft claim. England. Who helps?"
+  ],
+  "title": "Does car insurance cover a stolen car? Who helps if the insurer refuses",
+  "wikiId": "Areas/Consumer Rights/Faulty Goods and Services/Does car insurance cover a stolen car? Who helps if the insurer refuses",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Does%20car%20insurance%20cover%20a%20stolen%20car%3F%20Who%20helps%20if%20the%20insurer%20refuses",
+  "freeHelp": [
+    {
+      "id": "signpost-financial-ombudsman-org-uk-financial-ombudsman-service",
+      "title": "Financial Ombudsman Service",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free complaints service if an insurer or other financial firm will not settle a dispute — including motor claims.",
+      "phone": "0800 023 4567",
+      "url": "https://www.financial-ombudsman.org.uk/",
+      "score": 100,
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-insurance-financial-ombudsman"
+      ]
+    },
+    {
+      "id": "fs-moneyhelper",
+      "title": "MoneyHelper (MaPS)",
+      "type": "Free advice · charity",
+      "blurb": "Government-backed money and pensions guidance — debt, benefits and consumer finance.",
+      "phone": "0800 011 3797",
+      "url": "https://www.moneyhelper.org.uk/en/contact-us",
+      "score": 98,
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-insurance-financial-ombudsman"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 99,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-23T18:24:28.679Z",
+  "stage": "published"
+}

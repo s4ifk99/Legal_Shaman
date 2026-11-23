@@ -3,11 +3,11 @@
     "Hotel cancelled my booking and refused a refund: who helps?",
     "Hotel cancelled my booking and refused a refund",
     "The hotel cancelled my stay and will not refund me. England. Who helps?",
-    "The hotel cancelled my stay and will not refund me. England. Who helps?"
+    "Hotel cancelled my booking and refused a refund: who helps"
   ],
   "title": "Hotel cancelled my booking and refused a refund: who helps",
-  "wikiId": "",
-  "liveUrl": "",
+  "wikiId": "Areas/Consumer Rights/Travel and Holidays/Hotel cancelled my booking and refused a refund: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Travel%20and%20Holidays/Hotel%20cancelled%20my%20booking%20and%20refused%20a%20refund%3A%20who%20helps",
   "freeHelp": [
     {
       "id": "signpost-financial-ombudsman-org-uk-financial-ombudsman-service",
@@ -41,6 +41,6 @@
       ]
     }
   ],
-  "publishedAt": "2026-11-23T16:30:39.187Z",
-  "stage": "draft"
+  "publishedAt": "2026-11-23T18:25:42.209Z",
+  "stage": "published"
 }
