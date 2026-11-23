@@ -8,7 +8,7 @@ import type { MatterType } from './types'
 import type { AnswerPackage } from './answerPackage'
 import { defaultAnswerFollowUps } from './answerPackage'
 import { checkAnswerCitations } from './citationCheck'
-import { matchFreeServices } from './matchFreeServices'
+import { resolveFreeHelp } from './helpTools'
 
 const MATTER_SIGNPOST: Partial<
   Record<
@@ -78,10 +78,11 @@ export function buildMatterLedAnswerPackage(
     tier: 'trusted-guidance' as const,
   }))
 
-  const freeHelp = matchFreeServices(session, 6).map((s) => ({
+  const resolved = resolveFreeHelp(session, 6)
+  const freeHelp = resolved.freeHelp.map((s) => ({
     title: s.title,
-    url: s.url,
-    blurb: s.blurb?.slice(0, 160) || s.description?.slice(0, 160) || '',
+    url: s.url || 'https://www.citizensadvice.org.uk/get-advice/',
+    blurb: s.blurb?.slice(0, 160) || '',
   }))
 
   if (freeHelp.length === 0) {

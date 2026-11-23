@@ -1,0 +1,40 @@
+{
+  "query": "A gas engineer repaired my boiler, it broke again straight away and the trader refuses to come back or refund. Poor service consumer rights England. Who helps?",
+  "title": "Boiler engineer botched the repair and will not fix it: who helps",
+  "matter": "consumer",
+  "matterType": "consumer",
+  "freeHelp": [
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 55,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "kind": "cab",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "phone": "0800 144 8848",
+      "tool": "match_free_help"
+    }
+  ],
+  "matchOk": false,
+  "qa": "weak",
+  "qaDetail": "Only Citizens Advice style hits — likely under-matched for the situation",
+  "generatedAt": "2026-11-23T16:30:41.084Z"
+}

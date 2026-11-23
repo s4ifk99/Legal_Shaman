@@ -10,14 +10,23 @@ When writing or editing **Marketing Blog** drafts (Notion) or the matching wiki 
 ## Purpose
 - Signposting only: who helps, in what order, with official links. Not legal advice.
 - Answer the demand query shape (often “who helps?”) so a reader can act without guessing.
+- Each draft is a **product test** of Matching Help free doors (`match_free_help` / `freeServicesIndex.json`).
 
-## Structure (Notion draft)
-1. Status callout · `## SEO` (H1, meta, Primary query, matter, CTA) · Summary · Key information
-2. **What [door] would actually do here** for every free service you lean on (especially Citizens Advice, ACAS, ICO, CCW, ombudsmen)
-3. Practical guidance: who to contact, in order
-4. Services table with columns: Who helps · What they actually do · What they do not do · How to reach
-5. FAQ · Sources (official URLs + related wiki) · Disclaimer · anonymised Legal Shaman query
-6. Follow `seo-keyword-bold` and `no-dash-in-prose`
+## Free doors from the matcher (required)
+1. After clawback, run `npm run blog:match-free -- --date YYYY-MM-DD --seed` (or per title).
+2. Services table, Practical Guidance order, and **What [door] would actually do** sections must come from `matches/<stem>.json`.
+3. Editorial may enrich will / will not wording and add trader / bank steps that are not free doors. Do **not** invent free charities, ombudsmen, or helplines missing from the snapshot.
+4. If `matchOk` is false (`Match weak` / `Match empty`), leave Ready for review with the Match QA callout. That is a system signal, not a licence to hardcode CAB.
+
+## Structure (local draft / Notion)
+1. Status callout · optional Match QA · `## SEO` (H1, meta, Primary query, matter, CTA) · Summary · Key information
+2. **What [door] would actually do here** for every **matched** free door
+3. Practical guidance: who to contact, in matcher / people-first order
+4. Services table with columns: Who helps · What they actually do · What they do not do · How to reach (rows = snapshot)
+5. FAQ · Sources (official URLs + related wiki) · Related Concepts / Organisations
+6. **Next step** CTA: link **[Ask the Shaman](https://www.legalshaman.com/)** to the Legal Shaman home page (required at the end, before Disclaimer)
+7. Disclaimer · anonymised Legal Shaman query
+8. Follow `seo-keyword-bold` and `no-dash-in-prose`
 
 ## Free doors: never name-drop only
 Bad: “Contact Citizens Advice.”
@@ -31,7 +40,8 @@ Always link templates or guides you rely on (CA letter templates, ICO home CCTV 
 - **Consumer**: trader first, evidence, then card / scheme / court; CA as advice + templates, not casework.
 
 ## Wiki publish
-Public wiki only renders Summary, Key Information bullets, Practical Guidance bullets, Related topics, Sources. Fold “what they will / will not do” and template links into those bullet sections so nothing important lives only in Notion-only headings or tables.
+Public wiki only renders Summary, Key Information bullets, Practical Guidance bullets, Related topics, Sources. Fold “what they will / will not do” and template links into those bullet sections so nothing important lives only in draft-only headings or tables.
+`wiki:promote-local-approved` also warms `data/coherence/who-helps-freehelp-cache/` so Matching Help can serve those doors without recomputing (and without LLM spend on doors).
 
 ## Daily automation gate
-Nightly Cursor Automation writes **10** Blog Queue rows at **Ready for review**. Only rows flipped to **Approved** are auto-published (Publishing → Published). Never publish from Ready for review or Kill. See `.cursor/blog-automation-prompts.md` and Marketing → Daily Reddit → 10 morning drafts.
+Nightly agent writes local drafts under `web/data/blog-drafts/YYYY-MM-DD/` at **Ready for review**, runs `blog:match-free --seed`, then review on `/dev/blog-review`. Only **Approved** drafts are published. Never publish from Ready for review or Kill. See `.cursor/blog-automation-prompts.md`.

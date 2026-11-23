@@ -1,0 +1,193 @@
+{
+  "query": "I want to apply for sole custody of my child in the UK. We separated and cannot agree child arrangements. England. Who helps?",
+  "title": "Applying for sole custody in the UK: who helps",
+  "matter": "other",
+  "matterType": "family",
+  "freeHelp": [
+    {
+      "id": "fs-cla",
+      "title": "Civil Legal Advice (legal aid gateway)",
+      "type": "Free advice · charity",
+      "blurb": "Check legal aid eligibility and speak to an adviser for housing, debt, family and other civil matters.",
+      "phone": "0345 345 4345",
+      "url": "https://www.gov.uk/civil-legal-advice",
+      "score": 100,
+      "topicKeys": [
+        "area-debt-bailiffs-finance",
+        "area-family-children-divorce",
+        "area-housing-landlord-tenant",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "signpost-childlawadvice-org-uk-coram-children-s-legal-centre-s-c",
+      "title": "Coram Children's Legal Centre's Child Law Advice Service",
+      "type": "Law centre",
+      "blurb": "provides advice on parental disputes about child arrangements, child protection and attending court.",
+      "phone": "020 7520 0300",
+      "url": "https://www.childlawadvice.org.uk/",
+      "score": 33,
+      "topicKeys": [
+        "area-family-children-divorce",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "signpost-fnf-org-uk-families-need-fathers",
+      "title": "Families Need Fathers",
+      "type": "Free advice · charity",
+      "blurb": "Info advice and support to both parents to help them maintain their relationship with their children",
+      "phone": "0300 0300 363",
+      "url": "https://fnf.org.uk/",
+      "score": 29,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "fs-frg",
+      "title": "Family Rights Group",
+      "type": "Free advice · charity",
+      "blurb": "Advice for parents and kinship carers involved with children's services.",
+      "phone": "0808 801 0366",
+      "url": "https://frg.org.uk/",
+      "score": 27,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-ipsea-inde",
+      "title": "Turn2Us - Advice Finder - IPSEA - Independent Parental Special Education Advice -",
+      "type": "Free advice · charity",
+      "blurb": "IPSEA offers free, independent, legally based information and advice for parents and carers of children with SEN and disabilities in England and Wales. Key contact: IPSEA Advice Line (phone and online guidance) for issues like LA duties to assess/provide, exclusions, and discrimination.  \n- Phone: 0300 222 5899  \n- Website: ipsea.org.uk/contact (book an appointment; up to 30 minutes per session)  ",
+      "phone": "0300 222 5899",
+      "url": "https://advicefinder.turn2us.org.uk/Home/Details/3665",
+      "score": 22,
+      "topicKeys": [
+        "area-education-students"
+      ]
+    },
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-university",
+      "title": "Turn2Us - Advice Finder - University of Law Legal Advice Centre (London) ULLAC - London",
+      "type": "Free advice · charity",
+      "blurb": "Summary for user query: LawWorks pro bono legal advice contact phone UK\n\n- University of Law Legal Advice Centre (London) ULLAC offers free initial legal advice for people in need who cannot afford legal help or are not eligible for legal aid.\n- Areas covered:\n  - Family law (initial advice only; includes child contact, divorce, parental responsibility, etc.; no casework or court records)\n  - Smal",
+      "phone": "01483 216 528",
+      "url": "https://advicefinder.turn2us.org.uk/Home/Details/7573",
+      "score": 19,
+      "topicKeys": [
+        "area-common-unclassified"
+      ]
+    },
+    {
+      "id": "fs-rights-of-women",
+      "title": "Rights of Women",
+      "type": "Free advice · charity",
+      "blurb": "Free legal advice for women on family, criminal and immigration law.",
+      "phone": "020 7251 6577",
+      "url": "https://rightsofwomen.org.uk/",
+      "score": 18,
+      "topicKeys": [
+        "area-crime-police-harassment",
+        "area-family-children-divorce",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 23,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "fs-cla",
+      "title": "Civil Legal Advice (legal aid gateway)",
+      "kind": "law_centre",
+      "blurb": "Check legal aid eligibility and speak to an adviser for housing, debt, family and other civil matters.",
+      "url": "https://www.gov.uk/civil-legal-advice",
+      "phone": "0345 345 4345",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "signpost-childlawadvice-org-uk-coram-children-s-legal-centre-s-c",
+      "title": "Coram Children's Legal Centre's Child Law Advice Service",
+      "kind": "law_centre",
+      "blurb": "provides advice on parental disputes about child arrangements, child protection and attending court.",
+      "url": "https://www.childlawadvice.org.uk/",
+      "phone": "020 7520 0300",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "kind": "cab",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "phone": "0800 144 8848",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "signpost-fnf-org-uk-families-need-fathers",
+      "title": "Families Need Fathers",
+      "kind": "specialist",
+      "blurb": "Info advice and support to both parents to help them maintain their relationship with their children",
+      "url": "https://fnf.org.uk/",
+      "phone": "0300 0300 363",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-frg",
+      "title": "Family Rights Group",
+      "kind": "specialist",
+      "blurb": "Advice for parents and kinship carers involved with children's services.",
+      "url": "https://frg.org.uk/",
+      "phone": "0808 801 0366",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-ipsea-inde",
+      "title": "Turn2Us - Advice Finder - IPSEA - Independent Parental Special Education Advice -",
+      "kind": "specialist",
+      "blurb": "IPSEA offers free, independent, legally based information and advice for parents and carers of children with SEN and disabilities in England and Wales. Key contact: IPSEA Advice Line (phone and online guidance) for issues like LA duties to assess/provide, exclusions, and discrimination.  \n- Phone: 0300 222 5899  \n- Website: ipsea.org.uk/contact (book an appointment; up to 30 minutes per session)  ",
+      "url": "https://advicefinder.turn2us.org.uk/Home/Details/3665",
+      "phone": "0300 222 5899",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-university",
+      "title": "Turn2Us - Advice Finder - University of Law Legal Advice Centre (London) ULLAC - London",
+      "kind": "specialist",
+      "blurb": "Summary for user query: LawWorks pro bono legal advice contact phone UK\n\n- University of Law Legal Advice Centre (London) ULLAC offers free initial legal advice for people in need who cannot afford legal help or are not eligible for legal aid.\n- Areas covered:\n  - Family law (initial advice only; includes child contact, divorce, parental responsibility, etc.; no casework or court records)\n  - Smal",
+      "url": "https://advicefinder.turn2us.org.uk/Home/Details/7573",
+      "phone": "01483 216 528",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-rights-of-women",
+      "title": "Rights of Women",
+      "kind": "specialist",
+      "blurb": "Free legal advice for women on family, criminal and immigration law.",
+      "url": "https://rightsofwomen.org.uk/",
+      "phone": "020 7251 6577",
+      "tool": "match_free_help"
+    }
+  ],
+  "matchOk": true,
+  "qa": "ok",
+  "qaDetail": "8 free doors (7 non-CAB)",
+  "generatedAt": "2026-11-23T16:30:40.981Z"
+}

@@ -1,0 +1,80 @@
+{
+  "queryKeys": [
+    "Employer withheld my final pay after I resigned: who helps?",
+    "Employer withheld my final pay after I resigned",
+    "I resigned and worked my notice but my employer has not paid my final wages or holiday pay. Unpaid wages employment England. Who helps?",
+    "Employer withheld my final pay after I resigned: who helps"
+  ],
+  "title": "Employer withheld my final pay after I resigned: who helps",
+  "wikiId": "Areas/Work and Employment/Your Rights at Work/Employer withheld my final pay after I resigned: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Employer%20withheld%20my%20final%20pay%20after%20I%20resigned%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "signpost-protect-advice-org-uk-protect",
+      "title": "Protect",
+      "type": "Free advice · charity",
+      "blurb": "Free legal advice service on whistleblowing at work.",
+      "phone": "020 3117 2520",
+      "url": "https://protect-advice.org.uk/",
+      "score": 24,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-yesslaw-org-uk-yess-law",
+      "title": "YESS Law",
+      "type": "Free advice · charity",
+      "blurb": "offers affordable advice to employees and employers who want to resolve problems at work",
+      "phone": "020 3701 7530",
+      "url": "https://yesslaw.org.uk/",
+      "score": 23,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-bpp-com-bpp-law-school-employment-law-telephone-advice-",
+      "title": "BPP Law School Employment Law Telephone Advice Line (ELTAL)",
+      "type": "Free service",
+      "blurb": "an advice line offering initial advice to callers. Leave a message and a student volunteer will call back.",
+      "phone": "0207 633 4534",
+      "url": "https://www.bpp.com/",
+      "score": 21,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-thefru-org-uk-free-representation-unit",
+      "title": "Free Representation Unit",
+      "type": "Free advice · charity",
+      "blurb": "provides legal advice, case preparation and advocacy in employment, social security, and some criminal injury compensation tribunal cases",
+      "phone": "020 7611 9555",
+      "url": "https://www.thefru.org.uk/",
+      "score": 21,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 37,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-23T18:24:54.250Z",
+  "stage": "published"
+}

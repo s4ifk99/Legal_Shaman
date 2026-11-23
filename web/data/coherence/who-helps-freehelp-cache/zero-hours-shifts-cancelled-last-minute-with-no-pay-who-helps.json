@@ -1,0 +1,82 @@
+{
+  "queryKeys": [
+    "Zero hours shifts cancelled last minute with no pay: who helps?",
+    "Zero hours shifts cancelled last minute with no pay",
+    "My zero hours contract shifts keep getting cancelled the night before with no pay. Unpaid wages ACAS employment England. Who helps?",
+    "Zero hours shifts cancelled last minute with no pay: who helps"
+  ],
+  "title": "Zero hours shifts cancelled last minute with no pay: who helps",
+  "wikiId": "Areas/Work and Employment/Your Rights at Work/Zero hours shifts cancelled last minute with no pay: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Zero%20hours%20shifts%20cancelled%20last%20minute%20with%20no%20pay%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "signpost-bpp-com-bpp-law-school-employment-law-telephone-advice-",
+      "title": "BPP Law School Employment Law Telephone Advice Line (ELTAL)",
+      "type": "Free service",
+      "blurb": "an advice line offering initial advice to callers. Leave a message and a student volunteer will call back.",
+      "phone": "0207 633 4534",
+      "url": "https://www.bpp.com/",
+      "score": 21,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-thefru-org-uk-free-representation-unit",
+      "title": "Free Representation Unit",
+      "type": "Free advice · charity",
+      "blurb": "provides legal advice, case preparation and advocacy in employment, social security, and some criminal injury compensation tribunal cases",
+      "phone": "020 7611 9555",
+      "url": "https://www.thefru.org.uk/",
+      "score": 21,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-protect-advice-org-uk-protect",
+      "title": "Protect",
+      "type": "Free advice · charity",
+      "blurb": "Free legal advice service on whistleblowing at work.",
+      "phone": "020 3117 2520",
+      "url": "https://protect-advice.org.uk/",
+      "score": 21,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-rachelsvoice-co-uk-rachel-s-voice",
+      "title": "Rachel's Voice",
+      "type": "Free advice · charity",
+      "blurb": "offers advice to families who have suffered a bereavement after the death of a person with a learning disability. Advice is offered to clients free of charge by lawyers who are working pro bono.",
+      "phone": "0808 808 1111",
+      "url": "https://rachelsvoice.co.uk/",
+      "score": 18,
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 37,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-23T18:24:05.033Z",
+  "stage": "published"
+}

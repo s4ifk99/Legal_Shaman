@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-09",
+  "status": "Ready for review",
+  "source": "Rewritten matcher-first who-helps batch for localhost review.",
+  "note": "Approve or Kill on /dev/blog-review. Free doors from match_free_help only.",
+  "drafts": [
+    {
+      "file": "01-gym-auto-renew-after-cancel-who-helps.md",
+      "title": "Gym kept charging after I cancelled: who helps?",
+      "demandRef": "local-1109-01",
+      "matter": "consumer",
+      "why": "Post cancel gym charging. Matcher free doors seeded into Services.",
+      "matchFile": "matches/01-gym-auto-renew-after-cancel-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "02-broadband-mid-contract-price-rise-who-helps.md",
+      "title": "Broadband mid contract price rise: who helps?",
+      "demandRef": "local-1109-02",
+      "matter": "consumer",
+      "why": "In term broadband price rise. Ofcom and CAB from matcher.",
+      "matchFile": "matches/02-broadband-mid-contract-price-rise-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "03-builder-deposit-disappeared-who-helps.md",
+      "title": "Builder took a deposit and disappeared: who helps?",
+      "demandRef": "local-1109-03",
+      "matter": "consumer",
+      "why": "Vanished builder deposit. Matcher currently weak (CAB only); Match QA left visible.",
+      "matchFile": "matches/03-builder-deposit-disappeared-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "04-train-delay-compensation-refused-who-helps.md",
+      "title": "Train delay compensation refused: who helps?",
+      "demandRef": "local-1109-04",
+      "matter": "consumer",
+      "why": "Delay Repay refused. Free doors from matcher only; train company first as process.",
+      "matchFile": "matches/04-train-delay-compensation-refused-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "05-bank-refused-section-75-who-helps.md",
+      "title": "Bank refused my Section 75 claim: who helps?",
+      "demandRef": "local-1109-05",
+      "matter": "consumer",
+      "why": "Section 75 refusal. FOS and CAB from matcher.",
+      "matchFile": "matches/05-bank-refused-section-75-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "06-private-car-outstanding-hire-purchase-who-helps.md",
+      "title": "Bought a car privately with outstanding hire purchase: who helps?",
+      "demandRef": "1xqz25k",
+      "matter": "consumer",
+      "why": "Private buyer vs outstanding HP. MoneyHelper and CAB from matcher.",
+      "matchFile": "matches/06-private-car-outstanding-hire-purchase-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "07-agency-withheld-tronc-tips-who-helps.md",
+      "title": "Agency withheld my TRONC tips: who helps?",
+      "demandRef": "1xr8ho0",
+      "matter": "employment",
+      "why": "Agency TRONC tips. Employment free doors from matcher.",
+      "matchFile": "matches/07-agency-withheld-tronc-tips-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    }
+  ]
+}

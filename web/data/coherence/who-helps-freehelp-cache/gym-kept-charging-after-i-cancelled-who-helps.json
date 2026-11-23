@@ -1,0 +1,45 @@
+{
+  "queryKeys": [
+    "Gym kept charging after I cancelled: who helps",
+    "Gym kept charging after I cancelled: who helps?",
+    "Gym kept taking money after I cancelled in writing. England. Who helps?",
+    "Gym kept taking money after I cancelled in writing. England. Who helps?"
+  ],
+  "title": "Gym kept charging after I cancelled: who helps",
+  "wikiId": "Areas/Consumer Rights/Faulty Goods and Services/Gym kept charging after I cancelled: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FGym%20kept%20charging%20after%20I%20cancelled%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "fs-moneyhelper",
+      "title": "MoneyHelper (MaPS)",
+      "type": "Free advice · charity",
+      "blurb": "Government-backed money and pensions guidance — debt, benefits and consumer finance.",
+      "phone": "0800 011 3797",
+      "url": "https://www.moneyhelper.org.uk/en/contact-us",
+      "score": 20,
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-insurance-financial-ombudsman"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 43,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-09T22:30:43.282Z"
+}

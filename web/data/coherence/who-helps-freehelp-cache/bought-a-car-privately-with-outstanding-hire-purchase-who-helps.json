@@ -1,0 +1,45 @@
+{
+  "queryKeys": [
+    "Bought a car privately with outstanding hire purchase: who helps",
+    "Bought a car privately with outstanding hire purchase: who helps?",
+    "Bought a car privately for cash. Finance company says outstanding hire purchase and wants the car. England. Who helps?",
+    "Bought a car privately for cash. Finance company says outstanding hire purchase and wants the car. England. Who helps?"
+  ],
+  "title": "Bought a car privately with outstanding hire purchase: who helps",
+  "wikiId": "Areas/Consumer Rights/Faulty Goods and Services/Bought a car privately with outstanding hire purchase: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FBought%20a%20car%20privately%20with%20outstanding%20hire%20purchase%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "fs-moneyhelper",
+      "title": "MoneyHelper (MaPS)",
+      "type": "Free advice · charity",
+      "blurb": "Government-backed money and pensions guidance — debt, benefits and consumer finance.",
+      "phone": "0800 011 3797",
+      "url": "https://www.moneyhelper.org.uk/en/contact-us",
+      "score": 13,
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-insurance-financial-ombudsman"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 37,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-09T22:31:22.046Z"
+}

@@ -1,0 +1,45 @@
+{
+  "queryKeys": [
+    "Train delay compensation refused: who helps",
+    "Train delay compensation refused: who helps?",
+    "Train company refused my Delay Repay compensation claim after a long delay. England. Who helps?",
+    "Train company refused my Delay Repay compensation claim after a long delay. England. Who helps?"
+  ],
+  "title": "Train delay compensation refused: who helps",
+  "wikiId": "Areas/Consumer Rights/Faulty Goods and Services/Train delay compensation refused: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FTrain%20delay%20compensation%20refused%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "signpost-financial-ombudsman-org-uk-financial-ombudsman-service",
+      "title": "Financial Ombudsman Service",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free complaints service if an insurer or other financial firm will not settle a dispute — including motor claims.",
+      "phone": "0800 023 4567",
+      "url": "https://www.financial-ombudsman.org.uk/",
+      "score": 18,
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-insurance-financial-ombudsman"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 37,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-09T22:31:03.273Z"
+}

@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-05",
+  "status": "Ready for review",
+  "source": "Ingested r/LegalAdviceUK hot posts in web/data/reddit-trending.json. Live RSS returned HTTP 429 on this run, so these were not taken from a fresh feed.",
+  "note": "Local queue only. Approve in /dev/blog-review. Do not publish Reddit links.",
+  "drafts": [
+    {
+      "file": "01-faulty-used-car-in-the-first-week-who-helps.md",
+      "title": "Faulty used car in the first week: who helps?",
+      "demandRef": "1wy4cne",
+      "matter": "consumer",
+      "why": "Dealer used car faults inside a week. Distinct from garage repair after the fact and from goods outside warranty."
+    },
+    {
+      "file": "02-energy-supplier-wrong-direct-debit-who-helps.md",
+      "title": "Energy supplier took the wrong direct debit: who helps?",
+      "demandRef": "1wxuhzm",
+      "matter": "consumer",
+      "why": "Wrong amount and frequency on an energy Direct Debit. Existing pages cover price rises and the ombudsman generally, not this payment error."
+    },
+    {
+      "file": "03-contractor-damaged-parked-car-who-helps.md",
+      "title": "Contractor damaged my parked car: who helps?",
+      "demandRef": "1wy4he1",
+      "matter": "consumer",
+      "why": "Named contractor denies damage. Distinct from an unidentified driver leaving the scene."
+    },
+    {
+      "file": "04-venue-refused-medical-bag-who-helps.md",
+      "title": "Venue refused my medical bag: who helps?",
+      "demandRef": "1wxnl8h",
+      "matter": "other",
+      "why": "Service provider reasonable adjustments. Existing discrimination pages are about work, not a venue gate."
+    },
+    {
+      "file": "05-souvenir-tickets-late-and-damaged-who-helps.md",
+      "title": "Souvenir tickets arrived late and damaged: who helps?",
+      "demandRef": "1wy5f3l",
+      "matter": "consumer",
+      "why": "Damaged paid for souvenir goods in Scotland. Distinct from train tickets and flight disruption."
+    },
+    {
+      "file": "06-private-parking-charge-car-never-owned-who-helps.md",
+      "title": "Private parking charge for a car I never owned: who helps?",
+      "demandRef": "1wy5nsk",
+      "matter": "parking",
+      "why": "Wrong keeper, vehicle never owned. Sibling of the wrong registration page, which is your own car."
+    },
+    {
+      "file": "07-landlord-time-and-worn-carpets-deposit-who-helps.md",
+      "title": "Landlord charging for time and worn carpets: who helps?",
+      "demandRef": "1wxvv67",
+      "matter": "housing",
+      "why": "Unfair end of tenancy deductions. Links the existing deposit explainers instead of copying them."
+    },
+    {
+      "file": "08-missed-connection-after-flight-delay-who-helps.md",
+      "title": "Missed connection after a flight delay: who helps?",
+      "demandRef": "1wxvs6f",
+      "matter": "consumer",
+      "why": "Delay and a missed connection on one ticket. Sibling of the oversold flight page."
+    },
+    {
+      "file": "09-debt-collector-text-ex-partner-contract-who-helps.md",
+      "title": "Debt collector text about an ex partner’s contract: who helps?",
+      "demandRef": "1wy4jce",
+      "matter": "other",
+      "why": "Chase for someone else’s phone contract. Distinct from family spend on your own credit card."
+    },
+    {
+      "file": "10-ex-will-not-return-belongings-who-helps.md",
+      "title": "Ex will not return my belongings: who helps?",
+      "demandRef": "1wy0tlt",
+      "matter": "other",
+      "why": "Specific goods not handed back. Links the separation belongings page instead of rewriting the financial split."
+    }
+  ]
+}

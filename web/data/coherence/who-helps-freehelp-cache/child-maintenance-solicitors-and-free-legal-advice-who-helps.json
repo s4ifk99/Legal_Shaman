@@ -1,0 +1,89 @@
+{
+  "queryKeys": [
+    "Child maintenance solicitors and free legal advice: who helps",
+    "Child maintenance solicitors and free legal advice: who helps?",
+    "I need legal advice on child maintenance. My ex will not pay child maintenance for our children and I am thinking about child maintenance solicitors. England. Who helps?"
+  ],
+  "title": "Child maintenance solicitors and free legal advice: who helps",
+  "wikiId": "Areas/Family and Relationships/Children/Child maintenance solicitors and free legal advice: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Family%20and%20Relationships/Children/Child%20maintenance%20solicitors%20and%20free%20legal%20advice%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-university",
+      "title": "Turn2Us - Advice Finder - University of Law Legal Advice Centre (London) ULLAC - London",
+      "type": "Free advice · charity",
+      "blurb": "Summary for user query: LawWorks pro bono legal advice contact phone UK\n\n- University of Law Legal Advice Centre (London) ULLAC offers free initial legal advice for people in need who cannot afford legal help or are not eligible for legal aid.\n- Areas covered:\n  - Family law (initial advice only; includes child contact, divorce, parental responsibility, etc.; no casework or court records)\n  - Smal",
+      "phone": "01483 216 528",
+      "url": "https://advicefinder.turn2us.org.uk/Home/Details/7573",
+      "score": 47,
+      "topicKeys": [
+        "area-common-unclassified"
+      ]
+    },
+    {
+      "id": "signpost-sendandyou-org-uk-supportive-parents-send-and-you",
+      "title": "Supportive Parents (SEND and You)",
+      "type": "Free advice · charity",
+      "blurb": "a charity providing information, advice & support to parents, children & young people about any type of special educational need or disability from 0-25 years who live in Bristol, N. Somerset or S. Gloucestershire",
+      "phone": "0117 9897725",
+      "url": "https://www.sendandyou.org.uk/",
+      "score": 46,
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "signpost-childlawadvice-org-uk-coram-children-s-legal-centre-s-c",
+      "title": "Coram Children's Legal Centre's Child Law Advice Service",
+      "type": "Law centre",
+      "blurb": "provides advice on parental disputes about child arrangements, child protection and attending court.",
+      "phone": "020 7520 0300",
+      "url": "https://www.childlawadvice.org.uk/",
+      "score": 44,
+      "topicKeys": [
+        "area-family-children-divorce",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-ipsea-inde",
+      "title": "Turn2Us - Advice Finder - IPSEA - Independent Parental Special Education Advice -",
+      "type": "Free advice · charity",
+      "blurb": "IPSEA offers free, independent, legally based information and advice for parents and carers of children with SEN and disabilities in England and Wales. Key contact: IPSEA Advice Line (phone and online guidance) for issues like LA duties to assess/provide, exclusions, and discrimination.  \n- Phone: 0300 222 5899  \n- Website: ipsea.org.uk/contact (book an appointment; up to 30 minutes per session)  ",
+      "phone": "0300 222 5899",
+      "url": "https://advicefinder.turn2us.org.uk/Home/Details/3665",
+      "score": 38,
+      "topicKeys": [
+        "area-education-students"
+      ]
+    },
+    {
+      "id": "signpost-fnf-org-uk-families-need-fathers",
+      "title": "Families Need Fathers",
+      "type": "Free advice · charity",
+      "blurb": "Info advice and support to both parents to help them maintain their relationship with their children",
+      "phone": "0300 0300 363",
+      "url": "https://fnf.org.uk/",
+      "score": 37,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "fs-legal-aid-agency",
+      "title": "Legal Aid Agency",
+      "type": "Official helpline",
+      "blurb": "Information on legal aid and finding a legal aid provider.",
+      "phone": "0300 200 2020",
+      "url": "https://www.gov.uk/legal-aid",
+      "score": 29,
+      "topicKeys": [
+        "area-common-unclassified"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-23T18:25:35.284Z",
+  "stage": "published"
+}

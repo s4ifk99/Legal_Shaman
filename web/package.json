@@ -138,7 +138,9 @@
     "reddit:shaman:eval": "tsx scripts/reddit-shaman-eval.ts",
     "reddit:daily-pick": "tsx scripts/reddit-daily-pick.ts",
     "wiki:clawback": "tsx scripts/wiki-clawback.ts",
+    "blog:match-free": "tsx scripts/blog-match-free.ts",
     "wiki:promote-approved": "tsx scripts/wiki-promote-approved.ts",
+    "wiki:promote-local-approved": "tsx scripts/wiki-promote-local-approved.ts",
     "auth:cleanup:legacy-users": "tsx scripts/auth-cleanup-legacy-users.ts",
     "test:signpost-loop": "tsx --test lib/wiki/signpost-loop/admit.test.ts",
     "test:signpost-loop-acceptance": "tsx scripts/signpost-loop-acceptance.ts"
@@ -238,5 +240,11 @@
     "tsx": "^4.21.0",
     "tw-animate-css": "1.3.3",
     "typescript": "^5"
+  },
+  "imports": {
+    "#who-helps-cache": {
+      "browser": "./lib/coherence/whoHelpsFreeHelpCache.ts",
+      "default": "./lib/coherence/whoHelpsFreeHelpCache.node.ts"
+    }
   }
 }

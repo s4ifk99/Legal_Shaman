@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-23",
+  "status": "Ready for review",
+  "source": "Local blog batch 23 Nov: Reddit RSS blocked (r/LegalAdviceUK new 404, others 429) so thin day; 5 Search Console demand picks plus 5 local everyday who helps picks.",
+  "note": "Approve or Kill on /dev/blog-review. Free doors from match_free_help after blog:match-free --seed.",
+  "drafts": [
+    {
+      "file": "01-child-maintenance-solicitors-legal-advice-who-helps.md",
+      "title": "Child maintenance solicitors and free legal advice: who helps?",
+      "demandRef": "gsc-1123-child-maintenance",
+      "matter": "other",
+      "why": "Search Console: 'child maintenance solicitors' 442 and 'legal advice on child maintenance' 304 impressions at about position 52; sibling to Paying child maintenance (about 60).",
+      "matchFile": "matches/01-child-maintenance-solicitors-legal-advice-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok",
+      "originalTitle": "Child maintenance solicitors and legal advice on child maintenance: who helps?"
+    },
+    {
+      "file": "02-applying-for-sole-custody-uk-who-helps.md",
+      "title": "Applying for sole custody in the UK: who helps?",
+      "demandRef": "gsc-1123-sole-custody",
+      "matter": "other",
+      "why": "Search Console: 'applying for sole custody uk' 225 impressions at about position 33; current pages are guides, not who helps.",
+      "matchFile": "matches/02-applying-for-sole-custody-uk-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "03-car-stolen-insurer-refuses-payout-who-helps.md",
+      "title": "Does car insurance cover a stolen car? Who helps if the insurer refuses",
+      "demandRef": "gsc-1123-stolen-car-insurance",
+      "matter": "consumer",
+      "why": "Search Console: 'does car insurance cover stolen car' 193 impressions at about position 37; existing pages are generic claim guides.",
+      "matchFile": "matches/03-car-stolen-insurer-refuses-payout-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok",
+      "originalTitle": "Car stolen and my insurer refuses to pay out: who helps?"
+    },
+    {
+      "file": "04-letter-before-action-small-claim-who-helps.md",
+      "title": "Sending a letter before action for a small claim: who helps?",
+      "demandRef": "gsc-1123-letter-before-action",
+      "matter": "consumer",
+      "why": "Search Console: 'letter before action' 108 impressions; existing pages are guides and samples, not who helps.",
+      "matchFile": "matches/04-letter-before-action-small-claim-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "05-maternity-discrimination-at-work-who-helps.md",
+      "title": "Maternity discrimination solicitors and free legal advice: who helps?",
+      "demandRef": "gsc-1123-maternity-discrimination",
+      "matter": "employment",
+      "why": "Search Console: 'maternity discrimination at work' 80 impressions; sibling framed on the exact query, linked to the existing Possible maternity discrimination page.",
+      "matchFile": "matches/05-maternity-discrimination-at-work-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok",
+      "originalTitle": "Maternity discrimination at work: who helps?"
+    },
+    {
+      "file": "06-parking-charge-pay-machine-broken-who-helps.md",
+      "title": "Parking charge when the pay machine was broken: who helps?",
+      "demandRef": "local-1123-parking-machine",
+      "matter": "parking",
+      "why": "New Private Parking Code (in force 11 Nov 2026) says charges should be cancelled where machines were broken with no reasonable alternative; topical everyday parking query.",
+      "matchFile": "matches/06-parking-charge-pay-machine-broken-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "07-employer-withheld-final-pay-after-resigning-who-helps.md",
+      "title": "Employer withheld my final pay after I resigned: who helps?",
+      "demandRef": "local-1123-final-pay",
+      "matter": "employment",
+      "why": "Everyday employment query: final wages and holiday pay unpaid after notice; ACAS early conciliation path.",
+      "matchFile": "matches/07-employer-withheld-final-pay-after-resigning-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "08-nuisance-calls-after-tps-registration-who-helps.md",
+      "title": "Still getting nuisance calls after registering with TPS: who helps?",
+      "demandRef": "local-1123-nuisance-calls",
+      "matter": "consumer",
+      "why": "Everyday calls query; ICO enforces the rules, TPS free opt out; existing wiki page is a generic guide.",
+      "matchFile": "matches/08-nuisance-calls-after-tps-registration-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "09-boiler-engineer-botched-repair-who-helps.md",
+      "title": "Boiler engineer botched the repair and will not fix it: who helps?",
+      "demandRef": "local-1123-boiler-engineer",
+      "matter": "consumer",
+      "why": "Seasonal everyday consumer service dispute; Consumer Rights Act repeat performance; Gas Safe for safety.",
+      "matchFile": "matches/09-boiler-engineer-botched-repair-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "10-refurbished-phone-stopped-working-who-helps.md",
+      "title": "Refurbished phone bought online stopped working: who helps?",
+      "demandRef": "local-1123-refurbished-phone",
+      "matter": "consumer",
+      "why": "Everyday faulty goods query; refurbished goods still covered by the Consumer Rights Act; card protection path.",
+      "matchFile": "matches/10-refurbished-phone-stopped-working-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    }
+  ]
+}

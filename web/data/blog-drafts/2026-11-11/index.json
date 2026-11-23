@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-11",
+  "status": "Ready for review",
+  "source": "Local blog hour 11 Nov: Reddit RSS 429 thin day; five unique who-helps drafts (consumer/employment).",
+  "note": "Approve or Kill on /dev/blog-review. Free doors from match_free_help after blog:match-free --seed.",
+  "drafts": [
+    {
+      "file": "01-mobile-early-exit-fee-who-helps.md",
+      "title": "Mobile phone contract early exit fee: who helps?",
+      "demandRef": "local-1111-01",
+      "matter": "consumer",
+      "why": "Common consumer exit fee dispute; Ofcom/CAB path.",
+      "matchFile": "matches/01-mobile-early-exit-fee-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "02-delivery-left-with-neighbour-missing-who-helps.md",
+      "title": "Delivery left with neighbour then went missing: who helps?",
+      "demandRef": "local-1111-02",
+      "matter": "consumer",
+      "why": "Delivery safe place / neighbour handoff disputes.",
+      "matchFile": "matches/02-delivery-left-with-neighbour-missing-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "03-workplace-withheld-payslip-p45-who-helps.md",
+      "title": "Workplace withheld final payslip and P45: who helps?",
+      "demandRef": "local-1111-03",
+      "matter": "employment",
+      "why": "Employment docs after leaving; ACAS path.",
+      "matchFile": "matches/03-workplace-withheld-payslip-p45-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "04-online-marketplace-seller-never-shipped-who-helps.md",
+      "title": "Online marketplace seller never shipped: who helps?",
+      "demandRef": "local-1111-04",
+      "matter": "consumer",
+      "why": "Marketplace non-delivery; buyer protection + CAB.",
+      "matchFile": "matches/04-online-marketplace-seller-never-shipped-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "05-car-wash-damaged-vehicle-who-helps.md",
+      "title": "Car wash damaged my vehicle: who helps?",
+      "demandRef": "local-1111-05",
+      "matter": "consumer",
+      "why": "Everyday consumer damage dispute; insurer vs trader.",
+      "matchFile": "matches/05-car-wash-damaged-vehicle-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    }
+  ]
+}

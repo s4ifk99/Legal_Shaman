@@ -9,6 +9,28 @@ import { getWikiPageById, listSiblingWikiPages, resolveWikiConcept } from "@/lib
 import { renderWikiInline } from "@/lib/wiki/render-inline";
 import { wikiPagePublicPath } from "@/lib/wiki/public-url";
 import { stripRawSourcePath } from "@/lib/wiki/source-line";
+import { extractWikiExtraSections, WIKI_EXTRA_HEADINGS, type WikiExtraSection } from "@/lib/wiki/extra-sections";
+
+function ExtraSection({ title, section }: { title: string; section: WikiExtraSection | null }) {
+  if (!section) return null;
+  return (
+    <section>
+      <h2 className="font-serif text-lg font-semibold">{title}</h2>
+      {section.intro.map((para) => (
+        <p key={para} className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          {renderWikiInline(para)}
+        </p>
+      ))}
+      {section.bullets.length ? (
+        <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-foreground marker:text-gold">
+          {section.bullets.map((item) => (
+            <li key={item}>{renderWikiInline(item)}</li>
+          ))}
+        </ul>
+      ) : null}
+    </section>
+  );
+}
 
 type PageProps = {
   params: Promise<{ slug?: string[] }>;
@@ -63,6 +85,7 @@ export default async function WikiArticlePage({ params }: PageProps) {
     related.flatMap((item) => (item.match && item.match.id !== page.id ? [item.match.id] : [])),
   );
   const siblings = listSiblingWikiPages(page.id, 8).filter((item) => !linkedIds.has(item.id)).slice(0, 5);
+  const extra = extractWikiExtraSections(page.content);
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -101,6 +124,9 @@ export default async function WikiArticlePage({ params }: PageProps) {
               </ul>
             </section>
           ) : null}
+
+          <ExtraSection title={WIKI_EXTRA_HEADINGS.law} section={extra.law} />
+          <ExtraSection title={WIKI_EXTRA_HEADINGS.howWeHelp} section={extra.howWeHelp} />
 
           {page.practicalGuidance.length ? (
             <section>
@@ -155,6 +181,14 @@ export default async function WikiArticlePage({ params }: PageProps) {
             </section>
           ) : null}
 
+          {extra.nextStep ? (
+            <Card className="border-gold/40">
+              <CardContent className="p-5">
+                <ExtraSection title={WIKI_EXTRA_HEADINGS.nextStep} section={extra.nextStep} />
+              </CardContent>
+            </Card>
+          ) : null}
+
           {page.sources.length ? (
             <Card className="border-gold/20">
               <CardContent className="p-5">
@@ -170,8 +204,14 @@ export default async function WikiArticlePage({ params }: PageProps) {
         </div>
 
         <p className="mt-10 text-xs leading-relaxed text-muted-foreground">
-          This is signposting information from the Legal Shaman wiki, not legal advice. Always consult
-          a qualified solicitor for your situation.
+          {extra.disclaimer ? (
+            renderWikiInline(extra.disclaimer)
+          ) : (
+            <>
+              This is signposting information from the Legal Shaman wiki, not legal advice. Always consult
+              a qualified solicitor for your situation.
+            </>
+          )}
         </p>
       </main>
       <Footer />

@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-17",
+  "status": "Ready for review",
+  "source": "Local blog hour 17 Nov: Reddit RSS 429 thin day; seven unique who-helps drafts (consumer/employment).",
+  "note": "Approve or Kill on /dev/blog-review. Free doors from match_free_help after blog:match-free --seed.",
+  "drafts": [
+    {
+      "file": "01-streaming-charged-after-cancel-who-helps.md",
+      "title": "Subscription charged after I cancelled: who helps?",
+      "demandRef": "local-1117-01",
+      "matter": "consumer",
+      "why": "Subscription cancel still charged; card stop + CAB path.",
+      "matchFile": "matches/01-streaming-charged-after-cancel-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok",
+      "originalTitle": "Streaming service charged after I cancelled: who helps?"
+    },
+    {
+      "file": "02-hotel-cancelled-booking-no-refund-who-helps.md",
+      "title": "Hotel cancelled my booking and refused a refund: who helps?",
+      "demandRef": "local-1117-02",
+      "matter": "consumer",
+      "why": "Hotel/OTA cancel refund fights; Section 75 angle.",
+      "matchFile": "matches/02-hotel-cancelled-booking-no-refund-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "03-airline-delayed-baggage-compensation-refused-who-helps.md",
+      "title": "Airline delayed my baggage then refused compensation: who helps?",
+      "demandRef": "local-1117-03",
+      "matter": "consumer",
+      "why": "Delayed bag essentials claim; CAA path.",
+      "matchFile": "matches/03-airline-delayed-baggage-compensation-refused-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "04-zero-hours-shifts-cancelled-no-pay-who-helps.md",
+      "title": "Zero hours shifts cancelled last minute with no pay: who helps?",
+      "demandRef": "local-1117-04",
+      "matter": "employment",
+      "why": "Zero hours cancel pay; ACAS path.",
+      "matchFile": "matches/04-zero-hours-shifts-cancelled-no-pay-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "05-dry-cleaner-lost-ruined-clothes-who-helps.md",
+      "title": "Dry cleaner lost or ruined my clothes: who helps?",
+      "demandRef": "local-1117-05",
+      "matter": "consumer",
+      "why": "Everyday trader damage dispute.",
+      "matchFile": "matches/05-dry-cleaner-lost-ruined-clothes-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "06-scooter-hire-damage-deposit-withheld-who-helps.md",
+      "title": "Scooter hire withheld my damage deposit: who helps?",
+      "demandRef": "local-1117-06",
+      "matter": "consumer",
+      "why": "Hire deposit photo disputes.",
+      "matchFile": "matches/06-scooter-hire-damage-deposit-withheld-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "07-private-dentist-surprise-bill-who-helps.md",
+      "title": "Private dentist surprise bill after treatment: who helps?",
+      "demandRef": "local-1117-07",
+      "matter": "consumer",
+      "why": "Private dental quote vs invoice; DCS path.",
+      "matchFile": "matches/07-private-dentist-surprise-bill-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    }
+  ]
+}

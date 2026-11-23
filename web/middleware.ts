@@ -52,6 +52,36 @@ function maintenanceResponse(request: NextRequest): NextResponse {
   return res;
 }
 
+const CANONICAL_ORIGIN = "https://www.legalshaman.com";
+
+/**
+ * Public origin for absolute redirects.
+ *
+ * Behind the Cloudflare tunnel `next start -H 127.0.0.1 -p 3000` sees itself as
+ * localhost:3000, so `request.nextUrl.origin` leaks `https://localhost:3000`
+ * into Location headers. Use the forwarded Host instead, and pin any
+ * legalshaman.com host to the canonical www origin.
+ */
+function publicOrigin(request: NextRequest): string {
+  const rawHost =
+    request.headers.get("x-forwarded-host")?.split(",")[0]?.trim() ||
+    request.headers.get("host")?.trim() ||
+    "";
+  const host = rawHost.toLowerCase();
+  const hostname = host.replace(/:\d+$/, "");
+  if (hostname === "legalshaman.com" || hostname.endsWith(".legalshaman.com")) {
+    return CANONICAL_ORIGIN;
+  }
+  if (host) {
+    const proto =
+      request.headers.get("x-forwarded-proto")?.split(",")[0]?.trim() ||
+      request.nextUrl.protocol.replace(/:$/, "") ||
+      "http";
+    return `${proto}://${host}`;
+  }
+  return request.nextUrl.origin;
+}
+
 /** Legacy wiki links used encodeURIComponent(fullId), so slashes became %2F. */
 function redirectEncodedWikiSlash(request: NextRequest): NextResponse | null {
   const marker = "/ask-the-shaman/wiki/";
@@ -78,7 +108,7 @@ function redirectEncodedWikiSlash(request: NextRequest): NextResponse | null {
       .map((segment) => encodeURIComponent(segment))
       .join("/");
 
-  const dest = new URL(destPath, request.nextUrl.origin);
+  const dest = new URL(destPath, publicOrigin(request));
   dest.search = request.nextUrl.search;
   return NextResponse.redirect(dest, 308);
 }
@@ -91,10 +121,7 @@ export async function middleware(request: NextRequest) {
   }
 
   if (pathname === "/maintenance") {
-    const home = request.nextUrl.clone();
-    home.pathname = "/";
-    home.search = "";
-    return NextResponse.redirect(home);
+    return NextResponse.redirect(new URL("/", publicOrigin(request)));
   }
 
   const wikiSlashRedirect = redirectEncodedWikiSlash(request);
@@ -150,8 +177,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const url = request.nextUrl.clone();
-  url.pathname = "/admin/login";
+  const url = new URL("/admin/login", publicOrigin(request));
   url.searchParams.set("next", pathname + request.nextUrl.search);
   return NextResponse.redirect(url);
 }

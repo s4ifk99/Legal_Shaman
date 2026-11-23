@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-06",
+  "status": "Ready for review",
+  "source": "Local queue only. Earlier Reddit-style drafts plus Search Console slate gaps. No Notion.",
+  "note": "Approve or Kill in /dev/blog-review. Publish with npm run wiki:promote-local-approved -- --date 2026-11-06.",
+  "drafts": [
+    {
+      "file": "01-parking-fine-england-first-steps-who-helps.md",
+      "title": "Parking fine in England: who helps first?",
+      "demandRef": "local-2026-11-06-01",
+      "matter": "parking",
+      "why": "Council PCN versus private charge first steps."
+    },
+    {
+      "file": "02-flat-water-leak-scotland-neighbour-who-helps.md",
+      "title": "Water leak from flat, neighbour wants details (Scotland): who helps?",
+      "demandRef": "local-2026-11-06-02",
+      "matter": "neighbours",
+      "why": "Scotland flat leak neighbour request."
+    },
+    {
+      "file": "03-won-energy-ombudsman-next-steps-who-helps.md",
+      "title": "Won an energy ombudsman case: who helps with next steps and reporting?",
+      "demandRef": "local-2026-11-06-03",
+      "matter": "consumer",
+      "why": "After an Energy Ombudsman win."
+    },
+    {
+      "file": "04-festival-cancelled-refund-who-helps.md",
+      "title": "Festival cancelled: who helps when promoter and ticket seller blame each other?",
+      "demandRef": "local-2026-11-06-04",
+      "matter": "consumer",
+      "why": "Cancelled festival refund finger pointing."
+    },
+    {
+      "file": "05-faulty-sofa-refund-after-30-days-who-helps.md",
+      "title": "Faulty sofa after 30 days: who helps when the retailer refuses a refund?",
+      "demandRef": "local-2026-11-06-05",
+      "matter": "consumer",
+      "why": "Faulty goods after the short reject window."
+    },
+    {
+      "file": "06-private-parking-residential-estate-who-helps.md",
+      "title": "Private parking charge on a residential estate: who helps?",
+      "demandRef": "local-2026-11-06-06",
+      "matter": "parking",
+      "why": "Private charge on a residential estate."
+    },
+    {
+      "file": "07-neighbour-fence-over-boundary-who-helps.md",
+      "title": "Neighbour fence over the boundary line: who helps?",
+      "demandRef": "local-2026-11-06-07",
+      "matter": "neighbours",
+      "why": "Fence over the boundary."
+    },
+    {
+      "file": "08-ex-joint-tenancy-deposit-who-helps.md",
+      "title": "Ex will not return a joint tenancy deposit: who helps?",
+      "demandRef": "local-2026-11-06-08",
+      "matter": "housing",
+      "why": "Joint tenancy deposit held by an ex."
+    },
+    {
+      "file": "09-conditional-sale-car-taken-back-who-helps.md",
+      "title": "Conditional sale car repossessed: who helps?",
+      "demandRef": "gsc-2026-11-06-conditional-sale",
+      "matter": "consumer",
+      "why": "Situation sibling of Hire purchase and conditional sale. Cross link that page and the end agreement letter.",
+      "originalTitle": "Conditional sale car taken back: who helps?"
+    },
+    {
+      "file": "10-hmo-neighbour-keeps-you-awake-who-helps.md",
+      "title": "HMO neighbour keeps you awake: who helps?",
+      "demandRef": "gsc-2026-11-06-hmo-night",
+      "matter": "neighbours",
+      "why": "Night sleep sibling of HMO neighbour noise and ASB. Do not approve once the HMO title test starts."
+    },
+    {
+      "file": "11-energy-bill-wrong-name-who-helps.md",
+      "title": "Energy bill in the wrong name: who helps?",
+      "demandRef": "gsc-2026-11-06-energy-name",
+      "matter": "other",
+      "why": "Sibling of energy debt for an address you never lived at."
+    },
+    {
+      "file": "12-neighbour-blocking-shared-driveway-who-helps.md",
+      "title": "Shared driveway rules in the UK: who helps when a neighbour blocks it?",
+      "demandRef": "gsc-2026-11-06-driveway",
+      "matter": "neighbours",
+      "why": "Uncovered who helps situation next to the allocated space page.",
+      "originalTitle": "Neighbour blocking the shared driveway: who helps?"
+    }
+  ]
+}
