@@ -158,7 +158,7 @@ export function wikiDirForMatter(matter: string, title = ""): string {
   if (/energy|ombudsman|debt collector|credit card|bill in the wrong name|gas meter/.test(t)) {
     return "Areas/Money, Benefits and Debt/Tax and Bills";
   }
-  if (/holiday|flight|festival|travel|jet2|airline|train refund/.test(t)) {
+  if (/holiday|flight|festival|travel|jet2|airline|train refund|hotel/.test(t)) {
     return "Areas/Consumer Rights/Travel and Holidays";
   }
   if (/noise|asb|loud music|keeps you awake/.test(t)) {
@@ -167,7 +167,7 @@ export function wikiDirForMatter(matter: string, title = ""): string {
   if (/parking|pcn|popla|blue badge/.test(t)) {
     return "Areas/Driving and Parking/Parking and PCNs";
   }
-  if (/child arrangements|child.?s name|custody|parental/.test(t)) {
+  if (/child arrangements|child.?s name|child maintenance|custody|parental/.test(t)) {
     return "Areas/Family and Relationships/Children";
   }
   return MATTER_TO_DIR[matter] || MATTER_TO_DIR.other;
@@ -218,6 +218,9 @@ export function draftBodyToWikiMarkdown(body: string, title: string): string {
   const sources = get("Sources");
   const related = get("Related Concepts");
   const orgs = get("Related Organisations");
+  const law = get("What the law says in England and Wales");
+  const howWeHelp = get("How Legal Shaman helps");
+  const disclaimer = get("Disclaimer");
 
   const extras: string[] = [];
   for (const [heading, value] of sections) {
@@ -230,7 +233,11 @@ export function draftBodyToWikiMarkdown(body: string, title: string): string {
   }
 
   // Fold end CTA into Practical Guidance so the public wiki keeps Ask the Shaman → home.
-  if (nextStep.trim()) {
+  // Drafts with their own law / help sections keep Next step as a rendered section instead.
+  const keepNextStep = Boolean(nextStep.trim() && (law.trim() || howWeHelp.trim()));
+  if (keepNextStep) {
+    // rendered from the Next step section on the public article
+  } else if (nextStep.trim()) {
     const ctaLine =
       nextStep
         .split("\n")
@@ -257,6 +264,8 @@ export function draftBodyToWikiMarkdown(body: string, title: string): string {
     "",
     key.trim() || "- See the summary.",
     "",
+    ...(law.trim() ? ["## What the law says in England and Wales", "", law.trim(), ""] : []),
+    ...(howWeHelp.trim() ? ["## How Legal Shaman helps", "", howWeHelp.trim(), ""] : []),
     "## Practical Guidance",
     "",
     practical.trim() || "- Read the notice or letter you hold, then the free door named in the summary.",
@@ -270,6 +279,12 @@ export function draftBodyToWikiMarkdown(body: string, title: string): string {
   }
   if (sources.trim()) {
     parts.push("", "## Sources", "", sources.trim());
+  }
+  if (keepNextStep) {
+    parts.push("", "## Next step", "", nextStep.trim());
+  }
+  if (disclaimer.trim() && (law.trim() || howWeHelp.trim())) {
+    parts.push("", "## Disclaimer", "", disclaimer.trim());
   }
 
   return `${parts.join("\n").trim()}\n`;
