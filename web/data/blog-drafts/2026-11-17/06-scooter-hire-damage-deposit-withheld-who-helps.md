@@ -1,14 +1,15 @@
 > **Status:** Ready for review. Signposting only. Do not publish until Approved.
 
-> **Match QA (weak):** Only Citizens Advice style hits — likely under-matched for the situation. Services below are from `match_free_help` only.
+> **Match QA (weak):** Only Citizens Advice style hits: likely under-matched for the situation. Services below are from `match_free_help` only.
 
 ## SEO
 
 - H1: Scooter hire withheld my damage deposit: who helps?
-- Meta: UK signposting when **scooter hire** withheld a damage deposit. Matcher free doors and Ask the Shaman. Not legal advice.
-- Primary query: scooter hire damage deposit withheld who helps
+- Meta: **Scooter hire** kept your **damage deposit**? Your rights in England and Wales against unfair terms, chargeback and who helps.
+- Primary query: scooter hire damage deposit withheld
+- Jurisdiction: England and Wales
 - Matter: consumer
-- CTA: Process steps · matcher free doors · Ask the Shaman
+- CTA: Ask the Shaman plus research guide, UTM campaign 06-scooter-hire-damage-deposit-withheld-who-helps
 
 ## Summary
 
@@ -21,11 +22,20 @@ If **scooter hire** withheld your damage deposit, who helps starts with the chec
 - Pre existing marks you photographed at pickup undercut a vague damage claim.
 - Some apps use third party insurers. Note who actually holds the money.
 
-## What Citizens Advice Adviceline (England) would actually do here
+## What the law says in England and Wales
 
-Explain your rights, point to templates, and route you to local or specialist help.
+This section explains the general law. It is not advice on your situation.
 
-What they will **not** do: Will not chase the other party or represent you in court.
+- A hire company can only keep a **damage deposit** for damage it can show you caused, in line with the contract.
+- Contract terms must be fair and transparent under Part 2 of the **Consumer Rights Act 2015**. A term letting the company keep the whole deposit for any mark may be unfair.
+- Ask for the evidence and the repair cost in writing. Photos you took at pick up and return are strong evidence.
+- Paying by card may allow a **chargeback** if the company will not engage.
+
+## How Legal Shaman helps
+
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=06-scooter-hire-damage-deposit-withheld-who-helps)**. It explains, in plain English, the law on hire contracts that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -59,11 +69,11 @@ Compare it with your pickup photos timestamp. If the mark was already there, say
 
 ## Next step
 
-Not sure which free door fits your facts? **[Ask the Shaman](https://www.legalshaman.com/)** on the Legal Shaman home page. Describe the situation once and get the next step.
+Want to research the law on hire contracts? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=06-scooter-hire-damage-deposit-withheld-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help.
 
 ## Disclaimer
 
-Signposting only, not legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

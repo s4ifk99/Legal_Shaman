@@ -7,10 +7,11 @@ Overlap wiki ids:
 ## SEO
 
 - H1: HMO neighbour keeps you awake: who helps?
-- Meta: If night noise from an **HMO** **keeps you awake**, start with the landlord or agent, then the council noise team. Citizens Advice explains letters. They will not move you the same night.
+- Meta: **HMO** neighbour noise at night? The law on statutory nuisance and HMO management in England and Wales, and who helps for free.
 - Primary query: HMO neighbour noise at night
+- Jurisdiction: England and Wales
 - Matter: neighbours
-- CTA: [Ask the Shaman](https://www.legalshaman.com/)
+- CTA: Ask the Shaman plus research guide, UTM campaign 10-hmo-neighbour-keeps-you-awake-who-helps
 
 ## Summary
 
@@ -24,17 +25,21 @@ If a neighbour in a private **HMO** **keeps you awake** at night, who helps is t
 - Call the police when there is violence, threats, or a crime in progress. They will not act as the noise complaint service for ordinary loud music.
 - This page is the night sleep situation. The existing **HMO** noise page stays the parent. Link both ways. Do not approve this draft while a title test is running on the parent.
 
-## What the landlord or agent would actually do here
+## What the law says in England and Wales
 
-They can warn the resident, apply house rules, and in a serious case take tenancy action. They will not usually inspect in the middle of the night because you rang once, and they will not evict someone the same night because of music.
+This section explains the general law. It is not advice on your situation.
 
-## What the council would actually do here
+- Under the **Environmental Protection Act 1990** the council must look into complaints of statutory nuisance, which can include loud noise at night. If it agrees there is a nuisance it can serve an abatement notice.
+- Most **HMOs** must meet management rules under the **Housing Act 2004**, and larger ones need a council licence. The landlord or manager is responsible for running the property.
+- Persistent anti social behaviour can be raised with the council and police. The **Anti-social Behaviour, Crime and Policing Act 2014** also lets you ask for a case review (the community trigger) if repeated reports get no response.
+- A noise log (dates, times, what you heard) is the evidence councils usually ask for.
 
-The noise team can log a complaint and, if the pattern continues, investigate. They will not remove the neighbour the night you report it. Use your council noise or environmental health form, and keep the log.
+## How Legal Shaman helps
 
-## What Citizens Advice would actually do here
-
-Advisers explain how to complain about noisy neighbours and when antisocial behaviour is the right frame. They will not visit, and they will not make the council attend. Guide: [noisy neighbours](https://www.citizensadvice.org.uk/housing/problems-where-you-live/noisy-neighbours/). Official overview: [GOV.UK antisocial behaviour](https://www.gov.uk/guidance/antisocial-behaviour).
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=10-hmo-neighbour-keeps-you-awake-who-helps)**. It explains, in plain English, the law on neighbour noise that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Research the law in more depth in our guide: [HMO neighbour noise and ASB: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Neighbours%20and%20Property/Noise%20and%20Nuisance/HMO%20neighbour%20noise%20and%20ASB%3A%20who%20helps?utm_source=blog&utm_medium=article&utm_campaign=10-hmo-neighbour-keeps-you-awake-who-helps).
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -72,7 +77,7 @@ A written log of dates and times is enough to start. Follow the council form rat
 
 ## Disclaimer
 
-This is signposting, not legal advice. Your tenancy and the council noise policy decide the process.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

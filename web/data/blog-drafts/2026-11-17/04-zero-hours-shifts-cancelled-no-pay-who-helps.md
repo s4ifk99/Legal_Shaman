@@ -3,10 +3,11 @@
 ## SEO
 
 - H1: Zero hours shifts cancelled last minute with no pay: who helps?
-- Meta: UK signposting when **zero hours shifts** are cancelled last minute with no pay. Matcher free doors and Ask the Shaman. Not legal advice.
-- Primary query: zero hours shifts cancelled last minute no pay who helps
+- Meta: **Zero hours shift cancelled** last minute with no pay? What the law says now in England and Wales, the planned changes, and who helps.
+- Primary query: zero hours shift cancelled no pay
+- Jurisdiction: England and Wales
 - Matter: employment
-- CTA: Process steps · matcher free doors · Ask the Shaman
+- CTA: Ask the Shaman plus research guide, UTM campaign 04-zero-hours-shifts-cancelled-no-pay-who-helps
 
 ## Summary
 
@@ -19,35 +20,21 @@ If **zero hours shifts** were cancelled last minute with no pay, who helps start
 - Some contracts promise a minimum notice or a short cancel payment. Quote that clause.
 - Unpaid holiday pay and unpaid hours already worked are separate money claims from future rota fights.
 
-## What Citizens Advice Adviceline (England) would actually do here
+## What the law says in England and Wales
 
-Explain your rights, point to templates, and route you to local or specialist help.
+This section explains the general law. It is not advice on your situation.
 
-What they will **not** do: Will not chase the other party or represent you in court.
+- Right now there is no general legal right to be paid for a **zero hours shift cancelled** at short notice, unless your contract or a workplace policy says so. Check both.
+- The **Employment Rights Act 2025** creates future rights to reasonable notice of shifts and to payment when shifts are cancelled, moved or cut short at short notice. These have not yet taken effect and the details will be set in regulations.
+- Zero hours workers already have rights to the National Minimum Wage for hours worked, holiday pay and payslips.
+- Exclusivity clauses that stop you working for anyone else are unenforceable in zero hours contracts.
 
-## What BPP Law School Employment Law Telephone Advice Line (ELTAL) would actually do here
+## How Legal Shaman helps
 
-Offer an initial employment law call back from a supervised student advice line.
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
-
-## What Free Representation Unit would actually do here
-
-May help with advice or representation in some employment tribunal cases if you qualify.
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
-
-## What Protect would actually do here
-
-Advise on whistleblowing and speaking up about wrongdoing at work.
-
-What they will **not** do: Will not run a tips or wages claim as your solicitor.
-
-## What Rachel's Voice would actually do here
-
-Offers advice to families who have suffered a bereavement after the death of a person with a learning disability. Advice is offered to clients free of charge by lawyers who are….
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=04-zero-hours-shifts-cancelled-no-pay-who-helps)**. It explains, in plain English, the law on zero hours work that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Research the law in more depth in our guide: [Zero hours contracts guide](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Zero%20Hours%20Contracts%20Guide%20Rights%20%26%20Responsibilities?utm_source=blog&utm_medium=article&utm_campaign=04-zero-hours-shifts-cancelled-no-pay-who-helps).
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -94,11 +81,11 @@ Ask for the contract clause in writing. If you already worked hours, or the cont
 
 ## Next step
 
-Not sure which free door fits your facts? **[Ask the Shaman](https://www.legalshaman.com/)** on the Legal Shaman home page. Describe the situation once and get the next step.
+Want to research the law on zero hours work? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=04-zero-hours-shifts-cancelled-no-pay-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help. Or read our guide [Zero hours contracts guide](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Zero%20Hours%20Contracts%20Guide%20Rights%20%26%20Responsibilities?utm_source=blog&utm_medium=article&utm_campaign=04-zero-hours-shifts-cancelled-no-pay-who-helps).
 
 ## Disclaimer
 
-Signposting only, not legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

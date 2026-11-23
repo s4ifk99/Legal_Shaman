@@ -12,12 +12,13 @@ This is the sibling framed on the search phrase **maternity discrimination at wo
 
 ## SEO
 
-- H1: Maternity discrimination at work: who helps?
-- Meta: Facing **maternity discrimination at work**? Who helps: employer grievance, ACAS early conciliation, free employment advice doors, and when to see a solicitor. Not legal advice.
-- Primary query: maternity discrimination at work / pregnancy discrimination
+- H1: Maternity discrimination solicitors and free legal advice: who helps?
+- Meta: Need a **maternity discrimination solicitor** or free **legal advice**? The Equality Act 2010 in England and Wales, time limits and who helps.
+- Primary query: maternity discrimination solicitor / maternity discrimination legal advice
+- Jurisdiction: England and Wales
 - Matter: employment
 - Demand source: Search Console
-- CTA: Process steps · matcher free doors · Ask the Shaman
+- CTA: Ask the Shaman plus research guide, UTM campaign 05-maternity-discrimination-at-work-who-helps
 
 ## Summary
 
@@ -31,41 +32,21 @@ This is the sibling framed on the search phrase **maternity discrimination at wo
 - Before most tribunal claims you must contact ACAS for early conciliation. Tribunal time limits are short, usually three months less one day from the act. Check ACAS for the current rule.
 - Speak to a solicitor if you have been dismissed, the deadline is close, or ACAS conciliation has ended.
 
-## What Citizens Advice Adviceline (England) would actually do here
+## What the law says in England and Wales
 
-Explain your rights, point to templates, and route you to local or specialist help.
+This section explains the general law. It is not advice on your situation.
 
-What they will **not** do: Will not chase the other party or represent you in court.
+- Under section 18 of the **Equality Act 2010** it is unlawful for an employer to treat you unfavourably because of pregnancy, pregnancy related illness or maternity leave.
+- Dismissal because of pregnancy or maternity leave is automatically unfair under the **Employment Rights Act 1996**, with no minimum length of service.
+- Extra redundancy protection applies during pregnancy and for a period after you return from maternity leave, under the **Protection from Redundancy (Pregnancy and Family Leave) Act 2023**.
+- Tribunal claims usually must start within three months less one day, and you must contact ACAS for early conciliation first. A **maternity discrimination solicitor** is worth contacting early if a deadline is close.
 
-## What Working Families would actually do here
+## How Legal Shaman helps
 
-For parents and carers needing advice on maternity and paternity leave and discrimination. They also provide basic benefits advice.
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
-
-## What Rachel's Voice would actually do here
-
-Offers advice to families who have suffered a bereavement after the death of a person with a learning disability. Advice is offered to clients free of charge by lawyers who are…
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
-
-## What YESS Law would actually do here
-
-Offer low cost employment advice aimed at resolving workplace problems early.
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
-
-## What Protect would actually do here
-
-Advise on whistleblowing and speaking up about wrongdoing at work.
-
-What they will **not** do: Will not run a tips or wages claim as your solicitor.
-
-## What BPP Law School Employment Law Telephone Advice Line (ELTAL) would actually do here
-
-Offer an initial employment law call back from a supervised student advice line.
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=05-maternity-discrimination-at-work-who-helps)**. It explains, in plain English, the law on pregnancy and maternity discrimination that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Research the law in more depth in our guide: [Discrimination at work because of pregnancy or maternity](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Discrimination%20at%20Work/Discrimination%20at%20work%20because%20of%20pregnancy%20or%20maternity?utm_source=blog&utm_medium=article&utm_campaign=05-maternity-discrimination-at-work-who-helps).
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -109,9 +90,9 @@ Not to start. The free doors below can explain your rights. A solicitor is worth
 - [ACAS: pregnancy and maternity discrimination](https://www.acas.org.uk/pregnancy-and-maternity-discrimination)
 - [GOV.UK: pregnant employees' rights](https://www.gov.uk/working-when-pregnant-your-rights)
 - [Equality and Human Rights Commission: pregnancy and maternity](https://www.equalityhumanrights.com/)
-- [Possible maternity discrimination at work: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FWork%20and%20Employment%2FDiscrimination%20at%20Work%2FPossible%20maternity%20discrimination%20at%20work%3A%20who%20helps)
-- [Pregnancy and maternity discrimination - employee guide](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FWork%20and%20Employment%2FYour%20Rights%20at%20Work%2FPregnancy%20and%20maternity%20discrimination%20-%20employee%20guide)
-- [Discrimination at work because of pregnancy or maternity](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FWork%20and%20Employment%2FDiscrimination%20at%20Work%2FDiscrimination%20at%20work%20because%20of%20pregnancy%20or%20maternity)
+- [Possible maternity discrimination at work: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Discrimination%20at%20Work/Possible%20maternity%20discrimination%20at%20work%3A%20who%20helps)
+- [Pregnancy and maternity discrimination: employee guide](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Pregnancy%20and%20maternity%20discrimination%20-%20employee%20guide)
+- [Discrimination at work because of pregnancy or maternity](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Discrimination%20at%20Work/Discrimination%20at%20work%20because%20of%20pregnancy%20or%20maternity)
 
 ## Related Concepts
 
@@ -130,11 +111,11 @@ Not to start. The free doors below can explain your rights. A solicitor is worth
 
 ## Next step
 
-Not sure which free door fits your facts? **[Ask the Shaman](https://www.legalshaman.com/)** on the Legal Shaman home page. Describe the situation once and get the next step.
+Want to research the law on pregnancy and maternity discrimination? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=05-maternity-discrimination-at-work-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help. Or read our guide [Discrimination at work because of pregnancy or maternity](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Discrimination%20at%20Work/Discrimination%20at%20work%20because%20of%20pregnancy%20or%20maternity?utm_source=blog&utm_medium=article&utm_campaign=05-maternity-discrimination-at-work-who-helps).
 
 ## Disclaimer
 
-Signposting only, not legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

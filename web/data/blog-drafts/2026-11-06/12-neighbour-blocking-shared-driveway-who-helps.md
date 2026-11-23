@@ -10,11 +10,12 @@ The allocated bay page and the driveway explainers already exist. This draft is 
 
 ## SEO
 
-- H1: Neighbour blocking the shared driveway: who helps?
-- Meta: If a **neighbour** is **blocking** a **shared driveway**, check the deeds or lease, then the managing agent. The council and the police usually will not move a car on private land. Citizens Advice explains neighbour complaints. They will not tow the car.
-- Primary query: neighbour blocking shared driveway
+- H1: Shared driveway rules in the UK: who helps when a neighbour blocks it?
+- Meta: **Shared driveway rules** explained for England and Wales: rights of way, a neighbour blocking access, and who helps for free.
+- Primary query: shared driveway rules / shared driveway laws uk
+- Jurisdiction: England and Wales
 - Matter: neighbours
-- CTA: [Ask the Shaman](https://www.legalshaman.com/)
+- CTA: Ask the Shaman plus research guide, UTM campaign 12-neighbour-blocking-shared-driveway-who-helps
 
 ## Summary
 
@@ -28,17 +29,22 @@ If a **neighbour** is **blocking** your **shared driveway**, the council and the
 - Check the title or lease before you accuse the neighbour. [GOV.UK: get information about property and land](https://www.gov.uk/get-information-about-property-and-land).
 - If you own a leasehold flat, the managing agent is often the door that can enforce estate rules. [LEASE](https://www.lease-advice.org/) explains leasehold. They will not come and move the car.
 
-## What the managing agent would actually do here
+## What the law says in England and Wales
 
-They can enforce lease and estate rules where the documents give them that power, and they can write to the resident. They will not always attend the same day, and they cannot invent a right that the lease does not give.
+This section explains the general law. It is not advice on your situation.
 
-## What the council and police would actually do here
+- **Shared driveway rules** come mainly from the property title. HM Land Registry records who owns the driveway and any right of way (an easement) over it.
+- If you have a right of way, a neighbour who blocks it so that you cannot reasonably use it may be committing a private nuisance. The remedy is a civil one, through negotiation, mediation or the courts.
+- The police and council usually only act if the blocking is on a public road or pavement, for example obstruction of the highway under the **Highways Act 1980**.
+- Maintenance costs for a **shared driveway** depend on the deeds or any agreement between neighbours.
+- Mediation is often the cheapest route, and courts expect people to have tried to settle first.
 
-On private land they usually will not ticket or tow a neighbour's car that is **blocking** a **shared driveway**. Call the police if there is a threat or a crime, not because the car is in the way.
+## How Legal Shaman helps
 
-## What Citizens Advice would actually do here
-
-Advisers explain **problems with neighbours** and how to complain in writing. They will not mediate on the drive or remove the vehicle. Guide: [problems with neighbours](https://www.citizensadvice.org.uk/housing/problems-with-neighbours/).
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=12-neighbour-blocking-shared-driveway-who-helps)**. It explains, in plain English, the law on shared driveways and rights of way that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Research the law in more depth in our guide: [Shared driveways](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Neighbours%20and%20Property/Boundaries%20and%20Rights/Shared%20driveways?utm_source=blog&utm_medium=article&utm_campaign=12-neighbour-blocking-shared-driveway-who-helps).
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -81,7 +87,7 @@ Not for a private shared drive. Check the documents and the managing agent first
 
 ## Disclaimer
 
-This is signposting, not legal advice. The title, the lease, and the estate rules decide who can act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

@@ -10,11 +10,12 @@ On publish, link this page and the hire purchase page both ways. Do not retitle 
 
 ## SEO
 
-- H1: Conditional sale car taken back: who helps?
-- Meta: If a lender takes back a car on **conditional sale** or hire purchase, start with the credit agreement, then Citizens Advice and a free debt adviser. They explain the steps. They will not go to court for you.
-- Primary query: conditional sale car taken back
+- H1: Conditional sale car repossessed: who helps?
+- Meta: Car on **conditional sale** taken back? How repossession works in England and Wales, the one third rule, and who helps for free.
+- Primary query: conditional sale car repossessed / conditional sale vs hire purchase
+- Jurisdiction: England and Wales
 - Matter: consumer
-- CTA: [Ask the Shaman](https://www.legalshaman.com/)
+- CTA: Ask the Shaman plus research guide, UTM campaign 09-conditional-sale-car-taken-back-who-helps
 
 ## Summary
 
@@ -28,13 +29,22 @@ If a finance company has **taken back** a car on **conditional sale** or hire pu
 - Check the credit agreement for the total price and what it says you still owe if the agreement ends. If the lender demands the full remaining balance just to let you end it, the Citizens Advice page says that demand is wrong and to speak to an adviser.
 - If the car is sold after it is **taken back** and a balance remains, ask the lender for the sale figure in writing before you agree a plan.
 
-## What Citizens Advice would actually do here
+## What the law says in England and Wales
 
-Advisers will explain hire purchase and **conditional sale**, point you at the end agreement letter, and help you see whether the lender or you ended the agreement. They will not collect the car, bid at auction, or run the court case. Use the guide first, then the letter: [Hire purchase and conditional sale](https://www.citizensadvice.org.uk/debt-and-money/borrowing-money/types-of-borrowing/hire-purchase-and-conditional-sale/) and [End a hire purchase or a conditional sale agreement](https://www.citizensadvice.org.uk/debt-and-money/template-letters-to-creditors/end-a-hire-purchase-or-a-conditional-sale-agreement/).
+This section explains the general law. It is not advice on your situation.
 
-## What a free debt adviser would actually do here
+- On a **conditional sale** or hire purchase agreement the finance company owns the car until the last payment. The **Consumer Credit Act 1974** governs these agreements.
+- Once you have paid at least one third of the total price, the car counts as protected goods. The lender then needs a court order to take it back unless you agree to hand it over.
+- You can usually end the agreement yourself in writing (voluntary termination). Once you have paid half of the total price you can normally hand the car back without paying more, as long as it has been looked after.
+- If the lender has already sold the car, it must account for the sale price against what is owed. Ask for the figures in writing.
+- Complaints about the lender go to the lender first, then to the Financial Ombudsman Service after eight weeks or a final response.
 
-National Debtline and StepChange will help you list what is owed and what you can pay. They will not tell the lender to give the car back, and they will not guarantee the balance disappears because the car was sold. [National Debtline](https://www.nationaldebtline.org/) and [StepChange](https://www.stepchange.org/).
+## How Legal Shaman helps
+
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=09-conditional-sale-car-taken-back-who-helps)**. It explains, in plain English, the law on conditional sale and hire purchase that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Research the law in more depth in our guide: [Hire purchase and conditional sale](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Hire%20purchase%20and%20conditional%20sale?utm_source=blog&utm_medium=article&utm_campaign=09-conditional-sale-car-taken-back-who-helps).
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -78,7 +88,7 @@ Do not agree a figure you have not checked against the agreement and the Citizen
 
 ## Disclaimer
 
-This is signposting, not legal advice. Your agreement and the notices you were sent decide the next step.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

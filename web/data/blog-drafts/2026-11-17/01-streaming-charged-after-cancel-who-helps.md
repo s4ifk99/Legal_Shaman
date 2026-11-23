@@ -2,11 +2,12 @@
 
 ## SEO
 
-- H1: Streaming service charged after I cancelled: who helps?
-- Meta: UK signposting when a **streaming service charged after cancel**. Matcher free doors and Ask the Shaman. Not legal advice.
-- Primary query: streaming service charged after cancel who helps
+- H1: Subscription charged after I cancelled: who helps?
+- Meta: **Subscription charged after cancelling**? Your rights in England and Wales to stop recurring card payments, get a refund, and who helps.
+- Primary query: subscription charged after cancelling / streaming service charged after cancel
+- Jurisdiction: England and Wales
 - Matter: consumer
-- CTA: Process steps · matcher free doors · Ask the Shaman
+- CTA: Ask the Shaman plus research guide, UTM campaign 01-streaming-charged-after-cancel-who-helps
 
 ## Summary
 
@@ -19,17 +20,21 @@ If a **streaming service charged after cancel**, who helps starts with cancel pr
 - Continuous payment authority and direct debit are stopped in different ways. Ask the bank for both stop and reclaim options.
 - Write once to the trader with dates and amounts before you escalate.
 
-## What Financial Ombudsman Service would actually do here
+## What the law says in England and Wales
 
-Look at whether a bank, insurer, or other financial firm handled a complaint fairly.
+This section explains the general law. It is not advice on your situation.
 
-What they will **not** do: Will not take a case until you complained to the firm, and will not cover every non financial dispute.
+- If you cancelled in line with the contract, the business has no right to keep taking money. Payments taken after a valid cancellation can be claimed back.
+- Recurring card payments are a continuous payment authority. Under the **Payment Services Regulations 2017** you can tell your card issuer to stop it, and the bank must do so.
+- For most online sign ups, the **Consumer Contracts Regulations 2013** give a 14 day cooling off period, with some limits for digital content you have started using.
+- New subscription contract rules under the **Digital Markets, Competition and Consumers Act 2024** are being brought in. Check GOV.UK for which parts apply yet.
 
-## What Citizens Advice Adviceline (England) would actually do here
+## How Legal Shaman helps
 
-Explain your rights, point to templates, and route you to local or specialist help.
-
-What they will **not** do: Will not chase the other party or represent you in court.
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=01-streaming-charged-after-cancel-who-helps)**. It explains, in plain English, the law on subscriptions and recurring payments that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Research the law in more depth in our guide: [Gym kept charging after I cancelled: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Gym%20kept%20charging%20after%20I%20cancelled%3A%20who%20helps?utm_source=blog&utm_medium=article&utm_campaign=01-streaming-charged-after-cancel-who-helps).
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -66,11 +71,11 @@ Compare that claim with the written terms and your cancel timestamp. If they too
 
 ## Next step
 
-Not sure which free door fits your facts? **[Ask the Shaman](https://www.legalshaman.com/)** on the Legal Shaman home page. Describe the situation once and get the next step.
+Want to research the law on subscriptions and recurring payments? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=01-streaming-charged-after-cancel-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help. Or read our guide [Gym kept charging after I cancelled: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Gym%20kept%20charging%20after%20I%20cancelled%3A%20who%20helps?utm_source=blog&utm_medium=article&utm_campaign=01-streaming-charged-after-cancel-who-helps).
 
 ## Disclaimer
 
-Signposting only, not legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

@@ -6,13 +6,14 @@
   "drafts": [
     {
       "file": "01-streaming-charged-after-cancel-who-helps.md",
-      "title": "Streaming service charged after I cancelled: who helps?",
+      "title": "Subscription charged after I cancelled: who helps?",
       "demandRef": "local-1117-01",
       "matter": "consumer",
       "why": "Subscription cancel still charged; card stop + CAB path.",
       "matchFile": "matches/01-streaming-charged-after-cancel-who-helps.json",
       "matchOk": true,
-      "matchQa": "ok"
+      "matchQa": "ok",
+      "originalTitle": "Streaming service charged after I cancelled: who helps?"
     },
     {
       "file": "02-hotel-cancelled-booking-no-refund-who-helps.md",

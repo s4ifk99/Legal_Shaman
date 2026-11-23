@@ -1,14 +1,15 @@
 > **Status:** Ready for review. Signposting only. Do not publish until Approved.
 
-> **Match QA (weak):** Only Citizens Advice style hits — likely under-matched for the situation. Services below are from `match_free_help` only.
+> **Match QA (weak):** Only Citizens Advice style hits: likely under-matched for the situation. Services below are from `match_free_help` only.
 
 ## SEO
 
 - H1: Mobile phone contract early exit fee: who helps?
-- Meta: UK signposting for **mobile phone contract early exit fee**. Matcher free doors and Ask the Shaman. Not legal advice.
-- Primary query: mobile phone early exit fee who helps
+- Meta: **Mobile phone contract early exit fee**? When the law in England and Wales lets you leave penalty free, and who helps if the provider refuses.
+- Primary query: mobile phone contract early exit fee
+- Jurisdiction: England and Wales
 - Matter: consumer
-- CTA: Process steps · matcher free doors · Ask the Shaman
+- CTA: Ask the Shaman plus research guide, UTM campaign 01-mobile-early-exit-fee-who-helps
 
 ## Summary
 
@@ -20,11 +21,21 @@ If a **mobile** network quotes an early exit fee you think is wrong, who helps s
 - Ask for a full breakdown of handset subsidy versus airtime.
 - Ofcom rules and ADR schemes cover many UK mobile providers.
 
-## What Citizens Advice Adviceline (England) would actually do here
+## What the law says in England and Wales
 
-Explain your rights, point to templates, and route you to local or specialist help.
+This section explains the general law. It is not advice on your situation.
 
-What they will **not** do: Will not chase the other party or represent you in court.
+- Mobile contracts are regulated by Ofcom. Providers must tell you any price rises in pounds and pence at the point of sale.
+- If a provider changes the contract in a way that is not to your benefit and was not set out when you signed, Ofcom rules usually let you leave without an **early exit fee**.
+- Outside those cases, an **early exit fee** set out in the contract is normally payable, but it must be fair under the **Consumer Rights Act 2015**.
+- If the complaint is not resolved after eight weeks, or you get a deadlock letter, you can take it to the provider's ADR scheme (Communications Ombudsman or CISAS) for free.
+
+## How Legal Shaman helps
+
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=01-mobile-early-exit-fee-who-helps)**. It explains, in plain English, the law on phone and broadband contracts that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Research the law in more depth in our guide: [Cancelling a phone, TV, internet or mobile contract](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Home%20and%20Housing/Renting/Cancelling%20a%20phone%2C%20TV%2C%20internet%20or%20mobile%20contract?utm_source=blog&utm_medium=article&utm_campaign=01-mobile-early-exit-fee-who-helps).
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -56,11 +67,11 @@ Ask for the clause and the calculation in writing. Compare it with your remainin
 
 ## Next step
 
-Not sure which free door fits your facts? **[Ask the Shaman](https://www.legalshaman.com/)** on the Legal Shaman home page. Describe the situation once and get the next step.
+Want to research the law on phone and broadband contracts? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=01-mobile-early-exit-fee-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help. Or read our guide [Cancelling a phone, TV, internet or mobile contract](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Home%20and%20Housing/Renting/Cancelling%20a%20phone%2C%20TV%2C%20internet%20or%20mobile%20contract?utm_source=blog&utm_medium=article&utm_campaign=01-mobile-early-exit-fee-who-helps).
 
 ## Disclaimer
 
-Signposting only, not legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

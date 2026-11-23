@@ -1,6 +1,6 @@
 > **Status:** Ready for review. Signposting only. Do not publish until Approved.
 
-> **Match QA (weak):** Only Citizens Advice style hits — likely under-matched for the situation. Services below are from `match_free_help` only.
+> **Match QA (weak):** Only Citizens Advice style hits: likely under-matched for the situation. Services below are from `match_free_help` only.
 
 Overlap wiki ids:
 
@@ -9,11 +9,12 @@ Overlap wiki ids:
 ## SEO
 
 - H1: Still getting nuisance calls after registering with TPS: who helps?
-- Meta: Still getting **nuisance calls** after registering with the **TPS**? Who helps: ICO complaints, your phone provider, Ofcom for silent calls, free advice. Not legal advice.
-- Primary query: nuisance calls after TPS / cold calls even though registered
+- Meta: Still getting **nuisance calls after registering with TPS**? The PECR rules in England and Wales, the ICO and who helps.
+- Primary query: nuisance calls after TPS registration
+- Jurisdiction: England and Wales
 - Matter: consumer
 - Demand source: Local (thin Reddit day)
-- CTA: Process steps · matcher free doors · Ask the Shaman
+- CTA: Ask the Shaman plus research guide, UTM campaign 08-nuisance-calls-after-tps-registration-who-helps
 
 ## Summary
 
@@ -27,11 +28,21 @@ If you still get **nuisance calls** after registering with the **Telephone Prefe
 - Write down the number, date, time, company name and what they said. The ICO uses these reports to take action.
 - Silent or abandoned calls are covered by Ofcom. Scam calls should be reported as fraud.
 
-## What Citizens Advice Adviceline (England) would actually do here
+## What the law says in England and Wales
 
-Explain your rights, point to templates, and route you to local or specialist help.
+This section explains the general law. It is not advice on your situation.
 
-What they will **not** do: Will not chase the other party or represent you in court.
+- Under the **Privacy and Electronic Communications Regulations 2003** (PECR), companies must not make live sales calls to numbers registered with the Telephone Preference Service (TPS) unless you have told them they can.
+- Registration can take up to 28 days to take full effect.
+- Automated recorded marketing calls need your specific consent, whether or not you are on the TPS.
+- The Information Commissioner's Office (ICO) enforces PECR and can fine companies. Reports help it build cases.
+
+## How Legal Shaman helps
+
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=08-nuisance-calls-after-tps-registration-who-helps)**. It explains, in plain English, the law on nuisance calls that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Research the law in more depth in our guide: [Stop getting nuisance calls and texts](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Health%20and%20Injury/Personal%20Injury/Stop%20getting%20nuisance%20calls%20and%20texts?utm_source=blog&utm_medium=article&utm_campaign=08-nuisance-calls-after-tps-registration-who-helps).
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -65,7 +76,7 @@ Forward spam texts to 7726 for free, then delete them.
 - [Telephone Preference Service](https://www.tpsonline.org.uk/)
 - [ICO: nuisance calls and messages](https://ico.org.uk/make-a-complaint/nuisance-calls-and-messages/)
 - [Ofcom: tackling nuisance calls](https://www.ofcom.org.uk/phones-and-broadband/scam-and-nuisance-calls)
-- [Stop getting nuisance calls and texts](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FHealth%20and%20Injury%2FPersonal%20Injury%2FStop%20getting%20nuisance%20calls%20and%20texts)
+- [Stop getting nuisance calls and texts](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Health%20and%20Injury/Personal%20Injury/Stop%20getting%20nuisance%20calls%20and%20texts)
 
 ## Related Concepts
 
@@ -77,11 +88,11 @@ Forward spam texts to 7726 for free, then delete them.
 
 ## Next step
 
-Not sure which free door fits your facts? **[Ask the Shaman](https://www.legalshaman.com/)** on the Legal Shaman home page. Describe the situation once and get the next step.
+Want to research the law on nuisance calls? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=08-nuisance-calls-after-tps-registration-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help. Or read our guide [Stop getting nuisance calls and texts](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Health%20and%20Injury/Personal%20Injury/Stop%20getting%20nuisance%20calls%20and%20texts?utm_source=blog&utm_medium=article&utm_campaign=08-nuisance-calls-after-tps-registration-who-helps).
 
 ## Disclaimer
 
-Signposting only, not legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

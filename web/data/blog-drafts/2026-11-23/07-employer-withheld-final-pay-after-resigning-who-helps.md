@@ -8,11 +8,12 @@ Overlap wiki ids:
 ## SEO
 
 - H1: Employer withheld my final pay after I resigned: who helps?
-- Meta: **Employer withheld your final pay** after you resigned? Who helps with **unpaid final wages** and holiday pay: written chase, ACAS early conciliation, free employment doors. Not legal advice.
-- Primary query: employer withheld final pay after resigning / unpaid final wages
+- Meta: **Employer withheld your final pay** after you resigned? Unlawful deductions in England and Wales, holiday pay, ACAS and who helps.
+- Primary query: employer withheld final pay after resigning
+- Jurisdiction: England and Wales
 - Matter: employment
 - Demand source: Local (thin Reddit day)
-- CTA: Process steps · matcher free doors · Ask the Shaman
+- CTA: Ask the Shaman plus research guide, UTM campaign 07-employer-withheld-final-pay-after-resigning-who-helps
 
 ## Summary
 
@@ -23,38 +24,24 @@ If your **employer withheld your final pay** after you resigned, it may be an un
 - Your final pay should include all hours or days worked, any notice pay owed, and pay for holiday you built up but did not take.
 - An employer can only deduct money if your contract allows it in writing or you agreed in advance. Ask which clause they rely on.
 - Check your last payslip and compare it with your timesheets.
-- Before an employment tribunal claim you must contact ACAS for early conciliation. The time limit is short, usually three months less one day from the date you should have been paid.
+- Before an employment tribunal claim you must contact ACAS for early conciliation. The time limit is short, usually three months less one day from the date the pay was due.
 - You can also claim in the small claims court for breach of contract in some cases. Ask a free adviser which route fits.
 
-## What Citizens Advice Adviceline (England) would actually do here
+## What the law says in England and Wales
 
-Explain your rights, point to templates, and route you to local or specialist help.
+This section explains the general law. It is not advice on your situation.
 
-What they will **not** do: Will not chase the other party or represent you in court.
+- Withholding wages you have earned is usually an unlawful deduction under section 13 of the **Employment Rights Act 1996**, unless the contract or your written agreement allows it.
+- On leaving you are normally owed pay for days worked, any notice pay, and pay for holiday you built up but did not take, under the **Working Time Regulations 1998**.
+- A claim for unlawful deductions goes to an employment tribunal, after ACAS early conciliation. The time limit is usually three months less one day from the date the pay was due.
+- Keep your contract, payslips and resignation letter. They show what you were owed and when.
 
-## What Protect would actually do here
+## How Legal Shaman helps
 
-Advise on whistleblowing and speaking up about wrongdoing at work.
-
-What they will **not** do: Will not run a tips or wages claim as your solicitor.
-
-## What YESS Law would actually do here
-
-Offer low cost employment advice aimed at resolving workplace problems early.
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
-
-## What BPP Law School Employment Law Telephone Advice Line (ELTAL) would actually do here
-
-Offer an initial employment law call back from a supervised student advice line.
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
-
-## What Free Representation Unit would actually do here
-
-May help with advice or representation in some employment tribunal cases if you qualify.
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=07-employer-withheld-final-pay-after-resigning-who-helps)**. It explains, in plain English, the law on final pay that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Research the law in more depth in our guide: [Leaving your job: notice, final pay and resigning](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Leaving%20your%20job%20-%20rights%20on%20giving%20notice%2C%20final%20pay%20and%20resigning?utm_source=blog&utm_medium=article&utm_campaign=07-employer-withheld-final-pay-after-resigning-who-helps).
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -96,8 +83,8 @@ Start ACAS early conciliation. If that does not settle it, you can make a tribun
 - [ACAS: final pay when someone leaves a job](https://www.acas.org.uk/final-pay-when-someone-leaves-a-job)
 - [GOV.UK: deductions from pay](https://www.gov.uk/understanding-your-pay/deductions-from-your-pay)
 - [ACAS: early conciliation](https://www.acas.org.uk/early-conciliation)
-- [Leaving your job - rights on giving notice, final pay and resigning](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FWork%20and%20Employment%2FYour%20Rights%20at%20Work%2FLeaving%20your%20job%20-%20rights%20on%20giving%20notice%2C%20final%20pay%20and%20resigning)
-- [Training costs deducted from final pay: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FWork%20and%20Employment%2FYour%20Rights%20at%20Work%2FTraining%20costs%20deducted%20from%20final%20pay%3A%20who%20helps)
+- [Leaving your job: rights on giving notice, final pay and resigning](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Leaving%20your%20job%20-%20rights%20on%20giving%20notice%2C%20final%20pay%20and%20resigning)
+- [Training costs deducted from final pay: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Training%20costs%20deducted%20from%20final%20pay%3A%20who%20helps)
 
 ## Related Concepts
 
@@ -114,11 +101,11 @@ Start ACAS early conciliation. If that does not settle it, you can make a tribun
 
 ## Next step
 
-Not sure which free door fits your facts? **[Ask the Shaman](https://www.legalshaman.com/)** on the Legal Shaman home page. Describe the situation once and get the next step.
+Want to research the law on final pay? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=07-employer-withheld-final-pay-after-resigning-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help. Or read our guide [Leaving your job: notice, final pay and resigning](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Leaving%20your%20job%20-%20rights%20on%20giving%20notice%2C%20final%20pay%20and%20resigning?utm_source=blog&utm_medium=article&utm_campaign=07-employer-withheld-final-pay-after-resigning-who-helps).
 
 ## Disclaimer
 
-Signposting only, not legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 
