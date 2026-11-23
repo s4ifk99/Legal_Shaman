@@ -20,23 +20,24 @@ STEPS
 1. cd web && npm run reddit:daily-pick
    - Reads RSS, appends web/data/reddit-query-bank.json, writes web/data/reddit-daily-brief/YYYY-MM-DD.json (London date).
 2. npm run wiki:clawback -- --brief data/reddit-daily-brief/YYYY-MM-DD.json
-3. For each pick in the brief, create a Notion page in Blog Queue database (parent Blog, data source collection://946bff79-9331-4c62-a5fb-28adcf442fe3) with:
-   - Name: Draft: <search-shaped H1 who helps?>
-   - Status: Ready for review
-   - Batch date: today (London)
-   - Demand ref: reddit id (internal only)
-   - Matter: from brief
-   - Primary query: short SEO query
-   - Overlap wiki ids: newline-separated wiki ids from clawback
-   - Body: full Blog voice draft per .cursor/rules/marketing-blog-signposting.mdc, seo-keyword-bold.mdc, no-dash-in-prose.mdc
-     Include: SEO block, Summary, Key information, What [door] would actually do (CA/ICO/etc will and will not), Practical guidance order, Services table (do / do not / how to reach), FAQ, Sources with official URLs + related wiki links from clawback, Disclaimer, Anonymised Legal Shaman query.
-4. Never link the Reddit thread publicly. Never post to Reddit. Strip PII.
-5. End with a short ping listing the 10 Notion URLs and one-line why-picked each.
+3. Prefer local drafts under web/data/blog-drafts/YYYY-MM-DD/ (Notion optional if entitlement allows).
+   For each pick: write the draft .md + index.json entry (Ready for review).
+4. Run the product test (required):
+   npm run blog:match-free -- --date YYYY-MM-DD --seed
+   - Writes matches/<stem>.json from match_free_help (offline freeServicesIndex).
+   - Seeds Services table, Practical Guidance order, and What [door] sections from that snapshot only.
+   - Sets matchOk / matchQa on index.json. matchOk false stays Ready for review with a visible Match QA note.
+5. Body rules: .cursor/rules/marketing-blog-signposting.mdc, seo-keyword-bold.mdc, no-dash-in-prose.mdc.
+   Include: SEO, Summary, Key information, What [door] (from snapshot), Practical guidance (from snapshot order), Services table (from snapshot), FAQ, Sources (official URLs + clawback wiki), Disclaimer, Anonymised Legal Shaman query.
+   Do NOT invent free doors that are missing from the match snapshot. Enrich will/will-not text only.
+6. Never link the Reddit thread publicly. Never post to Reddit. Strip PII.
+7. Ping with /dev/blog-review?date=YYYY-MM-DD and one-line why-picked each.
 
 HARD RULES
 - Signposting only, not legal advice.
 - Prefer everyday consumer/parking/employment/calls; cap housing.
 - If clawback finds a near-duplicate Published page, write a sibling who-helps draft and link both ways in Sources / Related Concepts instead of a thin clone.
+- Free doors come from blog:match-free (the advertised matcher), not a fixed CAB/ACAS list.
 ```
 
 ---
