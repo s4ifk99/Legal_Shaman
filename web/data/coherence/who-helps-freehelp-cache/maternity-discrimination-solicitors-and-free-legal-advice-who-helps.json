@@ -1,0 +1,94 @@
+{
+  "queryKeys": [
+    "Maternity discrimination solicitors and free legal advice: who helps",
+    "Maternity discrimination solicitors and free legal advice: who helps?",
+    "I was treated unfairly at work after telling my employer I was pregnant and during maternity leave. Maternity discrimination at work. England. Who helps?",
+    "I was treated unfairly at work after telling my employer I was pregnant and during maternity leave. Maternity discrimination at work. England. Who helps?"
+  ],
+  "title": "Maternity discrimination solicitors and free legal advice: who helps",
+  "wikiId": "Areas/Work and Employment/Your Rights at Work/Maternity discrimination solicitors and free legal advice: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Maternity%20discrimination%20solicitors%20and%20free%20legal%20advice%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "signpost-workingfamilies-org-uk-working-families",
+      "title": "Working Families",
+      "type": "Free advice · charity",
+      "blurb": "for parents and carers needing advice on maternity and paternity leave and discrimination. They also provide basic benefits advice",
+      "phone": "0300 012 0312",
+      "url": "https://workingfamilies.org.uk/",
+      "score": 35,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "signpost-rachelsvoice-co-uk-rachel-s-voice",
+      "title": "Rachel's Voice",
+      "type": "Free advice · charity",
+      "blurb": "offers advice to families who have suffered a bereavement after the death of a person with a learning disability. Advice is offered to clients free of charge by lawyers who are working pro bono.",
+      "phone": "0808 808 1111",
+      "url": "https://rachelsvoice.co.uk/",
+      "score": 33,
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "signpost-yesslaw-org-uk-yess-law",
+      "title": "YESS Law",
+      "type": "Free advice · charity",
+      "blurb": "offers affordable advice to employees and employers who want to resolve problems at work",
+      "phone": "020 3701 7530",
+      "url": "https://yesslaw.org.uk/",
+      "score": 31,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-protect-advice-org-uk-protect",
+      "title": "Protect",
+      "type": "Free advice · charity",
+      "blurb": "Free legal advice service on whistleblowing at work.",
+      "phone": "020 3117 2520",
+      "url": "https://protect-advice.org.uk/",
+      "score": 30,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-bpp-com-bpp-law-school-employment-law-telephone-advice-",
+      "title": "BPP Law School Employment Law Telephone Advice Line (ELTAL)",
+      "type": "Free service",
+      "blurb": "an advice line offering initial advice to callers. Leave a message and a student volunteer will call back.",
+      "phone": "0207 633 4534",
+      "url": "https://www.bpp.com/",
+      "score": 24,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 33,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-23T18:24:37.648Z",
+  "stage": "published"
+}

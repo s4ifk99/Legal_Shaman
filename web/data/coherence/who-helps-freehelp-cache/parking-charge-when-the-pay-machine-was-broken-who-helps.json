@@ -3,11 +3,11 @@
     "Parking charge when the pay machine was broken: who helps?",
     "Parking charge when the pay machine was broken",
     "I got a private parking charge notice at a retail park car park even though the pay machine was broken and would not take payment. England. Who helps?",
-    "I got a private parking charge notice at a retail park car park even though the pay machine was broken and would not take payment. England. Who helps?"
+    "Parking charge when the pay machine was broken: who helps"
   ],
   "title": "Parking charge when the pay machine was broken: who helps",
-  "wikiId": "",
-  "liveUrl": "",
+  "wikiId": "Areas/Driving and Parking/Parking and PCNs/Parking charge when the pay machine was broken: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Parking%20and%20PCNs/Parking%20charge%20when%20the%20pay%20machine%20was%20broken%3A%20who%20helps",
   "freeHelp": [
     {
       "id": "fs-popla",
@@ -84,6 +84,6 @@
       ]
     }
   ],
-  "publishedAt": "2026-11-23T16:30:41.050Z",
-  "stage": "draft"
+  "publishedAt": "2026-11-23T18:24:46.794Z",
+  "stage": "published"
 }
