@@ -26,6 +26,8 @@ import { matchSignposting, type SignpostHit } from './signposting'
 import { matchSraFirms, type SraFirmHit } from './sraLive'
 import { matchingSessionForHelp } from './services'
 import { buildRetrievalText } from './retrievalText'
+// Server/Node resolves the disk cache; browser bundles get the null stub (package.json "imports").
+import { lookupWhoHelpsFreeHelpCache } from '#who-helps-cache'
 import type { SessionState } from './types'
 
 export type { HelpDoor, HelpDoorKind, HelpToolName } from './peopleFirst'
@@ -42,6 +44,41 @@ function graphOk(title: string, blurb: string, session: SessionState): boolean {
 export function match_free_help(session: SessionState, limit = 10): FreeServiceHit[] {
   const routed = matchingSessionForHelp(session)
   return matchFreeServices(routed, limit).filter((h) => graphOk(h.title, h.blurb, routed))
+}
+
+export type ResolveFreeHelpResult = {
+  freeHelp: FreeServiceHit[]
+  source: 'who-helps-cache' | 'match_free_help'
+  cacheWikiId?: string
+}
+
+/**
+ * Prefer durable who-helps freeHelp cache (warmed on wiki publish), else offline matcher.
+ * No LLM / Exa. Used by Matching Help and matter-led packs.
+ */
+export function resolveFreeHelp(session: SessionState, limit = 8): ResolveFreeHelpResult {
+  const candidates = [
+    session.clientQuestion,
+    session.confirmedSearchQuery,
+    session.whatHappened,
+    storyOf(session),
+  ].filter((s): s is string => Boolean(s && s.trim()))
+
+  for (const q of candidates) {
+    const hit = lookupWhoHelpsFreeHelpCache(q)
+    if (hit?.freeHelp?.length) {
+      return {
+        freeHelp: hit.freeHelp.slice(0, limit),
+        source: 'who-helps-cache',
+        cacheWikiId: hit.wikiId,
+      }
+    }
+  }
+
+  return {
+    freeHelp: match_free_help(session, limit),
+    source: 'match_free_help',
+  }
 }
 
 export async function match_legal_aid(session: SessionState, limit = 5): Promise<LegalAidHit[]> {
@@ -162,7 +199,8 @@ export async function runHelpTools(
     signpost_category(frozen, 6),
     includeSra ? search_sra(frozen, 5) : Promise.resolve([] as SraFirmHit[]),
   ])
-  const freeHelp = match_free_help(frozen, 10)
+  const resolved = resolveFreeHelp(frozen, 10)
+  const freeHelp = resolved.freeHelp
   const authority = matchAuthorityHelp(routed, 8)
   return {
     session: frozen,
