@@ -1,0 +1,63 @@
+{
+  "query": "The hotel cancelled my stay and will not refund me. England. Who helps?",
+  "title": "Hotel cancelled my booking and refused a refund: who helps",
+  "matter": "consumer",
+  "matterType": "consumer",
+  "freeHelp": [
+    {
+      "id": "signpost-financial-ombudsman-org-uk-financial-ombudsman-service",
+      "title": "Financial Ombudsman Service",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free complaints service if an insurer or other financial firm will not settle a dispute — including motor claims.",
+      "phone": "0800 023 4567",
+      "url": "https://www.financial-ombudsman.org.uk/",
+      "score": 19,
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-insurance-financial-ombudsman"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 43,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "signpost-financial-ombudsman-org-uk-financial-ombudsman-service",
+      "title": "Financial Ombudsman Service",
+      "kind": "duty",
+      "blurb": "Free complaints service if an insurer or other financial firm will not settle a dispute — including motor claims.",
+      "url": "https://www.financial-ombudsman.org.uk/",
+      "phone": "0800 023 4567",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "kind": "cab",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "phone": "0800 144 8848",
+      "tool": "match_free_help"
+    }
+  ],
+  "matchOk": true,
+  "qa": "ok",
+  "qaDetail": "2 free doors (1 non-CAB)",
+  "generatedAt": "2026-11-23T16:30:39.186Z"
+}

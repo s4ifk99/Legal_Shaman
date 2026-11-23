@@ -1,0 +1,139 @@
+{
+  "query": "I got a private parking charge notice at a retail park car park even though the pay machine was broken and would not take payment. England. Who helps?",
+  "title": "Parking charge when the pay machine was broken: who helps",
+  "matter": "parking",
+  "matterType": "consumer",
+  "freeHelp": [
+    {
+      "id": "fs-popla",
+      "title": "POPLA — Parking on Private Land Appeals",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free independent appeal for private parking charge notices after the operator rejects your first appeal (BPA operators). Online appeal; phone support available.",
+      "phone": "0330 1596 126",
+      "url": "https://www.popla.co.uk/",
+      "score": 72,
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ]
+    },
+    {
+      "id": "fs-ias",
+      "title": "Independent Appeals Service (IAS)",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free standard appeal for private parking charges from International Parking Community (IPC) accredited operators. Appeals are online / in writing.",
+      "url": "https://theias.org/appeal",
+      "score": 68,
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ]
+    },
+    {
+      "id": "fs-resolver-private-parking",
+      "title": "Resolver — private parking tickets guide",
+      "type": "Free advice · charity",
+      "blurb": "Free step-by-step guide to challenging private parking tickets, including when to use POPLA or IAS.",
+      "url": "https://www.resolver.co.uk/rights-guide/private-parking-tickets",
+      "score": 41,
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ]
+    },
+    {
+      "id": "fs-tpt",
+      "title": "Traffic Penalty Tribunal",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free independent appeal for council parking and traffic PCNs in England (outside London) and Wales — after the council rejects your representations.",
+      "url": "https://www.trafficpenaltytribunal.gov.uk/",
+      "score": 40,
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ]
+    },
+    {
+      "id": "fs-london-tribunals",
+      "title": "London Tribunals (Environment & Traffic Adjudicators)",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free independent appeal for London council / TfL parking and traffic PCNs after a Notice of Rejection. Online portal; phone for hearing queries.",
+      "phone": "020 7520 7200",
+      "url": "https://www.londontribunals.gov.uk/eat",
+      "score": 40,
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 37,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "kind": "cab",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "phone": "0800 144 8848",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-popla",
+      "title": "POPLA — Parking on Private Land Appeals",
+      "kind": "regulator",
+      "blurb": "Free independent appeal for private parking charge notices after the operator rejects your first appeal (BPA operators). Online appeal; phone support available.",
+      "url": "https://www.popla.co.uk/",
+      "phone": "0330 1596 126",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-ias",
+      "title": "Independent Appeals Service (IAS)",
+      "kind": "regulator",
+      "blurb": "Free standard appeal for private parking charges from International Parking Community (IPC) accredited operators. Appeals are online / in writing.",
+      "url": "https://theias.org/appeal",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-tpt",
+      "title": "Traffic Penalty Tribunal",
+      "kind": "regulator",
+      "blurb": "Free independent appeal for council parking and traffic PCNs in England (outside London) and Wales — after the council rejects your representations.",
+      "url": "https://www.trafficpenaltytribunal.gov.uk/",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-london-tribunals",
+      "title": "London Tribunals (Environment & Traffic Adjudicators)",
+      "kind": "regulator",
+      "blurb": "Free independent appeal for London council / TfL parking and traffic PCNs after a Notice of Rejection. Online portal; phone for hearing queries.",
+      "url": "https://www.londontribunals.gov.uk/eat",
+      "phone": "020 7520 7200",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-resolver-private-parking",
+      "title": "Resolver — private parking tickets guide",
+      "kind": "specialist",
+      "blurb": "Free step-by-step guide to challenging private parking tickets, including when to use POPLA or IAS.",
+      "url": "https://www.resolver.co.uk/rights-guide/private-parking-tickets",
+      "tool": "match_free_help"
+    }
+  ],
+  "matchOk": true,
+  "qa": "ok",
+  "qaDetail": "6 free doors (5 non-CAB)",
+  "generatedAt": "2026-11-23T16:30:41.048Z"
+}

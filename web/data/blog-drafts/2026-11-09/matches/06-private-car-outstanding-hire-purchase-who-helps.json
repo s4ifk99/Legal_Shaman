@@ -1,0 +1,63 @@
+{
+  "query": "Bought a car privately for cash. Finance company says outstanding hire purchase and wants the car. England. Who helps?",
+  "title": "Bought a car privately with outstanding hire purchase: who helps",
+  "matter": "consumer",
+  "matterType": "consumer",
+  "freeHelp": [
+    {
+      "id": "fs-moneyhelper",
+      "title": "MoneyHelper (MaPS)",
+      "type": "Free advice · charity",
+      "blurb": "Government-backed money and pensions guidance — debt, benefits and consumer finance.",
+      "phone": "0800 011 3797",
+      "url": "https://www.moneyhelper.org.uk/en/contact-us",
+      "score": 13,
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-insurance-financial-ombudsman"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 37,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "kind": "cab",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "phone": "0800 144 8848",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-moneyhelper",
+      "title": "MoneyHelper (MaPS)",
+      "kind": "specialist",
+      "blurb": "Government-backed money and pensions guidance — debt, benefits and consumer finance.",
+      "url": "https://www.moneyhelper.org.uk/en/contact-us",
+      "phone": "0800 011 3797",
+      "tool": "match_free_help"
+    }
+  ],
+  "matchOk": true,
+  "qa": "ok",
+  "qaDetail": "2 free doors (1 non-CAB)",
+  "generatedAt": "2026-11-09T22:15:25.403Z"
+}

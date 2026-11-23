@@ -1,0 +1,61 @@
+{
+  "query": "An automatic car wash scratched my paint and they deny it. England. Who helps?",
+  "title": "Car wash damaged my vehicle: who helps",
+  "matter": "consumer",
+  "matterType": "consumer",
+  "freeHelp": [
+    {
+      "id": "exa-gov-uk-complain-about-a-legal-adviser-gov-u",
+      "title": "Complain about a legal adviser - GOV.UK",
+      "type": "Free advice · charity",
+      "blurb": "Summary:\n- This GOV.UK page explains how to complain about a legal adviser and when to contact the Legal Ombudsman.\n- Steps: follow your adviser’s own complaints procedure first; ask them for a copy of it.\n- If you’re unhappy with their response or they don’t respond within 8 weeks, you can escalate to the Legal Ombudsman.\n- Legal Ombudsman contact (UK): 0300 555 0333, Monday–Friday, 9am–5pm. Addr",
+      "phone": "0300 555 0333",
+      "url": "https://www.gov.uk/complain-about-legal-adviser",
+      "score": 14,
+      "topicKeys": [
+        "area-sra-legal-ombudsman"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 43,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "kind": "cab",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "phone": "0800 144 8848",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "exa-gov-uk-complain-about-a-legal-adviser-gov-u",
+      "title": "Complain about a legal adviser - GOV.UK",
+      "kind": "specialist",
+      "blurb": "Summary:\n- This GOV.UK page explains how to complain about a legal adviser and when to contact the Legal Ombudsman.\n- Steps: follow your adviser’s own complaints procedure first; ask them for a copy of it.\n- If you’re unhappy with their response or they don’t respond within 8 weeks, you can escalate to the Legal Ombudsman.\n- Legal Ombudsman contact (UK): 0300 555 0333, Monday–Friday, 9am–5pm. Addr",
+      "url": "https://www.gov.uk/complain-about-legal-adviser",
+      "phone": "0300 555 0333",
+      "tool": "match_free_help"
+    }
+  ],
+  "matchOk": true,
+  "qa": "ok",
+  "qaDetail": "2 free doors (1 non-CAB)",
+  "generatedAt": "2026-11-23T16:30:37.474Z"
+}
