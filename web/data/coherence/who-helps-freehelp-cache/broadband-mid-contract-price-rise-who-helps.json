@@ -1,0 +1,57 @@
+{
+  "queryKeys": [
+    "Broadband mid contract price rise: who helps",
+    "Broadband mid contract price rise: who helps?",
+    "Broadband raised the price mid contract and will not let me leave without a fee. England. Who helps?",
+    "Broadband raised the price mid contract and will not let me leave without a fee. England. Who helps?"
+  ],
+  "title": "Broadband mid contract price rise: who helps",
+  "wikiId": "Areas/Consumer Rights/Faulty Goods and Services/Broadband mid contract price rise: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FBroadband%20mid%20contract%20price%20rise%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "exa-ofcom-org-uk-contacting-ofcom",
+      "title": "Contacting Ofcom",
+      "type": "Free advice · charity",
+      "blurb": "Summary:\n- Ofcom consumer helpline numbers for complaints and advice:\n  - Advice and complaints: 0300 123 3333 or 020 7981 3040 (UK); international: +44 300 123 3333 or +44 20 7981 3040\n  - Spectrum licensing: 0300 123 1000 or 020 7981 3131; international: +44 300 123 1000 or +44 20 7981 3131\n  - Switchboard: 0300 123 3000 or 020 7981 3000; international: +44 300 123 3000 or +44 20 7981 3000\n- Mak",
+      "phone": "0300 123 3333",
+      "url": "https://www.ofcom.org.uk/about-ofcom/what-we-do/contact-us",
+      "score": 27,
+      "topicKeys": [
+        "area-energy-broadband-complaints"
+      ]
+    },
+    {
+      "id": "signpost-financial-ombudsman-org-uk-financial-ombudsman-service",
+      "title": "Financial Ombudsman Service",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free complaints service if an insurer or other financial firm will not settle a dispute — including motor claims.",
+      "phone": "0800 023 4567",
+      "url": "https://www.financial-ombudsman.org.uk/",
+      "score": 17,
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance",
+        "area-insurance-financial-ombudsman"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 43,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-09T22:30:53.197Z"
+}
