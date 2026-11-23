@@ -1,0 +1,82 @@
+{
+  "queryKeys": [
+    "Workplace withheld final payslip and P45: who helps?",
+    "Workplace withheld final payslip and P45",
+    "I left my job and still have no final payslip or P45. England. Who helps?",
+    "I left my job and still have no final payslip or P45. England. Who helps?"
+  ],
+  "title": "Workplace withheld final payslip and P45: who helps",
+  "wikiId": "",
+  "liveUrl": "",
+  "freeHelp": [
+    {
+      "id": "signpost-rachelsvoice-co-uk-rachel-s-voice",
+      "title": "Rachel's Voice",
+      "type": "Free advice · charity",
+      "blurb": "offers advice to families who have suffered a bereavement after the death of a person with a learning disability. Advice is offered to clients free of charge by lawyers who are working pro bono.",
+      "phone": "0808 808 1111",
+      "url": "https://rachelsvoice.co.uk/",
+      "score": 25,
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "signpost-bpp-com-bpp-law-school-employment-law-telephone-advice-",
+      "title": "BPP Law School Employment Law Telephone Advice Line (ELTAL)",
+      "type": "Free service",
+      "blurb": "an advice line offering initial advice to callers. Leave a message and a student volunteer will call back.",
+      "phone": "0207 633 4534",
+      "url": "https://www.bpp.com/",
+      "score": 21,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-thefru-org-uk-free-representation-unit",
+      "title": "Free Representation Unit",
+      "type": "Free advice · charity",
+      "blurb": "provides legal advice, case preparation and advocacy in employment, social security, and some criminal injury compensation tribunal cases",
+      "phone": "020 7611 9555",
+      "url": "https://www.thefru.org.uk/",
+      "score": 21,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-protect-advice-org-uk-protect",
+      "title": "Protect",
+      "type": "Free advice · charity",
+      "blurb": "Free legal advice service on whistleblowing at work.",
+      "phone": "020 3117 2520",
+      "url": "https://protect-advice.org.uk/",
+      "score": 21,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 41,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-23T16:30:37.454Z",
+  "stage": "draft"
+}
