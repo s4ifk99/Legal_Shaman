@@ -180,10 +180,10 @@ export const LEGAL_KNOWLEDGE_EVAL_CASES: LegalKnowledgeEvalCase[] = [
     query: "employment rights",
     tiers: ["unit"],
     unitUrlChecks: [
-      { input: "/wiki/Areas%2FEmployment", expected: "/ask-the-shaman/wiki/Areas%2FEmployment" },
+      { input: "/wiki/Areas%2FEmployment", expected: "/ask-the-shaman/wiki/Areas/Employment" },
       {
         input: "https://legalshaman.com/wiki/Areas%2FProperty",
-        expected: "/ask-the-shaman/wiki/Areas%2FProperty",
+        expected: "/ask-the-shaman/wiki/Areas/Property",
       },
     ],
   }),
