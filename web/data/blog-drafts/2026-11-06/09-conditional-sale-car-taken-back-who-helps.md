@@ -86,6 +86,10 @@ Do not agree a figure you have not checked against the agreement and the Citizen
 - Related wiki: [[End a hire purchase or a conditional sale agreement]]
 - Related wiki: [[If the car you bought is still on hire purchase]]
 
+## Next step
+
+Want to research the law on conditional sale and hire purchase? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=09-conditional-sale-car-taken-back-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help. Or read our guide [Hire purchase and conditional sale](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Hire%20purchase%20and%20conditional%20sale?utm_source=blog&utm_medium=article&utm_campaign=09-conditional-sale-car-taken-back-who-helps).
+
 ## Disclaimer
 
 Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.

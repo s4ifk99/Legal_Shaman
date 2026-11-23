@@ -85,6 +85,10 @@ Not for a private shared drive. Check the documents and the managing agent first
 - Related wiki: [[Shared driveways]]
 - Related wiki: [[Shared Driveways: Common Problems & Your Rights]]
 
+## Next step
+
+Want to research the law on shared driveways and rights of way? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=12-neighbour-blocking-shared-driveway-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help. Or read our guide [Shared driveways](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Neighbours%20and%20Property/Boundaries%20and%20Rights/Shared%20driveways?utm_source=blog&utm_medium=article&utm_campaign=12-neighbour-blocking-shared-driveway-who-helps).
+
 ## Disclaimer
 
 Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.

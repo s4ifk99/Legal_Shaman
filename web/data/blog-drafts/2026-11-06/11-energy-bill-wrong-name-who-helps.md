@@ -76,6 +76,10 @@ Not if you dispute that the name and the debt are yours. Put that in writing fir
 - [Energy Ombudsman](https://www.energyombudsman.org/)
 - Related wiki: [[Energy debt for an address I never lived at: who helps?]]
 
+## Next step
+
+Want to research the law on energy bills? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=11-energy-bill-wrong-name-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help. Or read our guide [Check if you are responsible for paying an energy bill](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Money%2C%20Benefits%20and%20Debt/Tax%20and%20Bills/Check%20if%20you%E2%80%99re%20responsible%20for%20paying%20an%20energy%20bill?utm_source=blog&utm_medium=article&utm_campaign=11-energy-bill-wrong-name-who-helps).
+
 ## Disclaimer
 
 Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
