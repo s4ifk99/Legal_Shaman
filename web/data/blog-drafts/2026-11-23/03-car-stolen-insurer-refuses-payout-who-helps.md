@@ -9,12 +9,13 @@ This is the sibling for a **refused theft claim**. The parent pages cover making
 
 ## SEO
 
-- H1: Car stolen and my insurer refuses to pay out: who helps?
-- Meta: **Does car insurance cover a stolen car?** Usually on comprehensive or third party, fire and theft. If your insurer refuses, who helps: complaint, Financial Ombudsman, free money guidance. Not legal advice.
-- Primary query: does car insurance cover stolen car / insurer refused theft claim
+- H1: Does car insurance cover a stolen car? Who helps if the insurer refuses
+- Meta: **Does car insurance cover a stolen car**? What theft cover means in England and Wales, why insurers refuse, and who helps if they do.
+- Primary query: does car insurance cover stolen car / insurer refuses stolen car claim
+- Jurisdiction: England and Wales
 - Matter: consumer
 - Demand source: Search Console
-- CTA: Process steps · matcher free doors · Ask the Shaman
+- CTA: Ask the Shaman plus research guide, UTM campaign 03-car-stolen-insurer-refuses-payout-who-helps
 
 ## Summary
 
@@ -28,23 +29,20 @@ This is the sibling for a **refused theft claim**. The parent pages cover making
 - If the insurer says you misrepresented something, the outcome depends on whether that was careless or deliberate. Ask them to explain which.
 - You can usually take a complaint to the Financial Ombudsman within six months of the insurer's final response.
 
-## What Financial Ombudsman Service would actually do here
+## What the law says in England and Wales
 
-Look at whether a bank, insurer, or other financial firm handled a complaint fairly.
+This section explains the general law. It is not advice on your situation.
 
-What they will **not** do: Will not take a case until you complained to the firm, and will not cover every non financial dispute.
+- Whether **car insurance covers a stolen car** depends on the level of cover. Comprehensive and third party, fire and theft policies cover theft. Third party only does not.
+- Insurers often refuse where a policy exclusion applies, for example keys left in the car or the car left unlocked. They must apply exclusions fairly and clearly.
+- Under the **Consumer Insurance (Disclosure and Representations) Act 2012** you must take reasonable care to answer the insurer's questions accurately. An insurer can only refuse for a misrepresentation if it was careless or deliberate.
+- If the insurer gives a final response or eight weeks pass, the Financial Ombudsman Service can review the refusal for free.
 
-## What Citizens Advice Adviceline (England) would actually do here
+## How Legal Shaman helps
 
-Explain your rights, point to templates, and route you to local or specialist help.
-
-What they will **not** do: Will not chase the other party or represent you in court.
-
-## What MoneyHelper (MaPS) would actually do here
-
-Give free money guidance on debt, bills, and consumer finance choices.
-
-What they will **not** do: Will not give paid casework or act as your solicitor.
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=03-car-stolen-insurer-refuses-payout-who-helps)**. It explains, in plain English, the law on car insurance claims that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -81,8 +79,8 @@ There is no fixed deadline, but if the claim stalls for eight weeks after your c
 
 - [Financial Ombudsman Service: car insurance](https://www.financial-ombudsman.org.uk/consumers/complaints-can-help/insurance/motor-insurance)
 - [Citizens Advice: problems with insurance](https://www.citizensadvice.org.uk/consumer/insurance/)
-- [Vehicle insurance – making a claim if your car or its contents are stolen](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FDriving%20and%20Parking%2FMotoring%20Offences%2FVehicle%20insurance%20%E2%80%93%20making%20a%20claim%20if%20your%20car%20or%20its%20contents%20are%20stolen)
-- [Making a claim if your car or its contents are stolen](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FCourts%20and%20Disputes%2FStarting%20a%20Claim%2FMaking%20a%20claim%20if%20your%20car%20or%20its%20contents%20are%20stolen)
+- [Vehicle insurance: making a claim if your car or its contents are stolen](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Motoring%20Offences/Vehicle%20insurance%20%E2%80%93%20making%20a%20claim%20if%20your%20car%20or%20its%20contents%20are%20stolen)
+- [Making a claim if your car or its contents are stolen](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Courts%20and%20Disputes/Starting%20a%20Claim/Making%20a%20claim%20if%20your%20car%20or%20its%20contents%20are%20stolen)
 
 ## Related Concepts
 
@@ -97,11 +95,11 @@ There is no fixed deadline, but if the claim stalls for eight weeks after your c
 
 ## Next step
 
-Not sure which free door fits your facts? **[Ask the Shaman](https://www.legalshaman.com/)** on the Legal Shaman home page. Describe the situation once and get the next step.
+Want to research the law on car insurance claims? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=03-car-stolen-insurer-refuses-payout-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help.
 
 ## Disclaimer
 
-Signposting only, not legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

@@ -3,10 +3,11 @@
 ## SEO
 
 - H1: Hotel cancelled my booking and refused a refund: who helps?
-- Meta: UK signposting when a **hotel cancelled booking** and refused a refund. Matcher free doors and Ask the Shaman. Not legal advice.
-- Primary query: hotel cancelled booking refused refund who helps
+- Meta: **Hotel cancelled your booking** and refused a refund? Your rights in England and Wales, booking sites, Section 75, chargeback and who helps.
+- Primary query: hotel cancelled booking no refund
+- Jurisdiction: England and Wales
 - Matter: consumer
-- CTA: Process steps · matcher free doors · Ask the Shaman
+- CTA: Ask the Shaman plus research guide, UTM campaign 02-hotel-cancelled-booking-no-refund-who-helps
 
 ## Summary
 
@@ -19,17 +20,20 @@ If a **hotel cancelled** your booking and refused a refund, who helps starts wit
 - Credit card **Section 75** can apply when the item cost is over £100 and within the usual card rules.
 - Ask for a full cash refund, not only a voucher, unless you agree to a voucher in writing.
 
-## What Financial Ombudsman Service would actually do here
+## What the law says in England and Wales
 
-Look at whether a bank, insurer, or other financial firm handled a complaint fairly.
+This section explains the general law. It is not advice on your situation.
 
-What they will **not** do: Will not take a case until you complained to the firm, and will not cover every non financial dispute.
+- If the **hotel cancelled your booking**, it has not provided the service you paid for. You are normally entitled to a refund of what you paid.
+- If you booked through an agent or booking site, check who the contract is with. The **Package Travel and Linked Travel Arrangements Regulations 2018** give extra protection if the hotel was part of a package.
+- Paying by credit card for a booking over £100 and up to £30,000 may give a claim under **Section 75** of the Consumer Credit Act 1974. Debit card payments may be covered by a **chargeback**.
+- Keep the booking confirmation, the cancellation message and any extra costs you paid for replacement rooms.
 
-## What Citizens Advice Adviceline (England) would actually do here
+## How Legal Shaman helps
 
-Explain your rights, point to templates, and route you to local or specialist help.
-
-What they will **not** do: Will not chase the other party or represent you in court.
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=02-hotel-cancelled-booking-no-refund-who-helps)**. It explains, in plain English, the law on travel and holiday bookings that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -66,11 +70,11 @@ You can refuse a voucher and keep asking for a refund of the money paid. Say so 
 
 ## Next step
 
-Not sure which free door fits your facts? **[Ask the Shaman](https://www.legalshaman.com/)** on the Legal Shaman home page. Describe the situation once and get the next step.
+Want to research the law on travel and holiday bookings? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=02-hotel-cancelled-booking-no-refund-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help.
 
 ## Disclaimer
 
-Signposting only, not legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

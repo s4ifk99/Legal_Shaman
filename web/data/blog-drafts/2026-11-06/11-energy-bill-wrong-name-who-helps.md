@@ -9,10 +9,11 @@ This is the sibling for a **wrong name** on a bill for a home you do live in. Do
 ## SEO
 
 - H1: Energy bill in the wrong name: who helps?
-- Meta: If an **energy bill** is in the **wrong name**, write to the supplier, then Citizens Advice. After eight weeks or a deadlock letter, the Energy Ombudsman can look at the complaint. They will not switch the account the day you notice the name.
+- Meta: **Energy bill** in the **wrong name**? Who is responsible for the bill in England and Wales, how to correct it, and when the Energy Ombudsman helps.
 - Primary query: energy bill wrong name
+- Jurisdiction: England and Wales
 - Matter: other
-- CTA: [Ask the Shaman](https://www.legalshaman.com/)
+- CTA: Ask the Shaman plus research guide, UTM campaign 11-energy-bill-wrong-name-who-helps
 
 ## Summary
 
@@ -26,17 +27,21 @@ If an **energy bill** arrives in the **wrong name**, dispute it in writing with 
 - Complain to the supplier first. The Energy Ombudsman is the next door after eight weeks or a final response, not the first call.
 - If a debt collector is already chasing a bill in someone else's name, say it is disputed and point them back to the supplier.
 
-## What the supplier would actually do here
+## What the law says in England and Wales
 
-They can correct the account name and explain the bill. They will not always do it on the first phone call. A written dispute is the record you need if you complain later.
+This section explains the general law. It is not advice on your situation.
 
-## What Citizens Advice would actually do here
+- Responsibility for an **energy bill** usually follows the person who lives at the property and uses the supply, whether under a contract or a deemed contract that starts when you move in.
+- Suppliers are regulated by Ofgem and must handle complaints fairly and correct account errors such as a **wrong name**.
+- If the supplier has not resolved the complaint within eight weeks, or sends a deadlock letter, the Energy Ombudsman can look at it for free.
+- Keep proof of your move in date, meter readings and tenancy details. They show when your responsibility started.
 
-Advisers explain **problems with your energy bill** and the order of complaint. They will not take over the account or argue the bill on the phone as your representative. Guide: [problems with your energy bill](https://www.citizensadvice.org.uk/consumer/energy/energy-supply/problems-with-your-energy-bill/).
+## How Legal Shaman helps
 
-## What the Energy Ombudsman would actually do here
-
-They look at a complaint the supplier has had eight weeks to answer, or has closed with a final response. They will not open a case the day the **wrong name** appears. [Energy Ombudsman](https://www.energyombudsman.org/).
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=11-energy-bill-wrong-name-who-helps)**. It explains, in plain English, the law on energy bills that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Research the law in more depth in our guide: [Check if you are responsible for paying an energy bill](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Money%2C%20Benefits%20and%20Debt/Tax%20and%20Bills/Check%20if%20you%E2%80%99re%20responsible%20for%20paying%20an%20energy%20bill?utm_source=blog&utm_medium=article&utm_campaign=11-energy-bill-wrong-name-who-helps).
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -73,7 +78,7 @@ Not if you dispute that the name and the debt are yours. Put that in writing fir
 
 ## Disclaimer
 
-This is signposting, not legal advice. The bill and the supplier's complaint process decide the dates.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

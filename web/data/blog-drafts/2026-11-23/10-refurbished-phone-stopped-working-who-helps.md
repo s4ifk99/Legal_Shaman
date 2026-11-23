@@ -9,11 +9,12 @@ Overlap wiki ids:
 ## SEO
 
 - H1: Refurbished phone bought online stopped working: who helps?
-- Meta: **Refurbished phone stopped working** and the seller refuses a refund? Who helps: your Consumer Rights Act rights, chargeback or Section 75, Financial Ombudsman, free advice. Not legal advice.
+- Meta: **Refurbished phone stopped working**? Your Consumer Rights Act 2015 rights in England and Wales, refunds, chargeback and who helps.
 - Primary query: refurbished phone stopped working / faulty refurbished phone refund
+- Jurisdiction: England and Wales
 - Matter: consumer
 - Demand source: Local (thin Reddit day)
-- CTA: Process steps · matcher free doors · Ask the Shaman
+- CTA: Ask the Shaman plus research guide, UTM campaign 10-refurbished-phone-stopped-working-who-helps
 
 ## Summary
 
@@ -27,17 +28,20 @@ If a **refurbished phone stopped working**, you still have rights under the Cons
 - Buying from a private individual gives fewer rights than buying from a business.
 - If you paid by card, a **chargeback** may help. **Section 75** applies to credit card purchases between £100 and £30,000.
 
-## What Financial Ombudsman Service would actually do here
+## What the law says in England and Wales
 
-Look at whether a bank, insurer, or other financial firm handled a complaint fairly.
+This section explains the general law. It is not advice on your situation.
 
-What they will **not** do: Will not take a case until you complained to the firm, and will not cover every non financial dispute.
+- Refurbished goods bought from a business must be of satisfactory quality, as described and fit for purpose under the **Consumer Rights Act 2015**. Satisfactory quality takes account of age and price.
+- Within 30 days of delivery you can reject a faulty item for a full refund.
+- After that, the seller gets one chance to repair or replace. If that fails, you can ask for a price reduction or a refund.
+- A fault that appears within six months is assumed to have been there at delivery unless the seller proves otherwise.
 
-## What Citizens Advice Adviceline (England) would actually do here
+## How Legal Shaman helps
 
-Explain your rights, point to templates, and route you to local or specialist help.
-
-What they will **not** do: Will not chase the other party or represent you in court.
+- Describe your situation once in **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=10-refurbished-phone-stopped-working-who-helps)**. It explains, in plain English, the law on faulty goods that applies in England and Wales, with links to the official sources.
+- Matching Help then lists the free services that fit your facts and says what each will and will not do. They are listed under Practical guidance.
+- Legal Shaman signposts and explains the law; it does not give legal advice or act for you.
 
 ## Practical Guidance
 
@@ -73,7 +77,7 @@ Contact your card issuer about chargeback or Section 75, and report the seller t
 - [Citizens Advice: faulty goods](https://www.citizensadvice.org.uk/consumer/somethings-gone-wrong-with-a-purchase/returning-faulty-goods/)
 - [Financial Ombudsman Service](https://www.financial-ombudsman.org.uk/)
 - [Consumer Rights Act 2015 (goods)](https://www.legislation.gov.uk/ukpga/2015/15/part/1/chapter/2)
-- [Letter to cancel or return goods bought online, over the phone or by mail order](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FLetter%20to%20cancel%20or%20return%20goods%20bought%20online%2C%20over%20the%20phone%20or%20by%20mail%20order)
+- [Letter to cancel or return goods bought online, over the phone or by mail order](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Letter%20to%20cancel%20or%20return%20goods%20bought%20online%2C%20over%20the%20phone%20or%20by%20mail%20order)
 
 ## Related Concepts
 
@@ -86,11 +90,11 @@ Contact your card issuer about chargeback or Section 75, and report the seller t
 
 ## Next step
 
-Not sure which free door fits your facts? **[Ask the Shaman](https://www.legalshaman.com/)** on the Legal Shaman home page. Describe the situation once and get the next step.
+Want to research the law on faulty goods? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=10-refurbished-phone-stopped-working-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help.
 
 ## Disclaimer
 
-Signposting only, not legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act.
+Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
 
 ## Anonymised Legal Shaman query
 

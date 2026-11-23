@@ -62,10 +62,11 @@
     },
     {
       "file": "09-conditional-sale-car-taken-back-who-helps.md",
-      "title": "Conditional sale car taken back: who helps?",
+      "title": "Conditional sale car repossessed: who helps?",
       "demandRef": "gsc-2026-11-06-conditional-sale",
       "matter": "consumer",
-      "why": "Situation sibling of Hire purchase and conditional sale. Cross link that page and the end agreement letter."
+      "why": "Situation sibling of Hire purchase and conditional sale. Cross link that page and the end agreement letter.",
+      "originalTitle": "Conditional sale car taken back: who helps?"
     },
     {
       "file": "10-hmo-neighbour-keeps-you-awake-who-helps.md",
@@ -83,10 +84,11 @@
     },
     {
       "file": "12-neighbour-blocking-shared-driveway-who-helps.md",
-      "title": "Neighbour blocking the shared driveway: who helps?",
+      "title": "Shared driveway rules in the UK: who helps when a neighbour blocks it?",
       "demandRef": "gsc-2026-11-06-driveway",
       "matter": "neighbours",
-      "why": "Uncovered who helps situation next to the allocated space page."
+      "why": "Uncovered who helps situation next to the allocated space page.",
+      "originalTitle": "Neighbour blocking the shared driveway: who helps?"
     }
   ]
 }

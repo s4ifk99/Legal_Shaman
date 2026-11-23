@@ -6,13 +6,14 @@
   "drafts": [
     {
       "file": "01-child-maintenance-solicitors-legal-advice-who-helps.md",
-      "title": "Child maintenance solicitors and legal advice on child maintenance: who helps?",
+      "title": "Child maintenance solicitors and free legal advice: who helps?",
       "demandRef": "gsc-1123-child-maintenance",
       "matter": "other",
       "why": "Search Console: 'child maintenance solicitors' 442 and 'legal advice on child maintenance' 304 impressions at about position 52; sibling to Paying child maintenance (about 60).",
       "matchFile": "matches/01-child-maintenance-solicitors-legal-advice-who-helps.json",
       "matchOk": true,
-      "matchQa": "ok"
+      "matchQa": "ok",
+      "originalTitle": "Child maintenance solicitors and legal advice on child maintenance: who helps?"
     },
     {
       "file": "02-applying-for-sole-custody-uk-who-helps.md",
@@ -26,13 +27,14 @@
     },
     {
       "file": "03-car-stolen-insurer-refuses-payout-who-helps.md",
-      "title": "Car stolen and my insurer refuses to pay out: who helps?",
+      "title": "Does car insurance cover a stolen car? Who helps if the insurer refuses",
       "demandRef": "gsc-1123-stolen-car-insurance",
       "matter": "consumer",
       "why": "Search Console: 'does car insurance cover stolen car' 193 impressions at about position 37; existing pages are generic claim guides.",
       "matchFile": "matches/03-car-stolen-insurer-refuses-payout-who-helps.json",
       "matchOk": true,
-      "matchQa": "ok"
+      "matchQa": "ok",
+      "originalTitle": "Car stolen and my insurer refuses to pay out: who helps?"
     },
     {
       "file": "04-letter-before-action-small-claim-who-helps.md",
@@ -46,13 +48,14 @@
     },
     {
       "file": "05-maternity-discrimination-at-work-who-helps.md",
-      "title": "Maternity discrimination at work: who helps?",
+      "title": "Maternity discrimination solicitors and free legal advice: who helps?",
       "demandRef": "gsc-1123-maternity-discrimination",
       "matter": "employment",
       "why": "Search Console: 'maternity discrimination at work' 80 impressions; sibling framed on the exact query, linked to the existing Possible maternity discrimination page.",
       "matchFile": "matches/05-maternity-discrimination-at-work-who-helps.json",
       "matchOk": true,
-      "matchQa": "ok"
+      "matchQa": "ok",
+      "originalTitle": "Maternity discrimination at work: who helps?"
     },
     {
       "file": "06-parking-charge-pay-machine-broken-who-helps.md",
