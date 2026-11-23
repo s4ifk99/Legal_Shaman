@@ -75,6 +75,10 @@ A written log of dates and times is enough to start. Follow the council form rat
 - [GOV.UK: antisocial behaviour](https://www.gov.uk/guidance/antisocial-behaviour)
 - Related wiki: [[HMO neighbour noise and ASB: who helps?]]
 
+## Next step
+
+Want to research the law on neighbour noise? **[Ask the Shaman](https://www.legalshaman.com/ask-the-shaman?utm_source=blog&utm_medium=article&utm_campaign=10-hmo-neighbour-keeps-you-awake-who-helps)** on Legal Shaman: describe what happened once and see the law that applies in England and Wales and who can help. Or read our guide [HMO neighbour noise and ASB: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Neighbours%20and%20Property/Noise%20and%20Nuisance/HMO%20neighbour%20noise%20and%20ASB%3A%20who%20helps?utm_source=blog&utm_medium=article&utm_campaign=10-hmo-neighbour-keeps-you-awake-who-helps).
+
 ## Disclaimer
 
 Legal Shaman signposts and explains the law; it does not give legal advice. Free doors come from Legal Shaman Matching Help. Check the linked official pages before you act. This page covers England and Wales only.
