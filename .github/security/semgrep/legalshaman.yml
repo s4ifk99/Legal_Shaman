@@ -1,0 +1,20 @@
+rules:
+  - id: legalshaman.next-public-server-secret
+    languages: [generic]
+    severity: ERROR
+    message: >-
+      A NEXT_PUBLIC_ name looks like a server secret. Next.js inlines
+      NEXT_PUBLIC_ values into the browser bundle. Keep secrets in
+      server-only environment variables.
+    metadata:
+      cwe: "CWE-798"
+      category: exposed-secret
+      remediation: >-
+        Rename the variable so it is not prefixed with NEXT_PUBLIC_ and
+        read it only in server code.
+    paths:
+      exclude:
+        - web/data/**
+        - "**/*.md"
+        - .github/security/semgrep/**
+    pattern-regex: NEXT_PUBLIC_[A-Z0-9_]*(SECRET|PASSWORD|PRIVATE_KEY|SERVICE_ROLE|DATABASE_URL|SESSION_SECRET)

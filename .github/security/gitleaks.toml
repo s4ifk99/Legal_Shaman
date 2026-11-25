@@ -1,0 +1,19 @@
+title = "Legal Shaman secret scan"
+
+[extend]
+useDefault = true
+
+# Current web/data catalogues are checked separately for a few high-confidence
+# key patterns. Gitleaks skips them because historical blobs are large enough
+# to exhaust a runner. Files larger than GITLEAKS_MAX_TARGET_MB are also skipped.
+[[allowlists]]
+description = "Generated catalogues and binary assets"
+paths = [
+  '''(?:^|/)web/data/''',
+  '''(?:^|/)web/reports/''',
+  '''\.(?:bin|png|jpg|jpeg|gif|webp|ico|woff2?)$''',
+]
+
+[[allowlists]]
+description = "Ahrefs analytics site key. It is published in the page on purpose."
+regexes = ['''5ar5K5mpXwwkcFGOTKH51Q''']
