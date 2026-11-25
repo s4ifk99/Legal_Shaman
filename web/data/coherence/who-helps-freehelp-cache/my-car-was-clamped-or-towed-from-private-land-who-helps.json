@@ -1,0 +1,89 @@
+{
+  "queryKeys": [
+    "My car was clamped or towed from private land: who helps",
+    "My car was clamped or towed from private land: who helps?",
+    "My car was clamped in a private car park and the company wants a release fee. I am in England. I want to know if this is legal and who helps.",
+    "My car was clamped in a private car park and the company wants a release fee. I am in England. I want to know if this is legal and who helps."
+  ],
+  "title": "My car was clamped or towed from private land: who helps",
+  "wikiId": "Areas/Driving and Parking/Parking and PCNs/My car was clamped or towed from private land: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Parking%20and%20PCNs/My%20car%20was%20clamped%20or%20towed%20from%20private%20land%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "fs-popla",
+      "title": "POPLA — Parking on Private Land Appeals",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free independent appeal for private parking charge notices after the operator rejects your first appeal (BPA operators). Online appeal; phone support available.",
+      "phone": "0330 1596 126",
+      "url": "https://www.popla.co.uk/",
+      "score": 45,
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ]
+    },
+    {
+      "id": "fs-ias",
+      "title": "Independent Appeals Service (IAS)",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free standard appeal for private parking charges from International Parking Community (IPC) accredited operators. Appeals are online / in writing.",
+      "url": "https://theias.org/appeal",
+      "score": 45,
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ]
+    },
+    {
+      "id": "fs-resolver-private-parking",
+      "title": "Resolver — private parking tickets guide",
+      "type": "Free advice · charity",
+      "blurb": "Free step-by-step guide to challenging private parking tickets, including when to use POPLA or IAS.",
+      "url": "https://www.resolver.co.uk/rights-guide/private-parking-tickets",
+      "score": 27,
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ]
+    },
+    {
+      "id": "fs-tpt",
+      "title": "Traffic Penalty Tribunal",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free independent appeal for council parking and traffic PCNs in England (outside London) and Wales — after the council rejects your representations.",
+      "url": "https://www.trafficpenaltytribunal.gov.uk/",
+      "score": 23,
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ]
+    },
+    {
+      "id": "fs-london-tribunals",
+      "title": "London Tribunals (Environment & Traffic Adjudicators)",
+      "type": "Ombudsman / appeals",
+      "blurb": "Free independent appeal for London council / TfL parking and traffic PCNs after a Notice of Rejection. Online portal; phone for hearing queries.",
+      "phone": "020 7520 7200",
+      "url": "https://www.londontribunals.gov.uk/eat",
+      "score": 19,
+      "topicKeys": [
+        "area-motoring-parking-rta"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 37,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-25T22:30:17.591Z",
+  "stage": "published"
+}

@@ -1,0 +1,121 @@
+{
+  "queryKeys": [
+    "Revoking a lasting power of attorney: who helps",
+    "Revoking a lasting power of attorney: who helps?",
+    "I made a lasting power of attorney and now I want to revoke it. I still have capacity. I need the official process and who to tell. England and Wales. Who helps?",
+    "I made a lasting power of attorney and now I want to revoke it. I still have capacity. I need the official process and who to tell. England and Wales. Who helps?"
+  ],
+  "title": "Revoking a lasting power of attorney: who helps",
+  "wikiId": "Areas/Courts and Disputes/Starting a Claim/Revoking a lasting power of attorney: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Courts%20and%20Disputes/Starting%20a%20Claim/Revoking%20a%20lasting%20power%20of%20attorney%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "fs-cla",
+      "title": "Civil Legal Advice (legal aid gateway)",
+      "type": "Free advice · charity",
+      "blurb": "Check legal aid eligibility and speak to an adviser for housing, debt, family and other civil matters.",
+      "phone": "0345 345 4345",
+      "url": "https://www.gov.uk/civil-legal-advice",
+      "score": 100,
+      "topicKeys": [
+        "area-debt-bailiffs-finance",
+        "area-family-children-divorce",
+        "area-housing-landlord-tenant",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "signpost-fnf-org-uk-families-need-fathers",
+      "title": "Families Need Fathers",
+      "type": "Free advice · charity",
+      "blurb": "Info advice and support to both parents to help them maintain their relationship with their children",
+      "phone": "0300 0300 363",
+      "url": "https://fnf.org.uk/",
+      "score": 24,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "signpost-grandparentslegalcentre-com-grandparents-legal-centre",
+      "title": "Grandparents Legal Centre",
+      "type": "Law centre",
+      "blurb": "specialists in advising about the steps grandparents need to take to try and resolve certain difficult issues",
+      "phone": "0843 289 7130",
+      "url": "https://www.grandparentslegalcentre.com/",
+      "score": 21,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "fs-rights-of-women",
+      "title": "Rights of Women",
+      "type": "Free advice · charity",
+      "blurb": "Free legal advice for women on family, criminal and immigration law.",
+      "phone": "020 7251 6577",
+      "url": "https://rightsofwomen.org.uk/",
+      "score": 18,
+      "topicKeys": [
+        "area-crime-police-harassment",
+        "area-family-children-divorce",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "signpost-workingfamilies-org-uk-working-families",
+      "title": "Working Families",
+      "type": "Free advice · charity",
+      "blurb": "for parents and carers needing advice on maternity and paternity leave and discrimination. They also provide basic benefits advice",
+      "phone": "0300 012 0312",
+      "url": "https://workingfamilies.org.uk/",
+      "score": 18,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "signpost-dadshouse-org-uk-dad-s-house",
+      "title": "Dad's House",
+      "type": "Free advice · charity",
+      "blurb": "Runs a Pro Bono Family Law Clinic on Wednesdays and Fridays each week led by Simon Bruce (Dawson Cornwall), a well renowned family law solicitor.",
+      "phone": "07765 183504",
+      "url": "https://www.dadshouse.org.uk/",
+      "score": 17,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "signpost-ourfamilywizard-co-uk-ourfamilywizard",
+      "title": "OurFamilyWizard",
+      "type": "Free advice · charity",
+      "blurb": "A co-parenting app and website. Parents and other family members can use OurFamilyWizard as a central platform to share their most important family information.",
+      "phone": "0203 514 0008",
+      "url": "https://www.ourfamilywizard.co.uk/",
+      "score": 17,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 23,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-25T22:29:44.381Z",
+  "stage": "published"
+}

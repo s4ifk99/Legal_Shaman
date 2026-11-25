@@ -1,0 +1,195 @@
+{
+  "query": "The local authority has asked me to sign a section 20 agreement so my child can be accommodated. I want independent legal advice before I sign. Section 20 Children Act England. Who helps?",
+  "title": "Section 20 agreement solicitors and free legal advice: who helps",
+  "matter": "other",
+  "matterType": "other",
+  "freeHelp": [
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-ipsea-inde",
+      "title": "Turn2Us - Advice Finder - IPSEA - Independent Parental Special Education Advice -",
+      "type": "Free advice · charity",
+      "blurb": "IPSEA offers free, independent, legally based information and advice for parents and carers of children with SEN and disabilities in England and Wales. Key contact: IPSEA Advice Line (phone and online guidance) for issues like LA duties to assess/provide, exclusions, and discrimination.  \n- Phone: 0300 222 5899  \n- Website: ipsea.org.uk/contact (book an appointment; up to 30 minutes per session)  ",
+      "phone": "0300 222 5899",
+      "url": "https://advicefinder.turn2us.org.uk/Home/Details/3665",
+      "score": 30,
+      "topicKeys": [
+        "area-education-students"
+      ]
+    },
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-university",
+      "title": "Turn2Us - Advice Finder - University of Law Legal Advice Centre (London) ULLAC - London",
+      "type": "Free advice · charity",
+      "blurb": "Summary for user query: LawWorks pro bono legal advice contact phone UK\n\n- University of Law Legal Advice Centre (London) ULLAC offers free initial legal advice for people in need who cannot afford legal help or are not eligible for legal aid.\n- Areas covered:\n  - Family law (initial advice only; includes child contact, divorce, parental responsibility, etc.; no casework or court records)\n  - Smal",
+      "phone": "01483 216 528",
+      "url": "https://advicefinder.turn2us.org.uk/Home/Details/7573",
+      "score": 29,
+      "topicKeys": [
+        "area-common-unclassified"
+      ]
+    },
+    {
+      "id": "signpost-childlawadvice-org-uk-coram-children-s-legal-centre-s-c",
+      "title": "Coram Children's Legal Centre's Child Law Advice Service",
+      "type": "Law centre",
+      "blurb": "provides advice on parental disputes about child arrangements, child protection and attending court.",
+      "phone": "020 7520 0300",
+      "url": "https://www.childlawadvice.org.uk/",
+      "score": 28,
+      "topicKeys": [
+        "area-family-children-divorce",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "fs-legal-aid-agency",
+      "title": "Legal Aid Agency",
+      "type": "Official helpline",
+      "blurb": "Information on legal aid and finding a legal aid provider.",
+      "phone": "0300 200 2020",
+      "url": "https://www.gov.uk/legal-aid",
+      "score": 27,
+      "topicKeys": [
+        "area-common-unclassified"
+      ]
+    },
+    {
+      "id": "signpost-sendandyou-org-uk-supportive-parents-send-and-you",
+      "title": "Supportive Parents (SEND and You)",
+      "type": "Free advice · charity",
+      "blurb": "a charity providing information, advice & support to parents, children & young people about any type of special educational need or disability from 0-25 years who live in Bristol, N. Somerset or S. Gloucestershire",
+      "phone": "0117 9897725",
+      "url": "https://www.sendandyou.org.uk/",
+      "score": 26,
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "fs-cla",
+      "title": "Civil Legal Advice (legal aid gateway)",
+      "type": "Free advice · charity",
+      "blurb": "Check legal aid eligibility and speak to an adviser for housing, debt, family and other civil matters.",
+      "phone": "0345 345 4345",
+      "url": "https://www.gov.uk/civil-legal-advice",
+      "score": 23,
+      "topicKeys": [
+        "area-debt-bailiffs-finance",
+        "area-family-children-divorce",
+        "area-housing-landlord-tenant",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "signpost-dls-org-uk-disability-law-service",
+      "title": "Disability Law Service",
+      "type": "Free advice · charity",
+      "blurb": "provides free legal advice to people with disabilities and their carers",
+      "phone": "020 7791 9800",
+      "url": "https://dls.org.uk/",
+      "score": 22,
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 27,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "signpost-childlawadvice-org-uk-coram-children-s-legal-centre-s-c",
+      "title": "Coram Children's Legal Centre's Child Law Advice Service",
+      "kind": "law_centre",
+      "blurb": "provides advice on parental disputes about child arrangements, child protection and attending court.",
+      "url": "https://www.childlawadvice.org.uk/",
+      "phone": "020 7520 0300",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-cla",
+      "title": "Civil Legal Advice (legal aid gateway)",
+      "kind": "law_centre",
+      "blurb": "Check legal aid eligibility and speak to an adviser for housing, debt, family and other civil matters.",
+      "url": "https://www.gov.uk/civil-legal-advice",
+      "phone": "0345 345 4345",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "kind": "cab",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "phone": "0800 144 8848",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-ipsea-inde",
+      "title": "Turn2Us - Advice Finder - IPSEA - Independent Parental Special Education Advice -",
+      "kind": "specialist",
+      "blurb": "IPSEA offers free, independent, legally based information and advice for parents and carers of children with SEN and disabilities in England and Wales. Key contact: IPSEA Advice Line (phone and online guidance) for issues like LA duties to assess/provide, exclusions, and discrimination.  \n- Phone: 0300 222 5899  \n- Website: ipsea.org.uk/contact (book an appointment; up to 30 minutes per session)  ",
+      "url": "https://advicefinder.turn2us.org.uk/Home/Details/3665",
+      "phone": "0300 222 5899",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "exa-advicefinder-turn2us-org-uk-turn2us-advice-finder-university",
+      "title": "Turn2Us - Advice Finder - University of Law Legal Advice Centre (London) ULLAC - London",
+      "kind": "specialist",
+      "blurb": "Summary for user query: LawWorks pro bono legal advice contact phone UK\n\n- University of Law Legal Advice Centre (London) ULLAC offers free initial legal advice for people in need who cannot afford legal help or are not eligible for legal aid.\n- Areas covered:\n  - Family law (initial advice only; includes child contact, divorce, parental responsibility, etc.; no casework or court records)\n  - Smal",
+      "url": "https://advicefinder.turn2us.org.uk/Home/Details/7573",
+      "phone": "01483 216 528",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-legal-aid-agency",
+      "title": "Legal Aid Agency",
+      "kind": "specialist",
+      "blurb": "Information on legal aid and finding a legal aid provider.",
+      "url": "https://www.gov.uk/legal-aid",
+      "phone": "0300 200 2020",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "signpost-sendandyou-org-uk-supportive-parents-send-and-you",
+      "title": "Supportive Parents (SEND and You)",
+      "kind": "specialist",
+      "blurb": "a charity providing information, advice & support to parents, children & young people about any type of special educational need or disability from 0-25 years who live in Bristol, N. Somerset or S. Gloucestershire",
+      "url": "https://www.sendandyou.org.uk/",
+      "phone": "0117 9897725",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "signpost-dls-org-uk-disability-law-service",
+      "title": "Disability Law Service",
+      "kind": "specialist",
+      "blurb": "provides free legal advice to people with disabilities and their carers",
+      "url": "https://dls.org.uk/",
+      "phone": "020 7791 9800",
+      "tool": "match_free_help"
+    }
+  ],
+  "matchOk": true,
+  "qa": "ok",
+  "qaDetail": "8 free doors (7 non-CAB)",
+  "generatedAt": "2026-11-25T17:12:21.816Z"
+}

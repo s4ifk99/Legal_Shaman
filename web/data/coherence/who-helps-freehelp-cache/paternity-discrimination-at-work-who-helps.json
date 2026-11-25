@@ -1,0 +1,80 @@
+{
+  "queryKeys": [
+    "Paternity discrimination at work: who helps",
+    "Paternity discrimination at work: who helps?",
+    "I told my employer I was taking paternity leave and my shifts were cut. I want to know if this is paternity discrimination and who can help. England. Who helps?",
+    "I told my employer I was taking paternity leave and my shifts were cut. I want to know if this is paternity discrimination and who can help. England. Who helps?"
+  ],
+  "title": "Paternity discrimination at work: who helps",
+  "wikiId": "Areas/Work and Employment/Your Rights at Work/Paternity discrimination at work: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Paternity%20discrimination%20at%20work%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "signpost-workingfamilies-org-uk-working-families",
+      "title": "Working Families",
+      "type": "Free advice · charity",
+      "blurb": "for parents and carers needing advice on maternity and paternity leave and discrimination. They also provide basic benefits advice",
+      "phone": "0300 012 0312",
+      "url": "https://workingfamilies.org.uk/",
+      "score": 29,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "signpost-yesslaw-org-uk-yess-law",
+      "title": "YESS Law",
+      "type": "Free advice · charity",
+      "blurb": "offers affordable advice to employees and employers who want to resolve problems at work",
+      "phone": "020 3701 7530",
+      "url": "https://yesslaw.org.uk/",
+      "score": 25,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-bpp-com-bpp-law-school-employment-law-telephone-advice-",
+      "title": "BPP Law School Employment Law Telephone Advice Line (ELTAL)",
+      "type": "Free service",
+      "blurb": "an advice line offering initial advice to callers. Leave a message and a student volunteer will call back.",
+      "phone": "0207 633 4534",
+      "url": "https://www.bpp.com/",
+      "score": 24,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "signpost-thefru-org-uk-free-representation-unit",
+      "title": "Free Representation Unit",
+      "type": "Free advice · charity",
+      "blurb": "provides legal advice, case preparation and advocacy in employment, social security, and some criminal injury compensation tribunal cases",
+      "phone": "020 7611 9555",
+      "url": "https://www.thefru.org.uk/",
+      "score": 17,
+      "topicKeys": [
+        "area-employment-workplace"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 39,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-25T22:30:04.185Z",
+  "stage": "published"
+}

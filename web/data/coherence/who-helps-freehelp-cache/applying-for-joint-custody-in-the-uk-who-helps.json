@@ -1,0 +1,96 @@
+{
+  "queryKeys": [
+    "Applying for joint custody in the UK: who helps",
+    "Applying for joint custody in the UK: who helps?",
+    "I want to apply for joint custody of my child in England. I need to know the correct court order, whether I must try mediation first, and who can help. Who helps?",
+    "I want to apply for joint custody of my child in England. I need to know the correct court order, whether I must try mediation first, and who can help. Who helps?"
+  ],
+  "title": "Applying for joint custody in the UK: who helps",
+  "wikiId": "Areas/Family and Relationships/Children/Applying for joint custody in the UK: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Family%20and%20Relationships/Children/Applying%20for%20joint%20custody%20in%20the%20UK%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "fs-cla",
+      "title": "Civil Legal Advice (legal aid gateway)",
+      "type": "Free advice · charity",
+      "blurb": "Check legal aid eligibility and speak to an adviser for housing, debt, family and other civil matters.",
+      "phone": "0345 345 4345",
+      "url": "https://www.gov.uk/civil-legal-advice",
+      "score": 100,
+      "topicKeys": [
+        "area-debt-bailiffs-finance",
+        "area-family-children-divorce",
+        "area-housing-landlord-tenant",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "signpost-fnf-org-uk-families-need-fathers",
+      "title": "Families Need Fathers",
+      "type": "Free advice · charity",
+      "blurb": "Info advice and support to both parents to help them maintain their relationship with their children",
+      "phone": "0300 0300 363",
+      "url": "https://fnf.org.uk/",
+      "score": 32,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "signpost-childlawadvice-org-uk-coram-children-s-legal-centre-s-c",
+      "title": "Coram Children's Legal Centre's Child Law Advice Service",
+      "type": "Law centre",
+      "blurb": "provides advice on parental disputes about child arrangements, child protection and attending court.",
+      "phone": "020 7520 0300",
+      "url": "https://www.childlawadvice.org.uk/",
+      "score": 25,
+      "topicKeys": [
+        "area-family-children-divorce",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "signpost-grandparentslegalcentre-com-grandparents-legal-centre",
+      "title": "Grandparents Legal Centre",
+      "type": "Law centre",
+      "blurb": "specialists in advising about the steps grandparents need to take to try and resolve certain difficult issues",
+      "phone": "0843 289 7130",
+      "url": "https://www.grandparentslegalcentre.com/",
+      "score": 21,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "fs-frg",
+      "title": "Family Rights Group",
+      "type": "Free advice · charity",
+      "blurb": "Advice for parents and kinship carers involved with children's services.",
+      "phone": "0808 801 0366",
+      "url": "https://frg.org.uk/",
+      "score": 19,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 27,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-25T22:30:11.261Z",
+  "stage": "published"
+}

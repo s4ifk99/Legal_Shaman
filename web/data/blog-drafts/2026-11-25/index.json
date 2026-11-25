@@ -1,0 +1,108 @@
+{
+  "date": "2026-11-25",
+  "status": "Ready for review",
+  "source": "Local blog batch 25 Nov: Reddit RSS blocked (r/LegalAdviceUK hot 404, others 429) so thin day; 6 Search Console demand picks plus 4 local everyday who helps picks.",
+  "note": "Approve or Kill on /dev/blog-review. Free doors from match_free_help after blog:match-free --seed.",
+  "drafts": [
+    {
+      "file": "01-section-20-agreement-solicitors-legal-advice-who-helps.md",
+      "title": "Section 20 agreement solicitors and free legal advice: who helps?",
+      "demandRef": "gsc-1125-section-20",
+      "matter": "other",
+      "why": "Search Console: 'section 20 agreement solicitors' about 208 impressions at around position 51; sibling to Section 20 Agreements and Accommodation.",
+      "matchFile": "matches/01-section-20-agreement-solicitors-legal-advice-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "02-revoking-lasting-power-of-attorney-who-helps.md",
+      "title": "Revoking a lasting power of attorney: who helps?",
+      "demandRef": "gsc-1125-revoke-lpa",
+      "matter": "other",
+      "why": "Search Console: revoke LPA cluster plus 'lpa solicitors' about 177 impressions at around position 53; sibling to the existing revoke guide.",
+      "matchFile": "matches/02-revoking-lasting-power-of-attorney-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "03-fly-tipping-on-my-land-or-street-who-helps.md",
+      "title": "Fly tipping on my land or street: who helps?",
+      "demandRef": "gsc-1125-fly-tipping",
+      "matter": "crime",
+      "why": "Search Console: 'fly tipping solicitors' about 127 impressions at around position 47; sibling to the accused and fine pages, from the victim angle.",
+      "matchFile": "matches/03-fly-tipping-on-my-land-or-street-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "04-buying-a-partner-out-of-a-property-who-helps.md",
+      "title": "Buying a partner out of a jointly owned property: who helps?",
+      "demandRef": "gsc-1125-buying-partner-out",
+      "matter": "other",
+      "why": "Search Console: 'buying a partner out of a property' about 35 impressions at around position 75, plus a related query cluster; sibling to the existing guide.",
+      "matchFile": "matches/04-buying-a-partner-out-of-a-property-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "05-paternity-discrimination-at-work-who-helps.md",
+      "title": "Paternity discrimination at work: who helps?",
+      "demandRef": "gsc-1125-paternity-discrimination",
+      "matter": "employment",
+      "why": "Search Console: 'paternity discrimination legal advice' about 31 impressions at around position 70; sibling to the maternity who helps pages.",
+      "matchFile": "matches/05-paternity-discrimination-at-work-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "06-applying-for-joint-custody-uk-who-helps.md",
+      "title": "Applying for joint custody in the UK: who helps?",
+      "demandRef": "gsc-1125-joint-custody",
+      "matter": "other",
+      "why": "Search Console: 'applying for joint custody' about 18 impressions; sibling to the sole custody who helps page published on 23 Nov.",
+      "matchFile": "matches/06-applying-for-joint-custody-uk-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "07-car-clamped-or-towed-private-land-who-helps.md",
+      "title": "My car was clamped or towed from private land: who helps?",
+      "demandRef": "local-1125-clamped-towed",
+      "matter": "parking",
+      "why": "Everyday parking pick on a thin Reddit day: private clamping and most private towing are banned in England and Wales; no existing who helps page.",
+      "matchFile": "matches/07-car-clamped-or-towed-private-land-who-helps.json",
+      "matchOk": true,
+      "matchQa": "ok"
+    },
+    {
+      "file": "08-shop-gift-card-declined-or-shop-closed-who-helps.md",
+      "title": "Shop gift card declined or the shop has closed: who helps?",
+      "demandRef": "local-1125-gift-card",
+      "matter": "consumer",
+      "why": "Everyday seasonal consumer pick for Christmas gift cards; no existing gift card who helps page.",
+      "matchFile": "matches/08-shop-gift-card-declined-or-shop-closed-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "09-extended-warranty-refused-faulty-appliance-who-helps.md",
+      "title": "Extended warranty refused on a faulty appliance: who helps?",
+      "demandRef": "local-1125-extended-warranty",
+      "matter": "consumer",
+      "why": "Everyday consumer pick: statutory rights are often confused with optional extended warranties; no existing who helps page.",
+      "matchFile": "matches/09-extended-warranty-refused-faulty-appliance-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    },
+    {
+      "file": "10-black-friday-advertised-discount-not-genuine-who-helps.md",
+      "title": "Black Friday advertised discount was not a genuine reduction: who helps?",
+      "demandRef": "local-1125-black-friday",
+      "matter": "consumer",
+      "why": "Everyday consumer pick timed for Black Friday on 27 Nov 2026; misleading pricing under the 2024 Act; no existing page.",
+      "matchFile": "matches/10-black-friday-advertised-discount-not-genuine-who-helps.json",
+      "matchOk": false,
+      "matchQa": "weak"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "queryKeys": [
+    "Extended warranty refused on a faulty appliance: who helps",
+    "Extended warranty refused on a faulty appliance: who helps?",
+    "My washing machine broke after 14 months. The extended warranty provider refused the claim. The shop says I must use the warranty. Consumer Rights Act England. Who helps?",
+    "My washing machine broke after 14 months. The extended warranty provider refused the claim. The shop says I must use the warranty. Consumer Rights Act England. Who helps?"
+  ],
+  "title": "Extended warranty refused on a faulty appliance: who helps",
+  "wikiId": "Areas/Consumer Rights/Faulty Goods and Services/Extended warranty refused on a faulty appliance: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Extended%20warranty%20refused%20on%20a%20faulty%20appliance%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 55,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-25T22:30:24.122Z",
+  "stage": "published"
+}

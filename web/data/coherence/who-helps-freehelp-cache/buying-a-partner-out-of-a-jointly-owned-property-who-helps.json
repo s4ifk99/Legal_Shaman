@@ -1,0 +1,94 @@
+{
+  "queryKeys": [
+    "Buying a partner out of a jointly owned property: who helps",
+    "Buying a partner out of a jointly owned property: who helps?",
+    "I jointly own a house with my ex and I want to buy them out. There is a mortgage. We have not yet agreed a price. England. Who helps?",
+    "I jointly own a house with my ex and I want to buy them out. There is a mortgage. We have not yet agreed a price. England. Who helps?"
+  ],
+  "title": "Buying a partner out of a jointly owned property: who helps",
+  "wikiId": "Areas/Courts and Disputes/Starting a Claim/Buying a partner out of a jointly owned property: who helps",
+  "liveUrl": "https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Courts%20and%20Disputes/Starting%20a%20Claim/Buying%20a%20partner%20out%20of%20a%20jointly%20owned%20property%3A%20who%20helps",
+  "freeHelp": [
+    {
+      "id": "signpost-fnf-org-uk-families-need-fathers",
+      "title": "Families Need Fathers",
+      "type": "Free advice · charity",
+      "blurb": "Info advice and support to both parents to help them maintain their relationship with their children",
+      "phone": "0300 0300 363",
+      "url": "https://fnf.org.uk/",
+      "score": 24,
+      "topicKeys": [
+        "area-family-children-divorce"
+      ]
+    },
+    {
+      "id": "signpost-hmrc-tax-and-benefits-confidential-helpline-hmrc-tax-an",
+      "title": "HMRC Tax and Benefits Confidential Helpline",
+      "type": "Free advice · charity",
+      "blurb": "helps families and individuals with targeted financial support",
+      "phone": "0845 608 6000",
+      "score": 24,
+      "topicKeys": [
+        "area-benefits-council-tax",
+        "area-debt-bailiffs-finance"
+      ]
+    },
+    {
+      "id": "exa-gov-uk-complain-about-a-legal-adviser-gov-u",
+      "title": "Complain about a legal adviser - GOV.UK",
+      "type": "Free advice · charity",
+      "blurb": "Summary:\n- This GOV.UK page explains how to complain about a legal adviser and when to contact the Legal Ombudsman.\n- Steps: follow your adviser’s own complaints procedure first; ask them for a copy of it.\n- If you’re unhappy with their response or they don’t respond within 8 weeks, you can escalate to the Legal Ombudsman.\n- Legal Ombudsman contact (UK): 0300 555 0333, Monday–Friday, 9am–5pm. Addr",
+      "phone": "0300 555 0333",
+      "url": "https://www.gov.uk/complain-about-legal-adviser",
+      "score": 24,
+      "topicKeys": [
+        "area-sra-legal-ombudsman"
+      ]
+    },
+    {
+      "id": "fs-legal-aid-agency",
+      "title": "Legal Aid Agency",
+      "type": "Official helpline",
+      "blurb": "Information on legal aid and finding a legal aid provider.",
+      "phone": "0300 200 2020",
+      "url": "https://www.gov.uk/legal-aid",
+      "score": 23,
+      "topicKeys": [
+        "area-common-unclassified"
+      ]
+    },
+    {
+      "id": "signpost-rachelsvoice-co-uk-rachel-s-voice",
+      "title": "Rachel's Voice",
+      "type": "Free advice · charity",
+      "blurb": "offers advice to families who have suffered a bereavement after the death of a person with a learning disability. Advice is offered to clients free of charge by lawyers who are working pro bono.",
+      "phone": "0808 808 1111",
+      "url": "https://rachelsvoice.co.uk/",
+      "score": 23,
+      "topicKeys": [
+        "area-common-unclassified",
+        "area-employment-workplace",
+        "area-immigration-visas"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 19,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "publishedAt": "2026-11-25T22:29:57.178Z",
+  "stage": "published"
+}

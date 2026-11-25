@@ -1,0 +1,168 @@
+{
+  "query": "Someone has fly tipped a pile of waste on my private land and on the street in England. I want to report the fly tipping to the local council environmental health or waste team, or to the Environment Agency if the load is large or hazardous. If it is happening now I would contact the police. Who helps?",
+  "title": "Fly tipping on my land or street: who helps",
+  "matter": "crime",
+  "matterType": "crime",
+  "freeHelp": [
+    {
+      "id": "fs-gov-report-fly-tipping",
+      "title": "Report fly-tipping (GOV.UK)",
+      "type": "Official helpline",
+      "blurb": "Report fly tipping to your local council in England. The council investigates illegal dumping on public land and may arrange clearance. On private land the occupier often has to clear the waste, but you should still report it.",
+      "url": "https://www.gov.uk/report-flytipping",
+      "score": 102,
+      "topicKeys": [
+        "area-environment-waste",
+        "area-crime-police-harassment",
+        "area-neighbour-boundary-trees"
+      ]
+    },
+    {
+      "id": "fs-environment-agency",
+      "title": "Environment Agency",
+      "type": "Official helpline",
+      "blurb": "Report serious environmental incidents in England, including large, organised or hazardous fly tipping. Use the incident line if the waste is harmful or on a large scale.",
+      "phone": "0800 80 70 60",
+      "url": "https://www.gov.uk/report-an-environmental-incident",
+      "score": 76,
+      "topicKeys": [
+        "area-environment-waste"
+      ]
+    },
+    {
+      "id": "fs-contact-police",
+      "title": "Contact the police (101 or 999)",
+      "type": "Official helpline",
+      "blurb": "Call 999 if a crime is happening now or someone is in danger. Call 101 to report a crime that is not an emergency, including fly tipping in progress.",
+      "phone": "101",
+      "url": "https://www.gov.uk/contact-police",
+      "score": 73,
+      "topicKeys": [
+        "area-crime-police-harassment",
+        "area-environment-waste"
+      ]
+    },
+    {
+      "id": "fs-crimestoppers",
+      "title": "Crimestoppers",
+      "type": "Free advice · charity",
+      "blurb": "Anonymous reporting line — not for emergency use (call 999 in immediate danger).",
+      "phone": "0800 555 111",
+      "url": "https://crimestoppers-uk.org/",
+      "score": 52,
+      "topicKeys": [
+        "area-crime-police-harassment"
+      ]
+    },
+    {
+      "id": "fs-victim-support",
+      "title": "Victim Support",
+      "type": "Free advice · charity",
+      "blurb": "Free 24/7 support for victims and witnesses of crime — emotional and practical help.",
+      "phone": "0808 168 9111",
+      "url": "https://www.victimsupport.org.uk/help-and-support/get-help/",
+      "score": 26,
+      "topicKeys": [
+        "area-crime-police-harassment",
+        "area-criminal-procedure"
+      ]
+    },
+    {
+      "id": "fs-legal-aid-agency",
+      "title": "Legal Aid Agency",
+      "type": "Official helpline",
+      "blurb": "Information on legal aid and finding a legal aid provider.",
+      "phone": "0300 200 2020",
+      "url": "https://www.gov.uk/legal-aid",
+      "score": 9,
+      "topicKeys": [
+        "area-common-unclassified"
+      ]
+    },
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "type": "Free advice · charity",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "phone": "0800 144 8848",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "score": 21,
+      "topicKeys": [
+        "area-consumer-goods-traders",
+        "area-debt-bailiffs-finance",
+        "area-housing-landlord-tenant",
+        "area-employment-workplace",
+        "area-motoring-parking-rta",
+        "area-insurance-financial-ombudsman"
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "fs-cab-adviceline-england",
+      "title": "Citizens Advice Adviceline (England)",
+      "kind": "cab",
+      "blurb": "Free phone advice on consumer, debt, housing, employment and more — routes to local help.",
+      "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/advice-line/",
+      "phone": "0800 144 8848",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-gov-report-fly-tipping",
+      "title": "Report fly-tipping (GOV.UK)",
+      "kind": "specialist",
+      "blurb": "Report fly tipping to your local council in England. The council investigates illegal dumping on public land and may arrange clearance. On private land the occupier often has to clear the waste, but you should still report it.",
+      "url": "https://www.gov.uk/report-flytipping",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-environment-agency",
+      "title": "Environment Agency",
+      "kind": "specialist",
+      "blurb": "Report serious environmental incidents in England, including large, organised or hazardous fly tipping. Use the incident line if the waste is harmful or on a large scale.",
+      "url": "https://www.gov.uk/report-an-environmental-incident",
+      "phone": "0800 80 70 60",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-contact-police",
+      "title": "Contact the police (101 or 999)",
+      "kind": "specialist",
+      "blurb": "Call 999 if a crime is happening now or someone is in danger. Call 101 to report a crime that is not an emergency, including fly tipping in progress.",
+      "url": "https://www.gov.uk/contact-police",
+      "phone": "101",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-crimestoppers",
+      "title": "Crimestoppers",
+      "kind": "specialist",
+      "blurb": "Anonymous reporting line — not for emergency use (call 999 in immediate danger).",
+      "url": "https://crimestoppers-uk.org/",
+      "phone": "0800 555 111",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-victim-support",
+      "title": "Victim Support",
+      "kind": "specialist",
+      "blurb": "Free 24/7 support for victims and witnesses of crime — emotional and practical help.",
+      "url": "https://www.victimsupport.org.uk/help-and-support/get-help/",
+      "phone": "0808 168 9111",
+      "tool": "match_free_help"
+    },
+    {
+      "id": "fs-legal-aid-agency",
+      "title": "Legal Aid Agency",
+      "kind": "specialist",
+      "blurb": "Information on legal aid and finding a legal aid provider.",
+      "url": "https://www.gov.uk/legal-aid",
+      "phone": "0300 200 2020",
+      "tool": "match_free_help"
+    }
+  ],
+  "matchOk": true,
+  "qa": "ok",
+  "qaDetail": "7 free doors (6 non-CAB)",
+  "generatedAt": "2026-11-25T22:21:21.857Z"
+}

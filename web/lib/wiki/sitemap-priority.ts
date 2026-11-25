@@ -117,6 +117,14 @@ export const SITEMAP_PRIORITY_WIKI_IDS = [
   "Areas/Consumer Rights/Faulty Goods and Services/Refurbished phone bought online stopped working: who helps",
   "Areas/Family and Relationships/Children/Child maintenance solicitors and free legal advice: who helps",
   "Areas/Consumer Rights/Travel and Holidays/Hotel cancelled my booking and refused a refund: who helps",
+  "Areas/Courts and Disputes/Starting a Claim/Section 20 agreement solicitors and free legal advice: who helps",
+  "Areas/Courts and Disputes/Starting a Claim/Revoking a lasting power of attorney: who helps",
+  "Areas/Crime and Police/Victim Support/Fly tipping on my land or street: who helps",
+  "Areas/Courts and Disputes/Starting a Claim/Buying a partner out of a jointly owned property: who helps",
+  "Areas/Work and Employment/Your Rights at Work/Paternity discrimination at work: who helps",
+  "Areas/Family and Relationships/Children/Applying for joint custody in the UK: who helps",
+  "Areas/Driving and Parking/Parking and PCNs/My car was clamped or towed from private land: who helps",
+  "Areas/Consumer Rights/Faulty Goods and Services/Extended warranty refused on a faulty appliance: who helps",
 ] as const;
 
 export function outsideEnglandAndWales(id: string): boolean {
