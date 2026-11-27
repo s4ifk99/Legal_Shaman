@@ -68,7 +68,7 @@ Disputing a debt that is not yours should not create a debt. If they have alread
 - [National Debtline: harassment by creditors](https://nationaldebtline.org/get-information/guides/harassment-by-creditors-ew/)
 - [StepChange: this is not my debt](https://www.stepchange.org/debt-info/your-rights/debts-not-in-my-name.aspx)
 - [Citizens Advice: harassment by creditors](https://www.citizensadvice.org.uk/debt-and-money/action-your-creditor-can-take/harassment-by-creditors/)
-- Related wiki: [Family spent on my credit card and won’t repay: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FMoney%2C%20Benefits%20and%20Debt%2FDebt%20Solutions%2FFamily%20spent%20on%20my%20credit%20card%20and%20won%E2%80%99t%20repay%3A%20who%20helps)
+- Related wiki: [Family spent on my credit card and won’t repay: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Money%2C%20Benefits%20and%20Debt/Debt%20Solutions/Family%20spent%20on%20my%20credit%20card%20and%20won%E2%80%99t%20repay%3A%20who%20helps)
 
 ## Related Concepts
 

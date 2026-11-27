@@ -40,7 +40,7 @@ A small money claim can end in an order to pay the value if the items are gone, 
 - **Citizens Advice** if you are unsure of the value, or the other person says the items were gifts or joint purchases.
 - **Civil Money Claims** only if the deadline passes and the value is worth the fee. Paper form N1 if you cannot state a fixed sum or the online rules exclude you.
 - **Police** on 101, or 999 if there is immediate danger, only where there is theft, damage, or a threat. Ask for a reference if they agree a crime has been committed. If they say it is civil, use the letter, not a second police call about the same boxes.
-- **Family mediation** if you were married or in a civil partnership and this is part of dividing a home. The wiki page [What happens to household items and personal belongings after separation (not married)?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FFamily%20and%20Relationships%2FMarriage%20and%20Cohabitation%2FWhat%20happens%20to%20household%20items%20and%20personal%20belongings%20after%20separation%20%28not%20married%29) is the wider split. Use it when ownership itself is the fight. Use the letter before claim when ownership is clear and the hold up is delivery.
+- **Family mediation** if you were married or in a civil partnership and this is part of dividing a home. The wiki page [What happens to household items and personal belongings after separation (not married)?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Family%20and%20Relationships/Marriage%20and%20Cohabitation/What%20happens%20to%20household%20items%20and%20personal%20belongings%20after%20separation%20(not%20married)) is the wider split. Use it when ownership itself is the fight. Use the letter before claim when ownership is clear and the hold up is delivery.
 
 ## Services
 
@@ -67,7 +67,7 @@ Unmarried couples do not use the divorce financial order for a box of clothes an
 - [Citizens Advice: making a small claim](https://www.citizensadvice.org.uk/law-and-courts/legal-system/small-claims/making-a-small-claim/)
 - [Citizens Advice: deciding whether to make a small claim](https://www.citizensadvice.org.uk/law-and-courts/legal-system/small-claims/deciding-whether-to-make-a-small-claim/)
 - [GOV.UK: make a court claim for money](https://www.gov.uk/make-court-claim-for-money)
-- Related wiki: [What happens to household items and personal belongings after separation (not married)?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FFamily%20and%20Relationships%2FMarriage%20and%20Cohabitation%2FWhat%20happens%20to%20household%20items%20and%20personal%20belongings%20after%20separation%20%28not%20married%29)
+- Related wiki: [What happens to household items and personal belongings after separation (not married)?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Family%20and%20Relationships/Marriage%20and%20Cohabitation/What%20happens%20to%20household%20items%20and%20personal%20belongings%20after%20separation%20(not%20married))
 
 ## Related Concepts
 

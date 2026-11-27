@@ -64,7 +64,7 @@ The seller complaint and the card doors are the same idea. The court brand chang
 - [Citizens Advice: return faulty goods](https://www.citizensadvice.org.uk/consumer/somethings-gone-wrong-with-a-purchase/return-faulty-goods/)
 - [Citizens Advice: faulty goods letter](https://www.citizensadvice.org.uk/consumer/template-letters/letters/consumer-template-letters/letter-to-complain-about-faulty-goods/)
 - [Scottish Courts: how to make a simple procedure claim](https://www.scotcourts.gov.uk/taking-action/simple-procedure/how-to-make-a-claim-with-simple-procedure/)
-- Related wiki: [Faulty goods outside warranty: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FFaulty%20goods%20outside%20warranty%3A%20who%20helps)
+- Related wiki: [Faulty goods outside warranty: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Faulty%20goods%20outside%20warranty%3A%20who%20helps)
 
 ## Related Concepts
 

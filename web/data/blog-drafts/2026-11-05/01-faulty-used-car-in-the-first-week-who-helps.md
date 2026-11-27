@@ -64,8 +64,8 @@ Inside the first **30 days**, rejection is the right you are asking for, where t
 - [Citizens Advice: letter about faulty goods](https://www.citizensadvice.org.uk/consumer/template-letters/letters/consumer-template-letters/letter-to-complain-about-faulty-goods/)
 - [The Motor Ombudsman: used car problems](https://www.themotorombudsman.org/knowledge/what-can-i-do-about-a-used-car-problem/)
 - [The Motor Ombudsman: make a complaint](https://www.themotorombudsman.org/consumers/make-a-complaint/)
-- Related wiki: [Buying a used car](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FBuying%20a%20used%20car)
-- Related wiki: [Faulty goods outside warranty: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FFaulty%20goods%20outside%20warranty%3A%20who%20helps)
+- Related wiki: [Buying a used car](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Buying%20a%20used%20car)
+- Related wiki: [Faulty goods outside warranty: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Faulty%20goods%20outside%20warranty%3A%20who%20helps)
 
 ## Related Concepts
 

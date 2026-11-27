@@ -54,8 +54,8 @@ Ask for written lender authority. Call 101 if you feel threatened. Do not sign p
 ## Sources
 
 - [Citizens Advice: problems with a used car](https://www.citizensadvice.org.uk/consumer/buying-a-used-car/problems-with-a-used-car/)
-- Related wiki: [If the car you bought is still on hire purchase](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FIf%20the%20car%20you%20bought%20is%20still%20on%20hire%20purchase)
-- Related wiki: [Hire purchase and conditional sale](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FHire%20purchase%20and%20conditional%20sale)
+- Related wiki: [If the car you bought is still on hire purchase](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/If%20the%20car%20you%20bought%20is%20still%20on%20hire%20purchase)
+- Related wiki: [Hire purchase and conditional sale](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Hire%20purchase%20and%20conditional%20sale)
 
 ## Related Concepts
 

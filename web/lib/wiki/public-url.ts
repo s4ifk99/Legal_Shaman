@@ -24,6 +24,35 @@ export function wikiPagePublicUrl(
   return `${base.replace(/\/$/, "")}${wikiPagePublicPath(slug)}`;
 }
 
+const WIKI_HREF =
+  /^(https?:\/\/(?:www\.)?legalshaman\.com)?\/ask-the-shaman\/wiki\/([^?#]+)([?#].*)?$/i;
+
+/**
+ * Rewrite a wiki link written with %2F in place of folder slashes
+ * (old encodeURIComponent(fullId) links) to the canonical slash form.
+ * Other URLs are returned unchanged.
+ */
+export function normalizeWikiHref(href: string): string {
+  const m = href.match(WIKI_HREF);
+  if (!m || !/%2F/i.test(m[2] ?? "")) return href;
+  let id: string;
+  try {
+    id = decodeURIComponent(m[2]!);
+  } catch {
+    return href;
+  }
+  const origin = m[1] ? "https://www.legalshaman.com" : "";
+  return `${origin}${wikiPagePublicPath(id)}${m[3] ?? ""}`;
+}
+
+/** Replace every %2F wiki link inside a block of markdown or text. */
+export function normalizeWikiLinksInText(text: string): string {
+  return text.replace(
+    /(?:https?:\/\/(?:www\.)?legalshaman\.com)?\/ask-the-shaman\/wiki\/[^\s)\]"'<>]+/gi,
+    (url) => normalizeWikiHref(url),
+  );
+}
+
 /**
  * Rewrite legacy stored wiki URLs (`/wiki/...` or `legalshaman.com/wiki/...`)
  * to the current Ask the Shaman wiki route.

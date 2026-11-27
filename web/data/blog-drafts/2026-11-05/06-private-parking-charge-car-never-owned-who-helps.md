@@ -52,7 +52,7 @@ POPLA assesses appeals for BPA operators after the operator rejects you and issu
 ## FAQ
 
 **I typed my plate wrong at a car park I did use. Is this the page?**
-No. Use [Parking ticket wrong registration: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FDriving%20and%20Parking%2FParking%20and%20PCNs%2FParking%20ticket%20wrong%20registration%3A%20who%20helps). That one needs your payment receipt and the correct plate. This page is for a car that was never yours.
+No. Use [Parking ticket wrong registration: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Parking%20and%20PCNs/Parking%20ticket%20wrong%20registration%3A%20who%20helps). That one needs your payment receipt and the correct plate. This page is for a car that was never yours.
 
 **Should I phone them and give my full address history?**
 No. Reply on the appeal route with the keeper point and the DVLA letter. Extra biography does not help.
@@ -65,7 +65,7 @@ Keep every letter. Send one chase that attaches the proof again. If a claim form
 - [Citizens Advice: when to appeal a parking ticket](https://www.citizensadvice.org.uk/law-and-courts/parking-tickets/when-to-appeal-a-parking-ticket/)
 - [POPLA: how to appeal](https://www.popla.co.uk/appeal-guide)
 - [POPLA: keeper liability explained](https://www.popla.co.uk/faqs)
-- Related wiki: [Parking ticket wrong registration: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FDriving%20and%20Parking%2FParking%20and%20PCNs%2FParking%20ticket%20wrong%20registration%3A%20who%20helps)
+- Related wiki: [Parking ticket wrong registration: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Parking%20and%20PCNs/Parking%20ticket%20wrong%20registration%3A%20who%20helps)
 
 ## Related Concepts
 

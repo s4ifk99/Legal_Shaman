@@ -54,7 +54,7 @@ Ask for the exact clause and the date they say notice was due. Put your send rec
 ## Sources
 
 - [Citizens Advice: cancelling a gym membership](https://www.citizensadvice.org.uk/consumer/holiday-cancellations-and-compensation/cancelling-a-gym-membership/)
-- Related wiki: [Gym won't let me cancel within the cancellation period: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FGym%20won't%20let%20me%20cancel%20within%20the%20cancellation%20period%3A%20who%20helps)
+- Related wiki: [Gym won't let me cancel within the cancellation period: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Gym%20won't%20let%20me%20cancel%20within%20the%20cancellation%20period%3A%20who%20helps)
 
 ## Related Concepts
 

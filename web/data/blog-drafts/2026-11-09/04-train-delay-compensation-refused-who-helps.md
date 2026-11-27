@@ -53,7 +53,7 @@ Use only doors that fit a rail ticket dispute. Process steps still start with th
 ## Sources
 
 - [Citizens Advice: train delays](https://www.citizensadvice.org.uk/consumer/holiday-cancellations-and-compensation/getting-a-refund-for-a-delayed-or-cancelled-train/)
-- Related wiki: [Non refundable train ticket but the train never came: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FNon%20refundable%20train%20ticket%20but%20the%20train%20never%20came%3A%20who%20helps)
+- Related wiki: [Non refundable train ticket but the train never came: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Non%20refundable%20train%20ticket%20but%20the%20train%20never%20came%3A%20who%20helps)
 
 ## Related Concepts
 

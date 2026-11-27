@@ -10,6 +10,7 @@ import { LawyerSearchClient } from "@/app/find-a-lawyer/lawyer-search-client";
 import { Card, CardContent } from "@/components/ui/card";
 import { CoherenceAskShell } from "@/components/coherence/CoherenceAskShell";
 import { AskTheShamanV3 } from "@/components/v3/ask-the-shaman-v3";
+import { LatestGuides } from "@/components/wiki/latest-guides";
 import { resolveCoherenceUi } from "@/lib/coherence/mode";
 import { getCurrentUser } from "@/lib/auth/get-current-user";
 import { getWikiIndex } from "@/lib/wiki/load-index";
@@ -47,6 +48,7 @@ function WikiBrowseSections() {
 
   return (
     <>
+      <LatestGuides />
       <section className="mt-10">
         <h2 className="font-serif text-xl font-semibold text-foreground">Browse by category</h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
@@ -121,7 +123,7 @@ export default async function AskTheShamanPage({ searchParams }: PageProps) {
   // V3 agent is always on /ask-the-shaman (homepage is the What is landing).
   // Escape hatches: ?classic=1, ?guided=1.
   if (isV3SimpleShellEnabled() && !forceClassic && !showGuided) {
-    return <AskTheShamanV3 />;
+    return <AskTheShamanV3 belowFold={<LatestGuides />} />;
   }
 
   const hdrs = await headers();

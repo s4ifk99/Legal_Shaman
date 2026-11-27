@@ -57,7 +57,7 @@ Complain to the retailer and tell the finance firm. Section 75 style routes may 
 ## Sources
 
 - [Citizens Advice: faulty goods](https://www.citizensadvice.org.uk/consumer/something-ive-bought-is-faulty-or-broken/)
-- Related wiki: [Faulty used car in the first week: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FFaulty%20Goods%20and%20Services%2FFaulty%20used%20car%20in%20the%20first%20week%3A%20who%20helps)
+- Related wiki: [Faulty used car in the first week: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Faulty%20Goods%20and%20Services/Faulty%20used%20car%20in%20the%20first%20week%3A%20who%20helps)
 
 ## Related Concepts
 

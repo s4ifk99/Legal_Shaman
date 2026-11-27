@@ -60,8 +60,8 @@ That is a claim, not a final decision. Use insurer and Citizens Advice Scotland 
 - [Citizens Advice Scotland: disputes about damages and repairs](https://www.citizensadvice.org.uk/scotland/housing/neighbour-disputes-s/disputes-about-damages-and-repairs/)
 - [Citizens Advice Scotland: water leaks and pipes](https://www.citizensadvice.org.uk/scotland/consumer/water/water-leaks-and-pipes-s/)
 - [Scottish Water](https://www.scottishwater.co.uk/)
-- Related wiki: [If there's a leak from a neighbouring flat](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FHome%20and%20Housing%2FRepairs%20and%20Safety%2FIf%20there's%20a%20leak%20from%20a%20neighbouring%20flat)
-- Related wiki: [Can A Neighbour Drain Water Onto Your Property?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FHome%20and%20Housing%2FRepairs%20and%20Safety%2FCan%20A%20Neighbour%20Drain%20Water%20Onto%20Your%20Property)
+- Related wiki: [If there's a leak from a neighbouring flat](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Home%20and%20Housing/Repairs%20and%20Safety/If%20there's%20a%20leak%20from%20a%20neighbouring%20flat)
+- Related wiki: [Can A Neighbour Drain Water Onto Your Property?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Home%20and%20Housing/Repairs%20and%20Safety/Can%20A%20Neighbour%20Drain%20Water%20Onto%20Your%20Property)
 
 ## Related Concepts
 

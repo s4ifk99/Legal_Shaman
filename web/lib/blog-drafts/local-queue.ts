@@ -155,6 +155,47 @@ export function recordLocalPublish(
 
 export function wikiDirForMatter(matter: string, title = ""): string {
   const t = title.toLowerCase();
+  // Filing check: specific topics first so they do not fall through to
+  // "Courts and Disputes/Starting a Claim" (the catch all for "other").
+  if (/power of attorney|\blpa\b|court of protection|deputyship/.test(t)) {
+    return "Areas/Wills and Planning Ahead/Powers of Attorney";
+  }
+  if (/\bwill\b|wills|probate|inheritance|executor|estate of/.test(t)) {
+    return "Areas/Wills and Planning Ahead/Probate and Inheritance";
+  }
+  if (/section 20|service charge|leasehold|ground rent|freeholder|managing agent/.test(t)) {
+    return "Areas/Home and Housing/Buying and Selling";
+  }
+  if (/jointly owned|buy(ing)? (out|a partner out)|cohabit|unmarried|partner'?s share/.test(t)) {
+    return "Areas/Family and Relationships/Marriage and Cohabitation";
+  }
+  if (/divorce|separation|financial order/.test(t)) {
+    return "Areas/Family and Relationships/Divorce and Separation";
+  }
+  if (/domestic abuse|non.?molestation|occupation order/.test(t)) {
+    return "Areas/Family and Relationships/Domestic Abuse";
+  }
+  if (/discriminat/.test(t) && /work|employ|job|maternity|paternity|pregnan/.test(t)) {
+    return "Areas/Work and Employment/Discrimination at Work";
+  }
+  if (/dismiss|redundan|sacked|fired/.test(t)) {
+    return "Areas/Work and Employment/Redundancy and Dismissal";
+  }
+  if (/negligence|wrong dose|misdiagnos|surgery|gp |hospital error/.test(t)) {
+    return "Areas/Health and Injury/Clinical Negligence";
+  }
+  if (/injury|accident|slip|trip/.test(t) && !/car accident|parked/.test(t)) {
+    return "Areas/Health and Injury/Personal Injury";
+  }
+  if (/benefit|universal credit|pip\b|esa\b|dwp/.test(t)) {
+    return "Areas/Money, Benefits and Debt/Benefits and Universal Credit";
+  }
+  if (/visa|immigration|citizenship|asylum|settled status/.test(t)) {
+    return "Areas/Immigration and Citizenship/Visas and Status";
+  }
+  if (/clamp|tow(ed)?\b/.test(t)) {
+    return "Areas/Driving and Parking/Parking and PCNs";
+  }
   if (/energy|ombudsman|debt collector|credit card|bill in the wrong name|gas meter/.test(t)) {
     return "Areas/Money, Benefits and Debt/Tax and Bills";
   }

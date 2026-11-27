@@ -81,7 +81,7 @@ That supports your evidence pack. Your claim still usually runs against the agen
 - [ACAS](https://www.acas.org.uk/)
 - [GOV.UK National Minimum Wage](https://www.gov.uk/national-minimum-wage)
 - [Citizens Advice: problems at work](https://www.citizensadvice.org.uk/work/)
-- Related wiki: [Paid below minimum wage cash in hand: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FWork%20and%20Employment%2FYour%20Rights%20at%20Work%2FPaid%20below%20minimum%20wage%20cash%20in%20hand%3A%20who%20helps)
+- Related wiki: [Paid below minimum wage cash in hand: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Work%20and%20Employment/Your%20Rights%20at%20Work/Paid%20below%20minimum%20wage%20cash%20in%20hand%3A%20who%20helps)
 
 ## Related Concepts
 

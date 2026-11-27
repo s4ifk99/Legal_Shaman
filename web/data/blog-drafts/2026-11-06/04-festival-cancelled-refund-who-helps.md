@@ -56,7 +56,7 @@ Card tools may not apply. Citizens Advice can still help you frame a small claim
 
 - [Citizens Advice: buying tickets](https://www.citizensadvice.org.uk/consumer/holiday-cancellations-and-compensation/buying-tickets/)
 - [Citizens Advice: problems with a purchase](https://www.citizensadvice.org.uk/consumer/something-ive-bought-is-faulty-or-broken/)
-- Related wiki: [Missed connection after a flight delay: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FTravel%20and%20Holidays%2FMissed%20connection%20after%20a%20flight%20delay%3A%20who%20helps)
+- Related wiki: [Missed connection after a flight delay: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Travel%20and%20Holidays/Missed%20connection%20after%20a%20flight%20delay%3A%20who%20helps)
 
 ## Related Concepts
 

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { normalizeWikiHref } from "./public-url";
 
 const TOKEN =
   /(\[\[([^\]]+)\]\]|\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)|\*\*([^*]+)\*\*|`([^`]+)`)/g;
@@ -31,7 +32,7 @@ export function renderWikiInline(raw: string): ReactNode {
       nodes.push(
         <a
           key={key++}
-          href={match[4]}
+          href={normalizeWikiHref(match[4])}
           target="_blank"
           rel="noopener noreferrer"
           className="font-medium text-gold underline underline-offset-2 hover:text-foreground"

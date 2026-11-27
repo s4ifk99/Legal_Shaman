@@ -23,6 +23,11 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.legalshaman.com"),
+  alternates: {
+    types: {
+      "application/atom+xml": [{ url: "/feed.xml", title: "Legal Shaman: latest who helps guides" }],
+    },
+  },
   title: {
     default: "Legal Shaman | UK Legal Directory",
     template: "%s | Legal Shaman",

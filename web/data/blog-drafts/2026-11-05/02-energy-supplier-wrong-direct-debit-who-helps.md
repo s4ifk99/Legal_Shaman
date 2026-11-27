@@ -39,7 +39,7 @@ If you tell the bank there was an error in the Direct Debit, the guarantee says 
 - **Supplier** complaints team, in writing: what was agreed, what was taken, the dates, and what you want (refund of the extra, a corrected monthly figure, written notice before the next change).
 - **Bank** under the **Direct Debit Guarantee** if the collection itself was an error. Say that phrase. Ask for the refund of the wrong payment.
 - **Citizens Advice** if you are unsure which of those two doors fits, or you need a breathing space conversation because the extra debit caused hardship.
-- **Energy Ombudsman** at eight weeks or on a deadlock letter. Do not wait past the 12 month window that runs from the supplier final decision. The existing wiki page [Complain to the Energy Ombudsman](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FRights%20and%20Discrimination%2FHuman%20Rights%20and%20Public%20Law%2FComplain%20to%20the%20Energy%20Ombudsman) covers that time limit.
+- **Energy Ombudsman** at eight weeks or on a deadlock letter. Do not wait past the 12 month window that runs from the supplier final decision. The existing wiki page [Complain to the Energy Ombudsman](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Rights%20and%20Discrimination/Human%20Rights%20and%20Public%20Law/Complain%20to%20the%20Energy%20Ombudsman) covers that time limit.
 - **Ofgem** only to report a firm that is breaking licence rules, not to get your money back this week.
 
 ## Services
@@ -58,7 +58,7 @@ If you tell the bank there was an error in the Direct Debit, the guarantee says 
 Ask the supplier and, where the collection was an error, ask the bank under the **Direct Debit Guarantee**. Neither door means the energy was free.
 
 **The supplier set it to weekly instead of monthly. Is that a price rise?**
-Not by itself. It is a change to frequency and amount. That is a complaint about the instruction, and it may also be a guarantee point if you were not told properly. A higher unit rate is a different page: [Your direct debit payments have increased](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FMoney%2C%20Benefits%20and%20Debt%2FTax%20and%20Bills%2FYour%20direct%20debit%20payments%20have%20increased).
+Not by itself. It is a change to frequency and amount. That is a complaint about the instruction, and it may also be a guarantee point if you were not told properly. A higher unit rate is a different page: [Your direct debit payments have increased](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Money%2C%20Benefits%20and%20Debt/Tax%20and%20Bills/Your%20direct%20debit%20payments%20have%20increased).
 
 **Should I cancel the Direct Debit?**
 You can. Do it with the bank, and tell the supplier. Then agree how the correct bill will be paid so the account does not fall into arrears while you argue about the extra.
@@ -68,8 +68,8 @@ You can. Do it with the bank, and tell the supplier. Then agree how the correct 
 - [Ofgem: complain about your energy supplier](https://www.ofgem.gov.uk/your-energy-supply/problems-your-energy-supply/complain-about-your-energy-supplier-or-network-operator)
 - [Energy Ombudsman: resolve a dispute](https://www.energyombudsman.org/we-may-be-able-to-help-resolve-your-energy-dispute)
 - [Direct Debit: your rights and safeguards](https://www.directdebit.co.uk/help/your-rights-and-safeguards)
-- Related wiki: [Complain to the Energy Ombudsman](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FRights%20and%20Discrimination%2FHuman%20Rights%20and%20Public%20Law%2FComplain%20to%20the%20Energy%20Ombudsman)
-- Related wiki: [Your direct debit payments have increased](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FMoney%2C%20Benefits%20and%20Debt%2FTax%20and%20Bills%2FYour%20direct%20debit%20payments%20have%20increased)
+- Related wiki: [Complain to the Energy Ombudsman](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Rights%20and%20Discrimination/Human%20Rights%20and%20Public%20Law/Complain%20to%20the%20Energy%20Ombudsman)
+- Related wiki: [Your direct debit payments have increased](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Money%2C%20Benefits%20and%20Debt/Tax%20and%20Bills/Your%20direct%20debit%20payments%20have%20increased)
 
 ## Related Concepts
 

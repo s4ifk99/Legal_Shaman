@@ -18,7 +18,7 @@ If you bought the onward flight as a separate ticket, UK261 does not treat the w
 
 **Citizens Advice** explains the claim. The **CAA** does not pay you. After the airline’s final response, or eight weeks of silence, you use the ADR scheme the airline belongs to, or the CAA Passenger Advice and Complaints Team if it has no ADR.
 
-This is not [denied boarding because the airline oversold the flight](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FTravel%20and%20Holidays%2FAirline%20oversold%20my%20flight%20at%20the%20airport%3A%20who%20helps). Overselling has its own compensation table. Use that page if you were bumped. Use this page if the aircraft ran late and the connection failed.
+This is not [denied boarding because the airline oversold the flight](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Travel%20and%20Holidays/Airline%20oversold%20my%20flight%20at%20the%20airport%3A%20who%20helps). Overselling has its own compensation table. Use that page if you were bumped. Use this page if the aircraft ran late and the connection failed.
 
 ## Key Information
 
@@ -68,7 +68,7 @@ Often it is an extraordinary circumstance for the compensation sum. You can stil
 - [CAA: delays](https://www.caa.co.uk/air-passengers/travel-problems-and-rights/flight-delays-and-cancellations/delays)
 - [CAA: flight delays and cancellations](https://www.caa.co.uk/air-passengers/travel-problems-and-rights/flight-delays-and-cancellations)
 - [Citizens Advice: delayed or cancelled flights](https://www.citizensadvice.org.uk/consumer/holiday-cancellations-and-compensation/if-your-flights-delayed-or-cancelled/)
-- Related wiki: [Airline oversold my flight at the airport: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FConsumer%20Rights%2FTravel%20and%20Holidays%2FAirline%20oversold%20my%20flight%20at%20the%20airport%3A%20who%20helps)
+- Related wiki: [Airline oversold my flight at the airport: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Consumer%20Rights/Travel%20and%20Holidays/Airline%20oversold%20my%20flight%20at%20the%20airport%3A%20who%20helps)
 
 ## Related Concepts
 

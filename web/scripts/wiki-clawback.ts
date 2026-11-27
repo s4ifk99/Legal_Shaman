@@ -9,6 +9,7 @@
  */
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { wikiPagePublicUrl } from "../lib/wiki/public-url";
 
 type WikiPageLite = {
   id: string;
@@ -95,7 +96,7 @@ function scoreOverlap(queryTokens: string[], page: WikiPageLite): ClawHit | null
     id: page.id,
     title: page.title,
     score,
-    publicUrl: `${BASE}/ask-the-shaman/wiki/${encodeURIComponent(page.id)}`,
+    publicUrl: wikiPagePublicUrl(page.id, BASE),
     reason: `matched: ${matched.slice(0, 8).join(", ")}`,
   };
 }

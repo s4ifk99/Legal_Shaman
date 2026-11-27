@@ -56,8 +56,8 @@ Usually no. Look for “Parking Charge” and a private company logo.
 
 - [Citizens Advice: parking tickets](https://www.citizensadvice.org.uk/consumer/cars/parking-tickets/)
 - [POPLA](https://www.popla.co.uk/)
-- Related wiki: [Parking charge for parking in my own space: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FDriving%20and%20Parking%2FParking%20and%20PCNs%2FParking%20charge%20for%20parking%20in%20my%20own%20space%3A%20who%20helps)
-- Related wiki: [Parking fine in England: who helps first?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FDriving%20and%20Parking%2FParking%20and%20PCNs%2FParking%20fine%20England%20first%20steps%3A%20who%20helps)
+- Related wiki: [Parking charge for parking in my own space: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Parking%20and%20PCNs/Parking%20charge%20for%20parking%20in%20my%20own%20space%3A%20who%20helps)
+- Related wiki: [Parking fine in England: who helps first?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Parking%20and%20PCNs/Parking%20fine%20England%20first%20steps%3A%20who%20helps)
 
 ## Related Concepts
 

@@ -26,11 +26,12 @@ import { ShamanRecommends } from '@/components/legal-search/shaman-recommends'
 import { ensureShamanRecAnswer } from '@/lib/coherence/shamanRecFormat'
 import { PageNavigation, type PageNavigationProps } from './PageNavigation'
 import './OslawView.css'
+import { wikiPagePublicPath } from '@/lib/wiki/public-url'
 
 /** Wiki `path` is a page id (sometimes still ends in `.md` from spines). */
 function wikiArticleHref(path: string): string {
   const id = path.replace(/\.md$/i, '').replace(/^\/+/, '')
-  return `/ask-the-shaman/wiki/${encodeURIComponent(id)}`
+  return wikiPagePublicPath(id)
 }
 
 interface Props {

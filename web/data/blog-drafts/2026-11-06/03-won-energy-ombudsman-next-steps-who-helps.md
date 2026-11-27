@@ -51,7 +51,7 @@ Tell the Ombudsman immediately with dates. That is the first lever for your awar
 - [Energy Ombudsman](https://www.energyombudsman.org/)
 - [Citizens Advice: energy](https://www.citizensadvice.org.uk/consumer/energy/)
 - [Ofgem](https://www.ofgem.gov.uk/)
-- Related wiki: [Complain to the Energy Ombudsman](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FRights%20and%20Discrimination%2FHuman%20Rights%20and%20Public%20Law%2FComplain%20to%20the%20Energy%20Ombudsman)
+- Related wiki: [Complain to the Energy Ombudsman](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Rights%20and%20Discrimination/Human%20Rights%20and%20Public%20Law/Complain%20to%20the%20Energy%20Ombudsman)
 
 ## Related Concepts
 

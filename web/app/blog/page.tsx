@@ -7,15 +7,14 @@ import {
   listWikiCategories,
   searchWikiPages,
   listFeaturedWikiPages,
-  listWhoHelpsWikiPages,
 } from "@/lib/wiki/search";
+import { listGuidesNewestFirst } from "@/lib/wiki/published";
 import { wikiPagePublicPath } from "@/lib/wiki/public-url";
-import { SITEMAP_PRIORITY_WIKI_IDS } from "@/lib/wiki/sitemap-priority";
 
 export const metadata: Metadata = {
-  title: "Blog — indexed wiki guidance",
+  title: "Blog: legal guidance and who helps guides",
   description:
-    "Browse Legal Shaman’s indexed UK legal wiki — situation guides, who helps, and practical next steps. Signposting only, not legal advice.",
+    "Browse Legal Shaman’s indexed UK legal wiki: situation guides, who helps and practical next steps. Signposting only, not legal advice.",
   alternates: { canonical: "/blog" },
 };
 
@@ -31,7 +30,7 @@ export default async function BlogHubPage({ searchParams }: PageProps) {
   const index = getWikiIndex();
   const categories = listWikiCategories();
   const featured = listFeaturedWikiPages(8);
-  const whoHelps = listWhoHelpsWikiPages(SITEMAP_PRIORITY_WIKI_IDS).slice(0, 12);
+  const whoHelps = listGuidesNewestFirst().slice(0, 12);
 
   let results = q ? searchWikiPages(q, 40) : [];
   if (!q && categoryFilter) {
@@ -63,7 +62,7 @@ export default async function BlogHubPage({ searchParams }: PageProps) {
           <p className="text-xs font-medium uppercase tracking-wide text-gold">Knowledge hub</p>
           <h1 className="font-serif text-3xl font-bold text-foreground md:text-4xl">Blog</h1>
           <p className="max-w-2xl text-muted-foreground">
-            All indexed wiki guidance in one place — situation explainers the Ask the Shaman agent
+            All indexed wiki guidance in one place: situation explainers the Ask the Shaman agent
             cites. Your uploaded letters and photos stay private on Your case; they are never
             published here.
           </p>

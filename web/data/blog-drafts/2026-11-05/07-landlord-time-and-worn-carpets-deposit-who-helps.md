@@ -29,7 +29,7 @@ Shelter’s housing advice sets out [what a landlord can deduct](https://england
 
 ## What Citizens Advice would actually do here
 
-An adviser can help you write the email that refuses the time charge and the wear charge, and can explain the unprotected deposit penalty in outline. They will not transfer the money. The wiki pages [Getting your tenancy deposit back](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FHome%20and%20Housing%2FRenting%2FGetting%20your%20tenancy%20deposit%20back) and [Getting your tenancy deposit back if you rent privately](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FHome%20and%20Housing%2FRenting%2FGetting%20your%20tenancy%20deposit%20back%20if%20you%20rent%20privately) are the wider maps. This page is only the unfair end of tenancy bill.
+An adviser can help you write the email that refuses the time charge and the wear charge, and can explain the unprotected deposit penalty in outline. They will not transfer the money. The wiki pages [Getting your tenancy deposit back](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Home%20and%20Housing/Renting/Getting%20your%20tenancy%20deposit%20back) and [Getting your tenancy deposit back if you rent privately](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Home%20and%20Housing/Renting/Getting%20your%20tenancy%20deposit%20back%20if%20you%20rent%20privately) are the wider maps. This page is only the unfair end of tenancy bill.
 
 ## Practical Guidance
 
@@ -63,8 +63,8 @@ The landlord remains responsible for returning a deposit that should come back t
 - [Shelter: what can a landlord deduct](https://england.shelter.org.uk/housing_advice/tenancy_deposits/what_can_your_landlord_deduct_from_your_deposit)
 - [Shelter: damage and missing items](https://england.shelter.org.uk/housing_advice/tenancy_deposits/what_can_your_landlord_deduct_from_your_deposit/damage_and_missing_items)
 - [Shelter: dispute unfair deductions](https://england.shelter.org.uk/housing_advice/tenancy_deposits/how_to_get_your_deposit_back/dispute_unfair_deductions)
-- Related wiki: [Getting your tenancy deposit back](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FHome%20and%20Housing%2FRenting%2FGetting%20your%20tenancy%20deposit%20back)
-- Related wiki: [Getting your tenancy deposit back if you rent privately](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FHome%20and%20Housing%2FRenting%2FGetting%20your%20tenancy%20deposit%20back%20if%20you%20rent%20privately)
+- Related wiki: [Getting your tenancy deposit back](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Home%20and%20Housing/Renting/Getting%20your%20tenancy%20deposit%20back)
+- Related wiki: [Getting your tenancy deposit back if you rent privately](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Home%20and%20Housing/Renting/Getting%20your%20tenancy%20deposit%20back%20if%20you%20rent%20privately)
 
 ## Related Concepts
 

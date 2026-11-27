@@ -10,6 +10,9 @@ import { renderWikiInline } from "@/lib/wiki/render-inline";
 import { wikiPagePublicPath } from "@/lib/wiki/public-url";
 import { stripRawSourcePath } from "@/lib/wiki/source-line";
 import { extractWikiExtraSections, WIKI_EXTRA_HEADINGS, type WikiExtraSection } from "@/lib/wiki/extra-sections";
+import { getWikiHub, wikiBreadcrumbs, WIKI_HUB_ROOT } from "@/lib/wiki/hubs";
+import { WikiBreadcrumbs } from "@/components/wiki/wiki-breadcrumbs";
+import { WikiHubView } from "@/components/wiki/wiki-hub-view";
 
 function ExtraSection({ title, section }: { title: string; section: WikiExtraSection | null }) {
   if (!section) return null;
@@ -57,9 +60,22 @@ function redirectEncodedSlashForm(slug: string[] | undefined, id: string, exists
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const id = wikiIdFromSlugParam(slug);
+  if (!id) permanentRedirect(wikiPagePublicPath(WIKI_HUB_ROOT));
   const page = id ? getWikiPageById(id) : null;
-  redirectEncodedSlashForm(slug, id, Boolean(page));
+  const hub = !page && id ? getWikiHub(id) : null;
+  redirectEncodedSlashForm(slug, id, Boolean(page || hub));
   const canonical = id ? wikiPagePublicPath(id) : undefined;
+  if (hub) {
+    const isRoot = !hub.id.includes("/");
+    return {
+      title: isRoot ? "Legal guides by area" : `${hub.title}: who helps guides`,
+      description: isRoot
+        ? "Browse England and Wales signposting guides by area of law. Find who can help, not legal advice."
+        : `England and Wales signposting guides for ${hub.title.toLowerCase()} problems: who can help, free advice routes and next steps. Not legal advice.`,
+      alternates: canonical ? { canonical } : undefined,
+      robots: hub.indexable ? { index: true, follow: true } : { index: false, follow: true },
+    };
+  }
   return {
     title: page?.title ?? "Wiki article",
     description: page?.summary
@@ -73,8 +89,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function WikiArticlePage({ params }: PageProps) {
   const { slug } = await params;
   const id = wikiIdFromSlugParam(slug);
+  if (!id) permanentRedirect(wikiPagePublicPath(WIKI_HUB_ROOT));
   const page = id ? getWikiPageById(id) : null;
-  redirectEncodedSlashForm(slug, id, Boolean(page));
+  const hub = !page && id ? getWikiHub(id) : null;
+  redirectEncodedSlashForm(slug, id, Boolean(page || hub));
+  if (hub) return <WikiHubView hub={hub} />;
   if (!page) notFound();
   const related = page.relatedConcepts.slice(0, 12).map((concept) => ({
     concept,
@@ -98,6 +117,14 @@ export default async function WikiArticlePage({ params }: PageProps) {
           <ArrowLeft className="h-4 w-4" />
           Back to Ask the Shaman
         </Link>
+
+        <div className="mt-4">
+          <WikiBreadcrumbs
+            crumbs={wikiBreadcrumbs(page.id)}
+            current={page.title}
+            currentHref={wikiPagePublicPath(page.id)}
+          />
+        </div>
 
         <header className="mt-6">
           <p className="text-xs font-medium uppercase tracking-wide text-gold">{page.category}</p>

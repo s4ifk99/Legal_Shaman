@@ -55,8 +55,8 @@ Deposit rules differ. Use the local Citizens Advice page for your nation.
 ## Sources
 
 - [Citizens Advice: getting your deposit back](https://www.citizensadvice.org.uk/housing/renting-privately/ending-your-tenancy/getting-your-deposit-back/)
-- Related wiki: [Landlord charging for time and worn carpets: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FHome%20and%20Housing%2FRenting%2FLandlord%20charging%20for%20time%20and%20worn%20carpets%3A%20who%20helps)
-- Related wiki: [MyDeposits landlord late evidence after deadline: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FHome%20and%20Housing%2FRenting%2FMyDeposits%20landlord%20late%20evidence%20after%20deadline%3A%20who%20helps)
+- Related wiki: [Landlord charging for time and worn carpets: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Home%20and%20Housing/Renting/Landlord%20charging%20for%20time%20and%20worn%20carpets%3A%20who%20helps)
+- Related wiki: [MyDeposits landlord late evidence after deadline: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Home%20and%20Housing/Renting/MyDeposits%20landlord%20late%20evidence%20after%20deadline%3A%20who%20helps)
 
 ## Related Concepts
 

@@ -53,7 +53,7 @@ Advisers will help you order the letters: contractor, their insurer, your insure
 Keep the denial emails. They are useful. Ask each body, once, who held the job. Then claim against the company you can show was on site, with photos. Your insurer is often faster than waiting for three firms to finish blaming each other.
 
 **Is this the same as a driver who hit a parked bike and left?**
-No. An unidentified driver is a different route, often through the insurer and the Motor Insurers’ Bureau where the tests are met. A named contractor with a depot and a public liability policy is a direct civil claim. Use [Parked motorcycle hit and the driver left: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FDriving%20and%20Parking%2FMotoring%20Offences%2FParked%20motorcycle%20hit%20and%20the%20driver%20left%3A%20who%20helps) only if you cannot identify who did it.
+No. An unidentified driver is a different route, often through the insurer and the Motor Insurers’ Bureau where the tests are met. A named contractor with a depot and a public liability policy is a direct civil claim. Use [Parked motorcycle hit and the driver left: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Motoring%20Offences/Parked%20motorcycle%20hit%20and%20the%20driver%20left%3A%20who%20helps) only if you cannot identify who did it.
 
 **Should I pay for the repair now?**
 If the car is unsafe, repair can be reasonable. Keep the invoice. You are expected not to run up extra costs. A second car hire that is larger than yours will be harder to recover.
@@ -63,7 +63,7 @@ If the car is unsafe, repair can be reasonable. Keep the invoice. You are expect
 - [Citizens Advice: vehicle insurance claim after an accident](https://www.citizensadvice.org.uk/consumer/insurance/types-of-insurance/vehicle-insurance/vehicle-insurance-making-a-claim-if-you-re-in-an-accident/)
 - [Citizens Advice: making a small claim](https://www.citizensadvice.org.uk/law-and-courts/legal-system/small-claims/making-a-small-claim/)
 - [GOV.UK: make a court claim for money](https://www.gov.uk/make-court-claim-for-money)
-- Related wiki: [Parked motorcycle hit and the driver left: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FDriving%20and%20Parking%2FMotoring%20Offences%2FParked%20motorcycle%20hit%20and%20the%20driver%20left%3A%20who%20helps)
+- Related wiki: [Parked motorcycle hit and the driver left: who helps?](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Motoring%20Offences/Parked%20motorcycle%20hit%20and%20the%20driver%20left%3A%20who%20helps)
 
 ## Related Concepts
 

@@ -51,7 +51,14 @@ function main() {
 
   const promoteScript = resolve(process.cwd(), "scripts/wiki-promote-approved.ts");
   const tmp = mkdtempSync(join(tmpdir(), "ls-blog-promote-"));
-  const results: Array<{ file: string; wikiId?: string; liveUrl?: string; error?: string }> = [];
+  const results: Array<{
+    file: string;
+    wikiId?: string;
+    liveUrl?: string;
+    error?: string;
+    overlapWarnings?: unknown[];
+    filingWarnings?: string[];
+  }> = [];
 
   for (const draft of drafts) {
     try {
@@ -80,7 +87,14 @@ function main() {
         .map((s) => s.trim())
         .filter(Boolean)
         .pop();
-      const payload = line ? (JSON.parse(line) as { wikiId?: string; liveUrl?: string }) : {};
+      const payload = line
+        ? (JSON.parse(line) as {
+            wikiId?: string;
+            liveUrl?: string;
+            overlapWarnings?: unknown[];
+            filingWarnings?: string[];
+          })
+        : {};
       if (!payload.wikiId || !payload.liveUrl) {
         throw new Error(`Promote did not return wikiId/liveUrl: ${run.stdout}`);
       }
@@ -107,7 +121,13 @@ function main() {
         });
       }
 
-      results.push({ file: draft.file, wikiId: payload.wikiId, liveUrl: payload.liveUrl });
+      results.push({
+        file: draft.file,
+        wikiId: payload.wikiId,
+        liveUrl: payload.liveUrl,
+        overlapWarnings: payload.overlapWarnings ?? [],
+        filingWarnings: payload.filingWarnings ?? [],
+      });
     } catch (err) {
       results.push({
         file: draft.file,

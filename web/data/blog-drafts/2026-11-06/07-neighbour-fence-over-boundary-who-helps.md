@@ -58,7 +58,7 @@ That is a specialised Land Registry process. Get advice before you concede anyth
 
 - [Citizens Advice: neighbour disputes](https://www.citizensadvice.org.uk/housing/problems-where-you-live/neighbour-disputes/)
 - [HM Land Registry](https://www.gov.uk/government/organisations/land-registry)
-- Related wiki: [Party wall bookcase removal building owner duty: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FNeighbours%20and%20Property%2FBoundaries%20and%20Rights%2FParty%20wall%20bookcase%20removal%20building%20owner%20duty%3A%20who%20helps)
+- Related wiki: [Party wall bookcase removal building owner duty: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Neighbours%20and%20Property/Boundaries%20and%20Rights/Party%20wall%20bookcase%20removal%20building%20owner%20duty%3A%20who%20helps)
 
 ## Related Concepts
 

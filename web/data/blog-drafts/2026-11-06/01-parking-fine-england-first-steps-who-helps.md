@@ -60,9 +60,9 @@ Use the PayByPhone sibling page plus screenshots of the app error.
 - [Citizens Advice: parking tickets](https://www.citizensadvice.org.uk/consumer/cars/parking-tickets/)
 - [Citizens Advice: appealing a parking ticket](https://www.citizensadvice.org.uk/law-and-courts/parking-tickets/appealing-a-parking-ticket/)
 - [POPLA](https://www.popla.co.uk/)
-- Related wiki: [Appealing a parking ticket](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FDriving%20and%20Parking%2FParking%20and%20PCNs%2FAppealing%20a%20parking%20ticket)
-- Related wiki: [PayByPhone vs Pay By Phone parking fine: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FDriving%20and%20Parking%2FParking%20and%20PCNs%2FPayByPhone%20vs%20Pay%20By%20Phone%20parking%20fine%3A%20who%20helps)
-- Related wiki: [Parking ticket wrong registration: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas%2FDriving%20and%20Parking%2FParking%20and%20PCNs%2FParking%20ticket%20wrong%20registration%3A%20who%20helps)
+- Related wiki: [Appealing a parking ticket](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Parking%20and%20PCNs/Appealing%20a%20parking%20ticket)
+- Related wiki: [PayByPhone vs Pay By Phone parking fine: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Parking%20and%20PCNs/PayByPhone%20vs%20Pay%20By%20Phone%20parking%20fine%3A%20who%20helps)
+- Related wiki: [Parking ticket wrong registration: who helps](https://www.legalshaman.com/ask-the-shaman/wiki/Areas/Driving%20and%20Parking/Parking%20and%20PCNs/Parking%20ticket%20wrong%20registration%3A%20who%20helps)
 
 ## Related Concepts
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { CategoryCards, type CategorySection } from "@/components/category-cards";
@@ -12,13 +12,15 @@ import { JOURNEY_EVENTS } from "@/lib/analytics/journey-events";
 
 type Props = {
   sections: CategorySection[];
+  /** Server rendered block (Latest guides) shown below the directory. */
+  latest?: ReactNode;
 };
 
 /**
  * Local landing: Rothko backdrop, no site header / old search bar —
  * primary CTA launches Ask the Shaman.
  */
-export function LandingShell({ sections }: Props) {
+export function LandingShell({ sections, latest }: Props) {
   const [pulseKey, setPulseKey] = useState(0);
 
   useEffect(() => {
@@ -160,6 +162,8 @@ export function LandingShell({ sections }: Props) {
             </div>
           </div>
         </section>
+
+        {latest}
       </main>
 
       <div className="relative z-10">

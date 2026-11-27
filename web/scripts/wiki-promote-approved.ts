@@ -147,6 +147,64 @@ function ensureRelatedLink(md: string, label: string): string {
 }
 
 const PRIORITY_PATH = resolve(process.cwd(), "lib/wiki/sitemap-priority.ts");
+const PUBLISHED_PATH = resolve(process.cwd(), "data/wiki-published.json");
+
+/** Record publishedAt (first publish) and updatedAt (every promote) for sitemap lastmod and the feed. */
+function recordPublishDate(wikiId: string) {
+  const map = existsSync(PUBLISHED_PATH)
+    ? (JSON.parse(readFileSync(PUBLISHED_PATH, "utf8")) as Record<string, { publishedAt: string; updatedAt?: string }>)
+    : {};
+  const now = new Date().toISOString();
+  map[wikiId] = { publishedAt: map[wikiId]?.publishedAt ?? now, updatedAt: now };
+  writeFileSync(PUBLISHED_PATH, `${JSON.stringify(map, null, 2)}\n`, "utf8");
+}
+
+const STOP = new Set(
+  "a an and are as at be by can do for from has have help helps how i if in is it my me of on or our the to was what when who will with you your".split(" "),
+);
+function titleTokens(value: string): Set<string> {
+  return new Set(
+    value
+      .toLowerCase()
+      .replace(/[^a-z0-9 ]+/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length > 2 && !STOP.has(w)),
+  );
+}
+
+/**
+ * Overlap check: existing pages whose titles share most of the new title's
+ * words. Reported as warnings so the publisher links or improves the older
+ * page instead of shipping a near copy.
+ */
+function findOverlaps(title: string, selfId: string, pages: WikiPageIndex[], declared: string[]) {
+  const mine = titleTokens(title);
+  if (mine.size < 2) return [];
+  const declaredSet = new Set(declared);
+  const hits: Array<{ id: string; score: number }> = [];
+  for (const page of pages) {
+    if (page.id === selfId || declaredSet.has(page.id) || page.id.startsWith("Directory/")) continue;
+    const theirs = titleTokens(page.title);
+    if (!theirs.size) continue;
+    let shared = 0;
+    for (const w of mine) if (theirs.has(w)) shared++;
+    const score = shared / Math.min(mine.size, theirs.size);
+    if (shared >= 2 && score >= 0.6) hits.push({ id: page.id, score: Math.round(score * 100) / 100 });
+  }
+  return hits.sort((a, b) => b.score - a.score).slice(0, 5);
+}
+
+/** Filing check: warn when the target folder has no existing pages (likely a misfile). */
+function folderWarnings(relDir: string, pages: WikiPageIndex[]): string[] {
+  const prefix = `${relDir}/`;
+  const count = pages.filter((p) => p.id.startsWith(prefix)).length;
+  const warnings: string[] = [];
+  if (!count) warnings.push(`New folder ${relDir}: check the area and sub area are right.`);
+  if (relDir === "Areas/Courts and Disputes/Starting a Claim") {
+    warnings.push("Filed under Courts and Disputes/Starting a Claim (the catch all). Check a more specific area fits.");
+  }
+  return warnings;
+}
 
 function pinSitemap(wikiId: string) {
   const path = existsSync(PRIORITY_PATH) ? PRIORITY_PATH : SITEMAP_PATH;
@@ -225,6 +283,9 @@ function main() {
   writeFileSync(INDEX_PATH, JSON.stringify(idx), "utf8");
 
   if (input.pinSitemap !== false) pinSitemap(entry.id);
+  recordPublishDate(entry.id);
+  const overlaps = findOverlaps(entry.title, entry.id, pages, input.overlapWikiIds ?? []);
+  const filing = folderWarnings(relDir, pages.filter((p) => p.id !== entry.id));
 
   const liveUrl = wikiPagePublicUrl(entry.id, BASE);
   console.log(
@@ -234,6 +295,8 @@ function main() {
       liveUrl,
       filePath: absolutePath,
       overlapCount: input.overlapWikiIds?.length ?? 0,
+      overlapWarnings: overlaps,
+      filingWarnings: filing,
     }),
   );
 }
